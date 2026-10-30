@@ -88,3 +88,15 @@ def test_servo_delay_limits_stall_and_sensor_noise() -> None:
     np.testing.assert_allclose(
         std, [float(p.sensors[0])] * 3 + [float(p.sensors[1])] * 3, rtol=0.05
     )
+
+
+def test_guide_constraint_never_reengages_during_return() -> None:
+    p = prepare(load_vehicle(ROOT / "performance.yaml"), {"recovery_enabled": False})
+    state = env.reset(p, jax.random.PRNGKey(0))
+    y = state.rigid.at[2].set(-0.5).at[5].set(5).at[11].set(0.1)
+    free, _ = dynamics.derivative(jnp.array(20.0), y, jnp.zeros(2), jnp.array(-1.0), p, True)
+    constrained, _ = dynamics.derivative(
+        jnp.array(20.0), y, jnp.zeros(2), jnp.array(-1.0), p, False
+    )
+    assert float(jnp.linalg.norm(free[6:10])) > 0
+    np.testing.assert_array_equal(constrained[6:10], np.zeros(4))

@@ -52,7 +52,9 @@ def reset(p: Params, key: Array) -> State:
 
 def step(state: State, action: Array, p: Params, key: Array) -> tuple[State, Array, Array]:
     servo, queue = actuators.advance(state.servo, state.commands, action, p)
-    rigid = dynamics.rk4(state.time, state.rigid, servo[:2], state.recovery_time, p)
+    rigid = dynamics.rk4(
+        state.time, state.rigid, servo[:2], state.recovery_time, p, state.rail_exit_time >= 0
+    )
     launched = state.launched | (-rigid[2] > 0.1)
     landed = state.landed | (launched & (rigid[2] >= 0) & (rigid[5] > 0))
     rigid = jnp.where(state.landed, state.rigid, rigid)
@@ -76,7 +78,7 @@ def step(state: State, action: Array, p: Params, key: Array) -> tuple[State, Arr
         rail_exit_speed=exit_speed,
         recovery_time=recovery_time,
     )
-    _, info = dynamics.derivative(t, rigid, servo[:2], recovery_time, p)
+    _, info = dynamics.derivative(t, rigid, servo[:2], recovery_time, p, exit_time >= 0)
     obs, imu_queue, baro = sensors.observe(new, info[-3:], p, key)
     return new._replace(observation=obs, imu_queue=imu_queue, baro_filtered=baro), obs, info
 

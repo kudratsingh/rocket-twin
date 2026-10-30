@@ -21,7 +21,12 @@ from src.sim.types import Params
 
 
 def derivative(
-    t: Array, y: Array, angles: Array, recovery_time: Array, p: Params
+    t: Array,
+    y: Array,
+    angles: Array,
+    recovery_time: Array,
+    p: Params,
+    released: Array | bool = False,
 ) -> tuple[Array, Array]:
     position, velocity, q, omega = y[:3], y[3:6], y[6:10], y[10:13]
     rotation = quaternion.rotation(q)
@@ -45,7 +50,7 @@ def derivative(
     )
     # Recovery attitude dynamics are not meaningful in this simple canopy model.
     angular = jnp.where(opening > 0.1, -5 * omega, angular)
-    on_rail = jnp.dot(position, p.rail_direction) < p.launch[0]
+    on_rail = jnp.logical_not(released) & (jnp.dot(position, p.rail_direction) < p.launch[0])
     along = jnp.dot(acceleration, p.rail_direction) - p.launch[1] / mass
     at_rest = (jnp.dot(position, p.rail_direction) <= 0) & (
         jnp.dot(velocity, p.rail_direction) <= 0
@@ -66,11 +71,18 @@ def derivative(
     return result, info
 
 
-def rk4(t: Array, y: Array, angles: Array, recovery_time: Array, p: Params) -> Array:
+def rk4(
+    t: Array,
+    y: Array,
+    angles: Array,
+    recovery_time: Array,
+    p: Params,
+    released: Array | bool = False,
+) -> Array:
     dt = p.launch[3]
-    k1, _ = derivative(t, y, angles, recovery_time, p)
-    k2, _ = derivative(t + dt / 2, y + dt * k1 / 2, angles, recovery_time, p)
-    k3, _ = derivative(t + dt / 2, y + dt * k2 / 2, angles, recovery_time, p)
-    k4, _ = derivative(t + dt, y + dt * k3, angles, recovery_time, p)
+    k1, _ = derivative(t, y, angles, recovery_time, p, released)
+    k2, _ = derivative(t + dt / 2, y + dt * k1 / 2, angles, recovery_time, p, released)
+    k3, _ = derivative(t + dt / 2, y + dt * k2 / 2, angles, recovery_time, p, released)
+    k4, _ = derivative(t + dt, y + dt * k3, angles, recovery_time, p, released)
     out = y + dt * (k1 + 2 * k2 + 2 * k3 + k4) / 6
     return out.at[6:10].set(out[6:10] / jnp.maximum(jnp.linalg.norm(out[6:10]), 1e-12))
