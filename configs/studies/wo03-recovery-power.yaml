@@ -1,0 +1,132 @@
+id: wo03-recovery-power-study
+status: preliminary_envelope_study_not_hardware_frozen
+source_configuration: configs/vehicle/platform/common-upper.yaml
+body_outer_diameter_m: 0.066
+avionics_bay:
+  station_start_m: 0.24
+  station_end_m: 0.45
+  sled_width_m: 0.048
+  sled_thickness_m: 0.002
+  current_independent_recovery_envelope:
+    bbox_m: [0.020, 0.020, 0.010]
+    front_station_m: 0.38
+    lateral_offset_m: [0.0, -0.008]
+    mass_kg: 0.008
+    note: Replace only in this study; active YAML is unchanged and powered from the shared main pack.
+
+# For current CAD envelope parts, position_m is the front station: axial extent is
+# [position_m, position_m + bbox_m[0]]. bbox_m[0] is axial; [1] and [2] are the
+# transverse box dimensions. Proposed candidate coordinates below use the same
+# convention. lateral_offset_m is [body-y, body-z]; placed CAD offsets are
+# (CAD-x=body-y, CAD-y=-body-z, CAD-z=front_station). These hypothetical boxes are
+# an AABB non-overlap screen only; they do not represent a finalized sled face,
+# fastener layout, mounted board orientation, or verified fit.
+options:
+  - id: easymini_120mah_1s
+    controller:
+      manufacturer: Altus Metrum
+      model: EasyMini v3
+      bbox_m: [0.0381, 0.02032, 0.006]
+      mass_kg: 0.0065
+      input_v: [3.7, 12.0]
+      output_current_a: null
+      output_pulse_s: null
+      source: https://altusmetrum.org/EasyMini/
+      source_facts: Manufacturer states dual-deploy, 1.5 x 0.8 inch board, 6.5 g and 3.7-12 V input. Manual supports 1S LiPo; six-mm thickness is conservative envelope allowance including terminals, not published.
+    battery:
+      manufacturer: Altus Metrum / Garbee and Garbee
+      model: 120mAh 1S LiPo
+      bbox_m: [0.030, 0.015, 0.004]
+      mass_kg: 0.0036
+      nominal_v: 3.7
+      capacity_mah: 120
+      connector: 2-pin JST, 2 mm pitch; seller says plugs directly into Altus Metrum battery jack
+      source: https://shop.gag.com/product/120mah-lipo-battery/
+      source_facts: Seller states approximate 4 x 15 x 30 mm, 3.6 g, 3.7 V and 120 mAh. Pack lacks an over-current protection board; battery and selected output load require ground test.
+    power_arming_switch:
+      manufacturer: Schurter, sold by Garbee and Garbee
+      model: 0033.4501 rotary switch
+      bbox_m: [0.028575, 0.015875, 0.0127]
+      mass_kg: 0.0037
+      mounting_hole_diameter_m: 0.0127
+      source: https://shop.gag.com/product/rotary-switch/
+      wiring_basis: Altus Metrum manual supports the 1S LiPo and requires an external switch inline with battery positive; follow exact EasyMini wiring diagram.
+    layout:
+      controller_front_station_m: 0.38
+      controller_lateral_offset_m: [0.0, 0.0135]
+      battery_front_station_m: 0.333
+      battery_lateral_offset_m: [0.0, 0.012]
+      switch_front_station_m: 0.415
+      switch_mounting: Separate reverse-side airframe wall location; coordinates are reserved placeholders, not an accepted hole/fit.
+      routing: Body-lateral offsets above are a hypothetical coordinate assignment, not a physical or CAD-verified face. Route twisted switch and battery pairs; wall switch-body intrusion, wire exit, bend radius and strain relief remain unresolved.
+      clearances: Battery box axial extent is x=0.333..0.363 m; EasyMini allowance is x=0.380..0.4181 m, leaving 17 mm nominal axial gap. Proposed AABBs have no intersections with extant part envelopes except the replaced recovery box; battery overlaps the high-g accelerometer axially (0.345..0.363 m) and controller overlaps the SD card (0.405..0.4181 m), screened out only by hypothetical body-z offsets. EasyMini box corner reaches 19.38 mm radius, leaving 6.62 mm to 26 mm; battery corner reaches 15.88 mm. Tolerance, terminals, fasteners, sled and full CAD check remain open.
+    allowances:
+      carrier_and_restraint_kg: 0.008
+      wire_and_service_connector_kg: 0.004
+      mass_total_kg: 0.025785
+      source_facts_vs_estimates: Controller and battery masses are published typical/approximate values; switch mass converted from seller's 0.008125 lb. Carrier and wire/service connector are allowances; thickness is unpublished envelope allowance.
+    electrical_limits:
+      controller_idle_current_a: null
+      output_peak_current_a: null
+      source_note: EasyMini page/manual do not provide numeric controller current draw or pyro-output pulse rating here. The manual supports 1S LiPo and recommends the Altus Metrum battery, but requires ground verification of the chosen battery/load combination. Output-load compatibility and voltage sag are unknown. No initiator, charge quantity or output wiring is specified by this study.
+
+  - id: rrc3_duracell_9v
+    controller:
+      manufacturer: Missile Works
+      model: RRC3+
+      bbox_m: [0.065, 0.0255, 0.006]
+      mass_kg: 0.014
+      input_v: [3.5, 10.0]
+      quiescent_current_a_at_9v: 0.006
+      buzzer_led_current_a_at_9v: 0.035
+      drogue_main_output_current_a: 2.0
+      drogue_main_pulse_s: 1.0
+      auxiliary_output_current_a: 4.0
+      auxiliary_pulse_s: 1.0
+      source: https://www.missileworks.com/rrc3
+      manual: https://www.missileworks.com/downloads
+      source_facts: Manufacturer states 65 x 25.5 mm, approximately 14 g, 3.5-10 V, optimized for 9 V and the listed current/pulse ratings. Six-mm thickness is conservative envelope allowance, not published.
+    battery:
+      manufacturer: Duracell
+      model: MN1604 9V alkaline
+      bbox_m: [0.0485, 0.0265, 0.0175]
+      mass_kg: 0.046
+      nominal_v: 9.0
+      source: https://www.duracell.com/wp-content/uploads/2020/02/9V-Duracell-Plus.pdf
+      source_facts: Duracell lists typical 46 g mass, 9 V nominal, 22.8 cm3 typical volume and −18 to 54 °C operating range. Box extents are IEC dimensions. Datasheet notes delivered capacity depends on load, temperature and cutoff; battery suitability for actual event loads is unverified.
+      retention_connector: Garbee and Garbee 9V battery clip, Keystone 233/Mouser 534-233, 6-inch leads, 4.54 g published seller mass.
+      connector_source: https://shop.gag.com/product/9v-battery-clip/
+    power_arming_switch:
+      manufacturer: Schurter, sold by Garbee and Garbee
+      model: 0033.4501 rotary switch
+      bbox_m: [0.028575, 0.015875, 0.0127]
+      mass_kg: 0.0037
+      mounting_hole_diameter_m: 0.0127
+      source: https://shop.gag.com/product/rotary-switch/
+      wiring_basis: Use RRC3 manufacturer's exact power/arming wiring instructions; current/pulse ratings do not establish installed-system fault isolation.
+    layout:
+      controller_front_station_m: 0.38
+      controller_lateral_offset_m: [0.0, 0.019]
+      battery_front_station_m: 0.372
+      battery_lateral_offset_m: [0.0, 0.0065]
+      battery_orientation: 48.5-mm IEC length axial; 26.5-mm width in body-y and 17.5-mm thickness in body-z.
+      switch_front_station_m: 0.415
+      switch_mounting: Separate reverse-side airframe wall location; coordinates are reserved placeholders, not an accepted hole/fit.
+      routing: The body-lateral offsets are a hypothetical coordinate assignment, not a physical or CAD-verified face. RRC3 needs its own 4-40 mounting/standoff pattern and pressure-sealed bay with static ports per its manual; these are not present/verified in this study.
+      clearances: Battery box axial extent is x=0.372..0.4205 m; RRC3 allowance is x=0.380..0.445 m. The proposed AABBs have 0.75 mm nominal body-z separation and no AABB intersections with extant part envelopes except the replaced recovery box. RRC3 box corner reaches 25.43 mm radius, leaving 0.57 mm to 26 mm; battery corner reaches 20.20 mm. Battery clears high-g axially by 1.4 mm but overlaps microSD axially; nominal body-z separation screens that overlap out. RRC3 also overlaps microSD, pyro MOSFET and arming switch axially but body-z intervals are separate. Clearances are small; no tolerance, terminal, restraint, fastener, sled-thickness or actual CAD clearance is claimed.
+    allowances:
+      battery_clip_kg: 0.00454
+      carrier_and_restraint_kg: 0.008
+      wire_and_service_connector_kg: 0.004
+      mass_total_kg: 0.080225
+      source_facts_vs_estimates: Controller and battery masses are manufacturer-listed typical/approximate. Switch mass converted from seller listing; clip mass converted from seller listing. Carrier, wiring, extra connector and controller thickness are allowances.
+    electrical_limits:
+      source_note: 9V alkaline has appreciable internal impedance; listed 1.7 ohm at 1 kHz does not predict pulse sag. Do not infer acceptable initiator compatibility from the controller 2 A / 1 s rating. Measure voltage under the exact manufacturer-approved test load and validate the complete circuit per WO-09/10.
+
+system_isolation:
+  required_study_property: independent_recovery_positive_and_return nets connect only to the purchased recovery controller, its dedicated battery, power switch, and its own outputs.
+  reject_if: Any shared battery rail, shared ground/return, main flight-computer output, charger, USB, data cable, sensor wire or conductive chassis path can bypass the intended isolation without explicit fault analysis.
+  connector_and_fault_questions:
+  - Confirm exact battery connector polarity, retention and mating part from the chosen altimeter and battery revision.
+  - Determine if a removable service connector can be located without bridging independent and main power/return; select rated contacts and strain relief only after exact wiring/current limits.
+  - Define continuity-safe unpowered state, independent arming means, short/open behavior, recovery trigger logic and independent verification tests under WO-09/10.

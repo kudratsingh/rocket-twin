@@ -1,0 +1,31 @@
+version: wo03-mount-loadpath-proposal-v1
+configurations:
+  G80: configs/vehicle/platform/performance.yaml
+  G54: configs/vehicle/wo02/performance-g54.yaml
+  G12-F: configs/vehicle/platform/tvc-finned.yaml
+  G12-L: configs/vehicle/platform/tvc-finless.yaml
+engineering_inputs: configs/engineering/wo03.yaml
+engineering_evidence: runs/wo03-engineering-20261030T175947969565Z/record.json
+fixed_liner_aft_station_m: 0.800
+tvc_retention_clearance_m: 0.004
+tvc_liner_aft_station_m: 0.800
+retention_outer_radius_matches_liner_inner_radius: true
+nominal_annular_bondline_radial_clearance_mm: 0.2
+fixed_mount_effective_bond_length_mm: 6.0
+fixed_mount_effective_bond_basis: Two existing 3 mm centering-ring annuli, summed; local load sharing and adhesive continuity are unverified.
+retention_stop_effective_bond_length_mm: 4.0
+tvc_cradle_effective_bond_length_mm: 18.0
+tvc_inner_gimbal_effective_bond_length_mm: 6.0
+bond_shear_allowable_pa: 2000000.0
+bondline_allowable_basis: Provisional WO-03 engineering input for epoxy; use as a bound only, not an adhesive qualification.
+design_factor: 3.0
+peak_thrust_source: Per-configuration peak_scaled_thrust_n in linked WO-03 structural record; it already applies configured thrust_multiplier 1.15.
+buckling_effective_length_factor: 1.0
+buckling_imperfection_factor: 0.1
+buckling_basis: Pinned Euler column over full liner length with K=1.0 and an explicit 0.1 imperfection knockdown; deliberately conservative load-path sensitivity only. Tube segments ahead of/behind the internal stop have different axial loads and support spans, and two fixed centering rings may share load; this model represents neither. No calibrated tube imperfection or support restraint is available, and a failed G54 bound does not establish that the actual tube buckles.
+scope:
+  acceptance_passed: false
+  active_adoption: false
+  flight_ready: false
+  physical_fit_verified: false
+  notes: Proposal-only copy study. No vehicle/CAD source edits. Annular bonds, interfaces, motor-case capture, local tube crushing, mount-to-shell retention and downstream gimbal/pin/frame transfer remain unqualified.

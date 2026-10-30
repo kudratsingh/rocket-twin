@@ -84,3 +84,15 @@ service-diagrams:
 
 thermal-study: ## Verified opaque-wall refinement; does not qualify hardware.
 	$(PYTHON) scripts/wo03_thermal_topology.py --preset tiny
+
+fin-study: ## Isolated fin construction/mass/stability trade; no adoption.
+	$(PYTHON) scripts/wo03_fin_design.py --preset tiny
+
+tolerance-study: ## Manufacturing/thermal-domain interval screens; failures stay open.
+	$(PYTHON) scripts/wo03_tolerances.py --preset tiny
+
+mount-study: ## Generate copy-only support-tube load-path proposal.
+	XDG_CACHE_HOME=$(CURDIR)/.cache $(PYTHON) scripts/wo03_mount_loadpath_study.py --preset tiny
+
+inspection-figures: ## Render existing CAD exports; run make cad first after changes.
+	$(PYTHON) scripts/wo03_assembly_figures.py --preset tiny

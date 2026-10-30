@@ -689,6 +689,66 @@ and verification limits: [WO-02 report](wo02-flight-study.md). WO-02's numerical
 benchmark is met; WO-03 remains active, with no physical release or later controller
 qualification claimed.
 
+## WO-03 bounded follow-on studies — 2026-10-30
+
+[PR #6](https://github.com/kudratsingh/rocket-twin/pull/6) and
+[thermal PR #7](https://github.com/kudratsingh/rocket-twin/pull/7) merged after
+required hosted CPU checks passed. Expanded WO-03 is still open; the following
+studies do not adopt new vehicle geometry or hardware.
+
+The [opaque-wall thermal refinement](wo03-thermal-refinement.md), record
+[`wo03-thermal-20261030T182422090687Z`](../runs/wo03-thermal-20261030T182422090687Z/record.json),
+passes its analytic, energy, 4/8/16-cell and time-step checks. Maximum final-two
+part-mean history difference is 0.110 K. Its upper assumed case scenario still
+exceeds provisional limits: finned G12 liner/mount/inner gimbal/outer gimbal means
+224.9 / 88.1 / 72.1 / 63.7 C; G54 shell mean 63.7 C. Model topology changed the
+predictions; neither model has physical temperature validation. Part-mean SI
+Analysis exports pass the exact-identity backend check.
+
+The [tolerance study](../configs/studies/wo03-tolerances.yaml), record
+[`wo03-tolerances-20261030T182928948369Z`](../runs/wo03-tolerances-20261030T182928948369Z/record.json),
+separates manufacturing nominal, independent temperatures within provisional
+material screens, and a wider out-of-range heat sensitivity. In the material-domain
+screen, representative minimum clearances are 0.0727 mm for body/coupler and
+−0.1476 mm for mount/liner, against a 0.1 mm radial requirement. Centered key-flank
+clearance is half the total slot-minus-key width; its 0.0637 mm bound also fails
+0.1 mm. Unilateral key location and exact purchased dimensions remain unavailable.
+The TVC cylindrical radial bound is 3.960 mm within the material domain, with
+3.368 mm in the wider heat sensitivity; this does not clear full mechanism/wiring.
+Source hashes before/after match; ordinary negative screens are recorded, not waived.
+
+The [fin-construction study](../configs/studies/wo03-fin-design.yaml), record
+[`wo03-fin-design-20261030T184422172911Z`](../runs/wo03-fin-design-20261030T184422172911Z/record.json),
+evaluates 40 preserved-planform/construction combinations, 80 load screens and
+320 static overlays including 50 g aft growth. The G80 baseline distributed
+beam estimate is 11.27 mm, 6.5% below the matched 12.05 mm S6 calculation; the
+31.87 mm conservative tip-load upper estimate remains separate. No candidate
+satisfies both original upper screens. Sandwich stiffness improvements add aft mass
+and can reduce the static margin below 1 cal. Typical ingredient properties and
+unsupported thickness transfers do not qualify a bonded fin or clear flutter.
+
+The [support-tube pilot](wo03-mount-loadpath.md), record
+[`wo03-mount-loadpath-20261030T185139862170Z`](../runs/wo03-mount-loadpath-20261030T185139862170Z/record.json),
+connects the proposed forward stop to an extended liner and centering rings/cradle
+in vehicle copies. Neutral solid overlaps are absent. G80 mass changes +1.79 g
+and CG +0.58 mm; the G54 full-length/0.1-knockdown Euler sensitivity fails, while
+its actual segment loading/support and shell/joint stability remain unmodeled.
+Bond average-stress results do not qualify load transfer, aft case capture, local
+ring bending, pins, heat or assembled strength. No active adoption.
+
+[Recovery-power options](wo03-recovery-power-study.md) compare a lightweight
+EasyMini/120 mAh 1S proposal (25.8 g with explicit allowances) with an RRC3+/9 V
+proposal (80.2 g). Front stations and hypothetical split-face offsets are explicit;
+nominal boxes do not establish connector, restraint, static-port, electrical or
+physical fit. Neither option is selected or purchased.
+
+`MPLCONFIGDIR=.cache/matplotlib .venv/bin/python scripts/wo03_assembly_figures.py
+--preset tiny` generates actual-export assembly, shell-hidden and gimbal-internal
+stills under `build/wo03-inspection/`. The source index records GLB/manifest/spec/CAD
+hashes; these are inspection aids, not motion proof. Re-run `make cad` first if
+geometry changes. Custom construction, maximum practical conventional performance,
+PID-to-RL and every existing release gate remain intact. Paid compute/purchases $0.
+
 ## CAD vs spec mass (WO-03)
 
 | Part | Spec mass (g) | CAD mass (g) | Δ % |
