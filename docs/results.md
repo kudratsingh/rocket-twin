@@ -495,6 +495,9 @@ The thinner proposal and old curve files remain unchanged. No purchase, physical
 work, paid run or flight authorization was exercised. GitHub pushes/PRs are now
 separately authorized and ordinary owner review is not a development gate.
 
+Publication: [private repository WO-01 PR #1](https://github.com/kudratsingh/rocket-twin/pull/1).
+Local validation is recorded above; hosted check/merge status is shown on the PR.
+
 ## CAD vs spec mass (WO-03)
 
 | Part | Spec mass (g) | CAD mass (g) | Δ % |

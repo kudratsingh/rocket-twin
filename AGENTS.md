@@ -8,7 +8,9 @@ its stage-appropriate benchmark is met and recorded.
 ## Git workflow and autonomy
 
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the
-previous local-only restriction on GitHub changes.
+previous local-only restriction on GitHub changes. The repository is
+`kudratsingh/rocket-twin`; keep it private until the owner explicitly requests
+a visibility change.
 
 - Use a work-order branch and Conventional Commits. Commit and push after
   substantial, coherent work items; open a focused PR and update it as work

@@ -40,10 +40,13 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
 - Full dependency lock/fresh-install evidence remains pending network access.
   No dependency versions were upgraded in this rebaseline.
 - Private GitHub repository `kudratsingh/rocket-twin` confirmed. Connector write access
-  works; initial main and `wo-01-modular-platform` branch exist. Local `.git` creation
+  works; the full project is published on `wo-01-modular-platform` in
+  [PR #1](https://github.com/kudratsingh/rocket-twin/pull/1). Local `.git` creation
   was previously denied and terminal GitHub connectivity/auth remain unavailable in
   this session; publish through the authenticated connector without stopping local
-  development. PR and commit evidence will be recorded after confirmed publication.
+  development. Initial feature commit: `6eaa665b98d3d27b2e8386db5d9c4eb9f5887fd1`.
+  GitHub CPU CI and merge status are available on the PR; the local benchmark above
+  is independent evidence. Keep the repository private until owner direction changes.
 - No purchases, physical work or paid runs. No routine PR review requested; explicit
   WO-10 owner review and repository protections remain (`AGENTS.md`).
 
@@ -51,7 +54,7 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
 
 | WO | Met on | Evidence (run id / PR) |
 |---|---|---|
-| 01 | 2026-10-29 | Preliminary model: `wo01-platform-20261030T022439939715Z`; ADR-0006; 53 tests |
+| 01 | 2026-10-29 | `wo01-platform-20261030T022439939715Z`; 53 tests; [PR #1](https://github.com/kudratsingh/rocket-twin/pull/1) |
 | 02 | | |
 | 03 | | |
 | 04 | | |
