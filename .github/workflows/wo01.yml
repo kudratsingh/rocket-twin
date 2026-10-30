@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
           cache: pip
           cache-dependency-path: |
             requirements-wo01.txt
@@ -33,4 +33,4 @@ jobs:
         run: .venv/bin/python scripts/wo02_sim.py --preset sim --study --compare rocketpy --require-benchmark --summary-only --json-report
 
       - name: Regenerate all CAD exports and recorded engineering screens
-        run: make cad engineering
+        run: make cad engineering thermal-study

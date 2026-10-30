@@ -55,3 +55,9 @@ mesh-convergence flags can mark numerical verification while material, root-join
 and physical validation remain open. Regenerate CAD/analysis together after a
 configuration or generator change; matching old part geometry alone does not make
 an old whole-vehicle result current.
+
+The alternate `make thermal-study` producer exports the opaque-wall axial-band
+model with a radially resolved liner and part-mean overlays. It keeps the initial
+model available, records known-case/refinement evidence and rejects incompatible
+geometry through the same backend boundary. See [thermal refinement](wo03-thermal-refinement.md)
+for the model assumptions, failed temperature screens and physical test needs.
