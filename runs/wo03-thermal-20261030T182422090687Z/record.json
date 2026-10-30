@@ -1,0 +1,1016 @@
+{
+  "run_id": "wo03-thermal-20261030T182422090687Z",
+  "tools": {
+    "solver": "SciPy solve_ivp BDF",
+    "scipy": "1.17.1",
+    "numpy": "2.4.6"
+  },
+  "known_cases": {
+    "cylindrical_steady_levels": [
+      {
+        "cells": 4,
+        "max_temperature_error_k": 5.684341886080802e-14,
+        "relative_heat_rate_error": 2.220446049250313e-15
+      },
+      {
+        "cells": 8,
+        "max_temperature_error_k": 1.1368683772161603e-13,
+        "relative_heat_rate_error": 7.771561172376096e-16
+      },
+      {
+        "cells": 16,
+        "max_temperature_error_k": 1.7053025658242404e-13,
+        "relative_heat_rate_error": 8.770761894538737e-15
+      }
+    ],
+    "two_capacity_transient_max_error_k": 9.30441501623136e-09,
+    "two_capacity_energy_error_j": 9.094947017729282e-13,
+    "passed": true,
+    "scope": "Numerical verification of reductions only; not rocket temperature validation."
+  },
+  "vehicles": [
+    {
+      "identity": {
+        "configuration_id": "modular-performance-v1",
+        "resolved_spec_sha256": "f01be7723a64a224e9fb76f3f53536f0afe7772aff1b0e465d516a4696e0011c",
+        "cad_revision_sha256": "932f536c77fee78ee5141ea64b7af5b0b61449440717f5f142937ecd113ff587",
+        "part_shape_sha256": {
+          "nose_cone": "8381e385d6ff4cd1aa98a3540c74fea731a2411b1095aa1d99242adf0948343d",
+          "body_upper": "094cd22aae696b84c93e461af546537eeedbc685a60fddc3e9b33d14a92134fe",
+          "interface_coupler": "9c11d157f40f547cb20ef61f332a1787fdb0d6b2c83010f42aaa0f354ac3c615",
+          "avionics_bay": "2c17b96e34fd8300832f3274fbfe463b63beaa2d43416ccbb7f7e393014adba0",
+          "recovery_bulkhead": "7f5f0ac1cf83a459679296e9ddd22c7d272a3eac7e661e3a03889968ea09420d",
+          "recovery_anchor": "52e405b3e8dc3fb54a7a8854a4975a20e7a1504364e01c2cf439ace3e98e2a26",
+          "parachute": "988b4615519ebe039ca4859fe2e55279cf1f3172789a2501ce93b56fee01a102",
+          "shock_cord": "547da3939eaba3c7ef1cc6604b828d5050ae258bf53f7907b772cba54cc714a1",
+          "recovery_protection": "f36914655ad760b4941cdc74ac8ba51158ea326a6aca0160ef61c56def622f25",
+          "independent_recovery": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "micro_sd": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "adhesive_finish": "f7e7fdba749a4e44477c9bb7f6ec2978490586f4378acab5d485064aee20cb32",
+          "rail_guides": "983d28f539f2837b06a2c65ea0278304c001a6228e22b2f62404b321b2dbb91c",
+          "flight_computer": "fd5e11d7edb0d66d125289a6ed91c02984981c7a955742fd5d8181f4fcc2b57b",
+          "imu": "55a53b502db830f735deb1e9520302dad18ead4f6586194e8243484c07febea7",
+          "baro": "fa27211d47472b6e5fbf635c1fb44ff44d086c12b65d9b864934b7da81fa3274",
+          "battery": "7c7bbb2a8d0dff1fff62a18453611b9ec3e010b2d0fff6871fb98729e829817c",
+          "regulator_5v": "02fef8a24f921dbe280a8eeea24252a8879b8b93f414872f2671dd438d89e0a3",
+          "pyro_mosfet": "22c24ed9e1e84cd7128a4c66b888d07b708917138d92c3e582c5ef00cfe446f1",
+          "arming_switch": "d6b966186151524f99506af5fbaccc43d6d2d9376ef194ffb99d6d62faae2358",
+          "harness": "e31da1100323e32ac957d7f8b190f76d58306ec1fcfe50a4dc63a585aa92e06e",
+          "joint_stop": "b0d92c8d311a2b528dc20351a06a2a4410f513706b1a1c55cc2a2c7f70f61300",
+          "high_g_accel": "600921243dd6700b188818fad9fe61adae0c5f55e72730734918a6054c475ca0",
+          "aft_shell": "8febcdc02cf5a8403f42b609c6c3c81aa5e5412cb704fe4a792a3c9eb63a2906",
+          "aft_interface_hardware": "e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c",
+          "motor_mount": "6965bbf0872d85de509afd13a073a4b10e8396c5c54bd944a78cc3ad9907c994",
+          "motor_liner": "6700c614fdcc4919bdd65219730539bc997f5536cab500196c1970a9e04ce0b0",
+          "retention": "e75e27d0cd6d86b3109160f3ea9584eb89540a076cb11ed2ff28e88c8b1aedd8",
+          "motor": "d58838a874847d305f56bb7016b44492d46ad0482b4e76f868e858b4d48aaa0d",
+          "fin_set": "c1a0c3f256a1e6b8d8c0cf6e3c1ce46ccb9058d8800f0b0fed88f9015cb35257",
+          "fin_bonds": "227f888530c0bd4206787bc80ebac49ba299fea5c1d66cd71aac6202238e8105"
+        }
+      },
+      "lower_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 89.2979687173517,
+          "peak_time_s": 11.0,
+          "screen_limit_c": 120,
+          "margin_k": 30.702031282648306,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 16.192390476764388,
+          "peak_time_s": 107.0,
+          "screen_limit_c": 45,
+          "margin_k": 28.807609523235612,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 17.29769543936743,
+          "peak_time_s": 32.0,
+          "screen_limit_c": 45,
+          "margin_k": 27.70230456063257,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 15.367437209811953,
+          "peak_time_s": 129.0,
+          "screen_limit_c": 45,
+          "margin_k": 29.632562790188047,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 20.572304243979772,
+          "peak_time_s": 301.8079,
+          "screen_limit_c": 60,
+          "margin_k": 39.42769575602023,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 15.641589217846786,
+          "peak_time_s": 301.8079,
+          "screen_limit_c": 60,
+          "margin_k": 44.358410782153214,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "upper_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 217.37571185306297,
+          "peak_time_s": 11.0,
+          "screen_limit_c": 120,
+          "margin_k": -97.37571185306297,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 51.010020398498966,
+          "peak_time_s": 139.0,
+          "screen_limit_c": 45,
+          "margin_k": -6.010020398498966,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 55.24641819888882,
+          "peak_time_s": 53.0,
+          "screen_limit_c": 45,
+          "margin_k": -10.246418198888819,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 52.17755515706784,
+          "peak_time_s": 104.0,
+          "screen_limit_c": 45,
+          "margin_k": -7.177555157067843,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 46.65270748965105,
+          "peak_time_s": 118.0,
+          "screen_limit_c": 60,
+          "margin_k": 13.34729251034895,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 43.036334205687865,
+          "peak_time_s": 301.8079,
+          "screen_limit_c": 60,
+          "margin_k": 16.963665794312135,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "spatial_refinement_max_delta_k": 0.055596138237717696,
+      "time_refinement_max_delta_k": 2.9036107207502937e-06,
+      "refinement_passed": true,
+      "max_energy_residual_j": 3.149125404888764e-11,
+      "fields_directory": "build/wo03-thermal-20261030T182422090687Z/modular-performance-v1",
+      "artifact_sha256": {
+        "lower.json": "a37a07c5dcb72900f37ae8e6a423e8dcd8dfe776e18c9aef520905d5871f4f02",
+        "upper-4.json": "127df66dd943b5965fd263795b359a8f3da051c621a6050dba01adbd55091085",
+        "upper-8.json": "eff15297137002d5421a44cba0e773d776c978740ff970a07463fa9132e8b303",
+        "upper-16.json": "e19c601709c8023b37ea0c949dd6672827facb095c2976e80816e91c2f5ca5a0",
+        "time-refined.json": "c373e000e5719c310ead0b991fbefb5cb0ebb2f5706da98681db5f1dcf415980"
+      },
+      "source_model_version": "neutral-coaxial-opaque-bands-v2",
+      "analysis_manifest": "build/wo03-thermal-20261030T182422090687Z/modular-performance-v1/analysis/manifest.json",
+      "export_consumer_check_passed": true,
+      "thermal_acceptance_passed": false
+    },
+    {
+      "identity": {
+        "configuration_id": "modular-tvc-finned-v1",
+        "resolved_spec_sha256": "0addbdff782a616d74c903907354562eb8b490c7b635ffcab6a1e322f8ea6baa",
+        "cad_revision_sha256": "932f536c77fee78ee5141ea64b7af5b0b61449440717f5f142937ecd113ff587",
+        "part_shape_sha256": {
+          "nose_cone": "8381e385d6ff4cd1aa98a3540c74fea731a2411b1095aa1d99242adf0948343d",
+          "body_upper": "094cd22aae696b84c93e461af546537eeedbc685a60fddc3e9b33d14a92134fe",
+          "interface_coupler": "9c11d157f40f547cb20ef61f332a1787fdb0d6b2c83010f42aaa0f354ac3c615",
+          "avionics_bay": "2c17b96e34fd8300832f3274fbfe463b63beaa2d43416ccbb7f7e393014adba0",
+          "recovery_bulkhead": "7f5f0ac1cf83a459679296e9ddd22c7d272a3eac7e661e3a03889968ea09420d",
+          "recovery_anchor": "52e405b3e8dc3fb54a7a8854a4975a20e7a1504364e01c2cf439ace3e98e2a26",
+          "parachute": "988b4615519ebe039ca4859fe2e55279cf1f3172789a2501ce93b56fee01a102",
+          "shock_cord": "547da3939eaba3c7ef1cc6604b828d5050ae258bf53f7907b772cba54cc714a1",
+          "recovery_protection": "f36914655ad760b4941cdc74ac8ba51158ea326a6aca0160ef61c56def622f25",
+          "independent_recovery": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "micro_sd": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "adhesive_finish": "f7e7fdba749a4e44477c9bb7f6ec2978490586f4378acab5d485064aee20cb32",
+          "rail_guides": "983d28f539f2837b06a2c65ea0278304c001a6228e22b2f62404b321b2dbb91c",
+          "flight_computer": "fd5e11d7edb0d66d125289a6ed91c02984981c7a955742fd5d8181f4fcc2b57b",
+          "imu": "55a53b502db830f735deb1e9520302dad18ead4f6586194e8243484c07febea7",
+          "baro": "fa27211d47472b6e5fbf635c1fb44ff44d086c12b65d9b864934b7da81fa3274",
+          "battery": "7c7bbb2a8d0dff1fff62a18453611b9ec3e010b2d0fff6871fb98729e829817c",
+          "regulator_5v": "02fef8a24f921dbe280a8eeea24252a8879b8b93f414872f2671dd438d89e0a3",
+          "pyro_mosfet": "22c24ed9e1e84cd7128a4c66b888d07b708917138d92c3e582c5ef00cfe446f1",
+          "arming_switch": "d6b966186151524f99506af5fbaccc43d6d2d9376ef194ffb99d6d62faae2358",
+          "harness": "e31da1100323e32ac957d7f8b190f76d58306ec1fcfe50a4dc63a585aa92e06e",
+          "joint_stop": "b0d92c8d311a2b528dc20351a06a2a4410f513706b1a1c55cc2a2c7f70f61300",
+          "high_g_accel": "600921243dd6700b188818fad9fe61adae0c5f55e72730734918a6054c475ca0",
+          "aft_shell": "8febcdc02cf5a8403f42b609c6c3c81aa5e5412cb704fe4a792a3c9eb63a2906",
+          "aft_interface_hardware": "e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c",
+          "motor_mount": "5a2cdd16d6aa0a4e4617a65c924fb9928190d205f057ff913b44b2105470dfa6",
+          "motor_liner": "3055556d50f82b87c626f6715aebc6fc4e03fc26dfc3ba75818e0c274c2befc7",
+          "retention": "35eae103f6c5fd65b6ad83a9f6cd43b8eacbdc9c8d545fdbab8b71b2cc79c1fd",
+          "motor": "5cedaa421030a4b4c4f2d36a702b7b48286ddcdaaf935073d78c6eee4a9ad8e1",
+          "fin_set": "b0a02f164537645621853aa632a71b12bb8cce45ceb80f8dc808861fcbcdd9ef",
+          "fin_bonds": "227f888530c0bd4206787bc80ebac49ba299fea5c1d66cd71aac6202238e8105",
+          "tvc_gimbal": "040ca9e30f421c2c4f9a649d2ba7aaeb5526742596e6b9878628f0665d2727d3",
+          "gimbal_links": "ee25640d64501ec16d9e6006556b6f917ecefcf0eccde93a55286b3504cea692",
+          "servo_support": "10544eff0d93d2da5a699662b235052b0f96a48e7c6a50cb06f56a770f5fba0b",
+          "thermal_guard": "6dc0dd550703976a5bda470baa2afba16dcb70c2f71cdb25da27685af1a03258",
+          "servo_pitch": "c329c0354198e88bd63d3851b51dd07ca40158cdaefcd034673d4751856e6747",
+          "servo_yaw": "2164a9d5001f5388d888555a832540665d3fc1dc513f377f74181b304e6790d9",
+          "gimbal_inner": "05ea48a05128f510704ee7cf588a23982c184d5007a7e5675b76f0796521f282",
+          "gimbal_frame": "e919fd057b0a2c09ae57fe9412539d81bdd73eda9cb197ebd26b834b9f040e4f",
+          "outer_pivots": "6449ea56aa4d1a4eb74bea4e78c1b361a66bd05fc2369697dea2b8fd21f4bc32",
+          "inner_pivots": "8fb5a4c252a6a3d2a71e348fe4047581e2502feb1e016ec093000133d205b418",
+          "servo_horns": "1a5bcdf7d726b4606fbcea2cce2b74e51269923ff3a514a14d88236afb55eac7"
+        }
+      },
+      "lower_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 105.22829929599442,
+          "peak_time_s": 14.0,
+          "screen_limit_c": 120,
+          "margin_k": 14.771700704005582,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 47.19465834413518,
+          "peak_time_s": 38.0,
+          "screen_limit_c": 45,
+          "margin_k": -2.1946583441351777,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_inner",
+          "peak_c": 23.36011673181116,
+          "peak_time_s": 102.0,
+          "screen_limit_c": 60,
+          "margin_k": 36.63988326818884,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "tvc_gimbal",
+          "peak_c": 18.673074324149752,
+          "peak_time_s": 190.0,
+          "screen_limit_c": 60,
+          "margin_k": 41.32692567585025,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_frame",
+          "peak_c": 16.96860497086692,
+          "peak_time_s": 103.0,
+          "screen_limit_c": 60,
+          "margin_k": 43.03139502913308,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "thermal_guard",
+          "peak_c": 23.319937277597887,
+          "peak_time_s": 44.0,
+          "screen_limit_c": 120,
+          "margin_k": 96.68006272240211,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 17.70938768588354,
+          "peak_time_s": 42.0,
+          "screen_limit_c": 45,
+          "margin_k": 27.29061231411646,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_support",
+          "peak_c": 15.457053466402954,
+          "peak_time_s": 232.0,
+          "screen_limit_c": 60,
+          "margin_k": 44.542946533597046,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_pitch",
+          "peak_c": 15.11892360378937,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 44.88107639621063,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_yaw",
+          "peak_c": 15.11892360378937,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 44.88107639621063,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 15.569250272285274,
+          "peak_time_s": 179.0,
+          "screen_limit_c": 45,
+          "margin_k": 29.430749727714726,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 20.707484620038827,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 39.29251537996117,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 15.68455022148919,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 44.31544977851081,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "upper_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 224.943924093374,
+          "peak_time_s": 14.0,
+          "screen_limit_c": 120,
+          "margin_k": -104.943924093374,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 88.1065351887184,
+          "peak_time_s": 52.0,
+          "screen_limit_c": 45,
+          "margin_k": -43.1065351887184,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_inner",
+          "peak_c": 72.05276156970945,
+          "peak_time_s": 108.0,
+          "screen_limit_c": 60,
+          "margin_k": -12.052761569709446,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "tvc_gimbal",
+          "peak_c": 63.74533136327028,
+          "peak_time_s": 131.0,
+          "screen_limit_c": 60,
+          "margin_k": -3.7453313632702816,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_frame",
+          "peak_c": 56.51881408421673,
+          "peak_time_s": 128.0,
+          "screen_limit_c": 60,
+          "margin_k": 3.4811859157832714,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "thermal_guard",
+          "peak_c": 85.25271947656336,
+          "peak_time_s": 57.0,
+          "screen_limit_c": 120,
+          "margin_k": 34.74728052343664,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 59.036692961148105,
+          "peak_time_s": 74.0,
+          "screen_limit_c": 45,
+          "margin_k": -14.036692961148105,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_support",
+          "peak_c": 47.74038411286949,
+          "peak_time_s": 245.0,
+          "screen_limit_c": 60,
+          "margin_k": 12.259615887130508,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_pitch",
+          "peak_c": 46.959391290479516,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 13.040608709520484,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_yaw",
+          "peak_c": 46.959391290479516,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 13.040608709520484,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 56.58635203504332,
+          "peak_time_s": 124.0,
+          "screen_limit_c": 45,
+          "margin_k": -11.58635203504332,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 49.31983103589823,
+          "peak_time_s": 146.0,
+          "screen_limit_c": 60,
+          "margin_k": 10.680168964101767,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 45.18971562192365,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 14.810284378076346,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "spatial_refinement_max_delta_k": 0.10933366944783529,
+      "time_refinement_max_delta_k": 9.199734279263794e-06,
+      "refinement_passed": true,
+      "max_energy_residual_j": 2.566480361565482e-11,
+      "fields_directory": "build/wo03-thermal-20261030T182422090687Z/modular-tvc-finned-v1",
+      "artifact_sha256": {
+        "lower.json": "264883ac3ef6b504a6b1bf40cb1ada92bdb51ea6dc605cc961cdcd46511e1052",
+        "upper-4.json": "213d6cd9e6008fffe360db5191f73b3d96c6a7098769b660613dd18c9f72edf8",
+        "upper-8.json": "c616a05fa967b262c00555384ef968596f9c7d94bc8e4af0cdbd5d7e89704dc4",
+        "upper-16.json": "d0e830681272ac806c69c9b8342f14c21899ad5a3258bb1ac36945b76b563ef7",
+        "time-refined.json": "094e0c5a2bdce293aafb655e4b6bcac276b582f51fdd0ae994442e202daf742c"
+      },
+      "source_model_version": "neutral-coaxial-opaque-bands-v2",
+      "analysis_manifest": "build/wo03-thermal-20261030T182422090687Z/modular-tvc-finned-v1/analysis/manifest.json",
+      "export_consumer_check_passed": true,
+      "thermal_acceptance_passed": false
+    },
+    {
+      "identity": {
+        "configuration_id": "modular-tvc-finless-v1",
+        "resolved_spec_sha256": "27acf76ba8ad60140086a624ff24df9d508f2404ac8eb7a891cdc7ec0f93c224",
+        "cad_revision_sha256": "932f536c77fee78ee5141ea64b7af5b0b61449440717f5f142937ecd113ff587",
+        "part_shape_sha256": {
+          "nose_cone": "8381e385d6ff4cd1aa98a3540c74fea731a2411b1095aa1d99242adf0948343d",
+          "body_upper": "094cd22aae696b84c93e461af546537eeedbc685a60fddc3e9b33d14a92134fe",
+          "interface_coupler": "9c11d157f40f547cb20ef61f332a1787fdb0d6b2c83010f42aaa0f354ac3c615",
+          "avionics_bay": "2c17b96e34fd8300832f3274fbfe463b63beaa2d43416ccbb7f7e393014adba0",
+          "recovery_bulkhead": "7f5f0ac1cf83a459679296e9ddd22c7d272a3eac7e661e3a03889968ea09420d",
+          "recovery_anchor": "52e405b3e8dc3fb54a7a8854a4975a20e7a1504364e01c2cf439ace3e98e2a26",
+          "parachute": "988b4615519ebe039ca4859fe2e55279cf1f3172789a2501ce93b56fee01a102",
+          "shock_cord": "547da3939eaba3c7ef1cc6604b828d5050ae258bf53f7907b772cba54cc714a1",
+          "recovery_protection": "f36914655ad760b4941cdc74ac8ba51158ea326a6aca0160ef61c56def622f25",
+          "independent_recovery": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "micro_sd": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "adhesive_finish": "f7e7fdba749a4e44477c9bb7f6ec2978490586f4378acab5d485064aee20cb32",
+          "rail_guides": "983d28f539f2837b06a2c65ea0278304c001a6228e22b2f62404b321b2dbb91c",
+          "flight_computer": "fd5e11d7edb0d66d125289a6ed91c02984981c7a955742fd5d8181f4fcc2b57b",
+          "imu": "55a53b502db830f735deb1e9520302dad18ead4f6586194e8243484c07febea7",
+          "baro": "fa27211d47472b6e5fbf635c1fb44ff44d086c12b65d9b864934b7da81fa3274",
+          "battery": "7c7bbb2a8d0dff1fff62a18453611b9ec3e010b2d0fff6871fb98729e829817c",
+          "regulator_5v": "02fef8a24f921dbe280a8eeea24252a8879b8b93f414872f2671dd438d89e0a3",
+          "pyro_mosfet": "22c24ed9e1e84cd7128a4c66b888d07b708917138d92c3e582c5ef00cfe446f1",
+          "arming_switch": "d6b966186151524f99506af5fbaccc43d6d2d9376ef194ffb99d6d62faae2358",
+          "harness": "e31da1100323e32ac957d7f8b190f76d58306ec1fcfe50a4dc63a585aa92e06e",
+          "joint_stop": "b0d92c8d311a2b528dc20351a06a2a4410f513706b1a1c55cc2a2c7f70f61300",
+          "high_g_accel": "600921243dd6700b188818fad9fe61adae0c5f55e72730734918a6054c475ca0",
+          "aft_shell": "d18e8cd6b29382f22cfb59eb87a3aa108c51e4947dcb5d4f30dfc66c3d9aa04f",
+          "aft_interface_hardware": "e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c",
+          "motor_mount": "5a2cdd16d6aa0a4e4617a65c924fb9928190d205f057ff913b44b2105470dfa6",
+          "motor_liner": "3055556d50f82b87c626f6715aebc6fc4e03fc26dfc3ba75818e0c274c2befc7",
+          "retention": "35eae103f6c5fd65b6ad83a9f6cd43b8eacbdc9c8d545fdbab8b71b2cc79c1fd",
+          "motor": "5cedaa421030a4b4c4f2d36a702b7b48286ddcdaaf935073d78c6eee4a9ad8e1",
+          "tvc_gimbal": "040ca9e30f421c2c4f9a649d2ba7aaeb5526742596e6b9878628f0665d2727d3",
+          "gimbal_links": "ee25640d64501ec16d9e6006556b6f917ecefcf0eccde93a55286b3504cea692",
+          "servo_support": "10544eff0d93d2da5a699662b235052b0f96a48e7c6a50cb06f56a770f5fba0b",
+          "thermal_guard": "6dc0dd550703976a5bda470baa2afba16dcb70c2f71cdb25da27685af1a03258",
+          "servo_pitch": "c329c0354198e88bd63d3851b51dd07ca40158cdaefcd034673d4751856e6747",
+          "servo_yaw": "2164a9d5001f5388d888555a832540665d3fc1dc513f377f74181b304e6790d9",
+          "gimbal_inner": "05ea48a05128f510704ee7cf588a23982c184d5007a7e5675b76f0796521f282",
+          "gimbal_frame": "e919fd057b0a2c09ae57fe9412539d81bdd73eda9cb197ebd26b834b9f040e4f",
+          "outer_pivots": "6449ea56aa4d1a4eb74bea4e78c1b361a66bd05fc2369697dea2b8fd21f4bc32",
+          "inner_pivots": "8fb5a4c252a6a3d2a71e348fe4047581e2502feb1e016ec093000133d205b418",
+          "servo_horns": "1a5bcdf7d726b4606fbcea2cce2b74e51269923ff3a514a14d88236afb55eac7"
+        }
+      },
+      "lower_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 105.22823625780472,
+          "peak_time_s": 14.0,
+          "screen_limit_c": 120,
+          "margin_k": 14.771763742195276,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 47.19514927216869,
+          "peak_time_s": 38.0,
+          "screen_limit_c": 45,
+          "margin_k": -2.195149272168692,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_inner",
+          "peak_c": 23.361254077897797,
+          "peak_time_s": 102.0,
+          "screen_limit_c": 60,
+          "margin_k": 36.6387459221022,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "tvc_gimbal",
+          "peak_c": 18.67939441165902,
+          "peak_time_s": 190.0,
+          "screen_limit_c": 60,
+          "margin_k": 41.32060558834098,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_frame",
+          "peak_c": 16.982792054829872,
+          "peak_time_s": 103.0,
+          "screen_limit_c": 60,
+          "margin_k": 43.01720794517013,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "thermal_guard",
+          "peak_c": 23.32335835021371,
+          "peak_time_s": 44.0,
+          "screen_limit_c": 120,
+          "margin_k": 96.67664164978629,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 17.729159793460155,
+          "peak_time_s": 42.0,
+          "screen_limit_c": 45,
+          "margin_k": 27.270840206539845,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_support",
+          "peak_c": 15.46023814096543,
+          "peak_time_s": 232.0,
+          "screen_limit_c": 60,
+          "margin_k": 44.53976185903457,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_pitch",
+          "peak_c": 15.119669003524393,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 44.88033099647561,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_yaw",
+          "peak_c": 15.119669003524393,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 44.88033099647561,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 20.708756306003863,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 39.29124369399614,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 15.684893880236132,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 44.31510611976387,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "upper_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 224.9480554261221,
+          "peak_time_s": 14.0,
+          "screen_limit_c": 120,
+          "margin_k": -104.9480554261221,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 88.62052778417092,
+          "peak_time_s": 53.0,
+          "screen_limit_c": 45,
+          "margin_k": -43.62052778417092,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_inner",
+          "peak_c": 72.60789179059788,
+          "peak_time_s": 108.0,
+          "screen_limit_c": 60,
+          "margin_k": -12.607891790597876,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "tvc_gimbal",
+          "peak_c": 64.32489197948661,
+          "peak_time_s": 131.0,
+          "screen_limit_c": 60,
+          "margin_k": -4.324891979486608,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "gimbal_frame",
+          "peak_c": 57.09982451929477,
+          "peak_time_s": 125.0,
+          "screen_limit_c": 60,
+          "margin_k": 2.9001754807052293,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "thermal_guard",
+          "peak_c": 85.94812064874043,
+          "peak_time_s": 57.0,
+          "screen_limit_c": 120,
+          "margin_k": 34.05187935125957,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 60.27795012461934,
+          "peak_time_s": 71.0,
+          "screen_limit_c": 45,
+          "margin_k": -15.277950124619338,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_support",
+          "peak_c": 47.90293509953801,
+          "peak_time_s": 238.0,
+          "screen_limit_c": 60,
+          "margin_k": 12.097064900461987,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_pitch",
+          "peak_c": 47.10408813413699,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 12.895911865863013,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "servo_yaw",
+          "peak_c": 47.10408813413699,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 12.895911865863013,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 49.684767715277246,
+          "peak_time_s": 138.0,
+          "screen_limit_c": 60,
+          "margin_k": 10.315232284722754,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 45.27923052877048,
+          "peak_time_s": 312.601,
+          "screen_limit_c": 60,
+          "margin_k": 14.720769471229517,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "spatial_refinement_max_delta_k": 0.10928201560818707,
+      "time_refinement_max_delta_k": 9.783583948319574e-06,
+      "refinement_passed": true,
+      "max_energy_residual_j": 3.8198777474462986e-11,
+      "fields_directory": "build/wo03-thermal-20261030T182422090687Z/modular-tvc-finless-v1",
+      "artifact_sha256": {
+        "lower.json": "9a25b1aad0387f6cdeb31310a86a0ace15c7326d9418c59ec5209b34fb590cc5",
+        "upper-4.json": "209197595565366985f774fdb52789b177d7ce745caeb58e41c0018f76071d12",
+        "upper-8.json": "f4d9c05777b95bb32b3ccc05e73c9f7b042637983726c20a2807faea93bcdcea",
+        "upper-16.json": "29d6885e1c4eb97d418d166ba4a59bd2578283a0c52556dacd3f3dc1ec12ea27",
+        "time-refined.json": "9c4411ee26fd0cd96284e53942685ff85cebb865f4dee4e6fd2a3eef79a5c6ef"
+      },
+      "source_model_version": "neutral-coaxial-opaque-bands-v2",
+      "analysis_manifest": "build/wo03-thermal-20261030T182422090687Z/modular-tvc-finless-v1/analysis/manifest.json",
+      "export_consumer_check_passed": true,
+      "thermal_acceptance_passed": false
+    },
+    {
+      "identity": {
+        "configuration_id": "modular-performance-g54-hypothesis",
+        "resolved_spec_sha256": "adb4afd3ed319ae7777ad746aefe04c7de1ec0fcae4fbd67c4b5c6269b1fe742",
+        "cad_revision_sha256": "932f536c77fee78ee5141ea64b7af5b0b61449440717f5f142937ecd113ff587",
+        "part_shape_sha256": {
+          "nose_cone": "8381e385d6ff4cd1aa98a3540c74fea731a2411b1095aa1d99242adf0948343d",
+          "body_upper": "094cd22aae696b84c93e461af546537eeedbc685a60fddc3e9b33d14a92134fe",
+          "interface_coupler": "9c11d157f40f547cb20ef61f332a1787fdb0d6b2c83010f42aaa0f354ac3c615",
+          "avionics_bay": "2c17b96e34fd8300832f3274fbfe463b63beaa2d43416ccbb7f7e393014adba0",
+          "recovery_bulkhead": "7f5f0ac1cf83a459679296e9ddd22c7d272a3eac7e661e3a03889968ea09420d",
+          "recovery_anchor": "52e405b3e8dc3fb54a7a8854a4975a20e7a1504364e01c2cf439ace3e98e2a26",
+          "parachute": "988b4615519ebe039ca4859fe2e55279cf1f3172789a2501ce93b56fee01a102",
+          "shock_cord": "547da3939eaba3c7ef1cc6604b828d5050ae258bf53f7907b772cba54cc714a1",
+          "recovery_protection": "f36914655ad760b4941cdc74ac8ba51158ea326a6aca0160ef61c56def622f25",
+          "independent_recovery": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "micro_sd": "33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef",
+          "adhesive_finish": "f7e7fdba749a4e44477c9bb7f6ec2978490586f4378acab5d485064aee20cb32",
+          "rail_guides": "983d28f539f2837b06a2c65ea0278304c001a6228e22b2f62404b321b2dbb91c",
+          "flight_computer": "fd5e11d7edb0d66d125289a6ed91c02984981c7a955742fd5d8181f4fcc2b57b",
+          "imu": "55a53b502db830f735deb1e9520302dad18ead4f6586194e8243484c07febea7",
+          "baro": "fa27211d47472b6e5fbf635c1fb44ff44d086c12b65d9b864934b7da81fa3274",
+          "battery": "7c7bbb2a8d0dff1fff62a18453611b9ec3e010b2d0fff6871fb98729e829817c",
+          "regulator_5v": "02fef8a24f921dbe280a8eeea24252a8879b8b93f414872f2671dd438d89e0a3",
+          "pyro_mosfet": "22c24ed9e1e84cd7128a4c66b888d07b708917138d92c3e582c5ef00cfe446f1",
+          "arming_switch": "d6b966186151524f99506af5fbaccc43d6d2d9376ef194ffb99d6d62faae2358",
+          "harness": "e31da1100323e32ac957d7f8b190f76d58306ec1fcfe50a4dc63a585aa92e06e",
+          "joint_stop": "b0d92c8d311a2b528dc20351a06a2a4410f513706b1a1c55cc2a2c7f70f61300",
+          "high_g_accel": "600921243dd6700b188818fad9fe61adae0c5f55e72730734918a6054c475ca0",
+          "aft_shell": "8febcdc02cf5a8403f42b609c6c3c81aa5e5412cb704fe4a792a3c9eb63a2906",
+          "aft_interface_hardware": "e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c",
+          "motor_mount": "8b3a03b9d269cdb4d237d775b98027f53feaa3227a2eeb57d99504ddba71ea8c",
+          "motor_liner": "37f61f51d3a4582fd09e67c3e398b3af97f03093c50e0159942fb47ee1e623d9",
+          "retention": "e75e27d0cd6d86b3109160f3ea9584eb89540a076cb11ed2ff28e88c8b1aedd8",
+          "fin_set": "c1a0c3f256a1e6b8d8c0cf6e3c1ce46ccb9058d8800f0b0fed88f9015cb35257",
+          "fin_bonds": "227f888530c0bd4206787bc80ebac49ba299fea5c1d66cd71aac6202238e8105",
+          "motor": "4fa8e003bb12f84c23c9a5d0965bbd56f0f94c911d3d4ad67918fb62fc183cb4"
+        }
+      },
+      "lower_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 92.15657391200085,
+          "peak_time_s": 11.0,
+          "screen_limit_c": 120,
+          "margin_k": 27.84342608799915,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 16.25883258257045,
+          "peak_time_s": 111.0,
+          "screen_limit_c": 45,
+          "margin_k": 28.74116741742955,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 18.487062793538826,
+          "peak_time_s": 32.0,
+          "screen_limit_c": 45,
+          "margin_k": 26.512937206461174,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 15.547028410896928,
+          "peak_time_s": 125.0,
+          "screen_limit_c": 45,
+          "margin_k": 29.452971589103072,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 20.609403569388064,
+          "peak_time_s": 303.026,
+          "screen_limit_c": 60,
+          "margin_k": 39.390596430611936,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 15.65432284671482,
+          "peak_time_s": 303.026,
+          "screen_limit_c": 60,
+          "margin_k": 44.34567715328518,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "upper_peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 219.29433977137103,
+          "peak_time_s": 11.0,
+          "screen_limit_c": 120,
+          "margin_k": -99.29433977137103,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 55.69369242238531,
+          "peak_time_s": 140.0,
+          "screen_limit_c": 45,
+          "margin_k": -10.693692422385311,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 63.7474775041851,
+          "peak_time_s": 50.0,
+          "screen_limit_c": 45,
+          "margin_k": -18.7474775041851,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 59.03093772655728,
+          "peak_time_s": 100.0,
+          "screen_limit_c": 45,
+          "margin_k": -14.030937726557283,
+          "passed": false,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 50.19823847828326,
+          "peak_time_s": 110.0,
+          "screen_limit_c": 60,
+          "margin_k": 9.801761521716742,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 45.09271860330688,
+          "peak_time_s": 294.0,
+          "screen_limit_c": 60,
+          "margin_k": 14.907281396693122,
+          "passed": true,
+          "evidence": "calculated with estimated inputs"
+        }
+      ],
+      "spatial_refinement_max_delta_k": 0.055908632833507,
+      "time_refinement_max_delta_k": 4.690619391567452e-06,
+      "refinement_passed": true,
+      "max_energy_residual_j": 2.955857780762017e-11,
+      "fields_directory": "build/wo03-thermal-20261030T182422090687Z/modular-performance-g54-hypothesis",
+      "artifact_sha256": {
+        "lower.json": "5ae47d3a3bb974f9ba1c0f8a223d8aa3af1c26ece7604da5d5677993eef21dfa",
+        "upper-4.json": "3f77eeff76350f8bbcb85bcb52193e88fd6a24391f577634391ca55c0819a5e6",
+        "upper-8.json": "3eeb49c3d05e9ae85727d184f6f8ad716bcff44629d0e9603c7589881c2df552",
+        "upper-16.json": "8024bae82be1980d8bd1eed32a031362bf547c7d909c51f8382e761424484dc1",
+        "time-refined.json": "5b09d49ed52052bd2a2520d02333862ec94d66089fba8dd7ea6c689a868d674b"
+      },
+      "source_model_version": "neutral-coaxial-opaque-bands-v2",
+      "analysis_manifest": "build/wo03-thermal-20261030T182422090687Z/modular-performance-g54-hypothesis/analysis/manifest.json",
+      "export_consumer_check_passed": true,
+      "thermal_acceptance_passed": false
+    }
+  ],
+  "input_sha256": {
+    "src/vehicle/cad_contract.py": "60d44f0456e75cfba0d5af70551ed3295d34619ecc610269efe50854a0244c4f",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/benchmark.py": "a01f414c4507debdd4518be82f32cf8968b4a5cf75ca4c46e596f2e1c975631c",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "src/vehicle/materials.py": "a186475aa2edec63205ed5961c77d6f3feed61f5ad287431edc9e3c4800f39b8",
+    "src/cad/verification.py": "59188d68c7d255bd5a6b138bffed02356baa3a56190767756b15e7e05a758017",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "configs/vehicle/platform/common-upper.yaml": "ad3614c4d6408e70e1c67143b9c5f732976c277ac85660bd5f11d8e07f27f9ee",
+    "src/analysis/engineering.py": "94b95b9cee933951a3cfc6cfe55604eba830f688f00750ecd383d50afe2cea96",
+    "src/analysis/thermal_topology.py": "acc0e2978cf8971a9aa906a76a9d38ab259c8d89edcd7aca66b27d351ecfe19f",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/analysis/records.py": "69f99a8eeb4d068793491baa238d16bc18d5ec511da1fae24ff93b6e9f23409f",
+    "configs/vehicle/wo02/performance-g54.yaml": "029ccf4f85a4dbd96009756e5d60bc28dae8653f9e68756b20e043db1d91c106",
+    "configs/vehicle/platform/tvc-finless.yaml": "cbbfa33df6c2617e9fbaf9d0164e4ac0288b38c43e8f92e1ba25c821fdac8d52",
+    "src/vehicle/schema.py": "1ee9b5e69a773059bf92d572b9477cc99f54f3ab34722f0d1a8847e7831eb985",
+    "src/analysis/thermal_radial.py": "7228a6d9277cfd6e809f48fb409db2838e2640e2740305338e1f85ee98dcba7b",
+    "src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "configs/vehicle/platform/tvc-finned.yaml": "154395dca1e1d876283264e8f9b42a872dd8f5bb8b95f1afd1c0e2087ee19a92",
+    "src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "src/cad/parts.py": "a17c301d7544589786035a8f5be3969fad3fe7e226cf53bb2f6a7f2cd1fda74c",
+    "src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d",
+    "src/analysis/__init__.py": "a704bea3fb626cf3886a7e9c13f495a64887feb010bb003efee0be1f1b25d2fd",
+    "src/cad/assembly.py": "c231d81b42f4fce061bef023579028b908703f4b5adfb5d243e3eda11e4bcc16",
+    "src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+    "configs/engineering/wo03.yaml": "610613c92ad982a078f67a07600e6ad3a994578e3db3cf764612104c08fa61b7",
+    "scripts/wo03_thermal_topology.py": "68a99c9882fb51ff0df0287bdcae4d1ffb49c88d8d47c39eb0cce12c21659723",
+    "configs/studies/wo03-thermal-topology.yaml": "8a4666d2196925742f89ad87892cd0a93ac5b6562961cdda27a1f2389dbdf0f8",
+    "configs/vehicle/platform/performance.yaml": "894c965935f24d1682c5a83cabfc14ee36cbc94d4d27e88d32f78951b96e4709",
+    "src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+    "src/cad/kinematics.py": "eaeb3f77b35991fbe85d8979a8b384051e4773fefbc28e64b7513dba672f9138",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+    "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+    "configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.eng": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+    "configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.yaml": "006202c41835ec978f91c65ec43d58c590cf54bdb60293541e5dd4b96009d414",
+    "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+    "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.yaml": "779383496d11ef9197cfb59441bc8a8827e5b28cc98f0d88d3a6ae74e47b1eba"
+  },
+  "inputs_unchanged": true,
+  "thermal_acceptance_passed": false,
+  "expanded_wo03_benchmark_passed": false,
+  "limitations": [
+    "Alternative model-topology study; no active geometry, materials or physical qualification changed.",
+    "Exact commercial motor exterior temperatures are still explicit exploratory bounds, not measured histories.",
+    "Closed long-cylinder exchange in each axial band ignores end view factors; not a 3D radiation solution or a universally conservative bound.",
+    "Split clamps, pivot holes, sparse rails, drive lugs and non-coaxial servo envelopes need angular visibility and moving-geometry checks.",
+    "No path radiates through the opaque motor liner or through an intervening modeled annular shield; real openings and nozzle end exposure remain unmodeled.",
+    "Only the liner resolves radial gradients; all other parts are uniform capacities, not surface hot-spot predictions.",
+    "Static air conduction, no circulation; external shell convection and upper bay cooling are estimated boundary paths.",
+    "Contact conductance ranges are estimates; real fasteners, bonds, printed orientation and temperature-dependent properties require calibration.",
+    "Prescribed case boundary has no finite motor heat capacity or plume model; energy residual checks the network, not the motor's available heat.",
+    "Neither computed passing temperatures nor convergence authorizes materials, physical work or a flight."
+  ],
+  "cost_usd": 0,
+  "flight_ready": false
+}

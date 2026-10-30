@@ -81,3 +81,6 @@ traceability:
 
 service-diagrams:
 	$(PYTHON) scripts/wo03_service_diagrams.py --preset tiny
+
+thermal-study: ## Verified opaque-wall refinement; does not qualify hardware.
+	$(PYTHON) scripts/wo03_thermal_topology.py --preset tiny

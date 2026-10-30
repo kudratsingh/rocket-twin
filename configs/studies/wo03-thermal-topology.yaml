@@ -1,0 +1,32 @@
+version: neutral-coaxial-opaque-bands-v2
+part_ids: [motor_liner, motor_mount, gimbal_inner, tvc_gimbal, gimbal_frame, thermal_guard, aft_shell, servo_support, servo_pitch, servo_yaw, fin_bonds, flight_computer, battery]
+annular_barrier_part_ids: [motor_mount, gimbal_inner, tvc_gimbal, gimbal_frame, thermal_guard, aft_shell]
+contact_conductance_w_k: [0.02, 0.2]
+contact_pairs:
+  - [motor_mount, gimbal_inner]
+  - [gimbal_inner, tvc_gimbal]
+  - [tvc_gimbal, gimbal_frame]
+  - [gimbal_frame, aft_shell]
+  - [gimbal_frame, servo_support]
+  - [servo_support, servo_pitch]
+  - [servo_support, servo_yaw]
+  - [motor_mount, aft_shell]
+  - [aft_shell, fin_bonds]
+  - [aft_shell, flight_computer]
+  - [flight_computer, battery]
+upper_bay_cooling_w_k:
+  flight_computer: 0.04
+  battery: 0.02
+refinement_cells: [4, 8, 16]
+refinement_peak_delta_k: 0.2
+limitations:
+  - Alternative model-topology study; no active geometry, materials or physical qualification changed.
+  - Exact commercial motor exterior temperatures are still explicit exploratory bounds, not measured histories.
+  - Closed long-cylinder exchange in each axial band ignores end view factors; not a 3D radiation solution or a universally conservative bound.
+  - Split clamps, pivot holes, sparse rails, drive lugs and non-coaxial servo envelopes need angular visibility and moving-geometry checks.
+  - No path radiates through the opaque motor liner or through an intervening modeled annular shield; real openings and nozzle end exposure remain unmodeled.
+  - Only the liner resolves radial gradients; all other parts are uniform capacities, not surface hot-spot predictions.
+  - Static air conduction, no circulation; external shell convection and upper bay cooling are estimated boundary paths.
+  - Contact conductance ranges are estimates; real fasteners, bonds, printed orientation and temperature-dependent properties require calibration.
+  - Prescribed case boundary has no finite motor heat capacity or plume model; energy residual checks the network, not the motor's available heat.
+  - Neither computed passing temperatures nor convergence authorizes materials, physical work or a flight.
