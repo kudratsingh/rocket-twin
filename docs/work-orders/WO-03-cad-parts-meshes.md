@@ -1,48 +1,70 @@
-# WO-03 — CAD parts and meshes
+# WO-03 — CAD, structural/thermal analysis and integration
 
-Branch: `wo-03-cad`. Tier: Mac CPU.
+Branch: `wo-03-cad` (focused dependent PRs permitted). Tier: Mac CPU and ordinary
+repository checks; paid compute requires separate approval. ADR-0007 expands this
+work order without changing the sequence. WO-04 starts after all WO-03 criteria
+below are met and recorded. G80 reference, G54 conditional, G12 controls.
 
 ## Deliverables
 
-1. `src/cad/`: one CadQuery generator per part type in the schema (nose cone with ogive/conical
-   option and shoulder, body tube sections with couplers, avionics bay with sled and sensor
-   mounts, battery tray, motor mount tube and retention, two-axis TVC gimbal with servo horns
-   and linkages at the spec'd ratio, servo mounts, parachute bay and bulkhead, launch-rail
-   guide, physical plywood fin sets and keyed interchangeable aft interface). Commercial parts (servos, Teensy, sensors, battery) as
-   bounding-box placeholders with correct mass and mounting holes.
-2. `scripts/wo03_cad.py --vehicle modular-tvc-finned-v1`: exports STEP, STL (print orientation applied)
-   and GLB (via trimesh, one file per part + assembly) into `build/<vehicle>/`; writes
-   `build/<vehicle>/manifest.json` with CAD-derived volume × density per part.
-3. `print:` settings per printable part in the spec (orientation, layer height, infill, walls,
-   supports yes/no, material). Justify walls, grain/layer direction and joint sections
-   against load/heat cases; a universal 1.2 mm wall is not a structural qualification.
-4. Mass cross-check report: CAD mass vs spec mass per part, flagged beyond 10 %.
+1. Spec-driven CadQuery solids for every part in all three actual configurations;
+   shared upper and distinct afts; separate G54 fit study and credible motor
+   comparisons. Custom nose, reinforced/keyed modular joint, cut/printed structures,
+   motor retention/liners, fin roots, bearing/pivot gimbal, servo mounts, horns,
+   pushrods, stops, recovery and avionics mounts. Commercial/flexible items use
+   supplier or estimated masses and explicit envelopes. Every part has build and
+   learn content, source, cost and mass basis. Preserve the WO-02 configuration archive.
+2. One-command STEP/STL/GLB regeneration, per-part and assembled files, manifest,
+   print orientation/support settings and mass/centroid/inertia report. Printed
+   parts fit 220 x 220 x 250 mm. CAD volume uses credible material density; purchased
+   envelope volume must not masquerade as physical mass verification.
+3. Structural case table and executed calculations for thrust/acceleration, fin
+   bending, guide reactions, gimbal/servo reactions, modular retention and recovery
+   opening. Trace loads through real joints and parts; evaluate stress, deflection,
+   bearing/shear/bond loads and buckling where applicable. Record force balance,
+   boundary conditions, grain/print orientation, temperature derating, property
+   sources/ranges and justified design factors. Identify weak or unclosed load paths.
+4. Targeted Gmsh/CalculiX FEA of critical/uncertain components. Pin tools, archive
+   input/mesh identities, verify a known solution and equilibrium, and demonstrate
+   at least three-level mesh refinement. Final displacement change <5% and regional
+   stress change <10%, or refine/leave the conclusion unresolved. Define stress
+   regions and singularity handling. Correlate with hand calculations; document
+   material/connection idealizations and required coupon/joint/proof tests.
+5. Executed bounded transient thermal models for G80, G54 and G12 through burn and
+   post-burn heat soak. Model the case boundary, liner, gaps/contact/radiation,
+   shields, structure, bonds, printed gimbal and nearby electronics. State published
+   or explicitly assumed case-temperature bounds, property/temperature-limit
+   sources, uncertainty and sensitivities. Produce temperature histories/peaks,
+   energy/time-step checks and resulting design decisions. Define thermocouple,
+   hot-soak, adhesive and electronics tests for the owner-performed stages.
+6. Spec-owned tolerance and thermal-expansion stacks for couplers, indexing keys,
+   motor/retention, bearings/pins, rods/servos and removable modules. Report minimum,
+   nominal and maximum clearances against required minima. Check insertion/removal,
+   fastening/bond access, wiring slack/bend and retention/nozzle keep-outs throughout
+   combined two-axis motion. State sampling versus continuous bounds and unresolved
+   purchased geometry. Never label a nominal pose or joint exclusion full validation.
+7. CAD volume/CG/full inertia reconciled into the shared YAML and JAX/RocketPy
+   adapters. Account for new structure, sensor, shielding, fasteners and harness.
+   Resolve the high-g sensing requirement while retaining the low-g IMU. Re-run
+   static and applicable flight/reference/uncertainty studies after design changes;
+   retain the original WO-02 records and reasons for any changed result.
 
-## Benchmark
+## Completion criteria
 
-Every part generates; assembly GLB renders without gaps at the interfaces; CAD mass within
-10 % of spec mass for every part (spec updated where CAD is the better estimate, with a note);
-`make cad` regenerates `build/` from scratch.
+`make cad` regenerates every configuration and all exports; all parts are valid,
+manufacturable-intent solids with declared mass bases; CAD custom-part mass agrees
+with the adopted spec within 10%. This is unmeasured design reconciliation.
 
-## Notes
+`make engineering` executes structural, thermal, tolerance/motion and required FEA
+reports. Reports contain assumptions, margins, failures and limitations, versioned
+inputs, source hashes and required physical verification. Known-case solver and
+convergence checks pass. Critical numerical interferences, unclosed load paths or
+unresolved strength/temperature conclusions are corrected or remain explicit open
+WO-03 acceptance items; a report file alone cannot close them.
 
-- Keep printed parts within a 220 × 220 × 250 mm build volume and split long tubes with
-  couplers; the spec owns the split points.
-- Design the gimbal and indexed aft joint so the sim's `tvc.py` linkage ratio and max
-  deflection are exactly what the geometry allows; record the measured range in the spec.
-- Use the CadQuery LLM-skill guidance (idiomatic workplane/selector style), not OpenSCAD-style
-  boolean soup.
-
-## Modular custom-build deliverables
-
-Generate every resolved mode, shared upper once plus actual aft assemblies. Include
-cut and bonded parts, fasteners, liners, fillets, finish and purchased envelopes;
-commercial mass comes from supplier/measurement rather than solid-box density.
-Verify gimbal/nozzle/retention sweeps, servo offsets, tube crushing, joint retention,
-packing and service access. Export volume/inertia and reconcile moving versus fixed
-parts with the twin. Custom construction and learning are objectives, not penalties.
-
-Plan joint/buckling/bending, fin-root, recovery-opening and thermal tests with
-explicit load assumptions and margins. Actual fabrication and proof/temperature
-measurements are owner-authorized WO-09/10 work. CAD fit or a wall-thickness check
-alone does not release hardware. Re-run per-mode static/flight checks after changes.
+Affected static checks and JAX/RocketPy apogee/time benchmarks pass for actual
+performance and locked finned-TVC configurations with their current mass properties.
+Source hypotheses and uncertainty remain visible. Inspectable exports and concise
+part-function/load-path documentation are available. Record evidence in STATUS and
+results before advancing to WO-04. Actual strength, temperature, fit, recovery and
+control qualification remain owner-performed WO-09–11 gates; flight_ready stays false.

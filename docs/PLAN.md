@@ -129,3 +129,24 @@ G54 is the conditional near-160 N s upgrade lead; fixed G12 has higher calm alti
 but guide/wind/thermal/recovery penalties. No hardware freeze or sequence revision.
 Use these measured numerical loads/trajectory limits in WO-03 and the later PID/RL,
 sensor, independent recovery and flight-release gates.
+
+## Engineering evidence expansion (ADR-0007)
+
+The owner expanded WO-03 on 2026-10-29: executed structural calculations and
+targeted verified/converged FEA; bounded transient thermal and post-burn soak
+analysis for G80, conditional G54 and long G12; spec-owned tolerance stacks,
+combined gimbal sweep and assembly/service access. CAD exports alone do not close
+WO-03. Each analysis must report assumptions, uncertainty, margins/failures,
+material/temperature sources and the physical measurements needed later. See the
+expanded WO-03 acceptance criteria and ADR-0007. Analysis meshes and viewer meshes
+serve different purposes. Keep CadQuery/OpenCascade, JAX and the existing web stack.
+
+WO-06 PID acceptance now requires a source/uncertainty/validation-backed loaded
+gimbal model (kinematics, moving inertia, voltage, friction/backlash, limits and
+latency) and aerodynamic force/moment/damping validity over intended Mach, Reynolds
+and angle-of-attack ranges, including the G12 large-angle cases. Use targeted CFD
+where a concrete design decision needs it; feed tables into the one JAX core.
+WO-07 trains and evaluates RL with those improved models and held-out uncertainty.
+WO-09–12 measure and verify structures, heat, actuators and aero through owner tests,
+HIL and flight logs. Preserve WO-02 as the baseline, re-run applicable comparisons
+after model changes, and retain every original work-order position and release gate.

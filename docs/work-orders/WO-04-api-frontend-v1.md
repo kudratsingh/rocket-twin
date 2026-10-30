@@ -28,3 +28,11 @@ invalid overrides render red; TypeScript strict and ESLint clean.
 Load the complete resolved mode and its hashes. Physical fins, motor hardware,
 shared versus aft parts, build method, mass provenance and `learn` remain inspectable.
 A finless negative static margin is explicit, not a green stability approval.
+
+## Engineering evidence in Inspect
+
+Start only after expanded WO-03 acceptance (ADR-0007). Link each configuration's
+structural, thermal and tolerance report and display evidence status/remaining
+physical gates alongside mass provenance. Do not equate a rendered mesh, analysis
+pass or numerical RocketPy agreement with a qualified physical vehicle. No browser
+structural/thermal/flight solver or new screen is required.

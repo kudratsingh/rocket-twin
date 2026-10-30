@@ -36,3 +36,13 @@ loss-of-thrust, sensor faults, loop overrun and power-loss cases through coast a
 recovery. Demonstrate recovery independence from policy/control-task failure and
 qualify power isolation. G12ST-P is plugged; no motor-ejection fallback is assumed.
 WO-10 owner review remains the explicit exception to routine autonomous PR handling.
+
+## Fidelity, instrumentation and HIL additions
+
+Log both low-g IMU and high-g accelerometer, voltage, actuator command/response and
+qualified temperature channels with timing/alignment. Exercise load, voltage sag,
+friction/backlash, delay, moving-inertia coupling and aerodynamic validity bounds
+from WO-06; test saturation, overtemperature, out-of-envelope and sensor-clip
+responses. HIL uses the shared improved core and exact configuration hashes.
+Verify independent recovery across failure and burnout transitions. Owner line-by-
+line firmware/abort review and physical bench acceptance remain mandatory.

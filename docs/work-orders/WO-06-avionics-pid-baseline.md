@@ -39,3 +39,25 @@ authority loss at burnout. Extend the fault protocol through independent recover
 centring an unpowered gimbal cannot stabilize an unstable finless coast. Define the
 verified wind envelope per configuration; preliminary launch-screen winds do not
 claim the 3 m/s control target. Any unmet target is reported and blocks that release.
+
+## Mandatory fidelity prerequisites (ADR-0007)
+
+Before the PID benchmark, implement and validate in the shared JAX core:
+
+- Exact linkage mapping and moving motor mass/CG/inertia; load-dependent servo
+  torque/speed, supply-voltage effects, friction/backlash, deadband, position/rate
+  limits and measured/estimated latency. Assess cross-axis, gyroscopic and other
+  coupling where material. Record sources, uncertainty ranges and independent
+  known cases; retain hooks for bench calibration.
+- Aerodynamic force, moment and damping appropriate to the intended Mach, Reynolds
+  number and angle-of-attack envelope. Explicitly cover the G12 large-angle cases
+  from WO-02, flag out-of-domain operation and prevent unvalidated cells from
+  counting as qualified successes. Use targeted CFD or other higher-fidelity
+  analysis where needed for a design decision; import coefficient tables into
+  the shared core used by experiments and RL.
+
+Require expanded WO-03 structural/thermal/tolerance evidence for the exact control
+configuration. Re-run applicable RocketPy comparisons with changed models and
+retain the original WO-02 results. Passing the PID metric without these fidelity
+checks does not complete this work order. Separate simulation acceptance from
+owner measurements, HIL, WO-10 review and flight release.

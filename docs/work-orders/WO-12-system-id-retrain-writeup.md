@@ -32,3 +32,13 @@ Fit and evaluate by actual configuration identity, measured mass properties and
 motor lot; use held-out logs and report uncertainty. Preserve negative PID/RL and
 sim-to-real results. A failed transfer does not remove committed RL or the original
 finless research objective; it constrains the next experiment and flight release.
+
+## Updated model calibration scope
+
+Fit measured actuator torque/speed/voltage, friction/backlash/delay, moving-mass
+properties and aerodynamic force/moment/damping parameters where identifiable.
+Update thermal/contact and material/connection bounds using instrumented ground
+tests; do not fit unidentifiable parameters to a single trajectory. Preserve data
+identity, confidence intervals and held-out tests/flights. Re-run applicable
+structural, thermal, clearance and RocketPy comparisons after changes, then compare
+PID/RL fairly before/after. Publish negative findings and remaining limitations.

@@ -139,3 +139,14 @@ run is needed. Host PyPI DNS is restricted; the owner was given the terminal ins
 command and installed it successfully. Local arm64 CPU validation passes: 65 tests,
 actual-mode flight benchmarks and a 4,096-env step. Hosted CI installs the same pins
 on clean Linux. Full project lock/CAD/web stacks remain separate.
+
+## WO-03 engineering expansion (ADR-0007)
+
+Proposed analysis pins: Gmsh 4.15.2 (meshing/API) and CalculiX 2.23 (structural/
+thermal solver). Neither is installed or verified on this host at the scope change.
+Execution, known-case and convergence evidence are open WO-03 requirements. The
+existing SciPy 1.17.1/NumPy 2.4.6 support hand-calculation/transient-model work.
+No solver result is inferred from an export or a successful package import.
+Keep display tessellation separate from analysis discretization; record solver,
+mesh, material and input identities in every analysis report. No paid compute or
+OpenFOAM installation is authorized by this planning update.

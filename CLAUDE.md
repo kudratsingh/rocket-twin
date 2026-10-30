@@ -128,7 +128,7 @@ See ADR-0006 and `docs/wo01-rebaseline.md` for the preliminary trade and gate ra
 |---|---|---|
 | 01 | Vehicle spec + parts tree + mass/CG/CP | All three modular mode specs resolve consistently; source-traceable preliminary motor hypotheses, part/build/cost inventories, mass allowance and mode-specific rail/static/control-time screens; static mass/CG/CP/margin within 3 % / 0.1 cal of RocketPy; `make benchmark` passes on CPU. Flight/build/control release gates remain later WOs |
 | 02 | 6-DOF sim core (JAX) + validation | Unguided flight (fins on, gimbal locked) matches RocketPy apogee and time-to-apogee within 5 %; `vmap` over 4,096 envs steps on CPU; TVC, wind, sensor and servo models present with tests |
-| 03 | CAD parts + meshes | Every part in the spec has a CadQuery generator; STEP/STL/GLB exported by one command; CAD-derived mass within 10 % of the spec mass for every part; printable parts flagged with orientation and support notes |
+| 03 | CAD + engineering integration | All configuration CAD/exports and mass reconciliation; executed structural calculations and targeted verified/converged FEA, bounded transient thermal/soak analysis, spec-owned tolerance and combined-motion/access checks; quantitative margins and required physical tests; affected static/flight comparisons pass (ADR-0007, WO-03 criteria) |
 | 04 | API + frontend v1 | FastAPI serves the tree, mass properties and meshes; web app shows the assembled rocket and an exploded view, a part inspector with specs + `learn:` text, a CG/CP/margin panel drawn on the model, and the mass budget |
 | 05 | Experiments + replay | From the UI: pick a vehicle, override parameters (motor, wind, mass shift), run the sim, replay the flight in 3D with a time scrub, plot any telemetry channel, compare two runs side by side; runs stored as Parquet |
 | 05b | Orbital vehicle pack | `orbital-launcher-v1` spec (40–60 parts, every `learn:` written, every figure cited); CAD for tanks, engines, octaweb, interstage, fairing, grid fins, legs; sim extended (standard atmosphere to 150 km, Isp vs pressure, staging, spherical Earth frame, engine-out); scripted mission (pitch-over, gravity turn, MECO, separation, fairing jettison, SECO, boostback/entry/landing burns); stage 2 reaches orbital velocity with the spec'd payload and stage 1 lands nominally, within 10 % of cited class figures; scale switch and mission timeline in the frontend |
@@ -149,7 +149,7 @@ weathered out.
 |---|---|
 | 01 | Static stability (CG/CP), Barrowman method, solid motors, thrust curves, impulse, materials and mass budgets, electrical ratings of avionics parts |
 | 02 | Rigid-body dynamics with variable mass, quaternions and frames, drag and Mach effects, TVC moments, wind models, sensor and servo physics |
-| 03 | Mechanical design, mechanisms (two-ring gimbal), tolerances, 3D-printing engineering |
+| 03 | Mechanical design, mechanisms (two-ring gimbal), tolerances, 3D-printing engineering, load paths, structural FEA, transient heat transfer and tolerance stacks |
 | 04–05 | Nothing new in physics; the twin becomes usable |
 | 05b | Liquid propulsion (Isp, mixture ratio, chamber pressure, nozzle expansion), tanks and pressurisation, staging and the rocket equation, standard atmosphere, gravity turns and orbital insertion, max-Q, entry and landing burns, grid fins and legs |
 | 06 | Attitude estimation (complementary/Madgwick), PID and LQR, actuator limits, abort logic, Monte-Carlo evaluation |

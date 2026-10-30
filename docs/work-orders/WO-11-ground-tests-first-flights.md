@@ -34,3 +34,12 @@ Each flight and paired prediction uses the actual complete configuration and
 motor/source hashes. Finless TVC cannot stabilize after thrust ends: demonstrate
 a qualified recovery transition before flight. No simulated benchmark or PR merge
 is a physical flight authorization.
+
+## Engineering qualification and comparison
+
+Owner ground acceptance must close WO-03 material/joint/fin/gimbal strength, hot-soak,
+clearance/assembly and retention tests with measured evidence. Validate actuator
+response under load and supply/temperature variation. Compare logged acceleration,
+attitude, temperatures, voltage, actuator response and flight-derived aero against
+preflight uncertainty bands. Report model-domain violations, failures and unexplained
+residuals; do not infer physical accuracy from the WO-02 integrator agreement.
