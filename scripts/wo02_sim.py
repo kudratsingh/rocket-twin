@@ -36,6 +36,7 @@ def metrics(final: Any, rows: Any, p: Any) -> dict[str, Any]:
     apogee = float(-rows[apex, 3])
     apogee_t = float(rows[apex, 0])
     powered = (rows[:, 16] > 0) & (rows[:, 0] <= apogee_t)
+    free_powered = powered & (rows[:, 0] > float(final.rail_exit_time))
     proper = np.linalg.norm(rows[:, 20:23], axis=1)
     powered_peak = float(proper[powered].max(initial=0))
     burn = float(p.motor[0] * p.motor[3] + p.motor[4])
@@ -75,7 +76,7 @@ def metrics(final: Any, rows: Any, p: Any) -> dict[str, Any]:
         "powered_specific_force_peak_g": powered_peak / 9.80665,
         "accel_range_exceeded": powered_peak > float(p.sensors[7]),
         "powered_max_mach": float(rows[powered, 17].max(initial=0)),
-        "powered_max_alpha_deg": float(np.rad2deg(rows[powered, 18]).max(initial=0)),
+        "powered_max_alpha_deg": float(np.rad2deg(rows[free_powered, 18]).max(initial=0)),
         "powered_max_tilt_deg": float(np.rad2deg(tilt[powered]).max(initial=0)),
         "max_dynamic_pressure_pa": float(rows[:, 19].max()),
         "apogee_downrange_m": float(np.linalg.norm(rows[apex, 1:3])),
@@ -153,6 +154,9 @@ def main() -> int:
             "rocketpy": reference,
             "relative_errors": deltas,
             "reference_benchmark_passed": passed,
+            "guide_speed_target_mps": vehicle.design.minimum_rail_exit_mps,
+            "guide_requirement_passed": result["guide_exit_mps"]
+            >= vehicle.design.minimum_rail_exit_mps,
             "flight_ready": False,
         }
         rows.append(row)

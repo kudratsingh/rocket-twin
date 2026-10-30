@@ -86,7 +86,17 @@ def step(state: State, action: Array, p: Params, key: Array) -> tuple[State, Arr
 @partial(jax.jit, static_argnames=("steps",))
 def rollout(p: Params, key: Array, steps: int) -> tuple[State, Array]:
     def advance(s: State, i: Array) -> tuple[State, Array]:
-        s, _, info = step(s, jnp.zeros(2), p, jax.random.fold_in(key, i))
+        def active(current: State) -> tuple[State, Array, Array]:
+            return step(current, jnp.zeros(2), p, jax.random.fold_in(key, i))
+
+        def absorbed(current: State) -> tuple[State, Array, Array]:
+            return (
+                current._replace(time=current.time + p.launch[3]),
+                current.observation,
+                jnp.zeros(9),
+            )
+
+        s, _, info = jax.lax.cond(s.landed, absorbed, active, s)
         row = jnp.concatenate(
             (jnp.array([s.time]), s.rigid, info, s.servo[:2], jnp.array([s.landed.astype(float)]))
         )

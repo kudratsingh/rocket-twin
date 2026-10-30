@@ -20,6 +20,14 @@ from src.sim.frames import STANDARD_GRAVITY_M_S2 as G
 from src.sim.types import Params
 
 
+def solve_inertia(inertia: Array, rhs: Array) -> Array:
+    """Cofactor solve for a nonsingular 3x3 inertia, avoiding per-step LAPACK calls."""
+    a, b, c = inertia
+    bc, ca, ab = jnp.cross(b, c), jnp.cross(c, a), jnp.cross(a, b)
+    determinant = jnp.dot(a, bc)
+    return jnp.stack((bc, ca, ab), axis=1) @ rhs / determinant
+
+
 def derivative(
     t: Array,
     y: Array,
@@ -45,9 +53,7 @@ def derivative(
     acceleration -= (
         0.5 * rho * p.recovery[0] * opening * jnp.linalg.norm(relative) * relative / mass
     )
-    angular = jnp.linalg.solve(
-        inertia, torque + tm - jnp.cross(omega, inertia @ omega) - idot @ omega
-    )
+    angular = solve_inertia(inertia, torque + tm - jnp.cross(omega, inertia @ omega) - idot @ omega)
     # Recovery attitude dynamics are not meaningful in this simple canopy model.
     angular = jnp.where(opening > 0.1, -5 * omega, angular)
     on_rail = jnp.logical_not(released) & (jnp.dot(position, p.rail_direction) < p.launch[0])
