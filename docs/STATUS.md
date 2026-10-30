@@ -37,7 +37,8 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
   independent recovery in WO-09; firmware/abort/HIL in WO-10; staged flights in WO-11.
   Finless negative margin and loss of TVC at burnout require a qualified recovery
   transition. RL is committed, with honest negative comparisons retained.
-- Full dependency lock/fresh-install evidence remains pending network access.
+- Full dependency lock and fresh Mac/full-stack install evidence remain pending.
+  Hosted CPU CI installs WO-01/reference pins on clean Linux; results are on PR #1.
   No dependency versions were upgraded in this rebaseline.
 - Private GitHub repository `kudratsingh/rocket-twin` confirmed. Connector write access
   works; the full project is published on `wo-01-modular-platform` in

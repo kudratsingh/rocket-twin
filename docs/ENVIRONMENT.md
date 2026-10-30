@@ -7,8 +7,10 @@ ruff 0.16.3, black 26.5.1 and mypy 2.3.0. Python itself is installed separately.
 
 Initial setup could not reach PyPI due to shell DNS restrictions. Local Python 3.11
 packages were copied into this repository's `.venv` for checks; no packages in other
-projects were changed. A complete `uv.lock` and a fresh-install verification remain
-pending. Use `make setup` on a network-enabled machine for the minimal WO-01 setup;
+projects were changed. A complete `uv.lock` and fresh Mac/full-stack install
+verification remain pending. The private GitHub CPU workflow now installs the
+WO-01 pins plus RocketPy 1.13.0/SciPy 1.17.1 on a clean Linux runner; its hosted
+check results are linked from PR #1. Use `make setup` on a network-enabled machine for the minimal WO-01 setup;
 use `make check smoke tiny` in the existing local environment. The owner subsequently
 installed RocketPy 1.13.0 (`make setup-reference`), and the static reference comparison
 has passed. SciPy resolved to 1.17.1. CAD, JAX, web and firmware remain untested;
