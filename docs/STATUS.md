@@ -4,11 +4,25 @@ Updated: 2026-10-29 (run IDs use UTC)
 
 ## Current work order
 
+**WO-02 in progress**, explicitly authorized by the owner. Both custom-build /
+maximum practical conventional performance and committed PID-to-RL objectives
+remain active. Branch `wo-02-sim`: pure JAX 6-DOF core, source-based depletion, full
+variable inertia, actual aerodynamic surfaces, guide constraint, servo/sensor
+models and recovery event scaffolding are implemented. Known-answer tests cover
+frames/TVC, depletion, free fall, delay/limits/noise and a 4,096-environment step.
+Local JAX execution awaits the requested CPU dependency install; PyPI DNS fails
+here. Existing 53 WO-01 tests still pass. No WO-02 completion is claimed yet.
+
+Follow-up in this WO: independent actual-mode RocketPy trajectory comparison,
+G80/G54/G33/fixed-G12 delivered-performance trade, uncertainty/wind/recovery timing,
+telemetry and benchmark records. No controllers, physical work or paid runs.
+
+### Completed prior milestone
+
 **WO-01 rebaseline complete at preliminary numerical-model scope.** The revised
 benchmark passes for performance, finned TVC and finless TVC; `make check smoke tiny
 benchmark` passes with 53 tests. Evidence: `runs/wo01-platform-20261030T022439939715Z/record.json`.
-No later work-order implementation has started. Next queued: WO-02 actual-mode
-JAX flight/reference validation, within its separately applicable scope.
+WO-02 is now authorized and active; this evidence remains the completed WO-01 baseline.
 
 Core objectives: meaningful custom fabrication/integration, maximum practical
 no-HPR performance, and committed PID-to-RL training/embedded/real-flight comparison.

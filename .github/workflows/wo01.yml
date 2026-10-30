@@ -1,4 +1,4 @@
-name: WO-01 checks
+name: CPU checks
 on:
   push:
     branches: [main]
@@ -15,10 +15,12 @@ jobs:
         with:
           python-version: '3.11'
           cache: pip
-          cache-dependency-path: requirements-wo01.txt
-      - name: Install WO-01 and independent reference
+          cache-dependency-path: |
+            requirements-wo01.txt
+            requirements-wo02.txt
+      - name: Install WO-01/02 and independent reference
         run: |
           python -m venv .venv
-          .venv/bin/python -m pip install -r requirements-wo01.txt rocketpy==1.13.0 scipy==1.17.1
+          .venv/bin/python -m pip install -r requirements-wo02.txt
       - name: Check, test and compare all modes
         run: make check smoke tiny benchmark

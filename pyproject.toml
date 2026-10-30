@@ -7,8 +7,8 @@ dependencies = [
   "numpy==2.4.6",
   "pyyaml==6.0.3",
   "pydantic==2.13.4",
-  "jax",                      # pin exact in WO-02; jax[cuda12] under the gpu extra
-  "pyarrow",
+  "jax==0.4.38",               # WO-02 CPU line; matched jaxlib in requirements-wo02.txt
+  "pyarrow==23.0.1",
   "tqdm",
 ]
 
@@ -30,8 +30,8 @@ gnc = [
   "clarabel",
 ]
 gpu = [
-  "jax[cuda12]",
-  "pyarrow",
+  "jax[cuda12]==0.4.38",
+  "pyarrow==23.0.1",
   "huggingface_hub",
 ]
 dev = ["pytest", "ruff", "black", "mypy", "types-PyYAML"]
@@ -56,4 +56,8 @@ ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
 module = "rocketpy"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["pyarrow", "pyarrow.*"]
 ignore_missing_imports = true

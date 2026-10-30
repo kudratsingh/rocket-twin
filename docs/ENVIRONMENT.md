@@ -23,7 +23,7 @@ later work orders resolve their pins. Matplotlib's cache is kept in ignored
 |---|---|---|
 | Python | 3.11.x | CadQuery/OCP 8.x needs ≥ 3.11; JAX, RocketPy, cvxpy all fine on 3.11 |
 | uv | record exact | Full lock pending network-enabled resolution |
-| JAX / jaxlib | 0.4.x line (record exact); CPU on Mac, `jax[cuda12]` on the GPU box | Physics core + PPO (ADR-0001) |
+| JAX / jaxlib | 0.4.38 / 0.4.38; CPU for WO-02; CUDA extra only on approved GPU runs | Physics core + PPO (ADR-0001) |
 | NumPy | 2.4.6 | RocketPy ≥ 1.4 supports NumPy 2 |
 | RocketPy | 1.13.0 (installed and tested) | Reference for mass/CG/CP and unguided flight validation |
 | CadQuery | latest release with OCP 7.9/8.x (record exact) | Parametric parts; `cadquery-ocp` wheel |
@@ -31,7 +31,7 @@ later work orders resolve their pins. Matplotlib's cache is kept in ignored
 | pydantic | 2.13.4 | Vehicle spec schema and validation |
 | cvxpy + Clarabel | record exact | G-FOLD convex solve (ADR-0004) |
 | FastAPI + uvicorn | record exact | API |
-| pyarrow | record exact | Parquet telemetry |
+| pyarrow | 23.0.1 | Parquet telemetry |
 | Node | 22 LTS | Frontend |
 | Vite / React / TypeScript | record exact | Frontend |
 | three / @react-three/fiber / @react-three/drei | record exact | 3D viewer |
@@ -129,3 +129,12 @@ uv run scripts/wo07_rl.py --preset tiny           # CPU smoke before any GPU tim
 model gates. `scripts/wo01_vehicle.py` and the old motor-study targets preserve the
 historical F15/three-second/TWR-3 studies; their selection gates are not the active
 platform benchmark. No dependency upgrade or new paid environment is implied.
+
+## WO-02 CPU environment
+
+`make setup-sim` installs `requirements-wo02.txt`: JAX/jaxlib 0.4.38 (the planned
+0.4 line), PyArrow 23.0.1, existing RocketPy/SciPy pins and WO-01 requirements.
+Physics comparison uses float64; embedded policies remain float32. No GPU or paid
+run is needed. Host PyPI DNS is restricted; the owner was given the terminal install
+command. Local JAX validation is pending that installation; hosted CI installs the
+same pins on clean Linux. Full project lock/CAD/web stacks remain separate.

@@ -26,7 +26,7 @@ def fin_geometries(vehicle: Vehicle) -> list[dict[str, float]]:
     return sets
 
 
-def center_of_pressure(vehicle: Vehicle) -> float:
+def normal_force_surfaces(vehicle: Vehicle) -> list[tuple[float, float]]:
     radius = vehicle.airframe["body_diameter_m"] / 2
     forces: list[tuple[float, float]] = []
     for part in vehicle.parts:
@@ -54,6 +54,11 @@ def center_of_pressure(vehicle: Vehicle) -> float:
         cp = sweep / 3 * (root + 2 * tip) / (root + tip)
         cp += (root + tip - root * tip / (root + tip)) / 6
         forces.append((slope, stubs["position_m"] + cp))
+    return forces
+
+
+def center_of_pressure(vehicle: Vehicle) -> float:
+    forces = normal_force_surfaces(vehicle)
     denominator = sum(s for s, _ in forces)
     if abs(denominator) < 1e-12:
         raise ValueError("CP undefined for zero normal-force slope")
