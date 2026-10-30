@@ -495,6 +495,12 @@ The thinner proposal and old curve files remain unchanged. No purchase, physical
 work, paid run or flight authorization was exercised. GitHub pushes/PRs are now
 separately authorized and ordinary owner review is not a development gate.
 
+Initial hosted CI exposed text-upload newline normalization in three archived
+curves (F10, F15, newer G25). Their local originals/hashes were unchanged; restored
+raw bytes to GitHub via base64 blobs and added `*.eng -text` to `.gitattributes`.
+The provenance test caught the publication fault; no curve values or hashes were
+adjusted to force a pass. Hosted validation evidence is linked on the PR.
+
 Publication: [private repository WO-01 PR #1](https://github.com/kudratsingh/rocket-twin/pull/1).
 Local validation is recorded above; hosted check/merge status is shown on the PR.
 

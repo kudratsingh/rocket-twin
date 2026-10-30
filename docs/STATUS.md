@@ -47,6 +47,9 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
   development. Initial feature commit: `6eaa665b98d3d27b2e8386db5d9c4eb9f5887fd1`.
   GitHub CPU CI and merge status are available on the PR; the local benchmark above
   is independent evidence. Keep the repository private until owner direction changes.
+- Initial hosted CI caught line-ending normalization in three archived `.eng` uploads.
+  Restore original bytes through base64 Git blobs and protect `*.eng -text` in
+  `.gitattributes`; do not rewrite provenance hashes. Final hosted result is on PR #1.
 - No purchases, physical work or paid runs. No routine PR review requested; explicit
   WO-10 owner review and repository protections remain (`AGENTS.md`).
 
