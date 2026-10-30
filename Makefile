@@ -5,6 +5,9 @@ export UV_CACHE_DIR MPLCONFIGDIR
 
 .PHONY: setup setup-reference check smoke tiny benchmark fetch-motors motor-study fetch-motor-study-sources f22-study fetch-f22-sources g-impulse-study
 
+setup-sim: ## Install pinned WO-02 CPU/reference/telemetry dependencies.
+	uv pip install --python $(PYTHON) -r requirements-wo02.txt
+
 setup: ## Install the implemented WO-01 CPU environment (requires network).
 	uv venv --python 3.11 --allow-existing
 	uv pip install --python $(PYTHON) -r requirements-wo01.txt

@@ -2,7 +2,7 @@
 
 Read `CLAUDE.md`, then `docs/PLAN.md`, `docs/ENVIRONMENT.md`, and the current
 work order named in `docs/STATUS.md`. Follow their work order sequence and
-validation benchmarks. The project is currently in WO-01; advance only when
+validation benchmarks. The project is currently in WO-02; advance only when
 its stage-appropriate benchmark is met and recorded.
 
 ## Git workflow and autonomy
