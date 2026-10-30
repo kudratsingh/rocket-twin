@@ -34,7 +34,21 @@ def prepare(vehicle: Vehicle, case: dict[str, Any]) -> Params:
     dt = float(case.get("dt_s", 0.005))
     if not 0.001 <= dt <= 0.01:
         raise ValueError("physics dt must be in [0.001, 0.01] seconds")
-    curve = load_rasp(vehicle.motor.curve)
+    curve_path = Path(vehicle.motor.curve)
+    metadata = yaml.safe_load(curve_path.with_suffix(".yaml").read_text())
+    if (
+        metadata.get("review_status") != "preliminary_numerical_hypothesis"
+        or metadata.get("sha256") != hashlib.sha256(curve_path.read_bytes()).hexdigest()
+    ):
+        raise ValueError(
+            "flight requires a reviewed numerical source hypothesis; quarantined/tampered data refused"
+        )
+    curve = load_rasp(curve_path)
+    for key in ("thrust_scale", "drag_scale", "time_scale"):
+        if float(case.get(key, 1)) <= 0:
+            raise ValueError("flight scales must be positive")
+    if float(case.get("rail_friction_n", 0)) < 0:
+        raise ValueError("guide friction must be nonnegative")
     if len(curve.samples) > 128:
         raise ValueError("curve exceeds fixed input size; increase bound explicitly")
     expected = [
@@ -61,6 +75,11 @@ def prepare(vehicle: Vehicle, case: dict[str, Any]) -> Params:
     moment = own.mass_kg * cg + growth * np.array([-station, 0, 0])
     origin += growth * cross(np.array([-station, 0, 0]))
     part = next(p for p in vehicle.parts if p.type == "motor")
+    if not np.allclose(
+        [part.geometry["length_m"], 2 * part.geometry["radius_m"]],
+        [curve.length_m, curve.diameter_m],
+    ):
+        raise ValueError("motor installed dimensions disagree with source hypothesis")
     prop_position = np.array([-part.cg_station_m, *part.lateral_offset_m])
     prop_inertia = shape_properties("motor", part.geometry).inertia_per_kg_m2 + cross(prop_position)
     surfaces = np.array(normal_force_surfaces(vehicle))

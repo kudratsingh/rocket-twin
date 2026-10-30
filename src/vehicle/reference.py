@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+from numpy.typing import NDArray
 
 from src.vehicle.aero import center_of_pressure, fin_geometries
 from src.vehicle.mass import mass_properties
@@ -97,7 +98,7 @@ def build_reference(
         ]
         if not np.allclose(actual, expected, rtol=1e-6, atol=1e-9):
             raise ValueError("motor curve dimensions, masses or burn time disagree with the spec")
-        thrust_source: str | float = motor.curve
+        thrust_source: NDArray[np.float64] | float = curve.samples
         mode = "source curve; static endpoints only"
     else:
         thrust_source = motor.average_thrust_n

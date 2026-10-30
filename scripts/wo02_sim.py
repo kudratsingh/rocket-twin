@@ -99,6 +99,13 @@ def metrics(final: Any, rows: Any, p: Any) -> dict[str, Any]:
     }
 
 
+def code_digest() -> str:
+    return hashlib.sha256(
+        b"".join(p.read_bytes() for p in sorted(Path("src").rglob("*.py")))
+        + Path(__file__).read_bytes()
+    ).hexdigest()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path("configs/wo02.yaml"))
@@ -111,6 +118,7 @@ def main() -> int:
     parser.add_argument("--summary-only", action="store_true")
     args = parser.parse_args()
     start = time.perf_counter()
+    initial_code_sha = code_digest()
     settings = yaml.safe_load(args.config.read_text())
     if args.batch <= 0:
         parser.error("batch must be positive")
@@ -122,6 +130,12 @@ def main() -> int:
     paths = settings["vehicles"] + (settings["alternatives"] if args.study else [])
     rows = []
     hashes = {str(args.config): hashlib.sha256(args.config.read_bytes()).hexdigest()}
+    for input_config in paths:
+        input_vehicle = load_vehicle(input_config)
+        for input_path in vehicle_input_paths(input_config):
+            hashes[str(input_path)] = hashlib.sha256(input_path.read_bytes()).hexdigest()
+        hashes.update(source_hashes(input_vehicle))
+    initial_input_hashes = dict(hashes)
     for config in paths:
         vehicle = load_vehicle(config)
         assert vehicle.motor and vehicle.design
@@ -136,6 +150,9 @@ def main() -> int:
         final, telemetry = env.rollout(p, key, steps=round(horizon / dt))
         final.rigid.block_until_ready()
         result = metrics(final, telemetry, p)
+        result["motor_delay_probes"] = (
+            None  # Separate no-canopy probes below are the motor-delay study.
+        )
         reference = reference_flight(vehicle, case) if args.compare else None
         deltas = (
             {
@@ -223,6 +240,7 @@ def main() -> int:
                 f, t = env.rollout(params, key, steps=round(horizon / dt))
                 f.rigid.block_until_ready()
                 m = metrics(f, t, params)
+                m["motor_delay_probes"] = None
                 rows.append(
                     {
                         "vehicle": vehicle.id,
@@ -249,6 +267,11 @@ def main() -> int:
     batch.rigid.block_until_ready()
     elapsed = time.perf_counter() - timed
     checks = {
+        "code_and_inputs_unchanged_during_run": initial_code_sha == code_digest()
+        and all(
+            hashlib.sha256(Path(path).read_bytes()).hexdigest() == digest
+            for path, digest in initial_input_hashes.items()
+        ),
         "actual_mode_reference_comparisons": all(
             r["reference_benchmark_passed"] for r in rows if "reference_benchmark_passed" in r
         ),
@@ -272,11 +295,8 @@ def main() -> int:
         "flight_ready": False,
         "cost_usd": 0,
         "elapsed_s": time.perf_counter() - start,
-        "input_sha256": hashes,
-        "code_sha256": hashlib.sha256(
-            b"".join(p.read_bytes() for p in sorted(Path("src").rglob("*.py")))
-            + Path(__file__).read_bytes()
-        ).hexdigest(),
+        "input_sha256": initial_input_hashes,
+        "code_sha256": initial_code_sha,
         "batch": {
             "environments": args.batch,
             "seconds_after_compile": elapsed,
