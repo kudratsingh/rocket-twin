@@ -1,0 +1,101 @@
+{
+  "acceptance": "open",
+  "acceptance_passed": false,
+  "active_adoption": false,
+  "continuous_full_mechanism_verified": false,
+  "cost_usd": 0,
+  "engineering_inputs_sha256": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+  "flight_ready": false,
+  "input_sha256_after": {
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-tolerances.yaml": "5fe81b91bfbe1cf5f4fa1eb33c98745cd61fe0d52e4b591decd6100a779f47eb",
+    "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+    "configs/vehicle/platform/performance.yaml": "2e87ef4720a620c5698c117a588f2e2d0bedade83548f189d8fb32422feb633d",
+    "configs/vehicle/platform/tvc-finless.yaml": "f96f62f29a7a6edd372017786456561807bf259b883f5b91f4cee7f09187f570",
+    "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+    "configs/vehicle/wo02/performance-g54.yaml": "e21f59e22a2b1cae7826097e303378d6901d94caf1ead9614b4590bf5709400b",
+    "runs/wo03-thermal-20261030T204848956297Z/record.json": "0dad0d6de8433a81978fa6d4ca5c66789b54ba09ad867f971dea9ae8964c43ab",
+    "scripts/wo03_tolerances.py": "4c5643f51dd2abd3f19eeeac52f294da05ac12685ddc549a43b932197a981cbf",
+    "src/analysis/tolerances.py": "24d70fbb10e3578126bea36ada2ef52f6cd5e1736997f42adceb6e1505f43c5e",
+    "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+    "src/cad/verification.py": "7d2be409ff4a07ee5af8d4e01a811adb51ea95c340bbeca36e0c6a83152c445e"
+  },
+  "input_sha256_before": {
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-tolerances.yaml": "5fe81b91bfbe1cf5f4fa1eb33c98745cd61fe0d52e4b591decd6100a779f47eb",
+    "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+    "configs/vehicle/platform/performance.yaml": "2e87ef4720a620c5698c117a588f2e2d0bedade83548f189d8fb32422feb633d",
+    "configs/vehicle/platform/tvc-finless.yaml": "f96f62f29a7a6edd372017786456561807bf259b883f5b91f4cee7f09187f570",
+    "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+    "configs/vehicle/wo02/performance-g54.yaml": "e21f59e22a2b1cae7826097e303378d6901d94caf1ead9614b4590bf5709400b",
+    "runs/wo03-thermal-20261030T204848956297Z/record.json": "0dad0d6de8433a81978fa6d4ca5c66789b54ba09ad867f971dea9ae8964c43ab",
+    "scripts/wo03_tolerances.py": "4c5643f51dd2abd3f19eeeac52f294da05ac12685ddc549a43b932197a981cbf",
+    "src/analysis/tolerances.py": "24d70fbb10e3578126bea36ada2ef52f6cd5e1736997f42adceb6e1505f43c5e",
+    "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+    "src/cad/verification.py": "7d2be409ff4a07ee5af8d4e01a811adb51ea95c340bbeca36e0c6a83152c445e"
+  },
+  "inputs_unchanged": true,
+  "physical_fit_verified": false,
+  "run_id": "wo03-tolerances-20261030T205656390867Z",
+  "study_config_sha256": "5fe81b91bfbe1cf5f4fa1eb33c98745cd61fe0d52e4b591decd6100a779f47eb",
+  "thermal_evidence_sha256": "0dad0d6de8433a81978fa6d4ca5c66789b54ba09ad867f971dea9ae8964c43ab",
+  "vehicles": [
+    {
+      "acceptance": "open",
+      "acceptance_passed": false,
+      "configuration_id": "G80",
+      "critical_unknowns": [
+        "Exact purchased motor-case OD tolerance unavailable.",
+        "Actual assembled concentricity and thermal component histories are unmeasured."
+      ],
+      "report": "build/modular-performance-v1/tolerances.json",
+      "report_sha256": "e8acd82114ae90df4f44440a9e3e55b477e9c72e360d21897aa1dbe4bfc694ed",
+      "resolved_spec_sha256": "c5eab65c97604f6bf6605bf2dff6369c48a62e3d04c808e7ba291489d762ab09",
+      "vehicle_id": "modular-performance-v1"
+    },
+    {
+      "acceptance": "open",
+      "acceptance_passed": false,
+      "configuration_id": "G54",
+      "critical_unknowns": [
+        "Exact purchased motor-case OD tolerance unavailable.",
+        "Actual assembled concentricity and thermal component histories are unmeasured."
+      ],
+      "report": "build/modular-performance-g54-hypothesis/tolerances.json",
+      "report_sha256": "8c79702c3a2cc4679ab6d3dc55a9e9784116a26717ba378c24f37df77b052315",
+      "resolved_spec_sha256": "8bde337b7e93268e96c42299f66271a8b6229ec6071430405063aedc8f9cd1f5",
+      "vehicle_id": "modular-performance-g54-hypothesis"
+    },
+    {
+      "acceptance": "open",
+      "acceptance_passed": false,
+      "configuration_id": "G12-F",
+      "critical_unknowns": [
+        "Exact purchased motor-case OD tolerance unavailable.",
+        "Actual assembled concentricity and thermal component histories are unmeasured.",
+        "Pivot bearing-hole dimensions are not spec-owned.",
+        "Servo spline/rod-end geometry and full mechanism/wiring envelopes are unavailable."
+      ],
+      "report": "build/modular-tvc-finned-v1/tolerances.json",
+      "report_sha256": "0ca976ff8c5865b33190632c77582ec14ec5e7fceec3d6529cff99adff52c54a",
+      "resolved_spec_sha256": "9abb673ce19bed6cc6f892ea4035aadb29113f176ca6d8495b92bc641529b5f2",
+      "vehicle_id": "modular-tvc-finned-v1"
+    },
+    {
+      "acceptance": "open",
+      "acceptance_passed": false,
+      "configuration_id": "G12-L",
+      "critical_unknowns": [
+        "Exact purchased motor-case OD tolerance unavailable.",
+        "Actual assembled concentricity and thermal component histories are unmeasured.",
+        "Pivot bearing-hole dimensions are not spec-owned.",
+        "Servo spline/rod-end geometry and full mechanism/wiring envelopes are unavailable."
+      ],
+      "report": "build/modular-tvc-finless-v1/tolerances.json",
+      "report_sha256": "d79521aba21ce6a1bc4d19967759895e8b4a9f51d14a76467da274aabc121327",
+      "resolved_spec_sha256": "9eac232010be1f070edc9a0acf2d0087e96f057096961b63486b485b1c1ab965",
+      "vehicle_id": "modular-tvc-finless-v1"
+    }
+  ],
+  "work_order": "03"
+}

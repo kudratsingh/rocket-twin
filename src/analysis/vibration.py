@@ -33,12 +33,16 @@ def body_modes(
     joint_fraction: float,
 ) -> dict[str, Any]:
     start = vehicle.airframe["nose"]["length_m"]
-    end = vehicle.airframe["length_m"]
     tubes = [
         p
         for p in vehicle.parts
         if p.type == "body_tube" and p.cad_mass and "inner_radius_m" in p.geometry
     ]
+    if not tubes:
+        raise ValueError("Body vibration reduction requires at least one modeled body tube")
+    end = max(p.position_m + p.geometry["length_m"] for p in tubes)
+    if end <= start:
+        raise ValueError("Body tube domain does not extend aft of the nose shoulder")
     points = list(np.linspace(start, end, elements + 1))
     for p in tubes:
         points.extend([p.position_m, p.position_m + p.geometry["length_m"]])
@@ -69,7 +73,7 @@ def body_modes(
             ei[i] *= joint_fraction
     tube_ids = {p.id for p in tubes}
     masses = []
-    overhang = []
+    overhang: list[dict[str, float | str]] = []
     for p in vehicle.parts:
         if p.id in tube_ids:
             continue
@@ -77,19 +81,51 @@ def body_modes(
         inertia = float(p.inertia_per_kg_m2[1, 1]) * p.resolved_mass_kg
         masses.append(PointMass(station, p.resolved_mass_kg, inertia))
         if station != p.cg_station_m:
-            overhang.append((station, p.cg_station_m - station, p.resolved_mass_kg))
+            overhang.append(
+                {
+                    "part_id": p.id,
+                    "clamped_station_m": station,
+                    "cg_station_m": p.cg_station_m,
+                    "lever_m": p.cg_station_m - station,
+                    "mass_kg": p.resolved_mass_kg,
+                }
+            )
     k, m = assemble_free_free_beam(x.tolist(), ei.tolist(), mu.tolist(), masses)
-    for station, lever, mass in overhang:
+    for entry in overhang:
+        station = float(entry["clamped_station_m"])
+        lever = float(entry["lever_m"])
+        mass = float(entry["mass_kg"])
         node = 0 if station == start else len(x) - 1
         m[2 * node, 2 * node + 1] += mass * lever
         m[2 * node + 1, 2 * node] += mass * lever
         m[2 * node + 1, 2 * node + 1] += mass * lever**2
     values, vectors = eigh(k, m)
-    if values[2] <= 0 or max(abs(values[:2])) > values[2] * 1e-3:
+    if values[2] <= 0:
         raise ValueError("Unexpected rigid modes")
-    frequency = np.sqrt(values[2:8]) / (2 * np.pi)
+    rigid_mode_relative_error = float(max(abs(values[:2])) / values[2])
     translation = np.tile([1.0, 0.0], len(x))
     rotation = np.column_stack((x, np.ones(len(x)))).ravel()
+    stiffness_norm = float(np.linalg.norm(k, ord=np.inf))
+    mass_norm = float(np.linalg.norm(m, ord=np.inf))
+
+    def null_residual(shape: np.ndarray) -> float:
+        denominator = stiffness_norm * float(np.linalg.norm(shape))
+        return float(np.linalg.norm(k @ shape) / max(denominator, np.finfo(float).tiny))
+
+    translation_residual = null_residual(translation)
+    rotation_residual = null_residual(rotation)
+    rigid_invariant_tolerance = 1e-9
+    if max(translation_residual, rotation_residual) > rigid_invariant_tolerance:
+        raise ValueError("Free-free rigid translations/rotation are not in the stiffness nullspace")
+    elastic_residuals = []
+    for mode_index in range(2, min(8, len(values))):
+        mode = vectors[:, mode_index]
+        residual = k @ mode - values[mode_index] * (m @ mode)
+        scale = (stiffness_norm + abs(float(values[mode_index])) * mass_norm) * float(
+            np.linalg.norm(mode)
+        )
+        elastic_residuals.append(float(np.linalg.norm(residual) / max(scale, np.finfo(float).tiny)))
+    frequency = np.sqrt(values[2:8]) / (2 * np.pi)
     total = float(translation @ m @ translation)
     cg = float(translation @ m @ rotation / total)
     actual = mass_properties(vehicle)
@@ -99,6 +135,13 @@ def body_modes(
     return {
         "elements": len(x) - 1,
         "requested_elements": elements,
+        "beam_domain_start_m": start,
+        "beam_domain_end_m": end,
+        "vehicle_overall_length_m": vehicle.airframe["length_m"],
+        "body_tube_domain_end_m": end,
+        "overhang_mass_kg": float(sum(float(entry["mass_kg"]) for entry in overhang)),
+        "overhang_mass_attachments": overhang,
+        "beam_reduction_limit": "Euler-Bernoulli body beam spans only actual body-tube material; all component CGs outside that domain are clamped to the nearest tube endpoint and their measured station offset is retained as a rigid mass lever. No 1D beam stiffness is extrapolated into open aft extensions.",
         "stiffness_fraction": stiffness_fraction,
         "joint_stiffness_fraction": joint_fraction,
         "frequencies_hz": frequency.tolist(),
@@ -110,7 +153,20 @@ def body_modes(
         "modal_rigid_cg_station_m": cg,
         "cad_cg_station_m": actual.cg_m,
         "cg_reduction_error_m": cg - actual.cg_m,
+        "mass_cg_check_tolerances": {"mass_abs_kg": 1e-8, "cg_abs_m": 1e-5},
+        "mass_cg_reduction_check_passed": abs(total - actual.mass_kg) < 1e-8
+        and abs(cg - actual.cg_m) < 1e-5,
         "rigid_eigenvalues": values[:2].tolist(),
+        "rigid_mode_relative_error": rigid_mode_relative_error,
+        "rigid_mode_eigenvalue_ratio_is_diagnostic_only": True,
+        "rigid_invariant_residuals": {
+            "translation_relative_stiffness_residual": translation_residual,
+            "physical_rotation_relative_stiffness_residual": rotation_residual,
+            "relative_tolerance": rigid_invariant_tolerance,
+            "passed": max(translation_residual, rotation_residual) <= rigid_invariant_tolerance,
+        },
+        "elastic_eigenpair_relative_residuals": elastic_residuals,
+        "elastic_eigenpair_max_relative_residual": max(elastic_residuals, default=0.0),
         "validity": "Free-flight 1D bending reduction, averaged tube section stiffness; bonded parallel sections and uncertain joint reduction. No torsion, guide-contact, local bearing, aeroelastic or closed-loop qualification.",
     }
 
@@ -160,11 +216,26 @@ def flutter_screen(vehicle: Vehicle, cfg: dict[str, Any]) -> dict[str, Any]:
                 "ratio_to_speed_bound": speed / vib["speed_envelope_mps"],
             }
         )
+    validity_failures = [
+        "Effective installed torsion/root stiffness is unmeasured; homogeneous rectangular-section approximation only.",
+        "No stall, body-pitch/fin-bending, gimbal/control or local panel coupling model is qualified.",
+        "Current reconciled flight envelopes and damping/excitation measurements remain required.",
+    ]
+    rectangular_unswept = bool(
+        np.isclose(root, tip, rtol=0, atol=1e-12)
+        and np.isclose(g.get("sweep_m", 0.0), 0.0, rtol=0, atol=1e-12)
+    )
+    if not rectangular_unswept:
+        validity_failures.insert(
+            0,
+            "The source constant-thickness-ratio assumption is not met by this fin planform.",
+        )
     return {
         "applicable": True,
         "source": "https://ntrs.nasa.gov/api/citations/19930085030/downloads/19930085030.pdf Eq12/18",
         "geometry": g,
         "panel_aspect_ratio": aspect,
+        "rectangular_unswept_planform": rectangular_unswept,
         "flat_plate_torsion_J_m4": j,
         "coefficient_pa": coefficient,
         "speed_envelope_mps": vib["speed_envelope_mps"],
@@ -176,12 +247,7 @@ def flutter_screen(vehicle: Vehicle, cfg: dict[str, Any]) -> dict[str, Any]:
         ],
         "minimum_speed_ratio": min(r["ratio_to_speed_bound"] for r in rows),
         "quantitative_flutter_acceptance_passed": False,
-        "validity_failures": [
-            "Constant thickness tapered plate does not have the source constant thickness ratio.",
-            "Effective installed torsion/root stiffness is unmeasured; homogeneous rectangular-section approximation only.",
-            "No stall, body-pitch/fin-bending, gimbal/control or local panel coupling model is qualified.",
-            "Current reconciled flight envelopes and damping/excitation measurements remain required.",
-        ],
+        "validity_failures": validity_failures,
     }
 
 

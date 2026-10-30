@@ -1,0 +1,1474 @@
+{
+  "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+  "work_order": "03",
+  "record_kind": "Compact projection of original offline analysis reports; no new solve or acceptance decision.",
+  "projection_script_sha256": "5167d6f37494ec449569eb51a3aa5f920fe3ad7a0e05feca540d70e945959c76",
+  "reports": [
+    {
+      "original_report": "build/wo03-fin-nominal-fields/modular-performance-v1/wo03-fin-nominal-fields-20261030T210337367164Z/report.json",
+      "original_report_sha256": "36e588529fd7f3cb9e49046cd04b199543aa37ec6a5d2a03c502dcd3b0eae87d",
+      "summary": {
+        "acceptance": "open",
+        "acceptance_passed": false,
+        "actual_fin_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+        "analysis_record": {
+          "cases": {
+            "single-fin-static": {
+              "boundary": "Ideal clamp at the fin root/tab; one S6 shell midsurface instance.",
+              "field_resolution": "node displacement and element integration-point component maximum",
+              "kind": "static_structural_shell",
+              "solver": "CalculiX",
+              "source_report": {
+                "applied_support_cload_n": 0.12770504403330232,
+                "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+                "compliance_positive_definite": true,
+                "density_kg_m3": 715.0,
+                "elements": 5327,
+                "equilibrium_error_n": 1.715370956389961e-07,
+                "flight_ready": false,
+                "force_n": 49.8071294055704,
+                "frequencies_hz": [
+                  418.7334,
+                  497.8384,
+                  994.12,
+                  1832.446,
+                  2123.707,
+                  2259.106
+                ],
+                "gmsh": "4.15.2",
+                "input_sha256": "bea508239396bcdcc59e3daa5fb683baec2be229dd9bbc7a6636d9a243382741",
+                "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+                "material_model": "orthotropic engineering constants",
+                "max_displacement_m": 0.0002896694,
+                "mesh_sha256": "b72aa599436d97af64294da4826d23188075b95770a95a2a067a60f91b7690bc",
+                "nodes": 10832,
+                "orthotropic_engineering_constants": {
+                  "E1_pa": 2000000000.0,
+                  "E2_pa": 2000000000.0,
+                  "E3_pa": 500000000.0,
+                  "G12_pa": 200000000.0,
+                  "G13_pa": 200000000.0,
+                  "G23_pa": 200000000.0,
+                  "nu12": 0.2,
+                  "nu13": 0.2,
+                  "nu23": 0.2
+                },
+                "part_id": "fin_set",
+                "part_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+                "regional_abs_sxx_pa": 1154969.0,
+                "regional_abs_syy_pa": 1216.5520000000001,
+                "regional_abs_tau_xy_pa": 2617.697,
+                "regional_exclusion_span_mm": 12.7,
+                "regional_stress_by_actual_thickness_mm": {
+                  "omitted_from_compact_record": true,
+                  "entries": 436,
+                  "canonical_json_sha256": "02b8a7c5563bfe8825ea5e03d9e430eebc6f385fdae7829453d81466cf64e084",
+                  "availability": "Complete diagnostic retained in original report."
+                },
+                "regional_von_mises_pa": 1159798.0082087293,
+                "reported_support_nodal_force_n": -49.67942419,
+                "root_band_corner_edge_lengths_mm": {
+                  "omitted_from_compact_record": true,
+                  "entries": 2,
+                  "canonical_json_sha256": "3f234f9c7162b00c66ddccc41271d30ebe3c6a1b13cb01d13664a1ef8b4547c9",
+                  "availability": "Complete diagnostic retained in original report."
+                },
+                "root_band_element_count": 3172,
+                "root_band_target_element_size_mm": 1.25,
+                "size_mm": 5.0,
+                "solver_executed": true,
+                "stiffness_fraction": 1.0,
+                "support_reaction_n": -49.807129234033304,
+                "thickness_profile": {
+                  "base_thickness_mm": 6.35,
+                  "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                  "maximum_element_thickness_mm": 11.768126017690783,
+                  "minimum_element_thickness_mm": 6.35,
+                  "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                  "root_gusset_parameters": {
+                    "root_gusset_base_mm": 3.0,
+                    "root_gusset_inset_mm": 1.0,
+                    "root_gusset_span_mm": 12.0
+                  },
+                  "section_bin_mm": 0.01,
+                  "section_count": 436
+                },
+                "youngs_pa": 2000000000.0
+              }
+            }
+          },
+          "coordinate_frame": "CAD_mm_registered_to_viewer_m",
+          "fields": [
+            {
+              "artifact": "fields/fin-displacement-magnitude.json",
+              "artifact_sha256": "1dac2e4a398c685286facf2b7da97f2ecadfb6f6abe8453e3f3efbbcdaf74df6",
+              "association": "node",
+              "case_id": "single-fin-static",
+              "component": "displacement magnitude at S6 mesh nodes",
+              "coverage_notes": "Node displacement magnitude is a solver result on the explicit shell midsurface mesh.",
+              "evidence": {
+                "assumptions": [
+                  "Ideal root clamp and tab restraint are model boundary conditions, not a qualified bond or joint.",
+                  "Estimated material properties use an isotropic weak-direction surrogate for this screen.",
+                  "Mesh refinement is a separate numerical convergence check and does not establish physical validation.",
+                  "Numerical verification flags do not establish physical material, joint, or hardware validation."
+                ],
+                "known_case_verified": false,
+                "limits": [
+                  "One fin instance only; no copying of the result to the other fins.",
+                  "S6 shell midsurface values; shell normals and physical faces are not direct CAD vertices.",
+                  "Stress xx is a component diagnostic only; no orthotropic failure criterion, margin, or safety pass is calculated."
+                ],
+                "mesh_converged": false,
+                "provenance": "calculated",
+                "report": "embedded in single-fin-static case metadata",
+                "required_physical_tests": [
+                  "Hot material and root-joint coupons",
+                  "Root attachment proof test",
+                  "Assembled modal and vibration tests"
+                ],
+                "sources": [
+                  "CalculiX fin screen",
+                  "Resolved vehicle fin_set specification"
+                ],
+                "uncertainty": "Estimated material and idealized root boundary; mesh convergence status is recorded separately from physical validity.",
+                "validation": "unvalidated"
+              },
+              "id": "fin-displacement-magnitude",
+              "margin_definition": null,
+              "mesh_sha256": "b134f7fda35b22f183e2eec3567961ad004f944a25973905dbdc0eb3e5a04735",
+              "part_ids": [
+                "fin_set"
+              ],
+              "quantity": "displacement",
+              "registration": {
+                "matrix": [
+                  [
+                    0.001,
+                    0.0,
+                    0.0,
+                    0.033
+                  ],
+                  [
+                    0.0,
+                    -0.001,
+                    0.0,
+                    0.1319999999999999
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -0.001,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "source_frame": "FEM X=span from body tangent; Y=chord aft from fin front; Z=plate normal; mm",
+                "target_frame": "CAD_mm_registered_to_viewer_m",
+                "type": "affine_4x4"
+              },
+              "reported_extrema": {
+                "maximum": 0.0002896694,
+                "minimum": 0.0
+              },
+              "sample_count": 10832,
+              "times_s": null,
+              "unavailable_reason": null,
+              "units": "m"
+            },
+            {
+              "artifact": "fields/fin-spanwise-normal-stress-xx.json",
+              "artifact_sha256": "41cd50292d92ae7d3da7728522f5aa098585d5e2c474a6eba38c24e3ec9e226e",
+              "association": "element",
+              "case_id": "single-fin-static",
+              "component": "maximum absolute spanwise normal stress xx over each element's integration points; component diagnostic, not an orthotropic failure criterion",
+              "coverage_notes": "One scalar per S6 element: maximum absolute xx component across that element's integration points.",
+              "evidence": {
+                "assumptions": [
+                  "Ideal root clamp and tab restraint are model boundary conditions, not a qualified bond or joint.",
+                  "Estimated material properties use an isotropic weak-direction surrogate for this screen.",
+                  "Mesh refinement is a separate numerical convergence check and does not establish physical validation.",
+                  "Numerical verification flags do not establish physical material, joint, or hardware validation."
+                ],
+                "known_case_verified": false,
+                "limits": [
+                  "One fin instance only; no copying of the result to the other fins.",
+                  "S6 shell midsurface values; shell normals and physical faces are not direct CAD vertices.",
+                  "Stress xx is a component diagnostic only; no orthotropic failure criterion, margin, or safety pass is calculated."
+                ],
+                "mesh_converged": false,
+                "provenance": "calculated",
+                "report": "embedded in single-fin-static case metadata",
+                "required_physical_tests": [
+                  "Hot material and root-joint coupons",
+                  "Root attachment proof test",
+                  "Assembled modal and vibration tests"
+                ],
+                "sources": [
+                  "CalculiX fin screen",
+                  "Resolved vehicle fin_set specification"
+                ],
+                "uncertainty": "Estimated material and idealized root boundary; mesh convergence status is recorded separately from physical validity.",
+                "validation": "unvalidated"
+              },
+              "id": "fin-spanwise-normal-stress-xx",
+              "margin_definition": null,
+              "mesh_sha256": "b134f7fda35b22f183e2eec3567961ad004f944a25973905dbdc0eb3e5a04735",
+              "part_ids": [
+                "fin_set"
+              ],
+              "quantity": "stress",
+              "registration": {
+                "matrix": [
+                  [
+                    0.001,
+                    0.0,
+                    0.0,
+                    0.033
+                  ],
+                  [
+                    0.0,
+                    -0.001,
+                    0.0,
+                    0.1319999999999999
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -0.001,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "source_frame": "FEM X=span from body tangent; Y=chord aft from fin front; Z=plate normal; mm",
+                "target_frame": "CAD_mm_registered_to_viewer_m",
+                "type": "affine_4x4"
+              },
+              "reported_extrema": {
+                "maximum": 1157133.0,
+                "minimum": 1.104583e-21
+              },
+              "sample_count": 5327,
+              "times_s": null,
+              "unavailable_reason": null,
+              "units": "Pa"
+            }
+          ],
+          "flight_ready": false,
+          "identity": {
+            "cad_revision_sha256": "66c67d83e4c5f574a835aa868b0c16a46a60992ce3f9a88485c8e2dda590b7a1",
+            "configuration_id": "modular-performance-v1",
+            "part_shape_sha256": {
+              "adhesive_finish": "8aa4da97d9a71a233dae2bfbaa99e9d05ab139d77fe383a5b07b604d46c5f7a0",
+              "aft_interface_hardware": "6b41f677cc4d94654b236d351ea619e115168c0cbe07f5bc88bd48cc415dc31b",
+              "aft_retainer": "69ec53e389d3c56e82bb8c3111c9ea621cfb358c1588d5d75e68f04b63486525",
+              "aft_shell": "ef59f57240f6b42500153aee97ab4a9e0545355b3436d711876b7f8f01622d7e",
+              "aft_thrust_pads": "dabed25f4002ee3bc0a9241ce1259821e6344e6578210d6b0c6d4f74536339e0",
+              "arming_switch": "e878d825039cf961aa15f97364b47a3520919ed4e36e55ddf58b5fa3828efcc5",
+              "avionics_bay": "6dd4a634203e9339ec39fa4c65ff2b49ea538a39060dd8fa19064b510003a2bb",
+              "baro": "0229860f2db2864242e6f4dca5c1ea39046e95d968671bb434c688b21e3a7f09",
+              "battery": "a250594ceac71a7f4ec79bda1f2667d6652f6bab47f34364b16d5a49f707260e",
+              "body_upper": "93b0486eb0d80e26856178bbfb7a4bc8dac57c8a22879bc0158a55d32ed7f8b3",
+              "fin_bonds": "faef13870e18e809aef3eb9e3bde88c19b7bf13224424e2d8896915b1793e1e9",
+              "fin_set": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+              "flight_computer": "97b949bec1953471bb9843d405a31ec0863c21179a7df73898d76cea99bfdc88",
+              "harness": "7b94b6b46b2e504502803cd1fe3cd5df40032f634addf298d6fc4d832c2872de",
+              "high_g_accel": "cafa967bd6e02afe6e68a67804c7cc1797e18cb7b23bc82b84c1c71b7a46555d",
+              "imu": "a422da7464460a59e51e84a2fb0f21647b92925521638b441a8963e5ac175167",
+              "independent_recovery": "d58fa2cfd6002a4d71d334d6c85156ca58d3fb5aa46ed9fcaabbbd2c8fdb9e32",
+              "interface_coupler": "b1058abe58d8d42ccbb7c1085201fcbec9365ba3a7ae403bde78b8f9c77ea25e",
+              "joint_stop": "ba88bf22d7e17beb1ee260ea542bcf6b7d7154e2b834cef949fc172a022abc8f",
+              "micro_sd": "268462b94348bfcf7c2e7a65c044e4bee5a2ec38101aae61073356b41fd327a5",
+              "motor": "5dfe923b8ea712c6eb8c80a60bdeb0ae9815e2e3d42681b5d988c6e8855c59fa",
+              "motor_liner": "bde74e34d07a53f35a5a10219c79941a5e8c6b1c28affb7e7777329a326feb14",
+              "motor_mount": "0c622fe266006413536bb762e89fdce9b7fd167df5afe75f0bb5cd0e97c95466",
+              "motor_radiant_shield": "69118f5d33a30556644eb9a8cb6fce920b150012548d68217b3434a54934cd27",
+              "nose_cone": "c2b8e241c205720ed7a90a100ce8050ff74ef948a0146eef361d022fe4dfdb89",
+              "parachute": "4d0485aa19106262612745d91bb72108c3685c5cd0c6e078aa178058b1e7e3af",
+              "pyro_mosfet": "9743b3d7d242af020428d36696237c5024ae55d3759115427afb86cae20e243b",
+              "rail_guides": "95b0733fdb3fa772681d92c31977b7f1e6ed3aff11ea45944e7c2fa830c25e0f",
+              "recovery_alignment_pins": "d0b2b7d7bc8a9e6fc6199b546c72e12bbe494d65b4f94a0f18979c0fe3e99560",
+              "recovery_anchor": "60a7f117a899d1b1d0d685101b602be8d5400866c539af21dfe7a1485a19be37",
+              "recovery_battery": "24723425b58d07c27981d44da41c3d0c91a853abe0855429648630d03e42e006",
+              "recovery_bulkhead": "2138a4b66ee96a92a00767277fc1d53cabd1b94bef556e5cd9272aae90a341f1",
+              "recovery_mount_carrier": "9a9cef3990be8423ebe600991d9e4a786fe40dbef412e1ff844c4541e3d70272",
+              "recovery_mount_hardware_allowance": "431c8e25a9faf5a646273b54268a2115f42487d4e1e8cbc2e20b95ff31d97ea9",
+              "recovery_output_harness": "2817406494b3fb6e1dcd59bcd9bd8226cf95f5c56a9672692b43126c853695b4",
+              "recovery_power_switch": "e70652c56dd928198b8798aff9f19108e7f0a77d590f459f60e097f5c8f02cc2",
+              "recovery_protection": "144c272720ea04dae028cfa1568bd438dd8a789f99b195ec998f62e611115a7a",
+              "regulator_5v": "5b690b21307b738ff39e5d6d089e7bc348b746c54af36f11181560abe02a31c3",
+              "retention": "a01ab317a2045392edb2ee2523598c4cdb7bc5d78161c5e82b3f9b4f137b270a",
+              "retention_hardware": "54dfa2ae5adb25105451b6149bb4a0ef99204ccd35d512043a3be2a41d07faca",
+              "shock_cord": "62a2fe5a77a245328b4bbcd2e4f31a7edfeef3698ef35b3447306b746fc76c36",
+              "thrust_pads": "dabed25f4002ee3bc0a9241ce1259821e6344e6578210d6b0c6d4f74536339e0"
+            },
+            "resolved_spec_sha256": "c5eab65c97604f6bf6605bf2dff6369c48a62e3d04c808e7ba291489d762ab09"
+          },
+          "input_sha256": {
+            "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+            "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+            "configs/vehicle/platform/performance.yaml": "2e87ef4720a620c5698c117a588f2e2d0bedade83548f189d8fb32422feb633d",
+            "fea/analysis-mesh.json": "b72aa599436d97af64294da4826d23188075b95770a95a2a067a60f91b7690bc",
+            "fea/case.inp": "bea508239396bcdcc59e3daa5fb683baec2be229dd9bbc7a6636d9a243382741",
+            "fea/mode-fields.json": "00e2e34f3a3197a23497cfcc136c0a398b21630b56cff5f75219c5009efe0a40",
+            "fea/report.json": "8f7a4ac385ca16035dff8d60a2684e001f55e017a775c69613ca1ed275dbb10c",
+            "fea/static-fields.json": "46e320e876da36e9edd1f115ec1e52cf39cf9028d2ef217a05d6306af2211b34",
+            "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+            "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+            "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+            "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+            "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+            "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+            "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+            "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+          },
+          "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+          "schema_version": "rocket-twin.analysis.v1",
+          "tools": {
+            "mesh_format": "Gmsh S6",
+            "mesh_tool_version": "4.15.2",
+            "solver": "CalculiX executed; version not inferred if absent from report"
+          }
+        },
+        "analysis_record_export": {
+          "configuration_id": "modular-performance-v1",
+          "coverage": "Registered 2D S6 midsurface mesh, nodal displacement magnitude and element spanwise-stress component only; no CAD faces or attachment stress are fabricated.",
+          "known_case_verified": false,
+          "mesh_converged": false,
+          "part_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+          "physical_validation": "unvalidated",
+          "resolved_spec_sha256": "c5eab65c97604f6bf6605bf2dff6369c48a62e3d04c808e7ba291489d762ab09",
+          "status": "exported exact nominal CAD identity"
+        },
+        "cost_usd": 0,
+        "flight_ready": false,
+        "input_sha256_after": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/platform/performance.yaml": "2e87ef4720a620c5698c117a588f2e2d0bedade83548f189d8fb32422feb633d",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+          "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+        },
+        "input_sha256_before": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/platform/performance.yaml": "2e87ef4720a620c5698c117a588f2e2d0bedade83548f189d8fb32422feb633d",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+          "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+        },
+        "inputs_unchanged": true,
+        "load_case": {
+          "angle_deg": 5.0,
+          "basis": "Independent bounded nominal panel case; not the actual coincident flight force.",
+          "force_per_fin_n": 49.8071294055704,
+          "pressure_pa": 40000.0
+        },
+        "mesh_result": {
+          "applied_support_cload_n": 0.12770504403330232,
+          "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+          "compliance_positive_definite": true,
+          "density_kg_m3": 715.0,
+          "elements": 5327,
+          "equilibrium_error_n": 1.715370956389961e-07,
+          "flight_ready": false,
+          "force_n": 49.8071294055704,
+          "frequencies_hz": [
+            418.7334,
+            497.8384,
+            994.12,
+            1832.446,
+            2123.707,
+            2259.106
+          ],
+          "gmsh": "4.15.2",
+          "input_sha256": "bea508239396bcdcc59e3daa5fb683baec2be229dd9bbc7a6636d9a243382741",
+          "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+          "material_model": "orthotropic engineering constants",
+          "max_displacement_m": 0.0002896694,
+          "mesh_sha256": "b72aa599436d97af64294da4826d23188075b95770a95a2a067a60f91b7690bc",
+          "nodes": 10832,
+          "orthotropic_engineering_constants": {
+            "E1_pa": 2000000000.0,
+            "E2_pa": 2000000000.0,
+            "E3_pa": 500000000.0,
+            "G12_pa": 200000000.0,
+            "G13_pa": 200000000.0,
+            "G23_pa": 200000000.0,
+            "nu12": 0.2,
+            "nu13": 0.2,
+            "nu23": 0.2
+          },
+          "part_id": "fin_set",
+          "part_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+          "regional_abs_sxx_pa": 1154969.0,
+          "regional_abs_syy_pa": 1216.5520000000001,
+          "regional_abs_tau_xy_pa": 2617.697,
+          "regional_exclusion_span_mm": 12.7,
+          "regional_stress_by_actual_thickness_mm": {
+            "omitted_from_compact_record": true,
+            "entries": 436,
+            "canonical_json_sha256": "02b8a7c5563bfe8825ea5e03d9e430eebc6f385fdae7829453d81466cf64e084",
+            "availability": "Complete diagnostic retained in original report."
+          },
+          "regional_von_mises_pa": 1159798.0082087293,
+          "reported_support_nodal_force_n": -49.67942419,
+          "root_band_corner_edge_lengths_mm": {
+            "omitted_from_compact_record": true,
+            "entries": 2,
+            "canonical_json_sha256": "3f234f9c7162b00c66ddccc41271d30ebe3c6a1b13cb01d13664a1ef8b4547c9",
+            "availability": "Complete diagnostic retained in original report."
+          },
+          "root_band_element_count": 3172,
+          "root_band_target_element_size_mm": 1.25,
+          "size_mm": 5.0,
+          "solver_executed": true,
+          "stiffness_fraction": 1.0,
+          "support_reaction_n": -49.807129234033304,
+          "thickness_profile": {
+            "base_thickness_mm": 6.35,
+            "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+            "maximum_element_thickness_mm": 11.768126017690783,
+            "minimum_element_thickness_mm": 6.35,
+            "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+            "root_gusset_parameters": {
+              "root_gusset_base_mm": 3.0,
+              "root_gusset_inset_mm": 1.0,
+              "root_gusset_span_mm": 12.0
+            },
+            "section_bin_mm": 0.01,
+            "section_count": 436
+          },
+          "youngs_pa": 2000000000.0
+        },
+        "mesh_target_mm": 5.0,
+        "nominal_geometry": {
+          "density_kg_m3": 715.0,
+          "material": "plywood",
+          "root_chord_m": 0.12,
+          "span_m": 0.07,
+          "sweep_m": 0.0,
+          "thickness_m": 0.00635,
+          "tip_chord_m": 0.12
+        },
+        "panel_cache": {
+          "checks": {
+            "solver_run_performed_for_this_vehicle": true
+          },
+          "parent_nominal_fea_run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+          "parent_vehicle_id": "modular-performance-v1",
+          "scope": "Reuse covers only the identical local fin panel solver fields; each AnalysisRecord uses this target vehicle's resolved spec and CAD identity."
+        },
+        "resolved_spec_sha256": "c5eab65c97604f6bf6605bf2dff6369c48a62e3d04c808e7ba291489d762ab09",
+        "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+        "source_config": "configs/vehicle/platform/performance.yaml",
+        "vehicle_id": "modular-performance-v1"
+      }
+    },
+    {
+      "original_report": "build/wo03-fin-nominal-fields/modular-performance-g54-hypothesis/wo03-fin-nominal-fields-20261030T210337367164Z/report.json",
+      "original_report_sha256": "01a8fc86ebc3c81b2a07d97b73ef7dc8cf81fe4ce9aecf0324789cdb0ab41814",
+      "summary": {
+        "acceptance": "open",
+        "acceptance_passed": false,
+        "actual_fin_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+        "analysis_record": {
+          "cases": {
+            "single-fin-static": {
+              "boundary": "Ideal clamp at the fin root/tab; one S6 shell midsurface instance.",
+              "field_resolution": "node displacement and element integration-point component maximum",
+              "kind": "static_structural_shell",
+              "solver": "CalculiX",
+              "source_report": {
+                "applied_support_cload_n": 0.12770504403330232,
+                "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+                "compliance_positive_definite": true,
+                "density_kg_m3": 715.0,
+                "elements": 5327,
+                "equilibrium_error_n": 1.715370956389961e-07,
+                "flight_ready": false,
+                "force_n": 49.8071294055704,
+                "frequencies_hz": [
+                  418.7334,
+                  497.8384,
+                  994.12,
+                  1832.446,
+                  2123.707,
+                  2259.106
+                ],
+                "gmsh": "4.15.2",
+                "input_sha256": "bea508239396bcdcc59e3daa5fb683baec2be229dd9bbc7a6636d9a243382741",
+                "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+                "material_model": "orthotropic engineering constants",
+                "max_displacement_m": 0.0002896694,
+                "mesh_sha256": "b72aa599436d97af64294da4826d23188075b95770a95a2a067a60f91b7690bc",
+                "nodes": 10832,
+                "orthotropic_engineering_constants": {
+                  "E1_pa": 2000000000.0,
+                  "E2_pa": 2000000000.0,
+                  "E3_pa": 500000000.0,
+                  "G12_pa": 200000000.0,
+                  "G13_pa": 200000000.0,
+                  "G23_pa": 200000000.0,
+                  "nu12": 0.2,
+                  "nu13": 0.2,
+                  "nu23": 0.2
+                },
+                "part_id": "fin_set",
+                "part_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+                "regional_abs_sxx_pa": 1154969.0,
+                "regional_abs_syy_pa": 1216.5520000000001,
+                "regional_abs_tau_xy_pa": 2617.697,
+                "regional_exclusion_span_mm": 12.7,
+                "regional_stress_by_actual_thickness_mm": {
+                  "omitted_from_compact_record": true,
+                  "entries": 436,
+                  "canonical_json_sha256": "02b8a7c5563bfe8825ea5e03d9e430eebc6f385fdae7829453d81466cf64e084",
+                  "availability": "Complete diagnostic retained in original report."
+                },
+                "regional_von_mises_pa": 1159798.0082087293,
+                "reported_support_nodal_force_n": -49.67942419,
+                "root_band_corner_edge_lengths_mm": {
+                  "omitted_from_compact_record": true,
+                  "entries": 2,
+                  "canonical_json_sha256": "3f234f9c7162b00c66ddccc41271d30ebe3c6a1b13cb01d13664a1ef8b4547c9",
+                  "availability": "Complete diagnostic retained in original report."
+                },
+                "root_band_element_count": 3172,
+                "root_band_target_element_size_mm": 1.25,
+                "size_mm": 5.0,
+                "solver_executed": true,
+                "stiffness_fraction": 1.0,
+                "support_reaction_n": -49.807129234033304,
+                "thickness_profile": {
+                  "base_thickness_mm": 6.35,
+                  "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                  "maximum_element_thickness_mm": 11.768126017690783,
+                  "minimum_element_thickness_mm": 6.35,
+                  "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                  "root_gusset_parameters": {
+                    "root_gusset_base_mm": 3.0,
+                    "root_gusset_inset_mm": 1.0,
+                    "root_gusset_span_mm": 12.0
+                  },
+                  "section_bin_mm": 0.01,
+                  "section_count": 436
+                },
+                "youngs_pa": 2000000000.0
+              }
+            }
+          },
+          "coordinate_frame": "CAD_mm_registered_to_viewer_m",
+          "fields": [
+            {
+              "artifact": "fields/fin-displacement-magnitude.json",
+              "artifact_sha256": "1dac2e4a398c685286facf2b7da97f2ecadfb6f6abe8453e3f3efbbcdaf74df6",
+              "association": "node",
+              "case_id": "single-fin-static",
+              "component": "displacement magnitude at S6 mesh nodes",
+              "coverage_notes": "Node displacement magnitude is a solver result on the explicit shell midsurface mesh.",
+              "evidence": {
+                "assumptions": [
+                  "Ideal root clamp and tab restraint are model boundary conditions, not a qualified bond or joint.",
+                  "Estimated material properties use an isotropic weak-direction surrogate for this screen.",
+                  "Mesh refinement is a separate numerical convergence check and does not establish physical validation.",
+                  "Numerical verification flags do not establish physical material, joint, or hardware validation."
+                ],
+                "known_case_verified": false,
+                "limits": [
+                  "One fin instance only; no copying of the result to the other fins.",
+                  "S6 shell midsurface values; shell normals and physical faces are not direct CAD vertices.",
+                  "Stress xx is a component diagnostic only; no orthotropic failure criterion, margin, or safety pass is calculated."
+                ],
+                "mesh_converged": false,
+                "provenance": "calculated",
+                "report": "embedded in single-fin-static case metadata",
+                "required_physical_tests": [
+                  "Hot material and root-joint coupons",
+                  "Root attachment proof test",
+                  "Assembled modal and vibration tests"
+                ],
+                "sources": [
+                  "CalculiX fin screen",
+                  "Resolved vehicle fin_set specification"
+                ],
+                "uncertainty": "Estimated material and idealized root boundary; mesh convergence status is recorded separately from physical validity.",
+                "validation": "unvalidated"
+              },
+              "id": "fin-displacement-magnitude",
+              "margin_definition": null,
+              "mesh_sha256": "b134f7fda35b22f183e2eec3567961ad004f944a25973905dbdc0eb3e5a04735",
+              "part_ids": [
+                "fin_set"
+              ],
+              "quantity": "displacement",
+              "registration": {
+                "matrix": [
+                  [
+                    0.001,
+                    0.0,
+                    0.0,
+                    0.033
+                  ],
+                  [
+                    0.0,
+                    -0.001,
+                    0.0,
+                    0.1319999999999999
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -0.001,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "source_frame": "FEM X=span from body tangent; Y=chord aft from fin front; Z=plate normal; mm",
+                "target_frame": "CAD_mm_registered_to_viewer_m",
+                "type": "affine_4x4"
+              },
+              "reported_extrema": {
+                "maximum": 0.0002896694,
+                "minimum": 0.0
+              },
+              "sample_count": 10832,
+              "times_s": null,
+              "unavailable_reason": null,
+              "units": "m"
+            },
+            {
+              "artifact": "fields/fin-spanwise-normal-stress-xx.json",
+              "artifact_sha256": "41cd50292d92ae7d3da7728522f5aa098585d5e2c474a6eba38c24e3ec9e226e",
+              "association": "element",
+              "case_id": "single-fin-static",
+              "component": "maximum absolute spanwise normal stress xx over each element's integration points; component diagnostic, not an orthotropic failure criterion",
+              "coverage_notes": "One scalar per S6 element: maximum absolute xx component across that element's integration points.",
+              "evidence": {
+                "assumptions": [
+                  "Ideal root clamp and tab restraint are model boundary conditions, not a qualified bond or joint.",
+                  "Estimated material properties use an isotropic weak-direction surrogate for this screen.",
+                  "Mesh refinement is a separate numerical convergence check and does not establish physical validation.",
+                  "Numerical verification flags do not establish physical material, joint, or hardware validation."
+                ],
+                "known_case_verified": false,
+                "limits": [
+                  "One fin instance only; no copying of the result to the other fins.",
+                  "S6 shell midsurface values; shell normals and physical faces are not direct CAD vertices.",
+                  "Stress xx is a component diagnostic only; no orthotropic failure criterion, margin, or safety pass is calculated."
+                ],
+                "mesh_converged": false,
+                "provenance": "calculated",
+                "report": "embedded in single-fin-static case metadata",
+                "required_physical_tests": [
+                  "Hot material and root-joint coupons",
+                  "Root attachment proof test",
+                  "Assembled modal and vibration tests"
+                ],
+                "sources": [
+                  "CalculiX fin screen",
+                  "Resolved vehicle fin_set specification"
+                ],
+                "uncertainty": "Estimated material and idealized root boundary; mesh convergence status is recorded separately from physical validity.",
+                "validation": "unvalidated"
+              },
+              "id": "fin-spanwise-normal-stress-xx",
+              "margin_definition": null,
+              "mesh_sha256": "b134f7fda35b22f183e2eec3567961ad004f944a25973905dbdc0eb3e5a04735",
+              "part_ids": [
+                "fin_set"
+              ],
+              "quantity": "stress",
+              "registration": {
+                "matrix": [
+                  [
+                    0.001,
+                    0.0,
+                    0.0,
+                    0.033
+                  ],
+                  [
+                    0.0,
+                    -0.001,
+                    0.0,
+                    0.1319999999999999
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -0.001,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "source_frame": "FEM X=span from body tangent; Y=chord aft from fin front; Z=plate normal; mm",
+                "target_frame": "CAD_mm_registered_to_viewer_m",
+                "type": "affine_4x4"
+              },
+              "reported_extrema": {
+                "maximum": 1157133.0,
+                "minimum": 1.104583e-21
+              },
+              "sample_count": 5327,
+              "times_s": null,
+              "unavailable_reason": null,
+              "units": "Pa"
+            }
+          ],
+          "flight_ready": false,
+          "identity": {
+            "cad_revision_sha256": "66c67d83e4c5f574a835aa868b0c16a46a60992ce3f9a88485c8e2dda590b7a1",
+            "configuration_id": "modular-performance-g54-hypothesis",
+            "part_shape_sha256": {
+              "adhesive_finish": "8aa4da97d9a71a233dae2bfbaa99e9d05ab139d77fe383a5b07b604d46c5f7a0",
+              "aft_interface_hardware": "6b41f677cc4d94654b236d351ea619e115168c0cbe07f5bc88bd48cc415dc31b",
+              "aft_retainer": "69ec53e389d3c56e82bb8c3111c9ea621cfb358c1588d5d75e68f04b63486525",
+              "aft_shell": "ef59f57240f6b42500153aee97ab4a9e0545355b3436d711876b7f8f01622d7e",
+              "aft_thrust_pads": "dabed25f4002ee3bc0a9241ce1259821e6344e6578210d6b0c6d4f74536339e0",
+              "arming_switch": "e878d825039cf961aa15f97364b47a3520919ed4e36e55ddf58b5fa3828efcc5",
+              "avionics_bay": "6dd4a634203e9339ec39fa4c65ff2b49ea538a39060dd8fa19064b510003a2bb",
+              "baro": "0229860f2db2864242e6f4dca5c1ea39046e95d968671bb434c688b21e3a7f09",
+              "battery": "a250594ceac71a7f4ec79bda1f2667d6652f6bab47f34364b16d5a49f707260e",
+              "body_upper": "93b0486eb0d80e26856178bbfb7a4bc8dac57c8a22879bc0158a55d32ed7f8b3",
+              "fin_bonds": "faef13870e18e809aef3eb9e3bde88c19b7bf13224424e2d8896915b1793e1e9",
+              "fin_set": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+              "flight_computer": "97b949bec1953471bb9843d405a31ec0863c21179a7df73898d76cea99bfdc88",
+              "harness": "7b94b6b46b2e504502803cd1fe3cd5df40032f634addf298d6fc4d832c2872de",
+              "high_g_accel": "cafa967bd6e02afe6e68a67804c7cc1797e18cb7b23bc82b84c1c71b7a46555d",
+              "imu": "a422da7464460a59e51e84a2fb0f21647b92925521638b441a8963e5ac175167",
+              "independent_recovery": "d58fa2cfd6002a4d71d334d6c85156ca58d3fb5aa46ed9fcaabbbd2c8fdb9e32",
+              "interface_coupler": "b1058abe58d8d42ccbb7c1085201fcbec9365ba3a7ae403bde78b8f9c77ea25e",
+              "joint_stop": "ba88bf22d7e17beb1ee260ea542bcf6b7d7154e2b834cef949fc172a022abc8f",
+              "micro_sd": "268462b94348bfcf7c2e7a65c044e4bee5a2ec38101aae61073356b41fd327a5",
+              "motor": "a902a0a475d38e0ccca359b400fde146de3e82b71bdafc9a6a2093300b94fd05",
+              "motor_liner": "479424e2421700c9e2ef7a33e9b9c184eebb0424722a378b19b7412866dbc271",
+              "motor_mount": "eea7a55b4853d3eac0e3be1a642a99e1592365dd7b17660e9f6cab9cf714d516",
+              "motor_radiant_shield": "8351cf6fafd52d810f971c93dd0fed31dadc83cc6343e9ce392e69f69f1be09c",
+              "nose_cone": "c2b8e241c205720ed7a90a100ce8050ff74ef948a0146eef361d022fe4dfdb89",
+              "parachute": "4d0485aa19106262612745d91bb72108c3685c5cd0c6e078aa178058b1e7e3af",
+              "pyro_mosfet": "9743b3d7d242af020428d36696237c5024ae55d3759115427afb86cae20e243b",
+              "rail_guides": "95b0733fdb3fa772681d92c31977b7f1e6ed3aff11ea45944e7c2fa830c25e0f",
+              "recovery_alignment_pins": "d0b2b7d7bc8a9e6fc6199b546c72e12bbe494d65b4f94a0f18979c0fe3e99560",
+              "recovery_anchor": "60a7f117a899d1b1d0d685101b602be8d5400866c539af21dfe7a1485a19be37",
+              "recovery_battery": "24723425b58d07c27981d44da41c3d0c91a853abe0855429648630d03e42e006",
+              "recovery_bulkhead": "2138a4b66ee96a92a00767277fc1d53cabd1b94bef556e5cd9272aae90a341f1",
+              "recovery_mount_carrier": "9a9cef3990be8423ebe600991d9e4a786fe40dbef412e1ff844c4541e3d70272",
+              "recovery_mount_hardware_allowance": "431c8e25a9faf5a646273b54268a2115f42487d4e1e8cbc2e20b95ff31d97ea9",
+              "recovery_output_harness": "2817406494b3fb6e1dcd59bcd9bd8226cf95f5c56a9672692b43126c853695b4",
+              "recovery_power_switch": "e70652c56dd928198b8798aff9f19108e7f0a77d590f459f60e097f5c8f02cc2",
+              "recovery_protection": "144c272720ea04dae028cfa1568bd438dd8a789f99b195ec998f62e611115a7a",
+              "regulator_5v": "5b690b21307b738ff39e5d6d089e7bc348b746c54af36f11181560abe02a31c3",
+              "retention": "a01ab317a2045392edb2ee2523598c4cdb7bc5d78161c5e82b3f9b4f137b270a",
+              "retention_hardware": "54dfa2ae5adb25105451b6149bb4a0ef99204ccd35d512043a3be2a41d07faca",
+              "shock_cord": "62a2fe5a77a245328b4bbcd2e4f31a7edfeef3698ef35b3447306b746fc76c36",
+              "thrust_pads": "dabed25f4002ee3bc0a9241ce1259821e6344e6578210d6b0c6d4f74536339e0"
+            },
+            "resolved_spec_sha256": "8bde337b7e93268e96c42299f66271a8b6229ec6071430405063aedc8f9cd1f5"
+          },
+          "input_sha256": {
+            "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+            "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+            "configs/vehicle/wo02/performance-g54.yaml": "e21f59e22a2b1cae7826097e303378d6901d94caf1ead9614b4590bf5709400b",
+            "fea/analysis-mesh.json": "b72aa599436d97af64294da4826d23188075b95770a95a2a067a60f91b7690bc",
+            "fea/case.inp": "bea508239396bcdcc59e3daa5fb683baec2be229dd9bbc7a6636d9a243382741",
+            "fea/mode-fields.json": "00e2e34f3a3197a23497cfcc136c0a398b21630b56cff5f75219c5009efe0a40",
+            "fea/report.json": "8f7a4ac385ca16035dff8d60a2684e001f55e017a775c69613ca1ed275dbb10c",
+            "fea/static-fields.json": "46e320e876da36e9edd1f115ec1e52cf39cf9028d2ef217a05d6306af2211b34",
+            "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+            "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+            "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+            "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+            "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+            "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+            "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+            "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+          },
+          "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+          "schema_version": "rocket-twin.analysis.v1",
+          "tools": {
+            "mesh_format": "Gmsh S6",
+            "mesh_tool_version": "4.15.2",
+            "solver": "CalculiX executed; version not inferred if absent from report"
+          }
+        },
+        "analysis_record_export": {
+          "configuration_id": "modular-performance-g54-hypothesis",
+          "coverage": "Registered 2D S6 midsurface mesh, nodal displacement magnitude and element spanwise-stress component only; no CAD faces or attachment stress are fabricated.",
+          "known_case_verified": false,
+          "mesh_converged": false,
+          "part_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+          "physical_validation": "unvalidated",
+          "resolved_spec_sha256": "8bde337b7e93268e96c42299f66271a8b6229ec6071430405063aedc8f9cd1f5",
+          "status": "exported exact nominal CAD identity"
+        },
+        "cost_usd": 0,
+        "flight_ready": false,
+        "input_sha256_after": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/wo02/performance-g54.yaml": "e21f59e22a2b1cae7826097e303378d6901d94caf1ead9614b4590bf5709400b",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+          "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+        },
+        "input_sha256_before": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/wo02/performance-g54.yaml": "e21f59e22a2b1cae7826097e303378d6901d94caf1ead9614b4590bf5709400b",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+          "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+        },
+        "inputs_unchanged": true,
+        "load_case": {
+          "angle_deg": 5.0,
+          "basis": "Independent bounded nominal panel case; not the actual coincident flight force.",
+          "force_per_fin_n": 49.8071294055704,
+          "pressure_pa": 40000.0
+        },
+        "mesh_result": {
+          "applied_support_cload_n": 0.12770504403330232,
+          "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+          "compliance_positive_definite": true,
+          "density_kg_m3": 715.0,
+          "elements": 5327,
+          "equilibrium_error_n": 1.715370956389961e-07,
+          "flight_ready": false,
+          "force_n": 49.8071294055704,
+          "frequencies_hz": [
+            418.7334,
+            497.8384,
+            994.12,
+            1832.446,
+            2123.707,
+            2259.106
+          ],
+          "gmsh": "4.15.2",
+          "input_sha256": "bea508239396bcdcc59e3daa5fb683baec2be229dd9bbc7a6636d9a243382741",
+          "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+          "material_model": "orthotropic engineering constants",
+          "max_displacement_m": 0.0002896694,
+          "mesh_sha256": "b72aa599436d97af64294da4826d23188075b95770a95a2a067a60f91b7690bc",
+          "nodes": 10832,
+          "orthotropic_engineering_constants": {
+            "E1_pa": 2000000000.0,
+            "E2_pa": 2000000000.0,
+            "E3_pa": 500000000.0,
+            "G12_pa": 200000000.0,
+            "G13_pa": 200000000.0,
+            "G23_pa": 200000000.0,
+            "nu12": 0.2,
+            "nu13": 0.2,
+            "nu23": 0.2
+          },
+          "part_id": "fin_set",
+          "part_shape_sha256": "e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587",
+          "regional_abs_sxx_pa": 1154969.0,
+          "regional_abs_syy_pa": 1216.5520000000001,
+          "regional_abs_tau_xy_pa": 2617.697,
+          "regional_exclusion_span_mm": 12.7,
+          "regional_stress_by_actual_thickness_mm": {
+            "omitted_from_compact_record": true,
+            "entries": 436,
+            "canonical_json_sha256": "02b8a7c5563bfe8825ea5e03d9e430eebc6f385fdae7829453d81466cf64e084",
+            "availability": "Complete diagnostic retained in original report."
+          },
+          "regional_von_mises_pa": 1159798.0082087293,
+          "reported_support_nodal_force_n": -49.67942419,
+          "root_band_corner_edge_lengths_mm": {
+            "omitted_from_compact_record": true,
+            "entries": 2,
+            "canonical_json_sha256": "3f234f9c7162b00c66ddccc41271d30ebe3c6a1b13cb01d13664a1ef8b4547c9",
+            "availability": "Complete diagnostic retained in original report."
+          },
+          "root_band_element_count": 3172,
+          "root_band_target_element_size_mm": 1.25,
+          "size_mm": 5.0,
+          "solver_executed": true,
+          "stiffness_fraction": 1.0,
+          "support_reaction_n": -49.807129234033304,
+          "thickness_profile": {
+            "base_thickness_mm": 6.35,
+            "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+            "maximum_element_thickness_mm": 11.768126017690783,
+            "minimum_element_thickness_mm": 6.35,
+            "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+            "root_gusset_parameters": {
+              "root_gusset_base_mm": 3.0,
+              "root_gusset_inset_mm": 1.0,
+              "root_gusset_span_mm": 12.0
+            },
+            "section_bin_mm": 0.01,
+            "section_count": 436
+          },
+          "youngs_pa": 2000000000.0
+        },
+        "mesh_target_mm": 5.0,
+        "nominal_geometry": {
+          "density_kg_m3": 715.0,
+          "material": "plywood",
+          "root_chord_m": 0.12,
+          "span_m": 0.07,
+          "sweep_m": 0.0,
+          "thickness_m": 0.00635,
+          "tip_chord_m": 0.12
+        },
+        "panel_cache": {
+          "checks": {
+            "same_40kpa_5deg_panel_force": true,
+            "same_cad_parameters": true,
+            "same_cad_shape_sha256": true,
+            "same_fin_material": true,
+            "same_geometry": true,
+            "same_material_density": true
+          },
+          "parent_nominal_fea_run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+          "parent_vehicle_id": "modular-performance-v1",
+          "scope": "Reuse covers only the identical local fin panel solver fields; each AnalysisRecord uses this target vehicle's resolved spec and CAD identity."
+        },
+        "resolved_spec_sha256": "8bde337b7e93268e96c42299f66271a8b6229ec6071430405063aedc8f9cd1f5",
+        "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+        "source_config": "configs/vehicle/wo02/performance-g54.yaml",
+        "vehicle_id": "modular-performance-g54-hypothesis"
+      }
+    },
+    {
+      "original_report": "build/wo03-fin-nominal-fields/modular-tvc-finned-v1/wo03-fin-nominal-fields-20261030T210337367164Z/report.json",
+      "original_report_sha256": "9d8ce8721b19969880f9807f8bfa6ff0d5a22f6016e57b977b208b70363ba947",
+      "summary": {
+        "acceptance": "open",
+        "acceptance_passed": false,
+        "actual_fin_shape_sha256": "efaeaf65bf64bfe8384d5d4f3e484df141dd8eee91f0375ac0d0938f21922598",
+        "analysis_record": {
+          "cases": {
+            "single-fin-static": {
+              "boundary": "Ideal clamp at the fin root/tab; one S6 shell midsurface instance.",
+              "field_resolution": "node displacement and element integration-point component maximum",
+              "kind": "static_structural_shell",
+              "solver": "CalculiX",
+              "source_report": {
+                "applied_support_cload_n": 0.12539724835928612,
+                "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+                "compliance_positive_definite": true,
+                "density_kg_m3": 715.0,
+                "elements": 4693,
+                "equilibrium_error_n": 4.0721111105312957e-07,
+                "flight_ready": false,
+                "force_n": 49.8071294055704,
+                "frequencies_hz": [
+                  418.7349,
+                  497.8393,
+                  994.1219,
+                  1832.448,
+                  2123.707,
+                  2259.11
+                ],
+                "gmsh": "4.15.2",
+                "input_sha256": "23d07c099eb54d0ac385c490e4181f693545c22c9af04ddacfef6ad166923e58",
+                "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+                "material_model": "orthotropic engineering constants",
+                "max_displacement_m": 0.0002896676,
+                "mesh_sha256": "e4bbf3d9e25cc31d2a5247244a823a632e081668477ccea6d4c226bf185adb6e",
+                "nodes": 9558,
+                "orthotropic_engineering_constants": {
+                  "E1_pa": 2000000000.0,
+                  "E2_pa": 2000000000.0,
+                  "E3_pa": 500000000.0,
+                  "G12_pa": 200000000.0,
+                  "G13_pa": 200000000.0,
+                  "G23_pa": 200000000.0,
+                  "nu12": 0.2,
+                  "nu13": 0.2,
+                  "nu23": 0.2
+                },
+                "part_id": "fin_set",
+                "part_shape_sha256": "efaeaf65bf64bfe8384d5d4f3e484df141dd8eee91f0375ac0d0938f21922598",
+                "regional_abs_sxx_pa": 1154697.0,
+                "regional_abs_syy_pa": 1197.646,
+                "regional_abs_tau_xy_pa": 2481.3959999999997,
+                "regional_exclusion_span_mm": 12.7,
+                "regional_stress_by_actual_thickness_mm": {
+                  "omitted_from_compact_record": true,
+                  "entries": 455,
+                  "canonical_json_sha256": "c454d781205db66e48cb521261c432e807292fb71181a7c28fe3b480f42f8174",
+                  "availability": "Complete diagnostic retained in original report."
+                },
+                "regional_von_mises_pa": 1159516.186938495,
+                "reported_support_nodal_force_n": -49.681731750000004,
+                "root_band_corner_edge_lengths_mm": {
+                  "omitted_from_compact_record": true,
+                  "entries": 2,
+                  "canonical_json_sha256": "9403436d0f0c177fde687fd0a5cb37dec284c5f6e5323967660aebfe257e47d6",
+                  "availability": "Complete diagnostic retained in original report."
+                },
+                "root_band_element_count": 2538,
+                "root_band_target_element_size_mm": 1.25,
+                "size_mm": 5.0,
+                "solver_executed": true,
+                "stiffness_fraction": 1.0,
+                "support_reaction_n": -49.80712899835929,
+                "thickness_profile": {
+                  "base_thickness_mm": 6.35,
+                  "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                  "maximum_element_thickness_mm": 11.789474314447926,
+                  "minimum_element_thickness_mm": 6.35,
+                  "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                  "root_gusset_parameters": {
+                    "root_gusset_base_mm": 3.0,
+                    "root_gusset_inset_mm": 1.0,
+                    "root_gusset_span_mm": 12.0
+                  },
+                  "section_bin_mm": 0.01,
+                  "section_count": 455
+                },
+                "youngs_pa": 2000000000.0
+              }
+            }
+          },
+          "coordinate_frame": "CAD_mm_registered_to_viewer_m",
+          "fields": [
+            {
+              "artifact": "fields/fin-displacement-magnitude.json",
+              "artifact_sha256": "b24fc628a577deaa83f6e4f287d670b3598382e296687d604241435bcdd2c941",
+              "association": "node",
+              "case_id": "single-fin-static",
+              "component": "displacement magnitude at S6 mesh nodes",
+              "coverage_notes": "Node displacement magnitude is a solver result on the explicit shell midsurface mesh.",
+              "evidence": {
+                "assumptions": [
+                  "Ideal root clamp and tab restraint are model boundary conditions, not a qualified bond or joint.",
+                  "Estimated material properties use an isotropic weak-direction surrogate for this screen.",
+                  "Mesh refinement is a separate numerical convergence check and does not establish physical validation.",
+                  "Numerical verification flags do not establish physical material, joint, or hardware validation."
+                ],
+                "known_case_verified": false,
+                "limits": [
+                  "One fin instance only; no copying of the result to the other fins.",
+                  "S6 shell midsurface values; shell normals and physical faces are not direct CAD vertices.",
+                  "Stress xx is a component diagnostic only; no orthotropic failure criterion, margin, or safety pass is calculated."
+                ],
+                "mesh_converged": false,
+                "provenance": "calculated",
+                "report": "embedded in single-fin-static case metadata",
+                "required_physical_tests": [
+                  "Hot material and root-joint coupons",
+                  "Root attachment proof test",
+                  "Assembled modal and vibration tests"
+                ],
+                "sources": [
+                  "CalculiX fin screen",
+                  "Resolved vehicle fin_set specification"
+                ],
+                "uncertainty": "Estimated material and idealized root boundary; mesh convergence status is recorded separately from physical validity.",
+                "validation": "unvalidated"
+              },
+              "id": "fin-displacement-magnitude",
+              "margin_definition": null,
+              "mesh_sha256": "e2d6fcb4202c4eb92cd7e22ab8cd6ebf59325a631316ea8cd9f383e1225ee25b",
+              "part_ids": [
+                "fin_set"
+              ],
+              "quantity": "displacement",
+              "registration": {
+                "matrix": [
+                  [
+                    0.001,
+                    0.0,
+                    0.0,
+                    0.033
+                  ],
+                  [
+                    0.0,
+                    -0.001,
+                    0.0,
+                    0.1319999999999999
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -0.001,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "source_frame": "FEM X=span from body tangent; Y=chord aft from fin front; Z=plate normal; mm",
+                "target_frame": "CAD_mm_registered_to_viewer_m",
+                "type": "affine_4x4"
+              },
+              "reported_extrema": {
+                "maximum": 0.0002896676,
+                "minimum": 0.0
+              },
+              "sample_count": 9558,
+              "times_s": null,
+              "unavailable_reason": null,
+              "units": "m"
+            },
+            {
+              "artifact": "fields/fin-spanwise-normal-stress-xx.json",
+              "artifact_sha256": "52866b0d156c9daf5d234e2f36abdfa8501f6089fd167d7efd9e59af19a708c8",
+              "association": "element",
+              "case_id": "single-fin-static",
+              "component": "maximum absolute spanwise normal stress xx over each element's integration points; component diagnostic, not an orthotropic failure criterion",
+              "coverage_notes": "One scalar per S6 element: maximum absolute xx component across that element's integration points.",
+              "evidence": {
+                "assumptions": [
+                  "Ideal root clamp and tab restraint are model boundary conditions, not a qualified bond or joint.",
+                  "Estimated material properties use an isotropic weak-direction surrogate for this screen.",
+                  "Mesh refinement is a separate numerical convergence check and does not establish physical validation.",
+                  "Numerical verification flags do not establish physical material, joint, or hardware validation."
+                ],
+                "known_case_verified": false,
+                "limits": [
+                  "One fin instance only; no copying of the result to the other fins.",
+                  "S6 shell midsurface values; shell normals and physical faces are not direct CAD vertices.",
+                  "Stress xx is a component diagnostic only; no orthotropic failure criterion, margin, or safety pass is calculated."
+                ],
+                "mesh_converged": false,
+                "provenance": "calculated",
+                "report": "embedded in single-fin-static case metadata",
+                "required_physical_tests": [
+                  "Hot material and root-joint coupons",
+                  "Root attachment proof test",
+                  "Assembled modal and vibration tests"
+                ],
+                "sources": [
+                  "CalculiX fin screen",
+                  "Resolved vehicle fin_set specification"
+                ],
+                "uncertainty": "Estimated material and idealized root boundary; mesh convergence status is recorded separately from physical validity.",
+                "validation": "unvalidated"
+              },
+              "id": "fin-spanwise-normal-stress-xx",
+              "margin_definition": null,
+              "mesh_sha256": "e2d6fcb4202c4eb92cd7e22ab8cd6ebf59325a631316ea8cd9f383e1225ee25b",
+              "part_ids": [
+                "fin_set"
+              ],
+              "quantity": "stress",
+              "registration": {
+                "matrix": [
+                  [
+                    0.001,
+                    0.0,
+                    0.0,
+                    0.033
+                  ],
+                  [
+                    0.0,
+                    -0.001,
+                    0.0,
+                    0.1319999999999999
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -0.001,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "source_frame": "FEM X=span from body tangent; Y=chord aft from fin front; Z=plate normal; mm",
+                "target_frame": "CAD_mm_registered_to_viewer_m",
+                "type": "affine_4x4"
+              },
+              "reported_extrema": {
+                "maximum": 1157073.0,
+                "minimum": 5.809206999999999e-20
+              },
+              "sample_count": 4693,
+              "times_s": null,
+              "unavailable_reason": null,
+              "units": "Pa"
+            }
+          ],
+          "flight_ready": false,
+          "identity": {
+            "cad_revision_sha256": "66c67d83e4c5f574a835aa868b0c16a46a60992ce3f9a88485c8e2dda590b7a1",
+            "configuration_id": "modular-tvc-finned-v1",
+            "part_shape_sha256": {
+              "adhesive_finish": "8aa4da97d9a71a233dae2bfbaa99e9d05ab139d77fe383a5b07b604d46c5f7a0",
+              "aft_interface_hardware": "6b41f677cc4d94654b236d351ea619e115168c0cbe07f5bc88bd48cc415dc31b",
+              "aft_retainer": "c1b9a9968a7d78ca9369b87dff1d1c3180c180b1656d368b7aef5da44e2c12f7",
+              "aft_shell": "dd027fe31620e0d603d1b62e41cef0c6c4d42bf8129987ba13a1e8d914973e2f",
+              "aft_thrust_pads": "143d92610970343e7711ecd75eb01b4815d084e211ad4309af4fccbf687cd38f",
+              "arming_switch": "e878d825039cf961aa15f97364b47a3520919ed4e36e55ddf58b5fa3828efcc5",
+              "avionics_bay": "6dd4a634203e9339ec39fa4c65ff2b49ea538a39060dd8fa19064b510003a2bb",
+              "baro": "0229860f2db2864242e6f4dca5c1ea39046e95d968671bb434c688b21e3a7f09",
+              "battery": "a250594ceac71a7f4ec79bda1f2667d6652f6bab47f34364b16d5a49f707260e",
+              "body_upper": "93b0486eb0d80e26856178bbfb7a4bc8dac57c8a22879bc0158a55d32ed7f8b3",
+              "cassette_mount_screws": "60c0843d11c8e24a4fb74ce68535d3c0c3aa420f843b095a02f16a6a47bec22f",
+              "fin_bonds": "faef13870e18e809aef3eb9e3bde88c19b7bf13224424e2d8896915b1793e1e9",
+              "fin_set": "efaeaf65bf64bfe8384d5d4f3e484df141dd8eee91f0375ac0d0938f21922598",
+              "flight_computer": "97b949bec1953471bb9843d405a31ec0863c21179a7df73898d76cea99bfdc88",
+              "gimbal_frame": "422693a236676a301a6b5d0ff3d6308be50bf560264d394162710e2e54067ee2",
+              "gimbal_inner": "d588607dea4bf0696d076c39689b4201a121a6fe247e0a4b1b51f73b32cb5f36",
+              "gimbal_links": "79fd0497931d9b2b78e3d078b6f441b5dec676a7a9c86d69f9fd2df41e8e3f90",
+              "harness": "7b94b6b46b2e504502803cd1fe3cd5df40032f634addf298d6fc4d832c2872de",
+              "high_g_accel": "cafa967bd6e02afe6e68a67804c7cc1797e18cb7b23bc82b84c1c71b7a46555d",
+              "imu": "a422da7464460a59e51e84a2fb0f21647b92925521638b441a8963e5ac175167",
+              "independent_recovery": "d58fa2cfd6002a4d71d334d6c85156ca58d3fb5aa46ed9fcaabbbd2c8fdb9e32",
+              "inner_pivots": "35db4eab95a14393b3fce98ec16458e9caac4f377b4eb1613b433959c032f4cb",
+              "interface_coupler": "b1058abe58d8d42ccbb7c1085201fcbec9365ba3a7ae403bde78b8f9c77ea25e",
+              "joint_stop": "ba88bf22d7e17beb1ee260ea542bcf6b7d7154e2b834cef949fc172a022abc8f",
+              "micro_sd": "268462b94348bfcf7c2e7a65c044e4bee5a2ec38101aae61073356b41fd327a5",
+              "motor": "9a5e4412fa335c698e256ed6e91ea8b82e77d552ed58ba780a0ec16cfa15dfa2",
+              "motor_liner": "b3e5fd17b808196900e5f89e2c5d92bea1544d38785613b1c19db0128873293f",
+              "motor_mount": "de60fd6db25336e418db406395397bd747f242368e8e654f188c7cf8880e5ac9",
+              "motor_radiant_shield": "6d280da2b7b08f15c08d66d3b4eaa7049f77946d7167f1fae1b818a1cc5615bc",
+              "nose_cone": "c2b8e241c205720ed7a90a100ce8050ff74ef948a0146eef361d022fe4dfdb89",
+              "outer_pivots": "b671c23d1060bbcc827ae49a24246f8650f6bef9d2fa4718b7b95b865f293d1e",
+              "parachute": "4d0485aa19106262612745d91bb72108c3685c5cd0c6e078aa178058b1e7e3af",
+              "pyro_mosfet": "9743b3d7d242af020428d36696237c5024ae55d3759115427afb86cae20e243b",
+              "rail_guides": "95b0733fdb3fa772681d92c31977b7f1e6ed3aff11ea45944e7c2fa830c25e0f",
+              "recovery_alignment_pins": "d0b2b7d7bc8a9e6fc6199b546c72e12bbe494d65b4f94a0f18979c0fe3e99560",
+              "recovery_anchor": "60a7f117a899d1b1d0d685101b602be8d5400866c539af21dfe7a1485a19be37",
+              "recovery_battery": "24723425b58d07c27981d44da41c3d0c91a853abe0855429648630d03e42e006",
+              "recovery_bulkhead": "2138a4b66ee96a92a00767277fc1d53cabd1b94bef556e5cd9272aae90a341f1",
+              "recovery_mount_carrier": "9a9cef3990be8423ebe600991d9e4a786fe40dbef412e1ff844c4541e3d70272",
+              "recovery_mount_hardware_allowance": "431c8e25a9faf5a646273b54268a2115f42487d4e1e8cbc2e20b95ff31d97ea9",
+              "recovery_output_harness": "2817406494b3fb6e1dcd59bcd9bd8226cf95f5c56a9672692b43126c853695b4",
+              "recovery_power_switch": "e70652c56dd928198b8798aff9f19108e7f0a77d590f459f60e097f5c8f02cc2",
+              "recovery_protection": "144c272720ea04dae028cfa1568bd438dd8a789f99b195ec998f62e611115a7a",
+              "regulator_5v": "5b690b21307b738ff39e5d6d089e7bc348b746c54af36f11181560abe02a31c3",
+              "retention_hardware": "4626d18c2749f6649dae33c23d242318e7cec53578533638b5ce44e8a2139ef8",
+              "servo_horns": "a33b87ca97c01caac483d48f16af5a11f07d43a289e49645f6d375acf747937f",
+              "servo_pitch": "c190b5dda49a501afe474baa3f9ce8378b81d9715b26e4103ef0455d74b6a5bd",
+              "servo_support": "2adb48a58bee51dc348b3d55f4ae35bfe62cf139ac2f6353573f10bf59675b7a",
+              "servo_yaw": "ce5105efe9b22b6baeb0f9660667c2fef2ce9db33e574aa3a2b92cb07791901e",
+              "shock_cord": "62a2fe5a77a245328b4bbcd2e4f31a7edfeef3698ef35b3447306b746fc76c36",
+              "thermal_guard": "e8296d3da0ab46a348604d81433c92016b5ab5a46df091a95a42baffdce79f9d",
+              "thrust_pads": "e7048814b0f12f196d94707293f658ad31bd117c5870b964bac81791ec198970",
+              "tvc_gimbal": "fbb9ced10ea4d252469d2fbe68d9fffd62b774a86eb15a090059de262a2b9d99"
+            },
+            "resolved_spec_sha256": "9abb673ce19bed6cc6f892ea4035aadb29113f176ca6d8495b92bc641529b5f2"
+          },
+          "input_sha256": {
+            "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+            "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+            "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+            "fea/analysis-mesh.json": "e4bbf3d9e25cc31d2a5247244a823a632e081668477ccea6d4c226bf185adb6e",
+            "fea/case.inp": "23d07c099eb54d0ac385c490e4181f693545c22c9af04ddacfef6ad166923e58",
+            "fea/mode-fields.json": "fb42fb38f8b5e004f2e9a23c60192f0644d0b7fa46467b511e44a35a9b337e35",
+            "fea/report.json": "c2af2a0a14f1a8b36a046a0c14ff940ab0d67b4a3bc1b6a5a3b53d48850506d5",
+            "fea/static-fields.json": "271df103736d79bf3a7f7f52b5d892c43e90890b27cb2af34df33b048dc92e39",
+            "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+            "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+            "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+            "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+            "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+            "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+            "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+            "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+          },
+          "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+          "schema_version": "rocket-twin.analysis.v1",
+          "tools": {
+            "mesh_format": "Gmsh S6",
+            "mesh_tool_version": "4.15.2",
+            "solver": "CalculiX executed; version not inferred if absent from report"
+          }
+        },
+        "analysis_record_export": {
+          "configuration_id": "modular-tvc-finned-v1",
+          "coverage": "Registered 2D S6 midsurface mesh, nodal displacement magnitude and element spanwise-stress component only; no CAD faces or attachment stress are fabricated.",
+          "known_case_verified": false,
+          "mesh_converged": false,
+          "part_shape_sha256": "efaeaf65bf64bfe8384d5d4f3e484df141dd8eee91f0375ac0d0938f21922598",
+          "physical_validation": "unvalidated",
+          "resolved_spec_sha256": "9abb673ce19bed6cc6f892ea4035aadb29113f176ca6d8495b92bc641529b5f2",
+          "status": "exported exact nominal CAD identity"
+        },
+        "cost_usd": 0,
+        "flight_ready": false,
+        "input_sha256_after": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+          "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+        },
+        "input_sha256_before": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "scripts/wo03_fin_nominal_fields.py": "72a48849ba13edd440a711c4425e5a79528add1ce6ce3835f18f7f118458b4ce",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8",
+          "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2"
+        },
+        "inputs_unchanged": true,
+        "load_case": {
+          "angle_deg": 5.0,
+          "basis": "Independent bounded nominal panel case; not the actual coincident flight force.",
+          "force_per_fin_n": 49.8071294055704,
+          "pressure_pa": 40000.0
+        },
+        "mesh_result": {
+          "applied_support_cload_n": 0.12539724835928612,
+          "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+          "compliance_positive_definite": true,
+          "density_kg_m3": 715.0,
+          "elements": 4693,
+          "equilibrium_error_n": 4.0721111105312957e-07,
+          "flight_ready": false,
+          "force_n": 49.8071294055704,
+          "frequencies_hz": [
+            418.7349,
+            497.8393,
+            994.1219,
+            1832.448,
+            2123.707,
+            2259.11
+          ],
+          "gmsh": "4.15.2",
+          "input_sha256": "23d07c099eb54d0ac385c490e4181f693545c22c9af04ddacfef6ad166923e58",
+          "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+          "material_model": "orthotropic engineering constants",
+          "max_displacement_m": 0.0002896676,
+          "mesh_sha256": "e4bbf3d9e25cc31d2a5247244a823a632e081668477ccea6d4c226bf185adb6e",
+          "nodes": 9558,
+          "orthotropic_engineering_constants": {
+            "E1_pa": 2000000000.0,
+            "E2_pa": 2000000000.0,
+            "E3_pa": 500000000.0,
+            "G12_pa": 200000000.0,
+            "G13_pa": 200000000.0,
+            "G23_pa": 200000000.0,
+            "nu12": 0.2,
+            "nu13": 0.2,
+            "nu23": 0.2
+          },
+          "part_id": "fin_set",
+          "part_shape_sha256": "efaeaf65bf64bfe8384d5d4f3e484df141dd8eee91f0375ac0d0938f21922598",
+          "regional_abs_sxx_pa": 1154697.0,
+          "regional_abs_syy_pa": 1197.646,
+          "regional_abs_tau_xy_pa": 2481.3959999999997,
+          "regional_exclusion_span_mm": 12.7,
+          "regional_stress_by_actual_thickness_mm": {
+            "omitted_from_compact_record": true,
+            "entries": 455,
+            "canonical_json_sha256": "c454d781205db66e48cb521261c432e807292fb71181a7c28fe3b480f42f8174",
+            "availability": "Complete diagnostic retained in original report."
+          },
+          "regional_von_mises_pa": 1159516.186938495,
+          "reported_support_nodal_force_n": -49.681731750000004,
+          "root_band_corner_edge_lengths_mm": {
+            "omitted_from_compact_record": true,
+            "entries": 2,
+            "canonical_json_sha256": "9403436d0f0c177fde687fd0a5cb37dec284c5f6e5323967660aebfe257e47d6",
+            "availability": "Complete diagnostic retained in original report."
+          },
+          "root_band_element_count": 2538,
+          "root_band_target_element_size_mm": 1.25,
+          "size_mm": 5.0,
+          "solver_executed": true,
+          "stiffness_fraction": 1.0,
+          "support_reaction_n": -49.80712899835929,
+          "thickness_profile": {
+            "base_thickness_mm": 6.35,
+            "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+            "maximum_element_thickness_mm": 11.789474314447926,
+            "minimum_element_thickness_mm": 6.35,
+            "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+            "root_gusset_parameters": {
+              "root_gusset_base_mm": 3.0,
+              "root_gusset_inset_mm": 1.0,
+              "root_gusset_span_mm": 12.0
+            },
+            "section_bin_mm": 0.01,
+            "section_count": 455
+          },
+          "youngs_pa": 2000000000.0
+        },
+        "mesh_target_mm": 5.0,
+        "nominal_geometry": {
+          "density_kg_m3": 715.0,
+          "material": "plywood",
+          "root_chord_m": 0.12,
+          "span_m": 0.07,
+          "sweep_m": 0.0,
+          "thickness_m": 0.00635,
+          "tip_chord_m": 0.12
+        },
+        "panel_cache": {
+          "checks": {
+            "solver_run_performed_for_this_vehicle": true
+          },
+          "parent_nominal_fea_run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+          "parent_vehicle_id": "modular-tvc-finned-v1",
+          "scope": "Reuse covers only the identical local fin panel solver fields; each AnalysisRecord uses this target vehicle's resolved spec and CAD identity."
+        },
+        "resolved_spec_sha256": "9abb673ce19bed6cc6f892ea4035aadb29113f176ca6d8495b92bc641529b5f2",
+        "run_id": "wo03-fin-nominal-fields-20261030T210337367164Z",
+        "source_config": "configs/vehicle/platform/tvc-finned.yaml",
+        "vehicle_id": "modular-tvc-finned-v1"
+      }
+    }
+  ],
+  "inputs_unchanged": true,
+  "acceptance_passed": false,
+  "flight_ready": false,
+  "cost_usd": 0
+}

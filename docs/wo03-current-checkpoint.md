@@ -1,3 +1,20 @@
+# WO-03 integrated checkpoint — 2026-10-30
+
+The active configuration now adopts the combined corrections under ADR-0008.
+Expanded acceptance remains open. Current mass/CG/full inertia, structural/thermal/
+fit/recovery/flight evidence and the design-versus-physical closure table are in
+[wo03-correction-closure.md](wo03-correction-closure.md) and
+[wo03-integrated-vehicle.md](wo03-integrated-vehicle.md).
+
+PRs #4–8 are merged; the integrated correction branch is `wo-03-integrated-corrections`. No WO-04,
+physical qualification, procurement, paid run or flight release.
+
+The previous checkpoint below is preserved as historical pre-integration evidence.
+Its descriptions of unchanged active geometry and old failed screens are superseded
+by the integrated report above.
+
+---
+
 # WO-03 current checkpoint — 2026-10-30
 
 WO-03 remains active under ADR-0007. The engineering/structural, thermal,

@@ -1,5 +1,8 @@
 # WO-03 hot-material options: bounded evidence for the next trade
 
+Historical proposal/study evidence: its original source snapshot and results are preserved. The active combined adoption and current acceptance status are recorded in [ADR-0008](adr/0008-integrated-wo03-corrections.md) and [the integration closure table](wo03-correction-closure.md). Proposal-only statements below describe that study, not the current vehicle.
+
+
 **Purpose.** This is a shortlist for analysis and coupon screening, not a material selection or design allowable. The current upper-v2 thermal model estimates a 225 °C liner peak, 88 °C mount, 72 °C inner gimbal, 64 °C outer gimbal and 59–64 °C body. These are model outputs, not measured temperatures; the present thermal model does not qualify transient interfaces, local hot spots, bond lines, or repeated service. In particular, a catalog maximum-use temperature or adhesive Tg does not establish strength under this part's load, duration, cycling, geometry, or cure.
 
 | Candidate / bounded use | Primary-source product facts | Relevance and limits for this design |

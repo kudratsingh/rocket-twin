@@ -4,12 +4,12 @@ shared: ../platform/common-upper.yaml
 aero:
   passive_stubs:
     enabled: false
-    span_m: 0.02
+    span_m: 0.07
     count: 3
-    root_chord_m: 0.08
-    tip_chord_m: 0.04
-    sweep_m: 0.02
-    position_m: 0.65
+    root_chord_m: 0.12
+    tip_chord_m: 0.12
+    sweep_m: 0.0
+    position_m: 1.08
   cd_model:
     type: empirical_mach_table
     reference: Mandell et al.; preliminary shape/fin estimates, not calibrated drag
@@ -30,7 +30,7 @@ motor:
   curve: configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng
   propellant_mass_kg: 0.0968
   casing_mass_kg: 0.10139999999999999
-  mount_position_m: 0.613
+  mount_position_m: 1.013
   ignition_delay_s: 0
   thrust_scale_range:
   - 0.85
@@ -52,14 +52,14 @@ parts:
 - id: aft_shell
   type: body_tube
   parent: interface_coupler
-  position_m: 0.522
+  position_m: 0.922
   geometry:
     length_m: 0.278
     radius_m: 0.033
     inner_radius_m: 0.0325
     wall_m: 0.0005
   material: cardboard
-  mass_kg: 0.019865566236285947
+  mass_kg: 0.01925374538364414
   estimate: true
   learn: Interchangeable aft shell transfers fin, motor and guide loads through the
     keyed coupler. Tube slots and local reinforcement depend on the actual mode; they
@@ -74,34 +74,16 @@ parts:
     generator: tube
     parameters:
       fin_slots: true
-      fin_slot_width_mm: 2.4
-      fin_slot_length_mm: 62
-      fin_slot_start_mm: 163
+      fin_slot_width_mm: 7.3
+      fin_slot_length_mm: 100
+      fin_slot_start_mm: 168
     mass_basis: volume_density
     role: manufactured
     moving_group: fixed
     color: '#c6b28e'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 8febcdc02cf5a8403f42b609c6c3c81aa5e5412cb704fe4a792a3c9eb63a2906
-    volume_m3: 2.8379380337551354e-05
-    cg_local_body_m:
-    - -0.13856733555870163
-    - -4.885612252513422e-15
-    - -1.0566088677111843e-16
-    inertia_per_kg_m2:
-    - - 0.001072625327922923
-      - 1.7462542158813707e-18
-      - 2.875324242649386e-18
-    - - 1.7462542158813707e-18
-      - 0.007000806006881076
-      - 1.2354266992056328e-19
-    - - 2.875324242649386e-18
-      - 1.2354266992056328e-19
-      - 0.007000806006881478
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.13856733555870163
+  cg_offset_m: 0.13584842767571334
   engineering:
     function: Interchangeable aft shell transfers fin, motor and guide loads through
       the keyed coupler.
@@ -124,10 +106,28 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: ef59f57240f6b42500153aee97ab4a9e0545355b3436d711876b7f8f01622d7e
+    volume_m3: 2.750535054806306e-05
+    cg_local_body_m:
+    - -0.13584842767571334
+    - -5.078953127618271e-15
+    - -7.644335266689424e-17
+    inertia_per_kg_m2:
+    - - 0.0010726266691676919
+      - 1.9389462709003265e-18
+      - 3.0358283224973234e-18
+    - - 1.9389462709003265e-18
+      - 0.006941421894566391
+      - 5.141502780348664e-19
+    - - 3.0358283224973234e-18
+      - 5.141502780348664e-19
+      - 0.006941421894566461
+    basis: bulk-density manufactured solid
 - id: aft_interface_hardware
   type: commercial
   parent: aft_shell
-  position_m: 0.535
+  position_m: 0.935
   geometry:
     bbox_m:
     - 0.012
@@ -157,24 +157,6 @@ parts:
     color: '#a2a8ab'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c
-    volume_m3: 7.199999999999999e-07
-    cg_local_body_m:
-    - -0.006
-    - -1.195162181132109e-19
-    - -2.9605947323337515e-20
-    inertia_per_kg_m2:
-    - - 1.1333333333333336e-05
-      - -4.2464158788120037e-23
-      - 0.0
-    - - -4.2464158788120037e-23
-      - 1.5000000000000007e-05
-      - 4.860509658608257e-24
-    - - 0.0
-      - 4.860509658608257e-24
-      - 2.033333333333334e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
   cg_offset_m: 0.006
   engineering:
     function: Positive axial stops, indexing keys and removable fasteners connect
@@ -197,16 +179,34 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: 6b41f677cc4d94654b236d351ea619e115168c0cbe07f5bc88bd48cc415dc31b
+    volume_m3: 7.199999999999999e-07
+    cg_local_body_m:
+    - -0.006
+    - -1.195162181132109e-19
+    - -2.9605947323337515e-20
+    inertia_per_kg_m2:
+    - - 1.1333333333333336e-05
+      - -4.2464158788120037e-23
+      - 0.0
+    - - -4.2464158788120037e-23
+      - 1.5000000000000007e-05
+      - 4.860509658608257e-24
+    - - 0.0
+      - 4.860509658608257e-24
+      - 2.033333333333334e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
 - id: motor_mount
   type: motor_mount
   parent: aft_shell
-  position_m: 0.6
+  position_m: 0.99
   geometry:
-    length_m: 0.19
+    length_m: 0.20999999999999996
     radius_m: 0.0323
-    inner_radius_m: 0.0153
+    inner_radius_m: 0.0158
   material: plywood
-  mass_kg: 0.013117423358440019
+  mass_kg: 0.04932680459790339
   estimate: true
   learn: Custom centering/load-transfer assembly supports a certified commercial motor
     and liner. This ring envelope is not a solid tube; gimbal or fixed retention and
@@ -223,36 +223,84 @@ parts:
       ring_thickness_mm: 3
       ring_stations_mm:
       - 0
-      - 187
-      rail_width_mm: 6
-      rail_depth_mm: 3
+      - 110.00000000000009
+      - 186.99999999999994
+      rail_width_mm: 12
+      rail_depth_mm: 7
       rail_radius_mm: 28.5
-      tab_slot_start_mm: 85.0
+      tab_slot_start_mm: 100.0
+      fin_slot_width_mm: 7.3
+      fin_slot_length_mm: 100
+      fin_channels: true
+      fin_channel_radius_mm: 30
+      fin_channel_depth_mm: 6.4
+      ring_thicknesses_mm:
+      - 3
+      - 3
+      - 3
+      retainer_blocks:
+      - angle_deg: 60
+        size_mm:
+        - 12
+        - 12
+        - 20
+        position_mm:
+        - 25.5
+        - 0
+        - 189.99999999999994
+        bolt_hole_mm: 3.4
+        nut_pocket_size_mm:
+        - 13
+        - 6.6
+        - 3.0
+        nut_pocket_position_mm:
+        - 28
+        - 0
+        - 197.39999999999995
+      - angle_deg: 180
+        size_mm:
+        - 12
+        - 12
+        - 20
+        position_mm:
+        - 25.5
+        - 0
+        - 189.99999999999994
+        bolt_hole_mm: 3.4
+        nut_pocket_size_mm:
+        - 13
+        - 6.6
+        - 3.0
+        nut_pocket_position_mm:
+        - 28
+        - 0
+        - 197.39999999999995
+      - angle_deg: 300
+        size_mm:
+        - 12
+        - 12
+        - 20
+        position_mm:
+        - 25.5
+        - 0
+        - 189.99999999999994
+        bolt_hole_mm: 3.4
+        nut_pocket_size_mm:
+        - 13
+        - 6.6
+        - 3.0
+        nut_pocket_position_mm:
+        - 28
+        - 0
+        - 197.39999999999995
+      trim_outer_cylinder: true
     mass_basis: volume_density
     role: manufactured
     moving_group: fixed
     color: '#bd965f'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 8b3a03b9d269cdb4d237d775b98027f53feaa3227a2eeb57d99504ddba71ea8c
-    volume_m3: 2.3849860651709126e-05
-    cg_local_body_m:
-    - -0.09382082329910861
-    - -4.6409288013107714e-17
-    - -1.166905680526784e-17
-    inertia_per_kg_m2:
-    - - 0.0007027437659447752
-      - 5.029112543060364e-19
-      - -1.4501770187913005e-19
-    - - 5.029112543060364e-19
-      - 0.007074159063878186
-      - -2.989719129192752e-20
-    - - -1.4501770187913005e-19
-      - -2.989719129192752e-20
-      - 0.007074159063878176
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.09382082329910861
+  cg_offset_m: 0.1066523671398483
   engineering:
     function: Custom centering/load-transfer assembly supports a certified commercial
       motor and liner.
@@ -276,26 +324,45 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: eea7a55b4853d3eac0e3be1a642a99e1592365dd7b17660e9f6cab9cf714d516
+    volume_m3: 6.898853789916558e-05
+    cg_local_body_m:
+    - -0.1066523671398483
+    - -3.61749000292279e-16
+    - 9.112278024855076e-17
+    inertia_per_kg_m2:
+    - - 0.0007442055944615289
+      - 2.8882566765092063e-18
+      - 1.7292609195754085e-18
+    - - 2.8882566765092063e-18
+      - 0.005425141653079842
+      - 1.1609717187222432e-18
+    - - 1.7292609195754085e-18
+      - 1.1609717187222432e-18
+      - 0.005425141653079859
+    basis: bulk-density manufactured solid
 - id: motor_liner
   type: commercial
   parent: aft_shell
-  position_m: 0.613
+  position_m: 1.013
   geometry:
     length_m: 0.187
     radius_m: 0.0151
     inner_radius_m: 0.0147
-  material: phenolic
-  mass_kg: 0.009103556395125193
+  material: mica
+  mass_kg: 0.014705744945971466
   estimate: true
-  learn: A purchased phenolic or paper liner and air gap isolate the commercial case
-    from structural polymer. Its mass and envelope are provisional; case and surrounding
-    temperatures require measurement.
+  learn: The mica sleeve is a nonstructural heat barrier around the certified motor
+    case. It does not carry thrust or retain the motor. Exact grade, forming, cracking,
+    erosion and hot-soak behavior need supplier and physical verification.
   build:
     method: purchased
     cost_usd: 3
     generator: commercial
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
+    notes: Nonstructural silicone-bonded mica sleeve, selected thermal barrier. Exact
+      flexible/preformed grade and forming process must match this envelope; rigid
+      sheet bend capability is not assumed.
   cad:
     generator: liner
     parameters: {}
@@ -305,8 +372,31 @@ parts:
     color: '#c0ab8a'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
+  cg_offset_m: 0.0935000000000001
+  engineering:
+    function: Nonstructural mica thermal barrier; deliberately excluded from motor
+      thrust and reverse retention load paths.
+    material_profile: mica
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cite: 'Silicone-bonded mica thermal insulation TDS: https://agaus.com.au/content/Technical-Data/Silicone%20Bonded%20Mica%20TDS.pdf
+    . Density 2100 kg/m3; sleeve manufacture and k/cp are explicit design assumptions.'
   cad_mass:
-    shape_sha256: 37f61f51d3a4582fd09e67c3e398b3af97f03093c50e0159942fb47ee1e623d9
+    shape_sha256: 479424e2421700c9e2ef7a33e9b9c184eebb0424722a378b19b7412866dbc271
     volume_m3: 7.002735688557841e-06
     cg_local_body_m:
     - -0.0935000000000001
@@ -323,87 +413,61 @@ parts:
       - 3.458290840511428e-21
       - 0.0030251083333333127
     basis: bulk-density manufactured solid
-  cg_offset_m: 0.0935000000000001
-  engineering:
-    function: A purchased phenolic or paper liner and air gap isolate the commercial
-      case from structural polymer.
-    material_profile: phenolic
-    tolerances_mm:
-      linear: 0.25
-      hole_diameter: 0.15
-    load_cases:
-    - acceleration
-    - motor_thrust
-    thermal_cases:
-    - G80
-    - G54
-    - G12
-    - post_burn_soak
-    property_basis: estimated
-    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
-      connector access and physical fit remain unverified.
-    required_physical_verification:
-    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
-    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: retention
   type: commercial
   parent: aft_shell
-  position_m: 0.609
+  position_m: 1.001
   geometry:
-    length_m: 0.004
-    radius_m: 0.018
+    length_m: 0.018
+    radius_m: 0.032
     inner_radius_m: 0.012
-  material: plywood
-  mass_kg: 0.0012440706908215576
+  material: G11
+  mass_kg: 0.04292932739783429
   estimate: true
-  learn: Forward thrust stop and split carrier constrain the nominal motor envelope.
-    Exact case/closure capture and bidirectional retention remain supplier-fit and
-    proof-load gates before physical use.
+  learn: The forward G11 thrust plate transfers case force through mica compression
+    pads into its rail-slot bonds and outer shell bond. The sleeve is nonstructural.
+    Slot shear, plate bending, bearing and local shell transfer are modeled separately.
   build:
     method: cut
-    cost_usd: 8
-    generator: commercial
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
+    cost_usd: 12
+    generator: thrust_plate
+    notes: Custom G11 Class H 18 mm stock machined to a 9 mm forward web with six
+      integral 18 mm long slot-flank bond fingers, clipped to 32 mm outer radius.
+      Actual slot gap .2 mm per flank and bond preparation/cure/peel require coupon/proof
+      verification. No liner load path.
   cad:
-    generator: bulkhead
+    generator: thrust_plate
     parameters:
-      anchor_hole_mm: 24
+      rail_notches:
+        rail_radius_mm: 28.5
+        width_mm: 12
+        depth_mm: 7
+        side_gap_mm: 0.2
+        open_to_od: true
+      thickness_mm: 9
+      bond_fingers:
+        radial_depth_mm: 7
+        wall_mm: 2
+        length_mm: 18
+        radius_mm: 28.5
+        side_center_mm: 7.2
     mass_basis: volume_density
     role: manufactured
     moving_group: fixed
-    color: '#b89563'
+    color: '#6d959a'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: e75e27d0cd6d86b3109160f3ea9584eb89540a076cb11ed2ff28e88c8b1aedd8
-    volume_m3: 2.2619467105846502e-06
-    cg_local_body_m:
-    - -0.002000000000000001
-    - -2.1360762305137703e-18
-    - -2.2727712546858562e-19
-    inertia_per_kg_m2:
-    - - 0.0002340000000000013
-      - -3.5182432031991364e-22
-      - -2.155063150230471e-23
-    - - -3.5182432031991364e-22
-      - 0.00011833333333333522
-      - -5.759339420798706e-21
-    - - -2.155063150230471e-23
-      - -5.759339420798706e-21
-      - 0.00011833333333333272
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.002000000000000001
   engineering:
-    function: Forward thrust stop and split carrier constrain the nominal motor envelope.
-    material_profile: plywood
+    function: The forward G11 thrust plate transfers case force through mica compression
+      pads into its rail-slot bonds and outer shell bond. The sleeve is nonstructural.
+      Slot shear, plate bending, bearing and local shell transfer are modeled separately.
+    material_profile: G11
     tolerances_mm:
       linear: 0.1
       hole_diameter: 0.1
     load_cases:
-    - acceleration
     - motor_thrust
-    - gimbal_servo
+    - acceleration
     thermal_cases:
     - G80
     - G54
@@ -415,68 +479,75 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: a01ab317a2045392edb2ee2523598c4cdb7bc5d78161c5e82b3f9b4f137b270a
+    volume_m3: 2.3205041836667183e-05
+    cg_local_body_m:
+    - -0.0047586067789637965
+    - 2.1830968996015382e-17
+    - -5.232377667806201e-18
+    inertia_per_kg_m2:
+    - - 0.0005678868859963796
+      - 8.894869676898056e-20
+      - -1.8214396388993395e-20
+    - - 8.894869676898056e-20
+      - 0.00029295402654273746
+      - -7.964188330323755e-20
+    - - -1.8214396388993395e-20
+      - -7.964188330323755e-20
+      - 0.0002929540265427385
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.0047586067789637965
 - id: fin_set
   type: fin_set
   parent: aft_shell
-  position_m: 0.64
+  position_m: 1.08
   geometry:
-    length_m: 0.16
+    length_m: 0.12
     radius_m: 0.033
     count: 3
-    span_m: 0.08
-    root_chord_m: 0.16
-    tip_chord_m: 0.08
-    sweep_m: 0.06
-    thickness_m: 0.002
+    span_m: 0.07
+    root_chord_m: 0.12
+    tip_chord_m: 0.12
+    sweep_m: 0.0
+    thickness_m: 0.00635
   material: plywood
-  mass_kg: 0.03286800000000001
+  mass_kg: 0.1316238690174014
   estimate: true
-  learn: Three custom cut trapezoidal fins provide passive restoring torque. Planform
-    and radial mass moments enter the twin; grain direction, root attachment and flutter
-    remain later structural/aerodynamic checks.
+  learn: Three rectangular plywood fins supply passive restoring moment. Through-body
+    tabs and twin triangular root gussets transmit bending into the internal frame.
+    Directional wood stiffness, hot bond strength and root rotation are modeled separately;
+    an ideal-clamp panel calculation does not verify the attachment.
   build:
-    method: cut
+    method: bonded
     cost_usd: 6
     generator: trapezoidal_fin_set
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
+    notes: Custom aircraft-birch 6.35 mm rectangular fins with six 12 mm radial x
+      3 mm base triangular wood gussets, grain principally spanwise; cylindrical feet
+      fitted to body. Tab and gusset bonds require coupon/root proof and modal tests.
   cad:
     generator: fins
     parameters:
-      tab_depth_mm: 6
-      tab_length_mm: 60
-      tab_offset_mm: 45
+      tab_depth_mm: 6.0
+      tab_length_mm: 100
+      tab_offset_mm: 10
+      root_gusset_span_mm: 12
+      root_gusset_base_mm: 3
+      root_gusset_inset_mm: 1
     mass_basis: volume_density
     role: manufactured
     moving_group: fixed
     color: '#c39c65'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: c1a0c3f256a1e6b8d8c0cf6e3c1ce46ccb9058d8800f0b0fed88f9015cb35257
-    volume_m3: 5.976000000000001e-05
-    cg_local_body_m:
-    - -0.08838688085676039
-    - -3.0248004012277357e-18
-    - -5.402788138041993e-18
-    inertia_per_kg_m2:
-    - - 0.005057978580990629
-      - -2.763961008309618e-19
-      - -2.4178096786241403e-19
-    - - -2.763961008309618e-19
-      - 0.0038626321170447033
-      - 4.786109334229425e-19
-    - - -2.4178096786241403e-19
-      - 4.786109334229425e-19
-      - 0.0038626321170447077
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.08838688085676039
+  cg_offset_m: 0.06000000000000003
   engineering:
     function: Three custom cut trapezoidal fins provide passive restoring torque.
     material_profile: plywood
     tolerances_mm:
       linear: 0.1
       hole_diameter: 0.1
+      thickness: 0.3
     load_cases:
     - acceleration
     - fin_bending
@@ -491,17 +562,39 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cite: 'Selected preliminary 6.35 mm aircraft birch plywood; supplier density range
+    680-750 kg/m3: https://broszeit-group.com/produkt/birch-aircraft-plywood/?lang=en
+    . Strength/stiffness are explicit weak-direction engineering estimates pending
+    coupons.'
+  cad_mass:
+    shape_sha256: e977795fc3c2776695911857df3812ff588c6944f91f760b997db1efd5bcf587
+    volume_m3: 0.00018408932729706488
+    cg_local_body_m:
+    - -0.06000000000000003
+    - -1.6555640625069935e-17
+    - -4.752768212866989e-18
+    inertia_per_kg_m2:
+    - - 0.004528209552153265
+      - 2.641985789514298e-19
+      - -2.4702537488913515e-20
+    - - 2.641985789514298e-19
+      - 0.0034413386545337115
+      - 5.779998531805975e-19
+    - - -2.4702537488913515e-20
+      - 5.779998531805975e-19
+      - 0.0034413386545337128
+    basis: bulk-density manufactured solid
 - id: fin_bonds
   type: commercial
   parent: aft_shell
-  position_m: 0.67
+  position_m: 1.07
   geometry:
     bbox_m:
     - 0.08
     - 0.006
     - 0.004
   material: commercial
-  mass_kg: 0.006
+  mass_kg: 0.008
   estimate: true
   learn: Fin tabs and bonded root fillets transfer aerodynamic bending into the motor
     support and shell. Adhesive mass is counted; coupon, pull and flutter limits remain
@@ -510,8 +603,9 @@ parts:
     method: bonded
     cost_usd: 3
     generator: commercial
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
+    notes: Includes 2 g additional adhesive allowance for the six root gussets. Higher-temperature
+      ES6292 is a conditional bond-system hypothesis; actual wood/paper preparation,
+      cure and strength require supplier/coupon verification.
   lateral_offset_m:
   - 0.03
   - 0
@@ -524,24 +618,6 @@ parts:
     color: '#a98a58'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 227f888530c0bd4206787bc80ebac49ba299fea5c1d66cd71aac6202238e8105
-    volume_m3: 1.9200000000000003e-06
-    cg_local_body_m:
-    - -0.04
-    - 6.270919481901845e-20
-    - -1.1102230246251566e-20
-    inertia_per_kg_m2:
-    - - 4.333333333333333e-06
-      - 5.2761865076680527e-23
-      - 0.0
-    - - 5.2761865076680527e-23
-      - 0.0005346666666666666
-      - -3.045993589472982e-24
-    - - 0.0
-      - -3.045993589472982e-24
-      - 0.0005363333333333333
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
   cg_offset_m: 0.04
   engineering:
     function: Fin tabs and bonded root fillets transfer aerodynamic bending into the
@@ -564,10 +640,28 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: faef13870e18e809aef3eb9e3bde88c19b7bf13224424e2d8896915b1793e1e9
+    volume_m3: 1.9200000000000003e-06
+    cg_local_body_m:
+    - -0.04
+    - 6.270919481901845e-20
+    - -1.1102230246251566e-20
+    inertia_per_kg_m2:
+    - - 4.333333333333333e-06
+      - 5.2761865076680527e-23
+      - 0.0
+    - - 5.2761865076680527e-23
+      - 0.0005346666666666666
+      - -3.045993589472982e-24
+    - - 0.0
+      - -3.045993589472982e-24
+      - 0.0005363333333333333
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
 - id: motor
   type: motor
   parent: motor_mount
-  position_m: 0.613
+  position_m: 1.013
   geometry:
     length_m: 0.187
     radius_m: 0.0145
@@ -594,24 +688,6 @@ parts:
     color: '#4b5664'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 4fa8e003bb12f84c23c9a5d0965bbd56f0f94c911d3d4ad67918fb62fc183cb4
-    volume_m3: 0.00012351721296302652
-    cg_local_body_m:
-    - -0.0935
-    - -4.00563699500389e-18
-    - -3.8828979046517806e-19
-    inertia_per_kg_m2:
-    - - 0.0001051250000000006
-      - -3.263416022400233e-20
-      - -9.98013037455842e-22
-    - - -3.263416022400233e-20
-      - 0.0029666458333333333
-      - -5.087641213328947e-21
-    - - -9.98013037455842e-22
-      - -5.087641213328947e-21
-      - 0.0029666458333333333
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
   cg_offset_m: 0.0935
   engineering:
     function: The full commercial motor mass is counted exactly once.
@@ -632,6 +708,459 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: a902a0a475d38e0ccca359b400fde146de3e82b71bdafc9a6a2093300b94fd05
+    volume_m3: 0.00012351721296302652
+    cg_local_body_m:
+    - -0.0935
+    - -4.00563699500389e-18
+    - -3.8828979046517806e-19
+    inertia_per_kg_m2:
+    - - 0.0001051250000000006
+      - -3.263416022400233e-20
+      - -9.98013037455842e-22
+    - - -3.263416022400233e-20
+      - 0.0029666458333333333
+      - -5.087641213328947e-21
+    - - -9.98013037455842e-22
+      - -5.087641213328947e-21
+      - 0.0029666458333333333
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- id: motor_radiant_shield
+  type: commercial
+  parent: aft_shell
+  position_m: 1.013
+  geometry:
+    length_m: 0.187
+    radius_m: 0.01512
+    inner_radius_m: 0.0151
+  material: aluminum
+  mass_kg: 0.0009586933150538666
+  estimate: true
+  learn: A thin reflective outer surface reduces radiation across the air gap. The
+    foil carries no structural load and is separate from the commercial motor; contamination
+    and damage can reduce its thermal benefit.
+  build:
+    method: cut
+    cost_usd: 2.0
+    generator: commercial
+    notes: Cut and mechanically retain foil sleeve outside the separate mica barrier.
+      Aged/contaminated emissivity and cracking are test requirements.
+  cad:
+    generator: liner
+    parameters: {}
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#c9cdd2'
+    notes: 20 micrometre nonstructural foil outside mica; contact and emissivity bounds
+      in thermal model; no motor modification.
+  cg_offset_m: 0.09349999999999957
+  engineering:
+    function: Nonstructural reflective foil reduces radiant heat from the liner to
+      surrounding mechanisms.
+    material_profile: aluminum
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - motor_thrust
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Verify thickness, retention, electrical isolation and installed temperatures;
+      inspect damage/contamination after each test.
+  cite: Selected nonstructural 20 um aluminum radiant shield; density 2700 kg/m3.
+    Optical properties bounded at 0.1-0.3; verify exact foil finish and installed
+    thermal performance.
+  cad_mass:
+    shape_sha256: 8351cf6fafd52d810f971c93dd0fed31dadc83cc6343e9ce392e69f69f1be09c
+    volume_m3: 3.5507159816809876e-07
+    cg_local_body_m:
+    - -0.09349999999999957
+    - -2.870141885805683e-14
+    - -1.227056586379525e-16
+    inertia_per_kg_m2:
+    - - 0.00022831219999995214
+      - -1.2261534682424161e-17
+      - 1.128450999703179e-18
+    - - -1.2261534682424161e-17
+      - 0.0030282394333334835
+      - -1.1710161409514604e-19
+    - - 1.128450999703179e-18
+      - -1.1710161409514604e-19
+      - 0.0030282394333332936
+    basis: bulk-density manufactured solid
+- id: thrust_pads
+  type: commercial
+  parent: aft_shell
+  position_m: 1.01
+  geometry:
+    length_m: 0.003
+    radius_m: 0.0142
+    inner_radius_m: 0.0125
+  material: mica
+  mass_kg: 0.00029932937844339547
+  estimate: true
+  learn: Three nonstructural mica compression pads separate the commercial case forward
+    bearing face from the G11 thrust stop. Compression area, heat flow and case-shoulder
+    compatibility are explicit checks; mica is not a tension or retention member.
+  build:
+    method: cut
+    cost_usd: 12
+    generator: sector_pads
+    notes: Integrated preliminary design; dimensions and property bounds are estimated
+      unless cited. Exact purchased motor shoulder/nozzle/closure fit and proof/thermal
+      verification remain required.
+  cad:
+    generator: sector_pads
+    parameters:
+      sector_angle_deg: 40
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#a9a9a0'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  engineering:
+    function: Three nonstructural mica compression pads separate the commercial case
+      forward bearing face from the G11 thrust stop. Compression area, heat flow and
+      case-shoulder compatibility are explicit checks; mica is not a tension or retention
+      member.
+    material_profile: mica
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - motor_thrust
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: dabed25f4002ee3bc0a9241ce1259821e6344e6578210d6b0c6d4f74536339e0
+    volume_m3: 1.4253779925875974e-07
+    cg_local_body_m:
+    - -0.0015
+    - 1.1963862040050688e-18
+    - -7.975908026700458e-19
+    inertia_per_kg_m2:
+    - - 0.00017887085242250688
+      - -7.975908026700458e-22
+      - -2.193374707342626e-21
+    - - -7.975908026700458e-22
+      - 9.018542621125346e-05
+      - -9.571089632040551e-21
+    - - -2.193374707342626e-21
+      - -9.571089632040551e-21
+      - 9.018542621125346e-05
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.0015
+- id: aft_retainer
+  type: commercial
+  parent: aft_shell
+  position_m: 1.2029999999999998
+  geometry:
+    length_m: 0.004
+    radius_m: 0.032
+    inner_radius_m: 0.012
+  material: G11
+  mass_kg: 0.020256493058707727
+  estimate: true
+  learn: A removable three-bolt G11 aft plate captures the commercial motor aft shoulder
+    and carries reverse acceleration/handling loads. Its 24 mm opening is a provisional
+    nozzle/closure hypothesis; exact supplier capture, nozzle/plume keep-out and extraction
+    remain open dependencies.
+  build:
+    method: cut
+    cost_usd: 12
+    generator: retainer_plate
+    notes: Integrated preliminary design; dimensions and property bounds are estimated
+      unless cited. Exact purchased motor shoulder/nozzle/closure fit and proof/thermal
+      verification remain required.
+  cad:
+    generator: retainer_plate
+    parameters:
+      bolt_circle_radius_mm: 25.5
+      bolt_count: 3
+      bolt_start_angle_deg: 60
+      bolt_hole_diameter_mm: 3.4
+      thread_engagement_mm: 2.4
+      reverse_retention_design_load_n: 150
+      fastener_hypothesis: M3 x20 A2 socket head with captive M3 nut/spreader washer
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#6d959a'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  engineering:
+    function: A removable three-bolt G11 aft plate captures the commercial motor aft
+      shoulder and carries reverse acceleration/handling loads. Its 24 mm opening
+      is a provisional nozzle/closure hypothesis; exact supplier capture, nozzle/plume
+      keep-out and extraction remain open dependencies.
+    material_profile: G11
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - motor_thrust
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: 69ec53e389d3c56e82bb8c3111c9ea621cfb358c1588d5d75e68f04b63486525
+    volume_m3: 1.0949455707409582e-05
+    cg_local_body_m:
+    - -0.002
+    - -4.1531502847098887e-19
+    - 9.34458814059725e-20
+    inertia_per_kg_m2:
+    - - 0.0005833264140451982
+      - 6.64504045553582e-22
+      - 8.306300569419775e-23
+    - - 6.64504045553582e-22
+      - 0.0002929965403559355
+      - -1.9935121366607462e-21
+    - - 8.306300569419775e-23
+      - -1.9935121366607462e-21
+      - 0.00029299654035592945
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.002
+- id: retention_hardware
+  type: commercial
+  parent: aft_shell
+  position_m: 1.1869999999999998
+  geometry:
+    length_m: 0.023
+    radius_m: 0.0322
+  material: commercial
+  mass_kg: 0.007
+  estimate: true
+  learn: Three purchased M3 socket cap screw envelopes retain the aft plate. Estimated
+    supplied mass includes the screws, nuts/washers where used, and locking provision;
+    CAD shows unthreaded shank/head envelopes. Exact grade, torque, engagement and
+    hot pullout/proof testing are required.
+  build:
+    method: purchased
+    cost_usd: 12
+    generator: pins
+    notes: Integrated preliminary design; dimensions and property bounds are estimated
+      unless cited. Exact purchased motor shoulder/nozzle/closure fit and proof/thermal
+      verification remain required.
+  cad:
+    generator: pins
+    parameters:
+      pins:
+      - radius_mm: 1.5
+        length_mm: 20
+        start_mm:
+        - 12.750000000000004
+        - 22.083647796503183
+        - 0
+        axis:
+        - 0
+        - 0
+        - 1
+      - radius_mm: 2.75
+        length_mm: 3
+        start_mm:
+        - 12.750000000000004
+        - 22.083647796503183
+        - 20
+        axis:
+        - 0
+        - 0
+        - 1
+      - radius_mm: 1.5
+        length_mm: 20
+        start_mm:
+        - -25.5
+        - 3.1228493378257506e-15
+        - 0
+        axis:
+        - 0
+        - 0
+        - 1
+      - radius_mm: 2.75
+        length_mm: 3
+        start_mm:
+        - -25.5
+        - 3.1228493378257506e-15
+        - 20
+        axis:
+        - 0
+        - 0
+        - 1
+      - radius_mm: 1.5
+        length_mm: 20
+        start_mm:
+        - 12.750000000000004
+        - -22.083647796503183
+        - 0
+        axis:
+        - 0
+        - 0
+        - 1
+      - radius_mm: 2.75
+        length_mm: 3
+        start_mm:
+        - 12.750000000000004
+        - -22.083647796503183
+        - 20
+        axis:
+        - 0
+        - 0
+        - 1
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#a9a9a0'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  engineering:
+    function: Three purchased M3 socket cap screw envelopes retain the aft plate.
+      Estimated supplied mass includes the screws, nuts/washers where used, and locking
+      provision; CAD shows unthreaded shank/head envelopes. Exact grade, torque, engagement
+      and hot pullout/proof testing are required.
+    material_profile: stainless_fastener
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - motor_thrust
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cite: 'M3 socket-cap head envelope DIN 912: https://www.metrofixings.co.uk/product/m3-x-16-socket-head-cap-screw/3175
+    ; 5.5 mm head diameter, 3 mm head height. Purchase quantity/grade and complete
+    joint are not selected.'
+  cad_mass:
+    shape_sha256: 54dfa2ae5adb25105451b6149bb4a0ef99204ccd35d512043a3be2a41d07faca
+    volume_m3: 6.379396582195773e-07
+    cg_local_body_m:
+    - -0.013854570637119116
+    - 2.0494079917329438e-18
+    - -3.2077690305385206e-18
+    inertia_per_kg_m2:
+    - - 0.0006522653220221605
+      - -4.9778794655997303e-20
+      - 4.523359130013003e-21
+    - - -4.9778794655997303e-20
+      - 0.000378014558402905
+      - 2.851350249367567e-21
+    - - 4.523359130013003e-21
+      - 2.851350249367567e-21
+      - 0.0003780145584029051
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.013854570637119116
+- id: aft_thrust_pads
+  type: commercial
+  parent: aft_shell
+  position_m: 1.2
+  geometry:
+    length_m: 0.003
+    radius_m: 0.0142
+    inner_radius_m: 0.0125
+  material: mica
+  mass_kg: 0.00029932937844339547
+  estimate: true
+  learn: Three mica compression spacers isolate the motor aft bearing shoulder from
+    the removable G11 retention plate. Bolts provide tensile capture; mica carries
+    compression only. Exact case shoulder/nozzle/plume clearance, preload and hot
+    compression must be verified.
+  build:
+    method: cut
+    cost_usd: 12
+    generator: sector_pads
+    notes: Integrated preliminary design; dimensions and property bounds are estimated
+      unless cited. Exact purchased motor shoulder/nozzle/closure fit and proof/thermal
+      verification remain required.
+  cad:
+    generator: sector_pads
+    parameters:
+      sector_angle_deg: 40
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#a9a9a0'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  engineering:
+    function: Three mica compression spacers isolate the motor aft bearing shoulder
+      from the removable G11 retention plate. Bolts provide tensile capture; mica
+      carries compression only. Exact case shoulder/nozzle/plume clearance, preload
+      and hot compression must be verified.
+    material_profile: mica
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - motor_thrust
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: dabed25f4002ee3bc0a9241ce1259821e6344e6578210d6b0c6d4f74536339e0
+    volume_m3: 1.4253779925875974e-07
+    cg_local_body_m:
+    - -0.0015
+    - 1.1963862040050688e-18
+    - -7.975908026700458e-19
+    inertia_per_kg_m2:
+    - - 0.00017887085242250688
+      - -7.975908026700458e-22
+      - -2.193374707342626e-21
+    - - -7.975908026700458e-22
+      - 9.018542621125346e-05
+      - -9.571089632040551e-21
+    - - -2.193374707342626e-21
+      - -9.571089632040551e-21
+      - 9.018542621125346e-05
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.0015
 design:
   mode: performance
   mass_allowance_kg: 0.05
@@ -671,11 +1200,27 @@ netlist:
   from: arming_switch
   to: flight_computer
   pin: null
-- net: RECOVERY_INDEPENDENT
-  from: battery
-  to: independent_recovery
-  gauge_awg: 24
 - net: HIGH_G_SPI
   from: flight_computer
   to: high_g_accel
   gauge_awg: 28
+- net: RECOVERY_BAT_POS
+  from: recovery_battery
+  to: recovery_power_switch
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_ARMED_POS
+  from: recovery_power_switch
+  to: independent_recovery
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_RETURN
+  from: recovery_battery
+  to: independent_recovery
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_OUTPUT_BUNDLE
+  from: independent_recovery
+  to: recovery_output_harness
+  gauge_awg: 26
+  pin: null

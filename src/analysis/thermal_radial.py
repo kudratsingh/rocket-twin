@@ -1,10 +1,11 @@
-"""Conservative finite-volume radial conduction and opaque-gap heat exchange.
+"""Finite-volume radial conduction, opaque-gap exchange and direct contact.
 
 For an annular wall R=ln(ro/ri)/(2*pi*k*L); cell capacities are exact annular
 volumes times volumetric heat capacity. Logarithmic cell centres preserve the
 steady cylindrical solution. Internal exchanges enter the two nodes with opposite
-sign. Grey diffuse concentric-surface radiation uses reciprocal areas; solid half
-walls remain in series with the gap instead of radiating through an opaque wall.
+sign. Grey diffuse concentric-surface radiation uses both surface emissivities and
+reciprocal areas; solid half walls remain in series with a gap. Touching walls use
+half-wall conduction plus interface resistance with no gap radiation.
 References: DOE-HDBK-1012/2-92, HT-02 pp.11-13 (cylindrical composite walls),
 https://www.energy.gov/documents/doe-hdbk-1012-92vol2 ; COMSOL surface-to-surface
 radiation theory/view factors, https://doc.comsol.com/6.3/doc/com.comsol.help.heat/heat_ug_theory.07.053.html .
@@ -85,6 +86,9 @@ def opaque_gap_flux(
     length_m: float,
     air_conductivity_w_m_k: float,
     emissivity: float,
+    *,
+    inner_surface_emissivity: float | None = None,
+    outer_surface_emissivity: float | None = None,
 ) -> float:
     """W positive radially outward; surface temperatures solved behind half walls.
 
@@ -102,6 +106,10 @@ def opaque_gap_flux(
         and min(inner_node_k, outer_node_k) > 0
     ):
         raise ValueError("Invalid absolute temperatures or gap geometry/properties")
+    eps_inner = emissivity if inner_surface_emissivity is None else inner_surface_emissivity
+    eps_outer = emissivity if outer_surface_emissivity is None else outer_surface_emissivity
+    if not (0 < eps_inner <= 1 and 0 < eps_outer <= 1):
+        raise ValueError("Surface emissivities must be in (0, 1]")
     area = 2 * np.pi * inner_surface_radius_m * length_m
     conduction = (
         2
@@ -113,7 +121,7 @@ def opaque_gap_flux(
     radiation = (
         SIGMA
         * area
-        / (1 / emissivity + inner_surface_radius_m / outer_surface_radius_m * (1 / emissivity - 1))
+        / (1 / eps_inner + inner_surface_radius_m / outer_surface_radius_m * (1 / eps_outer - 1))
     )
 
     def flux_at(q: float) -> float:
@@ -129,6 +137,41 @@ def opaque_gap_flux(
         return flux_at(0)
     bound = difference / resistance
     return float(brentq(flux_at, min(0.0, bound), max(0.0, bound), xtol=1e-11))
+
+
+def direct_contact_flux(
+    inner_node_k: float,
+    outer_node_k: float,
+    inner_half_resistance_k_w: float,
+    outer_half_resistance_k_w: float,
+    contact_conductance_w_k: float,
+) -> float:
+    """W from the first node to the second through solid walls and a contact.
+
+    The contact conductance is the total interface conductance, not an areal
+    coefficient. No gap-air conduction or radiation is added across this interface.
+    """
+    if not (
+        inner_node_k > 0
+        and outer_node_k > 0
+        and inner_half_resistance_k_w >= 0
+        and outer_half_resistance_k_w >= 0
+        and contact_conductance_w_k > 0
+        and np.isfinite(
+            [
+                inner_node_k,
+                outer_node_k,
+                inner_half_resistance_k_w,
+                outer_half_resistance_k_w,
+                contact_conductance_w_k,
+            ]
+        ).all()
+    ):
+        raise ValueError("Invalid direct-contact temperature or resistance")
+    total_resistance = (
+        inner_half_resistance_k_w + 1 / contact_conductance_w_k + outer_half_resistance_k_w
+    )
+    return float((inner_node_k - outer_node_k) / total_resistance)
 
 
 def known_cases() -> dict[str, Any]:
@@ -180,15 +223,61 @@ def known_cases() -> dict[str, Any]:
     )
     transient_error = float(np.max(np.abs(result.y - expected)))
     energy_error = float(np.max(np.abs(np.array([c1, c2]) @ result.y - 2300)))
+    inner_radius, outer_radius, length = 0.01, 0.02, 0.1
+    eps_inner, eps_outer = 0.1, 0.9
+    radiative = opaque_gap_flux(
+        500,
+        300,
+        0,
+        0,
+        inner_radius,
+        outer_radius,
+        length,
+        0,
+        0.5,
+        inner_surface_emissivity=eps_inner,
+        outer_surface_emissivity=eps_outer,
+    )
+    area = 2 * np.pi * inner_radius * length
+    expected_radiative = (
+        SIGMA
+        * area
+        * (500**4 - 300**4)
+        / (1 / eps_inner + inner_radius / outer_radius * (1 / eps_outer - 1))
+    )
+    radiative_reverse = opaque_gap_flux(
+        300,
+        500,
+        0,
+        0,
+        inner_radius,
+        outer_radius,
+        length,
+        0,
+        0.5,
+        inner_surface_emissivity=eps_inner,
+        outer_surface_emissivity=eps_outer,
+    )
+    contact = direct_contact_flux(500, 300, 2.0, 3.0, 0.2)
+    contact_reverse = direct_contact_flux(300, 500, 3.0, 2.0, 0.2)
+    contact_expected = 200 / (2 + 5 + 3)
     return {
         "cylindrical_steady_levels": levels,
         "two_capacity_transient_max_error_k": transient_error,
         "two_capacity_energy_error_j": energy_error,
+        "two_surface_emissivity_radiation_error_w": abs(radiative - expected_radiative),
+        "two_surface_emissivity_reciprocity_error_w": abs(radiative + radiative_reverse),
+        "direct_contact_flux_error_w": abs(contact - contact_expected),
+        "direct_contact_reciprocity_error_w": abs(contact + contact_reverse),
         "passed": all(
             level["max_temperature_error_k"] < 1e-8 and level["relative_heat_rate_error"] < 1e-9
             for level in levels
         )
         and transient_error < 1e-6
-        and energy_error < 1e-8,
+        and energy_error < 1e-8
+        and abs(radiative - expected_radiative) < 1e-12
+        and abs(radiative + radiative_reverse) < 1e-12
+        and abs(contact - contact_expected) < 1e-12
+        and abs(contact + contact_reverse) < 1e-12,
         "scope": "Numerical verification of reductions only; not rocket temperature validation.",
     }

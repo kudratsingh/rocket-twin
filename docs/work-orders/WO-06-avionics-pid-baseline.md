@@ -65,3 +65,17 @@ owner measurements, HIL, WO-10 review and flight release.
 ## Traceability and vibration-risk carry-through
 
 Close identified actuator, vibration/sensor and aerodynamic-model risks at model scope before PID acceptance. Include validity bounds, resonance/aliasing/coupling, stiffness/temperature uncertainty and simulated fault responses; physical qualification remains later.
+
+### Current WO-03 findings carried into PID acceptance
+
+The integrated report identifies body first modes around 16–26 Hz and gross
+G11 gimbal screens around 32.6–51.6 Hz. Those are estimated reductions, not measured
+loaded servo/structure modes. Assess their interaction with voltage-dependent
+actuator dynamics, sensor filters/sampling and loop timing before accepting PID.
+The current G12 case has substantial passive weathercock/post-burn attitude motion;
+coincident q/alpha loads and the separate max-q times broadside-CN sensitivities must
+remain distinct. Root/torsional compliance and large-angle model bounds remain
+open in [the WO-03 closure table](../wo03-correction-closure.md). Retain abort
+limitations: centering a gimbal cannot stop solid thrust or restore finless
+post-burn authority. These findings strengthen the existing prerequisites and do
+not change the work-order sequence or authorize early control/flight acceptance.

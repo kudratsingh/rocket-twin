@@ -290,19 +290,41 @@ def analyze_vehicle(
         )
 
     liner, mount, motor = parts["motor_liner"], parts["motor_mount"], parts["motor"]
+    mount_bore_mm = mount.geometry["inner_radius_m"] * 1000
+    mount_at_carrier_mm = mount.geometry["radius_m"] * 1000
+    cassette = bool(mount.cad and mount.cad.generator == "motor_cassette")
+    if cassette:
+        assert mount.cad
+        o = mount.cad.parameters
+        # Installation traverses the rails as well as the grip bore. The
+        # largest end-block envelope is not the surface at the gimbal plane.
+        mount_bore_mm = min(
+            o["motor_clear_radius_mm"], o["rail_center_radius_mm"] - o["rail_radial_width_mm"] / 2
+        )
+        mount_at_carrier_mm = max(
+            o["grip_outer_radius_mm"],
+            math.hypot(
+                o["rail_center_radius_mm"] + o["rail_radial_width_mm"] / 2,
+                o["rail_tangential_width_mm"] / 2,
+            ),
+        )
+    sleeve_outer = parts.get("motor_radiant_shield", liner)
     stacks.append(
         _pair(
             "motor_mount_inner_radius_to_liner_outer_radius",
             mount,
-            liner,
-            mount.geometry["inner_radius_m"] * 1000,
-            liner.geometry["radius_m"] * 1000,
+            sleeve_outer,
+            mount_bore_mm,
+            sleeve_outer.geometry["radius_m"] * 1000,
             float(required["radial_fit"]),
             engineering,
             study,
-            host_tol_kind="radius_from_hole",
+            host_tol_kind="linear" if cassette else "radius_from_hole",
         )
     )
+    stacks[-1][
+        "dimensions_source"
+    ] = "Smallest rail/grip installation radius and outermost liner/foil surface from resolved CAD parameters; installed concentricity remains separate."
     stacks.append(
         _unavailable(
             "liner_inner_radius_to_motor_case_radius",
@@ -322,13 +344,16 @@ def analyze_vehicle(
             carrier,
             mount,
             carrier.geometry["inner_radius_m"] * 1000,
-            mount.geometry["radius_m"] * 1000,
+            mount_at_carrier_mm,
             float(required["radial_fit"]),
             engineering,
             study,
             host_tol_kind="radius_from_hole",
         )
     )
+    stacks[-1][
+        "dimensions_source"
+    ] = "Carrier-plane grip/rail-corner radius; remote cassette end-block envelope is excluded from this local fit and remains in the motion checks."
 
     motion_bound: dict[str, Any]
     if not vehicle.tvc:

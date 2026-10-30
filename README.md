@@ -6,37 +6,67 @@ certification scope, and PID-to-RL training, embedded deployment and eventual re
 comparison. Custom mechanical design, materials, fabrication and integration are part
 of the project, alongside certified commercial motors and appropriate purchased parts.
 
-The preliminary platform shares an upper airframe, avionics and recovery across
-three explicit configurations with interchangeable aft assemblies:
+The current WO-03 design shares an upper airframe, avionics and recovery across
+conventional performance, finned TVC training and eventual finless configurations.
+Custom fabrication, maximum practical conventional performance and committed
+PID-to-RL development remain equally important outcomes.
 
-| Mode | Preliminary propulsion | Nominal mass / with growth allowance |
-|---|---|---:|
-| Conventional finned performance, fixed motor | AeroTech G80-10T SU family | 472.0 / 522.0 g |
-| Finned TVC trainer, PID then RL | Reformulated G12ST-P DMS family | 575.8 / 625.8 g |
-| Eventual finless TVC | G12ST-P, separate actual geometry and validation | 532.2 / 582.2 g |
+## Current integrated vehicle — WO-03 open
 
-These are source-traceable numerical hypotheses, **not flight-qualified or fully
-reconciled purchasing configurations**. The G80 source/current-product discrepancy,
-G12 installed envelope, structural/thermal tests, independent recovery and launch
-acceptance remain explicit gates. G25W remains quarantined. F25 and other motors
-rejected only by the superseded three-second rule are reopened in the new trade.
-The 1.5 kg loaded ceiling is a limit, not a target. No apogee optimum is claimed yet.
+**Diameter: 66 mm. Overall length: approximately 1.21 m (1,212 mm).** A 400 mm
+upper-body extension, stronger fins/supports, thermal protection and recovery
+integration have increased length and mass. These figures supersede the original
+800 mm platform and its earlier performance estimates.
 
-The recommended starting construction is a 66 mm × 800 mm hybrid of light kraft,
-custom reinforced/keyed joints, cut plywood and printed ASA parts. All-printed,
-rolled-paper and glass/epoxy options are compared on mass, strength, heat, cost and
-learning. Shared YAML drives the parts model, future CAD/BOM, JAX physics and viewer.
-Every part carries build/cost metadata and `learn` content. Full CAD and build pack
-remain later work orders. Planning hardware envelope: roughly $650–950 before new
-tools, shipping/tax and fees; a guide/test fixture may add $100–200.
+| Configuration | Motor hypothesis | Nominal loaded mass | With 50 g allowance | Nominal calm-air altitude |
+|---|---|---:|---:|---:|
+| Conventional finned performance | AeroTech G80-10T SU family | 739 g | 789 g | 635 m / 2,084 ft |
+| Conditional performance upgrade | CTI G54 / Pro29 source hypothesis | 818 g | 868 g | 756 m / 2,479 ft |
+| Finned TVC trainer, gimbal locked | Reformulated G12ST-P DMS family | 780 g | 830 g | 531 m / 1,743 ft |
+| Eventual finless TVC | G12ST-P, separate actual geometry | 646 g | 696 g | Not flight validated |
 
-WO-01 static and WO-02 numerical flight benchmarks pass on the Mac CPU. Actual
-performance and finned-TVC flights are independently compared with RocketPy;
-three alternative motor hypotheses and uncertainty/wind/recovery cases are recorded.
-CAD, frontend, PID/RL, firmware and flights remain later work. Each run explicitly says `flight_ready: false`.
-The digital-only orbital launcher, PPO-versus-G-FOLD comparison and extension
-interfaces remain in the plan. RL is committed; honest negative comparisons count
-as research evidence, while deployment still requires its acceptance gates.
+Altitude uses **nominal mass**; growth is evaluated in separate cases. These are
+simulated source hypotheses, not flight measurements or purchase-ready motor
+configurations. G54 predicts about 19% more nominal altitude than G80. Its defined
+full-growth/depletion stability minimum is **1.046 calibre**, just above the 1.0
+gate; an additional exploratory motor-CG sensitivity falls below 1.0. G54 remains
+conditional on design robustness and exact source/hardware/CG evidence.
+
+**G12 TVC currently requires 5 m usable launch-guide travel in the model. Its
+availability and club acceptance are unconfirmed.** The lower-thrust, full-growth
+screen retains its 10 m/s departure requirement. This guide assumption is not
+confirmed launch equipment or authorization.
+
+The integrated design uses light kraft tubes, custom keyed joints, rectangular
+plywood fins and root gussets, machined G11 recovery/thrust/gimbal parts, mica/foil
+thermal protection and a dedicated recovery-controller power package. All-printed,
+rolled-paper and composite options remain available where justified by strength,
+heat, mass, cost and learning. One shared YAML parts model drives CAD, mass/CG/full
+inertia, JAX physics, BOM/learn metadata and future viewer inspection.
+
+**WO-03 acceptance remains open.** Remaining items include installed fin/root and
+flutter evidence, minimum clearances, G54 thermal/CG sensitivities, detailed motor
+capture/fastener/pin evidence, recovery mounting/arming/routing and anchor capacity.
+Nominal CAD/flight comparisons and standard thermal screens do not close these
+design items or the separate physical qualification gates. See the
+[correction/closure report](docs/wo03-correction-closure.md),
+[full mass/CG/inertia report](docs/wo03-integrated-vehicle.md) and
+[current status](docs/STATUS.md).
+
+G80 remains the reference; G12 remains the PID-to-RL trainer; eventual finless
+burnout/recovery transition requires its own validation. Certified commercial
+motors and appropriate purchased components complement substantial custom
+mechanical work. Exact motor/source/lot, California eligibility and club/RSO
+acceptance remain launch prerequisites. G25W remains quarantined. Historical
+threshold-only motor exclusions remain recorded and are reconsidered under the
+rebaseline. The 1.5 kg loaded ceiling is a limit, not a target weight.
+
+WO-01 and WO-02 numerical benchmarks remain the historical baseline. Current
+integrated configurations are rechecked independently with RocketPy. Frontend,
+PID/RL, firmware/HIL and owner-performed build/flights remain in sequence; every
+record has `flight_ready: false`. RL is committed, with honest negative results.
+The digital-only orbital launcher, PPO-versus-G-FOLD and extension interfaces remain.
+Purchases, physical work, paid runs, WO-10 owner review and flight release remain gated.
 
 ## Run locally
 
@@ -70,15 +100,17 @@ and shared upper are under [configs/vehicle/platform](configs/vehicle/platform).
 - [ADR-0006](docs/adr/0006-modular-platform-rebaseline.md), [plan](docs/PLAN.md), [status](docs/STATUS.md), [results](docs/results.md)
 - [Environment](docs/ENVIRONMENT.md), [owner start guide](START_HERE.md), [agent workflow](AGENTS.md)
 
-## Delivered-performance findings
+## Delivered-performance evidence
 
-The G80 reference predicts ~698 m AGL; G54 ~842 m and G33 ~824 m. A distinct fixed
-G12 model predicts ~1,023 m in calm air, but needs better conservative guide departure
-and has strong wind sensitivity. The G12 TVC trainer predicts ~903 m calmly and
-needs closed-loop control for its intended operating envelope. These are source
-hypotheses, not flight claims. Keep G80 as the reference and G54 as the conditional
-near-160 N s upgrade lead; hardware remains unfrozen. G80/G54 also exceed the
-starting 16 g accelerometer range. [Recorded results](docs/results.md).
+The current table above is the integrated WO-03 prediction, with G80 as reference
+and G54 conditional. The current 27-case campaign includes motor alternatives,
+growth, thrust/drag, wind and recovery timing. Five nominal RocketPy comparisons
+meet the 5% benchmark; the largest current error is finned-G12 altitude 2.064% and
+time-to-apogee 0.917%. Numerical agreement under assumptions is not measured flight
+accuracy. G12 passive weathercock/post-burn motion remains a control/model risk.
+The high-g measurement path is retained alongside the low-g IMU.
+[Recorded results](docs/results.md) preserve the earlier estimates and comparison
+records as historical evidence rather than current performance claims.
 
 ## Historical studies
 

@@ -32,7 +32,7 @@ def main() -> int:
         parser.error(f"Unknown vehicle: {args.vehicle}")
 
     parts = {part.id: part for part in selected.parts}
-    x0, scale = 100, 1650
+    x0, scale = 100, 1300 / selected.airframe["length_m"]
 
     def x(station: float) -> float:
         return x0 + station * scale
@@ -59,7 +59,7 @@ def main() -> int:
         return p.position_m, p.position_m + length
 
     separation = float(platform["interface"]["aft_separation_station_m"])
-    end = max(p.position_m + p.geometry.get("length_m", 0.0) for p in selected.parts)
+    end = selected.airframe["length_m"]
     elements.append(
         f'<rect x="{x(separation):.1f}" y="260" width="{x(end) - x(separation):.1f}" height="80" fill="#dce4ed" stroke="#334e5c" stroke-width="2"/>'
     )
@@ -142,7 +142,7 @@ def main() -> int:
             550,
             14,
         ),
-        f'<line x1="{x(0.52):.1f}" y1="620" x2="{x(end):.1f}" y2="620" stroke="#744f91" stroke-width="3" marker-end="url(#arrow)"/>',
+        f'<line x1="{x(separation):.1f}" y1="620" x2="{x(end):.1f}" y2="620" stroke="#744f91" stroke-width="3" marker-end="url(#arrow)"/>',
         label(
             "Aft module exchange: separate at keyed joint; hardware, access and proof load unresolved",
             750,

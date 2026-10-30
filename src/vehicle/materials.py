@@ -9,7 +9,10 @@ DENSITY_KG_M3: dict[str, float] = {
     "nylon": 1140,
     "cardboard": 700,
     "ASA": 1070,
-    "plywood": 550,
+    "plywood": 715,
     "fiberglass": 1850,
     "phenolic": 1300,
+    "G11": 1850,  # Conservative density versus cited 1820 kg/m3 stock.
+    "mica": 2100,
+    "aluminum": 2700,  # Nonstructural radiant foil only in model configurations.
 }

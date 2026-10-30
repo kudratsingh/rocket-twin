@@ -1,0 +1,690 @@
+{
+  "run_id": "wo03-fin-acceptance-20261030T205213529823Z",
+  "work_order": "03",
+  "record_kind": "Compact projection of original offline analysis reports; no new solve or acceptance decision.",
+  "projection_script_sha256": "5167d6f37494ec449569eb51a3aa5f920fe3ad7a0e05feca540d70e945959c76",
+  "reports": [
+    {
+      "original_report": "build/wo03-fin-acceptance-final/modular-tvc-finned-v1/wo03-fin-acceptance-20261030T205213529823Z/report.json",
+      "original_report_sha256": "c82cb414a16846baead5f468bb570e10f9aee548047d7d43aa3e0dd0a690ec10",
+      "summary": {
+        "cost_usd": 0,
+        "design_factor": 3.0,
+        "fin_geometry_copy": {
+          "minimum_thickness_m": 0.00605,
+          "nominal_thickness_m": 0.00635,
+          "root_attachment": "Ideal clamp at/below body tangent; bonded tab/shell load transfer is not represented or qualified.",
+          "root_chord_m": 0.12,
+          "span_m": 0.07,
+          "sweep_m": 0.0,
+          "tip_chord_m": 0.12
+        },
+        "flight_source_scope": "No flight-derived large-alpha case available; do not infer 40 kPa/5 deg covers stall/high-alpha.",
+        "input_sha256_after": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8"
+        },
+        "input_sha256_before": {
+          "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+          "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+          "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+          "scripts/wo03_fin_acceptance.py": "09fb7786d1d00c275fc72aa69de7465f87dfaa116559e31c6b42a925dfc98e08",
+          "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+          "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+          "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+          "src/vehicle/materials.py": "46bf94ab299f8c33a6b9f4cf8fa36e722f7713ca8f7bdb855fa5776f4a670ef8"
+        },
+        "inputs_unchanged": true,
+        "large_alpha_g12_bound": {
+          "reason": "No matching current flight record supplied.",
+          "status": "unavailable"
+        },
+        "material": {
+          "axes": {
+            "1": "span/face grain",
+            "2": "chord/in-plane transverse",
+            "3": "plate normal/thickness"
+          },
+          "compliance_eigenvalues_per_pa": [
+            3.8759615953640377e-10,
+            5.999999999999998e-10,
+            2.012403840463596e-09,
+            5e-09,
+            5e-09,
+            5e-09
+          ],
+          "compliance_positive_definite": true,
+          "density_basis": "Resolved material density from src.vehicle.materials; no local duplicate.",
+          "density_kg_m3": 715.0,
+          "engineering_constants": {
+            "E1_pa": 2000000000.0,
+            "E2_pa": 2000000000.0,
+            "E3_pa": 500000000.0,
+            "G12_pa": 200000000.0,
+            "G13_pa": 200000000.0,
+            "G23_pa": 200000000.0,
+            "nu12": 0.2,
+            "nu13": 0.2,
+            "nu23": 0.2
+          },
+          "model": "3D orthotropic engineering constants, used in S6 shell with explicit in-plane orientation",
+          "property_status": "Estimated preliminary lower-bound assumptions, not measured lot/coupon values."
+        },
+        "minimum_thickness_copy_shape_sha256": "9e8c75b5c76578def3fa601f388feef1dbd1bdc99a1328df08ca518bc3a9336b",
+        "resolved_spec_sha256": "9abb673ce19bed6cc6f892ea4035aadb29113f176ca6d8495b92bc641529b5f2",
+        "root_loadpath_status": "open: ideal clamp is not a bond/root-joint qualification; requires separate root/plywood-to-shell interface analysis and proof test.",
+        "run_id": "wo03-fin-acceptance-20261030T205213529823Z",
+        "source_config": "configs/vehicle/platform/tvc-finned.yaml",
+        "source_fin_shape_sha256": "efaeaf65bf64bfe8384d5d4f3e484df141dd8eee91f0375ac0d0938f21922598",
+        "static_40kpa_5deg": {
+          "angle_deg": 5.0,
+          "cold_convergence": {
+            "all_mesh_levels_retained": true,
+            "coarse_level_retained_for_history": true,
+            "comparison_levels_mm": [
+              3.5,
+              2.5
+            ],
+            "converged": false,
+            "displacement_converged_lt_5pct": true,
+            "displacement_fine_vs_middle_fraction": 6.714117126849217e-05,
+            "element_counts": [
+              1347,
+              2571,
+              4693,
+              9963,
+              18785
+            ],
+            "fine_component_stress_scope": {
+              "regional_abs_sxx_pa": {
+                "below_1pct_of_df3_allowable": false,
+                "df3_allowable_pa": 3333333.3333333335,
+                "fine_stress_pa": 1272466.0,
+                "fraction_of_df3_allowable": 0.38173979999999996
+              },
+              "regional_abs_syy_pa": {
+                "below_1pct_of_df3_allowable": true,
+                "df3_allowable_pa": 3333333.3333333335,
+                "fine_stress_pa": 971.8326999999999,
+                "fraction_of_df3_allowable": 0.00029154980999999996
+              },
+              "regional_abs_tau_xy_pa": {
+                "below_1pct_of_df3_allowable": true,
+                "df3_allowable_pa": 666666.6666666666,
+                "fine_stress_pa": 2308.1769999999997,
+                "fraction_of_df3_allowable": 0.0034622654999999997
+              }
+            },
+            "first_three_frequencies_converged_lt_5pct": true,
+            "frequency_first_three_fine_vs_middle_fraction": 3.6428652181785814e-05,
+            "levels_mm": [
+              10.0,
+              7.0,
+              5.0,
+              3.5,
+              2.5
+            ],
+            "low_absolute_stress_note": "A component below 1% of its DF3 directional allowable can be reported as low absolute stress; this does not waive the regional component mesh-convergence criterion.",
+            "regional_components_converged_lt_10pct": false,
+            "stress_component_fine_vs_middle_fraction": {
+              "regional_abs_sxx_pa": 0.0022308284018565105,
+              "regional_abs_syy_pa": 0.3448153976010183,
+              "regional_abs_tau_xy_pa": 0.27113061771364144
+            }
+          },
+          "cold_levels": [
+            {
+              "applied_support_cload_n": 0.2467484718289993,
+              "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+              "compliance_positive_definite": true,
+              "density_kg_m3": 715.0,
+              "elements": 1347,
+              "equilibrium_error_n": 1.3374138774224775e-07,
+              "flight_ready": false,
+              "force_n": 49.8071294055704,
+              "frequencies_hz": [
+                401.8854,
+                477.9935,
+                952.3823,
+                1835.821,
+                2037.302,
+                2186.845
+              ],
+              "gmsh": "4.15.2",
+              "input_sha256": "49e761802fa9a44ecdcb0c8c114d15852d37509c0df74892690709af9dcc31a3",
+              "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+              "material_model": "orthotropic engineering constants",
+              "max_displacement_m": 0.00033031630000000003,
+              "mesh_sha256": "2015cb82524e734d6da56a5f0d0009b96d701329ff6d75c5176f1cfe10929f8f",
+              "nodes": 2782,
+              "orthotropic_engineering_constants": {
+                "E1_pa": 2000000000.0,
+                "E2_pa": 2000000000.0,
+                "E3_pa": 500000000.0,
+                "G12_pa": 200000000.0,
+                "G13_pa": 200000000.0,
+                "G23_pa": 200000000.0,
+                "nu12": 0.2,
+                "nu13": 0.2,
+                "nu23": 0.2
+              },
+              "part_id": "fin_set",
+              "part_shape_sha256": null,
+              "regional_abs_sxx_pa": 1283959.0,
+              "regional_abs_syy_pa": 3290.9660000000003,
+              "regional_abs_tau_xy_pa": 7561.807000000001,
+              "regional_exclusion_span_mm": 12.1,
+              "regional_stress_by_actual_thickness_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 158,
+                "canonical_json_sha256": "ac6e77f7bec5bc56f5efdc238790b36d34a9057ad087bee92cd1406b5e8ab2fd",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "regional_von_mises_pa": 1289460.5265321748,
+              "reported_support_nodal_force_n": -49.56038080000001,
+              "root_band_corner_edge_lengths_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 2,
+                "canonical_json_sha256": "a6aa29124637837ba6dfebac4f2cc8cfbc7921ed7b02403807b31534ae0e7c2a",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "root_band_element_count": 744,
+              "root_band_target_element_size_mm": 2.5,
+              "size_mm": 10.0,
+              "solver_executed": true,
+              "stiffness_fraction": 1.0,
+              "support_reaction_n": -49.80712927182901,
+              "thickness_profile": {
+                "base_thickness_mm": 6.05,
+                "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                "maximum_element_thickness_mm": 11.322454587755969,
+                "minimum_element_thickness_mm": 6.05,
+                "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                "root_gusset_parameters": {
+                  "root_gusset_base_mm": 3.0,
+                  "root_gusset_inset_mm": 1.0,
+                  "root_gusset_span_mm": 12.0
+                },
+                "section_bin_mm": 0.01,
+                "section_count": 158
+              },
+              "youngs_pa": 2000000000.0
+            },
+            {
+              "applied_support_cload_n": 0.17879997484879898,
+              "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+              "compliance_positive_definite": true,
+              "density_kg_m3": 715.0,
+              "elements": 2571,
+              "equilibrium_error_n": 2.692784164537443e-07,
+              "flight_ready": false,
+              "force_n": 49.8071294055704,
+              "frequencies_hz": [
+                401.7598,
+                477.759,
+                951.996,
+                1835.661,
+                2036.566,
+                2186.857
+              ],
+              "gmsh": "4.15.2",
+              "input_sha256": "ed54514a236ca5dee382ed4eecd6612a61827d2dca854cf2a4adfd512631f186",
+              "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+              "material_model": "orthotropic engineering constants",
+              "max_displacement_m": 0.0003305089,
+              "mesh_sha256": "56fadce177ec97ae22658a8105d5a3bd5a9978ad182db4f9ab563b0209def57b",
+              "nodes": 5270,
+              "orthotropic_engineering_constants": {
+                "E1_pa": 2000000000.0,
+                "E2_pa": 2000000000.0,
+                "E3_pa": 500000000.0,
+                "G12_pa": 200000000.0,
+                "G13_pa": 200000000.0,
+                "G23_pa": 200000000.0,
+                "nu12": 0.2,
+                "nu13": 0.2,
+                "nu23": 0.2
+              },
+              "part_id": "fin_set",
+              "part_shape_sha256": null,
+              "regional_abs_sxx_pa": 1276526.0,
+              "regional_abs_syy_pa": 2483.212,
+              "regional_abs_tau_xy_pa": 5223.514999999999,
+              "regional_exclusion_span_mm": 12.1,
+              "regional_stress_by_actual_thickness_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 172,
+                "canonical_json_sha256": "829bc48576fcad73be34866d5ab0a7f5ee6426d22a17d3271b528c049760828c",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "regional_von_mises_pa": 1281634.3309278218,
+              "reported_support_nodal_force_n": -49.628329700000016,
+              "root_band_corner_edge_lengths_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 2,
+                "canonical_json_sha256": "280ebeea1431ceee771b86b91ad8d99a24da721f65f732f98aafb4c0733ba614",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "root_band_element_count": 1355,
+              "root_band_target_element_size_mm": 1.75,
+              "size_mm": 7.0,
+              "solver_executed": true,
+              "stiffness_fraction": 1.0,
+              "support_reaction_n": -49.80712967484882,
+              "thickness_profile": {
+                "base_thickness_mm": 6.05,
+                "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                "maximum_element_thickness_mm": 11.394331462880809,
+                "minimum_element_thickness_mm": 6.05,
+                "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                "root_gusset_parameters": {
+                  "root_gusset_base_mm": 3.0,
+                  "root_gusset_inset_mm": 1.0,
+                  "root_gusset_span_mm": 12.0
+                },
+                "section_bin_mm": 0.01,
+                "section_count": 172
+              },
+              "youngs_pa": 2000000000.0
+            },
+            {
+              "applied_support_cload_n": 0.12539724835928612,
+              "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+              "compliance_positive_definite": true,
+              "density_kg_m3": 715.0,
+              "elements": 4693,
+              "equilibrium_error_n": 2.721110803349802e-08,
+              "flight_ready": false,
+              "force_n": 49.8071294055704,
+              "frequencies_hz": [
+                401.7034,
+                477.6888,
+                951.911,
+                1835.599,
+                2036.434,
+                2186.93
+              ],
+              "gmsh": "4.15.2",
+              "input_sha256": "feef3e750ac8125b412a019ba4737026261d832a968ff5169e90373282de727a",
+              "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+              "material_model": "orthotropic engineering constants",
+              "max_displacement_m": 0.000330599,
+              "mesh_sha256": "73ee8f6b87176995e00ce33e5dbe6c03bee5584a5bfeb8f535b12d7425d2cdff",
+              "nodes": 9558,
+              "orthotropic_engineering_constants": {
+                "E1_pa": 2000000000.0,
+                "E2_pa": 2000000000.0,
+                "E3_pa": 500000000.0,
+                "G12_pa": 200000000.0,
+                "G13_pa": 200000000.0,
+                "G23_pa": 200000000.0,
+                "nu12": 0.2,
+                "nu13": 0.2,
+                "nu23": 0.2
+              },
+              "part_id": "fin_set",
+              "part_shape_sha256": null,
+              "regional_abs_sxx_pa": 1275642.0,
+              "regional_abs_syy_pa": 1842.319,
+              "regional_abs_tau_xy_pa": 4070.7139999999995,
+              "regional_exclusion_span_mm": 12.1,
+              "regional_stress_by_actual_thickness_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 455,
+                "canonical_json_sha256": "b338be5e25f8d92e0d6fe974d4537bf5a767e51d0b6eec9adaf091c9528e8956",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "regional_von_mises_pa": 1280423.7227696837,
+              "reported_support_nodal_force_n": -49.68173213000001,
+              "root_band_corner_edge_lengths_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 2,
+                "canonical_json_sha256": "9403436d0f0c177fde687fd0a5cb37dec284c5f6e5323967660aebfe257e47d6",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "root_band_element_count": 2538,
+              "root_band_target_element_size_mm": 1.25,
+              "size_mm": 5.0,
+              "solver_executed": true,
+              "stiffness_fraction": 1.0,
+              "support_reaction_n": -49.80712937835929,
+              "thickness_profile": {
+                "base_thickness_mm": 6.05,
+                "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                "maximum_element_thickness_mm": 11.489474314447925,
+                "minimum_element_thickness_mm": 6.05,
+                "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                "root_gusset_parameters": {
+                  "root_gusset_base_mm": 3.0,
+                  "root_gusset_inset_mm": 1.0,
+                  "root_gusset_span_mm": 12.0
+                },
+                "section_bin_mm": 0.01,
+                "section_count": 455
+              },
+              "youngs_pa": 2000000000.0
+            },
+            {
+              "applied_support_cload_n": 0.08614723907142689,
+              "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+              "compliance_positive_definite": true,
+              "density_kg_m3": 715.0,
+              "elements": 9963,
+              "equilibrium_error_n": 2.649899499829189e-08,
+              "flight_ready": false,
+              "force_n": 49.8071294055704,
+              "frequencies_hz": [
+                401.6712,
+                477.646,
+                951.8511,
+                1835.562,
+                2036.361,
+                2186.962
+              ],
+              "gmsh": "4.15.2",
+              "input_sha256": "c454469b3ec6333101fdbe0b8ff8e704a97c2826a9af23f419b6c8c84a132ab6",
+              "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+              "material_model": "orthotropic engineering constants",
+              "max_displacement_m": 0.0003306466,
+              "mesh_sha256": "6f29148864414cc114ae7cacd32b1940b1a80da76e475f443a88e32564965b0f",
+              "nodes": 20172,
+              "orthotropic_engineering_constants": {
+                "E1_pa": 2000000000.0,
+                "E2_pa": 2000000000.0,
+                "E3_pa": 500000000.0,
+                "G12_pa": 200000000.0,
+                "G13_pa": 200000000.0,
+                "G23_pa": 200000000.0,
+                "nu12": 0.2,
+                "nu13": 0.2,
+                "nu23": 0.2
+              },
+              "part_id": "fin_set",
+              "part_shape_sha256": null,
+              "regional_abs_sxx_pa": 1275311.0,
+              "regional_abs_syy_pa": 1483.296,
+              "regional_abs_tau_xy_pa": 3166.791,
+              "regional_exclusion_span_mm": 12.1,
+              "regional_stress_by_actual_thickness_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 518,
+                "canonical_json_sha256": "daaa11a3e1326598537dec23a5d73004677f527904a39e3241afbca83330c5e9",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "regional_von_mises_pa": 1279930.4645348378,
+              "reported_support_nodal_force_n": -49.720982139999975,
+              "root_band_corner_edge_lengths_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 2,
+                "canonical_json_sha256": "ccdb6fddbce58e00e167f641e34adc4475810781f8421c91b34a7bc302ba1a1f",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "root_band_element_count": 5495,
+              "root_band_target_element_size_mm": 0.875,
+              "size_mm": 3.5,
+              "solver_executed": true,
+              "stiffness_fraction": 1.0,
+              "support_reaction_n": -49.807129379071405,
+              "thickness_profile": {
+                "base_thickness_mm": 6.05,
+                "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                "maximum_element_thickness_mm": 11.517163540593131,
+                "minimum_element_thickness_mm": 6.05,
+                "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                "root_gusset_parameters": {
+                  "root_gusset_base_mm": 3.0,
+                  "root_gusset_inset_mm": 1.0,
+                  "root_gusset_span_mm": 12.0
+                },
+                "section_bin_mm": 0.01,
+                "section_count": 518
+              },
+              "youngs_pa": 2000000000.0
+            },
+            {
+              "applied_support_cload_n": 0.0637461532596717,
+              "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+              "compliance_positive_definite": true,
+              "density_kg_m3": 715.0,
+              "elements": 18785,
+              "equilibrium_error_n": 1.3231073126007686e-07,
+              "flight_ready": false,
+              "force_n": 49.8071294055704,
+              "frequencies_hz": [
+                401.6574,
+                477.6286,
+                951.8353,
+                1835.549,
+                2036.344,
+                2186.983
+              ],
+              "gmsh": "4.15.2",
+              "input_sha256": "27a75768edd2d310f6152a5726f9f0b2ac64c0ff06523c7676fec41a4df5841e",
+              "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+              "material_model": "orthotropic engineering constants",
+              "max_displacement_m": 0.0003306688,
+              "mesh_sha256": "a0e465a148adda6249d7434ad018ddeddd1f01ad2c5a692cac6600aa9305e397",
+              "nodes": 37910,
+              "orthotropic_engineering_constants": {
+                "E1_pa": 2000000000.0,
+                "E2_pa": 2000000000.0,
+                "E3_pa": 500000000.0,
+                "G12_pa": 200000000.0,
+                "G13_pa": 200000000.0,
+                "G23_pa": 200000000.0,
+                "nu12": 0.2,
+                "nu13": 0.2,
+                "nu23": 0.2
+              },
+              "part_id": "fin_set",
+              "part_shape_sha256": null,
+              "regional_abs_sxx_pa": 1272466.0,
+              "regional_abs_syy_pa": 971.8326999999999,
+              "regional_abs_tau_xy_pa": 2308.1769999999997,
+              "regional_exclusion_span_mm": 12.1,
+              "regional_stress_by_actual_thickness_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 521,
+                "canonical_json_sha256": "3a15b9edfec7f1d463a3f970359576ece241922027aa987911df4f201f672553",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "regional_von_mises_pa": 1276923.8070485366,
+              "reported_support_nodal_force_n": -49.74338312,
+              "root_band_corner_edge_lengths_mm": {
+                "omitted_from_compact_record": true,
+                "entries": 2,
+                "canonical_json_sha256": "8849dc5d8ece5e740b0b6c705cb28dc6d0cf5f701ff044ca8a77cf729b743e09",
+                "availability": "Complete diagnostic retained in original report."
+              },
+              "root_band_element_count": 10300,
+              "root_band_target_element_size_mm": 0.625,
+              "size_mm": 2.5,
+              "solver_executed": true,
+              "stiffness_fraction": 1.0,
+              "support_reaction_n": -49.80712927325967,
+              "thickness_profile": {
+                "base_thickness_mm": 6.05,
+                "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+                "maximum_element_thickness_mm": 11.538207791150633,
+                "minimum_element_thickness_mm": 6.05,
+                "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+                "root_gusset_parameters": {
+                  "root_gusset_base_mm": 3.0,
+                  "root_gusset_inset_mm": 1.0,
+                  "root_gusset_span_mm": 12.0
+                },
+                "section_bin_mm": 0.01,
+                "section_count": 521
+              },
+              "youngs_pa": 2000000000.0
+            }
+          ],
+          "cold_strength_screen": {
+            "components": {
+              "sxx_spanwise": {
+                "allowable_after_DF3_pa": 3333333.3333333335,
+                "directional_bound_pa": 10000000.0,
+                "regional_peak_absolute_stress_pa": 1272466.0,
+                "screen_margin": 1.619585382503999,
+                "status": "screen-pass",
+                "temperature_strength_fraction": 1.0
+              },
+              "syy_chordwise": {
+                "allowable_after_DF3_pa": 3333333.3333333335,
+                "directional_bound_pa": 10000000.0,
+                "regional_peak_absolute_stress_pa": 971.8326999999999,
+                "screen_margin": 3428.9456411924953,
+                "status": "screen-pass",
+                "temperature_strength_fraction": 1.0
+              },
+              "tauxy_in_plane": {
+                "allowable_after_DF3_pa": 666666.6666666666,
+                "directional_bound_pa": 2000000.0,
+                "regional_peak_absolute_stress_pa": 2308.1769999999997,
+                "screen_margin": 287.82822533396126,
+                "status": "screen-pass",
+                "temperature_strength_fraction": 1.0
+              }
+            },
+            "criterion": "Independent directional component bounds |Sxx|<=10 MPa, |Syy|<=10 MPa, |tauXY|<=2 MPa; allowable divided by DF=3. Not a validated plywood failure envelope; no von Mises failure criterion is used.",
+            "status": "screen-pass"
+          },
+          "force_per_fin_n": 49.8071294055704,
+          "hot_fine_mesh": {
+            "applied_support_cload_n": 0.12539724835928612,
+            "attachment": "Ideal clamp at and inside the body tangent; flexible root/bond not qualified",
+            "compliance_positive_definite": true,
+            "density_kg_m3": 715.0,
+            "elements": 4693,
+            "equilibrium_error_n": 2.721110803349802e-08,
+            "flight_ready": false,
+            "force_n": 49.8071294055704,
+            "frequencies_hz": [
+              284.0472,
+              337.777,
+              673.1027,
+              1297.965,
+              1439.976,
+              1546.393
+            ],
+            "gmsh": "4.15.2",
+            "input_sha256": "caaa5d9aeec8a6ab763539988a3502ed6fac34007ecff5d474d2c9c36b97bc52",
+            "material_axes": "1=span, 2=chord, 3=plate normal; explicit shell in-plane orientation",
+            "material_model": "orthotropic engineering constants",
+            "max_displacement_m": 0.000661198,
+            "mesh_sha256": "73ee8f6b87176995e00ce33e5dbe6c03bee5584a5bfeb8f535b12d7425d2cdff",
+            "nodes": 9558,
+            "orthotropic_engineering_constants": {
+              "E1_pa": 2000000000.0,
+              "E2_pa": 2000000000.0,
+              "E3_pa": 500000000.0,
+              "G12_pa": 200000000.0,
+              "G13_pa": 200000000.0,
+              "G23_pa": 200000000.0,
+              "nu12": 0.2,
+              "nu13": 0.2,
+              "nu23": 0.2
+            },
+            "part_id": "fin_set",
+            "part_shape_sha256": null,
+            "regional_abs_sxx_pa": 1275642.0,
+            "regional_abs_syy_pa": 1842.319,
+            "regional_abs_tau_xy_pa": 4070.7139999999995,
+            "regional_exclusion_span_mm": 12.1,
+            "regional_stress_by_actual_thickness_mm": {
+              "omitted_from_compact_record": true,
+              "entries": 455,
+              "canonical_json_sha256": "b338be5e25f8d92e0d6fe974d4537bf5a767e51d0b6eec9adaf091c9528e8956",
+              "availability": "Complete diagnostic retained in original report."
+            },
+            "regional_von_mises_pa": 1280423.7227696837,
+            "reported_support_nodal_force_n": -49.68173213000001,
+            "root_band_corner_edge_lengths_mm": {
+              "omitted_from_compact_record": true,
+              "entries": 2,
+              "canonical_json_sha256": "9403436d0f0c177fde687fd0a5cb37dec284c5f6e5323967660aebfe257e47d6",
+              "availability": "Complete diagnostic retained in original report."
+            },
+            "root_band_element_count": 2538,
+            "root_band_target_element_size_mm": 1.25,
+            "size_mm": 5.0,
+            "solver_executed": true,
+            "stiffness_fraction": 0.5,
+            "support_reaction_n": -49.80712937835929,
+            "thickness_profile": {
+              "base_thickness_mm": 6.05,
+              "formula": "t(x)=t_base+2*b*max(0,(g-x)/(g+i)) for x>=0; t=t_base for x<0; element thickness sampled at each element centroid and rounded to 0.01 mm section bins.",
+              "maximum_element_thickness_mm": 11.489474314447925,
+              "minimum_element_thickness_mm": 6.05,
+              "model_status": "Equivalent shell thickening for two side gussets; actual gusset bond/interface and three-dimensional foot detail are not modeled or qualified.",
+              "root_gusset_parameters": {
+                "root_gusset_base_mm": 3.0,
+                "root_gusset_inset_mm": 1.0,
+                "root_gusset_span_mm": 12.0
+              },
+              "section_bin_mm": 0.01,
+              "section_count": 455
+            },
+            "youngs_pa": 2000000000.0
+          },
+          "hot_stiffness_and_strength_fraction": 0.5,
+          "hot_strength_screen": {
+            "components": {
+              "sxx_spanwise": {
+                "allowable_after_DF3_pa": 1666666.6666666667,
+                "directional_bound_pa": 10000000.0,
+                "regional_peak_absolute_stress_pa": 1275642.0,
+                "screen_margin": 0.3065316653627481,
+                "status": "screen-pass",
+                "temperature_strength_fraction": 0.5
+              },
+              "syy_chordwise": {
+                "allowable_after_DF3_pa": 1666666.6666666667,
+                "directional_bound_pa": 10000000.0,
+                "regional_peak_absolute_stress_pa": 1842.319,
+                "screen_margin": 903.6569387096733,
+                "status": "screen-pass",
+                "temperature_strength_fraction": 0.5
+              },
+              "tauxy_in_plane": {
+                "allowable_after_DF3_pa": 333333.3333333333,
+                "directional_bound_pa": 2000000.0,
+                "regional_peak_absolute_stress_pa": 4070.7139999999995,
+                "screen_margin": 80.88571669081477,
+                "status": "screen-pass",
+                "temperature_strength_fraction": 0.5
+              }
+            },
+            "criterion": "Independent directional component bounds |Sxx|<=10 MPa, |Syy|<=10 MPa, |tauXY|<=2 MPa; allowable divided by DF=3. Not a validated plywood failure envelope; no von Mises failure criterion is used.",
+            "status": "screen-pass"
+          },
+          "pressure_pa": 40000.0
+        },
+        "strength_basis_pa": {
+          "sxx_spanwise": 10000000.0,
+          "syy_chordwise": 10000000.0,
+          "tauxy_in_plane": 2000000.0
+        },
+        "validation": {
+          "acceptance": "open",
+          "acceptance_passed": false,
+          "active_adoption": false,
+          "flight_ready": false,
+          "known_case": "Use orthotropic strip test with analytical spanwise-E deflection; independent from this vehicle fin.",
+          "mesh_convergence": false
+        },
+        "vehicle_id": "modular-tvc-finned-v1"
+      }
+    }
+  ],
+  "inputs_unchanged": true,
+  "acceptance_passed": false,
+  "flight_ready": false,
+  "cost_usd": 0
+}

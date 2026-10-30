@@ -4,33 +4,39 @@ Updated: 2026-10-30 (run IDs use UTC)
 
 ## Current work order
 
-**WO-03 active; expanded acceptance remains open.** The custom build, maximum
-practical conventional performance and committed PID-to-RL objectives remain core.
-No WO-04 transition, physical qualification or flight release is claimed.
+**WO-03 active; integrated corrections adopted, expanded acceptance open.**
+Custom construction, maximum practical conventional performance and committed
+PID-to-RL remain core. No WO-04 transition or physical/flight release.
 
-[CAD/analysis PR #6](https://github.com/kudratsingh/rocket-twin/pull/6) and
-[thermal refinement PR #7](https://github.com/kudratsingh/rocket-twin/pull/7) merged
-after their exact-head hosted CPU checks passed. Latest merged commit:
-`a617b241fc221131148c1233b266f553e0162fdb`. Planning PR #4 and Analysis transport
-PR #5 are also merged. The CAD test's initial 12 nm cross-platform centroid
-roundoff failure was corrected with a documented 0.1 micrometre numerical
-comparison tolerance; actual geometry/source identity checks remain enforced.
+The active specs now combine the recovery package, stiffer fins/gussets, hot G11
+supports, mica/foil and serial end-pad isolation, improved fits and motor retention.
+The mode-level recovery power override was found and corrected in all six variants;
+the resolved-network regression passes. [ADR-0008](adr/0008-integrated-wo03-corrections.md)
+and [closure table](wo03-correction-closure.md) identify adopted parts and open items.
 
-All six CAD variants export valid solids with passing nominal interface checks,
-both 25-pose TVC sweeps and a 5.135 mm cylindrical liner/shell bound. Full tolerance,
-wiring, access, retention and packing acceptance remain open. The fresh 27-case
-flight study passes the 5% RocketPy benchmark; its results remain distinct from the
-preserved pre-CAD WO-02 baseline. Executed known cases, fin FEA convergence, body
-modes and Analysis consumers pass their numerical checks, while fin strength/
-deflection, flutter validity and temperature conclusions remain adverse/unresolved.
+G54's defined full-growth/depletion minimum is **1.045596 calibre**, with **867.991 g**
+including the full 50 g allowance. It remains conditional: an additional exploratory
+motor-CG sensitivity fails, along with high-case/degraded-foil shell temperature.
+[Mass, CG and full inertia](wo03-integrated-vehicle.md) use the complete package.
 
-The [opaque-wall thermal refinement](wo03-thermal-refinement.md) resolves liner
-radial conduction and avoids radiation through modeled shields. It still fails
-several provisional hot-soak limits. The independent fit, fin-construction,
-recovery-power and motor-support proposals keep active geometry unchanged and
-retain failed screens. See [current checkpoint](wo03-current-checkpoint.md) and
-[results](results.md) for source identities, scope, limitations and next corrections.
-No purchase, physical work or paid compute occurred.
+Current CAD export `wo03-20261030T205235088123Z` passes all six variants, neutral
+rigid intersections and both 25-pose TVC sweeps; input hashes unchanged. Current
+27-case flight campaign `wo02-20261030T204849990760Z` passes the five nominal RocketPy
+comparisons and 4,096-env CPU step with unchanged code/inputs. G12 reference errors
+are now 2.064% altitude / 0.917% time, not the historical 0.004% claim.
+
+Standard upper thermal cases pass after the combined corrections; G54 300 C and
+contaminated-foil sensitivities still fail the conservative 45 C shell screen.
+Dominant fin stress/displacement and body modes converge; small fin components,
+installed-root peel/stiffness and full flutter remain open. Minimum frame/liner
+fits, service/arming/routing and recovery-anchor capacity remain design items.
+Physical qualification is separately retained in the owner-performed stages.
+
+PRs #4–8 are merged after required hosted checks; published baseline before integration is
+`7907320b16bf40fecfca6add337e84ee947940e3`. The integration work is published through the work-order
+branch `wo-03-integrated-corrections`; current required-check status is on GitHub. Current local checks: Ruff/Black/strict mypy and 116 tests pass;
+installed-fin and nominal-field records are saved and linked in the closure table. No purchase, physical
+work or paid compute. See [checkpoint](wo03-current-checkpoint.md) and [results](results.md).
 
 ### Completed WO-02 milestone
 
@@ -49,7 +55,7 @@ through each final run. [Results](results.md) and [report](wo02-flight-study.md)
 Conditional direction: keep G80 as reference; G54 leads the practical near-160 N s
 upgrade trade (+20.7% nominal altitude, +80 g installed integration mass in the
 preserved study). Its prior 1.023 cal aft-growth estimate was before latest CAD
-reconciliation; current all-growth-aft margin is below 1 cal and remains open. Fixed
+reconciliation; the pre-integration all-growth-aft checkpoint failed 1 cal; ADR-0008 now records the combined correction and its remaining sensitivities. Fixed
 G12 leads calm altitude but fails the conservative
 3 m guide screen and weathercocks substantially. G33 has a departure shortfall.
 No hardware/motor/delay choice is frozen. G25W remains quarantined.
@@ -73,7 +79,7 @@ no-HPR performance, and committed PID-to-RL training/embedded/real-flight compar
 See [ADR-0006](adr/0006-modular-platform-rebaseline.md), [active WO-01](work-orders/WO-01-vehicle-spec-mass-cp.md)
 and [bounded trade](wo01-rebaseline.md). Original fixed assumptions below are historical.
 
-The active 66 mm × 800 mm hybrid platform has shared upper equipment and distinct
+The historical WO-01 66 mm × 800 mm hybrid platform has shared upper equipment and distinct
 fixed G80 performance / G12 finned TVC / G12 finless TVC aft models. Mass including
 50 g growth: 522.0 / 625.8 / 582.2 g. Physical fins and offset servos enter mass,
 inertia and aero; independent RocketPy endpoint comparisons pass for every mode.
