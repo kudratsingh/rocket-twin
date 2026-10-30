@@ -1,0 +1,197 @@
+baseline: configs/vehicle/tvc-ascent-v1.yaml
+reviewed_on: '2026-10-29'
+requirements:
+  architecture: single commercial solid motor, two-axis TVC
+  body_wall_m: 0.0016
+  minimum_burn_s: 3.0
+  minimum_average_thrust_to_liftoff_weight: 3.0
+  loaded_mass_strictly_below_kg: 1.5
+  maximum_single_motor_impulse_ns: 160.0
+  launch_assumption: ROC at Lucerne from project PLAN; owner confirmation pending
+  selection_requires: exact current certification, California classification, matched
+    curve and mass, assembled envelope, purchasable reload and hardware, club acceptance
+mount_reserve_kg:
+- 0.02
+- 0.07
+mass_allowance_note: 20 g is mounting only; add 50 g for uncertain print/component
+  masses. Both are provisional engineering allowances, not measured hardware or structural
+  validation. Original 16 g mount is already in the 426 g motorless vehicle.
+candidates: []
+screening_only:
+- id: cti_159g54_12a_pro29_3g
+  diameter_m: 0.029
+  length_m: 0.187
+  assembled_mass_hypotheses_kg:
+  - 0.193
+  - 0.1982
+  published_average_thrust_n: 53.6
+  published_burn_time_s: 2.97
+  published_total_impulse_ns: 159.1
+  propellant_mass_kg: 0.0865
+  status: boundary_candidate_not_qualified; manufacturer_burn_below_3s; curve_mass_conflict;
+    California_and_stock_unconfirmed
+  source_note: Manufacturer 198.2 g versus catalog 193 g. Cert-contributor RSE has
+    96.8 g propWt versus manufacturer 86.5 g; terminal zero 3.026 s is distinct from
+    2.97 s burn. Do not round either into a requirement pass.
+- id: aerotech_g12st_p_2021_formulation
+  diameter_m: 0.029
+  length_m: 0.15598
+  assembled_mass_hypotheses_kg:
+  - 0.15032
+  published_average_thrust_n: 11.31
+  published_burn_time_s: 12.7
+  published_total_impulse_ns: 143.97
+  propellant_mass_kg: 0.082
+  status: reject_baseline_TWR; plugged_requires_electronic_recovery
+  source_note: TRA December 10 2020 report, tested November 16 2020; avoid original
+    2018 formulation. Additional electronic recovery mass is not established; TWR
+    already fails without it.
+  california_model_classification_evidence: CAL FIRE letter March 3 2021, data/g-motor-survey/csfm-model-2021-03-03.pdf;
+    complete page visually checked; SHA-256 e10724f77a5968a1b5baaf22ee0372b181c52d16755d06b1b9241ab0a3a58988
+  purchase_observation: Wildman G12ST-P 29mm DMS, SKU 6030, available true in archived
+    direct product JSON; live product page shows Add to Cart, $48.49. Not selected
+    because baseline TWR fails.
+- id: cti_143g33_9a_mellow_pro29_3g
+  diameter_m: 0.029
+  length_m: 0.187
+  assembled_mass_hypotheses_kg:
+  - 0.197
+  published_average_thrust_n: 32.7
+  published_burn_time_s: 4.38
+  published_total_impulse_ns: 143.1
+  propellant_mass_kg: 0.0791
+  status: first_followup_priority_not_selected; reload_case_closure_out_of_stock_at_checked_dealer;
+    curve_mass_and_California_classification_unresolved
+  source_note: Exact study configuration is 143G33-9A Mellow reload, Pro29-3G case,
+    standard Pro29 rear closure, no spacers. 197 g includes assembled hardware once.
+    Cert-contributor RSE says 89 g propWt, certificate/manufacturer 79.1 g; 89 g also
+    equals loaded minus post-firing mass. Possible delay/consumable inclusion is an
+    inference, not an approved correction.
+- id: aerotech_g11_p_legacy_long_burn
+  diameter_m: 0.029
+  length_m: 0.152
+  assembled_mass_hypotheses_kg:
+  - 0.154
+  published_average_thrust_n: 10.2
+  published_burn_time_s: 13.6
+  published_total_impulse_ns: 139.0
+  propellant_mass_kg: 0.082
+  status: reject_baseline_TWR; catalog_summary_only; not_a_current_G12ST_substitute
+- id: aerotech_g8st_p_2021_data
+  diameter_m: 0.029
+  length_m: 0.156
+  assembled_mass_hypotheses_kg:
+  - 0.157
+  published_average_thrust_n: 6.6
+  published_burn_time_s: 19.8
+  published_total_impulse_ns: 130.0
+  propellant_mass_kg: 0.083
+  status: reject_baseline_TWR; catalog_summary_only; peak_thrust_also_insufficient_for_TWR_3
+- id: aerotech_g25w_10a_current_report_hypothesis
+  diameter_m: 0.029
+  length_m: 0.149
+  assembled_mass_hypotheses_kg:
+  - 0.168
+  - 0.17
+  published_average_thrust_n: 26.079
+  published_burn_time_s: 4.2
+  published_total_impulse_ns: 109.49
+  propellant_mass_kg: 0.062
+  status: quarantined_preserved; RMS_DMS_identity_curve_mass_dimensions_and_current_certification_unresolved
+  source_note: Numerical report hypothesis only, not a reconciliation with SKU 072510.
+    Old 117.5 N s / 5.3 s SU dataset is separate. Rocket.Supplies lists A072510 in
+    stock 4 at $34.99 but publishes legacy specifications; stock does not resolve
+    identity.
+- id: aerotech_g40w_molded_case
+  diameter_m: 0.029
+  length_m: 0.124
+  assembled_mass_hypotheses_kg:
+  - 0.123
+  published_average_thrust_n: 40.9
+  published_burn_time_s: 2.4
+  published_total_impulse_ns: 97.1
+  propellant_mass_kg: 0.0538
+  status: reject_minimum_burn; newer_molded_RASP_ends_2p3s
+  source_note: Do not substitute the historical PML/AeroTech 113.74 N s / 3.06 s certificate
+    for the current molded-case motor. Retailers still repeat old figures.
+- id: cti_150g50_15a_pro38_1g_separate_screen
+  diameter_m: 0.038
+  length_m: 0.127
+  assembled_mass_hypotheses_kg:
+  - 0.218
+  published_average_thrust_n: 52.5
+  published_burn_time_s: 2.87
+  published_total_impulse_ns: 150.0
+  propellant_mass_kg: 0.0777
+  status: larger_diameter_reject_reported_burn; no_mount_redesign_justified
+  source_note: Mount reserve is only a common screening sensitivity, not an estimate
+    of a completed 38 mm gimbal redesign.
+- id: cti_137g58_13a_pro38_1g_separate_screen
+  diameter_m: 0.038
+  length_m: 0.127
+  assembled_mass_hypotheses_kg:
+  - 0.2125
+  published_average_thrust_n: 57.9
+  published_burn_time_s: 2.36
+  published_total_impulse_ns: 136.8
+  propellant_mass_kg: 0.0763
+  status: larger_diameter_reject_burn
+- id: aerotech_g69n_p_rms38_120_separate_screen
+  diameter_m: 0.038
+  length_m: 0.106
+  assembled_mass_hypotheses_kg:
+  - 0.201
+  published_average_thrust_n: 72.3
+  published_burn_time_s: 1.9
+  published_total_impulse_ns: 136.7
+  propellant_mass_kg: 0.0622
+  status: larger_diameter_reject_burn; plugged_recovery_change
+- id: aerotech_g12_rct_rms32_separate_screen
+  diameter_m: 0.032
+  length_m: 0.107
+  assembled_mass_hypotheses_kg:
+  - 0.131
+  published_average_thrust_n: 10.2
+  published_burn_time_s: 8.6
+  published_total_impulse_ns: 87.2
+  propellant_mass_kg: 0.0511
+  status: larger_diameter_reject_TWR; catalog_87p2Ns_differs_from_NAR_list_93Ns
+sources:
+  g_catalog: https://www.thrustcurve.org/motors/search.html?impulseClass=G
+  cti29_catalog: https://pro38.com/product-category/pro-29/
+  cti38_catalog: https://pro38.com/product-category/pro-38/
+  cti_g54: https://pro38.com/products/p29-3g/159g54-12a/
+  cti_g54_curve: https://www.thrustcurve.org/simfiles/5f4294d20002e900000006e7/
+  cti_g33: https://pro38.com/products/p29-3g/143g33-9a/
+  cti_g33_curve: https://www.thrustcurve.org/simfiles/5f4294d20002e90000000814/
+  cti_g33_stock: https://www.csrocketry.com/rocket-motors/cesaroni/motors/pro-29/3g-reloads/cesaroni-g33-9a-mellow-rocket-motor.html
+  cti_g33_case_stock: https://www.csrocketry.com/rocket-motors/cesaroni/hardware/pro-29/3g-hardware/cesaroni-29-3-grain-case.html
+  cti_g33_closure_stock: https://www.csrocketry.com/rocket-motors/cesaroni/hardware/pro-29/6gxl-hardware/cesaroni-29mm-rear-closure.html
+  cti_classification_faq: https://cesaroni-aerospace.com/frequently-asked-questions/
+  cti_g33_manufacturer_bulletin_post: https://www.rocketryforum.com/threads/cti-discussion-thread.162183/
+  g12st_report: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/g12st%20cert%20letter_1656544056805.pdf
+  g12st_curve: https://www.thrustcurve.org/simfiles/6015a048b94d0e00040a8436/
+  g8st_curve: https://www.thrustcurve.org/simfiles/60159fcfb94d0e00040a8435/
+  g11: https://www.thrustcurve.org/motors/AeroTech/G11/
+  g25_stock: https://rocket.supplies/proddetail.php?prod=A072510
+  g25_product: https://aerotech-rocketry.com/products/product_c968e0dc-44a1-0a42-42dc-d69b16336291
+  g25_prior_evidence: configs/studies/motor-source-evidence.yaml
+  g40: https://www.thrustcurve.org/motors/AeroTech/G40W/
+  g40_curve: https://www.thrustcurve.org/simfiles/5f4294d20002e90000000463/
+  cti_g50: https://pro38.com/products/p38-1g/150g50-15a/
+  cti_g58: https://pro38.com/products/p38-1g/137g58-13a/
+  g69n: https://www.thrustcurve.org/motors/AeroTech/G69N/
+  g12_rct: https://www.thrustcurve.org/motors/AeroTech/G12-RCT/
+  nar_scope: https://www.nar.org/content.aspx?club_id=114127&module_id=667402&page_id=22
+  tripoli_code: https://www.tripoli.org/content.aspx?club_id=795696&module_id=520420&page_id=22
+  roc_rules: https://rocstock.org/flying-with-roc-2/
+  california_osfm: https://osfm.fire.ca.gov/what-we-do/fire-engineering-and-investigations/fireworks/
+  g12st_stock: https://wildmanrocketry.com/products/g12st-p-29mm-dms
+  cti_g33_stock_wildman: https://wildmanrocketry.com/products/pr29-3g-my
+  california_g12st_model_approval: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/csfm%20rcs%20approvals%203-3-21_1656441446956.pdf
+pdf_sources: []
+curve_candidates: []
+catalogue_archive: data/g-motor-survey/all-g.json
+catalogue_sha256: 8835c14ace71cf06f7f41b399f8b82277d5c1d7a14c91d7df57c7b104f8cb05d
+catalogue_scope: 93 records in existing complete local survey; checksum verified and
+  all records screened. Public catalogue is an index, not exact certification approval.

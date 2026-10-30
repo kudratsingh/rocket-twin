@@ -1,0 +1,6 @@
+# PID gimbal controller gains (WO-06). Tuned in sim with servo lag/rate/deadband ON.
+# Exported to firmware by codegen; the firmware never has its own copy of these numbers.
+pitch: {kp: null, ki: null, kd: null, ff: null, i_limit: null}
+yaw:   {kp: null, ki: null, kd: null, ff: null, i_limit: null}
+output_limit_rad: 0.087        # = spec tvc.max_deflection_rad
+rate_limit_rad_s: null         # from servo spec

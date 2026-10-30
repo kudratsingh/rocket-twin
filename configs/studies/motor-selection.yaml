@@ -1,0 +1,36 @@
+# Local WO-01 hypotheses. No entry changes or approves the main vehicle.
+baseline: configs/vehicle/tvc-ascent-v1.yaml
+mount_reserve_kg: [0.0, 0.010, 0.020]
+# This is incremental mounting/retention mass beyond the existing 16 g mount.
+# RASP loaded mass already includes dry motor hardware; do not add its casing twice.
+candidates:
+  - id: f15_reference
+    curve: configs/vehicle/motors/Estes_F15.eng
+    evidence_status: historical_reference_accepted
+  - id: g25_124mm_single_use_historical
+    curve: configs/vehicle/motors/AeroTech_G25_124mm_derived.eng
+    evidence_status: certificate_and_current_variant_unresolved
+  - id: g25w_10a_rms_source
+    curve: configs/vehicle/motors/AeroTech_G25_152mm.eng
+    evidence_status: quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict
+  - id: f25_molded_short_burn
+    curve: configs/studies/motors/AeroTech_F25_molded.eng
+    evidence_status: rejected_for_default_2p69s_curve_below_3s_requirement
+screening_only:
+  - id: f25w_single_use
+    manufacturer: AeroTech
+    diameter_m: 0.029
+    length_m: 0.098
+    published_total_mass_kg: 0.090
+    published_average_thrust_n: 25.6
+    published_burn_time_s: 3.10
+    source: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/aerotech%20master%20motor%20matrix%2012-19-24_1734643280505.pdf
+    source_locator: page 2, F25-4W/6W/9W rows; matrix updated 2024-12-19
+    status: matrix_summary_only; older_NAR_report_differs_from_downloaded_molded_curve
+sources:
+  product: https://aerotech-rocketry.com/products/product_c968e0dc-44a1-0a42-42dc-d69b16336291
+  matrix: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/aerotech%20master%20motor%20matrix%2012-19-24_1734643280505.pdf
+  rms_dimensions: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/rms%2029%3A120_1698856038824.pdf
+  rms_certificate: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/at%20g25w%20dec%2018_1656554678334.pdf
+  old_g25_certificate: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/g25w_nar_cert_1642720675355.pdf
+  f25_certificate: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/f25w_nar_cert_1642720562609.pdf

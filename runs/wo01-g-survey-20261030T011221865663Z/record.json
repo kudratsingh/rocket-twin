@@ -1,0 +1,88 @@
+{
+  "run_id": "wo01-g-survey-20261030T011221865663Z",
+  "work_order": "01",
+  "local_date": "2026-10-29",
+  "cost_usd": 0,
+  "scope": "Published-data and live-stock survey; no source-curve acceptance, flight propagation or mechanical verification",
+  "catalogue_records_screened": 93,
+  "catalogue_archive": "data/g-motor-survey/all-g.json",
+  "catalogue_sha256": "8835c14ace71cf06f7f41b399f8b82277d5c1d7a14c91d7df57c7b104f8cb05d",
+  "baseline_sha256": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a",
+  "ranking_metric": "total impulse subject to burn >=3 s, current certification rules and buyable stock; check existing vehicle TWR separately",
+  "mass_cases": [
+    {
+      "case": "g12st_catalog",
+      "liftoff_mass_kg": 0.5963000000000002,
+      "incremental_mount_reserve_kg": 0.02,
+      "published_impulse_ns": 143.97,
+      "published_burn_s": 12.7,
+      "mean_thrust_n": 11.31,
+      "mean_thrust_to_liftoff_weight": 1.9340919618950807,
+      "max_total_mass_for_twr_3_kg": 0.38443301229267896,
+      "mechanical_fit_verified": false,
+      "selected": false
+    },
+    {
+      "case": "g12st_rounded_nominal",
+      "liftoff_mass_kg": 0.5963000000000002,
+      "incremental_mount_reserve_kg": 0.02,
+      "published_impulse_ns": 144,
+      "published_burn_s": 12.7,
+      "mean_thrust_n": 12,
+      "mean_thrust_to_liftoff_weight": 2.0520869622228974,
+      "max_total_mass_for_twr_3_kg": 0.4078864851911713,
+      "mechanical_fit_verified": false,
+      "selected": false
+    },
+    {
+      "case": "cti_g33_catalog",
+      "liftoff_mass_kg": 0.6430000000000002,
+      "incremental_mount_reserve_kg": 0.02,
+      "published_impulse_ns": 143.1,
+      "published_burn_s": 4.38,
+      "mean_thrust_n": 32.7,
+      "mean_thrust_to_liftoff_weight": 5.185804069110147,
+      "max_total_mass_for_twr_3_kg": 1.1114906721459419,
+      "mechanical_fit_verified": false,
+      "selected": false
+    }
+  ],
+  "stock": {
+    "g12st-p-29mm-dms": {
+      "available": true,
+      "variants": [
+        {
+          "id": 42071709942010,
+          "price": 4849,
+          "available": true,
+          "sku": "6030"
+        }
+      ],
+      "sha256": "7d72f9d1e7364a881db6e2250cb1b3570ab7c4bebfaab00450374107875e1ac2",
+      "url": "https://wildmanrocketry.com/products/g12st-p-29mm-dms.js"
+    },
+    "pr29-3g-my": {
+      "available": false,
+      "variants": [
+        {
+          "id": 607675318279,
+          "price": 3945,
+          "available": false,
+          "sku": "2771"
+        }
+      ],
+      "sha256": "4dcc62a857095ecb4dca2ba128bf3437ac30ed2d2ec8f592281cc80170ae8f93",
+      "url": "https://wildmanrocketry.com/products/pr29-3g-my.js"
+    }
+  },
+  "source_urls": {
+    "G33_manufacturer": "https://cesaroni.net/products/p29-3g/143g33-9a/",
+    "G54_duration": "https://pro38.com/products/p29-3g/",
+    "G12_sale": "https://wildmanrocketry.com/products/g12st-p-29mm-dms",
+    "NAR_certification": "https://nar.org/content.aspx?club_id=114127&module_id=668315&page_id=22",
+    "California_G12_model_approval": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/csfm%20rcs%20approvals%203-3-21_1656441446956.pdf"
+  },
+  "california_approval_pdf_sha256": "e10724f77a5968a1b5baaf22ee0372b181c52d16755d06b1b9241ab0a3a58988",
+  "outcome": "Highest-impulse in-stock motor meeting the stated motor limits: G12ST-P. Existing baseline fails mean TWR3 with it. CTI G33 is a stronger-thrust design candidate but verified US stock unavailable. No baseline motor selected.",
+  "wo01_complete": false
+}

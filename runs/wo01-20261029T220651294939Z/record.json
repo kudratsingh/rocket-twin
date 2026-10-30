@@ -1,0 +1,228 @@
+{
+  "run_id": "wo01-20261029T220651294939Z",
+  "work_order": "01",
+  "preset": "sim",
+  "config_sha256": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a",
+  "code_sha256": "73b29268807ce9033cb35964fde0d053eac3e71896b617c37f2b4156a76e7fff",
+  "seed": 0,
+  "device": "cpu",
+  "cost_usd": 0,
+  "elapsed_s": 1.0583697910187766,
+  "vehicle": "tvc-ascent-v1",
+  "validation_status": "unvalidated",
+  "states": {
+    "liftoff": {
+      "mass_kg": 0.5290000000000001,
+      "cg_m": 0.4161313799621928,
+      "inertia_kg_m2": [
+        [
+          0.00040512340785890324,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.016562641857771624,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.016563355607771623
+        ]
+      ],
+      "budget_kg": {
+        "nose_cone": 0.04,
+        "body_upper": 0.122,
+        "avionics_bay": 0.018,
+        "flight_computer": 0.012,
+        "imu": 0.002,
+        "baro": 0.001,
+        "battery": 0.03,
+        "body_lower": 0.083,
+        "parachute_bay": 0.025,
+        "tvc_gimbal": 0.022,
+        "servo_pitch": 0.014,
+        "servo_yaw": 0.014,
+        "motor_mount": 0.016,
+        "motor": 0.103,
+        "rail_guide": 0.003,
+        "regulator_5v": 0.008,
+        "pyro_mosfet": 0.003,
+        "arming_switch": 0.003,
+        "harness": 0.01
+      },
+      "cp_m": 0.07323213814937993,
+      "stability_margin_cal": -4.396144125805293
+    },
+    "burnout": {
+      "mass_kg": 0.4690000000000001,
+      "cg_m": 0.3871076759061834,
+      "inertia_kg_m2": [
+        [
+          0.00039881590785890324,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.013011271801045736,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.013011985551045732
+        ]
+      ],
+      "budget_kg": {
+        "nose_cone": 0.04,
+        "body_upper": 0.122,
+        "avionics_bay": 0.018,
+        "flight_computer": 0.012,
+        "imu": 0.002,
+        "baro": 0.001,
+        "battery": 0.03,
+        "body_lower": 0.083,
+        "parachute_bay": 0.025,
+        "tvc_gimbal": 0.022,
+        "servo_pitch": 0.014,
+        "servo_yaw": 0.014,
+        "motor_mount": 0.016,
+        "motor": 0.043,
+        "rail_guide": 0.003,
+        "regulator_5v": 0.008,
+        "pyro_mosfet": 0.003,
+        "arming_switch": 0.003,
+        "harness": 0.01
+      },
+      "cp_m": 0.07323213814937993,
+      "stability_margin_cal": -4.024045355856455
+    }
+  },
+  "reference_comparisons": {
+    "configured": {
+      "reference": "RocketPy",
+      "version": "1.13.0",
+      "motor_mode": "source curve; static endpoints only",
+      "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+      "rows": [
+        {
+          "state": "liftoff",
+          "rocket_twin": {
+            "mass_kg": 0.5290000000000001,
+            "cg_m": 0.4161313799621928,
+            "cp_m": 0.07323213814937993,
+            "stability_margin_cal": -4.396144125805293
+          },
+          "rocketpy": {
+            "mass_kg": 0.529,
+            "cg_m": 0.41613137996219274,
+            "cp_m": 0.07323213814937933,
+            "stability_margin_cal": -4.3961441258053
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 5.551115123125783e-17,
+            "cp_m": 5.967448757360216e-16,
+            "stability_margin_cal": 7.105427357601002e-15
+          },
+          "passed": true
+        },
+        {
+          "state": "burnout",
+          "rocket_twin": {
+            "mass_kg": 0.4690000000000001,
+            "cg_m": 0.3871076759061834,
+            "cp_m": 0.07323213814937993,
+            "stability_margin_cal": -4.024045355856455
+          },
+          "rocketpy": {
+            "mass_kg": 0.46900000000000003,
+            "cg_m": 0.3871076759061833,
+            "cp_m": 0.07323213814937933,
+            "stability_margin_cal": -4.02404535585646
+          },
+          "absolute_delta": {
+            "mass_kg": 5.551115123125783e-17,
+            "cg_m": 1.1102230246251565e-16,
+            "cp_m": 5.967448757360216e-16,
+            "stability_margin_cal": 5.329070518200751e-15
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "stub_geometry_sensitivity": {
+      "reference": "RocketPy",
+      "version": "1.13.0",
+      "motor_mode": "source curve; static endpoints only",
+      "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+      "rows": [
+        {
+          "state": "liftoff",
+          "rocket_twin": {
+            "mass_kg": 0.5290000000000001,
+            "cg_m": 0.4161313799621928,
+            "cp_m": 0.20653937617587284,
+            "stability_margin_cal": -2.6870769716194864
+          },
+          "rocketpy": {
+            "mass_kg": 0.529,
+            "cg_m": 0.41613137996219274,
+            "cp_m": 0.20653937617587237,
+            "stability_margin_cal": -2.6870769716194918
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 5.551115123125783e-17,
+            "cp_m": 4.718447854656915e-16,
+            "stability_margin_cal": 5.329070518200751e-15
+          },
+          "passed": true
+        },
+        {
+          "state": "burnout",
+          "rocket_twin": {
+            "mass_kg": 0.4690000000000001,
+            "cg_m": 0.3871076759061834,
+            "cp_m": 0.20653937617587284,
+            "stability_margin_cal": -2.314978201670648
+          },
+          "rocketpy": {
+            "mass_kg": 0.46900000000000003,
+            "cg_m": 0.3871076759061833,
+            "cp_m": 0.20653937617587237,
+            "stability_margin_cal": -2.3149782016706526
+          },
+          "absolute_delta": {
+            "mass_kg": 5.551115123125783e-17,
+            "cg_m": 1.1102230246251565e-16,
+            "cp_m": 4.718447854656915e-16,
+            "stability_margin_cal": 4.440892098500626e-15
+          },
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "note": "Aerodynamic geometry cross-check only; no physical fins or fin mass added. passive_stubs.enabled=True"
+    }
+  },
+  "reference_comparison_error": null,
+  "validation_scope": "static properties only; component masses, inertia and flight remain unvalidated",
+  "average_thrust_to_weight": 2.7718048128519213,
+  "checks": {
+    "spec_valid": true,
+    "liftoff_mass_within_spec_cap": true,
+    "propellant_within_spec_cap": true,
+    "impulse_within_spec_cap": true,
+    "average_thrust_to_weight_ge_3": false,
+    "burn_time_ge_3s": true,
+    "reference_comparison_complete": true,
+    "certified_curves_complete": false,
+    "cpu_runtime_under_120s": true
+  },
+  "inertia_status": "nose shell integrals and equivalent shapes; CAD validation pending",
+  "depletion_model": "uniform mass fraction; not time or impulse fraction"
+}

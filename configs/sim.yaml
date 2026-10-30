@@ -1,0 +1,32 @@
+preset: sim
+device: cpu
+seed: 0
+vehicle: modular-tvc-finned-v1
+sim:
+  physics_rate_hz: 1000
+  control_rate_hz: 250
+  max_time_s: 120.0
+  num_envs: 1
+  wind:
+    steady_mps: 3.0
+    gust: true
+    gust_sigma_mps: 1.5
+    profile: power_law
+  sensors:
+    noise: true
+  actuators:
+    lag: true
+control:
+  controller: pid
+  pid_config: configs/control/pid.yaml
+eval:
+  episodes_per_cell: 1000
+  seeds:
+  - 0
+  - 1
+  - 2
+  cells:
+  - nominal
+  - wind
+  - randomised
+  protocol_hash: null

@@ -1,0 +1,737 @@
+{
+  "run_id": "wo01-motors-20261030T011052177790Z",
+  "work_order": "01",
+  "preset": "tiny",
+  "cost_usd": 0,
+  "validation_status": "unvalidated motor selection; static math comparisons scoped per row",
+  "input_sha256": {
+    "configs/studies/f22-selection.yaml": "93963840c7f23f1602b0482488ffce21f8a7f8a3551faeb2739f09a680ef378a",
+    "configs/vehicle/tvc-ascent-v1.yaml": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a",
+    "configs/studies/motors/AeroTech_F22_legacy.eng": "f9b0836c1d9021d2ea51f2cce17a8379b506fbf57d89f051f31de9abfe79fffc",
+    "configs/studies/motors/AeroTech_F22J_posttest_2026.eng": "e45bde22737dcfa622b51e8c2605f2db3afc89bf4a86917b243f815db99df114"
+  },
+  "code_sha256": "28334b6c540cf97dbcc5f3c240ffbf7ceda932020ce97bba2e5d52cad5869890",
+  "source_urls": {
+    "product_5j": "https://aerotech-rocketry.com/products/product_b3edb817-b2c0-a3c6-8575-8d8eb5427353",
+    "product_7j": "https://aerotech-rocketry.com/products/product_3b9b0b1e-10a7-5992-86c4-c86c67780c2d",
+    "current_nar_listing": "https://www.nar.org/content.aspx?club_id=114127&module_id=670148&page_id=22",
+    "current_nar_posttest": "https://www.nar.org/docs.ashx?id=1770551",
+    "current_nar_original": "https://www.nar.org/docs.ashx?id=1481245",
+    "historical_certificate": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/f22j_nar_cert_1642721656272.pdf",
+    "hobby_dimensions": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/rms%2029%3A40-120_1698854805136.pdf",
+    "source_curve_page": "https://www.thrustcurve.org/simfiles/5f4294d20002e90000000452/"
+  },
+  "rows": [
+    {
+      "curve": "configs/studies/motors/AeroTech_F22_legacy.eng",
+      "designation": "F22",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.711,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1342,
+      "motor_dry_mass_included_kg": 0.0879,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 3.31,
+      "mean_thrust_n": 19.636551963746225,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "f22j_legacy_2000_curve",
+      "evidence_status": "historical_comparison_only; superseded_performance_evidence_in_2026_posttest"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22_legacy.eng",
+      "designation": "F22",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.711,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1342,
+      "motor_dry_mass_included_kg": 0.0879,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 3.31,
+      "mean_thrust_n": 19.636551963746225,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "f22j_legacy_2000_curve",
+      "evidence_status": "historical_comparison_only; superseded_performance_evidence_in_2026_posttest"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22_legacy.eng",
+      "designation": "F22",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.711,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1342,
+      "motor_dry_mass_included_kg": 0.0879,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 3.31,
+      "mean_thrust_n": 19.636551963746225,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "f22j_legacy_2000_curve",
+      "evidence_status": "historical_comparison_only; superseded_performance_evidence_in_2026_posttest"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22_legacy.eng",
+      "designation": "F22",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.575,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.01100000000000001,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1342,
+      "motor_dry_mass_included_kg": 0.0879,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 3.31,
+      "mean_thrust_n": 19.636551963746225,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5602000000000001,
+      "burnout_mass_kg": 0.5139000000000001,
+      "cg_liftoff_m": 0.4274491253123884,
+      "cg_burnout_m": 0.40852451838879156,
+      "mean_thrust_to_liftoff_weight": 3.574386005786433,
+      "additional_mass_headroom_to_twr_3_kg": 0.10725701348051986,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5602000000000001,
+              "cg_m": 0.4274491253123884,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.541243425166774
+            },
+            "rocketpy": {
+              "mass_kg": 0.5602,
+              "cg_m": 0.42744912531238843,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.541243425166783
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 8.881784197001252e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5139000000000001,
+              "cg_m": 0.40852451838879156,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.2986202594796366
+            },
+            "rocketpy": {
+              "mass_kg": 0.5139,
+              "cg_m": 0.4085245183887916,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.2986202594796445
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f22j_legacy_2000_curve",
+      "evidence_status": "historical_comparison_only; superseded_performance_evidence_in_2026_posttest"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22_legacy.eng",
+      "designation": "F22",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.575,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.01100000000000001,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1342,
+      "motor_dry_mass_included_kg": 0.0879,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 3.31,
+      "mean_thrust_n": 19.636551963746225,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5702000000000002,
+      "burnout_mass_kg": 0.5239000000000001,
+      "cg_liftoff_m": 0.43110662925289367,
+      "cg_burnout_m": 0.41286648215308264,
+      "mean_thrust_to_liftoff_weight": 3.511699474643212,
+      "additional_mass_headroom_to_twr_3_kg": 0.09725701348051985,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5702000000000002,
+              "cg_m": 0.43110662925289367,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.5881345013271
+            },
+            "rocketpy": {
+              "mass_kg": 0.5702,
+              "cg_m": 0.4311066292528937,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.588134501327107
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5239000000000001,
+              "cg_m": 0.41286648215308264,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.354286461585932
+            },
+            "rocketpy": {
+              "mass_kg": 0.5239,
+              "cg_m": 0.41286648215308264,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.354286461585939
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f22j_legacy_2000_curve",
+      "evidence_status": "historical_comparison_only; superseded_performance_evidence_in_2026_posttest"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22_legacy.eng",
+      "designation": "F22",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.575,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.01100000000000001,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1342,
+      "motor_dry_mass_included_kg": 0.0879,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 3.31,
+      "mean_thrust_n": 19.636551963746225,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5802000000000002,
+      "burnout_mass_kg": 0.5339000000000002,
+      "cg_liftoff_m": 0.4346380558428128,
+      "cg_burnout_m": 0.41704579509271394,
+      "mean_thrust_to_liftoff_weight": 3.451173802898241,
+      "additional_mass_headroom_to_twr_3_kg": 0.08725701348051984,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5802000000000002,
+              "cg_m": 0.4346380558428128,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.633409201197858
+            },
+            "rocketpy": {
+              "mass_kg": 0.5802,
+              "cg_m": 0.4346380558428128,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.633409201197865
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5339000000000002,
+              "cg_m": 0.41704579509271394,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.40786739670941
+            },
+            "rocketpy": {
+              "mass_kg": 0.5339,
+              "cg_m": 0.417045795092714,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.407867396709419
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 8.881784197001252e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f22j_legacy_2000_curve",
+      "evidence_status": "historical_comparison_only; superseded_performance_evidence_in_2026_posttest"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22J_posttest_2026.eng",
+      "designation": "F22J",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.711,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1309,
+      "motor_dry_mass_included_kg": 0.08459999999999998,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 4.178,
+      "mean_thrust_n": 13.357732647199615,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "f22j_nar_posttest_2026",
+      "evidence_status": "report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22J_posttest_2026.eng",
+      "designation": "F22J",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.711,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1309,
+      "motor_dry_mass_included_kg": 0.08459999999999998,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 4.178,
+      "mean_thrust_n": 13.357732647199615,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "f22j_nar_posttest_2026",
+      "evidence_status": "report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22J_posttest_2026.eng",
+      "designation": "F22J",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.711,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1309,
+      "motor_dry_mass_included_kg": 0.08459999999999998,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 4.178,
+      "mean_thrust_n": 13.357732647199615,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "f22j_nar_posttest_2026",
+      "evidence_status": "report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22J_posttest_2026.eng",
+      "designation": "F22J",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.575,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.01100000000000001,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1309,
+      "motor_dry_mass_included_kg": 0.08459999999999998,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 4.178,
+      "mean_thrust_n": 13.357732647199615,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5569000000000001,
+      "burnout_mass_kg": 0.5106,
+      "cg_liftoff_m": 0.4262044352666547,
+      "cg_burnout_m": 0.4070446533490012,
+      "mean_thrust_to_liftoff_weight": 2.4458783532005794,
+      "additional_mass_headroom_to_twr_3_kg": -0.10286344836753247,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5569000000000001,
+              "cg_m": 0.4262044352666547,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.525285860477881
+            },
+            "rocketpy": {
+              "mass_kg": 0.5569000000000001,
+              "cg_m": 0.42620443526665464,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.525285860477888
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5106,
+              "cg_m": 0.4070446533490012,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.279647630764376
+            },
+            "rocketpy": {
+              "mass_kg": 0.5106,
+              "cg_m": 0.40704465334900114,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.279647630764382
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f22j_nar_posttest_2026",
+      "evidence_status": "report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22J_posttest_2026.eng",
+      "designation": "F22J",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.575,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.01100000000000001,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1309,
+      "motor_dry_mass_included_kg": 0.08459999999999998,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 4.178,
+      "mean_thrust_n": 13.357732647199615,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5669000000000001,
+      "burnout_mass_kg": 0.5206000000000001,
+      "cg_liftoff_m": 0.42990518609984124,
+      "cg_burnout_m": 0.41144256626968884,
+      "mean_thrust_to_liftoff_weight": 2.402733559529728,
+      "additional_mass_headroom_to_twr_3_kg": -0.11286344836753248,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5669000000000001,
+              "cg_m": 0.42990518609984124,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.572731383980273
+            },
+            "rocketpy": {
+              "mass_kg": 0.5669000000000001,
+              "cg_m": 0.4299051860998412,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.57273138398028
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5206000000000001,
+              "cg_m": 0.41144256626968884,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.33603112974755
+            },
+            "rocketpy": {
+              "mass_kg": 0.5206000000000001,
+              "cg_m": 0.4114425662696888,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.336031129747557
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f22j_nar_posttest_2026",
+      "evidence_status": "report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F22J_posttest_2026.eng",
+      "designation": "F22J",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.575,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.01100000000000001,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1309,
+      "motor_dry_mass_included_kg": 0.08459999999999998,
+      "propellant_mass_kg": 0.0463,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 4.178,
+      "mean_thrust_n": 13.357732647199615,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5769000000000001,
+      "burnout_mass_kg": 0.5306000000000001,
+      "cg_liftoff_m": 0.4334776391055642,
+      "cg_burnout_m": 0.4156747078778741,
+      "mean_thrust_to_liftoff_weight": 2.361084511869306,
+      "additional_mass_headroom_to_twr_3_kg": -0.12286344836753249,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5769000000000001,
+              "cg_m": 0.4334776391055642,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.618532063540823
+            },
+            "rocketpy": {
+              "mass_kg": 0.5769000000000001,
+              "cg_m": 0.4334776391055642,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.618532063540831
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5306000000000001,
+              "cg_m": 0.4156747078778741,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.390289355493516
+            },
+            "rocketpy": {
+              "mass_kg": 0.5306000000000001,
+              "cg_m": 0.41567470787787403,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.390289355493522
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f22j_nar_posttest_2026",
+      "evidence_status": "report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures"
+    }
+  ],
+  "summary_screening": [
+    {
+      "id": "f22j_legacy_published_mass_labels",
+      "diameter_m": 0.029,
+      "length_m": 0.124,
+      "assembled_mass_hypotheses_kg": [
+        0.1329,
+        0.1356
+      ],
+      "published_average_thrust_n": 19.6,
+      "published_burn_time_s": 3.31,
+      "posttest_total_impulse_ns": 55.08,
+      "status": "historical_summary_only; newer_report_available_and_baseline_TWR_fails",
+      "source_note": "Product -5J lists 132.9 g and -7J lists 135.6 g; 2024 matrix assigns these masses to the opposite delays. The 65 N s legacy summary must not be mixed with the current NAR post-test impulse.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.1329,
+          "liftoff_mass_kg": 0.5789000000000002,
+          "summary_only_twr": 3.4524853643750886,
+          "max_burn_time_for_twr_3_at_posttest_impulse_s": 3.2340628209146236
+        },
+        {
+          "assumed_assembled_motor_mass_kg": 0.1356,
+          "liftoff_mass_kg": 0.5816000000000001,
+          "summary_only_twr": 3.4364576640934303,
+          "max_burn_time_for_twr_3_at_posttest_impulse_s": 3.219049117997723
+        }
+      ],
+      "incremental_mount_mass_kg": 0.02,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.5816000000000001,
+      "summary_only_twr": 3.4364576640934303,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "f22j_posttest_report_summary",
+      "diameter_m": 0.029,
+      "length_m": 0.125,
+      "assembled_mass_hypotheses_kg": [
+        0.1287,
+        0.132
+      ],
+      "published_average_thrust_n": 14.52,
+      "published_burn_time_s": 3.83,
+      "posttest_total_impulse_ns": 55.08,
+      "status": "current_test_summary; baseline_TWR_fail; not_a_specific_sold_delay_mass",
+      "source_note": "Bounds of the six measured initial masses; report means are not substituted into the page 3 sampled trace.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.1287,
+          "liftoff_mass_kg": 0.5747000000000002,
+          "summary_only_twr": 2.576349297449019,
+          "max_burn_time_for_twr_3_at_posttest_impulse_s": 3.257697871980991
+        },
+        {
+          "assumed_assembled_motor_mass_kg": 0.132,
+          "liftoff_mass_kg": 0.5780000000000002,
+          "summary_only_twr": 2.561640036754241,
+          "max_burn_time_for_twr_3_at_posttest_impulse_s": 3.2390985588710652
+        }
+      ],
+      "incremental_mount_mass_kg": 0.02,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.5780000000000002,
+      "summary_only_twr": 2.561640036754241,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    }
+  ],
+  "motor_selected": false,
+  "main_spec_unchanged": true,
+  "wo01_complete": false
+}

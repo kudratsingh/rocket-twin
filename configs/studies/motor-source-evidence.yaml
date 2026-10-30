@@ -1,0 +1,111 @@
+# Source reconciliation as of 2026-10-29. No source combination is an approved motor.
+working_airframe: {body_wall_m: 0.0016, status: retained_by_owner}
+selection_status: no_motor_selected
+product_page:
+  url: https://aerotech-rocketry.com/products/product_c968e0dc-44a1-0a42-42dc-d69b16336291
+  variant: G25W-10A RMS-29/120, SKU 072510
+  published_motor_mass_kg: 0.168
+  published_propellant_mass_kg: 0.0625
+  published_burn_time_s: 4.5
+  published_mean_thrust_n: 22.2
+  published_total_impulse_ns: 120
+  published_casing_length_m: 0.140
+  separate_hardware_required: RMS-29/120
+  status: published_summary_only; inconsistent with matrix and source curves
+matrix:
+  url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/aerotech%20master%20motor%20matrix%2012-19-24_1734643280505.pdf
+  revision: '2024-12-19'
+  locator: page 4, G25W-10A row, part 72510, RMS-29/120
+  published_total_mass_kg: 0.1171
+  published_propellant_mass_kg: 0.063
+  published_burn_time_s: 5.3
+  published_mean_thrust_n: 22.2
+  published_total_impulse_ns: 117.5
+  published_length_m: 0.140
+  status: visually reviewed; table columns confirmed but exact variant and assembled mass remain unresolved
+certification_index:
+  url: https://www.rocketmotorparts.com/page/nar-tra-certification-docs
+  old_g25: NAR, 29mm Model Rocket Single-Use category
+  new_g25w_10a: TRA, RMS-29/120 category
+  conclusion: index grouping is insufficient; linked TRA letter says Reload while both graphs say DMS. Old NAR single-use data do not establish RMS performance.
+  certificate_dates: TRA letter dated 2013-12-10; old NAR reports say Continuing and provide test dates only, not certification issue dates
+local_visual_review:
+  reviewed_on: '2026-10-29'
+  archive_manifest: data/motor-study-sources/manifest.json
+  method: rendered complete certificate pages and drawing; matrix pages 2 and 4
+  scope: historical document correspondence only; current certification, availability, mechanical fit and motor selection remain unverified
+  old_g25_nar:
+    file: data/motor-study-sources/old_g25_certificate.pdf
+    sha256: b984edd1ab38aef9fb9dddea06796ff2a4fddcec3f967ee7c796256dc0101006
+    test_date: '1995-09-02'
+    certification_issue_date: null
+    effective_dates_text: Continuing
+    samples_tested: 6
+    casing_length_m: 0.124
+    propellant_mass_kg: 0.0625
+    measured_total_impulse_ns: 117.50
+    measured_burn_time_s: 5.30
+    delay_s: [5, 10, 15]
+    initial_mass_by_delay_kg: [0.1210, 0.1209, 0.1171]
+    source_curve_loaded_mass_kg: 0.1197
+    conclusion: length, propellant, impulse, peak thrust and duration correspond to historical curve; 119.7 g is consistent with rounded mean of three delay-specific masses, not an exact selected delay variant
+  g25w_10a_tra:
+    file: data/motor-study-sources/rms_certificate.pdf
+    sha256: 34b57e31d02ccf02fa7d07582223a8f4997b69a94c9f327b7fa55b330d14ad85
+    letter_date: '2013-12-10'
+    test_date: '2013-11-03'
+    stated_valid_until: '2018-12-31'
+    designation: G25W-10A
+    letter_description: G25W Moonburner Reload
+    graph_titles: AeroTech G25W-10A DMS
+    metric_length_m: 0.149
+    loaded_mass_kg: 0.170
+    propellant_mass_kg: 0.062
+    burn_time_s: 4.20
+    total_impulse_ns: 109.49
+    average_thrust_n: 26.079
+    source_curve_propellant_mass_kg: 0.097
+    conclusion: raw curve header conflicts with report propellant mass; report also has Reload/DMS identity ambiguity. Retain raw bytes and quarantine; do not substitute 62 g into the 97 g source hypothesis.
+  rms_29_120_drawing:
+    file: data/motor-study-sources/rms_dimensions.pdf
+    sha256: 641779f98c6e16b668339c25cb411a68c2f96bf7ae66c7f09c2cf680656bf392
+    revision: A, first release 2004-08-20
+    units: inches
+    dimensioned_axial_spans_in: [5.503, 5.062, 0.368]
+    aft_closure_diameter_in: 1.250
+    forward_closure_diameter_in: 1.125
+    forward_boss_diameter_in: 1.000
+    aft_closure_diameter_m: 0.03175
+    conclusion: 5.503 inch span excludes separately dimensioned 0.368 inch aft closure; nozzle extends farther aft. Do not use the 140 mm summary as the complete installed envelope. Drawing establishes no motor mass or exact G25 reload correspondence.
+  f25_nar:
+    file: data/motor-study-sources/f25_certificate.pdf
+    sha256: 02d5210664fe8be657d61d6e1f99b07abb48c59b71f7d26d536dae64ffdb0e25
+    test_date: '1995-09-03'
+    certification_issue_date: null
+    effective_dates_text: Continuing
+    samples_tested: 6
+    casing_length_m: 0.097
+    propellant_mass_kg: 0.0356
+    measured_total_impulse_ns: 77.92
+    measured_burn_time_s: 3.05
+    delay_s: [4, 6, 9]
+    initial_mass_by_delay_kg: [0.0899, 0.0894, 0.0900]
+    conclusion: historical report broadly matches matrix summary but does not establish correspondence to newer molded-case curve
+  f25_molded_download:
+    file: configs/studies/motors/AeroTech_F25_molded.eng
+    sha256: 89b874f3a44ec2cfd11bf230185322f413a33b9a79662cada508b804dc5d0ebc
+    source_url: https://www.thrustcurve.org/simfiles/5f4294d20002e90000000455/
+    api_source: user
+    file_comment_date: '2005-03-02'
+    length_m: 0.098
+    loaded_mass_kg: 0.0972
+    propellant_mass_kg: 0.0388
+    source_duration_s: 2.69
+    integrated_total_impulse_ns: 70.766831
+    conclusion: rejected for default because entire supplied curve is shorter than 3 s; do not stretch curve or apply historical 3.05 s duration to it
+remaining_evidence:
+  - Full assembled mass with specified case and both closures, or explicit proof that a published loaded mass includes them
+  - Exact assembled dimensions including closure/thrust-ring envelopes, not just nominal 29 mm diameter
+  - Unambiguous G25W RMS or DMS identity and current certificate correspondence; historical test dates are not certification issue dates
+  - Traceable source curve matching the exact certified variant
+  - Mount/retention design mass and motor mass-distribution/CG evidence

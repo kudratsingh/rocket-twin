@@ -1,0 +1,59 @@
+[project]
+name = "rocket-twin"
+version = "0.0.1"
+description = "Digital twin of a TVC model rocket: spec → CAD, 6-DOF sim, frontend, PID/RL controllers, then the real vehicle"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==2.4.6",
+  "pyyaml==6.0.3",
+  "pydantic==2.13.4",
+  "jax",                      # pin exact in WO-02; jax[cuda12] under the gpu extra
+  "pyarrow",
+  "tqdm",
+]
+
+[project.optional-dependencies]
+# Agent pins exact versions in WO-01/02/03/04 and records them in docs/ENVIRONMENT.md.
+cad = [
+  "cadquery",                 # pin; cadquery-ocp wheel on Apple Silicon
+  "trimesh",
+]
+sim = [
+  "rocketpy==1.13.0",                 # validation reference only (ADR-0001)
+]
+api = [
+  "fastapi",
+  "uvicorn[standard]",
+]
+gnc = [
+  "cvxpy",
+  "clarabel",
+]
+gpu = [
+  "jax[cuda12]",
+  "pyarrow",
+  "huggingface_hub",
+]
+dev = ["pytest", "ruff", "black", "mypy", "types-PyYAML"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.black]
+line-length = 100
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[[tool.mypy.overrides]]
+module = "yaml"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "rocketpy"
+ignore_missing_imports = true

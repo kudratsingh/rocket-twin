@@ -1,0 +1,364 @@
+{
+  "run_id": "wo01-motors-20261030T011605330051Z",
+  "work_order": "01",
+  "preset": "tiny",
+  "cost_usd": 0,
+  "validation_status": "unvalidated motor selection; static math comparisons scoped per row",
+  "input_sha256": {
+    "configs/studies/g-impulse-selection.yaml": "9c23a4f736200e6a8254ca91fbe7f6c65c0ec907719eb2c7e42d027c85a58863",
+    "configs/vehicle/tvc-ascent-v1.yaml": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a"
+  },
+  "code_sha256": "28334b6c540cf97dbcc5f3c240ffbf7ceda932020ce97bba2e5d52cad5869890",
+  "source_urls": {
+    "g_catalog": "https://www.thrustcurve.org/motors/search.html?impulseClass=G",
+    "cti29_catalog": "https://pro38.com/product-category/pro-29/",
+    "cti38_catalog": "https://pro38.com/product-category/pro-38/",
+    "cti_g54": "https://pro38.com/products/p29-3g/159g54-12a/",
+    "cti_g54_curve": "https://www.thrustcurve.org/simfiles/5f4294d20002e900000006e7/",
+    "cti_g33": "https://pro38.com/products/p29-3g/143g33-9a/",
+    "cti_g33_curve": "https://www.thrustcurve.org/simfiles/5f4294d20002e90000000814/",
+    "cti_g33_stock": "https://www.csrocketry.com/rocket-motors/cesaroni/motors/pro-29/3g-reloads/cesaroni-g33-9a-mellow-rocket-motor.html",
+    "cti_g33_case_stock": "https://www.csrocketry.com/rocket-motors/cesaroni/hardware/pro-29/3g-hardware/cesaroni-29-3-grain-case.html",
+    "cti_g33_closure_stock": "https://www.csrocketry.com/rocket-motors/cesaroni/hardware/pro-29/6gxl-hardware/cesaroni-29mm-rear-closure.html",
+    "cti_classification_faq": "https://cesaroni-aerospace.com/frequently-asked-questions/",
+    "cti_g33_manufacturer_bulletin_post": "https://www.rocketryforum.com/threads/cti-discussion-thread.162183/",
+    "g12st_report": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/g12st%20cert%20letter_1656544056805.pdf",
+    "g12st_curve": "https://www.thrustcurve.org/simfiles/6015a048b94d0e00040a8436/",
+    "g8st_curve": "https://www.thrustcurve.org/simfiles/60159fcfb94d0e00040a8435/",
+    "g11": "https://www.thrustcurve.org/motors/AeroTech/G11/",
+    "g25_stock": "https://rocket.supplies/proddetail.php?prod=A072510",
+    "g25_product": "https://aerotech-rocketry.com/products/product_c968e0dc-44a1-0a42-42dc-d69b16336291",
+    "g25_prior_evidence": "configs/studies/motor-source-evidence.yaml",
+    "g40": "https://www.thrustcurve.org/motors/AeroTech/G40W/",
+    "g40_curve": "https://www.thrustcurve.org/simfiles/5f4294d20002e90000000463/",
+    "cti_g50": "https://pro38.com/products/p38-1g/150g50-15a/",
+    "cti_g58": "https://pro38.com/products/p38-1g/137g58-13a/",
+    "g69n": "https://www.thrustcurve.org/motors/AeroTech/G69N/",
+    "g12_rct": "https://www.thrustcurve.org/motors/AeroTech/G12-RCT/",
+    "nar_scope": "https://www.nar.org/content.aspx?club_id=114127&module_id=667402&page_id=22",
+    "tripoli_code": "https://www.tripoli.org/content.aspx?club_id=795696&module_id=520420&page_id=22",
+    "roc_rules": "https://rocstock.org/flying-with-roc-2/",
+    "california_osfm": "https://osfm.fire.ca.gov/what-we-do/fire-engineering-and-investigations/fireworks/"
+  },
+  "rows": [],
+  "summary_screening": [
+    {
+      "id": "cti_159g54_12a_pro29_3g",
+      "diameter_m": 0.029,
+      "length_m": 0.187,
+      "assembled_mass_hypotheses_kg": [
+        0.193,
+        0.1982
+      ],
+      "published_average_thrust_n": 53.6,
+      "published_burn_time_s": 2.97,
+      "published_total_impulse_ns": 159.1,
+      "propellant_mass_kg": 0.0865,
+      "status": "boundary_candidate_not_qualified; manufacturer_burn_below_3s; curve_mass_conflict; California_and_stock_unconfirmed",
+      "source_note": "Manufacturer 198.2 g versus catalog 193 g. Cert-contributor RSE has 96.8 g propWt versus manufacturer 86.5 g; terminal zero 3.026 s is distinct from 2.97 s burn. Do not round either into a requirement pass.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.193,
+          "liftoff_mass_kg": 0.6890000000000003,
+          "summary_only_twr": 7.932770539276769
+        },
+        {
+          "assumed_assembled_motor_mass_kg": 0.1982,
+          "liftoff_mass_kg": 0.6942000000000002,
+          "summary_only_twr": 7.873349037109903
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6942000000000002,
+      "summary_only_twr": 7.873349037109903,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g12st_p_2021_formulation",
+      "diameter_m": 0.029,
+      "length_m": 0.15598,
+      "assembled_mass_hypotheses_kg": [
+        0.15032
+      ],
+      "published_average_thrust_n": 11.31,
+      "published_burn_time_s": 12.7,
+      "published_total_impulse_ns": 143.97,
+      "propellant_mass_kg": 0.082,
+      "status": "reject_baseline_TWR; plugged_requires_electronic_recovery",
+      "source_note": "TRA December 10 2020 report, tested November 16 2020; avoid original 2018 formulation. Additional electronic recovery mass is not established; TWR already fails without it.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.15032,
+          "liftoff_mass_kg": 0.6463200000000002,
+          "summary_only_twr": 1.784408709119378
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6463200000000002,
+      "summary_only_twr": 1.784408709119378,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "cti_143g33_9a_mellow_pro29_3g",
+      "diameter_m": 0.029,
+      "length_m": 0.187,
+      "assembled_mass_hypotheses_kg": [
+        0.197
+      ],
+      "published_average_thrust_n": 32.7,
+      "published_burn_time_s": 4.38,
+      "published_total_impulse_ns": 143.1,
+      "propellant_mass_kg": 0.0791,
+      "status": "first_followup_priority_not_selected; reload_case_closure_out_of_stock_at_checked_dealer; curve_mass_and_California_classification_unresolved",
+      "source_note": "Exact study configuration is 143G33-9A Mellow reload, Pro29-3G case, standard Pro29 rear closure, no spacers. 197 g includes assembled hardware once. Cert-contributor RSE says 89 g propWt, certificate/manufacturer 79.1 g; 89 g also equals loaded minus post-firing mass. Possible delay/consumable inclusion is an inference, not an approved correction.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.197,
+          "liftoff_mass_kg": 0.6930000000000003,
+          "summary_only_twr": 4.8116479313677125
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6930000000000003,
+      "summary_only_twr": 4.8116479313677125,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g11_p_legacy_long_burn",
+      "diameter_m": 0.029,
+      "length_m": 0.152,
+      "assembled_mass_hypotheses_kg": [
+        0.154
+      ],
+      "published_average_thrust_n": 10.2,
+      "published_burn_time_s": 13.6,
+      "published_total_impulse_ns": 139.0,
+      "propellant_mass_kg": 0.082,
+      "status": "reject_baseline_TWR; catalog_summary_only; not_a_current_G12ST_substitute",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.154,
+          "liftoff_mass_kg": 0.6500000000000001,
+          "summary_only_twr": 1.600170057288441
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6500000000000001,
+      "summary_only_twr": 1.600170057288441,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g8st_p_2021_data",
+      "diameter_m": 0.029,
+      "length_m": 0.156,
+      "assembled_mass_hypotheses_kg": [
+        0.157
+      ],
+      "published_average_thrust_n": 6.6,
+      "published_burn_time_s": 19.8,
+      "published_total_impulse_ns": 130.0,
+      "propellant_mass_kg": 0.083,
+      "status": "reject_baseline_TWR; catalog_summary_only; peak_thrust_also_insufficient_for_TWR_3",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.157,
+          "liftoff_mass_kg": 0.6530000000000002,
+          "summary_only_twr": 1.0306473209271554
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6530000000000002,
+      "summary_only_twr": 1.0306473209271554,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g25w_10a_current_report_hypothesis",
+      "diameter_m": 0.029,
+      "length_m": 0.149,
+      "assembled_mass_hypotheses_kg": [
+        0.168,
+        0.17
+      ],
+      "published_average_thrust_n": 26.079,
+      "published_burn_time_s": 4.2,
+      "published_total_impulse_ns": 109.49,
+      "propellant_mass_kg": 0.062,
+      "status": "quarantined_preserved; RMS_DMS_identity_curve_mass_dimensions_and_current_certification_unresolved",
+      "source_note": "Numerical report hypothesis only, not a reconciliation with SKU 072510. Old 117.5 N s / 5.3 s SU dataset is separate. Rocket.Supplies lists A072510 in stock 4 at $34.99 but publishes legacy specifications; stock does not resolve identity.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.168,
+          "liftoff_mass_kg": 0.6640000000000001,
+          "summary_only_twr": 4.004996855158342
+        },
+        {
+          "assumed_assembled_motor_mass_kg": 0.17,
+          "liftoff_mass_kg": 0.6660000000000001,
+          "summary_only_twr": 3.9929698375752833
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6660000000000001,
+      "summary_only_twr": 3.9929698375752833,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g40w_molded_case",
+      "diameter_m": 0.029,
+      "length_m": 0.124,
+      "assembled_mass_hypotheses_kg": [
+        0.123
+      ],
+      "published_average_thrust_n": 40.9,
+      "published_burn_time_s": 2.4,
+      "published_total_impulse_ns": 97.1,
+      "propellant_mass_kg": 0.0538,
+      "status": "reject_minimum_burn; newer_molded_RASP_ends_2p3s",
+      "source_note": "Do not substitute the historical PML/AeroTech 113.74 N s / 3.06 s certificate for the current molded-case motor. Retailers still repeat old figures.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.123,
+          "liftoff_mass_kg": 0.6190000000000002,
+          "summary_only_twr": 6.737704864426051
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6190000000000002,
+      "summary_only_twr": 6.737704864426051,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "cti_150g50_15a_pro38_1g_separate_screen",
+      "diameter_m": 0.038,
+      "length_m": 0.127,
+      "assembled_mass_hypotheses_kg": [
+        0.218
+      ],
+      "published_average_thrust_n": 52.5,
+      "published_burn_time_s": 2.87,
+      "published_total_impulse_ns": 150.0,
+      "propellant_mass_kg": 0.0777,
+      "status": "larger_diameter_reject_reported_burn; no_mount_redesign_justified",
+      "source_note": "Mount reserve is only a common screening sensitivity, not an estimate of a completed 38 mm gimbal redesign.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.218,
+          "liftoff_mass_kg": 0.7140000000000002,
+          "summary_only_twr": 7.497913330720059
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.7140000000000002,
+      "summary_only_twr": 7.497913330720059,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "cti_137g58_13a_pro38_1g_separate_screen",
+      "diameter_m": 0.038,
+      "length_m": 0.127,
+      "assembled_mass_hypotheses_kg": [
+        0.2125
+      ],
+      "published_average_thrust_n": 57.9,
+      "published_burn_time_s": 2.36,
+      "published_total_impulse_ns": 136.8,
+      "propellant_mass_kg": 0.0763,
+      "status": "larger_diameter_reject_burn",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.2125,
+          "liftoff_mass_kg": 0.7085000000000001,
+          "summary_only_twr": 8.333319510433597
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.7085000000000001,
+      "summary_only_twr": 8.333319510433597,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g69n_p_rms38_120_separate_screen",
+      "diameter_m": 0.038,
+      "length_m": 0.106,
+      "assembled_mass_hypotheses_kg": [
+        0.201
+      ],
+      "published_average_thrust_n": 72.3,
+      "published_burn_time_s": 1.9,
+      "published_total_impulse_ns": 136.7,
+      "propellant_mass_kg": 0.0622,
+      "status": "larger_diameter_reject_burn; plugged_recovery_change",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.201,
+          "liftoff_mass_kg": 0.6970000000000003,
+          "summary_only_twr": 10.57754407436215
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6970000000000003,
+      "summary_only_twr": 10.57754407436215,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    },
+    {
+      "id": "aerotech_g12_rct_rms32_separate_screen",
+      "diameter_m": 0.032,
+      "length_m": 0.107,
+      "assembled_mass_hypotheses_kg": [
+        0.131
+      ],
+      "published_average_thrust_n": 10.2,
+      "published_burn_time_s": 8.6,
+      "published_total_impulse_ns": 87.2,
+      "propellant_mass_kg": 0.0511,
+      "status": "larger_diameter_reject_TWR; catalog_87p2Ns_differs_from_NAR_list_93Ns",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.131,
+          "liftoff_mass_kg": 0.6270000000000002,
+          "summary_only_twr": 1.6588684804425622
+        }
+      ],
+      "incremental_mount_mass_kg": 0.07,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.6270000000000002,
+      "summary_only_twr": 1.6588684804425622,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    }
+  ],
+  "motor_selected": false,
+  "main_spec_unchanged": true,
+  "wo01_complete": false
+}

@@ -1,0 +1,73 @@
+preset: rl
+device: cuda
+seed: 0
+vehicle: modular-tvc-finned-v1
+inherit: configs/sim.yaml
+rl:
+  algorithm: ppo
+  total_steps: 50000000
+  num_envs: 4096
+  rollout_len: 128
+  epochs: 4
+  minibatches: 8
+  lr: 3e-4
+  gamma: 0.995
+  gae_lambda: 0.95
+  clip: 0.2
+  entropy_coef: 0.001
+  policy:
+    layers:
+    - 64
+    - 64
+    activation: tanh
+  obs:
+  - tilt_est
+  - rates_est
+  - body_accel
+  - t_since_ignition
+  - gimbal_state
+  - ref_error
+  action:
+  - gimbal_pitch_cmd
+  - gimbal_yaw_cmd
+  reward:
+    tilt: -1.0
+    rate: -0.1
+    effort: -0.01
+    ref_track: -0.5
+    abort: -10.0
+randomisation:
+  thrust_scale:
+  - 0.85
+  - 1.15
+  thrust_time_scale:
+  - 0.95
+  - 1.05
+  mass_kg_offset:
+  - -0.03
+  - 0.03
+  cg_m_offset:
+  - -0.01
+  - 0.01
+  servo_lag_s:
+  - 0.02
+  - 0.06
+  servo_rate_limit_scale:
+  - 0.7
+  - 1.0
+  servo_deadband_scale:
+  - 0.5
+  - 2.0
+  imu_bias_rad_s:
+  - -0.01
+  - 0.01
+  wind_steady_mps:
+  - 0.0
+  - 5.0
+  loop_jitter_ms:
+  - 0.0
+  - 1.0
+cost:
+  gpu: RTX-4090
+  usd_per_hour: 0.89
+  estimated_hours: null

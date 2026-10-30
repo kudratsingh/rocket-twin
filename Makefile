@@ -1,0 +1,45 @@
+PYTHON ?= .venv/bin/python
+UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
+MPLCONFIGDIR ?= $(CURDIR)/.cache/matplotlib
+export UV_CACHE_DIR MPLCONFIGDIR
+
+.PHONY: setup setup-reference check smoke tiny benchmark fetch-motors motor-study fetch-motor-study-sources f22-study fetch-f22-sources g-impulse-study
+
+setup: ## Install the implemented WO-01 CPU environment (requires network).
+	uv venv --python 3.11 --allow-existing
+	uv pip install --python $(PYTHON) -r requirements-wo01.txt
+
+check:
+	$(PYTHON) -m ruff check src tests scripts
+	$(PYTHON) -m black --check src tests scripts
+	$(PYTHON) -m mypy
+
+smoke:
+	$(PYTHON) -m pytest -q
+
+tiny: ## Current pipeline: WO-01 only; later WOs extend this target.
+	$(PYTHON) scripts/wo01_platform.py --preset tiny
+
+setup-reference: ## Install the pinned independent reference; needs network access.
+	uv pip install --python $(PYTHON) -r requirements-wo01.txt rocketpy==1.13.0
+
+benchmark: ## All modular modes; WO-01 preliminary design gates, never flight readiness.
+	$(PYTHON) scripts/wo01_platform.py --preset sim --compare rocketpy --require-benchmark
+
+fetch-motors: ## Download unreviewed source curves and metadata; requires network.
+	$(PYTHON) scripts/wo01_fetch_motors.py
+
+motor-study: ## Local static screening; does not select a motor or change the baseline.
+	$(PYTHON) scripts/wo01_motor_study.py --preset tiny --compare rocketpy
+
+fetch-motor-study-sources: ## Collect primary PDFs and F25 curves for offline review.
+	$(PYTHON) scripts/wo01_fetch_study_sources.py
+
+f22-study: ## Historical and 2026 post-test comparisons; no selection.
+	$(PYTHON) scripts/wo01_motor_study.py --preset tiny --config configs/studies/f22-selection.yaml --compare rocketpy
+
+fetch-f22-sources: ## Fetch F22 source curve, certificates and correct hobby-case dimensions.
+	$(PYTHON) scripts/wo01_fetch_study_sources.py --config configs/studies/f22-selection.yaml --output data/f22-study-sources
+
+g-impulse-study: ## Published-summary G-motor screening with mass-growth allowance; no selection.
+	$(PYTHON) scripts/wo01_motor_study.py --preset tiny --config configs/studies/g-impulse-selection.yaml
