@@ -19,7 +19,7 @@ from src.sim import actuators, dynamics, sensors
 from src.sim.types import Params, State
 
 # Double precision for the independent physics benchmark; policy export stays float32.
-jax.config.update("jax_enable_x64", True)
+jax.config.update("jax_enable_x64", True)  # type: ignore[no-untyped-call]  # JAX 0.4 setter lacks types.
 
 
 def reset(p: Params, key: Array) -> State:
