@@ -433,6 +433,12 @@ def _write_doc(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--preset",
+        choices=["tiny", "sim", "rl", "real"],
+        default="tiny",
+        help="CPU report preset; this bounded static study uses the same cases for every preset.",
+    )
+    parser.add_argument(
         "--config", type=Path, default=Path("configs/studies/wo03-mount-loadpath.yaml")
     )
     args = parser.parse_args()
