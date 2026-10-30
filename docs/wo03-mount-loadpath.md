@@ -2,7 +2,7 @@
 
 This is an isolated geometry and hand-screen proposal. It changes resolved vehicle copies only. No active vehicle or CAD source is modified; no hardware adoption, physical-fit, strength qualification, or flight-readiness claim is made.
 
-Run: `wo03-mount-loadpath-20261030T183924533321Z`; inputs unchanged: `True`; acceptance: **open / false**; active adoption: **false**; flight ready: **false**; cost: $0.
+Run: `wo03-mount-loadpath-20261030T185139862170Z`; inputs unchanged: `True`; acceptance: **open / false**; active adoption: **false**; flight ready: **false**; cost: $0.
 
 ## Proposal
 

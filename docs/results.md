@@ -728,7 +728,7 @@ and can reduce the static margin below 1 cal. Typical ingredient properties and
 unsupported thickness transfers do not qualify a bonded fin or clear flutter.
 
 The [support-tube pilot](wo03-mount-loadpath.md), record
-[`wo03-mount-loadpath-20261030T183924533321Z`](../runs/wo03-mount-loadpath-20261030T183924533321Z/record.json),
+[`wo03-mount-loadpath-20261030T185139862170Z`](../runs/wo03-mount-loadpath-20261030T185139862170Z/record.json),
 connects the proposed forward stop to an extended liner and centering rings/cradle
 in vehicle copies. Neutral solid overlaps are absent. G80 mass changes +1.79 g
 and CG +0.58 mm; the G54 full-length/0.1-knockdown Euler sensitivity fails, while

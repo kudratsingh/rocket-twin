@@ -66,6 +66,7 @@ def _reconcile_copy(vehicle: Vehicle, changed: set[str], manifest: dict[str, Any
             "inertia_per_kg_m2": row["properties"]["inertia_per_kg_m2"],
             "basis": row["properties"]["basis"],
         }
+        item["cg_offset_m"] = -row["properties"]["cg_local_body_m"][0]
     return Vehicle.model_validate(data)
 
 
