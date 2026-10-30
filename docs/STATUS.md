@@ -10,6 +10,8 @@ intersections were corrected; combined sweep still finds a frame/drive-lug confl
 and servo-horn envelope interference. Structural/thermal/tolerance analyses and
 targeted solver validation/convergence are now required before acceptance and WO-04.
 Gmsh/CalculiX are not installed on this host as of the current tool check.
+The Analysis view/export contract is added to UI and WO-03/04/05: identity-bound
+recorded fields, per-part evidence, legends/case/time controls and explicit provenance.
 No claim of WO-03 completion, physical validation or flight release.
 
 

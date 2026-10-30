@@ -8,7 +8,7 @@ Dark theme, one accent colour, system font. No design system library.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ Top bar: vehicle selector · run selector · [Inspect] [Experiment]     │
+│ Top bar: vehicle selector · run selector · [Inspect] [Analysis] [Experiment]     │
 ├────────────────────┬─────────────────────────────┬───────────────────┤
 │ Left: parts tree   │ Centre: 3D viewport          │ Right: panel       │
 │ (collapsible,      │ (orbit, exploded slider,     │ (changes with      │
@@ -97,3 +97,70 @@ Distinguish preliminary numerical checks from hardware/control/flight release;
 negative finless margin and unresolved motor-source correspondence remain visible.
 Motor overrides create validated configuration variants, including mount and
 recovery changes. This clarifies data identity without redesigning the frozen UI.
+
+## Mode: Analysis (owner-authorized specification extension, ADR-0007)
+
+The top-bar modes are **Inspect / Analysis / Experiment**. Analysis reuses the parts
+tree, viewport and inspector. Computation runs offline or in the backend; the
+browser loads recorded results, interpolates display frames and explores them.
+No browser stress, thermal, margin or flight solver is introduced.
+
+- Select exact configuration, analysis run and load/thermal case, then quantity:
+  stress (named component/invariant and criterion), displacement (component or
+  magnitude), temperature, or applicable design margin. Render fields on the
+  corresponding actual part geometry. An optional analysis-mesh outline makes the
+  discretization inspectable. Display/deformed geometry stays separate from the
+  original CAD; displacement amplification is explicit, defaults to 1 and changes
+  visualization only. Never suggest an amplified shape is the actual displacement.
+- Every overlay has a labeled color legend, units, min/max, scale limits and missing
+  coverage. A fixed color range across compared cases/times is the default; an
+  auto-range toggle is visible. Stress is Pa/MPa, displacement m/mm, temperature
+  K/deg C, margin dimensionless with its formula and pass/fail threshold. Component,
+  integration-point versus nodal data, averaging and excluded regions are explicit.
+  For plywood/printed anisotropy, do not present von Mises alone as a valid strength
+  criterion. A scalar part-level thermal or margin result uses a uniform tint and
+  is labeled as such; it does not imply resolved spatial detail.
+- For transient fields, show a time scrubber, play/pause, exact time and a per-part
+  history plot. Static cases show their load state without a fictitious time axis.
+  Time comes from the recorded analysis and remains distinct from flight-replay
+  time unless a recorded mapping links them. Display interpolation is marked;
+  reported peaks and margins use solver samples, never browser recomputation.
+- Hover/select stays linked to the tree. Selecting a part exposes available results,
+  peaks and locations, case loads/boundaries, material/orientation, assumptions,
+  uncertainty, applicable temperature/strength/deflection limits, margin definition,
+  solver/mesh versions, convergence/known-case status and required physical tests.
+  Link the report and original result artifact. Unanalyzed parts remain selectable.
+- Show provenance separately from validation. **Calculated** identifies model/solver
+  output; **estimated** identifies assumptions/proxies; **measured** identifies
+  instrument/log data with location, time and source; **unavailable** has a visible
+  neutral/hatched state and reason. A measured point does not color an entire part
+  as measured. Estimated material/boundary inputs remain visible beside calculated
+  output. Neither a calculated field nor solver convergence implies physical
+  validation. Show failures and unresolved conclusions prominently.
+- Register fields using exact configuration, resolved-spec hash, CAD/generator
+  identity, part IDs, analysis mesh hash, coordinate frame/units and mapping to the
+  viewer mesh. Reject mismatched or stale overlays with an explanation; do not
+  silently attach historical results to revised geometry or switch configurations.
+  Invalid/missing data renders a visible status, never zeros or a green pass.
+
+### Analysis API and export contract (WO-03 -> WO-04/05)
+
+- `GET /api/vehicles/{id}/analyses` lists recorded compatible runs and incompatible
+  historical runs with their reason; no analysis is launched by this request.
+- `GET /api/analyses/{run_id}` returns the immutable manifest, cases, identity,
+  quantities, times, part coverage, provenance/validation and artifact references.
+- `GET /api/analyses/{run_id}/artifacts/{asset}` serves allowlisted field/mesh/history
+  artifacts with hashes and cache headers. Validate identity before returning an
+  attachable overlay. Configuration/run identifiers never become arbitrary paths.
+- WO-03 exports versioned manifests and SI field/history artifacts. Store analysis
+  nodes/connectivity and explicit CAD-to-display registration separately from GLB.
+  Preserve raw values, locations, association (node/element/integration-point/part/
+  measured point), timestamps, units, reported extrema and decision margins. Supply
+  backend-generated display mappings where needed; retain discontinuities and
+  excluded/singular regions. In the first version a part-level result is supported
+  honestly, without inventing nodal FEA data.
+
+WO-04 acceptance includes static and transient recorded overlays with real run
+identity, part inspection, legends/time controls and unavailable-data behavior.
+WO-05 extends Analysis to browse/compare recorded cases/runs and synchronized
+history cursors; time coupling to flight replay requires explicit provenance.

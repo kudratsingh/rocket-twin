@@ -36,3 +36,20 @@ structural, thermal and tolerance report and display evidence status/remaining
 physical gates alongside mass provenance. Do not equate a rendered mesh, analysis
 pass or numerical RocketPy agreement with a qualified physical vehicle. No browser
 structural/thermal/flight solver or new screen is required.
+
+## Analysis view deliverables and completion criteria
+
+Implement the owner-authorized Analysis contract in `docs/UI.md`: stress,
+displacement, temperature and applicable design-margin overlays registered to the
+actual configuration geometry; units/legends, case selection, static/transient time
+controls and selected-part results with assumptions, limits and validation status.
+Support true part-level results as uniform fields labeled by their resolution.
+Distinguish calculated/estimated/measured/unavailable data and measured point
+coverage. Serve recorded manifests/fields/analysis meshes through allowlisted API
+routes; no solver or margin computation in TypeScript.
+
+Completion requires static and transient exported-result examples, tree/geometry
+selection, legends/time/history controls and tests of incompatible CAD/spec hashes,
+missing coverage and failed/unvalidated results. Stale overlays are rejected visibly.
+Report raw peaks independently of display interpolation/averaging or deformation
+amplification. Retain Inspect acceptance and every existing work-order position.

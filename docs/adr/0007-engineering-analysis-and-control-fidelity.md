@@ -74,3 +74,13 @@ structural/thermal measurements and finless burnout transition remain release ga
 Sources: [Gmsh documentation](https://gmsh.info/doc/texinfo/gmsh.html),
 [CalculiX](https://www.calculix.de/),
 [CadQuery BRep concepts](https://cadquery.readthedocs.io/en/stable/primer.html).
+
+## Analysis viewer extension
+
+The owner explicitly extends the frozen UI contract to Inspect / Analysis /
+Experiment. WO-03 exports identity-bound field/history assets and registration;
+WO-04 provides recorded engineering overlays and per-part evidence inspection;
+WO-05 supports case/run comparison and time exploration. See `docs/UI.md` for units,
+legends, quantities and unavailable/stale behavior. Provenance (calculated, estimated,
+measured, unavailable) is distinct from model/solver/physical validation. Backend/
+offline computation remains authoritative. A visualization cannot upgrade evidence.

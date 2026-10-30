@@ -68,3 +68,22 @@ Source hypotheses and uncertainty remain visible. Inspectable exports and concis
 part-function/load-path documentation are available. Record evidence in STATUS and
 results before advancing to WO-04. Actual strength, temperature, fit, recovery and
 control qualification remain owner-performed WO-09–11 gates; flight_ready stays false.
+
+## Analysis export deliverable and acceptance (owner extension)
+
+Export versioned analysis manifests and field/history assets for the Analysis view
+in `docs/UI.md`. Each artifact identifies exact configuration, resolved-spec hash,
+CAD/generator revision, part IDs and mesh hashes, SI units/frame, case, quantity/
+component/criterion and association (node/element/integration point/part/measured
+point), time samples, coverage and original report. Record extrema, limits and margin
+formula/threshold, assumptions, material/boundary uncertainty, validation/convergence
+status and physical test requirements. Keep analysis meshes separate from display
+meshes and export registration/mapping; preserve discontinuities and exclusions.
+
+Calculated results, estimated inputs/proxies, located measured data and unavailable
+coverage must be distinguishable in machine-readable metadata. Part-level thermal
+or margin results are acceptable at their actual resolution; no fabricated spatial
+stress field. Missing/stale/incompatible data must not become zero or a pass. Export
+identity checks and a backend consumer smoke check are part of WO-03 acceptance.
+All computation remains in the backend/offline pipeline. WO-04 consumes the exports;
+WO-05 adds recorded case/run comparison and explicit transient/replay time mapping.

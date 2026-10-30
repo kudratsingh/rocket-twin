@@ -150,3 +150,11 @@ WO-07 trains and evaluates RL with those improved models and held-out uncertaint
 WO-09–12 measure and verify structures, heat, actuators and aero through owner tests,
 HIL and flight logs. Preserve WO-02 as the baseline, re-run applicable comparisons
 after model changes, and retain every original work-order position and release gate.
+
+The owner also expanded the frozen frontend contract with an **Analysis** mode:
+recorded stress, displacement, temperature and applicable margin fields on exact
+configuration geometry; units/legends, case/time controls and part assumptions,
+limits and validation status. WO-03 exports versioned fields and identity/registration
+metadata, WO-04 implements the view/API, and WO-05 adds recorded case/run exploration.
+Calculated, estimated, measured and unavailable data remain explicit. Analysis runs
+backend/offline; the browser never becomes a physics or engineering solver.
