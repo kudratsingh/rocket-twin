@@ -44,3 +44,14 @@ thermal, recovery deployment and power-isolation evidence per actual configurati
 Plugged G12ST-P has no motor-ejection backup. Independent recovery must not depend
 on the learned policy or a failing flight-control task. Owner buys and performs all
 physical work; generating the pack is not permission to purchase or fabricate.
+
+## Engineering verification carried from WO-03/06
+
+Include load paths, analysis margins and temperature/tolerance limits, print/grain
+orientation, bond preparation/cure and fastener locking, inspection/access checks
+and analysis-to-test traceability. Define owner-performed material coupons, fin-root,
+modular-joint/recovery and gimbal proof loads, plus instrumented motor-case/liner/
+adhesive/gimbal/electronics burn and heat-soak tests. Measure as-built tolerances,
+mass/CG and loaded actuator torque/speed/backlash versus voltage/temperature.
+Record failures, update property bounds and re-run affected CAD, analyses and flight
+checks before release. Do not order or perform physical work without the owner.

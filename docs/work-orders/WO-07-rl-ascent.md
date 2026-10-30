@@ -40,3 +40,15 @@ report each separately. Preserve estimator observations, realistic sensor/actuat
 constraints, domain randomisation, abort logic outside policy control, HIL, logging
 and later system identification. Residual RL is an evidence-driven comparison,
 not permission to skip the original finless objective or hide a failed policy.
+
+## Improved-model research gate (ADR-0007)
+
+Require the WO-06 gimbal/aero fidelity prerequisites before full training or a
+PID/RL benchmark claim. Train with the same loaded, voltage-dependent actuator,
+moving inertia and envelope-aware aerodynamic implementation used in experiments.
+Randomize residual structural/mass, thermal derating, backlash/friction, voltage,
+servo delay/load, aero coefficients/damping and sensor uncertainties with sourced
+or explicitly bounded distributions. Evaluate against PID on identical held-out
+conditions/seeds, including large-angle and out-of-domain/abort cases. Report
+uncertainty, failures and negative results; preserve embedded policy constraints
+and independent abort/recovery. Later measured calibration remains WO-09–12.

@@ -30,3 +30,20 @@ Every override is validated into a complete configuration with geometry, mass,
 aerodynamics and source hashes. Fins are actual parts, not an aero-only toggle.
 Long-burn TVC replays include coast and recovery; changing motors requires its
 mount, mass/CG and recovery changes. Label preliminary source cases as such.
+
+## Recorded Analysis exploration (owner extension)
+
+Extend the WO-04 Analysis view to browse and compare recorded load/thermal cases
+and analysis runs on their matching actual geometry. Overlay stress, displacement,
+temperature and applicable margins with consistent legends/units and part coverage;
+link selected-part histories and exact transient time cursors. Reuse the WO-03
+manifest and validation/provenance metadata. Keep calculated, estimated, measured
+and unavailable data distinct, with assumptions and limits visible on selection.
+
+Compare cases only with declared identity/registration compatibility. Different CAD
+revisions use separately identified geometry; never silently attach or difference
+incompatible fields. Flight replay and analysis clocks remain separate unless the
+backend records a physical time mapping. Analysis computation stays offline/backend;
+the frontend displays recorded fields and history/telemetry interpolation only.
+Acceptance includes static and transient case comparison, missing/stale-result states,
+selection-linked metadata and preserving all experiment/replay benchmarks.

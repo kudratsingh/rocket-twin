@@ -4,12 +4,25 @@ Updated: 2026-10-29 (run IDs use UTC)
 
 ## Current work order
 
+**WO-03 active; owner resumed and expanded engineering scope (ADR-0007).**
+CAD generators and mass reconciliation are in progress locally. Initial nominal
+intersections were corrected; combined sweep still finds a frame/drive-lug conflict
+and servo-horn envelope interference. Structural/thermal/tolerance analyses and
+targeted solver validation/convergence are now required before acceptance and WO-04.
+Gmsh/CalculiX are not installed on this host as of the current tool check.
+The Analysis view/export contract is added to UI and WO-03/04/05: identity-bound
+recorded fields, per-part evidence, legends/case/time controls and explicit provenance.
+No claim of WO-03 completion, physical validation or flight release.
+
+
+### Completed WO-02 milestone
+
 **WO-02 numerical benchmark met on the owner's Mac CPU.** [Core PR #2](https://github.com/kudratsingh/rocket-twin/pull/2)
 merged; [validation/study PR #3](https://github.com/kudratsingh/rocket-twin/pull/3)
-contains the final evidence and hosted check/merge status. No WO-03 implementation
-has started; CAD is next in the unchanged sequence.
+merged with the final evidence and hosted checks. WO-03 is now active; the
+following numbers are the preserved pre-CAD WO-02 baseline.
 
-`make check smoke` passes 65 tests, formatting/lint and strict typing. `make benchmark`
+The completed WO-02 revision passed 65 tests, formatting/lint and strict typing. `make benchmark`
 passes both the preserved static platform and actual G80/finned-G12 flight checks.
 Full study `wo02-20261030T044930127544Z` compares all five nominal models within 0.004% of RocketPy,
 checks a 4,096-env CPU step, and closes recovery in all 27 cases by 360 s. Tiny

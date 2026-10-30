@@ -34,3 +34,18 @@ Resolve common and aft YAML into a complete immutable experiment input; each aer
 propulsion, structure, CAD and control model receives that same identity and hashes.
 Shared hardware is reuse, not shared validation evidence. New materials or motor
 bores require actual parts/mass/aero changes, not a hidden frontend or sim override.
+
+## Active physical engineering contracts (ADR-0007)
+
+WO-03 now implements offline `LoadsModel` and `ThermalModel` analyses for the
+physical platform: spec inputs and source hashes → quantitative load/margin and
+transient temperature histories, uncertainty and test requirements. These do not
+add hidden in-flight constraints to the WO-02 core. Analysis mesh generators and
+solvers are separate adapters from the GLB/STL viewer tessellation.
+
+Before WO-06 acceptance, gimbal/actuator dynamics must expose moving mass/inertia,
+linkage, voltage/load/friction/backlash and timing parameters with calibration hooks.
+`AeroModel` must expose coefficient-table domain (Mach, Reynolds, angle of attack),
+force/moment/damping and an out-of-domain status. Any later CFD-derived table uses
+the same interface for experiments, PID and RL. WO-02 remains immutable baseline
+evidence; revised models carry new identity and applicable reference comparisons.
