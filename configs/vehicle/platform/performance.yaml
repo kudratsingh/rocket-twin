@@ -53,15 +53,14 @@ parts:
 - id: aft_shell
   type: body_tube
   parent: interface_coupler
-  position_m: 0.52
+  position_m: 0.522
   geometry:
-    length_m: 0.28
+    length_m: 0.278
     radius_m: 0.033
     inner_radius_m: 0.0325
     wall_m: 0.0005
-    od_m: 0.066
   material: cardboard
-  mass_kg: 0.0234
+  mass_kg: 0.019865566236285947
   estimate: true
   learn: Interchangeable aft shell transfers fin, motor and guide loads through the
     keyed coupler. Tube slots and local reinforcement depend on the actual mode; they
@@ -72,17 +71,71 @@ parts:
     generator: body_tube
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: tube
+    parameters:
+      fin_slots: true
+      fin_slot_width_mm: 2.4
+      fin_slot_length_mm: 62
+      fin_slot_start_mm: 163
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#c6b28e'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 8febcdc02cf5a8403f42b609c6c3c81aa5e5412cb704fe4a792a3c9eb63a2906
+    volume_m3: 2.8379380337551354e-05
+    cg_local_body_m:
+    - -0.13856733555870163
+    - -4.885612252513422e-15
+    - -1.0566088677111843e-16
+    inertia_per_kg_m2:
+    - - 0.001072625327922923
+      - 1.7462542158813707e-18
+      - 2.875324242649386e-18
+    - - 1.7462542158813707e-18
+      - 0.007000806006881076
+      - 1.2354266992056328e-19
+    - - 2.875324242649386e-18
+      - 1.2354266992056328e-19
+      - 0.007000806006881478
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.13856733555870163
+  engineering:
+    function: Interchangeable aft shell transfers fin, motor and guide loads through
+      the keyed coupler.
+    material_profile: cardboard
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - fin_bending
+    - modular_retention
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: aft_interface_hardware
   type: commercial
   parent: aft_shell
-  position_m: 0.53
+  position_m: 0.535
   geometry:
     bbox_m:
-    - 0.02
-    - 0.02
+    - 0.012
     - 0.01
+    - 0.006
   material: commercial
-  mass_kg: 0.01
+  mass_kg: 0.006
   estimate: true
   learn: Positive axial stops, indexing keys and removable fasteners connect the aft
     module. Repeated assembly, crushing, shear and retention loads must be verified
@@ -93,17 +146,68 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  lateral_offset_m:
+  - 0
+  - 0.026
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#a2a8ab'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c
+    volume_m3: 7.199999999999999e-07
+    cg_local_body_m:
+    - -0.006
+    - -1.195162181132109e-19
+    - -2.9605947323337515e-20
+    inertia_per_kg_m2:
+    - - 1.1333333333333336e-05
+      - -4.2464158788120037e-23
+      - 0.0
+    - - -4.2464158788120037e-23
+      - 1.5000000000000007e-05
+      - 4.860509658608257e-24
+    - - 0.0
+      - 4.860509658608257e-24
+      - 2.033333333333334e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.006
+  engineering:
+    function: Positive axial stops, indexing keys and removable fasteners connect
+      the aft module.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - modular_retention
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: motor_mount
   type: motor_mount
   parent: aft_shell
   position_m: 0.62
   geometry:
     length_m: 0.16
-    radius_m: 0.017
-    inner_radius_m: 0.0145
-    id_m: 0.029
+    radius_m: 0.0323
+    inner_radius_m: 0.0153
   material: plywood
-  mass_kg: 0.012
+  mass_kg: 0.012226423358440024
   estimate: true
   learn: Custom centering/load-transfer assembly supports a certified commercial motor
     and liner. This ring envelope is not a solid tube; gimbal or fixed retention and
@@ -114,17 +218,75 @@ parts:
     generator: motor_mount
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: mount
+    parameters:
+      ring_thickness_mm: 3
+      ring_stations_mm:
+      - 0
+      - 157
+      rail_width_mm: 6
+      rail_depth_mm: 3
+      rail_radius_mm: 28.5
+      tab_slot_start_mm: 65.0
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#bd965f'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 6965bbf0872d85de509afd13a073a4b10e8396c5c54bd944a78cc3ad9907c994
+    volume_m3: 2.2229860651709134e-05
+    cg_local_body_m:
+    - -0.07903610731818266
+    - -4.4268080791709707e-17
+    - -6.382458968120807e-18
+    inertia_per_kg_m2:
+    - - 0.0006944902234667492
+      - -8.325557203871364e-20
+      - -6.476709581845394e-19
+    - - -8.325557203871364e-20
+      - 0.005279679164880797
+      - 1.0801084407589086e-19
+    - - -6.476709581845394e-19
+      - 1.0801084407589086e-19
+      - 0.0052796791648807885
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.07903610731818266
+  engineering:
+    function: Custom centering/load-transfer assembly supports a certified commercial
+      motor and liner.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    - fin_bending
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: motor_liner
   type: commercial
   parent: aft_shell
-  position_m: 0.64
+  position_m: 0.672
   geometry:
-    bbox_m:
-    - 0.15
-    - 0.032
-    - 0.032
+    length_m: 0.128
+    radius_m: 0.0151
+    inner_radius_m: 0.0147
   material: phenolic
-  mass_kg: 0.007
+  mass_kg: 0.00623131132928355
   estimate: true
   learn: A purchased phenolic or paper liner and air gap isolate the commercial case
     from structural polymer. Its mass and envelope are provisional; case and surrounding
@@ -135,26 +297,125 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: liner
+    parameters: {}
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#c0ab8a'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 6700c614fdcc4919bdd65219730539bc997f5536cab500196c1970a9e04ce0b0
+    volume_m3: 4.793316407141192e-06
+    cg_local_body_m:
+    - -0.064
+    - -1.3325599121800533e-15
+    - -2.317396102899123e-17
+    inertia_per_kg_m2:
+    - - 0.00022205000000000111
+      - 1.2143504824081362e-20
+      - 3.542118327160637e-21
+    - - 1.2143504824081362e-20
+      - 0.001476358333333344
+      - -2.3318074681790232e-20
+    - - 3.542118327160637e-21
+      - -2.3318074681790232e-20
+      - 0.0014763583333333302
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.064
+  engineering:
+    function: A purchased phenolic or paper liner and air gap isolate the commercial
+      case from structural polymer.
+    material_profile: phenolic
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - motor_thrust
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: retention
   type: commercial
   parent: aft_shell
-  position_m: 0.78
+  position_m: 0.668
   geometry:
-    bbox_m:
-    - 0.02
-    - 0.02
-    - 0.01
-  material: commercial
-  mass_kg: 0.008
+    length_m: 0.004
+    radius_m: 0.018
+    inner_radius_m: 0.012
+  material: plywood
+  mass_kg: 0.0012440706908215576
   estimate: true
-  learn: Positive removable motor retention transfers thrust and prevents ejection.
-    It must clear the nozzle and preserve all certified motor hardware without modification.
+  learn: Forward thrust stop and split carrier constrain the nominal motor envelope.
+    Exact case/closure capture and bidirectional retention remain supplier-fit and
+    proof-load gates before physical use.
   build:
-    method: assembled
+    method: cut
     cost_usd: 8
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: bulkhead
+    parameters:
+      anchor_hole_mm: 24
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#b89563'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: e75e27d0cd6d86b3109160f3ea9584eb89540a076cb11ed2ff28e88c8b1aedd8
+    volume_m3: 2.2619467105846502e-06
+    cg_local_body_m:
+    - -0.002000000000000001
+    - -2.1360762305137703e-18
+    - -2.2727712546858562e-19
+    inertia_per_kg_m2:
+    - - 0.0002340000000000013
+      - -3.5182432031991364e-22
+      - -2.155063150230471e-23
+    - - -3.5182432031991364e-22
+      - 0.00011833333333333522
+      - -5.759339420798706e-21
+    - - -2.155063150230471e-23
+      - -5.759339420798706e-21
+      - 0.00011833333333333272
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.002000000000000001
+  engineering:
+    function: Forward thrust stop and split carrier constrain the nominal motor envelope.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: motor
   type: motor
   parent: motor_mount
@@ -175,8 +436,54 @@ parts:
     generator: motor
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  cg_offset_m: 0.064
   cite: configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml
+  cad:
+    generator: vendor_motor
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#4b5664'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: d58838a874847d305f56bb7016b44492d46ad0482b4e76f868e858b4d48aaa0d
+    volume_m3: 8.454654149340853e-05
+    cg_local_body_m:
+    - -0.064
+    - -1.3769377170325868e-18
+    - -8.496973132735245e-19
+    inertia_per_kg_m2:
+    - - 0.00010512500000000058
+      - -2.20310034725214e-20
+      - -4.564572712721959e-23
+    - - -2.20310034725214e-20
+      - 0.0014178958333333335
+      - 1.8356290054634804e-21
+    - - -4.564572712721959e-23
+      - 1.8356290054634804e-21
+      - 0.0014178958333333318
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.064
+  engineering:
+    function: The full commercial motor mass is counted exactly once.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: fin_set
   type: fin_set
   parent: aft_shell
@@ -191,7 +498,7 @@ parts:
     sweep_m: 0.06
     thickness_m: 0.002
   material: plywood
-  mass_kg: 0.03168
+  mass_kg: 0.03286800000000001
   estimate: true
   learn: Three custom cut trapezoidal fins provide passive restoring torque. Planform
     and radial mass moments enter the twin; grain direction, root attachment and flutter
@@ -202,15 +509,66 @@ parts:
     generator: trapezoidal_fin_set
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: fins
+    parameters:
+      tab_depth_mm: 6
+      tab_length_mm: 60
+      tab_offset_mm: 45
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#c39c65'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: c1a0c3f256a1e6b8d8c0cf6e3c1ce46ccb9058d8800f0b0fed88f9015cb35257
+    volume_m3: 5.976000000000001e-05
+    cg_local_body_m:
+    - -0.08838688085676039
+    - -3.0248004012277357e-18
+    - -5.402788138041993e-18
+    inertia_per_kg_m2:
+    - - 0.005057978580990629
+      - -2.763961008309618e-19
+      - -2.4178096786241403e-19
+    - - -2.763961008309618e-19
+      - 0.0038626321170447033
+      - 4.786109334229425e-19
+    - - -2.4178096786241403e-19
+      - 4.786109334229425e-19
+      - 0.0038626321170447077
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.08838688085676039
+  engineering:
+    function: Three custom cut trapezoidal fins provide passive restoring torque.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - fin_bending
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: fin_bonds
   type: commercial
   parent: aft_shell
   position_m: 0.67
   geometry:
     bbox_m:
-    - 0.02
-    - 0.02
-    - 0.01
+    - 0.08
+    - 0.006
+    - 0.004
   material: commercial
   mass_kg: 0.006
   estimate: true
@@ -223,6 +581,58 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  lateral_offset_m:
+  - 0.03
+  - 0
+  cad:
+    generator: budget
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#a98a58'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 227f888530c0bd4206787bc80ebac49ba299fea5c1d66cd71aac6202238e8105
+    volume_m3: 1.9200000000000003e-06
+    cg_local_body_m:
+    - -0.04
+    - 6.270919481901845e-20
+    - -1.1102230246251566e-20
+    inertia_per_kg_m2:
+    - - 4.333333333333333e-06
+      - 5.2761865076680527e-23
+      - 0.0
+    - - 5.2761865076680527e-23
+      - 0.0005346666666666666
+      - -3.045993589472982e-24
+    - - 0.0
+      - -3.045993589472982e-24
+      - 0.0005363333333333333
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.04
+  engineering:
+    function: Fin tabs and bonded root fillets transfer aerodynamic bending into the
+      motor support and shell.
+    material_profile: epoxy
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - fin_bending
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 design:
   mode: performance
   mass_allowance_kg: 0.05
@@ -239,3 +649,33 @@ design:
   provenance: 'ADR-0006 and docs/wo01-rebaseline.md: provisional engineering screens,
     not flight release criteria. 50 g vehicle mass growth is outside the physical
     parts; rail model ignores mass loss conservatively.'
+netlist:
+- net: VBAT
+  from: battery
+  to: regulator_5v
+  gauge_awg: 22
+- net: 5V_LOGIC
+  from: regulator_5v
+  to: flight_computer
+  gauge_awg: 26
+- net: SPI
+  from: flight_computer
+  to:
+  - imu
+  - baro
+- net: PYRO_1
+  from: flight_computer
+  to: pyro_mosfet
+  pin: null
+- net: ARM
+  from: arming_switch
+  to: flight_computer
+  pin: null
+- net: RECOVERY_INDEPENDENT
+  from: battery
+  to: independent_recovery
+  gauge_awg: 24
+- net: HIGH_G_SPI
+  from: flight_computer
+  to: high_g_accel
+  gauge_awg: 28

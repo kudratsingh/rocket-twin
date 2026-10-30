@@ -30,7 +30,11 @@ def forces(
     cd = jnp.interp(mach, p.mach, p.cd) + (1 - powered) * p.aero[2]
     axial = -0.5 * rho * speed**2 * p.aero[0] * cd * p.aero[3] * jnp.sign(relative_body[0])
     arms = jnp.stack(
-        (-p.surfaces[:, 1] - cg[0], jnp.zeros(p.surfaces.shape[0]), jnp.zeros(p.surfaces.shape[0])),
+        (
+            -p.surfaces[:, 1] - cg[0],
+            jnp.full(p.surfaces.shape[0], -cg[1]),
+            jnp.full(p.surfaces.shape[0], -cg[2]),
+        ),
         axis=1,
     )
     local = relative_body + jnp.cross(omega, arms)
@@ -44,6 +48,8 @@ def forces(
     )
     normals = normals.at[:, 0].set(0)
     force = jnp.array([axial, 0, 0]) + jnp.sum(normals, axis=0)
-    torque = jnp.sum(jnp.cross(arms, normals), axis=0)
+    torque = jnp.sum(jnp.cross(arms, normals), axis=0) + jnp.cross(
+        jnp.array([0.0, -cg[1], -cg[2]]), jnp.array([axial, 0.0, 0.0])
+    )
     alpha = jnp.arctan2(jnp.linalg.norm(relative_body[1:]), jnp.maximum(relative_body[0], 1e-9))
     return force, torque, mach, alpha

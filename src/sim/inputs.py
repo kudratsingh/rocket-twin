@@ -18,7 +18,6 @@ import yaml
 
 from src.sim.types import Params
 from src.vehicle.aero import normal_force_surfaces
-from src.vehicle.geometry import shape_properties
 from src.vehicle.mass import mass_properties
 from src.vehicle.motors import load_rasp
 from src.vehicle.schema import Vehicle
@@ -80,8 +79,8 @@ def prepare(vehicle: Vehicle, case: dict[str, Any]) -> Params:
         [curve.length_m, curve.diameter_m],
     ):
         raise ValueError("motor installed dimensions disagree with source hypothesis")
-    prop_position = np.array([-part.cg_station_m, *part.lateral_offset_m])
-    prop_inertia = shape_properties("motor", part.geometry).inertia_per_kg_m2 + cross(prop_position)
+    prop_position = np.array([-part.cg_station_m, *part.cg_lateral_m])
+    prop_inertia = part.inertia_per_kg_m2 + cross(prop_position)
     surfaces = np.array(normal_force_surfaces(vehicle))
     if len(surfaces) > 8:
         raise ValueError("surface count exceeds explicit bound")
@@ -106,11 +105,11 @@ def prepare(vehicle: Vehicle, case: dict[str, Any]) -> Params:
         assert servo.electrical.deadband_us is not None
         actuator = [
             vehicle.tvc.max_deflection_rad,
-            np.pi / 3 / servo.electrical.speed_s_per_60deg,
+            np.pi / 3 / servo.electrical.speed_s_per_60deg * vehicle.tvc.linkage_ratio,
             actuator_model["natural_frequency_rad_s"],
             actuator_model["damping_ratio"],
             actuator_model["latency_s"],
-            servo.electrical.deadband_us * np.pi / 2000,
+            servo.electrical.deadband_us * np.pi / 2000 * vehicle.tvc.linkage_ratio,
             0,
         ]
     noise = bool(case.get("sensor_noise", True))
@@ -131,6 +130,7 @@ def prepare(vehicle: Vehicle, case: dict[str, Any]) -> Params:
     imu_rating = vehicle.avionics.sensors["imu"]
     if imu_rating.accel_range_g is None or imu_rating.gyro_range_dps is None:
         raise ValueError("IMU ranges are required")
+    high_g = vehicle.avionics.sensors.get("high_g")
     values = {
         "times": times,
         "thrust": forces,
@@ -188,6 +188,10 @@ def prepare(vehicle: Vehicle, case: dict[str, Any]) -> Params:
             imu_rating.accel_range_g * 9.80665,
             np.deg2rad(imu_rating.gyro_range_dps),
             sensor_model["reset_bias_sigma_fraction"],
+            (high_g.accel_range_g or 0) * 9.80665 if high_g else 0,
+            high_g.rate_hz if high_g else 1,
+            sensor_model.get("high_g_noise_mps2", 0.981) * noise,
+            sensor_model.get("high_g_latency_s", 0.002),
         ],
         "pivot_station": vehicle.tvc.pivot_position_m if vehicle.tvc else part.cg_station_m,
     }

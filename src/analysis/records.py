@@ -128,6 +128,33 @@ def asset_path(value: str) -> PurePosixPath:
     return path
 
 
+def check_field_payload(field: FieldRecord, payload: Any) -> None:
+    """Check scalar sample shape and bind spatial data to its embedded mesh."""
+    if not isinstance(payload, dict) or not isinstance(payload.get("values"), list):
+        raise TypeError("field payload requires frame/sample values")
+    frames = payload["values"]
+    if len(frames) != (len(field.times_s) if field.times_s is not None else 1) or any(
+        not isinstance(frame, list) or len(frame) != field.sample_count for frame in frames
+    ):
+        raise ValueError("field frame/sample shape disagrees with metadata")
+    for frame in frames:
+        for value in frame:
+            if value is not None and (
+                isinstance(value, bool) or not isinstance(value, (int, float))
+            ):
+                raise ValueError("scalar field samples must be numeric or null coverage")
+    if field.association != "part":
+        if "analysis_mesh" not in payload:
+            raise ValueError("spatial field requires its embedded analysis mesh")
+        mesh = (
+            json.dumps(payload["analysis_mesh"], allow_nan=False, sort_keys=True).encode() + b"\n"
+        )
+        if hashlib.sha256(mesh).hexdigest() != field.mesh_sha256:
+            raise ValueError("analysis mesh checksum mismatch")
+    # Reject nonfinite samples and coordinates, including permissive JSON readers.
+    json.dumps(payload, allow_nan=False)
+
+
 def export_record(folder: Path, record: AnalysisRecord, assets: dict[str, Any]) -> Path:
     """Write exact offline samples; arrays are frames x samples, with null coverage."""
     folder.mkdir(parents=True, exist_ok=True)
@@ -137,11 +164,7 @@ def export_record(folder: Path, record: AnalysisRecord, assets: dict[str, Any]) 
         if field.artifact not in assets:
             raise ValueError("missing analysis asset")
         payload = assets[field.artifact]
-        frames = payload["values"]
-        if len(frames) != (len(field.times_s) if field.times_s is not None else 1) or any(
-            len(frame) != field.sample_count for frame in frames
-        ):
-            raise ValueError("field frame/sample shape disagrees with metadata")
+        check_field_payload(field, payload)
         encoded = json.dumps(payload, allow_nan=False, sort_keys=True).encode() + b"\n"
         if hashlib.sha256(encoded).hexdigest() != field.artifact_sha256:
             raise ValueError("field artifact hash disagrees with metadata")
@@ -167,4 +190,5 @@ def load_compatible(manifest: Path, expected: Identity) -> AnalysisRecord:
                 raise ValueError("analysis artifact escapes run directory")
             if hashlib.sha256(path.read_bytes()).hexdigest() != field.artifact_sha256:
                 raise ValueError("analysis artifact checksum mismatch")
+            check_field_payload(field, json.loads(path.read_bytes()))
     return record

@@ -52,3 +52,7 @@ or explicitly bounded distributions. Evaluate against PID on identical held-out
 conditions/seeds, including large-angle and out-of-domain/abort cases. Report
 uncertainty, failures and negative results; preserve embedded policy constraints
 and independent abort/recovery. Later measured calibration remains WO-09–12.
+
+## Traceability and vibration-risk carry-through
+
+Carry justified residual actuator, vibration/measurement, aero, joint and temperature uncertainties from WO-03/06 into RL training and held-out PID/RL evaluation. Preserve negative results and distinguish out-of-domain failures from qualified success.

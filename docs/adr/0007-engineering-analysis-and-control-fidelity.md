@@ -84,3 +84,29 @@ WO-05 supports case/run comparison and time exploration. See `docs/UI.md` for un
 legends, quantities and unavailable/stale behavior. Provenance (calculated, estimated,
 measured, unavailable) is distinct from model/solver/physical validation. Backend/
 offline computation remains authoritative. A visualization cannot upgrade evidence.
+
+## Traceability and aeroelastic screening extension
+
+Owner extension, 2026-10-30: WO-03 includes a lightweight stable-ID requirements/
+verification matrix, interface table and initial qualitative FMEA, all tied to the
+shared specification and exact configuration/CAD evidence. Distinguish established
+requirements from provisional screens, supplier/site/equipment unknowns and measured
+results. Trace mitigations into actual design changes and later verification.
+
+Execute vibration/resonance and fin-flutter screening using actual geometry,
+reconciled mass, material/attachment/damping ranges, flight speed/load envelopes and
+temperature-dependent stiffness. Verify numerical methods against known cases;
+retain existing FEA convergence requirements. Report validity, mode shapes/frequencies
+where calculated, coupled joint/gimbal/sensor/propulsion/servo risks and physical
+measurements needed. No single crude flutter formula clears stall flutter or body/
+control coupling. Critical unresolved conclusions keep WO-03 acceptance open.
+
+WO-04/05 expose linked requirements, interfaces, FMEA mitigations and evidence in
+the inspector/Analysis view. WO-06 addresses actuator, vibration/sensor and aero
+validity/fault risks before PID acceptance; WO-07 carries justified residual bounds
+into training and held-out evaluation. WO-09 owns manufacturing/inspection/unit
+acceptance instructions and owner test execution; WO-10 integrated firmware/HIL/
+configuration, timing, recovery independence and logging retain owner review.
+WO-11 establishes operating limits, exact as-flown identity and staged procedures;
+WO-12 correlates using separate calibration/evaluation data and repeats affected
+comparisons. Existing sequence, physical-work, paid-run and release gates remain.

@@ -87,3 +87,38 @@ stress field. Missing/stale/incompatible data must not become zero or a pass. Ex
 identity checks and a backend consumer smoke check are part of WO-03 acceptance.
 All computation remains in the backend/offline pipeline. WO-04 consumes the exports;
 WO-05 adds recorded case/run comparison and explicit transient/replay time mapping.
+
+## Requirements, interfaces, FMEA and vibration/flutter acceptance
+
+Maintain lightweight source-linked artifacts with stable IDs:
+
+- Requirements/verification matrix: configurations (G80, conditional G54, finned
+  G12, eventual finless), purpose/source, criterion or active-spec reference, related
+  parts/interfaces, method, responsible WO, evidence and status. Cover scope/
+  performance, guide, stability/control, mass/CG, loads/heat, recovery, sensors/power
+  and operating conditions. Distinguish provisional assumptions and established
+  requirements from measured evidence; track site, guide and supplier unknowns.
+- Interface table: shared-upper/aft, motor/retention, gimbal/servos, avionics,
+  recovery and electrical/software boundaries. Include datums/axes/units, dimensions/
+  tolerances, load paths, retention, min/nominal/max clearance, connectors/power,
+  configuration identity, indexing/keying/identification and unresolved dependencies.
+- Initial FMEA: hardware/software/operating causes, local/system effects, justified
+  qualitative severity/likelihood or uncertainty, detection, mitigation, residual
+  risk, requirements/design links and later tests. Prioritize servo jam, brownout,
+  sensor clipping/dropout, connectors, structures/heat, wrong-module pairing and
+  recovery/common-cause failures. State abort limitations and finless burnout facts.
+
+Execute structural-mode/resonance and fin-flutter screens with actual CAD/mass,
+material ranges, attachment/damping assumptions and flight speed/load envelope.
+Include temperature-dependent stiffness and joint/gimbal/propulsion/servo/sensor
+interactions. Report calculated frequencies/modes, method/domain validity, flutter
+results and uncertainty; verify against known cases and apply existing FEA mesh
+convergence criteria. Identify design decisions and physical modal, torsion, loaded-
+mechanism, vibration/aliasing and flight measurements required. Unresolved critical
+issues remain acceptance items, not automatically deferred passes.
+
+Generate the per-part engineering table from the shared specs with function,
+material/method, mass provenance, dimensions/tolerances, load/thermal/vibration
+cases, results/margins, evidence status and physical verification. Include preliminary
+assembly/service diagrams and identify the later dimensioned drawings, plywood
+cut/drill templates and print settings. Complete procurement/build pack remains WO-09.

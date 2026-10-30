@@ -5,6 +5,12 @@ export UV_CACHE_DIR MPLCONFIGDIR
 
 .PHONY: setup setup-reference check smoke tiny benchmark fetch-motors motor-study fetch-motor-study-sources f22-study fetch-f22-sources g-impulse-study
 
+setup-cad: ## Install pinned CAD dependencies.
+	uv pip install --python $(PYTHON) -r requirements-wo03.txt
+
+setup-viewer: ## Install CAD and API dependencies before WO-04.
+	uv pip install --python $(PYTHON) -r requirements-wo04.txt
+
 setup-sim: ## Install pinned WO-02 CPU/reference/telemetry dependencies.
 	uv pip install --python $(PYTHON) -r requirements-wo02.txt
 
@@ -51,3 +57,27 @@ g-impulse-study: ## Published-summary G-motor screening with mass-growth allowan
 
 flight-study: ## Complete source-hypothesis trade, uncertainty and recovery study.
 	$(PYTHON) scripts/wo02_sim.py --preset sim --study --compare rocketpy --require-benchmark
+
+# WO-03 exports and engineering screens; expanded acceptance remains explicit.
+cad:
+	XDG_CACHE_HOME=$(CURDIR)/.cache $(PYTHON) scripts/wo03_cad.py --preset sim --require-benchmark
+
+cad-reconcile:
+	XDG_CACHE_HOME=$(CURDIR)/.cache $(PYTHON) scripts/wo03_cad.py --preset tiny --check-only --reconcile
+
+engineering:
+	$(PYTHON) scripts/wo03_engineering.py --preset sim
+
+engineering-benchmark:
+	$(PYTHON) scripts/wo03_engineering.py --preset sim --require-benchmark
+
+revalidate: benchmark flight-study
+
+vibration:
+	XDG_CACHE_HOME=$(CURDIR)/.cache $(PYTHON) scripts/wo03_vibration.py --preset sim
+
+traceability:
+	$(PYTHON) scripts/wo03_traceability.py --preset tiny
+
+service-diagrams:
+	$(PYTHON) scripts/wo03_service_diagrams.py --preset tiny

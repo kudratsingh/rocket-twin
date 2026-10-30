@@ -30,17 +30,21 @@ def reset(p: Params, key: Array) -> State:
     )
     q = q / jnp.linalg.norm(q)
     rigid = jnp.concatenate((jnp.zeros(6), q, jnp.zeros(3)))
-    bias = jax.random.normal(key, (6,)) * jnp.concatenate(
-        (jnp.full(3, p.sensors[0] * p.sensors[9]), jnp.full(3, p.sensors[1] * p.sensors[9]))
+    bias = jax.random.normal(key, (9,)) * jnp.concatenate(
+        (
+            jnp.full(3, p.sensors[0] * p.sensors[9]),
+            jnp.full(3, p.sensors[1] * p.sensors[9]),
+            jnp.full(3, p.sensors[12] * p.sensors[9]),
+        )
     )
     return State(
         jnp.array(0.0),
         rigid,
         jnp.zeros(4),
         jnp.zeros((64, 2)),
-        jnp.zeros((16, 6)),
+        jnp.zeros((16, 9)),
         bias,
-        jnp.zeros(10),
+        jnp.zeros(13),
         jnp.array(0.0),
         jnp.array(-1.0),
         jnp.array(0.0),
@@ -98,7 +102,14 @@ def rollout(p: Params, key: Array, steps: int) -> tuple[State, Array]:
 
         s, _, info = jax.lax.cond(s.landed, absorbed, active, s)
         row = jnp.concatenate(
-            (jnp.array([s.time]), s.rigid, info, s.servo[:2], jnp.array([s.landed.astype(float)]))
+            (
+                jnp.array([s.time]),
+                s.rigid,
+                info,
+                s.servo[:2],
+                s.observation,
+                jnp.array([s.landed.astype(float)]),
+            )
         )
         return s, row
 

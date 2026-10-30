@@ -55,3 +55,7 @@ adhesive/gimbal/electronics burn and heat-soak tests. Measure as-built tolerance
 mass/CG and loaded actuator torque/speed/backlash versus voltage/temperature.
 Record failures, update property bounds and re-run affected CAD, analyses and flight
 checks before release. Do not order or perform physical work without the owner.
+
+## Traceability and vibration-risk carry-through
+
+Generate manufacturing, inspection and unit-acceptance instructions tied to requirement/interface/FMEA IDs. Owner performs coupon, joint, mechanism, thermal and recovery tests and records measured as-built properties and component revisions, including modal/torsional/clearance measurements.

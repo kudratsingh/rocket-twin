@@ -53,3 +53,7 @@ selection, legends/time/history controls and tests of incompatible CAD/spec hash
 missing coverage and failed/unvalidated results. Stale overlays are rejected visibly.
 Report raw peaks independently of display interpolation/averaging or deformation
 amplification. Retain Inspect acceptance and every existing work-order position.
+
+## Traceability and vibration-risk carry-through
+
+Expose linked stable-ID requirements, interfaces, FMEA mitigations and unresolved evidence in the part inspector/Analysis view. Bind every displayed result to exact configuration and CAD revision; calculated/estimated/measured/unavailable stay distinct.

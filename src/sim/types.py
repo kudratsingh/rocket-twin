@@ -42,9 +42,11 @@ class State(NamedTuple):
     rigid: Array  # NED position 3, velocity 3, quaternion 4, omega 3
     servo: Array  # angle 2, rate 2
     commands: Array  # 64 x 2 latency buffer
-    imu_queue: Array  # 16 x 6 latency buffer
+    imu_queue: Array  # 16 x 9 latency buffer
     sensor_bias: Array
-    observation: Array  # body specific force 3, gyro 3, baro height, time, gimbal 2
+    observation: (
+        Array  # body specific force 3, gyro 3, baro height, time, gimbal 2, high-g specific force 3
+    )
     baro_filtered: Array
     rail_exit_time: Array  # -1 until departure
     rail_exit_speed: Array

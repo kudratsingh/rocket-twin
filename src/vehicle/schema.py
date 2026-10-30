@@ -12,6 +12,7 @@ from typing import Annotated, Any, Literal, Self
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from src.vehicle.cad_contract import digest
 from src.vehicle.geometry import shape_properties
 
 
@@ -121,6 +122,7 @@ class Electrical(Model):
 
 
 class PrintSettings(Model):
+    rotation_deg: tuple[float, float, float] = (0, 0, 0)
     line_width_mm: Positive | None = None
     orientation: str
     layer_mm: Positive
@@ -253,6 +255,37 @@ class MotorQualification(Model):
     california_verified: bool = False
 
 
+class CADDefinition(Model):
+    generator: str
+    parameters: dict[str, Any] = Field(default_factory=dict)
+    mass_basis: Literal["volume_density", "supplied_or_estimated"]
+    role: Literal["manufactured", "purchased_envelope", "soft_stowage", "distributed_budget"]
+    moving_group: Literal["fixed", "yaw", "motor"] = "fixed"
+    color: str = "#7aa2b6"
+    notes: str
+
+
+class CADMass(Model):
+    shape_sha256: str
+    volume_m3: Positive
+    cg_local_body_m: tuple[float, float, float]
+    inertia_per_kg_m2: tuple[
+        tuple[float, float, float], tuple[float, float, float], tuple[float, float, float]
+    ]
+    basis: str
+
+
+class PartEngineering(Model):
+    function: str
+    material_profile: str
+    tolerances_mm: dict[str, Nonnegative]
+    load_cases: list[str]
+    thermal_cases: list[str]
+    property_basis: Literal["published", "estimated", "measured"]
+    service_notes: str
+    required_physical_verification: list[str]
+
+
 class Part(Evidence):
     id: str
     type: Literal[
@@ -284,6 +317,9 @@ class Part(Evidence):
     tank: Tank | None = None
     engine: str | None = None
     build: Build | None = None
+    cad: CADDefinition | None = None
+    cad_mass: CADMass | None = None
+    engineering: PartEngineering | None = None
 
     @model_validator(mode="after")
     def geometry_check(self) -> Self:
@@ -310,6 +346,11 @@ class Part(Evidence):
             shape_properties(self.type, self.geometry)
         if self.cg_offset_m is None:
             self.cg_offset_m = shape_properties(self.type, self.geometry).cg_offset_m
+        if self.cad_mass and (
+            not self.cad
+            or self.cad_mass.shape_sha256 != digest(self.geometry, self.cad.model_dump())
+        ):
+            raise ValueError("stale CAD properties; regenerate and reconcile the owning YAML")
         return self
 
     @property
@@ -322,7 +363,24 @@ class Part(Evidence):
     @property
     def cg_station_m(self) -> float:
         assert self.cg_offset_m is not None
-        return self.position_m + self.cg_offset_m
+        return self.position_m + (
+            -self.cad_mass.cg_local_body_m[0] if self.cad_mass else self.cg_offset_m
+        )
+
+    @property
+    def cg_lateral_m(self) -> tuple[float, float]:
+        local = self.cad_mass.cg_local_body_m if self.cad_mass else (0, 0, 0)
+        return self.lateral_offset_m[0] + local[1], self.lateral_offset_m[1] + local[2]
+
+    @property
+    def inertia_per_kg_m2(self) -> Any:
+        import numpy as np
+
+        return (
+            np.asarray(self.cad_mass.inertia_per_kg_m2)
+            if self.cad_mass
+            else shape_properties(self.type, self.geometry).inertia_per_kg_m2
+        )
 
 
 class Limits(Model):

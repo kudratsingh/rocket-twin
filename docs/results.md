@@ -616,10 +616,78 @@ is also superseded. The earlier 240 s horizon missed two high-altitude recovery
 cases; 360 s now closes them. Exact source archives were not edited to force a pass.
 A headless plotting backend also replaced a failed macOS GUI plotting invocation.
 
+## Initial engineering checkpoint — WO-03, calculated (not measured)
+
+These are model outputs and preliminary calculations, not coupon, component, flight,
+or hot-soak measurements. The property bounds, loads, restraints and case-temperature
+history are estimated. Full identities and machine-readable manifests are in the
+linked run records. No result clears the affected physical verification gate.
+
+### CAD export / mass properties
+
+Latest formal CAD record [`wo03-20261030T180113490389Z`](../runs/wo03-20261030T180113490389Z/record.json)
+completed in **67.41 s** at **$0** with `inputs_unchanged: true` and
+`cad_export_benchmark_passed: true`. Six generated modes passed their
+mass-reconciliation and print-volume checks, six nominal interface checks passed,
+and both TVC configurations passed the inclusive 25-pose sweep at ±4.9847°. The
+continuous cylindrical liner-to-shell radial bound is **5.135 mm**. These are CAD
+calculations, not measured mass, fabricated fit or strength; the radial cylinder
+bound does not establish full mechanism/tolerance/wiring access. The earlier
+34.71-second export [`wo03-20261030T175718278493Z`](../runs/wo03-20261030T175718278493Z/record.json)
+is retained as the passing neutral export without formal motion proof.
+`expanded_wo03_benchmark_passed` and `flight_ready` remain false.
+
+### Structural calculations and finite-element result
+
+Latest engineering run [`wo03-engineering-20261030T175947969565Z`](../runs/wo03-engineering-20261030T175947969565Z/record.json)
+has unchanged inputs and exports calculated part-level stress, margin, temperature, and displacement
+quantities with identities and evidence status. Unsupported gimbal displacement
+is explicitly marked unavailable (not zero). Export-consumer checks pass, but the
+engineering benchmark is false.
+
+| Model result | Calculated value | Evidence status and limitation |
+|---|---:|---|
+| G80 performance fin, spatial shell field | Mesh: 2,028 nodes / 969 elements; max displacement **12.053 mm**; max \|Sxx\| **12.926 MPa**; separate regional shell von Mises **10.890 MPa** | Calculated spatial fields from [`wo03-vibration-20261030T175839356500Z`](../runs/wo03-vibration-20261030T175839356500Z/record.json); not measured. Displacement, axial normal stress and regional von Mises stress are different quantities. Input properties and idealized attachment remain estimated. Strict raw-deck, mesh and part-shape identity guard passed. |
+| G80 performance fin, independent hand screen | **13.281 MPa** fin stress; **31.875 mm** upper-bound tip deflection; margin **−0.749** using the estimated 10 MPa strength bound and design factor 3 | Calculated with estimated properties and simplified load model; adverse screen, not test data. Its displacement is not the spatial FEA maximum. |
+| Finned-TVC fin, independent hand screen | **21.521 MPa**, **72.835 mm** upper-bound tip deflection, margin **−0.845** | Calculated, estimated strength/load and simplified boundary. Does not represent a measured failure. |
+| TVC gimbal neck-only screen | **2.604 MPa**, margin **+0.024** | Calculated with estimated 8 MPa strength bound; excludes eccentricity, holes, transverse rod loads, print anisotropy and bearing/contact. Not a closed load path. |
+| Pinned motor-mount rails, buckling screen | Margin **−0.911** performance, **−0.653** finned TVC, **−0.947** G54 | Calculated conservative pinned-length Euler screen; not a tested collapse or a detailed slotted/retained-part FEA. Requires resolution. |
+
+### Thermal and recovery load scenarios
+
+The bounded transient network uses estimated lumped part properties, simplified gap
+conduction/contact and approximate radiation. It applies an exploratory 120/250 °C
+external-case step through burn then exponential cooling; this is not an exact-motor
+measured case-temperature trace. In the upper hot-soak calculation, finned-TVC
+peaks include motor liner **230.9 °C / provisional 120 °C screen**, motor mount
+**130.2 / 45 °C**, inner gimbal **96.6 / 60 °C**, and fin bonds **59.1 / 45 °C**.
+The nominal lower scenario also calculates the TVC motor mount at **54.3 °C** against
+the provisional **45 °C** screen. The G54 hypothesis upper scenario calculates
+liner **227.4 / 120 °C** and mount **91.5 / 45 °C**. These indicate failure of the
+assumed screens, not that hardware reached these temperatures. Detailed internal
+propellant/combustion, gradients, verified interfaces and physical soak remain open.
+
+Recovery harness forces are scenario calculations, not deployment measurements:
+the finned-TVC model yields factored totals from **55.1 N** (5 m/s, 0.6 m stop) to
+**1,265.5 N** (20.4 m/s, 0.3 m stop). The 20.4 m/s case is an archived late-delay
+off-nominal probe, not an approved motor delay. Anchor, bulkhead, local bond and
+opening-shock behavior are not qualified.
+
+## Latest WO-03 status
+
+Integrated vibration record [`wo03-vibration-20261030T175839356500Z`](../runs/wo03-vibration-20261030T175839356500Z/record.json)
+has `known_cases.passed: true` and unchanged inputs. Spatial field exports and
+consumer checks pass for performance G80, finned-TVC G12 and G54; finless has no
+applicable fin field. Overall vibration/flutter acceptance remains false. Solver
+fixtures and numerical convergence do not close physical strength, flutter, material,
+joint, tolerance-expanded motion, wiring, recovery, or service gates.
+Use [current checkpoint](wo03-current-checkpoint.md) for current completion state.
+
 Reproduce the figure with `scripts/wo02_plot.py --config runs/wo02-20261030T044930127544Z/record.json`;
 output `build/reports/wo02-flight-trade.png` is generated and ignored. Source model
 and verification limits: [WO-02 report](wo02-flight-study.md). WO-02's numerical
-benchmark is met; WO-03 is queued, with no physical or later controller work started.
+benchmark is met; WO-03 remains active, with no physical release or later controller
+qualification claimed.
 
 ## CAD vs spec mass (WO-03)
 

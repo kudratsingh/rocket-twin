@@ -1,0 +1,1129 @@
+version: wo03-traceability-v1
+status: Living matrix with executed records linked; expanded WO-03 acceptance remains open and no physical qualification is claimed.
+expanded_wo03_acceptance: open
+evidence_sources:
+  - path: runs/wo03-engineering-20261030T175947969565Z/record.json
+    scope: Latest bounded preliminary structural and thermal screens for G80, G54, G12-F and G12-L; run records unchanged inputs and per-vehicle results.
+    limitation: Engineering benchmark and flight_ready are false. Only quantities represented by the screens have numerical results; other coverage remains unavailable, never zero or an inferred pass. Estimated properties/case bounds, negative margins and open strength, heat, buckling, packaging and power issues remain unresolved.
+  - path: runs/wo03-vibration-20261030T175839356500Z/record.json
+    scope: Latest executed known cases/convergence and three finned-mode spatial exports with consumer checks; inputs are identity-recorded.
+    limitation: Vibration/flutter acceptance and expanded WO-03 benchmark are false. Known/convergence checks and spatial export consumption do not qualify the vehicle. Attachment/contact, temperature-dependent properties, propulsion/control excitation, sensor aliasing and full aeroelastic coupling remain open; no flutter pass.
+  - path: runs/wo02-20261030T173859843386Z/record.json
+    scope: Historical WO-02 simulation benchmark for source-hypothesis cases; nominal actual-mode reference comparisons and 4096-env CPU step are recorded.
+    limitation: Simulation only, not flight evidence; flight_ready is false. Does not verify the current WO-03 CAD, structural/thermal margins, tolerances, recovery hardware or physical control qualification.
+  - path: runs/wo03-20261030T180113490389Z/record.json
+    scope: Latest CAD/export benchmark; 67.41 seconds, inputs unchanged, CAD export benchmark passed, six nominal interfaces and both sampled 25-pose sweeps passed.
+    limitation: Expanded WO-03 benchmark remains false and reconciled_estimates is false. Sweeps explicitly do not verify joint fit or continuous full-mechanism motion; CAD mass remains unmeasured, and solver/strength/thermal, retention, packing, independent battery and physical validation gates remain open.
+configurations:
+  G80: configs/vehicle/platform/performance.yaml
+  G54: configs/vehicle/wo02/performance-g54.yaml
+  G12-F: configs/vehicle/platform/tvc-finned.yaml
+  G12-L: configs/vehicle/platform/tvc-finless.yaml
+ranking_basis:
+  S4: Potential loss of control/structure or recovery with hazardous impact; critical release blocker.
+  S3: Major performance/control degradation with independently verified recovery/containment; conditions
+    may elevate to S4.
+  likelihood: Qualitative mechanism-based assessment; no numeric failure rates or RPN without data.
+requirements:
+- id: RT-SCOPE-001
+  applies_to: &id001
+  - G80
+  - G54
+  - G12-F
+  - G12-L
+  purpose_source: Owner objectives; ADR-0006/0007
+  acceptance: Certified-commercial no-HPR scope; loaded mass including allowance below declared cap, propellant
+    and motor certification limits. Exact California/club eligibility is a separate release check.
+  spec_paths:
+  - limits.max_liftoff_mass_kg
+  - limits.max_propellant_kg
+  - motor.qualification.certified_impulse_ns
+  - motor.qualification.certified_average_thrust_n
+  related_parts:
+  - motor
+  - aft_shell
+  interfaces:
+  - IF-MOTOR-001
+  - IF-CONFIG-001
+  verification_method: Schema and source/certification check; later lot/club verification
+  responsible_wo:
+  - '01'
+  - '03'
+  - 09
+  - '11'
+  evidence: []
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-PERF-001
+  applies_to:
+  - G80
+  - G54
+  purpose_source: Owner maximum practical conventional performance objective
+  acceptance: Rank delivered flight performance with mass, structural, recovery and launch uncertainty.
+    Keep G80 reference and G54 conditional; no fixed hardware selection solely by nominal impulse.
+  spec_paths: []
+  related_parts:
+  - motor
+  - fin_set
+  - motor_mount
+  interfaces:
+  - IF-MOTOR-001
+  verification_method: Source-hypothesis flight trade; revised geometry/mass comparison
+  responsible_wo:
+  - '02'
+  - '03'
+  - '11'
+  evidence:
+  - runs/wo02-20261030T173859843386Z/record.json
+  status: baseline_numeric
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-GUIDE-001
+  applies_to: *id001
+  purpose_source: Active design screen; not launch authorization
+  acceptance: Worst-case rail departure meets the current spec minimum at the specified usable travel,
+    growth mass, thrust, friction and drag assumptions.
+  spec_paths:
+  - design.rail_length_m
+  - design.minimum_rail_exit_mps
+  - design.screening_wind_mps
+  - design.rail_friction_n
+  - design.thrust_scale_lower
+  related_parts:
+  - rail_guides
+  - body_upper
+  - motor
+  interfaces:
+  - IF-GUIDE-001
+  verification_method: Rail integration and revised full-flight departure; equipment measurement
+  responsible_wo:
+  - '01'
+  - '02'
+  - '03'
+  - 09
+  - '11'
+  evidence:
+  - runs/wo02-20261030T173859843386Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-STAB-001
+  applies_to:
+  - G80
+  - G54
+  - G12-F
+  purpose_source: Active passive-stability screen
+  acceptance: Actual finned geometry meets the spec static margin over depletion and growth position.
+    Finless negative margin is explicit and cannot pass this passive requirement.
+  spec_paths:
+  - design.minimum_static_margin_cal
+  related_parts:
+  - fin_set
+  - nose_cone
+  interfaces:
+  - IF-UPPER-AFT-001
+  verification_method: Mass/CG/CP, RocketPy static comparison; later measured mass/CG and aero
+  responsible_wo:
+  - '01'
+  - '03'
+  - '06'
+  - '11'
+  evidence:
+  - runs/wo02-20261030T173859843386Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-CONTROL-001
+  applies_to:
+  - G12-F
+  - G12-L
+  purpose_source: PID-to-RL and original finless objectives
+  acceptance: Meet spec useful-control-time screen; separately meet improved-model PID/RL criteria and
+    qualify burnout-to-recovery transition. A centered unpowered gimbal cannot stabilize finless coast.
+  spec_paths:
+  - design.minimum_control_time_s
+  - design.target_control_time_s
+  - avionics.abort.max_tilt_rad
+  related_parts:
+  - motor
+  - tvc_gimbal
+  - gimbal_inner
+  - servo_pitch
+  - servo_yaw
+  interfaces:
+  - IF-GIMBAL-001
+  - IF-CONFIG-001
+  - IF-RECOVERY-001
+  verification_method: Source thrust/rail screen; loaded simulation, faults, HIL and staged flight
+  responsible_wo:
+  - '01'
+  - '03'
+  - '06'
+  - '07'
+  - '10'
+  - '11'
+  evidence:
+  - runs/wo02-20261030T173859843386Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-MASS-001
+  applies_to: *id001
+  purpose_source: Model/Class-1 project scope and realistic growth allowance
+  acceptance: Sum every actual part plus explicit allowance; below declared mass cap. Count reinforcement,
+    fasteners, shielding, connectors, wiring and finish. Cap is not a target.
+  spec_paths:
+  - design.mass_allowance_kg
+  - limits.max_liftoff_mass_kg
+  related_parts:
+  - all
+  interfaces:
+  - IF-UPPER-AFT-001
+  verification_method: Spec/CAD budget, weighed subassemblies
+  responsible_wo:
+  - '01'
+  - '03'
+  - 09
+  - '11'
+  evidence:
+  - runs/wo03-20261030T180113490389Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-MASS-002
+  applies_to: *id001
+  purpose_source: WO-03 mass/CG/inertia consistency
+  acceptance: Manufactured CAD volume/density and adopted spec mass agree within 10%; full centroid/tensor
+    and moving/fixed identities consistent. Purchased/flexible mass basis remains supplied/estimated,
+    not box density.
+  spec_paths: []
+  related_parts:
+  - all
+  interfaces:
+  - IF-CONFIG-001
+  verification_method: Generator/cache identity check, CAD properties, static/flight rerun; later measurements
+  responsible_wo:
+  - '03'
+  - 09
+  - '12'
+  evidence:
+  - runs/wo03-20261030T180113490389Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-LOAD-001
+  applies_to: *id001
+  purpose_source: Structural adequacy and acceleration
+  acceptance: Evaluate thrust and component inertia with engineering-input multipliers/design factors;
+    stress, deflection and buckling bounds/FEA must close critical load paths.
+  spec_paths: []
+  related_parts:
+  - motor_mount
+  - retention
+  - gimbal_frame
+  - aft_shell
+  interfaces:
+  - IF-MOTOR-001
+  - IF-UPPER-AFT-001
+  verification_method: Hand calculation; targeted verified/converged FEA; owner proof tests
+  responsible_wo:
+  - '03'
+  - 09
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-LOAD-002
+  applies_to: *id001
+  purpose_source: Fin/guide/servo loads and joints
+  acceptance: Evaluate fin bending, guide reactions, bearing/servo loads, bonds and modular retention
+    with traceable BCs, orientation, temperature and uncertainty.
+  spec_paths: []
+  related_parts:
+  - fin_set
+  - fin_bonds
+  - rail_guides
+  - servo_support
+  - tvc_gimbal
+  interfaces:
+  - IF-GUIDE-001
+  - IF-GIMBAL-001
+  - IF-UPPER-AFT-001
+  verification_method: Hand calculation; targeted FEA and coupon/joint tests
+  responsible_wo:
+  - '03'
+  - 09
+  - '11'
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  - runs/wo03-vibration-20261030T175839356500Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-THERM-001
+  applies_to: *id001
+  purpose_source: Long G12 exposure, G80/G54 and heat soak
+  acceptance: Bound temperature histories against sourced or explicitly estimated temperature-dependent
+    material/component limits. Critical unresolved hot-case/property conclusions block WO-03 acceptance.
+  spec_paths: []
+  related_parts:
+  - motor_liner
+  - motor_mount
+  - tvc_gimbal
+  - gimbal_inner
+  - fin_bonds
+  - battery
+  interfaces:
+  - IF-MOTOR-001
+  - IF-GIMBAL-001
+  - IF-POWER-001
+  verification_method: Transient heat network/FEA as needed, energy/step convergence; instrumented tests
+  responsible_wo:
+  - '03'
+  - 09
+  - '11'
+  - '12'
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-FIT-001
+  applies_to: *id001
+  purpose_source: Manufacturing/thermal tolerance and service
+  acceptance: Min/nominal/max interface fits and assembly/removal paths satisfy specified clearance minima,
+    including hot expansion and repeated assembly.
+  spec_paths: []
+  related_parts:
+  - interface_coupler
+  - joint_stop
+  - retention
+  - avionics_bay
+  interfaces:
+  - IF-UPPER-AFT-001
+  - IF-MOTOR-001
+  - IF-AVIONICS-001
+  verification_method: Tolerance stacks, swept/insertion envelopes, later inspection
+  responsible_wo:
+  - '03'
+  - 09
+  evidence:
+  - runs/wo03-20261030T180113490389Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-MOTION-001
+  applies_to:
+  - G12-F
+  - G12-L
+  purpose_source: TVC commanded geometry
+  acceptance: Full combined commanded pitch/yaw envelope clears frame, case/nozzle/retention, rods and
+    wiring at tolerance/thermal extremes. No nominal-only or excluded-joint fit claim.
+  spec_paths:
+  - tvc.max_deflection_rad
+  - tvc.pivot_position_m
+  - tvc.linkage_ratio
+  related_parts:
+  - tvc_gimbal
+  - gimbal_inner
+  - gimbal_links
+  - servo_horns
+  - retention
+  - harness
+  interfaces:
+  - IF-GIMBAL-001
+  verification_method: Exact linkage closure, continuous bounds and swept CAD; loaded bench range test
+  responsible_wo:
+  - '03'
+  - '06'
+  - 09
+  - '10'
+  evidence:
+  - runs/wo03-vibration-20261030T175839356500Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-RECOVERY-001
+  applies_to: *id001
+  purpose_source: Packing, extraction and safe service
+  acceptance: Provide realistic packed volume, harness/anchor/connector access and snag-free extraction/repacking.
+    Verify opening loads and retention; no CAD-volume-only deployment qualification.
+  spec_paths: []
+  related_parts:
+  - parachute
+  - shock_cord
+  - recovery_anchor
+  - recovery_bulkhead
+  - recovery_protection
+  interfaces:
+  - IF-RECOVERY-001
+  verification_method: Packing/access envelopes, opening-load analysis, owner deployment/proof tests
+  responsible_wo:
+  - '03'
+  - 09
+  - '10'
+  - '11'
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-RECOVERY-002
+  applies_to: *id001
+  purpose_source: Plugged G12 and common-cause failures
+  acceptance: Independent recovery cannot depend on control/policy task or a shared failed supply. G12
+    plugged motor has no motor-ejection backup. Qualify flight-state/arming and burnout transition.
+  spec_paths: []
+  related_parts:
+  - independent_recovery
+  - battery
+  - pyro_mosfet
+  - arming_switch
+  interfaces:
+  - IF-RECOVERY-001
+  - IF-POWER-001
+  - IF-CONFIG-001
+  verification_method: Power/architecture FMEA, fault injection and integrated bench/HIL/deployment tests
+  responsible_wo:
+  - '03'
+  - '06'
+  - 09
+  - '10'
+  - '11'
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-SENSOR-001
+  applies_to: *id001
+  purpose_source: "WO-02 G80/G54 predicted 22\u201323g exceeds low-g IMU"
+  acceptance: Provide high-g acceleration measurement while retaining low-g gyro/attitude path, with range/bandwidth/timing,
+    mounting, mass, connectors and wiring represented.
+  spec_paths:
+  - avionics.sensors.imu.accel_range_g
+  - avionics.sensors.imu.rate_hz
+  - avionics.sensors.high_g.accel_range_g
+  - avionics.sensors.high_g.rate_hz
+  related_parts:
+  - high_g_accel
+  - imu
+  - harness
+  - flight_computer
+  interfaces:
+  - IF-AVIONICS-001
+  - IF-POWER-001
+  verification_method: Datasheet/envelope and clipping/timing model, vibration/aliasing and bench calibration
+  responsible_wo:
+  - '03'
+  - '06'
+  - 09
+  - '10'
+  evidence:
+  - runs/wo02-20261030T173859843386Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-POWER-001
+  applies_to: *id001
+  purpose_source: Peak servo and independent-recovery power
+  acceptance: Bound simultaneous stall/logic and independent recovery pulse, regulator loss, voltage sag,
+    connector/wire and thermal capacity. Demonstrate isolation before release.
+  spec_paths: []
+  related_parts:
+  - battery
+  - regulator_5v
+  - servo_pitch
+  - servo_yaw
+  - independent_recovery
+  - harness
+  interfaces:
+  - IF-POWER-001
+  verification_method: Power budget/FMEA; loaded voltage/temperature, brownout and isolation tests
+  responsible_wo:
+  - '03'
+  - '06'
+  - 09
+  - '10'
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-CONFIG-001
+  applies_to: *id001
+  purpose_source: Swappable modules, sign conventions and policy identity
+  acceptance: Unique mechanical indexing, durable module identification and exact geometry/motor/avionics/policy
+    hashes; reject mismatches before arming. Keying alone does not identify every module type.
+  spec_paths: []
+  related_parts:
+  - joint_stop
+  - interface_coupler
+  - aft_interface_hardware
+  - flight_computer
+  interfaces:
+  - IF-UPPER-AFT-001
+  - IF-CONFIG-001
+  verification_method: CAD indexing/mate checks, generated IDs, firmware mismatch/fault tests
+  responsible_wo:
+  - '03'
+  - '04'
+  - 09
+  - '10'
+  - '11'
+  evidence:
+  - runs/wo03-20261030T180113490389Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-VIB-001
+  applies_to: *id001
+  purpose_source: Vibration/resonance and sensor/control coupling
+  acceptance: Execute modes/resonance screens for actual CAD/mass and material, joint, temperature/damping
+    bounds; verify methods and applicable mesh convergence. Assess propulsion/servo/guide excitation and
+    sensor alias/mounting.
+  spec_paths: []
+  related_parts:
+  - all
+  interfaces:
+  - IF-UPPER-AFT-001
+  - IF-GIMBAL-001
+  - IF-AVIONICS-001
+  verification_method: Modal/beam/FEA known cases and convergence; owner tap/modal/loaded vibration tests
+  responsible_wo:
+  - '03'
+  - '06'
+  - 09
+  - '10'
+  - '12'
+  evidence:
+  - runs/wo03-vibration-20261030T175839356500Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-FLUTTER-001
+  applies_to:
+  - G80
+  - G54
+  - G12-F
+  purpose_source: Fin flutter and body/control coupling
+  acceptance: "Screen actual fin geometry/material/attachment and flight speed/load envelope, including\
+    \ hot stiffness and method domains. No single bending\u2013torsion estimate clears stall flutter,\
+    \ body coupling or unvalidated conditions. Critical uncertainty remains open."
+  spec_paths: []
+  related_parts:
+  - fin_set
+  - fin_bonds
+  - aft_shell
+  - gimbal_frame
+  interfaces:
+  - IF-UPPER-AFT-001
+  - IF-GIMBAL-001
+  verification_method: Primary-source criteria/modal/targeted aeroelastic analysis as appropriate; torsion/modal
+    and staged flight evidence
+  responsible_wo:
+  - '03'
+  - '06'
+  - 09
+  - '11'
+  - '12'
+  evidence:
+  - runs/wo03-vibration-20261030T175839356500Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-AERO-001
+  applies_to: *id001
+  purpose_source: WO-02 small-angle bounds and G12 large-angle results
+  acceptance: Before PID acceptance, force/moment/damping models cover intended Mach/Re/alpha or flag
+    out-of-domain cells; targeted higher fidelity when needed. Preserve original WO-02 evidence.
+  spec_paths: []
+  related_parts:
+  - fin_set
+  - aft_shell
+  - nose_cone
+  interfaces:
+  - IF-CONFIG-001
+  verification_method: Aero known cases, domain/uncertainty tables, targeted CFD/data; held-out calibration
+  responsible_wo:
+  - '03'
+  - '06'
+  - '07'
+  - '11'
+  - '12'
+  evidence:
+  - runs/wo02-20261030T173859843386Z/record.json
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-OPS-001
+  applies_to: *id001
+  purpose_source: Actual California club launch and equipment
+  acceptance: Resolve site/date/RSO acceptance, actual guide/elevation/footprint/wind and exact motor/hardware/certificate/lot/California/stock
+    details before physical release. ROC/elevation remain assumptions until confirmed.
+  spec_paths: []
+  related_parts:
+  - motor
+  - rail_guides
+  - independent_recovery
+  interfaces:
+  - IF-GUIDE-001
+  - IF-MOTOR-001
+  - IF-CONFIG-001
+  verification_method: Owner/club and supplier evidence, operating procedures/checklist
+  responsible_wo:
+  - '03'
+  - 09
+  - '11'
+  evidence: []
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-DATA-001
+  applies_to: *id001
+  purpose_source: Recorded Analysis view and backend-only physics
+  acceptance: Fields and requirements/interfaces/FMEA link exact configuration/spec/CAD identity, SI units,
+    source/assumptions/limits, provenance and validation; stale/corrupt/missing data cannot become a pass.
+  spec_paths: []
+  related_parts:
+  - all
+  interfaces:
+  - IF-CONFIG-001
+  verification_method: Export/consumer checks; frontend stale/coverage tests
+  responsible_wo:
+  - '03'
+  - '04'
+  - '05'
+  - '12'
+  evidence:
+  - runs/wo03-engineering-20261030T175947969565Z/record.json
+  status: export_contract_verified
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+- id: RT-ABORT-001
+  applies_to: *id001
+  purpose_source: Independent abort and WO-10 owner review
+  acceptance: Detect loss of control, sensor faults and servo/power/configuration faults; qualify actual
+    safe responses/recovery by flight state. No motor shutdown or finless coast stability is implied by
+    centering.
+  spec_paths:
+  - avionics.abort.max_tilt_rad
+  - avionics.abort.max_rate_rad_s
+  - avionics.abort.sensor_dropout_ms
+  - avionics.abort.servo_fault_ms
+  related_parts:
+  - flight_computer
+  - independent_recovery
+  - servo_pitch
+  - servo_yaw
+  interfaces:
+  - IF-CONFIG-001
+  - IF-RECOVERY-001
+  - IF-POWER-001
+  verification_method: Simulation/HIL and bench fault tests, explicit owner firmware/abort review
+  responsible_wo:
+  - '06'
+  - '07'
+  - '10'
+  - '11'
+  evidence: []
+  status: open
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
+interfaces:
+- id: IF-UPPER-AFT-001
+  name: Shared upper / interchangeable aft
+  applies_to: *id001
+  requirements:
+  - RT-FIT-001
+  - RT-CONFIG-001
+  - RT-LOAD-001
+  - RT-VIB-001
+  datums_axes_units: Nose station 0, +station aft m. Body +x noseward, +y lateral, +z down; CAD X=body+y,Y=body-z,Z=station
+    in mm. Joint stop center at platform interface separation datum.
+  spec_parts:
+  - interface_coupler
+  - joint_stop
+  - aft_shell
+  - aft_interface_hardware
+  dimensions_source:
+  - configs/platform.yaml:interface
+  - parts interface_coupler/joint_stop/aft_shell geometry and cad parameters; engineering tolerances
+  load_retention: Thrust/inertia/recovery and fin bending through coupler, stop, keys and positive removable
+    fasteners/bonds. Indexing keys are not an axial-retention qualification.
+  indexing_identity: One deliberately wider key/slot for unique angular alignment; visible mode and connector
+    labels and software identity required. Equal threefold keys are a known pre-correction ambiguity.
+  clearance: Use current source dimensions and tolerance/expansion stacks; no measured fit yet.
+  power_connectors: TVC servo harness disconnected before aft exchange; keyed/labeled channel/polarity
+    and strain relief.
+  unresolved:
+  - Detailed fastener/bond/reinforcement load path and supplier fit
+  - Measured manufacturing/thermal dimensions and repeated assembly
+  - As-built identity markings and locked arming procedure
+  evidence: []
+- id: IF-MOTOR-001
+  name: Certified motor / liner / carrier / retention
+  applies_to: *id001
+  requirements:
+  - RT-SCOPE-001
+  - RT-LOAD-001
+  - RT-THERM-001
+  - RT-FIT-001
+  datums_axes_units: Motor-front and nozzle stations from exact source hypothesis, diameters/lengths in
+    YAML SI; CAD mm. No certified motor modification.
+  spec_parts:
+  - motor
+  - motor_liner
+  - motor_mount
+  - retention
+  - thermal_guard
+  dimensions_source:
+  - motor/part source curves and sidecars
+  - parts geometry/cad and engineering tolerances
+  load_retention: Forward thrust reaction and bidirectional retention require a continuous physical load
+    path into fixed or moving carrier and shell/pivots.
+  indexing_identity: Mark motor/hardware/source hypothesis and install orientation; G54 separate longer
+    carrier.
+  clearance: Installation, hot expansion, removal and nozzle sweep including retention must pass quantitative
+    stack.
+  power_connectors: Ignition/arming and independent recovery remain separate service interfaces.
+  unresolved:
+  - Exact offered case/closure/nozzle/retainer geometry and lot
+  - Front-stop/clamp hardware capture, proof load and hot-case data
+  evidence: []
+- id: IF-GIMBAL-001
+  name: Frame / nested gimbal / servo / rods
+  applies_to:
+  - G12-F
+  - G12-L
+  requirements:
+  - RT-MOTION-001
+  - RT-LOAD-002
+  - RT-CONTROL-001
+  - RT-VIB-001
+  datums_axes_units: Shared pivot station in tvc, orthogonal CAD Y outer/yaw and X inner/pitch. Rod closure
+    in mm, commands radians.
+  spec_parts:
+  - gimbal_frame
+  - tvc_gimbal
+  - gimbal_inner
+  - outer_pivots
+  - inner_pivots
+  - servo_pitch
+  - servo_yaw
+  - servo_horns
+  - gimbal_links
+  dimensions_source:
+  - tvc
+  - each CAD generator parameter, geometry and engineering tolerances
+  load_retention: Bearings/pins carry moving motor thrust and inertia; articulated rods/servo mounts carry
+    actuation reactions; retain pins and limit motion mechanically.
+  indexing_identity: Explicit yaw/pitch labels and axis/sign test; exact firmware configuration binding.
+  clearance: Combined axes, tolerance/heat extremes, horn/shaft/rod ends, wires and case/nozzle/retention;
+    local joint exclusions do not establish fit.
+  power_connectors: 5 V rail provisional; two 1 A stall estimates; keyed PWM/polarity and strain relief.
+  unresolved:
+  - Supplier spline/shaft, rod ends, pin retention and loaded backlash
+  - Full tolerance/continuous/wiring and stop evidence
+  - Moving inertia/voltage/friction model and temperature-qualified structure
+  evidence: []
+- id: IF-AVIONICS-001
+  name: Sled / boards / battery / sensors
+  applies_to: *id001
+  requirements:
+  - RT-SENSOR-001
+  - RT-VIB-001
+  - RT-FIT-001
+  - RT-MASS-002
+  datums_axes_units: Part stations and body lateral offsets; sensor axes/alignment to the body frame.
+  spec_parts:
+  - avionics_bay
+  - flight_computer
+  - imu
+  - high_g_accel
+  - baro
+  - battery
+  - harness
+  dimensions_source:
+  - shared upper part geometry/cad
+  - avionics sensors and loop/physics rates
+  load_retention: Nonconducting carrier/clips/standoffs and battery restraint transfer inertia into sled;
+    exact mounting remains explicit.
+  indexing_identity: Board orientation and sensor axes labeled; revision recorded.
+  clearance: Sled insertion/removal, battery replacement, connector/cable bend and arming access.
+  power_connectors: SPI high-g, low-g IMU retained; logic regulator, microSD and strain relief.
+  unresolved:
+  - Exact mounts/holes/connectors and service access
+  - Vibration transmission/aliasing, timing and calibration
+  - Effective simulation sample rate versus actual sensor bandwidth
+  evidence: []
+- id: IF-RECOVERY-001
+  name: Packed recovery / anchor / independent unit
+  applies_to: *id001
+  requirements:
+  - RT-RECOVERY-001
+  - RT-RECOVERY-002
+  - RT-ABORT-001
+  - RT-LOAD-001
+  datums_axes_units: Nose/bulkhead/pack stations, free insertion/extraction path and cord/connector routing.
+  spec_parts:
+  - parachute
+  - shock_cord
+  - recovery_anchor
+  - recovery_bulkhead
+  - independent_recovery
+  - recovery_protection
+  dimensions_source:
+  - shared upper geometry, recovery parameters and engineering packing inputs
+  load_retention: Harness opening loads through captive anchor/bulkhead/bonds and recovered assembly,
+    with actual aft mass below the joint.
+  indexing_identity: Independent arming and flight-state identity; safe repack/service procedure.
+  clearance: Packed volume with protection/cord/anchors, no snag or blocked extraction; physical deployment
+    tests required.
+  power_connectors: Independent processor/task and isolated reserve supply required; no plugged G12 motor-ejection
+    backup.
+  unresolved:
+  - Packed-volume/cord/connector envelope and extraction measurements
+  - Isolated recovery battery/driver/arming architecture and exact initiator
+  - Opening transient, attachment proof and burnout transition
+  evidence: []
+- id: IF-POWER-001
+  name: Main/servo and independent-recovery supplies
+  applies_to: *id001
+  requirements:
+  - RT-POWER-001
+  - RT-RECOVERY-002
+  - RT-ABORT-001
+  datums_axes_units: Electrical volts/amps/joules and timing seconds; mechanical connector envelopes in
+    part SI.
+  spec_parts:
+  - battery
+  - regulator_5v
+  - harness
+  - pyro_mosfet
+  - independent_recovery
+  - arming_switch
+  dimensions_source:
+  - electrical and netlist blocks
+  - configs/engineering/wo03.yaml:power
+  load_retention: Strain relief and keyed/polarized connectors; no single control fuse/connector/rail
+    may silently disable claimed independent recovery.
+  indexing_identity: Label circuits/polarity and arming state; record component/circuit revisions.
+  clearance: Connector insertion/removal, harness slack/bend, accessible isolation/arming.
+  power_connectors: Bound simultaneous servo stalls and logic peaks; regulate with loss/thermal margin.
+    Dedicated recovery pulse/supply is a separate circuit requirement.
+  unresolved:
+  - Current shared supply common cause in initial netlist
+  - Exact regulator, reserve battery, protection/boost/initiator and wire/connector ratings
+  - Brownout/short/thermal/isolation tests
+  evidence: []
+- id: IF-GUIDE-001
+  name: Rail/rod / guide lugs / shell
+  applies_to: *id001
+  requirements:
+  - RT-GUIDE-001
+  - RT-LOAD-002
+  - RT-OPS-001
+  datums_axes_units: Guide lug centerline and separation from source CAD; usable travel and departure
+    direction in SI.
+  spec_parts:
+  - rail_guides
+  - body_upper
+  dimensions_source:
+  - rail guide CAD parameters
+  - design.rail_length_m
+  load_retention: Guide side reactions and local shell crushing/bond/fastener load transfer.
+  indexing_identity: Match actual guide/rail hardware and field setup, not a nominal diameter alone.
+  clearance: Fit, straightness, insertion path, exit and binding under side load.
+  power_connectors: Ignition/arming cable routing must clear the guide.
+  unresolved:
+  - Actual club guide equipment/travel and lug supplier dimensions
+  - Attachment reinforcement/proof and friction measurements
+  evidence: []
+- id: IF-CONFIG-001
+  name: Spec / CAD / analyses / software / as-flown identity
+  applies_to: *id001
+  requirements:
+  - RT-CONFIG-001
+  - RT-DATA-001
+  - RT-ABORT-001
+  - RT-AERO-001
+  datums_axes_units: Resolved-spec SHA256, generator/part shape hashes, analysis mesh registration, SI/internal
+    frames and recorded display transforms.
+  spec_parts:
+  - all
+  dimensions_source:
+  - resolved YAML and source hashes
+  - analysis manifest identity
+  load_retention: Software cannot compensate for wrong hardware or certify an unverified load path.
+  indexing_identity: Mode/motor/avionics/policy/lot revisions and exact hashes checked before arming;
+    signed-off as-flown record in later stages.
+  clearance: Not a mechanical clearance; reject stale/missing/mismatched identity and incompatible overlays.
+  power_connectors: Real-time timing, sensor range/validity, actuator mapping and recovery independence
+    cross the software boundary.
+  unresolved:
+  - Embedded identity/fault implementation is WO-10
+  - Source/lot/site updates before procurement/flight
+  - Measured as-built identity and calibration separate from evaluation
+  evidence:
+  - https://github.com/kudratsingh/rocket-twin/pull/5
+fmea:
+- id: FMEA-001
+  failure_mode: Servo/rod/pivot jam
+  applicable_configurations:
+  - G12-F
+  - G12-L
+  cause: Interference, hot softening, misalignment, worn bearing or stalled/overloaded actuator.
+  local_system_effect: Lost or stuck thrust-vector command; possible control loss.
+  severity: S4 finless; S3/S4 finned depending recovery and loads
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Command/response, rate/current and estimator residual; exact feedback capability unresolved.
+  mitigation_design_change: Swept/tolerance/load/thermal corrections, positive retention, loaded actuator
+    model, jam detection and qualified recovery.
+  residual_risk: Center command cannot move a jam; cannot shut off the solid motor or stabilize an unstable
+    coast.
+  verification_test: Hot/loaded range and injected jam through burnout/recovery.
+  requirements:
+  - RT-MOTION-001
+  - RT-ABORT-001
+  interfaces:
+  - IF-GIMBAL-001
+  status: open
+- id: FMEA-002
+  failure_mode: Brownout/common supply failure
+  applicable_configurations: *id001
+  cause: Simultaneous servo stalls, regulator droop, cell/connector short or control reset; initial reserve
+    unit shares source battery.
+  local_system_effect: Control and supposedly independent recovery can fail together.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Voltage/current/reset monitoring; blackout may prevent logging/detection.
+  mitigation_design_change: Isolated reserve recovery source/driver/arming and fault containment; rail/connector
+    budget.
+  residual_risk: Common harness, thermal, arming and physical damage can remain common causes; separation
+    must be demonstrated.
+  verification_test: Loaded brownout, short, unplug, reset and independent deployment tests.
+  requirements:
+  - RT-POWER-001
+  - RT-RECOVERY-002
+  interfaces:
+  - IF-POWER-001
+  - IF-RECOVERY-001
+  status: open
+- id: FMEA-003
+  failure_mode: Sensor saturation/dropout/misalignment
+  applicable_configurations: *id001
+  cause: Low-g IMU clips at predicted acceleration; gyro saturation, aliasing, transport loss, wrong axis/calibration.
+  local_system_effect: Estimator bias/loss; unsafe controller or missed recovery state.
+  severity: S4 for uncontained control/recovery dependence
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Range/age/self-test and cross-sensor plausibility; high-g does not fix gyro saturation.
+  mitigation_design_change: High-g path plus retained low-g gyro, timestamp/health handling and independent
+    recovery sensing.
+  residual_risk: Unmeasured bandwidth/delay, vibration and shared bus/power remain.
+  verification_test: Clip/dropout/axis/latency and vibration aliasing injection/bench tests.
+  requirements:
+  - RT-SENSOR-001
+  - RT-VIB-001
+  - RT-ABORT-001
+  interfaces:
+  - IF-AVIONICS-001
+  - IF-CONFIG-001
+  status: open
+- id: FMEA-004
+  failure_mode: Connector/channel/polarity fault
+  applicable_configurations: *id001
+  cause: Swapped yaw/pitch, partial mating, strain, loose wire, reversed power or servo/pyro connector
+    confusion.
+  local_system_effect: Wrong/absent actuation, shorts or recovery loss/inadvertent initiation.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Continuity, polarity/channel tests, sensor/actuator response; some faults intermittent.
+  mitigation_design_change: Keyed/polarized labeled connectors, strain relief, service access and safe
+    arming procedure.
+  residual_risk: Keying does not prove internal pinout or field assembly correctness.
+  verification_test: Pull/flex/vibration, channel/sign, polarity and armed-state fault tests.
+  requirements:
+  - RT-CONFIG-001
+  - RT-POWER-001
+  - RT-RECOVERY-002
+  interfaces:
+  - IF-POWER-001
+  - IF-GIMBAL-001
+  status: open
+- id: FMEA-005
+  failure_mode: Structural load path/bond/retention failure
+  applicable_configurations: *id001
+  cause: Fin/root buckling, tube crushing, incomplete bond, weak print/grain direction or loose retention.
+  local_system_effect: Loss of motor/fin/module/recovery attachment; trajectory or recovery failure.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Inspection, dimensional/proof tests; hidden bond defects may escape visual inspection.
+  mitigation_design_change: Close load paths, reinforced interfaces, orientation and cure specification;
+    verified/converged analyses.
+  residual_risk: Estimated properties and assembly workmanship remain unqualified until owner tests.
+  verification_test: Coupons, pull/bending/bearing, buckling and recovery opening proof tests.
+  requirements:
+  - RT-LOAD-001
+  - RT-LOAD-002
+  - RT-FIT-001
+  interfaces:
+  - IF-MOTOR-001
+  - IF-UPPER-AFT-001
+  - IF-RECOVERY-001
+  status: open
+- id: FMEA-006
+  failure_mode: Thermal degradation/heat soak
+  applicable_configurations: *id001
+  cause: Long G12 exposure or unknown case temperature, insufficient insulation/spacing, hot adhesive
+    or wiring.
+  local_system_effect: Mount/gimbal softening/jam, bond/structural failure or simultaneous electronics/recovery
+    loss.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Temperature instrumentation and post-test inspection; in-flight response may be too late.
+  mitigation_design_change: Bounded heat analysis, shield/air-gap/material revisions and temperature derating.
+  residual_risk: External case histories and property/contact bounds unmeasured; direct plume/hot gas
+    not cleared by current lumped model.
+  verification_test: Instrumented exact-motor burn/soak and hot-load/adhesive tests.
+  requirements:
+  - RT-THERM-001
+  - RT-RECOVERY-002
+  interfaces:
+  - IF-MOTOR-001
+  - IF-GIMBAL-001
+  - IF-POWER-001
+  status: open
+- id: FMEA-007
+  failure_mode: Wrong module/configuration pairing
+  applicable_configurations: *id001
+  cause: Threefold indexing ambiguity, stale policy/spec/motor hash, wrong fin state or incorrect mount/lot.
+  local_system_effect: Wrong axes/mass/aero/control authority; invalid evidence and potential loss of
+    control.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Pre-arm identity, presence/sign tests and physical markings.
+  mitigation_design_change: Unique angular key, durable mode ID and firmware mismatch rejection; exact
+    as-flown record.
+  residual_risk: Angular indexing alone cannot identify every module type or prove motor lot.
+  verification_test: Deliberate wrong-module/axis/motor/policy/firmware mismatch tests.
+  requirements:
+  - RT-CONFIG-001
+  - RT-DATA-001
+  interfaces:
+  - IF-UPPER-AFT-001
+  - IF-CONFIG-001
+  status: open
+- id: FMEA-008
+  failure_mode: Recovery extraction/inflation/anchor failure
+  applicable_configurations: *id001
+  cause: Packing snag, crowded wiring, damaged protection, anchor pull-out, failed initiator/driver or
+    incorrect state logic.
+  local_system_effect: Ballistic/unsafe return even if control task aborts correctly.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Ground extraction/deployment/continuity/proof; flight sensing does not guarantee inflation.
+  mitigation_design_change: Independent qualified recovery, protected snag-free pack and load-qualified
+    attachments.
+  residual_risk: Plugged G12 has no motor-ejection backup; redundant triggers cannot release a jammed
+    pack.
+  verification_test: Repeated repacking, cold/hot extraction, deployment and opening-load proof.
+  requirements:
+  - RT-RECOVERY-001
+  - RT-RECOVERY-002
+  interfaces:
+  - IF-RECOVERY-001
+  status: open
+- id: FMEA-009
+  failure_mode: Abort ineffective after burnout
+  applicable_configurations:
+  - G12-F
+  - G12-L
+  cause: Assuming centering is stabilizing without thrust; finless vehicle enters uncontrolled coast or
+    deploys outside qualified state.
+  local_system_effect: Uncontrolled attitude/recovery transition despite a centered command.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Thrust/time/attitude/rate state; estimator or timing error can defeat detection.
+  mitigation_design_change: Qualify explicit powered-to-recovery transition per actual finless configuration
+    and reject unqualified flight.
+  residual_risk: No solid-motor shutdown or post-burn TVC authority; detection alone is not a safe recovery
+    strategy.
+  verification_test: Loss-of-thrust/timing/state/abort HIL and staged qualification.
+  requirements:
+  - RT-CONTROL-001
+  - RT-ABORT-001
+  - RT-RECOVERY-002
+  interfaces:
+  - IF-GIMBAL-001
+  - IF-RECOVERY-001
+  - IF-CONFIG-001
+  status: open
+- id: FMEA-010
+  failure_mode: Software/timing/model-domain error
+  applicable_configurations: *id001
+  cause: Overrun, stale samples, policy/config error, arithmetic fault or unmodeled large-angle dynamics.
+  local_system_effect: Bad or late commands; common control/recovery task lockup.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Watchdog/timing/validity monitors, independent state/health and logs.
+  mitigation_design_change: Bounded embedded policy, validity-aware shared model, isolated recovery and
+    verified fault responses.
+  residual_risk: Unmodeled coupling and outside-domain operation cannot count as qualified success.
+  verification_test: HIL overrun/dropout/invalid output/config/domain faults; WO-10 owner review.
+  requirements:
+  - RT-AERO-001
+  - RT-ABORT-001
+  - RT-CONFIG-001
+  interfaces:
+  - IF-CONFIG-001
+  - IF-POWER-001
+  status: open
+- id: FMEA-011
+  failure_mode: Vibration/resonance/flutter
+  applicable_configurations: *id001
+  cause: Flexible root/joint/gimbal, temperature-softened structure, unknown propulsion spectrum or servo
+    excitation; sensor mount resonance.
+  local_system_effect: Fin/structure failure or aliased sensor/controller instability.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Modal/torsion/vibration tests and high-rate logs; flutter onset may be abrupt.
+  mitigation_design_change: Executed modal/flutter screens, stiffening/attachment corrections, damping/alias
+    limits and operating envelope.
+  residual_risk: "Crude bending\u2013torsion criterion does not clear stall flutter, body/control coupling\
+    \ or unknown damping."
+  verification_test: Known-case/convergence, hot modal/torsion and loaded vibration; staged envelope expansion.
+  requirements:
+  - RT-VIB-001
+  - RT-FLUTTER-001
+  - RT-AERO-001
+  interfaces:
+  - IF-UPPER-AFT-001
+  - IF-GIMBAL-001
+  - IF-AVIONICS-001
+  status: open
+- id: FMEA-012
+  failure_mode: Operating/supplier/equipment mismatch
+  applicable_configurations: *id001
+  cause: Unverified guide/site/wind, wrong certified hardware/delay/lot, assembly error or damaged/wet
+    parts.
+  local_system_effect: Poor departure, structural/control excursion or recovery failure.
+  severity: S4
+  likelihood: unknown
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Owner/club/RSO checks, inspection and exact equipment/source record.
+  mitigation_design_change: Resolve supplier/site/equipment, operating limits and staged procedures; reject
+    out-of-envelope launch.
+  residual_risk: No current launch authorization or exact purchasable-hardware freeze.
+  verification_test: Preflight dry run, guide fit/friction and source/lot/configuration audit.
+  requirements:
+  - RT-OPS-001
+  - RT-GUIDE-001
+  - RT-SCOPE-001
+  interfaces:
+  - IF-GUIDE-001
+  - IF-MOTOR-001
+  - IF-CONFIG-001
+  status: open

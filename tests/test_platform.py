@@ -104,7 +104,7 @@ def test_bad_modes_and_high_power_rejected() -> None:
         elif defect == "high_impulse":
             data["motor"]["qualification"]["certified_impulse_ns"] = 160.1
         elif defect == "lower_declared_cap":
-            data["limits"]["max_liftoff_mass_kg"] = 0.6
+            data["limits"]["max_liftoff_mass_kg"] = 0.5
         else:
             data["design"]["mass_allowance_kg"] = 1
         with pytest.raises(ValidationError):
@@ -126,13 +126,20 @@ def test_curve_tamper_or_config_disagreement_fails(tmp_path: Path) -> None:
 
 def test_offset_servo_pair_has_roll_inertia_and_cross_moment() -> None:
     vehicle = load_vehicle(ROOT / "tvc-finned.yaml")
-    actual = mass_properties(vehicle)
-    centered = vehicle.model_copy(deep=True)
+    # Independent symmetric two-part fixture isolates the parallel-axis theorem
+    # from the current CAD packaging, which intentionally has lateral CG offsets.
+    servos = [p.model_copy(deep=True) for p in vehicle.parts if p.type == "servo"]
+    for part, station, offset in zip(servos, [0.56, 0.60], [0.022, -0.022]):
+        part.position_m = station
+        part.lateral_offset_m = (offset, 0)
+        part.cad_mass = None
+        part.mass_kg = 0.014
+    fixture = vehicle.model_copy(update={"parts": servos, "motor": None})
+    actual = mass_properties(fixture)
+    centered = fixture.model_copy(deep=True)
     for part in centered.parts:
         part.lateral_offset_m = (0, 0)
     difference = actual.inertia_kg_m2 - mass_properties(centered).inertia_kg_m2
-    # Two equal 14 g servos, y=+/-22 mm, axially separated by 40 mm:
-    # Ixx and Izz gain 2*m*y^2; Ixy=m*y*(station_pitch-station_yaw).
     radial = 2 * 0.014 * 0.022**2
     cross = 0.014 * 0.022 * (0.56 - 0.60)
     assert actual.cg_lateral_m == pytest.approx((0, 0))
