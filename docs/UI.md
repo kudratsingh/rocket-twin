@@ -164,3 +164,13 @@ WO-04 acceptance includes static and transient recorded overlays with real run
 identity, part inspection, legends/time controls and unavailable-data behavior.
 WO-05 extends Analysis to browse/compare recorded cases/runs and synchronized
 history cursors; time coupling to flight replay requires explicit provenance.
+
+### Linked verification context
+
+Inspect and Analysis expose stable requirement/interface IDs, applicable mode,
+criterion/source, verification method/WO, linked evidence and unresolved status.
+Show relevant FMEA causes/mitigations/residual risks on part selection. Recorded
+vibration modes/frequencies and flutter screening reports retain their validity/
+attachment/temperature assumptions; a mode shape is a display field with explicit
+normalization, not a measured displacement. Exact configuration/CAD identity checks
+apply to these artifacts as to stress/temperature fields.

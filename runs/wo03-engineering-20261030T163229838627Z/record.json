@@ -1,0 +1,1074 @@
+{
+  "run_id": "wo03-engineering-20261030T163229838627Z",
+  "input_sha256": {
+    "configs/platform.yaml": "28615956f212e17d5515d5a2598212ef989425da8d9469f82a0f4557d70e71bb",
+    "configs/vehicle/wo02/performance-g54.yaml": "0969530b8f918e33532c0a8dc6340b5715316652ff6f381ec8adc59a14b4ff79",
+    "configs/vehicle/platform/tvc-finless.yaml": "7628c458b16510530718e2de831a5b1994342c6137bac9240c8e473d517744b5",
+    "configs/vehicle/wo02/../platform/common-upper.yaml": "b16910d599cf680b01b56956c600de8567084755e856abd3dd0c365cc37fe344",
+    "configs/engineering/wo03.yaml": "96e21801056441ffbb743ca038da6f0d3dfd11e728726ee806111c0b5f296ef6",
+    "configs/vehicle/platform/common-upper.yaml": "b16910d599cf680b01b56956c600de8567084755e856abd3dd0c365cc37fe344",
+    "configs/vehicle/platform/performance.yaml": "9d8bd3fc09f6837e68609d6b2f914549a3059ca64ec10e59d053fb699c5b585b",
+    "configs/vehicle/platform/tvc-finned.yaml": "8749bd4d5bbfac85af519e85f1efc20d07e6f527e1db045b6b3fcefeac72ca09"
+  },
+  "inputs_unchanged": true,
+  "vehicles": [
+    {
+      "vehicle": "modular-performance-v1",
+      "structural": {
+        "peak_scaled_thrust_n": 117.53,
+        "peak_liftoff_specific_acceleration_g": 26.02030521817118,
+        "rows": [
+          {
+            "part_id": "motor_mount",
+            "case": "motor_thrust",
+            "stress_pa": 2176481.481481482,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": 0.5315238662469153,
+            "evidence": "calculated using estimated properties",
+            "passed": true,
+            "axial_force_n": 117.53,
+            "rail_area_m2": 5.4e-05,
+            "elastic_shortening_m": 0.00017411851851851853,
+            "pinned_rail_euler_load_n": 31.228045175321796,
+            "buckling_margin": -0.9114324139217738,
+            "boundary": "Three rails share thrust; pinned unsupported length is conservative. Slot notches and real end restraint require FEA."
+          },
+          {
+            "part_id": "fin_set",
+            "case": "fin_bending",
+            "stress_pa": 13281225.62978814,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": -0.749019147309938,
+            "evidence": "calculated using estimated properties",
+            "passed": false,
+            "force_per_fin_n": 39.843676889364424,
+            "root_moment_nm": 1.4166640671774018,
+            "tip_deflection_upper_m": 0.03187494151149154,
+            "deflection_limit_m": 0.001,
+            "boundary": "Finite-aspect-ratio small-angle panel estimate; load resultant at area centroid. Tip-load deflection upper screen; flutter/large-alpha and root-tab connection need separate validation."
+          }
+        ],
+        "guide_side_force_n": 10,
+        "recovery_cases": [
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 26.28182459465311,
+            "factored_load_n": 78.84547378395933
+          },
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 15.64450709023856,
+            "factored_load_n": 46.93352127071568
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 359.15327379679667,
+            "factored_load_n": 1077.45982139039
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 182.08023169131033,
+            "factored_load_n": 546.240695073931
+          }
+        ],
+        "unclosed_load_paths": [
+          "Modular retention fastener/bond geometry and bearing/crush loads",
+          "Recovery bulkhead/anchor, harness and local bonds",
+          "Guide attachment and local shell reinforcement",
+          "Gimbal bearing, clamp/retention and full servo/transverse reactions"
+        ],
+        "analysis_complete": false,
+        "flight_ready": false
+      },
+      "thermal": [
+        {
+          "case": "lower-case-scenario",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 85.12743395012507,
+              "peak_time_s": 9.0,
+              "screen_limit_c": 120,
+              "margin_k": 34.87256604987493,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 21.15859547630879,
+              "peak_time_s": 32.0,
+              "screen_limit_c": 45,
+              "margin_k": 23.84140452369121,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 15.120598921880685,
+              "peak_time_s": 67.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.879401078119315,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "fin_bonds",
+              "peak_c": 15.53732083095997,
+              "peak_time_s": 35.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.46267916904003,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 19.12035872190404,
+              "peak_time_s": 301.8079,
+              "screen_limit_c": 60,
+              "margin_k": 40.87964127809596,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 15.411112909368853,
+              "peak_time_s": 301.8079,
+              "screen_limit_c": 60,
+              "margin_k": 44.58888709063115,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 1.0231815394945443e-11
+        },
+        {
+          "case": "upper-hot-soak",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 223.26621798212705,
+              "peak_time_s": 11.0,
+              "screen_limit_c": 120,
+              "margin_k": -103.26621798212705,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 85.66185093600029,
+              "peak_time_s": 59.0,
+              "screen_limit_c": 45,
+              "margin_k": -40.66185093600029,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 49.952531793491744,
+              "peak_time_s": 122.0,
+              "screen_limit_c": 45,
+              "margin_k": -4.952531793491744,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "fin_bonds",
+              "peak_c": 48.70253869602982,
+              "peak_time_s": 138.0,
+              "screen_limit_c": 45,
+              "margin_k": -3.702538696029819,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 49.529232518216816,
+              "peak_time_s": 301.8079,
+              "screen_limit_c": 60,
+              "margin_k": 10.470767481783184,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 36.653940488477986,
+              "peak_time_s": 301.8079,
+              "screen_limit_c": 60,
+              "margin_k": 23.346059511522014,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 1.7621459846850485e-11
+        }
+      ],
+      "thermal_step_refinement_max_delta_k": 2.177517046675348e-06,
+      "analysis_manifest": "build/modular-performance-v1/analysis/wo03-engineering-20261030T163229838627Z/manifest.json",
+      "export_consumer_check_passed": true,
+      "engineering_benchmark_passed": false
+    },
+    {
+      "vehicle": "modular-tvc-finned-v1",
+      "structural": {
+        "peak_scaled_thrust_n": 35.952565,
+        "peak_liftoff_specific_acceleration_g": 6.669208654812348,
+        "rows": [
+          {
+            "part_id": "motor_mount",
+            "case": "motor_thrust",
+            "stress_pa": 1498023.5416666665,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": 1.2251541718928816,
+            "evidence": "calculated using estimated properties",
+            "passed": true,
+            "axial_force_n": 35.952565,
+            "rail_area_m2": 2.4e-05,
+            "elastic_shortening_m": 4.868576510416667e-05,
+            "pinned_rail_euler_load_n": 37.37601666684728,
+            "buckling_margin": -0.6534691691042788,
+            "boundary": "Three rails share thrust; pinned unsupported length is conservative. Slot notches and real end restraint require FEA."
+          },
+          {
+            "part_id": "fin_set",
+            "case": "fin_bending",
+            "stress_pa": 21520990.909019295,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": -0.8451124603218731,
+            "evidence": "calculated using estimated properties",
+            "passed": false,
+            "force_per_fin_n": 54.368819138575056,
+            "root_moment_nm": 2.295572363628725,
+            "tip_deflection_upper_m": 0.07283510360771217,
+            "deflection_limit_m": 0.001,
+            "boundary": "Finite-aspect-ratio small-angle panel estimate; load resultant at area centroid. Tip-load deflection upper screen; flutter/large-alpha and root-tab connection need separate validation."
+          },
+          {
+            "part_id": "tvc_gimbal",
+            "case": "gimbal_servo",
+            "stress_pa": 2604166.6666666665,
+            "strength_bound_pa": 8000000.0,
+            "design_factor": 3.0,
+            "margin": 0.02400000000000002,
+            "evidence": "calculated using estimated properties",
+            "passed": true,
+            "stall_rod_force_n": 41.666666666666664,
+            "boundary": "Axial neck-only stress, excludes drive eccentricity, holes, transverse rod force and print anisotropy. FEA required; this row cannot close the gimbal gate.",
+            "conclusion_complete": false
+          }
+        ],
+        "guide_side_force_n": 10,
+        "recovery_cases": [
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 30.86914496035751,
+            "factored_load_n": 92.60743488107252
+          },
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 18.37515334837768,
+            "factored_load_n": 55.12546004513304
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 421.8411256757198,
+            "factored_load_n": 1265.5233770271593
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 213.86114370605884,
+            "factored_load_n": 641.5834311181766
+          }
+        ],
+        "unclosed_load_paths": [
+          "Modular retention fastener/bond geometry and bearing/crush loads",
+          "Recovery bulkhead/anchor, harness and local bonds",
+          "Guide attachment and local shell reinforcement",
+          "Gimbal bearing, clamp/retention and full servo/transverse reactions"
+        ],
+        "analysis_complete": false,
+        "flight_ready": false
+      },
+      "thermal": [
+        {
+          "case": "lower-case-scenario",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 99.64762810014554,
+              "peak_time_s": 14.0,
+              "screen_limit_c": 120,
+              "margin_k": 20.35237189985446,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 54.280223766836116,
+              "peak_time_s": 27.0,
+              "screen_limit_c": 45,
+              "margin_k": -9.280223766836116,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_inner",
+              "peak_c": 19.6823043235284,
+              "peak_time_s": 82.0,
+              "screen_limit_c": 60,
+              "margin_k": 40.3176956764716,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "tvc_gimbal",
+              "peak_c": 16.624951165321193,
+              "peak_time_s": 127.0,
+              "screen_limit_c": 60,
+              "margin_k": 43.37504883467881,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_frame",
+              "peak_c": 18.496154902054286,
+              "peak_time_s": 27.0,
+              "screen_limit_c": 60,
+              "margin_k": 41.503845097945714,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "thermal_guard",
+              "peak_c": 18.162155199265612,
+              "peak_time_s": 32.0,
+              "screen_limit_c": 120,
+              "margin_k": 101.83784480073439,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 15.624777948070346,
+              "peak_time_s": 53.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.375222051929654,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_support",
+              "peak_c": 15.254599286735242,
+              "peak_time_s": 62.0,
+              "screen_limit_c": 60,
+              "margin_k": 44.74540071326476,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_pitch",
+              "peak_c": 15.02668243690448,
+              "peak_time_s": 160.0,
+              "screen_limit_c": 60,
+              "margin_k": 44.97331756309552,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_yaw",
+              "peak_c": 15.02668243690448,
+              "peak_time_s": 160.0,
+              "screen_limit_c": 60,
+              "margin_k": 44.97331756309552,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "fin_bonds",
+              "peak_c": 15.79047707977685,
+              "peak_time_s": 38.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.20952292022315,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 19.150693326478006,
+              "peak_time_s": 312.601,
+              "screen_limit_c": 60,
+              "margin_k": 40.849306673521994,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 15.427575649611072,
+              "peak_time_s": 312.601,
+              "screen_limit_c": 60,
+              "margin_k": 44.57242435038893,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 2.2922108655620832e-11
+        },
+        {
+          "case": "upper-hot-soak",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 230.89134406683263,
+              "peak_time_s": 14.0,
+              "screen_limit_c": 120,
+              "margin_k": -110.89134406683263,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 130.1573052762626,
+              "peak_time_s": 30.0,
+              "screen_limit_c": 45,
+              "margin_k": -85.1573052762626,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_inner",
+              "peak_c": 96.61108701849435,
+              "peak_time_s": 82.0,
+              "screen_limit_c": 60,
+              "margin_k": -36.611087018494345,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "tvc_gimbal",
+              "peak_c": 81.9286931106347,
+              "peak_time_s": 97.0,
+              "screen_limit_c": 60,
+              "margin_k": -21.928693110634697,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_frame",
+              "peak_c": 69.40362095223634,
+              "peak_time_s": 72.0,
+              "screen_limit_c": 60,
+              "margin_k": -9.403620952236338,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "thermal_guard",
+              "peak_c": 81.29158284711662,
+              "peak_time_s": 82.0,
+              "screen_limit_c": 120,
+              "margin_k": 38.708417152883385,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 62.569311591249686,
+              "peak_time_s": 102.0,
+              "screen_limit_c": 45,
+              "margin_k": -17.569311591249686,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_support",
+              "peak_c": 51.15357267278546,
+              "peak_time_s": 152.0,
+              "screen_limit_c": 60,
+              "margin_k": 8.846427327214542,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_pitch",
+              "peak_c": 48.731366226896455,
+              "peak_time_s": 236.0,
+              "screen_limit_c": 60,
+              "margin_k": 11.268633773103545,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_yaw",
+              "peak_c": 48.731366226896455,
+              "peak_time_s": 236.0,
+              "screen_limit_c": 60,
+              "margin_k": 11.268633773103545,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "fin_bonds",
+              "peak_c": 59.13039050371117,
+              "peak_time_s": 126.0,
+              "screen_limit_c": 45,
+              "margin_k": -14.130390503711169,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 52.80065941193993,
+              "peak_time_s": 279.0,
+              "screen_limit_c": 60,
+              "margin_k": 7.199340588060068,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 37.19487522431439,
+              "peak_time_s": 312.601,
+              "screen_limit_c": 60,
+              "margin_k": 22.805124775685613,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 9.322320693172514e-12
+        }
+      ],
+      "thermal_step_refinement_max_delta_k": 4.123169844660879e-06,
+      "analysis_manifest": "build/modular-tvc-finned-v1/analysis/wo03-engineering-20261030T163229838627Z/manifest.json",
+      "export_consumer_check_passed": true,
+      "engineering_benchmark_passed": false
+    },
+    {
+      "vehicle": "modular-tvc-finless-v1",
+      "structural": {
+        "peak_scaled_thrust_n": 35.952565,
+        "peak_liftoff_specific_acceleration_g": 7.247460260980607,
+        "rows": [
+          {
+            "part_id": "motor_mount",
+            "case": "motor_thrust",
+            "stress_pa": 1498023.5416666665,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": 1.2251541718928816,
+            "evidence": "calculated using estimated properties",
+            "passed": true,
+            "axial_force_n": 35.952565,
+            "rail_area_m2": 2.4e-05,
+            "elastic_shortening_m": 4.868576510416667e-05,
+            "pinned_rail_euler_load_n": 37.37601666684728,
+            "buckling_margin": -0.6534691691042788,
+            "boundary": "Three rails share thrust; pinned unsupported length is conservative. Slot notches and real end restraint require FEA."
+          },
+          {
+            "part_id": "tvc_gimbal",
+            "case": "gimbal_servo",
+            "stress_pa": 2604166.6666666665,
+            "strength_bound_pa": 8000000.0,
+            "design_factor": 3.0,
+            "margin": 0.02400000000000002,
+            "evidence": "calculated using estimated properties",
+            "passed": true,
+            "stall_rod_force_n": 41.666666666666664,
+            "boundary": "Axial neck-only stress, excludes drive eccentricity, holes, transverse rod force and print anisotropy. FEA required; this row cannot close the gimbal gate.",
+            "conclusion_complete": false
+          }
+        ],
+        "guide_side_force_n": 10,
+        "recovery_cases": [
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 28.611539445692927,
+            "factored_load_n": 85.83461833707878
+          },
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 17.031292104881018,
+            "factored_load_n": 51.093876314643055
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 390.9899034322518,
+            "factored_load_n": 1172.9697102967555
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 198.22047409816045,
+            "factored_load_n": 594.6614222944813
+          }
+        ],
+        "unclosed_load_paths": [
+          "Modular retention fastener/bond geometry and bearing/crush loads",
+          "Recovery bulkhead/anchor, harness and local bonds",
+          "Guide attachment and local shell reinforcement",
+          "Gimbal bearing, clamp/retention and full servo/transverse reactions"
+        ],
+        "analysis_complete": false,
+        "flight_ready": false
+      },
+      "thermal": [
+        {
+          "case": "lower-case-scenario",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 99.64770647416907,
+              "peak_time_s": 14.0,
+              "screen_limit_c": 120,
+              "margin_k": 20.35229352583093,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 54.28003915843988,
+              "peak_time_s": 27.0,
+              "screen_limit_c": 45,
+              "margin_k": -9.280039158439877,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_inner",
+              "peak_c": 19.682260318621843,
+              "peak_time_s": 82.0,
+              "screen_limit_c": 60,
+              "margin_k": 40.31773968137816,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "tvc_gimbal",
+              "peak_c": 16.624913737422162,
+              "peak_time_s": 127.0,
+              "screen_limit_c": 60,
+              "margin_k": 43.37508626257784,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_frame",
+              "peak_c": 18.496076694838393,
+              "peak_time_s": 27.0,
+              "screen_limit_c": 60,
+              "margin_k": 41.50392330516161,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "thermal_guard",
+              "peak_c": 18.162156111038712,
+              "peak_time_s": 32.0,
+              "screen_limit_c": 120,
+              "margin_k": 101.83784388896129,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 15.618403816766147,
+              "peak_time_s": 54.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.381596183233853,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_support",
+              "peak_c": 15.254587487913568,
+              "peak_time_s": 62.0,
+              "screen_limit_c": 60,
+              "margin_k": 44.74541251208643,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_pitch",
+              "peak_c": 15.02668069929905,
+              "peak_time_s": 160.0,
+              "screen_limit_c": 60,
+              "margin_k": 44.97331930070095,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_yaw",
+              "peak_c": 15.02668069929905,
+              "peak_time_s": 160.0,
+              "screen_limit_c": 60,
+              "margin_k": 44.97331930070095,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 19.150652829243143,
+              "peak_time_s": 312.601,
+              "screen_limit_c": 60,
+              "margin_k": 40.84934717075686,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 15.427559510690287,
+              "peak_time_s": 312.601,
+              "screen_limit_c": 60,
+              "margin_k": 44.57244048930971,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 1.5759837879159022e-11
+        },
+        {
+          "case": "upper-hot-soak",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 230.8906939578551,
+              "peak_time_s": 14.0,
+              "screen_limit_c": 120,
+              "margin_k": -110.89069395785509,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 130.18269517511158,
+              "peak_time_s": 30.0,
+              "screen_limit_c": 45,
+              "margin_k": -85.18269517511158,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_inner",
+              "peak_c": 96.79589254016435,
+              "peak_time_s": 83.0,
+              "screen_limit_c": 60,
+              "margin_k": -36.795892540164346,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "tvc_gimbal",
+              "peak_c": 82.16031041867791,
+              "peak_time_s": 97.0,
+              "screen_limit_c": 60,
+              "margin_k": -22.16031041867791,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "gimbal_frame",
+              "peak_c": 69.64324251538494,
+              "peak_time_s": 73.0,
+              "screen_limit_c": 60,
+              "margin_k": -9.64324251538494,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "thermal_guard",
+              "peak_c": 81.29158457081968,
+              "peak_time_s": 82.0,
+              "screen_limit_c": 120,
+              "margin_k": 38.70841542918032,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 64.00460133888788,
+              "peak_time_s": 101.0,
+              "screen_limit_c": 45,
+              "margin_k": -19.00460133888788,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_support",
+              "peak_c": 51.34220437259626,
+              "peak_time_s": 153.0,
+              "screen_limit_c": 60,
+              "margin_k": 8.657795627403743,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_pitch",
+              "peak_c": 48.88831612019487,
+              "peak_time_s": 236.0,
+              "screen_limit_c": 60,
+              "margin_k": 11.111683879805128,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "servo_yaw",
+              "peak_c": 48.88831612019487,
+              "peak_time_s": 236.0,
+              "screen_limit_c": 60,
+              "margin_k": 11.111683879805128,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 53.060158237732196,
+              "peak_time_s": 274.0,
+              "screen_limit_c": 60,
+              "margin_k": 6.939841762267804,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 37.23267579414903,
+              "peak_time_s": 312.601,
+              "screen_limit_c": 60,
+              "margin_k": 22.76732420585097,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 1.6370904631912708e-11
+        }
+      ],
+      "thermal_step_refinement_max_delta_k": 3.915388845143752e-06,
+      "analysis_manifest": "build/modular-tvc-finless-v1/analysis/wo03-engineering-20261030T163229838627Z/manifest.json",
+      "export_consumer_check_passed": true,
+      "engineering_benchmark_passed": false
+    },
+    {
+      "vehicle": "modular-performance-g54-hypothesis",
+      "structural": {
+        "peak_scaled_thrust_n": 139.9688,
+        "peak_liftoff_specific_acceleration_g": 26.710443835215404,
+        "rows": [
+          {
+            "part_id": "motor_mount",
+            "case": "motor_thrust",
+            "stress_pa": 2592014.814814815,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": 0.286000880196158,
+            "evidence": "calculated using estimated properties",
+            "passed": true,
+            "axial_force_n": 139.9688,
+            "rail_area_m2": 5.4e-05,
+            "elastic_shortening_m": 0.00024624140740740736,
+            "pinned_rail_euler_load_n": 22.14509574759662,
+            "buckling_margin": -0.9472618284751159,
+            "boundary": "Three rails share thrust; pinned unsupported length is conservative. Slot notches and real end restraint require FEA."
+          },
+          {
+            "part_id": "fin_set",
+            "case": "fin_bending",
+            "stress_pa": 13281225.62978814,
+            "strength_bound_pa": 10000000.0,
+            "design_factor": 3.0,
+            "margin": -0.749019147309938,
+            "evidence": "calculated using estimated properties",
+            "passed": false,
+            "force_per_fin_n": 39.843676889364424,
+            "root_moment_nm": 1.4166640671774018,
+            "tip_deflection_upper_m": 0.03187494151149154,
+            "deflection_limit_m": 0.001,
+            "boundary": "Finite-aspect-ratio small-angle panel estimate; load resultant at area centroid. Tip-load deflection upper screen; flutter/large-alpha and root-tab connection need separate validation."
+          }
+        ],
+        "guide_side_force_n": 10,
+        "recovery_cases": [
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 30.078663466288106,
+            "factored_load_n": 90.23599039886432
+          },
+          {
+            "opening_speed_mps": 5,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 17.904611689668528,
+            "factored_load_n": 53.71383506900558
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.3,
+            "total_harness_load_n": 411.03883090168927,
+            "factored_load_n": 1233.1164927050677
+          },
+          {
+            "opening_speed_mps": 20.4,
+            "stopping_distance_m": 0.6,
+            "total_harness_load_n": 208.38469540736912,
+            "factored_load_n": 625.1540862221074
+          }
+        ],
+        "unclosed_load_paths": [
+          "Modular retention fastener/bond geometry and bearing/crush loads",
+          "Recovery bulkhead/anchor, harness and local bonds",
+          "Guide attachment and local shell reinforcement",
+          "Gimbal bearing, clamp/retention and full servo/transverse reactions"
+        ],
+        "analysis_complete": false,
+        "flight_ready": false
+      },
+      "thermal": [
+        {
+          "case": "lower-case-scenario",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 88.51241062503101,
+              "peak_time_s": 10.0,
+              "screen_limit_c": 120,
+              "margin_k": 31.48758937496899,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 21.53122992723587,
+              "peak_time_s": 30.0,
+              "screen_limit_c": 45,
+              "margin_k": 23.46877007276413,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 15.124436109765554,
+              "peak_time_s": 64.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.875563890234446,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "fin_bonds",
+              "peak_c": 15.564416580234251,
+              "peak_time_s": 35.0,
+              "screen_limit_c": 45,
+              "margin_k": 29.43558341976575,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 19.123343099532065,
+              "peak_time_s": 303.026,
+              "screen_limit_c": 60,
+              "margin_k": 40.876656900467935,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 15.412830553588606,
+              "peak_time_s": 303.026,
+              "screen_limit_c": 60,
+              "margin_k": 44.587169446411394,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 8.348877145181177e-12
+        },
+        {
+          "case": "upper-hot-soak",
+          "peaks": [
+            {
+              "part_id": "motor_liner",
+              "peak_c": 227.35421764918283,
+              "peak_time_s": 11.0,
+              "screen_limit_c": 120,
+              "margin_k": -107.35421764918283,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "motor_mount",
+              "peak_c": 91.45198184079123,
+              "peak_time_s": 55.0,
+              "screen_limit_c": 45,
+              "margin_k": -46.451981840791234,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "aft_shell",
+              "peak_c": 51.26585251301435,
+              "peak_time_s": 118.0,
+              "screen_limit_c": 45,
+              "margin_k": -6.265852513014352,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "fin_bonds",
+              "peak_c": 49.791761586627615,
+              "peak_time_s": 136.0,
+              "screen_limit_c": 45,
+              "margin_k": -4.791761586627615,
+              "passed": false,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "flight_computer",
+              "peak_c": 49.80286884896424,
+              "peak_time_s": 303.026,
+              "screen_limit_c": 60,
+              "margin_k": 10.197131151035762,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            },
+            {
+              "part_id": "battery",
+              "peak_c": 36.70530165644425,
+              "peak_time_s": 303.026,
+              "screen_limit_c": 60,
+              "margin_k": 23.29469834355575,
+              "passed": true,
+              "evidence": "calculated, estimated properties and case boundary"
+            }
+          ],
+          "energy_residual_j": 1.318767317570746e-11
+        }
+      ],
+      "thermal_step_refinement_max_delta_k": 3.0553191550097836e-06,
+      "analysis_manifest": "build/modular-performance-g54-hypothesis/analysis/wo03-engineering-20261030T163229838627Z/manifest.json",
+      "export_consumer_check_passed": true,
+      "engineering_benchmark_passed": false
+    }
+  ],
+  "engineering_benchmark_passed": false,
+  "open_items": [
+    "Critical FEA, known-case/convergence, strength and buckling conclusions",
+    "Hot-case history/material limits and design corrections",
+    "Tolerance-expanded continuous mechanism, wiring, nozzle and retention",
+    "Recovery packing/service access, isolated power and hardware interfaces"
+  ],
+  "cost_usd": 0,
+  "flight_ready": false
+}

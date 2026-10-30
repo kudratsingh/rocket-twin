@@ -47,3 +47,7 @@ backend records a physical time mapping. Analysis computation stays offline/back
 the frontend displays recorded fields and history/telemetry interpolation only.
 Acceptance includes static and transient case comparison, missing/stale-result states,
 selection-linked metadata and preserving all experiment/replay benchmarks.
+
+## Traceability and vibration-risk carry-through
+
+Preserve source-linked requirements/interfaces/FMEA and unresolved status while comparing/replaying recorded results. Never attach evidence to a different module/CAD identity or imply time coupling without a recorded mapping.

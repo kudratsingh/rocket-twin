@@ -1,19 +1,42 @@
 # Status
 
-Updated: 2026-10-29 (run IDs use UTC)
+Updated: 2026-10-30 (run IDs use UTC)
 
 ## Current work order
 
-**WO-03 active; owner resumed and expanded engineering scope (ADR-0007).**
-CAD generators and mass reconciliation are in progress locally. Initial nominal
-intersections were corrected; combined sweep still finds a frame/drive-lug conflict
-and servo-horn envelope interference. Structural/thermal/tolerance analyses and
-targeted solver validation/convergence are now required before acceptance and WO-04.
-Gmsh/CalculiX are not installed on this host as of the current tool check.
-The Analysis view/export contract is added to UI and WO-03/04/05: identity-bound
-recorded fields, per-part evidence, legends/case/time controls and explicit provenance.
-No claim of WO-03 completion, physical validation or flight release.
+**WO-03 active; owner resumed after computer update on 2026-10-30.**
+Expanded ADR-0007 structural, thermal, tolerance/motion, packaging and Analysis-export
+acceptance remains open. Gmsh 4.15.2 and CalculiX 2.23 are installed and executed.
+The [current checkpoint](wo03-current-checkpoint.md) summarizes current results;
+the earlier pause snapshot remains in [wo03-checkpoint.md](wo03-checkpoint.md).
+No WO-03 completion or physical/flight release is claimed.
 
+Latest local evidence update (2026-10-30): scope/planning PR #4 and analysis-record
+transport PR #5 are merged; latest merged commit is
+`959432802888611ff2989a3638dd250195458b08`. The follow-on CAD/analysis PR is still
+pending; no PR number or merge is claimed. Latest CAD export
+`wo03-20261030T180113490389Z` passes export, six nominal-interface and both 25-pose
+nominal TVC sweep checks across six modes (67.41 s, unchanged inputs); expanded
+acceptance stays false. This records a 5.135 mm continuous cylindrical liner-to-shell
+radial bound, not full mechanism/tolerance/wiring qualification. The prior
+34.71-second export `wo03-20261030T175718278493Z` remains the valid neutral-export
+record without formal motion proof. Latest engineering export is
+`wo03-engineering-20261030T175947969565Z`; quantity exports are complete with explicit
+unavailable gimbal displacements, but numerical design acceptance remains false.
+`ccx` 2.23 and Gmsh 4.15.2 were actually executed: known analytical fixtures pass,
+and the sampled fin-shell structural model meets its three-level convergence threshold.
+This verifies those solver calculations, not the aircraft parts or load paths. A
+prior sampled two-axis motion check passed 25 poses to ±4.9847°, but the formal sweep
+is not yet recorded in a passing CAD run. Tolerance-expanded continuous motion,
+wiring, access, retention and service checks remain open. The fresh full flight evidence is
+`wo02-20261030T173859843386Z` (27 cases; benchmark passed; flight_ready remains false).
+Earlier failed CAD/engineering evidence remains in its original run records.
+`wo03-vibration-20261030T175839356500Z` is the latest completed integrated vibration
+run; known cases and applicable G80/G12-finned/G54 spatial-field consumers pass, while
+finless has no applicable fin field and overall vibration/flutter acceptance remains
+false. See [current checkpoint](wo03-current-checkpoint.md) and
+[quantitative results](results.md) for numerical failures and evidence limits.
+Original WO-02 baseline records remain preserved and unchanged.
 
 ### Completed WO-02 milestone
 
@@ -30,8 +53,10 @@ checks a 4,096-env CPU step, and closes recovery in all 27 cases by 360 s. Tiny
 through each final run. [Results](results.md) and [report](wo02-flight-study.md).
 
 Conditional direction: keep G80 as reference; G54 leads the practical near-160 N s
-upgrade trade (+20.7% nominal altitude, +80 g installed integration mass, tight
-1.023 cal aft-growth margin). Fixed G12 leads calm altitude but fails the conservative
+upgrade trade (+20.7% nominal altitude, +80 g installed integration mass in the
+preserved study). Its prior 1.023 cal aft-growth estimate was before latest CAD
+reconciliation; current all-growth-aft margin is below 1 cal and remains open. Fixed
+G12 leads calm altitude but fails the conservative
 3 m guide screen and weathercocks substantially. G33 has a departure shortfall.
 No hardware/motor/delay choice is frozen. G25W remains quarantined.
 
@@ -99,7 +124,7 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
 | WO | Met on | Evidence (run id / PR) |
 |---|---|---|
 | 01 | 2026-10-29 | `wo01-platform-20261030T022439939715Z`; 53 tests; [PR #1](https://github.com/kudratsingh/rocket-twin/pull/1) |
-| 02 | 2026-10-29 | `wo02-20261030T044930127544Z`; 65 tests; [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2), [PR #3](https://github.com/kudratsingh/rocket-twin/pull/3) |
+| 02 | 2026-10-29 | Historical acceptance baseline: `wo02-20261030T044930127544Z`; 65 tests; [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2), [PR #3](https://github.com/kudratsingh/rocket-twin/pull/3). Fresh unchanged-code full campaign: `wo02-20261030T173859843386Z` (27 cases, 4,096-env CPU, RocketPy comparisons, benchmark passed). |
 | 03 | | |
 | 04 | | |
 | 05 | | |

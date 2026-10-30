@@ -79,7 +79,7 @@ def test_servo_delay_limits_stall_and_sensor_noise() -> None:
         servo, queue, -jnp.ones(2), p._replace(servo=p.servo.at[6].set(1))
     )
     np.testing.assert_array_equal(stalled[:2], servo[:2])
-    state = state._replace(sensor_bias=jnp.zeros(6))
+    state = state._replace(sensor_bias=jnp.zeros(9))
     keys = jax.random.split(jax.random.PRNGKey(2), 10000)
     obs, _, _ = jax.jit(jax.vmap(sensors.observe, in_axes=(None, None, None, 0)))(
         state, jnp.zeros(3), p, keys
@@ -115,3 +115,14 @@ def test_inertia_cofactor_solve_matches_independent_linear_solver() -> None:
             rtol=1e-11,
             atol=1e-11,
         )
+
+
+def test_high_g_path_records_launch_force_while_low_g_imu_clips() -> None:
+    p = prepare(load_vehicle(ROOT / "performance.yaml"), {"sensor_noise": False})
+    p = p._replace(sensors=p.sensors.at[6].set(0).at[13].set(0))
+    state = env.reset(p, jax.random.PRNGKey(0))
+    force = jnp.array([25 * 9.80665, -25 * 9.80665, 0.0])
+    observation, _, _ = sensors.observe(state, force, p, jax.random.PRNGKey(1))
+    np.testing.assert_allclose(observation[10:13], force)
+    np.testing.assert_allclose(observation[:3], [float(p.sensors[7]), -float(p.sensors[7]), 0.0])
+    assert float(p.sensors[10]) == pytest.approx(200 * 9.80665)

@@ -53,15 +53,14 @@ parts:
 - id: aft_shell
   type: body_tube
   parent: interface_coupler
-  position_m: 0.52
+  position_m: 0.522
   geometry:
-    length_m: 0.28
+    length_m: 0.278
     radius_m: 0.033
     inner_radius_m: 0.0325
     wall_m: 0.0005
-    od_m: 0.066
   material: cardboard
-  mass_kg: 0.0234
+  mass_kg: 0.020021841220226
   estimate: true
   learn: Interchangeable aft shell transfers fin, motor and guide loads through the
     keyed coupler. Tube slots and local reinforcement depend on the actual mode; they
@@ -72,17 +71,71 @@ parts:
     generator: body_tube
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: tube
+    parameters:
+      fin_slots: false
+      fin_slot_width_mm: 2.4
+      fin_slot_length_mm: 62
+      fin_slot_start_mm: 163
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#c6b28e'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: d18e8cd6b29382f22cfb59eb87a3aa108c51e4947dcb5d4f30dfc66c3d9aa04f
+    volume_m3: 2.860263031460857e-05
+    cg_local_body_m:
+    - -0.1390000000000002
+    - -4.831198581691095e-15
+    - -1.2546398076532888e-16
+    inertia_per_kg_m2:
+    - - 0.0010726250000000117
+      - 9.642046706004488e-18
+      - 4.045584872644694e-20
+    - - 9.642046706004488e-18
+      - 0.00697664583333322
+      - 1.520021256728951e-18
+    - - 4.045584872644694e-20
+      - 1.520021256728951e-18
+      - 0.00697664583333317
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.1390000000000002
+  engineering:
+    function: Interchangeable aft shell transfers fin, motor and guide loads through
+      the keyed coupler.
+    material_profile: cardboard
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - fin_bending
+    - modular_retention
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: aft_interface_hardware
   type: commercial
   parent: aft_shell
-  position_m: 0.53
+  position_m: 0.535
   geometry:
     bbox_m:
-    - 0.02
-    - 0.02
+    - 0.012
     - 0.01
+    - 0.006
   material: commercial
-  mass_kg: 0.01
+  mass_kg: 0.006
   estimate: true
   learn: Positive axial stops, indexing keys and removable fasteners connect the aft
     module. Repeated assembly, crushing, shear and retention loads must be verified
@@ -93,17 +146,68 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  lateral_offset_m:
+  - 0
+  - 0.026
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#a2a8ab'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: e6ea2e796f037add2e09590b5da4d3fbaae84312b25f403edf5afb0c87911a0c
+    volume_m3: 7.199999999999999e-07
+    cg_local_body_m:
+    - -0.006
+    - -1.195162181132109e-19
+    - -2.9605947323337515e-20
+    inertia_per_kg_m2:
+    - - 1.1333333333333336e-05
+      - -4.2464158788120037e-23
+      - 0.0
+    - - -4.2464158788120037e-23
+      - 1.5000000000000007e-05
+      - 4.860509658608257e-24
+    - - 0.0
+      - 4.860509658608257e-24
+      - 2.033333333333334e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.006
+  engineering:
+    function: Positive axial stops, indexing keys and removable fasteners connect
+      the aft module.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - modular_retention
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: motor_mount
   type: motor_mount
-  parent: tvc_gimbal
-  position_m: 0.62
+  parent: gimbal_inner
+  position_m: 0.644
   geometry:
-    length_m: 0.16
-    radius_m: 0.017
-    inner_radius_m: 0.0145
-    id_m: 0.029
+    length_m: 0.065
+    radius_m: 0.018
+    inner_radius_m: 0.0153
   material: plywood
-  mass_kg: 0.012
+  mass_kg: 0.0033944340338009065
   estimate: true
   learn: Custom centering/load-transfer assembly supports a certified commercial motor
     and liner. This ring envelope is not a solid tube; gimbal or fixed retention and
@@ -114,17 +218,69 @@ parts:
     generator: motor_mount
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: cradle
+    parameters:
+      split_width_mm: 1
+      tie_rails: true
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: motor
+    color: '#6d959a'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 5a2cdd16d6aa0a4e4617a65c924fb9928190d205f057ff913b44b2105470dfa6
+    volume_m3: 6.171698243274375e-06
+    cg_local_body_m:
+    - -0.05005998178216996
+    - -2.266273862849593e-16
+    - 0.00013111302077701363
+    inertia_per_kg_m2:
+    - - 0.00028122140964605613
+      - -1.4530302809327206e-18
+      - 7.788137320104969e-07
+    - - -1.4530302809327206e-18
+      - 0.00035298555766813075
+      - -1.2282951169816766e-20
+    - - 7.788137320104969e-07
+      - -1.2282951169816766e-20
+      - 0.0003551895793862673
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.05005998178216996
+  engineering:
+    function: Custom centering/load-transfer assembly supports a certified commercial
+      motor and liner.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    - fin_bending
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: motor_liner
   type: commercial
   parent: motor_mount
-  position_m: 0.64
+  position_m: 0.644
   geometry:
-    bbox_m:
-    - 0.15
-    - 0.032
-    - 0.032
+    length_m: 0.156
+    radius_m: 0.0151
+    inner_radius_m: 0.0147
   material: phenolic
-  mass_kg: 0.007
+  mass_kg: 0.007594410682564317
   estimate: true
   learn: A purchased phenolic or paper liner and air gap isolate the commercial case
     from structural polymer. Its mass and envelope are provisional; case and surrounding
@@ -135,26 +291,131 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: liner
+    parameters: {}
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: motor
+    color: '#c0ab8a'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 3055556d50f82b87c626f6715aebc6fc4e03fc26dfc3ba75818e0c274c2befc7
+    volume_m3: 5.841854371203321e-06
+    cg_local_body_m:
+    - -0.07800000000000003
+    - -1.3267557450105321e-15
+    - -2.506923075955081e-17
+    inertia_per_kg_m2:
+    - - 0.00022205000000000122
+      - -5.791517685325681e-20
+      - -1.9183894165683753e-20
+    - - -5.791517685325681e-20
+      - 0.002139024999999987
+      - 5.3770493165390576e-20
+    - - -1.9183894165683753e-20
+      - 5.3770493165390576e-20
+      - 0.002139024999999983
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.07800000000000003
+  engineering:
+    function: A purchased phenolic or paper liner and air gap isolate the commercial
+      case from structural polymer.
+    material_profile: phenolic
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - motor_thrust
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: retention
   type: commercial
   parent: motor_mount
-  position_m: 0.78
+  position_m: 0.64
   geometry:
-    bbox_m:
-    - 0.02
-    - 0.02
-    - 0.01
-  material: commercial
-  mass_kg: 0.008
+    length_m: 0.004
+    radius_m: 0.018
+    inner_radius_m: 0.012
+  material: plywood
+  mass_kg: 0.0011204899189338148
   estimate: true
-  learn: Positive removable motor retention transfers thrust and prevents ejection.
-    It must clear the nozzle and preserve all certified motor hardware without modification.
+  learn: Forward thrust stop and split carrier constrain the nominal motor envelope.
+    Exact case/closure capture and bidirectional retention remain supplier-fit and
+    proof-load gates before physical use.
   build:
-    method: assembled
+    method: cut
     cost_usd: 8
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: bulkhead
+    parameters:
+      anchor_hole_mm: 24
+      relief_sector:
+        angles_deg:
+        - -15
+        - 50
+        keep_radius_mm: 15.0
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: motor
+    color: '#b89563'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required. Outboard relief preserves the motor-front bearing annulus and
+      three carrier-rail contacts; verify rod clearance and bearing/load distribution.
+  cg_offset_m: 0.002
+  engineering:
+    function: Forward thrust stop and split carrier constrain the nominal motor envelope.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: 35eae103f6c5fd65b6ad83a9f6cd43b8eacbdc9c8d545fdbab8b71b2cc79c1fd
+    volume_m3: 2.0372543980614814e-06
+    cg_local_body_m:
+    - -0.002
+    - -0.0016484834471479695
+    - 0.0005197648343728732
+    inertia_per_kg_m2:
+    - - 0.00022654719523512292
+      - -8.928631619481043e-22
+      - 2.232157904870261e-22
+    - - -8.928631619481043e-22
+      - 0.00012573620583054729
+      - -7.792802165541585e-06
+    - - 2.232157904870261e-22
+      - -7.792802165541585e-06
+      - 0.00010347765607124216
+    basis: bulk-density manufactured solid
 - id: motor
   type: motor
   parent: motor_mount
@@ -175,22 +436,68 @@ parts:
     generator: motor
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  cg_offset_m: 0.078
   cite: configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.yaml
+  cad:
+    generator: vendor_motor
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: motor
+    color: '#4b5664'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 5cedaa421030a4b4c4f2d36a702b7b48286ddcdaaf935073d78c6eee4a9ad8e1
+    volume_m3: 0.00010304109744509162
+    cg_local_body_m:
+    - -0.07800000000000001
+    - -4.377955818257458e-18
+    - -8.526218923560459e-19
+    inertia_per_kg_m2:
+    - - 0.00010512500000000056
+      - -3.8130582933209977e-20
+      - -5.4386243597814985e-22
+    - - -3.8130582933209977e-20
+      - 0.002080562499999999
+      - -8.485388447001138e-22
+    - - -5.4386243597814985e-22
+      - -8.485388447001138e-22
+      - 0.002080562499999997
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.07800000000000001
+  engineering:
+    function: The full commercial motor mass is counted exactly once.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: tvc_gimbal
   type: tvc_gimbal
   parent: aft_shell
-  position_m: 0.67
+  position_m: 0.697
   geometry:
-    length_m: 0.06
+    length_m: 0.006
     radius_m: 0.029
-    inner_radius_m: 0.018
+    inner_radius_m: 0.025
   material: ASA
-  mass_kg: 0.026
+  mass_kg: 0.004354660663492814
   estimate: true
-  learn: Custom nested two-axis rings and pivots vector the complete motor. Moving
-    inertia, bearing slop, motor attachment and full swept thermal envelope must be
-    derived from CAD and measured.
+  learn: Outer yaw ring pivots about the body z axis on opposed pins. Radial separation
+    from the inner ring permits its independent pitch motion; bearing fit, stops and
+    hot-case clearances require physical proof.
   build:
     method: printed
     cost_usd: 5
@@ -198,21 +505,104 @@ parts:
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
   print:
-    orientation: load_path_review_in_WO03
+    orientation: Reverse CAD Z; nose shoulder or rear ring face on bed, tip/drive
+      bridge grows upward.
     layer_mm: 0.2
-    infill_pct: 20
-    walls: 3
-    supports: false
+    infill_pct: 100
+    walls: 4
+    supports: true
     line_width_mm: 0.4
+    rotation_deg:
+    - 180
+    - 0
+    - 0
+  cad:
+    generator: gimbal_outer
+    parameters:
+      lug: true
+      lug_center_mm:
+      - 13.5
+      - 23.38268590217984
+      - -13
+      lug_size_mm:
+      - 4
+      - 5
+      - 6
+      bridge:
+        size_mm:
+        - 4
+        - 4
+        - 13
+        position_mm:
+        - 13.5
+        - 23.38268590217984
+        - -7
+        angle_deg: 60
+      link_bore:
+        start_mm:
+        - 15.315054217191433
+        - 20.45573123624783
+        - -19.38821146823159
+        axis:
+        - -0.1815054217191433
+        - 0.2926954665932013
+        - 0.938821146823155
+        length_mm: 25
+      lug_angle_deg: 60
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: yaw
+    color: '#4f9bb5'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cg_offset_m: 0.002651661021732802
+  cad_mass:
+    shape_sha256: 040ca9e30f421c2c4f9a649d2ba7aaeb5526742596e6b9878628f0665d2727d3
+    volume_m3: 4.069776321021322e-06
+    cg_local_body_m:
+    - -0.002651661021732802
+    - 0.00048826757765521356
+    - -0.0008090811296980775
+    inertia_per_kg_m2:
+    - - 0.0007317127737488196
+      - -4.560254490332907e-06
+      - 7.812264203039067e-06
+    - - -4.560254490332907e-06
+      - 0.0003781810184702727
+      - 1.0826833504742662e-05
+    - - 7.812264203039067e-06
+      - 1.0826833504742662e-05
+      - 0.00036683925053663656
+    basis: bulk-density manufactured solid
+  engineering:
+    function: Outer yaw ring pivots about the body z axis on opposed pins.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.15
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: gimbal_links
   type: commercial
   parent: tvc_gimbal
-  position_m: 0.68
+  position_m: 0.612
   geometry:
-    bbox_m:
-    - 0.02
-    - 0.02
-    - 0.01
+    length_m: 0.104
+    radius_m: 0.03
+    inner_radius_m: 0
   material: commercial
   mass_kg: 0.008
   estimate: true
@@ -225,17 +615,79 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: links
+    parameters:
+      radius_mm: 1
+      segments_mm:
+      - - - 28
+          - 0
+          - 0
+        - - 13.5
+          - 23.38268590217984
+          - 75
+      - - - 0
+          - 28
+          - 0
+        - - 0
+          - 22
+          - 71
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#bcc5ca'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cg_offset_m: 0.03655712797825723
+  cad_mass:
+    shape_sha256: ee25640d64501ec16d9e6006556b6f917ecefcf0eccde93a55286b3504cea692
+    volume_m3: 4.7482185585976874e-07
+    cg_local_body_m:
+    - -0.03655712797825723
+    - 0.010967702774418756
+    - -0.01796552314028343
+    inertia_per_kg_m2:
+    - - 0.00018666628052263303
+      - -3.753745445097589e-05
+      - -5.3850274491596446e-05
+    - - -3.753745445097589e-05
+      - 0.0005166904506220567
+      - -8.374041196903645e-05
+    - - -5.3850274491596446e-05
+      - -8.374041196903645e-05
+      - 0.0005636158834971922
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  engineering:
+    function: Custom links, horns, pivots and fasteners connect both servos to independent
+      axes.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: servo_support
   type: commercial
   parent: aft_shell
-  position_m: 0.56
+  position_m: 0.574
   geometry:
-    bbox_m:
-    - 0.04
-    - 0.025
-    - 0.02
+    length_m: 0.036
+    radius_m: 0.032
+    inner_radius_m: 0
   material: ASA
-  mass_kg: 0.006
+  mass_kg: 0.004904855264343459
   estimate: true
   learn: Custom servo brackets transfer actuator loads to the aft shell and preserve
     indexed assembly alignment. Layer orientation, elastic deflection and mount torque
@@ -247,23 +699,126 @@ parts:
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
   print:
-    orientation: load_path_review_in_WO03
+    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
     layer_mm: 0.2
-    infill_pct: 20
-    walls: 3
+    infill_pct: 100
+    walls: 4
     supports: false
     line_width_mm: 0.4
+    rotation_deg:
+    - 0
+    - 0
+    - 0
+  cad:
+    generator: brackets
+    parameters:
+      blocks:
+      - size_mm:
+        - 4
+        - 24
+        - 36
+        position_mm:
+        - 29.8
+        - 0
+        - 0
+      - size_mm:
+        - 24
+        - 4
+        - 36
+        position_mm:
+        - 0
+        - 29.8
+        - 0
+      trim_radius_mm: 32.2
+      pockets:
+      - size_mm:
+        - 13.4
+        - 27.4
+        - 30.4
+        position_mm:
+        - 22
+        - 0
+        - 1.8
+      - size_mm:
+        - 27.4
+        - 13.4
+        - 30.4
+        position_mm:
+        - 0
+        - 22
+        - 1.8
+      - size_mm:
+        - 8
+        - 5
+        - 10
+        position_mm:
+        - 27
+        - 0
+        - 29
+      - size_mm:
+        - 5
+        - 8
+        - 10
+        position_mm:
+        - 0
+        - 27
+        - 29
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#659097'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 10544eff0d93d2da5a699662b235052b0f96a48e7c6a50cb06f56a770f5fba0b
+    volume_m3: 4.58397688256398e-06
+    cg_local_body_m:
+    - -0.0176571012375782
+    - 0.01500166260229179
+    - -0.015001662602294205
+    inertia_per_kg_m2:
+    - - 0.0004915854478375538
+      - -1.0681263622405726e-07
+      - 1.068126362210605e-07
+    - - -1.0681263622405726e-07
+      - 0.0003573943356558328
+      - -0.00022504988083304589
+    - - 1.068126362210605e-07
+      - -0.00022504988083304589
+      - 0.0003573943356558392
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.0176571012375782
+  engineering:
+    function: Custom servo brackets transfer actuator loads to the aft shell and preserve
+      indexed assembly alignment.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.15
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: thermal_guard
   type: commercial
   parent: aft_shell
-  position_m: 0.7
+  position_m: 0.746
   geometry:
-    bbox_m:
-    - 0.05
-    - 0.04
-    - 0.04
+    length_m: 0.05
+    radius_m: 0.03
+    inner_radius_m: 0.0296
   material: phenolic
-  mass_kg: 0.008
+  mass_kg: 0.004868211976002735
   estimate: true
   learn: A separate nonmetallic thermal barrier protects rings, wiring and aft shell
     from case heating and exhaust. No printed polymer is assumed to survive direct
@@ -274,10 +829,136 @@ parts:
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
+  cad:
+    generator: guard
+    parameters: {}
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#a49a8c'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 6dc0dd550703976a5bda470baa2afba16dcb70c2f71cdb25da27685af1a03258
+    volume_m3: 3.7447784430790273e-06
+    cg_local_body_m:
+    - -0.02499999999999998
+    - -5.288739220983956e-15
+    - -5.91791794332988e-17
+    inertia_per_kg_m2:
+    - - 0.0008880800000000012
+      - -6.878081132360868e-19
+      - -2.3848719205400216e-20
+    - - -6.878081132360868e-19
+      - 0.000652373333333337
+      - 5.828431910218783e-20
+    - - -2.3848719205400216e-20
+      - 5.828431910218783e-20
+      - 0.00065237333333332
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.02499999999999998
+  engineering:
+    function: A separate nonmetallic thermal barrier protects rings, wiring and aft
+      shell from case heating and exhaust.
+    material_profile: phenolic
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 - id: servo_pitch
   type: servo
   parent: servo_support
-  position_m: 0.56
+  position_m: 0.576
+  geometry:
+    bbox_m:
+    - 0.03
+    - 0.027
+    - 0.013
+  material: commercial
+  mass_kg: 0.014
+  estimate: true
+  learn: Purchased metal-gear digital servo drives one TVC axis. Torque, loaded speed,
+    current and deadband are budget estimates; characterize at voltage, temperature
+    and aerodynamic/thrust load before controller qualification.
+  build:
+    method: purchased
+    cost_usd: 20
+    generator: servo
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  electrical:
+    supply_v: 5
+    current_a: 0.2
+    stall_torque_nm: 0.25
+    speed_s_per_60deg: 0.1
+    deadband_us: 5
+    stall_current_a: 1
+  lateral_offset_m:
+  - 0
+  - -0.022
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#40556a'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: c329c0354198e88bd63d3851b51dd07ca40158cdaefcd034673d4751856e6747
+    volume_m3: 1.053e-05
+    cg_local_body_m:
+    - -0.015
+    - 1.415013076410654e-19
+    - 4.386066270124075e-20
+    inertia_per_kg_m2:
+    - - 7.483333333333333e-05
+      - -2.6904144175186565e-23
+      - -7.67135391212076e-38
+    - - -2.6904144175186565e-23
+      - 8.908333333333332e-05
+      - 4.2585364219798576e-39
+    - - -7.67135391212076e-38
+      - 4.2585364219798576e-39
+      - 0.00013575
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.015
+  engineering:
+    function: Purchased metal-gear digital servo drives one TVC axis.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- id: servo_yaw
+  type: servo
+  parent: servo_support
+  position_m: 0.576
   geometry:
     bbox_m:
     - 0.03
@@ -305,37 +986,523 @@ parts:
   lateral_offset_m:
   - 0.022
   - 0
-- id: servo_yaw
-  type: servo
-  parent: servo_support
-  position_m: 0.6
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#40556a'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 2164a9d5001f5388d888555a832540665d3fc1dc513f377f74181b304e6790d9
+    volume_m3: 1.053e-05
+    cg_local_body_m:
+    - -0.015
+    - -3.071849408851686e-20
+    - 1.8219044506669235e-20
+    inertia_per_kg_m2:
+    - - 7.483333333333333e-05
+      - -1.534270782424152e-37
+      - -3.83567695606038e-38
+    - - -1.534270782424152e-37
+      - 0.00013575
+      - -4.0910094251437357e-23
+    - - -3.83567695606038e-38
+      - -4.0910094251437357e-23
+      - 8.908333333333332e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.015
+  engineering:
+    function: Purchased metal-gear digital servo drives one TVC axis.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- id: gimbal_inner
+  type: tvc_gimbal
+  parent: tvc_gimbal
+  position_m: 0.697
   geometry:
-    bbox_m:
-    - 0.03
-    - 0.013
-    - 0.027
-  material: commercial
-  mass_kg: 0.014
+    length_m: 0.006
+    radius_m: 0.024
+    inner_radius_m: 0.0182
+  material: ASA
+  mass_kg: 0.005036702109670297
   estimate: true
-  learn: Purchased metal-gear digital servo drives one TVC axis. Torque, loaded speed,
-    current and deadband are budget estimates; characterize at voltage, temperature
-    and aerodynamic/thrust load before controller qualification.
+  learn: Inner pitch ring carries the split motor cradle. Its drive lug is axially
+    offset from the outer ring plane so orthogonal actuation does not cross the outer
+    annulus.
   build:
-    method: purchased
-    cost_usd: 20
-    generator: servo
+    method: printed
+    cost_usd: 5
+    generator: tvc_gimbal
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  electrical:
-    supply_v: 5
-    current_a: 0.2
-    stall_torque_nm: 0.25
-    speed_s_per_60deg: 0.1
-    deadband_us: 5
-    stall_current_a: 1
-  lateral_offset_m:
-  - -0.022
-  - 0
+  print:
+    orientation: Reverse CAD Z; nose shoulder or rear ring face on bed, tip/drive
+      bridge grows upward.
+    layer_mm: 0.2
+    infill_pct: 100
+    walls: 4
+    supports: true
+    line_width_mm: 0.4
+    rotation_deg:
+    - 180
+    - 0
+    - 0
+  cad:
+    generator: gimbal_inner
+    parameters:
+      lug: true
+      lug_center_mm:
+      - 0
+      - 22
+      - -17
+      lug_size_mm:
+      - 5
+      - 5
+      - 6
+      bridge:
+        size_mm:
+        - 5
+        - 4
+        - 18
+        position_mm:
+        - 0
+        - 21
+        - -12
+      link_bore:
+        start_mm:
+        - 0
+        - 22
+        - -22
+        axis:
+        - 0
+        - 0
+        - 1
+        length_mm: 35
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: motor
+    color: '#82b8c9'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 05ea48a05128f510704ee7cf588a23982c184d5007a7e5675b76f0796521f282
+    volume_m3: 4.707198233336726e-06
+    cg_local_body_m:
+    - -0.0023665879631699993
+    - 5.920301467376334e-09
+    - -0.000885092387338696
+    inertia_per_kg_m2:
+    - - 0.00045255859694283933
+      - 2.233752978301004e-11
+      - 1.2982059638017136e-05
+    - - 2.233752978301004e-11
+      - 0.0002515508000491041
+      - -2.267466416076725e-11
+    - - 1.2982059638017136e-05
+      - -2.267466416076725e-11
+      - 0.00022384171661786028
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.0023665879631699993
+  engineering:
+    function: Inner pitch ring carries the split motor cradle.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.15
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- id: gimbal_frame
+  type: commercial
+  parent: aft_shell
+  position_m: 0.62
+  geometry:
+    length_m: 0.16
+    radius_m: 0.0323
+    inner_radius_m: 0.0303
+  material: ASA
+  mass_kg: 0.01053384011091112
+  estimate: true
+  learn: Fixed custom frame transfers gimbal pin reactions and fin-root loads to the
+    aft shell. Open rails permit motor tilt; end rings index the frame. Bending, bearing
+    and hot-case loads require proof tests.
+  build:
+    method: printed
+    cost_usd: 3
+    generator: mount
+    notes: Preliminary custom mechanism; supplier fit and proof load remain required.
+  print:
+    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
+    layer_mm: 0.2
+    infill_pct: 100
+    walls: 4
+    supports: false
+    line_width_mm: 0.4
+    rotation_deg:
+    - 0
+    - 0
+    - 0
+  cad:
+    generator: mount
+    parameters:
+      ring_thickness_mm: 3
+      ring_stations_mm:
+      - 0
+      - 157
+      rail_width_mm: 6
+      rail_depth_mm: 2
+      rail_radius_mm: 31.3
+      tab_slot_start_mm: 65
+      pivot_ring: true
+      pivot_station_mm: 80
+      fin_channels: true
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#659097'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: e919fd057b0a2c09ae57fe9412539d81bdd73eda9cb197ebd26b834b9f040e4f
+    volume_m3: 9.844710384029083e-06
+    cg_local_body_m:
+    - -0.07854898747469731
+    - -9.207147649691646e-09
+    - 1.6950399116970573e-08
+    inertia_per_kg_m2:
+    - - 0.000982035627643389
+      - -6.2561460575551384e-12
+      - 1.1619680295640743e-11
+    - - -6.2561460575551384e-12
+      - 0.0030298839675306764
+      - -2.2669049630752e-10
+    - - 1.1619680295640743e-11
+      - -2.2669049630752e-10
+      - 0.003033495311769251
+    basis: bulk-density manufactured solid
+  cg_offset_m: 0.07854898747469731
+  engineering:
+    function: Fixed custom frame transfers gimbal pin reactions and fin-root loads
+      to the aft shell.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.15
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    - fin_bending
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- id: outer_pivots
+  type: commercial
+  parent: gimbal_frame
+  position_m: 0.69
+  geometry:
+    length_m: 0.02
+    radius_m: 0.0322
+  material: commercial
+  mass_kg: 0.002
+  estimate: true
+  learn: Opposed 3 mm bearing pins define the outer yaw pivot. The 3.4 mm nominal
+    bores leave 0.2 mm radial clearance before manufacturing error. Purchased pin
+    retention and bearing wear require supplier-fit and bench verification.
+  build:
+    method: purchased
+    cost_usd: 3
+    generator: pins
+    notes: Preliminary custom mechanism; supplier fit and proof load remain required.
+  cad:
+    generator: pins
+    parameters:
+      pins:
+      - start_mm:
+        - 0
+        - -32.2
+        - 10
+        axis:
+        - 0
+        - 1
+        - 0
+        radius_mm: 1.5
+        length_mm: 7.2
+      - start_mm:
+        - 0
+        - 25
+        - 10
+        axis:
+        - 0
+        - 1
+        - 0
+        radius_mm: 1.5
+        length_mm: 7.2
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#659097'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 6449ea56aa4d1a4eb74bea4e78c1b361a66bd05fc2369697dea2b8fd21f4bc32
+    volume_m3: 1.0178760197630932e-07
+    cg_local_body_m:
+    - -0.009999999999999998
+    - 1.0369515168859153e-19
+    - -2.2338052083804118e-18
+    inertia_per_kg_m2:
+    - - 0.0008228425000000001
+      - 6.342178242033776e-23
+      - -1.3402831250282475e-20
+    - - 6.342178242033776e-23
+      - 0.0008228425000000001
+      - 1.532082475594048e-22
+    - - -1.3402831250282475e-20
+      - 1.532082475594048e-22
+      - 1.1250000000000547e-06
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.009999999999999998
+  engineering:
+    function: Opposed 3 mm bearing pins define the outer yaw pivot.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- id: inner_pivots
+  type: commercial
+  parent: tvc_gimbal
+  position_m: 0.69
+  geometry:
+    length_m: 0.02
+    radius_m: 0.029
+  material: commercial
+  mass_kg: 0.002
+  estimate: true
+  learn: Opposed inner pitch pins rotate with the outer yaw ring and carry the motor
+    assembly. Orthogonal pins share the same 700 mm axial pivot plane. Retaining clips
+    and bearing proof tests remain required.
+  build:
+    method: purchased
+    cost_usd: 3
+    generator: pins
+    notes: Preliminary custom mechanism; supplier fit and proof load remain required.
+  cad:
+    generator: pins
+    parameters:
+      pins:
+      - start_mm:
+        - -28.8
+        - 0
+        - 10
+        axis:
+        - 1
+        - 0
+        - 0
+        radius_mm: 1.5
+        length_mm: 7
+      - start_mm:
+        - 21.8
+        - 0
+        - 10
+        axis:
+        - 1
+        - 0
+        - 0
+        radius_mm: 1.5
+        length_mm: 7
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: yaw
+    color: '#659097'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cad_mass:
+    shape_sha256: 8fb5a4c252a6a3d2a71e348fe4047581e2502feb1e016ec093000133d205b418
+    volume_m3: 9.896016858807849e-08
+    cg_local_body_m:
+    - -0.01
+    - -1.1488141071670692e-18
+    - 1.649030491496004e-19
+    inertia_per_kg_m2:
+    - - 0.0006447358333333333
+      - -6.892884643002412e-21
+      - 1.903564249155791e-22
+    - - -6.892884643002412e-21
+      - 1.1250000000000021e-06
+      - 1.81005280466737e-24
+    - - 1.903564249155791e-22
+      - 1.81005280466737e-24
+      - 0.0006447358333333332
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+  cg_offset_m: 0.01
+  engineering:
+    function: Opposed inner pitch pins rotate with the outer yaw ring and carry the
+      motor assembly.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - motor_thrust
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- id: servo_horns
+  type: commercial
+  parent: servo_support
+  position_m: 0.609
+  geometry:
+    length_m: 0.006
+    radius_m: 0.024
+  material: ASA
+  mass_kg: 6.655778195895337e-05
+  estimate: true
+  learn: Two custom 6 mm radius horns drive the gimbal through articulated pushrods.
+    The horns are ideal geometric arms; spline adapters, rod ends and loaded backlash
+    require supplier drawings and bench qualification before fabrication.
+  build:
+    method: printed
+    cost_usd: 3
+    generator: links
+    notes: Preliminary custom mechanism; supplier fit and proof load remain required.
+  print:
+    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
+    layer_mm: 0.2
+    infill_pct: 100
+    walls: 4
+    supports: false
+    line_width_mm: 0.4
+    rotation_deg:
+    - 0
+    - 0
+    - 0
+  cad:
+    generator: links
+    parameters:
+      radius_mm: 1.5
+      segments_mm:
+      - - - 22
+          - 0
+          - 3
+        - - 28
+          - 0
+          - 3
+      - - - 0
+          - 22
+          - 3
+        - - 0
+          - 28
+          - 3
+      end_trim_mm: 1.6
+    mass_basis: volume_density
+    role: manufactured
+    moving_group: fixed
+    color: '#659097'
+    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
+      remain required.
+  cg_offset_m: 0.0029999999999999996
+  cad_mass:
+    shape_sha256: 1a5bcdf7d726b4606fbcea2cce2b74e51269923ff3a514a14d88236afb55eac7
+    volume_m3: 6.22035345410779e-08
+    cg_local_body_m:
+    - -0.0029999999999999996
+    - 0.012099999999999996
+    - -0.0121
+    inertia_per_kg_m2:
+    - - 0.0002949958333333333
+      - -7.310635227426803e-21
+      - 0.0
+    - - -7.310635227426803e-21
+      - 0.0001480604166666667
+      - -0.00014641
+    - - 0.0
+      - -0.00014641
+      - 0.00014806041666666668
+    basis: bulk-density manufactured solid
+  engineering:
+    function: Two custom 6 mm radius horns drive the gimbal through articulated pushrods.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.15
+      hole_diameter: 0.1
+    load_cases:
+    - acceleration
+    - gimbal_servo
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
 design:
   mode: tvc_finless
   mass_allowance_kg: 0.05
@@ -359,7 +1526,7 @@ tvc:
   servo_ids:
   - servo_pitch
   - servo_yaw
-  linkage_ratio: 1
+  linkage_ratio: 0.16
 netlist:
 - net: VBAT
   from: battery
@@ -400,3 +1567,7 @@ netlist:
   from: flight_computer
   to: servo_yaw
   pin: null
+- net: HIGH_G_SPI
+  from: flight_computer
+  to: high_g_accel
+  gauge_awg: 28

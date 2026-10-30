@@ -43,3 +43,7 @@ response under load and supply/temperature variation. Compare logged acceleratio
 attitude, temperatures, voltage, actuator response and flight-derived aero against
 preflight uncertainty bands. Report model-domain violations, failures and unexplained
 residuals; do not infer physical accuracy from the WO-02 integrator agreement.
+
+## Traceability and vibration-risk carry-through
+
+Freeze explicit operating limits and launch/service procedures from the verified envelope. Record exact as-flown modules, component revisions, motor/lot and configuration hashes; retain staged flight progression and every existing release gate.

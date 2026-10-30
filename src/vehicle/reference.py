@@ -118,6 +118,12 @@ def build_reference(
         coordinate_system_orientation="combustion_chamber_to_nozzle",
     )
     rocket.add_motor(ref_motor, position=part.position_m)
+    if flight_inertia:
+        # RocketPy 1.13 offers constant eccentricity only. Declare the liftoff
+        # offset, and report its depletion-dependent discrepancy in the adapter.
+        # Body axes in the flight solver: e1=body+y, e2=body+z, e3=body+x.
+        lateral = mass_properties(vehicle).cg_lateral_m
+        rocket.add_cm_eccentricity(*lateral)
     for p in vehicle.parts:
         g = p.geometry
         if p.type == "nose_cone":

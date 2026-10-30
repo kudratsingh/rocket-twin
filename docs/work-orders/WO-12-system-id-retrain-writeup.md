@@ -42,3 +42,7 @@ tests; do not fit unidentifiable parameters to a single trajectory. Preserve dat
 identity, confidence intervals and held-out tests/flights. Re-run applicable
 structural, thermal, clearance and RocketPy comparisons after changes, then compare
 PID/RL fairly before/after. Publish negative findings and remaining limitations.
+
+## Traceability and vibration-risk carry-through
+
+Correlate mode/attachment/thermal/actuator/aero models with measured and flight evidence. Update uncertainty and repeat affected comparisons using separate calibration and evaluation data; preserve original evidence and honest negative results.

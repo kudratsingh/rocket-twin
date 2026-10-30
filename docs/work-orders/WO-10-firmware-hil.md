@@ -46,3 +46,7 @@ from WO-06; test saturation, overtemperature, out-of-envelope and sensor-clip
 responses. HIL uses the shared improved core and exact configuration hashes.
 Verify independent recovery across failure and burnout transitions. Owner line-by-
 line firmware/abort review and physical bench acceptance remain mandatory.
+
+## Traceability and vibration-risk carry-through
+
+Verify integrated timing, configuration/module identity checks, sensor vibration/aliasing and fault responses, recovery independence and complete logging through bench/HIL. Exercise common-cause faults from the FMEA. Retain owner firmware/abort review.

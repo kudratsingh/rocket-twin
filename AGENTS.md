@@ -29,3 +29,12 @@ a visibility change.
 - Never force-push shared branches, commit secrets/generated bulk data, or claim
   a push/PR succeeded without confirming it. If GitHub access is blocked, record
   the concrete blocker and continue useful local development.
+
+## Parallel work
+
+The owner explicitly authorizes subagents to accelerate this work and prefers
+lower-cost models for bounded routine tasks. Delegate independent implementation,
+traceability/document generation and plots with clear file ownership; retain
+critical engineering decisions and integrated acceptance with the primary agent.
+Avoid overlapping edits and an extra independent-review pass. Verify delegated
+outputs through the same required checks before publishing.

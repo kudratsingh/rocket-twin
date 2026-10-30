@@ -11,7 +11,6 @@ from dataclasses import dataclass
 import numpy as np
 from numpy.typing import NDArray
 
-from src.vehicle.geometry import shape_properties
 from src.vehicle.schema import Vehicle
 
 
@@ -35,18 +34,18 @@ def mass_properties(vehicle: Vehicle, burn_fraction: float = 0) -> MassPropertie
     total = sum(budget.values())
     cg = sum(budget[p.id] * p.cg_station_m for p in vehicle.parts) / total
     lateral = tuple(
-        sum(budget[p.id] * p.lateral_offset_m[i] for p in vehicle.parts) / total for i in (0, 1)
+        sum(budget[p.id] * p.cg_lateral_m[i] for p in vehicle.parts) / total for i in (0, 1)
     )
     inertia = np.zeros((3, 3))
     for p in vehicle.parts:
-        m, g = budget[p.id], p.geometry
-        local = shape_properties(p.type, g).inertia_per_kg_m2 * m
+        m = budget[p.id]
+        local = p.inertia_per_kg_m2 * m
         # Body +x points noseward, opposite the positive-aft station coordinate.
         displacement = np.array(
             [
                 cg - p.cg_station_m,
-                p.lateral_offset_m[0] - lateral[0],
-                p.lateral_offset_m[1] - lateral[1],
+                p.cg_lateral_m[0] - lateral[0],
+                p.cg_lateral_m[1] - lateral[1],
             ]
         )
         inertia += local + m * (

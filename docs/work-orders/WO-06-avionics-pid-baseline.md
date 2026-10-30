@@ -61,3 +61,7 @@ configuration. Re-run applicable RocketPy comparisons with changed models and
 retain the original WO-02 results. Passing the PID metric without these fidelity
 checks does not complete this work order. Separate simulation acceptance from
 owner measurements, HIL, WO-10 review and flight release.
+
+## Traceability and vibration-risk carry-through
+
+Close identified actuator, vibration/sensor and aerodynamic-model risks at model scope before PID acceptance. Include validity bounds, resonance/aliasing/coupling, stiffness/temperature uncertainty and simulated fault responses; physical qualification remains later.

@@ -1,9 +1,15 @@
 # Environment spec
 
-WO-01 local environment is runnable. Planned later stacks in the table below are
-not yet resolved pins. `requirements-wo01.txt` pins the direct dependencies used
-now: Python 3.11.16, NumPy 2.4.6, PyYAML 6.0.3, Pydantic 2.13.4, pytest 9.1.1,
-ruff 0.16.3, black 26.5.1 and mypy 2.3.0. Python itself is installed separately.
+Verified local Apple Silicon environment (2026-10-30): Python 3.11.16, uv 0.12.17,
+NumPy 2.4.6, PyYAML 6.0.3, Pydantic 2.13.4, pytest 9.1.1, Ruff 0.16.3,
+Black 26.5.1, mypy 2.3.0, JAX/jaxlib 0.4.38, RocketPy 1.13.0, SciPy 1.17.1,
+PyArrow 23.0.1, CadQuery 2.8.0/cadquery-ocp 7.9.3.1.1, trimesh 4.11.5,
+Gmsh 4.15.2, FastAPI 0.162.0, uvicorn 0.41.0, httpx 0.28.1 and Matplotlib
+3.11.2. CalculiX `ccx` 2.23 is installed and was executed in recorded WO-03 runs.
+The `cairosvg` Python package is absent; the service diagram generator uses Pillow
+for PNG and also emits source SVG. These are installed-environment facts, not a
+claim that every dependency is reproducibly locked; a complete `uv.lock` and fresh
+Mac/full-stack install verification remain pending.
 
 Initial setup could not reach PyPI due to shell DNS restrictions. Local Python 3.11
 packages were copied into this repository's `.venv` for checks; no packages in other
@@ -13,33 +19,33 @@ WO-01 pins plus RocketPy 1.13.0/SciPy 1.17.1 on a clean Linux runner; its hosted
 check results are linked from PR #1. Use `make setup` on a network-enabled machine for the minimal WO-01 setup;
 use `make check smoke tiny` in the existing local environment. The owner subsequently
 installed RocketPy 1.13.0 (`make setup-reference`), and the static reference comparison
-has passed. SciPy resolved to 1.17.1. JAX is now CPU-tested in WO-02; CAD, web and firmware remain untested;
-later work orders resolve their pins. Matplotlib's cache is kept in ignored
+has passed. SciPy resolved to 1.17.1. JAX is CPU-tested in WO-02; CadQuery/CAD and
+the local FastAPI stack are installed and exercised for WO-03. Web runtime/build
+and firmware toolchain remain unverified; later work orders resolve their pins.
+Matplotlib's cache is kept in ignored
 `.cache/matplotlib/` by Make, avoiding writes outside the workspace.
 
-## Pin table (agent fills exact values in WO-01/03/04 and records them here)
+## Pin table (installed versions verified 2026-10-30; other stacks remain pending)
 
-| Component | Pin | Why |
+| Component | Verified pin / state | Why |
 |---|---|---|
 | Python | 3.11.x | CadQuery/OCP 8.x needs ≥ 3.11; JAX, RocketPy, cvxpy all fine on 3.11 |
-| uv | record exact | Full lock pending network-enabled resolution |
-| JAX / jaxlib | 0.4.38 / 0.4.38; CPU for WO-02; CUDA extra only on approved GPU runs | Physics core + PPO (ADR-0001) |
+| uv | 0.12.17 (Homebrew, arm64) | Environment and dependency management |
+| JAX / jaxlib | 0.4.38 / 0.4.38; CPU tested; GPU only on approved runs | Physics core + PPO (ADR-0001) |
 | NumPy | 2.4.6 | RocketPy ≥ 1.4 supports NumPy 2 |
 | RocketPy | 1.13.0 (installed and tested) | Reference for mass/CG/CP and unguided flight validation |
-| CadQuery | latest release with OCP 7.9/8.x (record exact) | Parametric parts; `cadquery-ocp` wheel |
-| trimesh | record exact | STL → GLB conversion for the viewer |
+| CadQuery / cadquery-ocp | 2.8.0 / 7.9.3.1.1 | Parametric parts; STEP/STL/GLB exports |
+| trimesh | 4.11.5 | Mesh processing and GLB conversion |
 | pydantic | 2.13.4 | Vehicle spec schema and validation |
-| cvxpy + Clarabel | record exact | G-FOLD convex solve (ADR-0004) |
-| FastAPI + uvicorn | record exact | API |
+| cvxpy + Clarabel | not installed/pinned | G-FOLD convex solve (ADR-0004) |
+| FastAPI + uvicorn | 0.162.0 / 0.41.0 (installed) | API |
 | pyarrow | 23.0.1 | Parquet telemetry |
 | Node | 22 LTS | Frontend |
-| Vite / React / TypeScript | record exact | Frontend |
+| Vite / React / TypeScript | see `web/package-lock.json`; not Python packages | Frontend |
 | three / @react-three/fiber / @react-three/drei | record exact | 3D viewer |
 | uPlot | record exact | Telemetry plots (fast at 500 Hz × many channels) |
 | zustand | record exact | Frontend state |
-| PlatformIO | record exact | Firmware build (WO-10) |
-| Teensyduino core | record exact | Teensy 4.1 target |
-| Sensor libraries (ICM-42688 / BMI088, BMP390) | record exact | Firmware drivers |
+| PlatformIO / Teensyduino / sensor libraries | not installed/pinned in Python env | Firmware build (WO-10) |
 
 Record resolved pins in `uv.lock`, `web/package-lock.json`, `firmware/platformio.ini` and in
 this table.
@@ -142,11 +148,34 @@ on clean Linux. Full project lock/CAD/web stacks remain separate.
 
 ## WO-03 engineering expansion (ADR-0007)
 
-Proposed analysis pins: Gmsh 4.15.2 (meshing/API) and CalculiX 2.23 (structural/
-thermal solver). Neither is installed or verified on this host at the scope change.
-Execution, known-case and convergence evidence are open WO-03 requirements. The
-existing SciPy 1.17.1/NumPy 2.4.6 support hand-calculation/transient-model work.
-No solver result is inferred from an export or a successful package import.
-Keep display tessellation separate from analysis discretization; record solver,
-mesh, material and input identities in every analysis report. No paid compute or
-OpenFOAM installation is authorized by this planning update.
+Gmsh 4.15.2 and CalculiX 2.23 are now installed and actually executed in local
+WO-03 runs. `runs/wo03-vibration-20261030T174152408940Z/record.json` records
+analytical fixtures, mesh levels, solver version, reactions/equilibrium and a
+three-level fin-shell convergence check. These verify solver operation and those
+calculations only; they do not qualify rocket materials or attachment/load paths.
+SciPy 1.17.1/NumPy 2.4.6 support hand and transient-model calculations. Keep display
+tessellation separate from analysis discretization; record solver, mesh, material
+and input identities. No paid compute or OpenFOAM was used.
+
+## WO-03 execution host, verified 2026-10-30
+
+Installed versions: Gmsh 4.15.2; CalculiX `ccx` 2.23 at `/opt/homebrew/bin/ccx`;
+CadQuery 2.8.0; cadquery-ocp 7.9.3.1.1; trimesh 4.11.5. The axial-bar known case
+matches expected displacement/stress to about 2.5e-7 relative and balances support
+reactions within 6e-9 N. A fin-shell model run at 10/7/5 mm mesh targets changed
+0.25% in displacement and 5.57% in regional stress between the final two meshes,
+meeting numerical convergence criteria for that idealized model only. Its ideal
+clamp and estimated properties do not prove actual fin/root strength. Vibration and
+flutter acceptance remains false.
+
+Use `XDG_CACHE_HOME="$PWD/.cache"` for CAD/Gmsh and
+`MPLCONFIGDIR="$PWD/.cache/matplotlib"` for plots. `make cad-reconcile` explicitly
+adopts new unmeasured CAD mass/centroid/inertia estimates; run `make cad` afterward
+to regenerate and verify exports. `make engineering` records preliminary screens
+and fields; `make engineering-benchmark` remains nonzero while expanded criteria
+are open. The current bounded thermal model uses an estimated external-case boundary
+and lumped part means; liner conduction uses simplified gap/contact links and
+approximate radiation, without resolved interfaces, bond-line conduction or spatial
+gradients. Hot-soak results exceed several part screening
+limits; these are open design findings, not qualification. Structural/thermal
+calculations do not authorize physical work.

@@ -158,3 +158,13 @@ limits and validation status. WO-03 exports versioned fields and identity/regist
 metadata, WO-04 implements the view/API, and WO-05 adds recorded case/run exploration.
 Calculated, estimated, measured and unavailable data remain explicit. Analysis runs
 backend/offline; the browser never becomes a physics or engineering solver.
+
+WO-03 also owns stable-ID requirements/verification and interface tables, an initial
+qualitative FMEA, and executed vibration/resonance/flutter screening (ADR-0007).
+These artifacts link actual parts, datums, tolerances, identities, load/thermal
+cases, evidence and later verification. Track site/equipment/supplier unknowns and
+common-cause control/recovery failures. Screens include hot/softened structure,
+attachment uncertainty and joint/gimbal/sensor/servo interactions; unresolved
+critical conclusions keep WO-03 open. The frontend exposes recorded traceability;
+WO-06–12 carry risks through modeling, fair PID/RL evaluation, owner acceptance,
+HIL, operating procedures and held-out measurement/flight correlation.

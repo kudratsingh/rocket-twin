@@ -16,6 +16,7 @@ from typing import Any
 import numpy as np
 
 from src.sim.frames import STANDARD_GRAVITY_M_S2 as G
+from src.vehicle.mass import mass_properties
 from src.vehicle.reference import build_reference
 from src.vehicle.schema import Vehicle
 
@@ -97,5 +98,9 @@ def reference_flight(
         "end_time_s": float(flight.t_final),
         "recovery_full_flight": full_recovery,
         "shared_inertia_input": True,
+        "lateral_cg_reference": "RocketPy constant liftoff eccentricity; twin depletes full 3D first moments",
+        "liftoff_lateral_cg_m": mass_properties(vehicle).cg_lateral_m,
+        "burnout_lateral_cg_m": mass_properties(vehicle, 1).cg_lateral_m,
+        "attitude_or_downrange_agreement_validated": False,
         "nozzle_pressure_correction": "zero; exit area unknown",
     }

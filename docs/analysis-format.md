@@ -38,3 +38,20 @@ runs can still be listed with the reason, but cannot attach to current geometry.
 The export tests use explicit synthetic fixtures; they are schema/transport tests,
 not structural or thermal evidence for this rocket. Actual analysis results remain
 open WO-03 deliverables until their solver/input/report records exist.
+
+The current producers are `scripts/wo03_engineering.py` (bounded part-mean thermal
+histories and elementary structural scalar screens) and `scripts/wo03_vibration.py`
+(executed single-fin shell fields through `src/analysis/fin_fields.py`). An entirely
+uncomputed quantity is exported as unavailable. The fin adapter verifies the source
+part shape, raw mesh and solver deck hashes, node/element counts and IDs before
+exporting SI displacement magnitudes and per-element maximum absolute spanwise
+normal stress. The latter is a component diagnostic, not a wood failure criterion
+or a structural design margin. Only the modeled fin instance is covered.
+
+Spatial assets embed the separate S6 analysis mesh and its hash, with an explicit
+affine registration from its millimetre midsurface to the viewer's metre frame.
+No solver value is implicitly attached to a CAD outer-face vertex. Known-case and
+mesh-convergence flags can mark numerical verification while material, root-joint
+and physical validation remain open. Regenerate CAD/analysis together after a
+configuration or generator change; matching old part geometry alone does not make
+an old whole-vehicle result current.

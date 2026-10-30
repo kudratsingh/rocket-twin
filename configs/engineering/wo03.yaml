@@ -1,0 +1,167 @@
+version: wo03-engineering-inputs-v1
+scope: Preliminary bounded calculations; property estimates and external case-temperature
+  scenarios are not measured qualification.
+material_sources:
+  ASA: https://prusament.com/wp-content/uploads/2022/10/ASA_Prusament_TDS_2022_16_EN.pdf
+  wood: https://research.fs.usda.gov/fpl/wood-handbook
+  epoxy_reference: https://www.westsystem.com/app/uploads/2022/12/105-206-Epoxy-Resin.pdf
+materials:
+  ASA:
+    youngs_pa: 1000000000.0
+    strength_pa: 8000000.0
+    poisson: 0.35
+    cp_j_kg_k: 1400
+    conductivity_w_m_k: 0.18
+    cte_per_k: 9.0e-05
+    limit_c: 60
+    basis: Estimated lower-bound printed strength/stiffness and loaded screening temperature.
+      Manufacturer reports 11 MPa interlayer adhesion and 86/93 C HDT under particular
+      tests, not service allowables. Coupon/orientation/creep verification required.
+  plywood:
+    youngs_pa: 2000000000.0
+    strength_pa: 10000000.0
+    poisson: 0.25
+    cp_j_kg_k: 1400
+    conductivity_w_m_k: 0.15
+    cte_per_k: 3.0e-05
+    limit_c: 45
+    basis: Estimated weak-direction birch-ply screen; supplier grade, grain, moisture,
+      bond and hot coupons unverified. 45 C is a conservative bonded-assembly screen,
+      below reference epoxy HDT; it is not a measured plywood limit.
+  cardboard:
+    youngs_pa: 500000000.0
+    strength_pa: 2000000.0
+    poisson: 0.3
+    cp_j_kg_k: 1400
+    conductivity_w_m_k: 0.12
+    cte_per_k: 8.0e-05
+    limit_c: 45
+    basis: Estimated kraft strength/stiffness; humidity, local bearing and adhesive
+      dominate. Not a supplier allowable.
+  phenolic:
+    youngs_pa: 3000000000.0
+    strength_pa: 20000000.0
+    poisson: 0.3
+    cp_j_kg_k: 1200
+    conductivity_w_m_k: 0.2
+    cte_per_k: 3.0e-05
+    limit_c: 120
+    basis: Unverified purchased liner grade; deliberately provisional property/temperature
+      bounds, requiring supplier data and heat tests.
+  commercial:
+    cp_j_kg_k: 1000
+    limit_c: 60
+    basis: Generic electronics packaging screen; use each exact component rating before
+      physical release.
+  epoxy:
+    youngs_pa: 2000000000.0
+    strength_pa: 2000000.0
+    poisson: 0.3
+    cp_j_kg_k: 1200
+    conductivity_w_m_k: 0.2
+    cte_per_k: 5.0e-05
+    limit_c: 45
+    basis: Estimated wood-bond lower bound; WEST105/206 reference HDT 50.6C and onset
+      Tg52.2C do not establish a hot bond allowable. Coupon/cure/temperature qualification
+      required.
+loads:
+  thrust_multiplier: 1.15
+  design_factor: 3.0
+  fin_dynamic_pressure_pa: 25000
+  fin_alpha_deg: 5
+  fin_deflection_limit_m: 0.001
+  guide_side_force_n: 10
+  recovery_velocity_mps:
+  - 5
+  - 20.4
+  recovery_stopping_distance_m:
+  - 0.3
+  - 0.6
+  recovery_basis: 5 m/s nominal-opening screen; 20.4 m/s is the archived late-G80-delay
+    off-nominal probe, not an approved delay. Constant deceleration over stated cord/canopy
+    travel; opening shock factor remains an uncertainty.
+thermal:
+  ambient_c:
+  - 15
+  - 35
+  external_case_peak_c:
+  - 120
+  - 250
+  post_burn_cooling_tau_s:
+  - 30
+  - 120
+  soak_s: 300
+  air_conductivity_w_m_k:
+  - 0.026
+  - 0.04
+  surface_h_w_m2_k:
+  - 5
+  - 15
+  emissivity:
+  - 0.5
+  - 0.9
+  contact_conductance_w_k:
+  - 0.02
+  - 0.2
+  electronics_heat_w:
+  - 0.5
+  - 1.0
+  case_boundary_basis: Explicit exploratory exterior-case-temperature bounds; no published
+    or measured history for the exact offered G80/G54/G12 configuration is established.
+    Step to peak at ignition through source burnout; exponential decay afterward.
+    No internal propellant/combustion model or certification claim.
+  material_property_uncertainty_fraction: 0.3
+power:
+  servo_rail_v: 5
+  simultaneous_servo_stall_a: 2
+  logic_peak_a: 0.5
+  regulator_required_peak_a: 3
+  regulator_efficiency_lower: 0.85
+  recovery_supply: Dedicated battery and arming/isolation required; shared main-battery
+    net is an unresolved integration defect until corrected.
+  recovery_output_pulse_a: 1
+  recovery_output_pulse_s: 1
+  recovery_output_v: 6
+  basis: Preliminary circuit-class assumptions, not measured or an igniter qualification;
+    exact battery, regulator, connector, fuse, boost and initiator ratings remain
+    WO-09/10.
+vibration:
+  youngs_fraction:
+  - 0.5
+  - 1.0
+  joint_stiffness_fraction:
+  - 0.1
+  - 1.0
+  joint_zone_half_length_m: 0.01
+  damping_ratio:
+  - 0.005
+  - 0.03
+  propulsion_excitation_band_hz:
+  - 5
+  - 300
+  propulsion_spectrum_basis: Exploratory broadband range, not an exact-motor measured
+    spectrum. No resonance exclusion/clearance claimed.
+  servo_model_omega_rad_s: 20
+  sensor_mount_stiffness_n_m:
+  - 1000
+  - 20000
+  sensor_mount_stiffness_basis: Unmeasured carrier/fastener stiffness range; exact
+    mount geometry and installed modal response remain required.
+  shear_modulus_pa:
+  - 200000000.0
+  - 800000000.0
+  shear_modulus_basis: Estimated plywood effective material shear range, unmeasured;
+    torsion/root compliance and hot properties require coupons/installed tests.
+  air_temperature_k:
+  - 260
+  - 310
+  pressure_ratio:
+  - 0.8
+  - 1.0
+  speed_envelope_mps: 300
+  speed_envelope_basis: Exploratory conservative speed upper bound until current reconciled
+    full-flight envelopes are attached; preserved WO02 is historical only.
+  flutter_target_ratio_provisional: 1.2
+  model_validity: Linear free-free 1D body beam and clamped fin shell; NACA4197 Eq18
+    is preliminary bending-torsion only. Constant-thickness tapered fins violate constant
+    thickness ratio; body/control/stall coupling remains unresolved.

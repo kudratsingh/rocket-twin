@@ -21,12 +21,16 @@ jobs:
           cache-dependency-path: |
             requirements-wo01.txt
             requirements-wo02.txt
-      - name: Install WO-01/02 and independent reference
+            requirements-wo03.txt
+      - name: Install WO-01–03 CPU dependencies and independent reference
         run: |
           python -m venv .venv
-          .venv/bin/python -m pip install -r requirements-wo02.txt
+          .venv/bin/python -m pip install -r requirements-wo03.txt
       - name: Check, test and compare all modes
         run: make check smoke tiny benchmark
 
       - name: WO-02 delivered-performance study
         run: .venv/bin/python scripts/wo02_sim.py --preset sim --study --compare rocketpy --require-benchmark --summary-only --json-report
+
+      - name: Regenerate all CAD exports and recorded engineering screens
+        run: make cad engineering
