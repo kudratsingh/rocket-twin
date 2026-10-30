@@ -9,11 +9,13 @@ maximum practical conventional performance and committed PID-to-RL objectives
 remain active. Branch `wo-02-sim`: pure JAX 6-DOF core, source-based depletion, full
 variable inertia, actual aerodynamic surfaces, guide constraint, servo/sensor
 models and recovery event scaffolding are implemented. Known-answer tests cover
-frames/TVC, depletion, free fall, delay/limits/noise and a 4,096-environment step.
+frames/TVC, depletion, free fall, delay/limits/noise, irreversible guide release and
+a 4,096-environment step. [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2)
+merged after hosted CPU checks passed (60 tests).
 Local JAX execution awaits the requested CPU dependency install; PyPI DNS fails
 here. Existing 53 WO-01 tests still pass. No WO-02 completion is claimed yet.
 
-Follow-up in this WO: independent actual-mode RocketPy trajectory comparison,
+Active follow-up branch `wo-02-flight-validation`: independent actual-mode RocketPy trajectory comparison,
 G80/G54/G33/fixed-G12 delivered-performance trade, uncertainty/wind/recovery timing,
 telemetry and benchmark records. No controllers, physical work or paid runs.
 

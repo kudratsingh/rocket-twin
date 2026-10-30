@@ -8,7 +8,7 @@ permissions:
 jobs:
   preliminary-model:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,3 +24,6 @@ jobs:
           .venv/bin/python -m pip install -r requirements-wo02.txt
       - name: Check, test and compare all modes
         run: make check smoke tiny benchmark
+
+      - name: WO-02 delivered-performance study
+        run: .venv/bin/python scripts/wo02_sim.py --preset sim --study --compare rocketpy --require-benchmark --summary-only --json-report

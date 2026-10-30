@@ -1,0 +1,241 @@
+id: modular-performance-g33-hypothesis
+name: Performance G33 source hypothesis
+shared: ../platform/common-upper.yaml
+aero:
+  passive_stubs:
+    enabled: false
+    span_m: 0.02
+    count: 3
+    root_chord_m: 0.08
+    tip_chord_m: 0.04
+    sweep_m: 0.02
+    position_m: 0.65
+  cd_model:
+    type: empirical_mach_table
+    reference: Mandell et al.; preliminary shape/fin estimates, not calibrated drag
+    mach:
+    - 0
+    - 0.3
+    - 0.6
+    - 0.8
+    cd:
+    - 0.45
+    - 0.45
+    - 0.5
+    - 0.65
+    base_drag_cd: 0.12
+    estimate: true
+motor:
+  id: cti-g33-pro29-3g-source-hypothesis
+  curve: configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.eng
+  propellant_mass_kg: 0.089
+  casing_mass_kg: 0.10800000000000001
+  mount_position_m: 0.613
+  ignition_delay_s: 0
+  thrust_scale_range:
+  - 0.85
+  - 1.15
+  burn_time_s: 4.461
+  total_impulse_ns: 143.298266
+  average_thrust_n: 32.12245370993051
+  qualification:
+    certified_impulse_ns: 143.1
+    certified_average_thrust_n: 32.7
+    motor_type: commercial_solid_nonsparky
+    source: Published CTI Pro29-3G cert/manufacturer summary; native RSE discrepancy
+      retained; exact lot/California/availability pending
+    california_verified: false
+    exact_hardware_verified: false
+  cite: configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.yaml
+  estimate: true
+parts:
+- id: aft_shell
+  type: body_tube
+  parent: interface_coupler
+  position_m: 0.52
+  geometry:
+    length_m: 0.28
+    radius_m: 0.033
+    inner_radius_m: 0.0325
+    wall_m: 0.0005
+    od_m: 0.066
+  material: cardboard
+  mass_kg: 0.0234
+  estimate: true
+  learn: Interchangeable aft shell transfers fin, motor and guide loads through the
+    keyed coupler. Tube slots and local reinforcement depend on the actual mode; they
+    are not a hidden aerodynamic switch.
+  build:
+    method: cut
+    cost_usd: 6
+    generator: body_tube
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: aft_interface_hardware
+  type: commercial
+  parent: aft_shell
+  position_m: 0.53
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.01
+  estimate: true
+  learn: Positive axial stops, indexing keys and removable fasteners connect the aft
+    module. Repeated assembly, crushing, shear and retention loads must be verified
+    before swapping flight hardware.
+  build:
+    method: assembled
+    cost_usd: 8
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: motor_mount
+  type: motor_mount
+  parent: aft_shell
+  position_m: 0.6
+  geometry:
+    length_m: 0.19
+    radius_m: 0.017
+    inner_radius_m: 0.0145
+    id_m: 0.029
+  material: plywood
+  mass_kg: 0.022
+  estimate: true
+  learn: Custom centering/load-transfer assembly supports a certified commercial motor
+    and liner. This ring envelope is not a solid tube; gimbal or fixed retention and
+    thermal spacing require separate CAD.
+  build:
+    method: cut
+    cost_usd: 5
+    generator: motor_mount
+    notes: Added 10g reinforcement estimate for larger installed length/peak load;
+      proof testing later.
+- id: motor_liner
+  type: commercial
+  parent: aft_shell
+  position_m: 0.6
+  geometry:
+    bbox_m:
+    - 0.19
+    - 0.032
+    - 0.032
+  material: phenolic
+  mass_kg: 0.007
+  estimate: true
+  learn: A purchased phenolic or paper liner and air gap isolate the commercial case
+    from structural polymer. Its mass and envelope are provisional; case and surrounding
+    temperatures require measurement.
+  build:
+    method: purchased
+    cost_usd: 3
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: retention
+  type: commercial
+  parent: aft_shell
+  position_m: 0.78
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.008
+  estimate: true
+  learn: Positive removable motor retention transfers thrust and prevents ejection.
+    It must clear the nozzle and preserve all certified motor hardware without modification.
+  build:
+    method: assembled
+    cost_usd: 8
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: motor
+  type: motor
+  parent: motor_mount
+  position_m: 0.613
+  geometry:
+    length_m: 0.187
+    radius_m: 0.0145
+    diameter_m: 0.029
+  material: commercial
+  mass_kg: 0.197
+  estimate: true
+  learn: The full commercial motor mass is counted exactly once. Curve and envelope
+    are a documented numerical hypothesis until exact sold variant, measured CG and
+    installed case/nozzle dimensions are reconciled.
+  build:
+    method: purchased
+    cost_usd: 105
+    generator: motor
+    notes: Budget includes case/closure and one reload; not a current quote or stock
+      claim.
+  cg_offset_m: 0.0935
+  cite: configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.yaml
+- id: fin_set
+  type: fin_set
+  parent: aft_shell
+  position_m: 0.64
+  geometry:
+    length_m: 0.16
+    radius_m: 0.033
+    count: 3
+    span_m: 0.08
+    root_chord_m: 0.16
+    tip_chord_m: 0.08
+    sweep_m: 0.06
+    thickness_m: 0.002
+  material: plywood
+  mass_kg: 0.03168
+  estimate: true
+  learn: Three custom cut trapezoidal fins provide passive restoring torque. Planform
+    and radial mass moments enter the twin; grain direction, root attachment and flutter
+    remain later structural/aerodynamic checks.
+  build:
+    method: cut
+    cost_usd: 6
+    generator: trapezoidal_fin_set
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: fin_bonds
+  type: commercial
+  parent: aft_shell
+  position_m: 0.67
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.006
+  estimate: true
+  learn: Fin tabs and bonded root fillets transfer aerodynamic bending into the motor
+    support and shell. Adhesive mass is counted; coupon, pull and flutter limits remain
+    unverified.
+  build:
+    method: bonded
+    cost_usd: 3
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+design:
+  mode: performance
+  mass_allowance_kg: 0.05
+  rail_length_m: 1.5
+  minimum_rail_exit_mps: 15
+  screening_wind_mps: 2
+  rail_friction_n: 0.5
+  drag_coefficient_upper: 0.8
+  thrust_scale_lower: 0.85
+  minimum_static_margin_cal: 1.0
+  minimum_control_time_s: 0
+  target_control_time_s: 0
+  control_thrust_to_weight: 1.2
+  provenance: 'ADR-0006 and docs/wo01-rebaseline.md: provisional engineering screens,
+    not flight release criteria. 50 g vehicle mass growth is outside the physical
+    parts; rail model ignores mass loss conservatively. WO-02 complete alternative
+    geometry; +10g support reinforcement hypothesis, not proved fit.'

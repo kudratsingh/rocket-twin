@@ -548,3 +548,13 @@ netlist:
   from: battery
   to: independent_recovery
   gauge_awg: 24
+
+recovery:
+  canopy_diameter_m: 0.75
+  drag_coefficient: 0.75
+  trigger: independent_electronic_apogee
+  trigger_lag_s: 0.3
+  inflation_s: 0.3
+  independent_recovery_part: independent_recovery
+  estimate: true
+  cite: docs/wo01-rebaseline.md; canopy Cd, opening and trigger latency unmeasured

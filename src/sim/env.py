@@ -31,7 +31,7 @@ def reset(p: Params, key: Array) -> State:
     q = q / jnp.linalg.norm(q)
     rigid = jnp.concatenate((jnp.zeros(6), q, jnp.zeros(3)))
     bias = jax.random.normal(key, (6,)) * jnp.concatenate(
-        (jnp.full(3, p.sensors[0] * 0.25), jnp.full(3, p.sensors[1] * 0.25))
+        (jnp.full(3, p.sensors[0] * p.sensors[9]), jnp.full(3, p.sensors[1] * p.sensors[9]))
     )
     return State(
         jnp.array(0.0),

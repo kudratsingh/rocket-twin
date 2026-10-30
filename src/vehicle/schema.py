@@ -375,6 +375,15 @@ class Net(Model):
     pin: str | int | None = None
 
 
+class Recovery(Evidence):
+    canopy_diameter_m: Positive
+    drag_coefficient: float = Field(gt=0, le=2.0)
+    trigger: Literal["independent_electronic_apogee"]
+    trigger_lag_s: Nonnegative
+    inflation_s: Positive
+    independent_recovery_part: str
+
+
 class Vehicle(Model):
     id: str
     name: str
@@ -392,6 +401,7 @@ class Vehicle(Model):
     events: list[Event] = Field(default_factory=list)
     netlist: list[Net] = Field(default_factory=list)
     design: DesignRequirements | None = None
+    recovery: Recovery | None = None
 
     @field_validator("airframe")
     @classmethod
@@ -421,6 +431,8 @@ class Vehicle(Model):
                 raise ValueError(f"part {part.id} extends beyond vehicle")
         if sum(p.parent is None for p in self.parts) != 1:
             raise ValueError("parts tree must have one root")
+        if self.recovery and self.recovery.independent_recovery_part not in ids:
+            raise ValueError("unknown independent recovery hardware")
         for net in self.netlist:
             targets = [net.to] if isinstance(net.to, str) else net.to
             if not {net.source, *targets} <= ids:
