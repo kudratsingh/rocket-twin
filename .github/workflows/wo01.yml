@@ -34,3 +34,6 @@ jobs:
 
       - name: Regenerate all CAD exports and recorded engineering screens
         run: make cad engineering thermal-study
+
+      - name: Execute bounded design and fit studies and render actual geometry
+        run: make fin-study tolerance-study mount-study inspection-figures

@@ -1,0 +1,102 @@
+version: wo03-fin-design-screen-v1
+purpose: >-
+  Bounded static stiffness/mass study for candidate fin constructions. Not a material
+  selection, active-spec change, qualification, or flight release.
+source_notes:
+  evidence_file: docs/wo03-material-evidence.md
+  engineering_inputs: configs/engineering/wo03.yaml
+  plywood_density_basis: Aircraft-plywood supplier range 680-750 kg/m3; midpoint used.
+  plywood_modulus_strength_basis: >-
+    Weak-direction 2 GPa and 10 MPa values are engineering-screen estimates from
+    configs/engineering/wo03.yaml, not aircraft-plywood allowables. The separate
+    general-purpose source starts at 9 mm and is not transferred as a thin-fin test.
+  g10_modulus_basis: >-
+    The cited Alro G-10 column provides density and sample strengths but no modulus.
+    10 GPa is an explicit low-end screening estimate within a broad 10-25 GPa range.
+  balsa_basis: >-
+    XCell Duro-Balsa typical ingredient data. Source stock begins at 6.35 mm; the
+    2-4 mm core cases below are unsupported thickness transfers.
+  sandwich_basis: >-
+    No measured plywood/balsa sandwich properties are available. Skin strength,
+    core shear and adhesive are separate diagnostics; no isotropic von Mises claim.
+vehicles:
+  - id: G80-performance
+    path: configs/vehicle/platform/performance.yaml
+  - id: G54-conditional
+    path: configs/vehicle/wo02/performance-g54.yaml
+  - id: G12-finned
+    path: configs/vehicle/platform/tvc-finned.yaml
+  - id: G12-finless
+    path: configs/vehicle/platform/tvc-finless.yaml
+geometry:
+  preserve_current_fin_span_root_tip_sweep_count_and_tab: true
+materials:
+  plywood:
+    density_kg_m3: 715.0
+    density_range_kg_m3: [680.0, 750.0]
+    youngs_pa: 2000000000.0
+    weak_direction_screen_strength_pa: 10000000.0
+    thin_thickness_source_min_mm: 9.0
+    status: estimated; 2-6 mm strength and stiffness transfer unsupported
+  g10:
+    density_kg_m3: 1850.0
+    estimated_youngs_pa: 10000000000.0
+    estimated_youngs_range_pa: [10000000000.0, 25000000000.0]
+    sample_flexural_strength_pa: 413685420.0
+    thickness_source_range_mm: null
+    status: modulus and 1-3 mm thickness transfer estimated; sample strength is not an allowable
+  balsa_core:
+    density_kg_m3: 155.0
+    shear_modulus_pa: 162000000.0
+    typical_shear_strength_pa: 3000000.0
+    source_thickness_min_mm: 6.35
+    status: 2-4 mm core properties are unsupported thickness transfer estimates
+sandwich:
+  adhesive_areal_mass_kg_m2: 0.25
+  adhesive_basis: >-
+    Explicit total cured adhesive allowance per projected planform area, including
+    skin/core bonds and tab bonding; engineering estimate, not supplier or measured mass.
+  core_bending_contribution: omitted; faces carry bending, core carries transverse shear
+grids:
+  solid_plywood_thickness_mm: [2, 3, 4, 5, 6]
+  solid_g10_thickness_mm: [1, 2, 3]
+  sandwich_skin_thickness_mm: [0.8, 1.0, 1.2, 1.5]
+  sandwich_core_thickness_mm: [2, 3, 4]
+loads:
+  alpha_deg: 5.0
+  dynamic_pressure_pa:
+    - id: current-25kpa-5deg
+      value: 25000.0
+      context: Current WO-03 panel screen.
+    - id: bounded-40kpa-5deg
+      value: 40000.0
+      context: >-
+        Upper sensitivity bound at 5 degrees only; not all-alpha loading and not
+        an actual high-alpha G12 flight condition.
+  design_factor: 3.0
+  deflection_limit_m: 0.001
+  beam_model: >-
+    Existing finite-aspect-ratio panel normal-force slope; root moment at trapezoid
+    area centroid; tip-load Euler-Bernoulli displacement upper screen. Sandwich adds
+    Timoshenko core shear displacement using k=5/6 and root-chord by core-thickness area.
+mass_static:
+  growth_allowance_kg: 0.05
+  growth_location: each resolved mode's declared aft airframe station
+  burn_fraction_samples: [0.0, 1.0]
+reference_2d_screen:
+  report_path: build/wo03-vibration-20261030T174152408940Z/modular-performance-v1/fin/5.0/report.json
+  configuration_path: configs/vehicle/platform/performance.yaml
+  comparison_architecture: solid-plywood-2mm
+  comparison_load_case: current-25kpa-5deg
+  check_part_shape_identity: true
+  check_applied_force_match: true
+  note: >-
+    One archived S6 screen comparison only. Similar displacement is not physical
+    validation or calibration. The solver density is compared to the nominal plywood
+    mass density only to explain that density changes mass and modal response, not
+    linear static displacement for the same E, geometry and force.
+limitations:
+  - Material and thickness transfer uncertainty remains explicit; no coupons or certificates are inferred.
+  - Flutter, panel torsion, skin wrinkling, core crushing, peel, edge closeout, root tabs and bonds are unresolved.
+  - No thermal derating, fatigue, impact, manufacturing variability or drag penalty is modeled.
+  - Static comparisons use unchanged source vehicle geometry and do not mutate or adopt active specs.

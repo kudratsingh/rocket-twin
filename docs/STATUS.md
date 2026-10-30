@@ -4,39 +4,33 @@ Updated: 2026-10-30 (run IDs use UTC)
 
 ## Current work order
 
-**WO-03 active; owner resumed after computer update on 2026-10-30.**
-Expanded ADR-0007 structural, thermal, tolerance/motion, packaging and Analysis-export
-acceptance remains open. Gmsh 4.15.2 and CalculiX 2.23 are installed and executed.
-The [current checkpoint](wo03-current-checkpoint.md) summarizes current results;
-the earlier pause snapshot remains in [wo03-checkpoint.md](wo03-checkpoint.md).
-No WO-03 completion or physical/flight release is claimed.
+**WO-03 active; expanded acceptance remains open.** The custom build, maximum
+practical conventional performance and committed PID-to-RL objectives remain core.
+No WO-04 transition, physical qualification or flight release is claimed.
 
-Latest local evidence update (2026-10-30): scope/planning PR #4 and analysis-record
-transport PR #5 are merged; latest merged commit is
-`959432802888611ff2989a3638dd250195458b08`. The follow-on CAD/analysis PR is still
-pending; no PR number or merge is claimed. Latest CAD export
-`wo03-20261030T180113490389Z` passes export, six nominal-interface and both 25-pose
-nominal TVC sweep checks across six modes (67.41 s, unchanged inputs); expanded
-acceptance stays false. This records a 5.135 mm continuous cylindrical liner-to-shell
-radial bound, not full mechanism/tolerance/wiring qualification. The prior
-34.71-second export `wo03-20261030T175718278493Z` remains the valid neutral-export
-record without formal motion proof. Latest engineering export is
-`wo03-engineering-20261030T175947969565Z`; quantity exports are complete with explicit
-unavailable gimbal displacements, but numerical design acceptance remains false.
-`ccx` 2.23 and Gmsh 4.15.2 were actually executed: known analytical fixtures pass,
-and the sampled fin-shell structural model meets its three-level convergence threshold.
-This verifies those solver calculations, not the aircraft parts or load paths. A
-prior sampled two-axis motion check passed 25 poses to ±4.9847°, but the formal sweep
-is not yet recorded in a passing CAD run. Tolerance-expanded continuous motion,
-wiring, access, retention and service checks remain open. The fresh full flight evidence is
-`wo02-20261030T173859843386Z` (27 cases; benchmark passed; flight_ready remains false).
-Earlier failed CAD/engineering evidence remains in its original run records.
-`wo03-vibration-20261030T175839356500Z` is the latest completed integrated vibration
-run; known cases and applicable G80/G12-finned/G54 spatial-field consumers pass, while
-finless has no applicable fin field and overall vibration/flutter acceptance remains
-false. See [current checkpoint](wo03-current-checkpoint.md) and
-[quantitative results](results.md) for numerical failures and evidence limits.
-Original WO-02 baseline records remain preserved and unchanged.
+[CAD/analysis PR #6](https://github.com/kudratsingh/rocket-twin/pull/6) and
+[thermal refinement PR #7](https://github.com/kudratsingh/rocket-twin/pull/7) merged
+after their exact-head hosted CPU checks passed. Latest merged commit:
+`a617b241fc221131148c1233b266f553e0162fdb`. Planning PR #4 and Analysis transport
+PR #5 are also merged. The CAD test's initial 12 nm cross-platform centroid
+roundoff failure was corrected with a documented 0.1 micrometre numerical
+comparison tolerance; actual geometry/source identity checks remain enforced.
+
+All six CAD variants export valid solids with passing nominal interface checks,
+both 25-pose TVC sweeps and a 5.135 mm cylindrical liner/shell bound. Full tolerance,
+wiring, access, retention and packing acceptance remain open. The fresh 27-case
+flight study passes the 5% RocketPy benchmark; its results remain distinct from the
+preserved pre-CAD WO-02 baseline. Executed known cases, fin FEA convergence, body
+modes and Analysis consumers pass their numerical checks, while fin strength/
+deflection, flutter validity and temperature conclusions remain adverse/unresolved.
+
+The [opaque-wall thermal refinement](wo03-thermal-refinement.md) resolves liner
+radial conduction and avoids radiation through modeled shields. It still fails
+several provisional hot-soak limits. The independent fit, fin-construction,
+recovery-power and motor-support proposals keep active geometry unchanged and
+retain failed screens. See [current checkpoint](wo03-current-checkpoint.md) and
+[results](results.md) for source identities, scope, limitations and next corrections.
+No purchase, physical work or paid compute occurred.
 
 ### Completed WO-02 milestone
 
@@ -61,7 +55,7 @@ G12 leads calm altitude but fails the conservative
 No hardware/motor/delay choice is frozen. G25W remains quarantined.
 
 Remaining gates: exact motor/source/hardware/lot/California/stock/club evidence;
-actual site/altitude/footprint and guide; high-g sensor selection for G80/G54;
+actual site/altitude/footprint and guide; high-g sensor calibration and packaging for G80/G54;
 CAD/measured mass, structural/thermal/recovery tests; PID authority then committed
 RL, HIL and finless burnout transition. Custom mechanical work, maximum practical
 conventional performance and serious PID-to-RL are all retained. No purchases,

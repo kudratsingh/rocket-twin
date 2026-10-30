@@ -1,19 +1,54 @@
 version: wo03-traceability-v1
-status: Living matrix with executed records linked; expanded WO-03 acceptance remains open and no physical qualification is claimed.
+status: Living matrix with executed records linked; expanded WO-03 acceptance remains open and no physical
+  qualification is claimed.
 expanded_wo03_acceptance: open
 evidence_sources:
-  - path: runs/wo03-engineering-20261030T175947969565Z/record.json
-    scope: Latest bounded preliminary structural and thermal screens for G80, G54, G12-F and G12-L; run records unchanged inputs and per-vehicle results.
-    limitation: Engineering benchmark and flight_ready are false. Only quantities represented by the screens have numerical results; other coverage remains unavailable, never zero or an inferred pass. Estimated properties/case bounds, negative margins and open strength, heat, buckling, packaging and power issues remain unresolved.
-  - path: runs/wo03-vibration-20261030T175839356500Z/record.json
-    scope: Latest executed known cases/convergence and three finned-mode spatial exports with consumer checks; inputs are identity-recorded.
-    limitation: Vibration/flutter acceptance and expanded WO-03 benchmark are false. Known/convergence checks and spatial export consumption do not qualify the vehicle. Attachment/contact, temperature-dependent properties, propulsion/control excitation, sensor aliasing and full aeroelastic coupling remain open; no flutter pass.
-  - path: runs/wo02-20261030T173859843386Z/record.json
-    scope: Historical WO-02 simulation benchmark for source-hypothesis cases; nominal actual-mode reference comparisons and 4096-env CPU step are recorded.
-    limitation: Simulation only, not flight evidence; flight_ready is false. Does not verify the current WO-03 CAD, structural/thermal margins, tolerances, recovery hardware or physical control qualification.
-  - path: runs/wo03-20261030T180113490389Z/record.json
-    scope: Latest CAD/export benchmark; 67.41 seconds, inputs unchanged, CAD export benchmark passed, six nominal interfaces and both sampled 25-pose sweeps passed.
-    limitation: Expanded WO-03 benchmark remains false and reconciled_estimates is false. Sweeps explicitly do not verify joint fit or continuous full-mechanism motion; CAD mass remains unmeasured, and solver/strength/thermal, retention, packing, independent battery and physical validation gates remain open.
+- path: runs/wo03-engineering-20261030T175947969565Z/record.json
+  scope: Latest bounded preliminary structural and thermal screens for G80, G54, G12-F and G12-L; run
+    records unchanged inputs and per-vehicle results.
+  limitation: Engineering benchmark and flight_ready are false. Only quantities represented by the screens
+    have numerical results; other coverage remains unavailable, never zero or an inferred pass. Estimated
+    properties/case bounds, negative margins and open strength, heat, buckling, packaging and power issues
+    remain unresolved.
+- path: runs/wo03-vibration-20261030T175839356500Z/record.json
+  scope: Latest executed known cases/convergence and three finned-mode spatial exports with consumer checks;
+    inputs are identity-recorded.
+  limitation: Vibration/flutter acceptance and expanded WO-03 benchmark are false. Known/convergence checks
+    and spatial export consumption do not qualify the vehicle. Attachment/contact, temperature-dependent
+    properties, propulsion/control excitation, sensor aliasing and full aeroelastic coupling remain open;
+    no flutter pass.
+- path: runs/wo02-20261030T173859843386Z/record.json
+  scope: Historical WO-02 simulation benchmark for source-hypothesis cases; nominal actual-mode reference
+    comparisons and 4096-env CPU step are recorded.
+  limitation: Simulation only, not flight evidence; flight_ready is false. Does not verify the current
+    WO-03 CAD, structural/thermal margins, tolerances, recovery hardware or physical control qualification.
+- path: runs/wo03-20261030T180113490389Z/record.json
+  scope: Latest CAD/export benchmark; 67.41 seconds, inputs unchanged, CAD export benchmark passed, six
+    nominal interfaces and both sampled 25-pose sweeps passed.
+  limitation: Expanded WO-03 benchmark remains false and reconciled_estimates is false. Sweeps explicitly
+    do not verify joint fit or continuous full-mechanism motion; CAD mass remains unmeasured, and solver/strength/thermal,
+    retention, packing, independent battery and physical validation gates remain open.
+- path: runs/wo03-thermal-20261030T182422090687Z/record.json
+  scope: Alternative opaque-wall/radial-liner model with analytic fixtures, three-level refinement and
+    identity-bound part-mean exports.
+  limitation: Upper exploratory case still fails temperature screens; moving 3D exposure, material/contact
+    data and physical temperatures remain unvalidated.
+- path: runs/wo03-tolerances-20261030T182928948369Z/record.json
+  scope: Manufacturing, material-domain fit and out-of-domain independent temperature sensitivities; source
+    snapshots unchanged.
+  limitation: Coupler, key-flank and liner/mount failures remain; purchased details, unilateral positioning,
+    real paired temperatures and continuous mechanism clearance are unavailable.
+- path: runs/wo03-fin-design-20261030T184422172911Z/record.json
+  scope: Forty construction/planform alternatives, distributed and upper-bound displacement screens, component
+    stress and static growth overlays.
+  limitation: Proposal comparison only. No material, fin or geometry adopted; root/bond/flutter/hot-property
+    qualifications remain open.
+- path: runs/wo03-mount-loadpath-20261030T183924533321Z/record.json
+  scope: Four unchanged-source copy models of an extended support tube and internal stop with mass/CG/inertia
+    and hand load-path screens.
+  limitation: No active adoption. Full-length Euler knockdown is an explicit sensitivity, not actual buckling
+    evidence; bond layers, local ring loads, bidirectional retention and downstream pin/frame/thermal
+    paths remain open.
 configurations:
   G80: configs/vehicle/platform/performance.yaml
   G54: configs/vehicle/wo02/performance-g54.yaml
@@ -128,6 +163,7 @@ requirements:
   - '11'
   evidence:
   - runs/wo02-20261030T173859843386Z/record.json
+  - runs/wo03-fin-design-20261030T184422172911Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-CONTROL-001
@@ -225,6 +261,7 @@ requirements:
   - 09
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
+  - runs/wo03-mount-loadpath-20261030T183924533321Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-LOAD-002
@@ -251,6 +288,8 @@ requirements:
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-vibration-20261030T175839356500Z/record.json
+  - runs/wo03-fin-design-20261030T184422172911Z/record.json
+  - runs/wo03-mount-loadpath-20261030T183924533321Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-THERM-001
@@ -278,6 +317,7 @@ requirements:
   - '12'
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
+  - runs/wo03-thermal-20261030T182422090687Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-FIT-001
@@ -301,6 +341,7 @@ requirements:
   - 09
   evidence:
   - runs/wo03-20261030T180113490389Z/record.json
+  - runs/wo03-tolerances-20261030T182928948369Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-MOTION-001
@@ -331,6 +372,7 @@ requirements:
   - '10'
   evidence:
   - runs/wo03-vibration-20261030T175839356500Z/record.json
+  - runs/wo03-tolerances-20261030T182928948369Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-RECOVERY-001
@@ -381,6 +423,7 @@ requirements:
   - '11'
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
+  - docs/wo03-recovery-power-study.md
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-SENSOR-001
@@ -434,6 +477,7 @@ requirements:
   - '10'
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
+  - docs/wo03-recovery-power-study.md
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-CONFIG-001
@@ -578,6 +622,8 @@ requirements:
   - '12'
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
+  - runs/wo03-thermal-20261030T182422090687Z/record.json
+  - runs/wo03-tolerances-20261030T182928948369Z/record.json
   status: export_contract_verified
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-ABORT-001

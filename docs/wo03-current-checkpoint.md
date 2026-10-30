@@ -8,9 +8,12 @@ The earlier pre-resume snapshot is retained in [wo03-checkpoint.md](wo03-checkpo
 
 ## Publication state
 
-- Scope/planning PR #4 and analysis-record transport PR #5 are merged; latest merged
-  commit is `959432802888611ff2989a3638dd250195458b08`.
-- The next CAD/analysis PR is pending. No PR number, push or merge is claimed here.
+- Scope/planning PR #4 and Analysis transport PR #5 are merged.
+- [CAD/analysis PR #6](https://github.com/kudratsingh/rocket-twin/pull/6) and
+  [thermal PR #7](https://github.com/kudratsingh/rocket-twin/pull/7) merged after
+  required hosted checks passed. Latest main: `a617b241fc221131148c1233b266f553e0162fdb`.
+- Bounded fit, fin-construction, recovery-power and motor-support studies below
+  change copies/proposals only. No hardware or active configuration is adopted.
 - No purchase, fabrication, flight, paid compute or physical qualification occurred.
 
 ## Latest evidence
@@ -44,7 +47,7 @@ The earlier pre-resume snapshot is retained in [wo03-checkpoint.md](wo03-checkpo
   These are separate calculated quantities, not measurements or allowables. Raw
   deck, mesh and part-shape identity guards passed. Hand-screen fin tip displacement
   and spatial FE displacement are not interchangeable.
-- **Thermal:** The upper-hot-soak scenario gives the finned TVC motor liner peak
+- **Thermal, initial model:** The upper-hot-soak scenario gives the finned TVC motor liner peak
   **230.9 °C against a provisional 120 °C screen**, mount **130.2/45 °C**, gimbal
   **81.9/60 °C**, and fin bonds **59.1/45 °C**. Performance/G54 cases also exceed
   liner and mount screens; for example G54 liner is **227.4/120 °C**. Even the
@@ -59,8 +62,8 @@ The earlier pre-resume snapshot is retained in [wo03-checkpoint.md](wo03-checkpo
   timing have not been measured. No modal or flutter clearance is established.
 - **G54 growth/stability:** G54 aft-growth static margin remains below **1 cal**
   (the retained prior report gives 1.023 cal before the latest reconciled geometry).
-  Exact current CAD mass/CG and all-growth-aft condition must be reconciled before
-  this tight clearance can be accepted. G54 remains a conditional hypothesis.
+  The reconciled all-growth-aft estimate is **0.9282 cal**, below the active 1 cal
+  requirement. Correct the design/mass distribution and revalidate; G54 remains conditional.
 - **Recovery/service/power:** No chute packing/attachment qualification, opening
   load proof, connector/strain-relief fit, complete wire route, isolated recovery
   power or safe arming hardware procedure is established. Preliminary assembly and
@@ -80,3 +83,31 @@ conclusions, finish tolerance and combined-motion/access checks, validate exact
 suppliers/materials, complete structural/thermal/recovery/power packaging evidence,
 then reconcile and rerun affected reference and flight benchmarks. Advance only
 when expanded WO-03 acceptance is actually passed and recorded in STATUS.
+
+## Follow-on bounded corrections
+
+- [Thermal refinement](wo03-thermal-refinement.md): executed record
+  `wo03-thermal-20261030T182422090687Z`; known cases and 4/8/16-cell refinement pass,
+  maximum final-two history difference 0.110 K. G12 finned inner/outer gimbal means
+  72.1/63.7 C still exceed the provisional 60 C screen. Exact case history, moving
+  3D exposure and physical hot spots remain unvalidated.
+- Tolerance record `wo03-tolerances-20261030T182928948369Z`: manufacturing,
+  material-domain fit and out-of-range heat sensitivities are separate. Centered
+  key-flank, coupler and mount/liner screens fail; unilateral key location and
+  purchased motor/pivot/linkage dimensions remain unresolved.
+- Fin construction record `wo03-fin-design-20261030T184422172911Z`: 40 architectures,
+  80 load screens and 320 static overlays. Distributed tapered-beam baseline
+  deflection is 11.27 mm versus 12.05 mm archived S6 FEA; the 31.87 mm conservative
+  tip-load upper screen is retained separately. Candidate strength, stiffness and
+  aft-growth stability trade against each other; none is adopted or flutter-cleared.
+- [Independent recovery-power options](wo03-recovery-power-study.md): EasyMini +
+  manufacturer 120 mAh 1S pack totals 25.8 g with explicit carrier/wire/switch
+  allowances; RRC3+ + 9 V alternative totals 80.2 g. These are hypothetical
+  front-station placements, not verified installed fit or electrical qualification.
+- [Motor-support proposal](wo03-mount-loadpath.md): extends the liner into defined
+  stop/centering-ring or cradle interfaces on copies. It supplies a continuous
+  proposed forward-thrust path, but bonds, ring bending, buckling, bidirectional
+  case retention, pins/frame and temperature remain unqualified.
+- `scripts/wo03_assembly_figures.py` renders the exact GLB exports, including
+  shell-hidden and internal-gimbal stills. Source index records GLB/manifest/spec/
+  CAD hashes. Hiding shells is visibility assistance, not physical motion proof.
