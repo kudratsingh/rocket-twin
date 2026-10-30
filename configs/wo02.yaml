@@ -1,0 +1,29 @@
+protocol: wo02-source-hypotheses-v1
+scope: Preliminary numerical flight hypotheses; no hardware selection or release.
+elevation_m: 850
+site: Lucerne hypothesis only; actual club/date and altitude ceiling unconfirmed.
+max_time_s: 360
+vehicles:
+  - configs/vehicle/platform/performance.yaml
+  - configs/vehicle/platform/tvc-finned.yaml
+alternatives:
+  - configs/vehicle/wo02/performance-g54.yaml
+  - configs/vehicle/wo02/performance-g33.yaml
+  - configs/vehicle/wo02/performance-g12.yaml
+uncertainties:
+  thrust_scale: [0.85, 1.15]
+  burn_time_scale: [0.95, 1.05]
+  drag_scale: [0.8, 1.2]
+  added_mass_kg: [0, 0.05]
+  added_mass_station_m: 0.8
+  friction_n: [0, 0.5]
+  wind_mps: [0, 1, 2, 3]
+  note: Engineering sensitivity bounds, not measured distributions or certification tolerances.
+recovery:
+  policy: independent electronic apogee trigger; motor delays evaluated separately
+  canopy_diameter_m: 0.75
+  canopy_cd: 0.75
+  lag_s: 0.3
+  inflation_s: 0.3
+  plugged_motor: G12ST-P has no motor ejection or recovery backup.
+  finless: No finless flight release; loss of thrust authority and recovery transition remain explicit later gates.

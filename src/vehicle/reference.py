@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+from numpy.typing import NDArray
 
 from src.vehicle.aero import center_of_pressure, fin_geometries
 from src.vehicle.mass import mass_properties
@@ -27,9 +28,11 @@ from src.vehicle.motors import load_rasp
 from src.vehicle.schema import Vehicle
 
 
-def build_reference(vehicle: Vehicle) -> tuple[Any, str]:
+def build_reference(
+    vehicle: Vehicle, flight_inertia: bool = False, drag_scale: float = 1.0
+) -> tuple[Any, str]:
     # Import only for comparison runs; ordinary tiny runs do not require RocketPy.
-    from rocketpy import GenericMotor, Rocket
+    from rocketpy import Function, GenericMotor, Rocket
 
     motor = vehicle.motor
     if vehicle.scale != "model" or motor is None:
@@ -42,12 +45,36 @@ def build_reference(vehicle: Vehicle) -> tuple[Any, str]:
     dry_cg = float(np.dot(masses, stations) / dry_mass)
     # Inertia does not enter these static quantities. Zero placeholders avoid
     # sharing this project's shape-integration implementation with the reference.
+    inertia: tuple[float, ...] = (0, 0, 0)
+    motor_inertia: tuple[float, ...] = (0, 0, 0)
+    if flight_inertia:
+        # Common declared inertial input, not an independent inertia validation.
+        aggregate = mass_properties(vehicle.model_copy(update={"parts": airframe, "motor": None}))
+        tensor = aggregate.inertia_kg_m2
+        inertia = (
+            float(tensor[1, 1]),
+            float(tensor[2, 2]),
+            float(tensor[0, 0]),
+            float(tensor[1, 2]),
+            float(tensor[0, 1]),
+            float(tensor[0, 2]),
+        )
+        radius, length = part.geometry["radius_m"], part.geometry["length_m"]
+        transverse = motor.casing_mass_kg * (3 * radius**2 + length**2) / 12
+        motor_inertia = (transverse, transverse, motor.casing_mass_kg * radius**2 / 2)
+    drag = vehicle.aero.cd_model
+    on_drag = np.column_stack((drag.mach, np.array(drag.cd) * drag_scale)) if flight_inertia else 0
+    off_drag = (
+        np.column_stack((drag.mach, (np.array(drag.cd) + drag.base_drag_cd) * drag_scale))
+        if flight_inertia
+        else 0
+    )
     rocket = Rocket(
         radius=vehicle.airframe["body_diameter_m"] / 2,
         mass=dry_mass,
-        inertia=(0, 0, 0),
-        power_off_drag=0,
-        power_on_drag=0,
+        inertia=inertia,
+        power_off_drag=Function(off_drag, interpolation="linear", extrapolation="constant"),
+        power_on_drag=Function(on_drag, interpolation="linear", extrapolation="constant"),
         center_of_mass_without_motor=dry_cg,
         coordinate_system_orientation="nose_to_tail",
     )
@@ -71,7 +98,7 @@ def build_reference(vehicle: Vehicle) -> tuple[Any, str]:
         ]
         if not np.allclose(actual, expected, rtol=1e-6, atol=1e-9):
             raise ValueError("motor curve dimensions, masses or burn time disagree with the spec")
-        thrust_source: str | float = motor.curve
+        thrust_source: NDArray[np.float64] | float = curve.samples
         mode = "source curve; static endpoints only"
     else:
         thrust_source = motor.average_thrust_n
@@ -86,7 +113,7 @@ def build_reference(vehicle: Vehicle) -> tuple[Any, str]:
         nozzle_radius=0,
         dry_mass=motor.casing_mass_kg,
         center_of_dry_mass_position=part.cg_offset_m,
-        dry_inertia=(0, 0, 0),
+        dry_inertia=motor_inertia,
         nozzle_position=part.geometry["length_m"],
         coordinate_system_orientation="combustion_chamber_to_nozzle",
     )

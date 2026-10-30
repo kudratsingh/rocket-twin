@@ -504,6 +504,123 @@ adjusted to force a pass. Hosted validation evidence is linked on the PR.
 Publication: [private repository WO-01 PR #1](https://github.com/kudratsingh/rocket-twin/pull/1).
 Local validation is recorded above; hosted check/merge status is shown on the PR.
 
+## WO-02 — actual-mode flight validation and delivered performance (2026-10-29 local)
+
+Core: [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2). Validation/study:
+[PR #3](https://github.com/kudratsingh/rocket-twin/pull/3). Both original objectives
+remain: maximum practical conventional performance and substantial custom building,
+plus committed PID-to-RL and embedded/real-flight research. Hardware is not frozen.
+
+**Final Mac CPU study:** [`wo02-20261030T044930127544Z`](../runs/wo02-20261030T044930127544Z/record.json).
+All five nominal apogee/time comparisons pass within **0.004%**, against the required
+5%; all 27 nominal/sensitivity/wind cases are finite and reach impact within the
+360 s horizon. Source/code hashes are captured and checked unchanged during the run.
+The full study took 113.59 s; the 4,096-environment step after compilation
+took 4.03 ms (~1,015,181 env-steps/s).
+This is one batched step, not PPO training or full-rollout throughput.
+
+`make check smoke` passes: ruff, black, strict mypy (35 source files), **65 tests**.
+`make benchmark` passes WO-01 static checks plus WO-02 actual-mode trajectory and
+batch gates. Tiny run [`wo02-20261030T045326632046Z`](../runs/wo02-20261030T045326632046Z/record.json)
+took 10.10 s, below 120 s. JAX/jaxlib 0.4.38, RocketPy 1.13.0,
+NumPy 2.4.6, SciPy 1.17.1 and PyArrow 23.0.1 run on macOS arm64 CPU/Python 3.11.16.
+No GPU, paid run, purchase, hardware action or controller implementation.
+
+| Actual source hypothesis | Loaded g | Apogee JAX / RocketPy m AGL | Apex time JAX / RocketPy s | Largest comparison error | Variable-mass guide exit m/s | Peak powered specific force g |
+|---|---:|---:|---:|---:|---:|---:|
+| G80 fixed reference | 472.03 | 697.94 / 697.95 | 9.651 / 9.651 | 0.00166% | 24.41 | 22.13 |
+| G12 finned TVC | 575.77 | 902.69 / 902.70 | 18.592 / 18.592 | 0.00093% | 13.65 | 5.56 |
+| G54 fixed hypothesis | 552.03 | 842.42 / 842.44 | 10.853 / 10.853 | 0.00389% | 24.41 | 22.74 |
+| G33 fixed hypothesis | 550.83 | 824.14 / 824.15 | 11.968 / 11.968 | 0.00352% | 12.96 | 11.64 |
+| G12 fixed / 3 m guide | 501.83 | 1023.36 / 1023.37 | 18.675 / 18.675 | 0.00146% | 16.65 | 6.37 |
+
+These are numerical source hypotheses at assumed 850 m MSL, calm vertical guidance,
+zero guide friction, estimated drag and the actual mode mass/geometry. RocketPy
+integrates its own dynamics/surfaces/motor from common inputs; dry inertia is shared
+as a declared input, not independently measured or validated. Nominal guide speeds
+are distinct from the conservative loaded-plus-50-g / 85%-thrust guide screens in
+[the study report](wo02-flight-study.md). G33/1.5 m and fixed G12/3 m fail the retained
+performance guide screen under that allowance; altitude alone does not accept them.
+G54 has only 1.023 cal launch margin with all growth aft.
+
+| Mode | Low/high engineering-corner altitude m | Low-corner variable-mass guide m/s | Nominal impact time s | Nominal impact speed m/s |
+|---|---:|---:|---:|---:|
+| G80 fixed reference | 534–888 | 21.06 | 158.3 | 4.62 |
+| G12 finned TVC | 534–1261 | 11.74 | 192.9 | 5.08 |
+| G54 fixed hypothesis | 637–1085 | 21.48 | 180.5 | 4.87 |
+| G33 fixed hypothesis | 599–1081 | 11.25 | 176.8 | 4.91 |
+| G12 fixed / 3 m guide | 649–1395 | 14.23 | 232.2 | 4.68 |
+
+Bounds combine specified thrust/time/drag/mass/friction variations, not measured
+probability intervals or certified motor tolerances. Native G54/G33 source depletion
+versus certificate-propellant hypotheses give 842.42→845.76 m and 824.14→825.41 m;
+small numerical sensitivity does not resolve source identity or legal qualification.
+
+| Mode | Max powered tilt: 1 m/s / 3 m/s+gust deg | Altitude: 1 m/s / gust case m | Net landing displacement: 1 m/s / gust case m |
+|---|---:|---:|---:|
+| G80 fixed reference | 1.92 / 7.23 | 698 / 692 | 169 / 655 |
+| G12 finned TVC | 26.84 / 73.17 | 848 / 528 | 182 / 180 |
+| G54 fixed hypothesis | 1.84 / 7.04 | 842 / 836 | 194 / 765 |
+| G33 fixed hypothesis | 3.75 / 14.23 | 822 / 798 | 144 / 615 |
+| G12 fixed / 3 m guide | 16.61 / 53.49 | 999 / 782 | 47 / 235 |
+
+The gust case is 3 m/s at 10 m, height exponent 0.14 and a bounded 1 m/s gust,
+not uniform 3 m/s at every altitude. Maximum free-flight powered angle of attack
+stays below 15 degrees in these cases; large body tilt still violates a useful
+vertical-control goal. These are uncontrolled locked-gimbal flights, not PID/RL
+results. Landing displacement is an endpoint, not a certified footprint radius;
+upwind powered travel can cancel later drift. Actual site/altitude/footprint limits
+remain unknown. No operational wind envelope follows from this model.
+
+Ancillary constant 1 m/s comparison:
+[`wo02-wind-20261030T045434689213Z`](../runs/wo02-wind-20261030T045434689213Z/record.json).
+G80 apogee/time differences are 0.0104% / 0.0034%; finned G12 1.153% / 0.530%.
+This checks another condition, not gust spectra, attitude histories or real aero.
+
+**Recovery and sensors:** G80's 10 s delay probe is ~2.16 s after nominal apogee,
+about 20.4 m/s downward in the separate no-canopy sensitivity. Its -10 study SKU is
+not accepted as the flight delay. G54's 12 s probe is ~4.17 s late at ~36.4 m/s.
+Exact offered delays and tolerance envelopes must be verified later; independent
+apogee recovery is not permission to ignore a secondary motor charge. G12 is
+plugged: it has no motor ejection/backup. Canopy drag/inflation/descent are estimates,
+not deployment or opening-load qualification. Finless burnout-to-recovery remains
+an explicit later control/recovery gate.
+
+G80/G54 nominal specific force reaches 22.13/22.74 g (high corners 25.44/26.14 g),
+exceeding the current 16 g accelerometer model. Observations clip accordingly.
+A suitable high-g measurement path, with mass/cost/datasheet/bench evidence, is
+required before hardware/control release; no sensor rating was silently increased.
+The G12 trainer reaches ~5.56 g, but weathercocks ~26.8 degrees at 1 m/s and ~73.2
+in the gust case. Useful powered duration alone is not control authority: WO-06
+must assess fin torque, gimbal travel/moment, servo loading and realistic estimation
+before PID acceptance, followed by committed RL/HIL and honest negative results.
+
+**Recommendation:** retain G80 as the starting validation/commissioning reference.
+G54 is the leading conditional near-160 N s performance upgrade: ~20.7% more nominal
+altitude with robust guide exit in this model, at +80 g installed support/motor mass
+and tight aft-growth margin. G33 adds altitude but has a departure shortfall. Fixed
+G12 is the calm-altitude leader (~46.6% above G80), but needs improved conservative
+guidance, a verified low-wind envelope, long-burn thermal tests and independent
+recovery; it is not automatically the practical choice. Keep the custom modular
+platform and separate long-duration TVC research mode. Exact source/hardware,
+California/club acceptance, stock, measured loads/mass, sensor/recovery and control
+gates remain before hardware selection. G25W quarantine remains.
+
+**Negative/revised evidence:** early CTI reference cases passed coarse 5% comparisons
+while a duplicate explicit zero sample in RocketPy's RASP importer produced NaN
+initial thrust and constant motor mass. The adapter now passes validated source
+points once; new endpoint/intermediate depletion regressions catch that failure.
+Pre-fix frozen CI record `wo02-20261030T043548761902Z` is retained as superseded,
+not accepted reference evidence. Local exploratory `wo02-20261030T044446147368Z`
+is also superseded. The earlier 240 s horizon missed two high-altitude recovery
+cases; 360 s now closes them. Exact source archives were not edited to force a pass.
+A headless plotting backend also replaced a failed macOS GUI plotting invocation.
+
+Reproduce the figure with `scripts/wo02_plot.py --config runs/wo02-20261030T044930127544Z/record.json`;
+output `build/reports/wo02-flight-trade.png` is generated and ignored. Source model
+and verification limits: [WO-02 report](wo02-flight-study.md). WO-02's numerical
+benchmark is met; WO-03 is queued, with no physical or later controller work started.
+
 ## CAD vs spec mass (WO-03)
 
 | Part | Spec mass (g) | CAD mass (g) | Δ % |

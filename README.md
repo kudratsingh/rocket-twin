@@ -30,9 +30,10 @@ Every part carries build/cost metadata and `learn` content. Full CAD and build p
 remain later work orders. Planning hardware envelope: roughly $650–950 before new
 tools, shipping/tax and fees; a guide/test fixture may add $100–200.
 
-WO-01's rebaselined preliminary-model benchmark passes locally for all three modes,
-with independent RocketPy static comparisons. Trajectories, CAD, frontend, PID/RL,
-firmware and flights remain later work. Each run explicitly says `flight_ready: false`.
+WO-01 static and WO-02 numerical flight benchmarks pass on the Mac CPU. Actual
+performance and finned-TVC flights are independently compared with RocketPy;
+three alternative motor hypotheses and uncertainty/wind/recovery cases are recorded.
+CAD, frontend, PID/RL, firmware and flights remain later work. Each run explicitly says `flight_ready: false`.
 The digital-only orbital launcher, PPO-versus-G-FOLD comparison and extension
 interfaces remain in the plan. RL is committed; honest negative comparisons count
 as research evidence, while deployment still requires its acceptance gates.
@@ -43,7 +44,7 @@ Use Python 3.11 and uv. On a fresh network-enabled machine:
 
 ```sh
 make setup
-make setup-reference
+make setup-sim
 make check smoke tiny benchmark
 ```
 
@@ -51,7 +52,8 @@ The current workspace already has the environment. `make tiny` resolves all mode
 and produces source/code hashes, parts budgets, CG/inertia/CP, guide/control-time
 screens and inventory/spec previews in `runs/<id>/`. `make benchmark` adds real
 RocketPy comparisons and exits nonzero if preliminary completion gates fail. Neither
-command authorizes hardware or flight. Full dependency locking is still pending;
+command authorizes hardware or flight. `make flight-study` runs the full motor,
+wind, uncertainty and recovery study; see [WO-02 findings](docs/wo02-flight-study.md). Full dependency locking is still pending;
 WO-01's direct dependency pins and tested reference versions are recorded.
 
 The active manifest is [configs/platform.yaml](configs/platform.yaml); mode YAML
@@ -67,6 +69,16 @@ and shared upper are under [configs/vehicle/platform](configs/vehicle/platform).
 - [WO-01 deliverables and stage-appropriate benchmark](docs/work-orders/WO-01-vehicle-spec-mass-cp.md)
 - [ADR-0006](docs/adr/0006-modular-platform-rebaseline.md), [plan](docs/PLAN.md), [status](docs/STATUS.md), [results](docs/results.md)
 - [Environment](docs/ENVIRONMENT.md), [owner start guide](START_HERE.md), [agent workflow](AGENTS.md)
+
+## Delivered-performance findings
+
+The G80 reference predicts ~698 m AGL; G54 ~842 m and G33 ~824 m. A distinct fixed
+G12 model predicts ~1,023 m in calm air, but needs better conservative guide departure
+and has strong wind sensitivity. The G12 TVC trainer predicts ~903 m calmly and
+needs closed-loop control for its intended operating envelope. These are source
+hypotheses, not flight claims. Keep G80 as the reference and G54 as the conditional
+near-160 N s upgrade lead; hardware remains unfrozen. G80/G54 also exceed the
+starting 16 g accelerometer range. [Recorded results](docs/results.md).
 
 ## Historical studies
 

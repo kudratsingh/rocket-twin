@@ -20,14 +20,16 @@ check:
 smoke:
 	$(PYTHON) -m pytest -q
 
-tiny: ## Current pipeline: WO-01 only; later WOs extend this target.
+tiny: ## Current CPU pipeline through WO-02.
 	$(PYTHON) scripts/wo01_platform.py --preset tiny
+	$(PYTHON) scripts/wo02_sim.py --preset tiny --compare rocketpy --require-benchmark
 
 setup-reference: ## Install the pinned independent reference; needs network access.
 	uv pip install --python $(PYTHON) -r requirements-wo01.txt rocketpy==1.13.0
 
 benchmark: ## All modular modes; WO-01 preliminary design gates, never flight readiness.
 	$(PYTHON) scripts/wo01_platform.py --preset sim --compare rocketpy --require-benchmark
+	$(PYTHON) scripts/wo02_sim.py --preset tiny --compare rocketpy --require-benchmark
 
 fetch-motors: ## Download unreviewed source curves and metadata; requires network.
 	$(PYTHON) scripts/wo01_fetch_motors.py
@@ -46,3 +48,6 @@ fetch-f22-sources: ## Fetch F22 source curve, certificates and correct hobby-cas
 
 g-impulse-study: ## Published-summary G-motor screening with mass-growth allowance; no selection.
 	$(PYTHON) scripts/wo01_motor_study.py --preset tiny --config configs/studies/g-impulse-selection.yaml
+
+flight-study: ## Complete source-hypothesis trade, uncertainty and recovery study.
+	$(PYTHON) scripts/wo02_sim.py --preset sim --study --compare rocketpy --require-benchmark

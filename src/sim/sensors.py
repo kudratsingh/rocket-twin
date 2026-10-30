@@ -19,7 +19,7 @@ from src.sim.types import Params, State
 
 def observe(state: State, specific: Array, p: Params, key: Array) -> tuple[Array, Array, Array]:
     accel_noise, gyro_noise, baro_noise, tau, imu_hz, baro_hz, latency, accel_limit, gyro_limit = (
-        p.sensors
+        p.sensors[:9]
     )
     dt = p.launch[3]
     queue = jnp.concatenate(

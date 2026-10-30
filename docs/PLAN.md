@@ -119,3 +119,13 @@ custom propellant or motor modification. No HPR certification path. No physical
 propulsive landing. No CAD editing in the frontend. Structural/thermal/advanced aero
 extensions remain available through the existing interfaces instead of being implied
 by a simple preliminary model.
+
+## WO-02 numerical evidence
+
+The actual G80 performance and finned-G12 trajectory comparisons, three complete
+alternative motor configurations and uncertainty/recovery study now pass the
+numerical benchmark on Mac CPU. [Results](results.md), [study](wo02-flight-study.md).
+G54 is the conditional near-160 N s upgrade lead; fixed G12 has higher calm altitude
+but guide/wind/thermal/recovery penalties. No hardware freeze or sequence revision.
+Use these measured numerical loads/trajectory limits in WO-03 and the later PID/RL,
+sensor, independent recovery and flight-release gates.

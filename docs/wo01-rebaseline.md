@@ -1,6 +1,7 @@
 # WO-01 rebaseline: custom modular rocket and serious control research
 
-Owner direction: 2026-10-29. Active decision: ADR-0006. All work here is reversible
+Owner direction: 2026-10-29. Follow-up flight evidence is in [WO-02](wo02-flight-study.md);
+this document preserves the preliminary WO-01 trade. Active decision: ADR-0006. All work here is reversible
 local planning, design and computation; no procurement, physical work or flight.
 
 The recommendation is a **66 mm hybrid custom platform with interchangeable aft

@@ -1,0 +1,16 @@
+# WO-02 engineering estimates; calibrate in WO-06/09, not measured hardware.
+version: wo02-model-estimates-v1
+servo:
+  natural_frequency_rad_s: 20
+  damping_ratio: 0.8
+  latency_s: 0.02
+sensors:
+  accelerometer_noise_mps2: 0.196133
+  gyro_noise_rad_s: 0.002
+  barometer_noise_m: 0.5
+  barometer_time_constant_s: 0.05
+  imu_latency_s: 0.002
+  reset_bias_sigma_fraction: 0.25
+wind:
+  gust_period_s: 3.0
+scope: Small-angle subsonic rigid body; no exhaust-flux, flutter, measured aero or gimbal multibody validation.

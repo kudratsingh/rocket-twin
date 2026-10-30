@@ -4,18 +4,30 @@ Updated: 2026-10-29 (run IDs use UTC)
 
 ## Current work order
 
-**WO-02 in progress**, explicitly authorized by the owner. Both custom-build /
-maximum practical conventional performance and committed PID-to-RL objectives
-remain active. Branch `wo-02-sim`: pure JAX 6-DOF core, source-based depletion, full
-variable inertia, actual aerodynamic surfaces, guide constraint, servo/sensor
-models and recovery event scaffolding are implemented. Known-answer tests cover
-frames/TVC, depletion, free fall, delay/limits/noise and a 4,096-environment step.
-Local JAX execution awaits the requested CPU dependency install; PyPI DNS fails
-here. Existing 53 WO-01 tests still pass. No WO-02 completion is claimed yet.
+**WO-02 numerical benchmark met on the owner's Mac CPU.** [Core PR #2](https://github.com/kudratsingh/rocket-twin/pull/2)
+merged; [validation/study PR #3](https://github.com/kudratsingh/rocket-twin/pull/3)
+contains the final evidence and hosted check/merge status. No WO-03 implementation
+has started; CAD is next in the unchanged sequence.
 
-Follow-up in this WO: independent actual-mode RocketPy trajectory comparison,
-G80/G54/G33/fixed-G12 delivered-performance trade, uncertainty/wind/recovery timing,
-telemetry and benchmark records. No controllers, physical work or paid runs.
+`make check smoke` passes 65 tests, formatting/lint and strict typing. `make benchmark`
+passes both the preserved static platform and actual G80/finned-G12 flight checks.
+Full study `wo02-20261030T044930127544Z` compares all five nominal models within 0.004% of RocketPy,
+checks a 4,096-env CPU step, and closes recovery in all 27 cases by 360 s. Tiny
+`wo02-20261030T045326632046Z` takes 10.10 s (<120 s). Source/input hashes stay unchanged
+through each final run. [Results](results.md) and [report](wo02-flight-study.md).
+
+Conditional direction: keep G80 as reference; G54 leads the practical near-160 N s
+upgrade trade (+20.7% nominal altitude, +80 g installed integration mass, tight
+1.023 cal aft-growth margin). Fixed G12 leads calm altitude but fails the conservative
+3 m guide screen and weathercocks substantially. G33 has a departure shortfall.
+No hardware/motor/delay choice is frozen. G25W remains quarantined.
+
+Remaining gates: exact motor/source/hardware/lot/California/stock/club evidence;
+actual site/altitude/footprint and guide; high-g sensor selection for G80/G54;
+CAD/measured mass, structural/thermal/recovery tests; PID authority then committed
+RL, HIL and finless burnout transition. Custom mechanical work, maximum practical
+conventional performance and serious PID-to-RL are all retained. No purchases,
+physical work, paid run or controller implementation; WO-10 owner review remains.
 
 ### Completed prior milestone
 
@@ -46,7 +58,8 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
 - Confirm the actual California club/site/date. ROC/Lucerne remains an assumption.
   Exact California motor classification and club/RSO acceptance are independent
   prerequisites; a general motor threshold or passing model is not launch approval.
-- Later gates remain: flight/guide/wind/altitude/recovery in WO-02; CAD/load/heat/fit
+- WO-02 numerical flight/guide/wind/recovery checks are complete; actual flight
+  qualification remains open. Later gates: CAD/load/heat/fit
   plans in WO-03; realistic PID/RL in WO-06/07; owner fabrication/measurement and
   independent recovery in WO-09; firmware/abort/HIL in WO-10; staged flights in WO-11.
   Finless negative margin and loss of TVC at burnout require a qualified recovery
@@ -73,7 +86,7 @@ remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
 | WO | Met on | Evidence (run id / PR) |
 |---|---|---|
 | 01 | 2026-10-29 | `wo01-platform-20261030T022439939715Z`; 53 tests; [PR #1](https://github.com/kudratsingh/rocket-twin/pull/1) |
-| 02 | | |
+| 02 | 2026-10-29 | `wo02-20261030T044930127544Z`; 65 tests; [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2), [PR #3](https://github.com/kudratsingh/rocket-twin/pull/3) |
 | 03 | | |
 | 04 | | |
 | 05 | | |

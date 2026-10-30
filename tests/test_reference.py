@@ -1,5 +1,7 @@
 """Exercise the real optional reference; never mock a successful validation."""
 
+from pathlib import Path
+
 import pytest
 
 from src.vehicle.reference import compare_rocketpy
@@ -43,3 +45,17 @@ def test_transition_against_rocketpy() -> None:
     )
     result = compare_rocketpy(vehicle)
     assert result["passed"], result
+
+
+@pytest.mark.parametrize("name", ["performance-g54.yaml", "performance-g33.yaml"])
+def test_explicit_zero_origin_curves_deplete_in_reference(name: str) -> None:
+    from src.vehicle.reference import build_reference
+
+    vehicle = load_vehicle(Path("configs/vehicle/wo02") / name)
+    assert vehicle.motor is not None
+    reference, _ = build_reference(vehicle, flight_inertia=True)
+    loaded = sum(p.resolved_mass_kg for p in vehicle.parts)
+    burnout = float(reference.total_mass(vehicle.motor.burn_time_s))
+    assert float(reference.total_mass(0)) == pytest.approx(loaded)
+    assert burnout == pytest.approx(loaded - vehicle.motor.propellant_mass_kg, abs=1e-8)
+    assert float(reference.total_mass(0.5)) < loaded - 0.001

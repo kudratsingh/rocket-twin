@@ -100,3 +100,18 @@ def test_guide_constraint_never_reengages_during_return() -> None:
     )
     assert float(jnp.linalg.norm(free[6:10])) > 0
     np.testing.assert_array_equal(constrained[6:10], np.zeros(4))
+
+
+def test_inertia_cofactor_solve_matches_independent_linear_solver() -> None:
+    rng = np.random.default_rng(7)
+    for _ in range(10):
+        basis = rng.normal(size=(3, 3))
+        inertia = basis.T @ basis + np.diag([0.01, 0.3, 0.4])
+        torque = rng.normal(size=3)
+        expected = np.linalg.solve(inertia, torque)
+        np.testing.assert_allclose(
+            dynamics.solve_inertia(jnp.asarray(inertia), jnp.asarray(torque)),
+            expected,
+            rtol=1e-11,
+            atol=1e-11,
+        )
