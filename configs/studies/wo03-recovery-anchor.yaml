@@ -1,0 +1,70 @@
+id: wo03-recovery-anchor-three-leg
+status: prototype_not_adopted
+flight_record: runs/wo02-20261030T204849990760Z/record.json
+factor: 3
+stop_m: 0.3
+junction_station_m: 0.60
+fixed_anchor_station_m: 1.001
+tvc_anchor_station_m: 1.02
+leg_loaded_length_mm: 420
+splice_blank_per_end_mm: 200
+splice_end_count: 14
+leg_axial_rigidity_range_n: [80000, 200000]
+leg_loaded_length_spread_mm: 1.0
+main_line_length_m: 1.2
+main_line_g_m_estimate: 4.5
+main_leader_length_m: 0.25
+main_leader_g_m_estimate: 8
+upper_nose_sled_branch_length_m: 1.5
+termination_extra_length_m: 0.0
+thin_line_g_m_estimate: 4.5
+aramid_alternative_g_m_gross_package: 5.44310844
+thin_line_mbs_n: 6227.51026142
+thin_line_diameter_mm: 2.5
+main_line_strength_n: 8006.8
+port_diameter_mm: 3.7
+fixed_port_diameter_mm: 3.9
+fixed_port_min_diameter_mm: 3.8
+fixed_port_max_diameter_mm: 4.0
+fixed_port_x_mm: 22
+fixed_port_y_mm: 5
+tvc_port_x_mm: 28
+tvc_port_y_mm: 5
+fixed_web_thickness_mm: 9.5
+tvc_web_thickness_mm: 8
+fixed_web_min_thickness_mm: 9.2
+tvc_web_min_thickness_mm: 7.7
+port_min_diameter_mm: 3.6
+hole_pitch_min_mm: 9.8
+hole_pitch_max_mm: 10.2
+port_max_diameter_mm: 3.8
+hole_center_spacing_mm: 10
+finger_width_mm: 6.2
+finger_count: 6
+finger_length_mm: 42
+g80_finger_length_mm: 35
+saddle_radius_mm: 3
+saddle_length_mm: 6
+rope_max_diameter_assumption_mm: 2.9
+hot_g11_screen_mpa: 25
+hot_bridge_flexural_estimate_mpa: 80
+hot_bridge_flexural_max_temperature_c: 150
+hot_bond_screen_mpa: 1
+sled_packaging_increment_g: 4.765
+hardware:
+  bridle_termination_and_stitch_g: 2
+  upper_body_band_g: 1.174
+  sled_tabs_g: 2.165
+  seal_and_grommet_g: 1.5
+  heat_sleeve_g: 3
+  adhesive_and_fillet_g: 2
+  future_positive_pin_delta_g_estimate: 0.8
+  existing_anchor_removed_g: 4
+  existing_shock_cord_removed_g: 10
+sources:
+  thin_cord: https://www.cancord.com/wp-content/uploads/2017/01/cancord-general-catalogue-updated-logo-web.pdf
+  splice_instructions: https://www.samsonrope.com/docs/default-source/splice-instructions/8strand_c2_eye-splice_jul2012_web.pdf
+  selected_rope: https://www.samsonrope.com/mooring/amsteel--blue
+  rope_warning: https://www.samsonrope.com/warning-statement
+  flexural_evidence: configs/studies/wo03-g11-load-properties.yaml
+  main_harness: https://onebadhawk.com/316-tubular-kevlar--2-loop.html

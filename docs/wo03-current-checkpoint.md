@@ -1,3 +1,10 @@
+# Latest correction-package continuation — 2026-10-30
+
+The accepted numerical baseline is merged PR #9; **WO-03 remains open**.
+The [current package progress](wo03-package-closure-progress.md) supersedes the older
+checkpoint below for brace-ring, thermal-matrix and recovery-budget status.
+No correction candidate is silently adopted and no WO-04 transition is recorded.
+
 # WO-03 integrated checkpoint — 2026-10-30
 
 The active configuration now adopts the combined corrections under ADR-0008.

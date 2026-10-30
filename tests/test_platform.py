@@ -17,6 +17,22 @@ from src.vehicle.schema import Vehicle, load_vehicle
 ROOT = Path("configs/vehicle/platform")
 
 
+def test_rail_mass_budget_uses_same_solver_and_preserves_allowance() -> None:
+    vehicle = load_vehicle(ROOT / "tvc-finned.yaml")
+    nominal = mass_properties(vehicle).mass_kg
+    actual = screen_launch(vehicle)
+    study = screen_launch(vehicle, study_nominal_mass_kg=nominal)
+    assert study == actual
+    heavier = screen_launch(vehicle, study_nominal_mass_kg=nominal + 0.02)
+    assert heavier["worst_case_mass_kg"] == pytest.approx(
+        nominal + 0.02 + vehicle.design.mass_allowance_kg
+    )
+    assert heavier["rail_exit_speed_mps"] < actual["rail_exit_speed_mps"]
+    assert mass_properties(vehicle).mass_kg == nominal
+    with pytest.raises(ValueError, match="finite and positive"):
+        screen_launch(vehicle, study_nominal_mass_kg=float("nan"))
+
+
 def test_common_assembly_and_actual_mode_geometry() -> None:
     vehicles = [
         load_vehicle(ROOT / name)

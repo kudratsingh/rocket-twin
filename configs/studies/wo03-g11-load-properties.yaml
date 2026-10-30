@@ -1,0 +1,170 @@
+study_id: wo03-g11-load-properties-v1
+status: source-review-only
+scope:
+  material: G11 glass-cloth epoxy laminate
+  purpose: >-
+    Compare project screening inputs with manufacturer-published properties by
+    failure mode. This file does not establish design allowables or qualify a
+    particular sheet, laminate orientation, joint, or temperature history.
+  temperature_focus_c: 150
+  adoption: false
+  flight_ready: false
+sources:
+  - id: BASFF-G11-2007
+    publisher: BASFF Thermal Engineering SRL
+    title: G11 H-Class Technical Data Sheet, Rev.03, 14/06/2007
+    url: https://www.basff.it/fileup/Immagini/G11%20ENG.pdf
+    access: Official manufacturer PDF, page 1 table text reviewed
+    grade: G11 H-class
+    source_caveat: >-
+      Published table is a grade-level data sheet, not a lot certificate. It
+      gives no statistical basis or design allowable. Compression directions
+      are printed as // - perpendicular without mapping the two endpoints.
+  - id: ATLAS-G11-2024
+    publisher: Atlas Fibre LLC
+    title: Glass Epoxy G-11, MIL-I-24768/3 Type GEB data sheet, 2024
+    url: https://www.atlasfibre.com/wp-content/uploads/2023/04/G11_DataSheet-2024.pdf
+    access: Official manufacturer PDF, page 1 table visually reviewed
+    grade: G-11 / Type GEB
+    source_caveat: >-
+      PDF says data are informational and no warranty is implied; lot data are
+      available by specific request. The official HTML page reverses the PDF's
+      tensile and compressive values and adds a flexural direction/thickness
+      note. Treat those properties as unresolved pending a grade-specific lot
+      certificate; do not select the larger value.
+  - id: ATLAS-G11-HTML
+    publisher: Atlas Fibre LLC
+    title: G-11 material page
+    url: https://www.atlasfibre.com/material/g-11/
+    access: Official manufacturer HTML, current page inspected 2026-10-30
+    source_caveat: >-
+      Lists tensile 63 ksi and compression 37 ksi (reverse of the linked PDF's
+      labels); flexural is annotated LW-A at 0.125 in. Also distinguishes F
+      class 150 C and H class 180 C. This conflict is preserved, not reconciled
+      by choosing a preferred number.
+published_properties:
+  - property: flexural_strength
+    source: BASFF-G11-2007
+    values:
+      - value: 450
+        unit: MPa
+        condition: At 20 C
+      - value: 350
+        unit: MPa
+        condition: After 1 h at 150 C
+    direction: Perpendicular to lamination
+    test_standard: ISO 178
+    scope_caveat: >-
+      Only the stated flexural property has a 150 C / 1 h conditioned value.
+      It is not a tensile, compression, bearing, shear, adhesive, or fatigue
+      strength, and the sheet/lot and test details are not identified.
+  - property: compressive_strength
+    source: BASFF-G11-2007
+    value_range: [260, 550]
+    unit: MPa
+    direction: >-
+      Table labels the pair // - perpendicular but does not unambiguously map
+      260 and 550 MPa to the directions in extracted text.
+    test_standard: ISO 604
+    temperature: Not stated
+    scope_caveat: Do not use as a direction-specific bearing allowable.
+  - property: tensile_strength
+    source: BASFF-G11-2007
+    value: 310
+    unit: MPa
+    direction: Parallel to lamination
+    test_standard: ISO 527
+    temperature: Not stated
+  - property: elastic_modulus
+    source: BASFF-G11-2007
+    value: 24000
+    unit: MPa
+    direction: Not stated
+    test_standard: ISO 178
+    temperature: Not stated
+  - property: tensile_strength
+    source: ATLAS-G11-2024
+    value: 255
+    unit: MPa
+    direction: Not stated
+    test_standard: Not stated in PDF
+    temperature: Not stated
+    conflict: Atlas HTML assigns 63 ksi (434 MPa) to tensile instead.
+  - property: compressive_strength
+    source: ATLAS-G11-2024
+    value: 434
+    unit: MPa
+    direction: Not stated
+    test_standard: Not stated in PDF
+    temperature: Not stated
+    conflict: Atlas HTML assigns 37 ksi (255 MPa) to compression instead.
+  - property: flexural_strength
+    source: ATLAS-G11-2024
+    value: 517
+    unit: MPa
+    direction: Not stated in PDF; HTML says LW-A, 0.125 in
+    test_standard: Not stated in PDF
+    temperature: Not stated
+  - property: shear_strength
+    source: ATLAS-G11-2024
+    value: 151
+    unit: MPa
+    direction: Not stated
+    test_standard: Not stated
+    temperature: Not stated
+  - property: bond_strength
+    source: ATLAS-G11-2024
+    value: 15
+    unit: MPa
+    direction: Not stated
+    test_standard: Not stated
+    temperature: Not stated
+    scope_caveat: This is not an adhesive joint allowable or peel strength.
+hot_property_availability:
+  at_150_c:
+    flexural_strength:
+      available: true
+      source: BASFF-G11-2007
+      condition: 1 h at 150 C
+      value_mpa: 350
+      direction: Perpendicular to lamination
+    tensile_strength: {available: false, value: null, reason: No source value at 150 C}
+    compressive_strength: {available: false, value: null, reason: No source value at 150 C}
+    bearing_strength: {available: false, value: null, reason: No source value at 150 C}
+    shear_strength: {available: false, value: null, reason: No source value at 150 C}
+    bond_strength: {available: false, value: null, reason: No source value at 150 C}
+project_screen_comparison:
+  current_global_engineering_screen:
+    cold_strength_mpa: 50
+    hot_strength_mpa: 25
+    source: configs/engineering/wo03.yaml materials.G11
+    status: Existing generic screening values; not changed by this study
+  reported_recovery_bridge_beam_demand:
+    maximum_factored_stress_mpa: 86
+    status: Parent-reported current study result; verify exact component, mode, temperature and run linkage before using for acceptance
+    comparison: >-
+      A numerical comparison to a grade-level flexural value is not a mode- or
+      orientation-matched margin. No strength is adopted here and no pass is
+      inferred.
+interpretation:
+  mode_specific_screening:
+    flexure_20_c: >-
+      BASFF reports 450 MPa perpendicular to lamination; Atlas reports 517 MPa
+      but the PDF omits orientation and its HTML limits that figure to LW-A,
+      0.125 in. These are published typical/grade data, not allowables.
+    flexure_150_c: >-
+      BASFF reports 350 MPa after 1 h at 150 C, perpendicular to lamination.
+      Temperature-time equivalence to the actual assembly is not established.
+    tension_compression_bearing_shear_at_150_c: unavailable
+    bonds_and_joints: >-
+      No source here supplies project-specific joint allowables, peel strength,
+      hole bearing data by laminate direction, fatigue, or hot bond properties.
+  required_to_qualify: >-
+    Confirm actual supplier grade, layup and orientation; obtain traceable lot
+    properties and test basis; measure local temperatures and dwell; calculate
+    mode- and direction-specific demand; then use representative hot coupons
+    and assembled-joint tests with the project's factor and failure criteria.
+  exclusions:
+    - No changes to active engineering properties or vehicle specifications.
+    - No design allowable, safety factor, or structural pass is claimed.
+    - Maximum operating temperature is not a mechanical strength guarantee.

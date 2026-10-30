@@ -10,6 +10,8 @@ import math
 from itertools import pairwise
 from typing import Any, cast
 
+import numpy as np
+
 from src.vehicle.schema import Part, Vehicle
 
 
@@ -72,14 +74,58 @@ def _rail_section_mm(
     cut_r: float,
     cut_radial: float,
     cut_tangential: float,
+    outer_radius: float | None = None,
 ) -> tuple[float, float, float]:
-    """Net rectangle area and centroidal principal inertias after a rectangular slot."""
+    """Area and centroidal Ix/Iy after the actual channel and optional OD trim.
+
+    Numerical section integration uses signed x-interval moments integrated over
+    y. Segment boundaries include the channel and cylinder clipping transitions;
+    no voxel/display-mesh area estimate is used. Symmetry makes Ixy zero here.
+    """
     rx0, rx1 = rail_r - radial / 2, rail_r + radial / 2
     cx0, cx1 = cut_r - cut_radial / 2, cut_r + cut_radial / 2
     y0, y1 = -tangential / 2, tangential / 2
     cy0, cy1 = -cut_tangential / 2, cut_tangential / 2
     ix0, ix1 = max(rx0, cx0), min(rx1, cx1)
     iy0, iy1 = max(y0, cy0), min(y1, cy1)
+    if outer_radius is not None:
+        # Avoid treating the clipped rectangular rail as its stronger gross
+        # rectangle. At Ro=32 mm the current fin-channel section loses enough
+        # weak-axis inertia to matter in the hot Euler screen.
+        breaks = {y0, y1, max(y0, min(y1, cy0)), max(y0, min(y1, cy1))}
+        if outer_radius > rx1:
+            transition = math.sqrt(max(outer_radius**2 - rx1**2, 0))
+            breaks.update(v for v in (-transition, transition) if y0 < v < y1)
+        points, weights = np.polynomial.legendre.leggauss(64)
+        sums = np.zeros(5)
+        for lo, hi in pairwise(sorted(breaks)):
+            ys = (hi - lo) / 2 * points + (hi + lo) / 2
+            for y, weight in zip(ys, weights):
+                xmax = min(rx1, math.sqrt(max(outer_radius**2 - float(y) ** 2, 0)))
+                intervals = [(1.0, rx0, xmax)]
+                if cy0 < y < cy1:
+                    intervals.append((-1.0, max(rx0, cx0), min(xmax, cx1)))
+                for sign, left, right in intervals:
+                    if right <= left:
+                        continue
+                    width = right - left
+                    sums += (
+                        sign
+                        * weight
+                        * (hi - lo)
+                        / 2
+                        * np.array(
+                            [
+                                width,
+                                (right**2 - left**2) / 2,
+                                float(y) * width,
+                                float(y) ** 2 * width,
+                                (right**3 - left**3) / 3,
+                            ]
+                        )
+                    )
+        area, mx, my, ix_raw, iy_raw = (float(x) for x in sums)
+        return area, ix_raw - my**2 / area, iy_raw - mx**2 / area
     # Signed rectangles: full rail minus the exact intersection of the cut.
     rectangles: list[tuple[float, float, float, float, float]] = [(1.0, rx0, rx1, y0, y1)]
     if ix1 > ix0 and iy1 > iy0:
@@ -226,6 +272,7 @@ def _rails(mount: Part, force_n: float, cfg: dict[str, Any]) -> dict[str, Any]:
             float(p.get("fin_channel_radius_mm", 30)),
             float(p.get("fin_channel_depth_mm", 5)),
             float(p.get("fin_slot_width_mm", 2.4)),
+            float(g["radius_m"]) * 1000 if p.get("trim_outer_cylinder") else None,
         )
         inertia_mm4 = min(ix_mm4, iy_mm4)
         channel_info = {
@@ -234,7 +281,10 @@ def _rails(mount: Part, force_n: float, cfg: dict[str, Any]) -> dict[str, Any]:
             "cut_tangential_width_mm": float(p.get("fin_slot_width_mm", 2.4)),
             "net_single_rail_section_area_mm2": area_mm2,
             "net_single_rail_inertias_mm4": {"axis_x": ix_mm4, "axis_y": iy_mm4},
-            "method": "Rail cross-section rectangle minus the intersecting fin-channel rectangle. This ideal net section omits notch-root concentration and local plate/rail restraint.",
+            "outer_cylinder_trim_radius_mm": (
+                float(g["radius_m"]) * 1000 if p.get("trim_outer_cylinder") else None
+            ),
+            "method": "Net rail section includes the actual fin channel and optional cylindrical OD trim, integrated by section moments. Omits notch concentration and uncertain local plate/ring restraint.",
         }
     area = area_mm2 * 1e-6
     mat = _material(cfg, mount, family)
@@ -364,7 +414,8 @@ def _pivot_pins(vehicle: Vehicle, thrust_n: float) -> dict[str, Any] | None:
         d = 2 * float(pin_defs[0].get("radius_mm", 1.5)) * 1e-3
         count = len(pin_defs)
         per_pin = thrust_n / count
-        hole_d = 3.4e-3
+        hole_spec = lug.cad.parameters.get("pivot_bore_diameter_mm") if lug.cad else None
+        hole_d = _mm(hole_spec, 3.4)
         wall = float(lug.geometry.get("radius_m", 0)) - float(lug.geometry.get("inner_radius_m", 0))
         t = float(lug.geometry.get("length_m", 0))
         edge = max(0.0, (t - hole_d) / 2)
@@ -403,12 +454,13 @@ def _pivot_pins(vehicle: Vehicle, thrust_n: float) -> dict[str, Any] | None:
                 "lug_projected_bearing_stress_pa": per_pin / (d * wall) if d and wall else None,
                 "gross_radial_wall_m": wall,
                 "bore_diameter_assumed_m": hole_d,
+                "bore_diameter_spec_owned": hole_spec is not None,
                 "bore_center_axial_station_m": t / 2,
                 "axial_edge_ligament_estimate_m": edge,
                 "lug_two_plane_shearout_stress_pa": (
                     per_pin / (2 * edge * wall) if edge and wall else None
                 ),
-                "method": "Each opposed pin shares one half of axial thrust. Shear stress is reported for single and double shear. Bending treats radial clearance as a conservative simply-overhung gap (M=Fpin*g/2). The bore is radial through the concentric ring wall; projected bearing length is radial wall (Ro−Ri), and axial edge ligament is (6 mm axial thickness−3.4 mm bore)/2. Bore center lies at z=t/2 in CAD. Pin material strength, positive axial retention, hot load capacity and contact remain unverified.",
+                "method": "Each opposed pin shares half of axial thrust. Single/double shear and gap-overhang bending (M=Fpin*g/2) are reported. Radial bore bearing length is Ro−Ri; axial edge ligament is half the axial ring thickness minus bore diameter. Bore center is at t/2. Uses the spec-owned bore when present, otherwise records a 3.4 mm historical fallback. Pin strength, positive axial retention and contact remain unverified.",
             }
         )
     return {"load_n": thrust_n, "pin_sets": rows} if rows else None

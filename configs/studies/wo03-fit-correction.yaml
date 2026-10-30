@@ -1,0 +1,132 @@
+version: wo03-fit-correction-v1
+vehicle_configs:
+  G80: configs/vehicle/platform/performance.yaml
+  G54: configs/vehicle/wo02/performance-g54.yaml
+  G12-F: configs/vehicle/platform/tvc-finned.yaml
+engineering_config: configs/engineering/wo03.yaml
+ambient_c: 15.0
+required_minimum_clearance_mm:
+  fixed_mount_to_shell: 0.1
+  tvc_foil_to_rail_inner_face: 0.1
+  tvc_grip_to_inner_gimbal_bore: 0.1
+  tvc_rail_corner_to_inner_gimbal_bore: 0.1
+  pivot_pin_radial: 0.05
+  linkage_radial: 0.1
+  combined_motion_radial: 0.5
+# Component temperature bounds use each engineering-material limit. CTE values are
+# source bounds or explicitly named source-derived ranges, not lot measurements.
+material_expansion:
+  cardboard:
+    cte_per_k: [0.00008, 0.00008]
+    source: configs/engineering/wo03.yaml material profile; sensitivity only
+  plywood:
+    cte_per_k: [0.00003, 0.00003]
+    source: configs/engineering/wo03.yaml material profile; sensitivity only
+  G11:
+    cte_per_k: [0.000011, 0.000015]
+    source: https://www.atlasfibre.com/wp-content/uploads/2023/04/G11_DataSheet-2024.pdf and https://www.basff.it/fileup/Immagini/G11%20ENG.pdf
+    verified_facts:
+      - Atlas Fibre G11 TDS states coefficient 1.10 x 10^-5 per degree C; no test-temperature interval or laminate direction is stated in the accessible table.
+      - BASFF G11 TDS states coefficient 15 x 10^-6 K^-1 to VDE0304; no test-temperature interval or laminate direction is stated.
+    note: Supplier-to-supplier span 11 to 15 microstrain/K is a dimensional sensitivity range, not a guaranteed material bound or lot measurement; actual grade and laminate direction unavailable.
+  aluminum:
+    cte_per_k: [0.0000236, 0.0000236]
+    source: https://www.hydro.com/Document/Index?id=560718&name=Alloy+6061.pdf
+    verified_facts: Hydro's 6061 alloy sheet gives average CTE 13.1 x 10^-6 per degree F over 68-212 F (20-100 C); conversion to SI multiplies by 1.8 to 23.58 x 10^-6 K^-1.
+    note: Proxy only. Actual reflective foil alloy and temper are not specified in the resolved part.
+  mica:
+    cte_per_k: [0.000010, 0.000028]
+    source: https://thegundcompany.com/wp-content/uploads/2024/03/Mica-M-Silicone-Bonded-Mica-Paper-Laminate-by-The-Gund-Co.pdf
+    verified_facts: The Gund Company Mica M silicone-bonded muscovite paper-laminate TDS gives typical in-plane thermal expansion 10 x 10^-6 per degree C at 110 C and 28 x 10^-6 per degree C at 250 C.
+    note: The two published temperature points are used as a broad in-plane sensitivity bracket, not a fitted function or through-thickness property; installed sleeve product is unconfirmed.
+tolerance_basis:
+  fixed_shell_bore_radial_mm: 0.05
+  fixed_mount_outer_radius_mm: 0.1
+  tvc_rail_inner_feature_mm: 0.1
+  tvc_foil_outer_radius_mm: 0.25
+  tvc_gimbal_bore_radial_mm: 0.05
+  tvc_grip_outer_radius_mm: 0.1
+  pivot_pin_diameter_mm: 0.25
+  pivot_bore_diameter_mm: 0.1
+  linkage_rod_diameter_mm: 0.25
+  linkage_bore_diameter_mm: 0.1
+  interpretation: Actual resolved PartEngineering tolerances; diameter allowances are halved when converted to radial fit. Linear feature tolerances are used directly. These are design inputs, not measured capability.
+pin_and_link_dimensions:
+  current:
+    pivot_pin_diameter_mm: 3.0
+    pivot_bore_diameter_mm: 3.4
+    linkage_rod_diameter_mm: 2.0
+    linkage_bore_diameter_mm: 3.2
+    pin_lengths_mm:
+      outer_pivot: 7.2
+      inner_pivot: 7.0
+    outer_pivot_pin_starts_mm:
+      - [0.0, -32.2, 10.0]
+      - [0.0, 25.0, 10.0]
+    inner_pivot_pin_starts_mm:
+      - [-28.8, 0.0, 10.0]
+      - [21.8, 0.0, 10.0]
+    axial_retention_features: none; CAD cylinders have no head, groove, clip, cap, shoulder, or fastener.
+  proposed_parameter_names:
+    - tvc.pivot_pin_diameter_mm
+    - tvc.outer_pivot_bore_diameter_mm
+    - tvc.inner_pivot_bore_diameter_mm
+    - tvc.link_rod_diameter_mm
+    - tvc.link_bore_diameter_mm
+  proposals:
+    pin_source:
+      supplier: McMaster-Carr
+      catalog_item: 91595A113
+      source_url: https://www.mcmaster.com/products/dowel-pins/diameter~3-0000-mm/diameter~3-000-mm/diameter~3-mm/
+      nominal_diameter_mm: 3.0
+      length_mm: 7.0
+      diameter_tolerance_plus_mm: [0.002, 0.008]
+      standard: DIN 6325-m6 / ISO 8734
+      hardness_hrc: 52
+      supplier_rating_note: The 7 mm length row lists no double-shear breaking-strength rating; this is a plain pin without an axial retention feature.
+      selection_status: source-backed dimension candidate only; not an adopted purchase or confirmed installed identity
+    pivot_bearing_bore_diameter_mm: 3.2
+    pivot_bearing_bore_diameter_tolerance_plus_minus_mm: 0.02
+    radial_clearance_math:
+      formula: (bearing_bore_diameter - pin_diameter) / 2
+      total_diametral_clearance_bounds_mm: [0.172, 0.218]
+      per_side_radial_clearance_bounds_mm: [0.086, 0.109]
+      required_minimum_per_side_mm: 0.05
+      status: Dimensional proposal exceeds the stated minimum by at least 0.036 mm; manufacturing process and thermal fit remain unverified.
+    linkage_rod_diameter_mm: 2.0
+    linkage_bore_diameter_mm: 3.2
+    retention_candidate:
+      type: DIN 6799 size 2.3 E-clip for 3 mm shaft
+      source_url: https://www.pts-uk.com/products/retaining-rings-and-clips/eclips/metric-a2/a6799023
+      manufacturer_part_number: A6799023
+      groove_diameter_mm: 2.3
+      maximum_outer_diameter_mm: 6.3
+      thickness_mm: 0.60
+      fit_assessment: Does not fit the current 0.5 mm frame-to-shell annulus or 1.0 mm nested-ring gap as an unrelieved part; it requires local relief/repositioning, updated structural checks, thermal/tolerance stacks, and a full pose sweep.
+      retention_capacity: unavailable; no axial allowable used
+  note: Pin/bore dimensions are proposal-only; pin material, installed identity, hold-down load and process capability are unverified.
+packages:
+  - id: fit-package-a
+    description: Fixed mount radius 32.0 mm; TVC rail radial width 3.5 mm, center radius 17.5 mm; existing grip and gimbal bore.
+    fixed_mount_outer_radius_mm: 32.0
+    tvc_rail_radial_width_mm: 3.5
+    tvc_rail_center_radius_mm: 17.5
+    tvc_inner_gimbal_bore_radius_mm: 20.3
+  - id: fit-package-b
+    description: Fixed mount radius 32.3 mm; same TVC rail fit correction as package A.
+    fixed_mount_outer_radius_mm: 32.3
+    tvc_rail_radial_width_mm: 3.5
+    tvc_rail_center_radius_mm: 17.5
+    tvc_inner_gimbal_bore_radius_mm: 20.3
+  - id: fit-package-c
+    description: Fixed mount radius 32.0 mm; TVC rails shift out 0.1 mm and narrow to 3.0 mm; inner-gimbal bore grows to 20.5 mm to preserve rail-corner clearance.
+    fixed_mount_outer_radius_mm: 32.0
+    tvc_rail_radial_width_mm: 3.0
+    tvc_rail_center_radius_mm: 17.6
+    tvc_inner_gimbal_bore_radius_mm: 20.5
+motion:
+  axis_samples_deg: 5
+  poses: 25
+  nominal_full_range: true
+  boundary: Full configured ±pitch/±yaw 5×5 grid using actual generated CadQuery solids; finite sample, not continuous collision proof.
+output_directory: build/wo03-fit-correction

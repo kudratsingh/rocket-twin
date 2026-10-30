@@ -1,0 +1,59 @@
+id: wo03-recovery-mass-budget
+vehicle: configs/vehicle/platform/tvc-finned.yaml
+growth_policy: Full active 50 g allowance remains outside the nominal recovery budget.
+guide_policy: Preserve current 5 m usable guide, minimum 10 m/s, lower thrust, friction and drag. Equipment remains unconfirmed.
+dedicated_recovery_part_ids:
+  - parachute
+  - shock_cord
+  - recovery_protection
+  - recovery_bulkhead
+  - recovery_anchor
+  - independent_recovery
+  - recovery_battery
+  - recovery_power_switch
+  - recovery_mount_carrier
+  - recovery_alignment_pins
+  - recovery_mount_hardware_allowance
+  - recovery_output_harness
+shared_loadpath_part_ids:
+  - body_upper
+  - interface_coupler
+  - joint_stop
+  - aft_shell
+  - gimbal_frame
+  - motor_mount
+  - outer_pivots
+  - inner_pivots
+  - gimbal_inner
+  - tvc_gimbal
+numerical_timestep_s: [0.001, 0.0005]
+main_battery_trade:
+  product: Palm Power Gen2 2S 180 mAh 45C
+  source: https://palmbeachbots.com/products/palm-power-2s-180mah-45c-lipo-battery
+  supplied_mass_kg: 0.0133
+  nominal_voltage_v: 7.4
+  capacity_mah: 180
+  stated_discharge_c: 45
+  envelope_m: [0.03625, 0.01975, 0.0099]
+  status: supplier data; unpurchased, pulse/ESR/temperature and connector qualification remain later gates
+  energy_budget:
+    minimum_capacity_fraction: 0.7
+    conversion_efficiency: 0.8
+    main_bus_v: 5
+    minimum_pack_v: 6
+    prearm_s: 600
+    prearm_current_a: 0.2
+    flight_peak_s: 20
+    flight_peak_current_a: 2.5
+    postflight_s: 600
+    postflight_current_a: 0.2
+    note: Bounded provisional duty cycle; motor ignition and recovery outputs do not draw from this pack. Enforce a later arming timer and qualify actual duty/temperature before use.
+fin_trade:
+  nominal_thickness_m: 0.006
+  minimum_thickness_m: 0.0057
+  basis: Explicit metric-plywood construction candidate; same planform/gussets and density, 0.3 mm thickness tolerance. Re-run minimum-thickness FEA and installed-root/flutter before adoption.
+reinforced_fin_trade:
+  nominal_thickness_m: 0.005
+  minimum_thickness_m: 0.0047
+  root_gusset_span_mm: 20
+  basis: Thinner standard metric panel with longer custom root gussets; coupled stiffness/mass trade, not a passed strength or flutter conclusion. Same 0.3 mm thickness tolerance.

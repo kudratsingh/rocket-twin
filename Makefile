@@ -104,3 +104,12 @@ integration-report: ## Record complete mass/CG/full inertia and growth sensitivi
 
 inspection-figures: ## Render existing CAD exports; run make cad first after changes.
 	$(PYTHON) scripts/wo03_assembly_figures.py --preset tiny
+
+correction-package: ## Rebuild isolated Package A copies and portable, hash-checked aliases.
+	$(PYTHON) scripts/wo03_correction_package.py --preset tiny
+
+recovery-budget: ## Exact G12 guide-limited recovery budget; retains full growth reserve.
+	$(PYTHON) scripts/wo03_recovery_mass_budget.py --preset tiny
+
+thermal-matrix: correction-package ## Required cases and exploratory cases remain distinct.
+	$(PYTHON) scripts/wo03_thermal_matrix.py --preset tiny

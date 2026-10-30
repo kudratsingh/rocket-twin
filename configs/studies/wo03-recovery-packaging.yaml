@@ -1,0 +1,228 @@
+id: wo03-independent-recovery-packaging-candidate
+status: isolated-copy-three-row-carrier-candidate-not-adopted
+previous_candidate_record: runs/wo03-recovery-packaging-20261030T225451142327Z/record.json
+previous_candidate_mass_delta_g: 6.9182322789738
+base_platform: configs/platform.yaml
+included_modes:
+  - modular-performance-v1
+  - modular-performance-g54-hypothesis
+  - modular-tvc-finned-v1
+  - modular-tvc-finless-v1
+body_outer_diameter_m: 0.066
+
+source_facts:
+  controller:
+    manufacturer: Altus Metrum
+    model: EasyMini v3.0
+    outline_mm: [38.1, 20.32]
+    mass_g: 6.5
+    input_voltage_v: [3.7, 12.0]
+    hole_pattern_mm: [13.97, 31.75]
+    hole_diameter_mm: 3.175
+    source: https://altusmetrum.org/AltOS/doc/easymini-outline.pdf
+    notes: Manufacturer outline dimensions and hole pattern; terminal component envelope separately estimated.
+  cell:
+    manufacturer: Garbee and Garbee / Altus Metrum
+    model: 1S LiPo 120 mAh
+    bbox_mm: [30.0, 15.0, 4.0]
+    mass_g: 3.6
+    voltage_nominal_v: 3.7
+    capacity_mah: 120
+    source: https://shop.gag.com/product/120mah-lipo-battery/
+    notes: Seller-listed nominal dimensions/mass; connector polarity, cell protection and pulse sag unverified.
+  rotary_switch:
+    manufacturer: Schurter
+    family: SWA1, proposed 0033.4518, maintained 0/1
+    family_panel_hole_diameter_mm: 15.875
+    family_inner_clearance_diameter_mm: 12.7
+    mass_g_estimate: 3.7
+    source: https://www.schurter.com/en/pdf/english/typ_swa1__frontpl_.pdf
+    seller_reference: https://shop.gag.com/product/rotary-switch/
+    notes: Family drawing and seller sibling reference do not verify exact 0033.4518 envelope, DC rating, terminal details or mass; no DC rating is claimed.
+
+layout:
+  carrier_front_station_m: 0.333
+  carrier_bbox_mm_axial_width_thickness: [92.0, 26.0, 1.0]
+  carrier_material: G11
+  carrier_density_kg_m3_estimate: 1850
+  carrier_body_lateral_yz_m: [0.0, 0.010]
+  board_front_station_m: 0.380
+  controller_envelope_reference_body_lateral_yz_m: [0.0, 0.0135]
+  pcb_body_lateral_yz_m: [0.0, 0.0177]
+  components_body_lateral_yz_m: [0.0, 0.0147]
+  standoffs_body_lateral_yz_m: [0.0, 0.0137]
+  fasteners_body_lateral_yz_m: [0.0, 0.0177]
+  board_pcb_thickness_mm: 1.6
+  board_component_envelope_mm: [38.1, 20.32, 4.4]
+  board_component_envelope_front_station_m: 0.380
+  board_component_clearance_to_carrier_mm: 2.0
+  board_holes_station_offsets_mm: [50.175, 81.925]
+  board_hole_x_mm: [-6.985, 6.985]
+  carrier_corner_reliefs:
+    count: 4
+    diameter_mm: 5.4
+    depth_mm: 4.4
+    purpose: Component-side clearance around four board fastener locations while leaving the 1.6 mm PCB intact.
+  standoffs:
+    count: 4
+    material: nylon
+    outside_diameter_mm: 5.0
+    through_bore_mm: 3.2
+    installed_gap_mm: 6.4
+    component_relief_diameter_mm: 5.4
+    component_relief_depth_mm: 4.4
+  board_fasteners:
+    type: nylon M3 x 12
+    count: 4
+    head_diameter_mm_estimate: 5.5
+    head_height_mm_estimate: 2.0
+    mass_g_total_estimate: 1.2
+    notes: Generic envelope estimate; head form, thread engagement, nut retention and vibration suitability not sourced.
+  battery:
+    front_station_m: 0.333
+    body_lateral_yz_m: [0.0, 0.014]
+    tray_bbox_mm: [31.5, 17.5, 4.8]
+    cradle_inner_width_mm: 16.0
+    nominal_cell_side_clearance_mm_each: 0.5
+    extraction_route: remove nose and withdraw carrier forward; disconnect cell leads and release the band; lift the cell outward from the withdrawn tray
+    extraction_tolerance_basis_mm_each_source: 0.25
+    retaining_band_width_mm: 8.0
+    band_material: woven nylon, estimated
+    band_mass_g_estimate: 0.35
+    battery_to_connector_service_loop_mm: 30
+    minimum_wire_bend_radius_mm_placeholder: 15
+  sled_attachment:
+    crossbar_stations_m: [0.360, 0.390, 0.420]
+    carrier_mount_stations_m: [0.360, 0.390, 0.421]
+    crossbar_width_mm: 8.0
+    crossbar_thickness_mm: 2.0
+    local_reinforcement_thickness_mm: 1.0
+    fasteners: 6 x M2.5 x 12 nylon screw/nut envelopes, two per mount row
+    centers_body_x_mm: [-10.5, 10.5]
+    first_row_centers_body_x_mm: [-11.0, 11.0]
+    mass_g_total_estimate: 1.3
+    carrier_to_sled_clearance_mm: 8.5
+    carrier_aft_end_station_m: 0.425
+    aft_end_overhang_after_third_row_mm: 4.0
+    previous_two_row_rear_overhang_mm: 35.0
+    board_end_station_m: 0.4181
+    third_row_screwhead_axial_radius_mm: 2.3
+    third_row_to_board_end_axial_clearance_mm: 0.6
+    source_note: Existing crossbar geometry centers are 0.360, 0.390 and 0.420 m with 8 mm station width; candidate rear fastener row is at 0.421 m within the third crossbar.
+  switch:
+    center_station_m: 0.470
+    body_lateral_yz_m: [0.0, 0.02875]
+    panel_hole_diameter_mm: 15.875
+    doubler_bbox_mm_axial_width_thickness: [30.0, 30.0, 1.6]
+    doubler_material: G11
+    doubler_mass_g_estimate: 2.66
+    inner_opening_diameter_mm: 12.7
+    tool_corridor_diameter_mm: 6.0
+    tool_corridor_depth_mm: 25.0
+    tool_corridor_mass_included: false
+    exact_switch_revision_confirmed: false
+  wiring:
+    dedicated_battery_positive: recovery_battery -> recovery_power_switch
+    switched_positive: recovery_power_switch -> independent_recovery
+    dedicated_return: recovery_battery -> independent_recovery
+    output_boundary: independent_recovery -> recovery_output_harness
+    service_loop_mm: 30
+    bend_radius_mm: 15
+    connector: JST-PH 2-pin at EasyMini; polarity to verify against actual board and cell
+    strain_relief: 1.0 g allowance, clamp geometry unresolved
+    wire_connector_mass_g_estimate: 4.0
+
+structural_mount_screen:
+  status: preliminary_elastic_beam_bound_only
+  material: G11
+  hot_modulus_gpa_estimate: 5.0
+  support_rows_station_m: [0.360, 0.390, 0.421]
+  carrier_length_m: 0.092
+  carrier_width_mm: 26.0
+  carrier_thickness_mm: 1.0
+  board_row_load_n_including_project_factor: 3.4
+  board_span_mm: 30.0
+  cell_overhang_load_n_including_project_factor: 7.6
+  cell_overhang_mm: 12.0
+  formula_simply_supported_center_point_load: delta=F*L^3/(48*E*I)
+  formula_cantilever_tip_point_load: delta=F*L^3/(3*E*I)
+  limits: hot modulus is an engineering estimate, load division and attachment compliance are unmeasured, and this calculation is not a strength, fastener, bonding, vibration or thermal qualification.
+
+cad_geometry:
+  machining_hole_schema: [{start_mm: [x,y,z], axis: [ax,ay,az], diameter_mm: d, length_mm: l}]
+  controller_hole_x_mm: [-6.985, 6.985]
+  controller_holes_local_mm: [3.175, 34.925]
+  controller_component_holes_local_mm: [3.175, 34.925]
+  controller_hole_stations_from_carrier_mm: [50.175, 81.925]
+  sled_mount_holes_from_carrier_mm: [[-11.0, 27.0], [11.0, 27.0], [-10.5, 57.0], [10.5, 57.0], [-10.5, 88.0], [10.5, 88.0]]
+  switch_body_wall_hole:
+    body_upper_local_station_mm: 330.0
+    start_mm: [0.0, -34.0, 330.0]
+    axis: [0.0, 1.0, 0.0]
+    diameter_mm: 15.875
+    length_mm: 3.5
+    note: One-side wall cut only; confirms nominal penetration envelope, not a fabricated panel installation.
+
+mass:
+  old_generic_recovery_mount_allowance_g: 6.28303
+  old_carrier_and_alignment_pins_g: 1.71697
+  g11_carrier_mass_kg_by_cad_volume: true
+  g11_density_kg_m3_estimate: 1850
+  fastener_and_restraint_components:
+    four_nylon_m3_screws_and_nuts_g_estimate: 1.008
+    four_nylon_standoffs_g_by_cad_volume: 0.107
+    carrier_to_sled_screws_and_nuts_g_by_cad_volume: 0.479
+    four_local_sled_reinforcement_pads_g_by_cad_volume: 0.248
+    battery_cradle_g_by_cad_volume: 0.681
+    cell_band_g: 0.35
+    switch_g: 3.7
+    switch_g11_doubler_g_by_cad_volume: 2.078
+    wire_connectors_strain_relief_g: 4.0
+  estimate_only: true
+  note: The script replaces the prior 1.717 g carrier/pin solids and subtracts CAD-derived new tray, band, fastener and reinforcement masses from the separate old 6.283 g allowance; it retains the calculated residual as budget mass. G11 carrier and doubler CAD masses use geometry volume times estimated density. No mass is set to zero to force parity.
+
+netlist:
+  required_edges:
+    - {net: RECOVERY_BAT_POS, from: recovery_battery, to: recovery_power_switch}
+    - {net: RECOVERY_ARMED_POS, from: recovery_power_switch, to: independent_recovery}
+    - {net: RECOVERY_RETURN, from: recovery_battery, to: independent_recovery}
+    - {net: RECOVERY_OUTPUT_BUNDLE, from: independent_recovery, to: recovery_output_harness}
+  prohibited_edges:
+    - RECOVERY_INDEPENDENT
+    - main battery positive or return
+    - servo/flight computer grounds or GPIO
+  note: Functional isolation boundary only; no energetic device, firing circuit or output current is modeled.
+
+verification:
+  allowed_contact_pairs:
+    - [body_upper, recovery_switch_g11_doubler]
+    - [body_upper, recovery_power_switch]
+    - [recovery_switch_g11_doubler, recovery_power_switch]
+    - [recovery_mount_carrier, recovery_standoffs]
+    - [recovery_standoffs, independent_recovery]
+    - [independent_recovery, recovery_fasteners]
+    - [independent_recovery, recovery_easymini_components]
+    - [recovery_easymini_components, recovery_standoffs]
+    - [recovery_mount_carrier, recovery_fasteners]
+    - [recovery_fasteners, recovery_standoffs]
+    - [recovery_fasteners, recovery_nuts]
+    - [recovery_mount_carrier, recovery_nuts]
+    - [recovery_mount_carrier, recovery_battery_tray]
+    - [recovery_battery_tray, recovery_battery]
+    - [recovery_battery, recovery_battery_band]
+    - [recovery_mount_carrier, recovery_sled_fasteners]
+    - [recovery_sled_fasteners, avionics_bay]
+    - [recovery_sled_fasteners, recovery_sled_nuts]
+    - [recovery_sled_nuts, avionics_bay]
+    - [recovery_sled_reinforcement, avionics_bay]
+    - [recovery_sled_reinforcement, recovery_sled_fasteners]
+  note: These are explicitly named local interfaces only. Any other positive-volume overlap is reported as an unexplained collision.
+
+open_questions:
+  - Exact Schurter 0033.4518 drawing, bushing length, anti-rotation/retention stack and DC contact rating.
+  - Exact EasyMini terminal/pressure-port keepouts and board orientation versus the drawing.
+  - Cell connector polarity, pulse sag, cell retention and validation by approved ground-load test.
+  - Real flexible-wire bend and strain-relief path, arming-hole physical access, connector service access.
+  - Crossbar local reinforcement print process, captive nuts, screw lengths and extraction path.
+  - G11-to-sled attachment strength, component relief adequacy and standoff/screw preload.
+  - No physical fit, deployment proof, electrical fault test or hardware release is claimed.
