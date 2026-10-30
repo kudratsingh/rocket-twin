@@ -46,6 +46,10 @@ def local_shape(part: Part) -> Any:
     g = part.geometry
     o = part.cad.parameters
     kind = part.cad.generator
+    if kind in ("thrust_plate", "sector_pads", "motor_cassette", "retainer_plate"):
+        from src.cad.retention_parts import build_retention
+
+        return build_retention(kind, g, o)
     length = g.get("length_m", g.get("bbox_m", [0])[0]) * 1000
     radius = g.get("radius_m", 0) * 1000
     if kind == "nose":
@@ -136,22 +140,30 @@ def local_shape(part: Part) -> Any:
     if kind == "anchor":
         stem = cq.Solid.makeCylinder(1.5, length)
         eye = tube(4, 2, 3).translate((0, 0, 0))
-        washer = tube(4, 1.7, 1).translate((0, 0, 14))
+        washer = tube(4, 1.7, 1).translate((0, 0, o.get("washer_station_mm", 14)))
         return compound([stem, eye, washer])
     if kind == "mount":
         rings = [
-            tube(radius, g["inner_radius_m"] * 1000, o["ring_thickness_mm"]).translate((0, 0, z))
-            for z in o["ring_stations_mm"]
+            tube(radius, g["inner_radius_m"] * 1000, thickness).translate((0, 0, z))
+            for z, thickness in zip(
+                o["ring_stations_mm"],
+                o.get("ring_thicknesses_mm", [o["ring_thickness_mm"]] * len(o["ring_stations_mm"])),
+                strict=True,
+            )
         ]
         rails = []
         for a in [0, 120, 240]:
             rail = box(o["rail_depth_mm"], o["rail_width_mm"], length).translate(
                 (o["rail_radius_mm"], 0, 0)
             )
-            slot = box(o["rail_depth_mm"] + 2, 2.4, 62).translate(
-                (o["rail_radius_mm"], 0, o.get("tab_slot_start_mm", 65))
+            slot = box(
+                o["rail_depth_mm"] + 2,
+                o.get("fin_slot_width_mm", 2.4),
+                o.get("fin_slot_length_mm", 62),
+            ).translate((o["rail_radius_mm"], 0, o.get("tab_slot_start_mm", 65)))
+            rails.append(
+                (rail if o.get("fin_channels") else rail.cut(slot)).rotate((0, 0, 0), (0, 0, 1), a)
             )
-            rails.append(rail.cut(slot).rotate((0, 0, 0), (0, 0, 1), a))
         if o.get("pivot_ring"):
             rings.append(
                 tube(radius, g["inner_radius_m"] * 1000, 8).translate(
@@ -161,6 +173,21 @@ def local_shape(part: Part) -> Any:
         shape = rings[0]
         for other in rings[1:] + rails:
             shape = shape.fuse(other)
+        for block in o.get("retainer_blocks", []):
+            angle = block["angle_deg"]
+            solid = box(*block["size_mm"]).translate(tuple(block["position_mm"]))
+            hole = cq.Solid.makeCylinder(
+                block["bolt_hole_mm"] / 2,
+                block["size_mm"][2] + 2,
+                cq.Vector(block["position_mm"][0], 0, block["position_mm"][2] - 1),
+            )
+            pocket = box(*block["nut_pocket_size_mm"]).translate(
+                tuple(block["nut_pocket_position_mm"])
+            )
+            solid, hole, pocket = [
+                item.rotate((0, 0, 0), (0, 0, 1), angle) for item in (solid, hole, pocket)
+            ]
+            shape = shape.fuse(solid).cut(hole).cut(pocket)
         if o.get("pivot_ring"):
             z = o["pivot_station_mm"]
             shape = shape.cut(
@@ -171,8 +198,18 @@ def local_shape(part: Part) -> Any:
         if o.get("fin_channels"):
             for angle in [0, 120, 240]:
                 shape = shape.cut(
-                    box(5, 2.4, 62).translate((32, 0, 65)).rotate((0, 0, 0), (0, 0, 1), angle)
+                    box(
+                        o.get("fin_channel_depth_mm", 5),
+                        o.get("fin_slot_width_mm", 2.4),
+                        o.get("fin_slot_length_mm", 62),
+                    )
+                    .translate(
+                        (o.get("fin_channel_radius_mm", 32), 0, o.get("tab_slot_start_mm", 65))
+                    )
+                    .rotate((0, 0, 0), (0, 0, 1), angle)
                 )
+        if o.get("trim_outer_cylinder"):
+            shape = shape.intersect(cq.Solid.makeCylinder(radius, length))
         return shape
     if kind in ("gimbal_outer", "gimbal_inner", "cradle"):
         shape = tube(radius, g["inner_radius_m"] * 1000, 18 if o.get("tie_rails") else length)
@@ -220,6 +257,23 @@ def local_shape(part: Part) -> Any:
             )
         for center in o.get("socket_centers_mm", []):
             shape = shape.cut(cq.Solid.makeSphere(2.2, cq.Vector(*center), angleDegrees1=-90))
+        for hole in o.get("radial_mount_screws", []):
+            angle = np.deg2rad(hole["angle_deg"])
+            direction = cq.Vector(-np.cos(angle), -np.sin(angle), 0)
+            start = cq.Vector(radius * np.cos(angle), radius * np.sin(angle), hole["station_mm"])
+            shape = shape.cut(
+                cq.Solid.makeCylinder(hole["diameter_mm"] / 2, hole["depth_mm"], start, direction)
+            )
+            if hole.get("countersink_diameter_mm"):
+                shape = shape.cut(
+                    cq.Solid.makeCone(
+                        hole["countersink_diameter_mm"] / 2,
+                        1.25,
+                        hole["countersink_depth_mm"],
+                        start,
+                        direction,
+                    )
+                )
         if o.get("link_bore"):
             bore = o["link_bore"]
             shape = shape.cut(
@@ -246,6 +300,29 @@ def local_shape(part: Part) -> Any:
                 (r - o["tab_depth_mm"] / 2, 0, o["tab_offset_mm"])
             )
             one = one.fuse(tab)
+        if o.get("root_gusset_span_mm"):
+            # Two triangular wood gussets, fitted to the cylindrical shell.
+            # They are represented in the manufactured fin assembly's mass.
+            span = o["root_gusset_span_mm"]
+            base = o["root_gusset_base_mm"]
+            inset = o.get("root_gusset_inset_mm", 1)
+            body = cq.Solid.makeCylinder(r, root + 2, cq.Vector(0, 0, -1))
+            for side in (-1, 1):
+                gusset = (
+                    cq.Workplane("XY")
+                    .polyline(
+                        [
+                            (r - inset, side * t / 2),
+                            (r - inset, side * (t / 2 + base)),
+                            (r + span, side * t / 2),
+                        ]
+                    )
+                    .close()
+                    .extrude(root)
+                    .val()
+                    .cut(body)
+                )
+                one = one.fuse(gusset)
         return compound(
             [one.rotate((0, 0, 0), (0, 0, 1), i * 360 / g["count"]) for i in range(g["count"])]
         )
@@ -264,6 +341,28 @@ def local_shape(part: Part) -> Any:
                 )
             )
             shapes.append(lug.fuse(foot))
+        return compound(shapes)
+    if kind == "fastener_set":
+        shapes = []
+        for screw in o["radial_screws"]:
+            angle = np.deg2rad(screw["angle_deg"])
+            direction = cq.Vector(-np.cos(angle), -np.sin(angle), 0)
+            r, depth = screw["outer_radius_mm"], screw["head_depth_mm"]
+            start = cq.Vector(r * np.cos(angle), r * np.sin(angle), 0)
+            head = cq.Solid.makeCone(
+                screw["head_diameter_mm"] / 2,
+                screw["shank_diameter_mm"] / 2,
+                depth,
+                start,
+                direction,
+            )
+            shank = cq.Solid.makeCylinder(
+                screw["shank_diameter_mm"] / 2,
+                screw["length_mm"] - depth,
+                start + direction.multiply(depth),
+                direction,
+            )
+            shapes.append(head.fuse(shank))
         return compound(shapes)
     if kind == "pins":
         shapes = []

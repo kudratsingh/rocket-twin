@@ -36,46 +36,55 @@ limits:
   metal_structure_allowed: false
 airframe:
   body_diameter_m: 0.066
-  length_m: 0.8
+  length_m: 1.212
   nose:
     shape: ogive
     length_m: 0.14
   material_default: cardboard
 parts:
-- id: nose_cone
+- cite: null
+  estimate: true
+  id: nose_cone
   type: nose_cone
   parent: null
-  position_m: 0
+  position_m: 0.0
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
-    shape: ogive
     length_m: 0.14
-    shoulder_length_m: 0.03
-    wall_m: 0.0012
     radius_m: 0.033
+    wall_m: 0.0012
+    shape: ogive
+    shoulder_length_m: 0.03
   material: ASA
   mass_kg: 0.033017273687055475
-  estimate: true
-  learn: Custom printed ogive and shoulder align recovery separation. ASA is a candidate
-    for outdoor heat exposure; layer strength, shoulder fit and surface temperature
-    require tests before flight.
-  build:
-    method: printed
-    cost_usd: 4
-    generator: nose_cone
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
+  cg_offset_m: 0.10507448848415252
+  electrical: null
   print:
+    rotation_deg:
+    - 180.0
+    - 0.0
+    - 0.0
+    line_width_mm: 0.4
     orientation: Reverse CAD Z; nose shoulder or rear ring face on bed, tip/drive
       bridge grows upward.
     layer_mm: 0.2
-    infill_pct: 100
+    infill_pct: 100.0
     walls: 3
     supports: false
-    line_width_mm: 0.4
-    rotation_deg:
-    - 180
-    - 0
-    - 0
+  explode_offset: 0.0
+  learn: Custom printed ogive and shoulder align recovery separation. ASA is a candidate
+    for outdoor heat exposure; layer strength, shoulder fit and surface temperature
+    require tests before flight.
+  tank: null
+  engine: null
+  build:
+    method: printed
+    cost_usd: 4.0
+    generator: nose_cone
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
   cad:
     generator: nose
     parameters:
@@ -88,25 +97,6 @@ parts:
     color: '#d9e2ea'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 8381e385d6ff4cd1aa98a3540c74fea731a2411b1095aa1d99242adf0948343d
-    volume_m3: 3.085726512808923e-05
-    cg_local_body_m:
-    - -0.10507448848415252
-    - -3.6431000163605166e-16
-    - 2.7230500515332014e-18
-    inertia_per_kg_m2:
-    - - 0.0007942587951587128
-      - -2.416983494407599e-17
-      - -1.804916136095085e-18
-    - - -2.416983494407599e-17
-      - 0.0021438771840434786
-      - -3.9983277360268475e-19
-    - - -1.804916136095085e-18
-      - -3.9983277360268475e-19
-      - 0.0021438771840434734
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.10507448848415252
   engineering:
     function: Custom printed ogive and shoulder align recovery separation.
     material_profile: ASA
@@ -127,29 +117,56 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: body_upper
+  cad_mass:
+    shape_sha256: c2b8e241c205720ed7a90a100ce8050ff74ef948a0146eef361d022fe4dfdb89
+    volume_m3: 3.085726512808923e-05
+    cg_local_body_m:
+    - -0.10507448848415252
+    - -3.6431000163605166e-16
+    - 2.7230500515332014e-18
+    inertia_per_kg_m2:
+    - - 0.0007942587951587128
+      - -2.416983494407599e-17
+      - -1.804916136095085e-18
+    - - -2.416983494407599e-17
+      - 0.0021438771840434786
+      - -3.9983277360268475e-19
+    - - -1.804916136095085e-18
+      - -3.9983277360268475e-19
+      - 0.0021438771840434734
+    basis: bulk-density manufactured solid
+- cite: https://www.apogeerockets.com/Building_Supplies/Body_Tubes/56mm_to_98mm_4in_Tubes/66mm_X_18in_Slotted_Body_Tube_for_TARC
+    ; 38.2 g per 457.2 mm uncut tube estimate
+  estimate: true
+  id: body_upper
   type: body_tube
   parent: nose_cone
   position_m: 0.14
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
-    length_m: 0.378
+    length_m: 0.778
     radius_m: 0.033
     inner_radius_m: 0.0325
     wall_m: 0.0005
   material: cardboard
-  mass_kg: 0.027223942378580744
-  estimate: true
+  mass_kg: 0.05603234701199932
+  cg_offset_m: 0.38899999999999896
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: Thin kraft tube provides efficient axial and bending stiffness. Cut, seal,
     bond and locally reinforce the custom interfaces; crush, humidity and joint loads
     require coupon and assembly tests.
+  tank: null
+  engine: null
   build:
     method: cut
-    cost_usd: 8
+    cost_usd: 8.0
     generator: body_tube
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  cite: https://www.apogeerockets.com/Building_Supplies/Body_Tubes/56mm_to_98mm_4in_Tubes/66mm_X_18in_Slotted_Body_Tube_for_TARC
-    ; 38.2 g per 457.2 mm uncut tube estimate
   cad:
     generator: tube
     parameters: {}
@@ -159,25 +176,6 @@ parts:
     color: '#d8c5a5'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 094cd22aae696b84c93e461af546537eeedbc685a60fddc3e9b33d14a92134fe
-    volume_m3: 3.889134625511535e-05
-    cg_local_body_m:
-    - -0.18899999999999958
-    - -4.577951137282902e-15
-    - -1.280091909723792e-16
-    inertia_per_kg_m2:
-    - - 0.0010726250000000228
-      - -6.024112244593352e-20
-      - -1.7010746068026877e-19
-    - - -6.024112244593352e-20
-      - 0.012443312500000043
-      - 1.2487187224681197e-18
-    - - -1.7010746068026877e-19
-      - 1.2487187224681197e-18
-      - 0.012443312500000105
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.18899999999999958
   engineering:
     function: Thin kraft tube provides efficient axial and bending stiffness.
     material_profile: cardboard
@@ -200,24 +198,52 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: interface_coupler
+  cad_mass:
+    shape_sha256: 93b0486eb0d80e26856178bbfb7a4bc8dac57c8a22879bc0158a55d32ed7f8b3
+    volume_m3: 8.004621001714189e-05
+    cg_local_body_m:
+    - -0.38899999999999896
+    - -4.661196406118721e-15
+    - -1.3146859919512756e-16
+    inertia_per_kg_m2:
+    - - 0.0010726250000000315
+      - 6.179539322802886e-18
+      - 2.7550913252466773e-19
+    - - 6.179539322802886e-18
+      - 0.05097664583333293
+      - 1.1726434233785486e-18
+    - - 2.7550913252466773e-19
+      - 1.1726434233785486e-18
+      - 0.05097664583333346
+    basis: bulk-density manufactured solid
+- cite: null
+  estimate: true
+  id: interface_coupler
   type: body_tube
   parent: body_upper
-  position_m: 0.468
+  position_m: 0.8680000000000001
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
     length_m: 0.104
-    radius_m: 0.0322
-    inner_radius_m: 0.0308
-    wall_m: 0.0014
+    radius_m: 0.032
+    inner_radius_m: 0.0305
+    wall_m: 0.0015
   material: cardboard
-  mass_kg: 0.019815376987900164
-  estimate: true
+  mass_kg: 0.02106733049353741
+  cg_offset_m: 0.05173368289305022
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: The keyed removable aft joint overlaps each shell by 50 mm. Bonded shear
     keys carry torque and the positive axial stop carries thrust; tolerance stack,
     retention and pull tests remain open.
+  tank: null
+  engine: null
   build:
     method: bonded
-    cost_usd: 4
+    cost_usd: 4.0
     generator: body_tube
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
@@ -238,7 +264,6 @@ parts:
     color: '#b6a183'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cg_offset_m: 0.05173000984741928
   engineering:
     function: The keyed removable aft joint overlaps each shell by 50 mm.
     material_profile: cardboard
@@ -262,54 +287,62 @@ parts:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
   cad_mass:
-    shape_sha256: 9c11d157f40f547cb20ef61f332a1787fdb0d6b2c83010f42aaa0f354ac3c615
-    volume_m3: 2.8307681411285946e-05
+    shape_sha256: b1058abe58d8d42ccbb7c1085201fcbec9365ba3a7ae403bde78b8f9c77ea25e
+    volume_m3: 3.0096186419339158e-05
     cg_local_body_m:
-    - -0.05173000984741928
-    - -1.6464816915493157e-15
-    - 8.035064984184867e-05
+    - -0.05173368289305022
+    - -1.5237326488424089e-15
+    - 7.551898109829633e-05
     inertia_per_kg_m2:
-    - - 0.0009927385155400795
-      - -1.274055229534347e-19
-      - 1.2269536318389786e-06
-    - - -1.274055229534347e-19
-      - 0.0014075322238123094
-      - -5.100032374177183e-19
-    - - 1.2269536318389786e-06
-      - -5.100032374177183e-19
-      - 0.0014100463549761451
+    - - 0.0009771079395584417
+      - -5.336854161281298e-19
+      - 1.1528967130407356e-06
+    - - -5.336854161281298e-19
+      - 0.0013996506190562333
+      - 1.4027392198967983e-20
+    - - 1.1528967130407356e-06
+      - 1.4027392198967983e-20
+      - 0.0014019976850738233
     basis: bulk-density manufactured solid
-- id: avionics_bay
+- cite: null
+  estimate: true
+  id: avionics_bay
   type: avionics_bay
   parent: body_upper
   position_m: 0.24
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
     length_m: 0.21
     radius_m: 0.026
-    inner_radius_m: 0
   material: ASA
   mass_kg: 0.00904460569417429
-  estimate: true
+  cg_offset_m: 0.105
+  electrical: null
+  print:
+    rotation_deg:
+    - 90.0
+    - 0.0
+    - 0.0
+    line_width_mm: 0.4
+    orientation: Sled broad face on bed; CAD Y thickness becomes print Z.
+    layer_mm: 0.2
+    infill_pct: 100.0
+    walls: 4
+    supports: false
+  explode_offset: 0.0
   learn: Custom removable sled establishes the sensor reference frame and service
     access. Its envelope is not solid material; screws, vibration isolation and retention
     enter the measured assembly budget.
+  tank: null
+  engine: null
   build:
     method: printed
-    cost_usd: 3
+    cost_usd: 3.0
     generator: avionics_bay
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  print:
-    orientation: Sled broad face on bed; CAD Y thickness becomes print Z.
-    layer_mm: 0.2
-    infill_pct: 100
-    walls: 4
-    supports: false
-    line_width_mm: 0.4
-    rotation_deg:
-    - 90
-    - 0
-    - 0
   cad:
     generator: sled
     parameters:
@@ -326,25 +359,6 @@ parts:
     color: '#497f85'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 2c17b96e34fd8300832f3274fbfe463b63beaa2d43416ccbb7f7e393014adba0
-    volume_m3: 8.452902517919897e-06
-    cg_local_body_m:
-    - -0.105
-    - -1.6139332611103e-19
-    - -1.1018299257368416e-19
-    inertia_per_kg_m2:
-    - - 0.00029163420315975164
-      - 1.6946299241658148e-20
-      - 1.4344574829136594e-21
-    - - 1.6946299241658148e-20
-      - 0.00372092680827068
-      - 3.3195868047669694e-23
-    - - 1.4344574829136594e-21
-      - 3.3195868047669694e-23
-      - 0.004011894344763775
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.105
   engineering:
     function: Custom removable sled establishes the sensor reference frame and service
       access.
@@ -366,26 +380,55 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: recovery_bulkhead
+  cad_mass:
+    shape_sha256: 6dd4a634203e9339ec39fa4c65ff2b49ea538a39060dd8fa19064b510003a2bb
+    volume_m3: 8.452902517919897e-06
+    cg_local_body_m:
+    - -0.105
+    - -1.6139332611103e-19
+    - -1.1018299257368416e-19
+    inertia_per_kg_m2:
+    - - 0.00029163420315975164
+      - 1.6946299241658148e-20
+      - 1.4344574829136594e-21
+    - - 1.6946299241658148e-20
+      - 0.00372092680827068
+      - 3.3195868047669694e-23
+    - - 1.4344574829136594e-21
+      - 3.3195868047669694e-23
+      - 0.004011894344763775
+    basis: bulk-density manufactured solid
+- cite: null
+  estimate: true
+  id: recovery_bulkhead
   type: commercial
   parent: body_upper
   position_m: 0.225
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
-    length_m: 0.004
+    length_m: 0.005
     radius_m: 0.0323
-    inner_radius_m: 0
-  material: plywood
-  mass_kg: 0.007190728592948607
-  estimate: true
-  learn: Custom plywood bulkhead transfers parachute loads into the upper tube rather
-    than electronics. Anchor pullout, adhesive area and deployment shock loads require
-    test.
+  material: G11
+  mass_kg: 0.0302337452203521
+  cg_offset_m: 0.0025
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: The recovery bulkhead spreads harness opening force into the shared tube.
+    Five-millimetre G11 replaces the thinner wood plate to improve bearing/bending
+    and temperature margins. Its useful forward structural mass also affects CG; it
+    is included with every aft module.
+  tank: null
+  engine: null
   build:
     method: cut
-    cost_usd: 3
+    cost_usd: 12
     generator: commercial
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
+    notes: 5 mm G11 Class H recovery load spreader replaces 4 mm plywood; the added
+      forward structural mass is included in stability. Anchor bearing, plate bending,
+      tube attachment and opening proof remain explicit checks.
   cad:
     generator: bulkhead
     parameters:
@@ -396,29 +439,10 @@ parts:
     color: '#bd965f'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 7f5f0ac1cf83a459679296e9ddd22c7d272a3eac7e661e3a03889968ea09420d
-    volume_m3: 1.3074051987179287e-05
-    cg_local_body_m:
-    - -0.002
-    - -3.1059626647125455e-18
-    - -7.8501433548877795e-19
-    inertia_per_kg_m2:
-    - - 0.0005230900000000029
-      - 1.3912973616210176e-21
-      - -1.720435550157503e-23
-    - - 1.3912973616210176e-21
-      - 0.00026287833333333747
-      - -1.527323213998275e-20
-    - - -1.720435550157503e-23
-      - -1.527323213998275e-20
-      - 0.000262878333333332
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.002
   engineering:
     function: Custom plywood bulkhead transfers parachute loads into the upper tube
       rather than electronics.
-    material_profile: plywood
+    material_profile: G11
     tolerances_mm:
       linear: 0.1
       hole_diameter: 0.1
@@ -436,56 +460,64 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: recovery_anchor
+  cad_mass:
+    shape_sha256: 2138a4b66ee96a92a00767277fc1d53cabd1b94bef556e5cd9272aae90a341f1
+    volume_m3: 1.634256498397411e-05
+    cg_local_body_m:
+    - -0.0025
+    - -1.9930334705221083e-18
+    - -1.0889277509186553e-18
+    inertia_per_kg_m2:
+    - - 0.000523090000000003
+      - 1.4469492560858591e-21
+      - 8.588445607734067e-23
+    - - 1.4469492560858591e-21
+      - 0.00026362833333333757
+      - -7.181964298846852e-21
+    - - 8.588445607734067e-23
+      - -7.181964298846852e-21
+      - 0.00026362833333333215
+    basis: bulk-density manufactured solid
+- cite: null
+  estimate: true
+  id: recovery_anchor
   type: commercial
   parent: body_upper
   position_m: 0.215
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
-    length_m: 0.014
+    length_m: 0.015
     radius_m: 0.004
   material: commercial
   mass_kg: 0.004
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.006158942795076032
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: 'Purchased M3 recovery eye and washer envelope: 3 mm shank passes through
     a 3.4 mm bulkhead hole, with eye forward and washer aft. Supplier geometry, captive
     locking and recovery proof load remain unverified.'
+  tank: null
+  engine: null
   build:
     method: assembled
-    cost_usd: 3
+    cost_usd: 3.0
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - 0
-  - 0
   cad:
     generator: anchor
-    parameters: {}
+    parameters:
+      washer_station_mm: 15
     mass_basis: supplied_or_estimated
     role: purchased_envelope
     moving_group: fixed
     color: '#b8bec5'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 52e405b3e8dc3fb54a7a8854a4975a20e7a1504364e01c2cf439ace3e98e2a26
-    volume_m3: 2.532437838058732e-07
-    cg_local_body_m:
-    - -0.00576349088202456
-    - -4.76980178008285e-18
-    - -1.1037782417634597e-19
-    inertia_per_kg_m2:
-    - - 6.441650539635314e-06
-      - 1.4532028808256408e-21
-      - 1.6048685028296437e-22
-    - - 1.4532028808256408e-21
-      - 3.1080655981463885e-05
-      - -3.9293747465586675e-22
-    - - 1.6048685028296437e-22
-      - -3.9293747465586675e-22
-      - 3.108065598146381e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.00576349088202456
   engineering:
     function: 'Purchased M3 recovery eye and washer envelope: 3 mm shank passes through
       a 3.4 mm bulkhead hole, with eye forward and washer aft.'
@@ -507,10 +539,33 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: parachute
+  cad_mass:
+    shape_sha256: 60a7f117a899d1b1d0d685101b602be8d5400866c539af21dfe7a1485a19be37
+    volume_m3: 2.603123672764503e-07
+    cg_local_body_m:
+    - -0.006158942795076032
+    - -3.712225165266506e-18
+    - -1.9412219513517373e-19
+    inertia_per_kg_m2:
+    - - 6.297280955829144e-06
+      - 6.267552284714871e-21
+      - -5.1991828375129475e-23
+    - - 6.267552284714871e-21
+      - 3.5093206292407104e-05
+      - 2.4315511801743867e-22
+    - - -5.1991828375129475e-23
+      - 2.4315511801743867e-22
+      - 3.5093206292407043e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: parachute
   type: commercial
   parent: body_upper
   position_m: 0.15
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
     bbox_m:
     - 0.055
@@ -518,19 +573,22 @@ parts:
     - 0.04
   material: commercial
   mass_kg: 0.035
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.0275
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: A purchased 750 mm parachute is a preliminary budget for a 6 m/s descent
     screen at rho=1.1 kg/m3 and Cd=0.75. Actual canopy Cd, packing, opening shock
     and all configuration descent speeds require ground and flight validation.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 30
+    cost_usd: 30.0
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - 0
-  - 0
   cad:
     generator: envelope
     parameters: {}
@@ -540,25 +598,6 @@ parts:
     color: '#e38a4e'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 988b4615519ebe039ca4859fe2e55279cf1f3172789a2501ce93b56fee01a102
-    volume_m3: 8.800000000000001e-05
-    cg_local_body_m:
-    - -0.0275
-    - -2.5828507227045964e-19
-    - -2.5837917664003642e-20
-    inertia_per_kg_m2:
-    - - 0.00026666666666666673
-      - -2.5754179125236063e-22
-      - 1.0583211075175891e-20
-    - - -2.5754179125236063e-22
-      - 0.00038541666666666656
-      - 9.772957662769082e-23
-    - - 1.0583211075175891e-20
-      - 9.772957662769082e-23
-      - 0.00038541666666666656
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.0275
   engineering:
     function: A purchased 750 mm parachute is a preliminary budget for a 6 m/s descent
       screen at rho=1.1 kg/m3 and Cd=0.75.
@@ -581,10 +620,33 @@ parts:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
     - Packing volume, extraction force, snag-free deployment and repacking repeatability.
-- id: shock_cord
+  cad_mass:
+    shape_sha256: 4d0485aa19106262612745d91bb72108c3685c5cd0c6e078aa178058b1e7e3af
+    volume_m3: 8.800000000000001e-05
+    cg_local_body_m:
+    - -0.0275
+    - -2.5828507227045964e-19
+    - -2.5837917664003642e-20
+    inertia_per_kg_m2:
+    - - 0.00026666666666666673
+      - -2.5754179125236063e-22
+      - 1.0583211075175891e-20
+    - - -2.5754179125236063e-22
+      - 0.00038541666666666656
+      - 9.772957662769082e-23
+    - - 1.0583211075175891e-20
+      - 9.772957662769082e-23
+      - 0.00038541666666666656
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: shock_cord
   type: commercial
   parent: body_upper
   position_m: 0.205
+  lateral_offset_m:
+  - 0.0
+  - 0.014
   geometry:
     bbox_m:
     - 0.014
@@ -592,19 +654,22 @@ parts:
     - 0.015
   material: commercial
   mass_kg: 0.01
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.007
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: A heat-resistant recovery harness gives separation travel and transfers opening
     load. Chafe protection, knots, attachment and packing are represented and must
     be qualified together.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 12
+    cost_usd: 12.0
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - 0
-  - 0.014
   cad:
     generator: envelope
     parameters: {}
@@ -614,25 +679,6 @@ parts:
     color: '#dfc66a'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 547da3939eaba3c7ef1cc6604b828d5050ae258bf53f7907b772cba54cc714a1
-    volume_m3: 8.400000000000001e-06
-    cg_local_body_m:
-    - -0.007
-    - -4.216205339941186e-19
-    - 7.61295788314393e-20
-    inertia_per_kg_m2:
-    - - 0.00015208333333333333
-      - -1.384003161214333e-22
-      - 0.0
-    - - -1.384003161214333e-22
-      - 3.508333333333334e-05
-      - -2.877871066332183e-23
-    - - 0.0
-      - -2.877871066332183e-23
-      - 0.00014966666666666665
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.007
   engineering:
     function: A heat-resistant recovery harness gives separation travel and transfers
       opening load.
@@ -655,10 +701,33 @@ parts:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
     - Packing volume, extraction force, snag-free deployment and repacking repeatability.
-- id: recovery_protection
+  cad_mass:
+    shape_sha256: 62a2fe5a77a245328b4bbcd2e4f31a7edfeef3698ef35b3447306b746fc76c36
+    volume_m3: 8.400000000000001e-06
+    cg_local_body_m:
+    - -0.007
+    - -4.216205339941186e-19
+    - 7.61295788314393e-20
+    inertia_per_kg_m2:
+    - - 0.00015208333333333333
+      - -1.384003161214333e-22
+      - 0.0
+    - - -1.384003161214333e-22
+      - 3.508333333333334e-05
+      - -2.877871066332183e-23
+    - - 0.0
+      - -2.877871066332183e-23
+      - 0.00014966666666666665
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: recovery_protection
   type: commercial
   parent: body_upper
   position_m: 0.205
+  lateral_offset_m:
+  - 0.0
+  - -0.014
   geometry:
     bbox_m:
     - 0.01
@@ -666,19 +735,22 @@ parts:
     - 0.012
   material: commercial
   mass_kg: 0.006
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.005
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: A flame-resistant blanket isolates the packed parachute from ejection gas.
     Packing fit and repeatable deployment need ground tests; it is not an airframe
     thermal qualification.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 8
+    cost_usd: 8.0
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - 0
-  - -0.014
   cad:
     generator: envelope
     parameters: {}
@@ -688,25 +760,6 @@ parts:
     color: '#7a7a70'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: f36914655ad760b4941cdc74ac8ba51158ea326a6aca0160ef61c56def622f25
-    volume_m3: 4.8e-06
-    cg_local_body_m:
-    - -0.005
-    - -2.231061006301183e-19
-    - -1.0658141036401508e-19
-    inertia_per_kg_m2:
-    - - 0.00014533333333333336
-      - -2.182689853579242e-23
-      - 0.0
-    - - -2.182689853579242e-23
-      - 2.033333333333334e-05
-      - -7.213822519364961e-23
-    - - 0.0
-      - -7.213822519364961e-23
-      - 0.00014166666666666668
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.005
   engineering:
     function: A flame-resistant blanket isolates the packed parachute from ejection
       gas.
@@ -728,82 +781,127 @@ parts:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
     - Packing volume, extraction force, snag-free deployment and repacking repeatability.
-- id: independent_recovery
+  cad_mass:
+    shape_sha256: 144c272720ea04dae028cfa1568bd438dd8a789f99b195ec998f62e611115a7a
+    volume_m3: 4.8e-06
+    cg_local_body_m:
+    - -0.005
+    - -2.231061006301183e-19
+    - -1.0658141036401508e-19
+    inertia_per_kg_m2:
+    - - 0.00014533333333333336
+      - -2.182689853579242e-23
+      - 0.0
+    - - -2.182689853579242e-23
+      - 2.033333333333334e-05
+      - -7.213822519364961e-23
+    - - 0.0
+      - -7.213822519364961e-23
+      - 0.00014166666666666668
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: https://altusmetrum.org/EasyMini/
+  estimate: false
+  id: independent_recovery
   type: commercial
   parent: avionics_bay
   position_m: 0.38
+  lateral_offset_m:
+  - 0.0
+  - 0.0135
   geometry:
     bbox_m:
-    - 0.02
-    - 0.02
-    - 0.01
+    - 0.0381
+    - 0.02032
+    - 0.006
   material: commercial
-  mass_kg: 0.008
-  estimate: true
-  learn: Purchased independent apogee recovery electronics remain separate from the
-    experimental control policy. Exact unit, sensing behavior, power isolation and
-    deployment sequence require WO-09/10 verification.
+  mass_kg: 0.0065
+  density_kg_m3: null
+  cg_offset_m: 0.019049999999999997
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: Altus Metrum EasyMini v3.0 independent barometric recovery controller envelope
+    with its published four-hole board pattern.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 95
-    generator: commercial
-    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
-      and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - 0
-  - -0.008
+    cost_usd: 0.0
+    generator: envelope
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
   cad:
     generator: envelope
-    parameters: {}
+    parameters:
+      mount_holes_mm:
+      - - -6.985
+        - 3.175
+      - - 6.985
+        - 3.175
+      - - -6.985
+        - 34.925000000000004
+      - - 6.985
+        - 34.925000000000004
+      hole_diameter_mm: 3.2
     mass_basis: supplied_or_estimated
     role: purchased_envelope
     moving_group: fixed
     color: '#5c9d73'
-    notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
-      remain required.
-  cad_mass:
-    shape_sha256: 33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef
-    volume_m3: 3.999999999999999e-06
-    cg_local_body_m:
-    - -0.01
-    - -7.010472406238666e-20
-    - 1.2256862191861732e-19
-    inertia_per_kg_m2:
-    - - 4.166666666666669e-05
-      - -3.107875707433486e-23
-      - -2.273736754432321e-22
-    - - -3.107875707433486e-23
-      - 4.1666666666666665e-05
-      - -1.5539378537167573e-23
-    - - -2.273736754432321e-22
-      - -1.5539378537167573e-23
-      - 6.666666666666667e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.01
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
   engineering:
-    function: Purchased independent apogee recovery electronics remain separate from
-      the experimental control policy.
+    function: Altus Metrum EasyMini v3.0 independent barometric recovery controller
+      envelope with its published four-hole board pattern.
     material_profile: commercial
     tolerances_mm:
       linear: 0.25
-      hole_diameter: 0.15
+      hole_diameter: 0.2
     load_cases:
     - acceleration
+    - vibration
     thermal_cases:
     - G80
     - G54
     - G12
     - post_burn_soak
-    property_basis: estimated
-    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
-      connector access and physical fit remain unverified.
+    property_basis: published
+    service_notes: Manufacturer outline is represented at published footprint and
+      hole spacing; six-mm thickness includes estimated terminal allowance. Board
+      pressure access, terminal projection and switch/connector/tool access remain
+      unresolved.
     required_physical_verification:
-    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
-    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: micro_sd
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: d58fa2cfd6002a4d71d334d6c85156ca58d3fb5aa46ed9fcaabbbd2c8fdb9e32
+    volume_m3: 4.452132547363445e-06
+    cg_local_body_m:
+    - -0.019049999999999997
+    - 6.383841704631046e-21
+    - -8.509087443995033e-20
+    inertia_per_kg_m2:
+    - - 3.6757277183088596e-05
+      - 2.869536846231655e-22
+      - 1.2260716605140404e-21
+    - - 2.869536846231655e-22
+      - 0.00011825824279891172
+      - 2.7709362762720705e-23
+    - - 1.2260716605140404e-21
+      - 2.7709362762720705e-23
+      - 0.00014901551998200045
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: micro_sd
   type: commercial
   parent: avionics_bay
   position_m: 0.405
+  lateral_offset_m:
+  - -0.012
+  - -0.008
   geometry:
     bbox_m:
     - 0.02
@@ -811,19 +909,22 @@ parts:
     - 0.01
   material: commercial
   mass_kg: 0.003
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.01
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: The log card records raw sensors, estimates, commands, fault state and supply
     voltage. Buffered writes and recovery from a full or failed card must preserve
     the control deadline.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 10
+    cost_usd: 10.0
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - -0.012
-  - -0.008
   cad:
     generator: envelope
     parameters: {}
@@ -833,25 +934,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 33134201aa7a447b55f1c2428eebd518fd805629dc4a0d1c0db99ed4decb87ef
-    volume_m3: 3.999999999999999e-06
-    cg_local_body_m:
-    - -0.01
-    - -7.010472406238666e-20
-    - 1.2256862191861732e-19
-    inertia_per_kg_m2:
-    - - 4.166666666666669e-05
-      - -3.107875707433486e-23
-      - -2.273736754432321e-22
-    - - -3.107875707433486e-23
-      - 4.1666666666666665e-05
-      - -1.5539378537167573e-23
-    - - -2.273736754432321e-22
-      - -1.5539378537167573e-23
-      - 6.666666666666667e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.01
   engineering:
     function: The log card records raw sensors, estimates, commands, fault state and
       supply voltage.
@@ -872,10 +954,33 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: adhesive_finish
+  cad_mass:
+    shape_sha256: 268462b94348bfcf7c2e7a65c044e4bee5a2ec38101aae61073356b41fd327a5
+    volume_m3: 3.999999999999999e-06
+    cg_local_body_m:
+    - -0.01
+    - -7.010472406238666e-20
+    - 1.2256862191861732e-19
+    inertia_per_kg_m2:
+    - - 4.166666666666669e-05
+      - -3.107875707433486e-23
+      - -2.273736754432321e-22
+    - - -3.107875707433486e-23
+      - 4.1666666666666665e-05
+      - -1.5539378537167573e-23
+    - - -2.273736754432321e-22
+      - -1.5539378537167573e-23
+      - 6.666666666666667e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: adhesive_finish
   type: commercial
   parent: body_upper
   position_m: 0.3
+  lateral_offset_m:
+  - -0.024
+  - 0.0
   geometry:
     bbox_m:
     - 0.12
@@ -883,19 +988,22 @@ parts:
     - 0.004
   material: commercial
   mass_kg: 0.012
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.06
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: Distributed adhesive, tube sealer and finish are included as a lumped mass
     estimate. Replace this surrogate with measured joint and coating masses before
     hardware validation.
+  tank: null
+  engine: null
   build:
     method: bonded
-    cost_usd: 8
+    cost_usd: 8.0
     generator: commercial
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  lateral_offset_m:
-  - -0.024
-  - 0
   cad:
     generator: budget
     parameters: {}
@@ -905,25 +1013,6 @@ parts:
     color: '#9b8d7a'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: f7e7fdba749a4e44477c9bb7f6ec2978490586f4378acab5d485064aee20cb32
-    volume_m3: 4.800000000000001e-06
-    cg_local_body_m:
-    - -0.06
-    - -6.714836695331239e-20
-    - -1.7763568394002506e-20
-    inertia_per_kg_m2:
-    - - 9.666666666666665e-06
-      - 6.997400101206286e-23
-      - 0.0
-    - - 6.997400101206286e-23
-      - 0.0012013333333333331
-      - -4.7410437824362934e-24
-    - - 0.0
-      - -4.7410437824362934e-24
-      - 0.0012083333333333332
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.06
   engineering:
     function: Distributed adhesive, tube sealer and finish are included as a lumped
       mass estimate.
@@ -944,37 +1033,63 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: rail_guides
+  cad_mass:
+    shape_sha256: 8aa4da97d9a71a233dae2bfbaa99e9d05ab139d77fe383a5b07b604d46c5f7a0
+    volume_m3: 4.800000000000001e-06
+    cg_local_body_m:
+    - -0.06
+    - -6.714836695331239e-20
+    - -1.7763568394002506e-20
+    inertia_per_kg_m2:
+    - - 9.666666666666665e-06
+      - 6.997400101206286e-23
+      - 0.0
+    - - 6.997400101206286e-23
+      - 0.0012013333333333331
+      - -4.7410437824362934e-24
+    - - 0.0
+      - -4.7410437824362934e-24
+      - 0.0012083333333333332
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: rail_guides
   type: rail_guide
   parent: body_upper
   position_m: 0.25
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
     length_m: 0.2
     radius_m: 0.039
-    inner_radius_m: 0
   material: ASA
   mass_kg: 0.0006229991634585588
-  estimate: true
+  cg_offset_m: 0.096
+  electrical: null
+  print:
+    rotation_deg:
+    - 0.0
+    - 0.0
+    - 0.0
+    line_width_mm: 0.4
+    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
+    layer_mm: 0.2
+    infill_pct: 100.0
+    walls: 4
+    supports: false
+  explode_offset: 0.0
   learn: Two purchased or custom rail guides maintain attitude during initial acceleration.
     The mass covers both guides; final spacing, rail engagement and positive clearance
     are CAD and range checks.
+  tank: null
+  engine: null
   build:
     method: printed
-    cost_usd: 3
+    cost_usd: 3.0
     generator: rail_guide
     notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
       and strength qualification in WO-03/09.
-  print:
-    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
-    layer_mm: 0.2
-    infill_pct: 100
-    walls: 4
-    supports: false
-    line_width_mm: 0.4
-    rotation_deg:
-    - 0
-    - 0
-    - 0
   cad:
     generator: rail_guides
     parameters:
@@ -995,25 +1110,6 @@ parts:
     color: '#497f85'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 983d28f539f2837b06a2c65ea0278304c001a6228e22b2f62404b321b2dbb91c
-    volume_m3: 5.822422088397746e-07
-    cg_local_body_m:
-    - -0.096
-    - 0.03554010129189649
-    - 7.627224600136645e-19
-    inertia_per_kg_m2:
-    - - 6.5256287073149225e-06
-      - -3.998862331156441e-19
-      - 1.1129646136519392e-20
-    - - -3.998862331156441e-19
-      - 0.008115289404143454
-      - -3.743364576142593e-21
-    - - 1.1129646136519392e-20
-      - -3.743364576142593e-21
-      - 0.008115236224563841
-    basis: bulk-density manufactured solid
-  cg_offset_m: 0.096
   engineering:
     function: Two purchased or custom rail guides maintain attitude during initial
       acceleration.
@@ -1035,32 +1131,66 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: flight_computer
+  cad_mass:
+    shape_sha256: 95b0733fdb3fa772681d92c31977b7f1e6ed3aff11ea45944e7c2fa830c25e0f
+    volume_m3: 5.822422088397746e-07
+    cg_local_body_m:
+    - -0.096
+    - 0.03554010129189649
+    - 7.627224600136645e-19
+    inertia_per_kg_m2:
+    - - 6.5256287073149225e-06
+      - -3.998862331156441e-19
+      - 1.1129646136519392e-20
+    - - -3.998862331156441e-19
+      - 0.008115289404143454
+      - -3.743364576142593e-21
+    - - 1.1129646136519392e-20
+      - -3.743364576142593e-21
+      - 0.008115236224563841
+    basis: bulk-density manufactured solid
+- cite: null
+  estimate: true
+  id: flight_computer
   type: commercial
   parent: avionics_bay
   position_m: 0.245
+  lateral_offset_m:
+  - 0.0
+  - -0.006
   geometry:
     bbox_m:
     - 0.061
     - 0.018
     - 0.006
+  material: commercial
   mass_kg: 0.012
+  density_kg_m3: null
+  cg_offset_m: 0.0305
   electrical:
     supply_v: 5.0
     current_a: 0.1
+    nominal_v: null
+    capacity_mah: null
+    max_discharge_a: null
+    bus: null
+    stall_torque_nm: null
+    speed_s_per_60deg: null
+    deadband_us: null
+    stall_current_a: null
+  print: null
+  explode_offset: 0.0
   learn: The Cortex-M7 FPU supports estimation and small policies at 250 Hz. SD logging
     preserves raw sensor and control traces. Power transients and blocking writes
     can violate the loop deadline; current and mass are estimates.
-  estimate: true
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 32
+    cost_usd: 32.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - 0
-  - -0.006
   cad:
     generator: envelope
     parameters: {}
@@ -1070,25 +1200,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: fd5e11d7edb0d66d125289a6ed91c02984981c7a955742fd5d8181f4fcc2b57b
-    volume_m3: 6.588e-06
-    cg_local_body_m:
-    - -0.0305
-    - -4.208429369201878e-20
-    - -1.013828432930319e-19
-    inertia_per_kg_m2:
-    - - 2.9999999999999997e-05
-      - 1.0462718687268777e-22
-      - 2.105311809659556e-21
-    - - 1.0462718687268777e-22
-      - 0.0003130833333333333
-      - 1.2223571216986337e-23
-    - - 2.105311809659556e-21
-      - 1.2223571216986337e-23
-      - 0.0003370833333333333
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.0305
   engineering:
     function: The Cortex-M7 FPU supports estimation and small policies at 250 Hz.
     material_profile: commercial
@@ -1108,32 +1219,66 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: imu
+  cad_mass:
+    shape_sha256: 97b949bec1953471bb9843d405a31ec0863c21179a7df73898d76cea99bfdc88
+    volume_m3: 6.588e-06
+    cg_local_body_m:
+    - -0.0305
+    - -4.208429369201878e-20
+    - -1.013828432930319e-19
+    inertia_per_kg_m2:
+    - - 2.9999999999999997e-05
+      - 1.0462718687268777e-22
+      - 2.105311809659556e-21
+    - - 1.0462718687268777e-22
+      - 0.0003130833333333333
+      - 1.2223571216986337e-23
+    - - 2.105311809659556e-21
+      - 1.2223571216986337e-23
+      - 0.0003370833333333333
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: imu
   type: commercial
   parent: avionics_bay
   position_m: 0.315
+  lateral_offset_m:
+  - -0.012
+  - -0.005
   geometry:
     bbox_m:
     - 0.02
     - 0.015
     - 0.004
+  material: commercial
   mass_kg: 0.002
+  density_kg_m3: null
+  cg_offset_m: 0.01
   electrical:
     supply_v: 3.3
+    current_a: null
+    nominal_v: null
+    capacity_mah: null
+    max_discharge_a: null
     bus: SPI
+    stall_torque_nm: null
+    speed_s_per_60deg: null
+    deadband_us: null
+    stall_current_a: null
+  print: null
+  explode_offset: 0.0
   learn: Gyros track angular rates; accelerometers measure specific force, not gravity
     alone during thrust. Bias and axis alignment matter for attitude estimation. Rigid
     alignment and vibration characterization are needed before trusting this sensor.
-  estimate: true
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 18
+    cost_usd: 18.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - -0.012
-  - -0.005
   cad:
     generator: envelope
     parameters: {}
@@ -1143,25 +1288,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 55a53b502db830f735deb1e9520302dad18ead4f6586194e8243484c07febea7
-    volume_m3: 1.2000000000000002e-06
-    cg_local_body_m:
-    - -0.01
-    - -2.0057494799022108e-19
-    - -1.7763568394002506e-20
-    inertia_per_kg_m2:
-    - - 2.008333333333333e-05
-      - 2.9578794281069073e-24
-      - 0.0
-    - - 2.9578794281069073e-24
-      - 3.4666666666666665e-05
-      - 2.581630200938076e-24
-    - - 0.0
-      - 2.581630200938076e-24
-      - 5.208333333333334e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.01
   engineering:
     function: Gyros track angular rates; accelerometers measure specific force, not
       gravity alone during thrust.
@@ -1182,33 +1308,67 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: baro
+  cad_mass:
+    shape_sha256: a422da7464460a59e51e84a2fb0f21647b92925521638b441a8963e5ac175167
+    volume_m3: 1.2000000000000002e-06
+    cg_local_body_m:
+    - -0.01
+    - -2.0057494799022108e-19
+    - -1.7763568394002506e-20
+    inertia_per_kg_m2:
+    - - 2.008333333333333e-05
+      - 2.9578794281069073e-24
+      - 0.0
+    - - 2.9578794281069073e-24
+      - 3.4666666666666665e-05
+      - 2.581630200938076e-24
+    - - 0.0
+      - 2.581630200938076e-24
+      - 5.208333333333334e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: baro
   type: commercial
   parent: avionics_bay
   position_m: 0.318
+  lateral_offset_m:
+  - 0.013
+  - -0.005
   geometry:
     bbox_m:
     - 0.015
     - 0.012
     - 0.003
+  material: commercial
   mass_kg: 0.001
+  density_kg_m3: null
+  cg_offset_m: 0.0075
   electrical:
     supply_v: 3.3
+    current_a: null
+    nominal_v: null
+    capacity_mah: null
+    max_discharge_a: null
     bus: SPI
+    stall_torque_nm: null
+    speed_s_per_60deg: null
+    deadband_us: null
+    stall_current_a: null
+  print: null
+  explode_offset: 0.0
   learn: Ambient pressure provides a height estimate through an atmosphere model.
     Static ports must avoid stagnation and wake pressure. Burn-time acceleration does
     not directly invalidate pressure, but airflow and filtering can bias and delay
     the reading.
-  estimate: true
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 15
+    cost_usd: 15.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - 0.013
-  - -0.005
   cad:
     generator: envelope
     parameters: {}
@@ -1218,25 +1378,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: fa27211d47472b6e5fbf635c1fb44ff44d086c12b65d9b864934b7da81fa3274
-    volume_m3: 5.4e-07
-    cg_local_body_m:
-    - -0.0075
-    - 2.647004375773134e-20
-    - -1.4802973661668755e-20
-    inertia_per_kg_m2:
-    - - 1.275e-05
-      - -8.695433455881115e-23
-      - 0.0
-    - - -8.695433455881115e-23
-      - 1.95e-05
-      - 2.9551517337754834e-24
-    - - 0.0
-      - 2.9551517337754834e-24
-      - 3.0749999999999995e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.0075
   engineering:
     function: Ambient pressure provides a height estimate through an atmosphere model.
     material_profile: commercial
@@ -1256,33 +1397,66 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: battery
+  cad_mass:
+    shape_sha256: 0229860f2db2864242e6f4dca5c1ea39046e95d968671bb434c688b21e3a7f09
+    volume_m3: 5.4e-07
+    cg_local_body_m:
+    - -0.0075
+    - 2.647004375773134e-20
+    - -1.4802973661668755e-20
+    inertia_per_kg_m2:
+    - - 1.275e-05
+      - -8.695433455881115e-23
+      - 0.0
+    - - -8.695433455881115e-23
+      - 1.95e-05
+      - 2.9551517337754834e-24
+    - - 0.0
+      - 2.9551517337754834e-24
+      - 3.0749999999999995e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: battery
   type: commercial
   parent: avionics_bay
   position_m: 0.245
+  lateral_offset_m:
+  - 0.0
+  - 0.012
   geometry:
     bbox_m:
     - 0.055
     - 0.03
     - 0.015
+  material: commercial
   mass_kg: 0.03
+  density_kg_m3: null
+  cg_offset_m: 0.0275
   electrical:
+    supply_v: null
+    current_a: null
     nominal_v: 7.4
-    capacity_mah: 450
-    max_discharge_a: 9
+    capacity_mah: 450.0
+    max_discharge_a: 9.0
+    bus: null
+    stall_torque_nm: null
+    speed_s_per_60deg: null
+    deadband_us: null
+    stall_current_a: null
+  print: null
+  explode_offset: 0.0
   learn: A 2S pack supplies regulator headroom through discharge. Servo current spikes
     can brown out logic unless rails and decoupling are sized correctly. Capacity,
     mass and discharge rating are estimates pending a selected cell and measurements.
-  estimate: true
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 18
+    cost_usd: 18.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - 0
-  - 0.012
   cad:
     generator: envelope
     parameters: {}
@@ -1292,25 +1466,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 7c7bbb2a8d0dff1fff62a18453611b9ec3e010b2d0fff6871fb98729e829817c
-    volume_m3: 2.4750000000000002e-05
-    cg_local_body_m:
-    - -0.0275
-    - -2.111457696649125e-19
-    - 8.612639221334548e-20
-    inertia_per_kg_m2:
-    - - 9.375e-05
-      - 6.650829584956685e-23
-      - 0.0
-    - - 6.650829584956685e-23
-      - 0.0002708333333333333
-      - -5.604206946761851e-23
-    - - 0.0
-      - -5.604206946761851e-23
-      - 0.0003270833333333333
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.0275
   engineering:
     function: A 2S pack supplies regulator headroom through discharge.
     material_profile: commercial
@@ -1331,10 +1486,33 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: regulator_5v
+  cad_mass:
+    shape_sha256: a250594ceac71a7f4ec79bda1f2667d6652f6bab47f34364b16d5a49f707260e
+    volume_m3: 2.4750000000000002e-05
+    cg_local_body_m:
+    - -0.0275
+    - -2.111457696649125e-19
+    - 8.612639221334548e-20
+    inertia_per_kg_m2:
+    - - 9.375e-05
+      - 6.650829584956685e-23
+      - 0.0
+    - - 6.650829584956685e-23
+      - 0.0002708333333333333
+      - -5.604206946761851e-23
+    - - 0.0
+      - -5.604206946761851e-23
+      - 0.0003270833333333333
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: regulator_5v
   type: commercial
   parent: avionics_bay
   position_m: 0.405
+  lateral_offset_m:
+  - 0.012
+  - -0.007
   geometry:
     bbox_m:
     - 0.025
@@ -1342,19 +1520,22 @@ parts:
     - 0.008
   material: commercial
   mass_kg: 0.008
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.0125
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: The regulator supplies logic and servos from the 2S battery. Its estimated
     current capacity must cover simultaneous stalls with thermal margin. Noise isolation
     and brownout behavior require bench validation.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 10
+    cost_usd: 10.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - 0.012
-  - -0.007
   cad:
     generator: envelope
     parameters: {}
@@ -1364,25 +1545,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 02fef8a24f921dbe280a8eeea24252a8879b8b93f414872f2671dd438d89e0a3
-    volume_m3: 3.6000000000000003e-06
-    cg_local_body_m:
-    - -0.0125
-    - 7.976791298603489e-20
-    - -2.763221750178167e-20
-    inertia_per_kg_m2:
-    - - 3.233333333333333e-05
-      - 1.6521758461664623e-23
-      - -5.609677548238306e-38
-    - - 1.6521758461664623e-23
-      - 5.741666666666666e-05
-      - 2.5200519336503405e-24
-    - - -5.609677548238306e-38
-      - 2.5200519336503405e-24
-      - 7.908333333333332e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.0125
   engineering:
     function: The regulator supplies logic and servos from the 2S battery.
     material_profile: commercial
@@ -1402,10 +1564,33 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: pyro_mosfet
+  cad_mass:
+    shape_sha256: 5b690b21307b738ff39e5d6d089e7bc348b746c54af36f11181560abe02a31c3
+    volume_m3: 3.6000000000000003e-06
+    cg_local_body_m:
+    - -0.0125
+    - 7.976791298603489e-20
+    - -2.763221750178167e-20
+    inertia_per_kg_m2:
+    - - 3.233333333333333e-05
+      - 1.6521758461664623e-23
+      - -5.609677548238306e-38
+    - - 1.6521758461664623e-23
+      - 5.741666666666666e-05
+      - 2.5200519336503405e-24
+    - - -5.609677548238306e-38
+      - 2.5200519336503405e-24
+      - 7.908333333333332e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: pyro_mosfet
   type: commercial
   parent: avionics_bay
   position_m: 0.43
+  lateral_offset_m:
+  - -0.012
+  - -0.006
   geometry:
     bbox_m:
     - 0.02
@@ -1413,19 +1598,22 @@ parts:
     - 0.005
   material: commercial
   mass_kg: 0.003
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.01
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: This board reserves the later electronic recovery channel in the netlist.
     Its electrical ratings are estimates; continuity, arming and fault behavior must
     be verified before connection to any recovery device.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 8
+    cost_usd: 8.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - -0.012
-  - -0.006
   cad:
     generator: envelope
     parameters: {}
@@ -1435,25 +1623,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 22c24ed9e1e84cd7128a4c66b888d07b708917138d92c3e582c5ef00cfe446f1
-    volume_m3: 1.5e-06
-    cg_local_body_m:
-    - -0.01
-    - -4.0702832444198575e-20
-    - 2.960594732333751e-20
-    inertia_per_kg_m2:
-    - - 2.0833333333333333e-05
-      - 5.777514126897421e-23
-      - 0.0
-    - - 5.777514126897421e-23
-      - 3.541666666666666e-05
-      - -9.157468049365226e-24
-    - - 0.0
-      - -9.157468049365226e-24
-      - 5.208333333333334e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.01
   engineering:
     function: This board reserves the later electronic recovery channel in the netlist.
     material_profile: commercial
@@ -1473,10 +1642,33 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: arming_switch
+  cad_mass:
+    shape_sha256: 9743b3d7d242af020428d36696237c5024ae55d3759115427afb86cae20e243b
+    volume_m3: 1.5e-06
+    cg_local_body_m:
+    - -0.01
+    - -4.0702832444198575e-20
+    - 2.960594732333751e-20
+    inertia_per_kg_m2:
+    - - 2.0833333333333333e-05
+      - 5.777514126897421e-23
+      - 0.0
+    - - 5.777514126897421e-23
+      - 3.541666666666666e-05
+      - -9.157468049365226e-24
+    - - 0.0
+      - -9.157468049365226e-24
+      - 5.208333333333334e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: arming_switch
   type: commercial
   parent: avionics_bay
   position_m: 0.435
+  lateral_offset_m:
+  - 0.015
+  - -0.008
   geometry:
     bbox_m:
     - 0.012
@@ -1484,19 +1676,22 @@ parts:
     - 0.01
   material: commercial
   mass_kg: 0.003
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.006
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: The arming switch gives an explicit hardware enable state. Contact rating
     and wiring must withstand the intended loads. Estimated mass and rating must be
     replaced by selected component data.
+  tank: null
+  engine: null
   build:
     method: purchased
-    cost_usd: 5
+    cost_usd: 5.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - 0.015
-  - -0.008
   cad:
     generator: envelope
     parameters: {}
@@ -1506,25 +1701,6 @@ parts:
     color: '#5c9d73'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: d6b966186151524f99506af5fbaccc43d6d2d9376ef194ffb99d6d62faae2358
-    volume_m3: 9.600000000000001e-07
-    cg_local_body_m:
-    - -0.006
-    - 5.0541672106094437e-20
-    - 7.864079757761526e-20
-    inertia_per_kg_m2:
-    - - 1.3666666666666666e-05
-      - -1.2183974357891882e-23
-      - 0.0
-    - - -1.2183974357891882e-23
-      - 2.033333333333333e-05
-      - -1.828471863281978e-23
-    - - 0.0
-      - -1.828471863281978e-23
-      - 1.7333333333333332e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.006
   engineering:
     function: The arming switch gives an explicit hardware enable state.
     material_profile: commercial
@@ -1544,10 +1720,33 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: harness
+  cad_mass:
+    shape_sha256: e878d825039cf961aa15f97364b47a3520919ed4e36e55ddf58b5fa3828efcc5
+    volume_m3: 9.600000000000001e-07
+    cg_local_body_m:
+    - -0.006
+    - 5.0541672106094437e-20
+    - 7.864079757761526e-20
+    inertia_per_kg_m2:
+    - - 1.3666666666666666e-05
+      - -1.2183974357891882e-23
+      - 0.0
+    - - -1.2183974357891882e-23
+      - 2.033333333333333e-05
+      - -1.828471863281978e-23
+    - - 0.0
+      - -1.828471863281978e-23
+      - 1.7333333333333332e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: harness
   type: commercial
   parent: avionics_bay
   position_m: 0.335
+  lateral_offset_m:
+  - -0.004
+  - -0.012
   geometry:
     bbox_m:
     - 0.1
@@ -1555,20 +1754,23 @@ parts:
     - 0.005
   material: commercial
   mass_kg: 0.012
-  estimate: true
+  density_kg_m3: null
+  cg_offset_m: 0.05
+  electrical: null
+  print: null
+  explode_offset: 0.0
   learn: The harness accounts for wires, connectors and strain relief. Voltage drop
     and intermittent contacts can remove control authority. This is a lumped mass
     estimate; the generated wiring and measured harness will replace it. Includes
     the added high-g sensor wiring mass; cable routing is a distributed estimate.
+  tank: null
+  engine: null
   build:
     method: assembled
-    cost_usd: 12
+    cost_usd: 12.0
     generator: commercial_envelope
     notes: Budget estimate; exact component datasheet, price, mass and mounting interface
       must be frozen in WO-09.
-  lateral_offset_m:
-  - -0.004
-  - -0.012
   cad:
     generator: budget
     parameters: {}
@@ -1578,25 +1780,6 @@ parts:
     color: '#c9aa52'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: e31da1100323e32ac957d7f8b190f76d58306ec1fcfe50a4dc63a585aa92e06e
-    volume_m3: 4.9999999999999996e-06
-    cg_local_body_m:
-    - -0.05
-    - -6.882528746320412e-20
-    - -7.105427357601003e-21
-    inertia_per_kg_m2:
-    - - 1.0416666666666668e-05
-      - -1.9742320445078952e-23
-      - 0.0
-    - - -1.9742320445078952e-23
-      - 0.0008354166666666669
-      - 1.943826244990188e-24
-    - - 0.0
-      - 1.943826244990188e-24
-      - 0.0008416666666666669
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.05
   engineering:
     function: The harness accounts for wires, connectors and strain relief.
     material_profile: commercial
@@ -1616,57 +1799,83 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
-- id: joint_stop
+  cad_mass:
+    shape_sha256: 7b94b6b46b2e504502803cd1fe3cd5df40032f634addf298d6fc4d832c2872de
+    volume_m3: 4.9999999999999996e-06
+    cg_local_body_m:
+    - -0.05
+    - -6.882528746320412e-20
+    - -7.105427357601003e-21
+    inertia_per_kg_m2:
+    - - 1.0416666666666668e-05
+      - -1.9742320445078952e-23
+      - 0.0
+    - - -1.9742320445078952e-23
+      - 0.0008354166666666669
+      - 1.943826244990188e-24
+    - - 0.0
+      - 1.943826244990188e-24
+      - 0.0008416666666666669
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: joint_stop
   type: commercial
   parent: interface_coupler
-  position_m: 0.518
+  position_m: 0.918
+  lateral_offset_m:
+  - 0.0
+  - 0.0
   geometry:
     length_m: 0.029
-    radius_m: 0.033
-    inner_radius_m: 0.0322
+    radius_m: 0.0332
+    inner_radius_m: 0.03205
   material: ASA
-  mass_kg: 0.001043744223632124
-  estimate: true
+  mass_kg: 0.0013192554674232185
+  cg_offset_m: 0.005410522155188142
+  electrical: null
+  print:
+    rotation_deg:
+    - 0.0
+    - 0.0
+    - 0.0
+    line_width_mm: 0.4
+    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
+    layer_mm: 0.2
+    infill_pct: 100.0
+    walls: 2
+    supports: false
+  explode_offset: 0.0
   learn: 'Printed indexing kit: one deliberately wider key removes threefold angular
     ambiguity. Keys engage and bond to the coupler slots; the flange locates the shells
     axially. Separate positive retention carries structural loads. Four print pieces,
     fit, bonding and repeated assembly require verification.'
+  tank: null
+  engine: null
   build:
     method: printed
-    cost_usd: 2
+    cost_usd: 2.0
     generator: joint_stop
     notes: Four-piece printed indexing kit, not structural axial retention; keyed
       orientation must match body/avionics axes.
-  print:
-    orientation: Local CAD Z upright; each disconnected kit piece placed on bed.
-    layer_mm: 0.2
-    infill_pct: 100
-    walls: 4
-    supports: false
-    line_width_mm: 0.4
-    rotation_deg:
-    - 0
-    - 0
-    - 0
   cad:
     generator: joint_stop
     parameters:
       key_width_mm: 3.6
       key_depth_mm: 1
       key_length_mm: 25
-      key_radius_mm: 31.7
+      key_radius_mm: 31.6
       ring_thickness_mm: 4
       key_widths_mm:
-      - 5.6
-      - 3.6
-      - 3.6
+      - 5.2
+      - 3.2
+      - 3.2
     mass_basis: volume_density
     role: manufactured
     moving_group: fixed
     color: '#497f85'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cg_offset_m: 0.006756720935636046
   engineering:
     function: Custom keyed stop locates both shells axially.
     material_profile: ASA
@@ -1688,29 +1897,31 @@ parts:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
   cad_mass:
-    shape_sha256: b0d92c8d311a2b528dc20351a06a2a4410f513706b1a1c55cc2a2c7f70f61300
-    volume_m3: 9.754618912449756e-07
+    shape_sha256: ba88bf22d7e17beb1ee260ea542bcf6b7d7154e2b834cef949fc172a022abc8f
+    volume_m3: 1.2329490349749706e-06
     cg_local_body_m:
-    - -0.006756720935636046
-    - -2.0847286070294047e-15
-    - -0.0016248712678842952
+    - -0.005410522155188142
+    - -1.6588083956393149e-15
+    - -0.0012814803817354128
     inertia_per_kg_m2:
-    - - 0.0010418447659895534
-      - 1.0212850398725451e-17
-      - -1.583157420666226e-05
-    - - 1.0212850398725451e-17
-      - 0.000609548828589189
-      - 3.2848545429664047e-18
-    - - -1.583157420666226e-05
-      - 3.2848545429664047e-18
-      - 0.0005609517696308894
+    - - 0.0010478853001099713
+      - 5.289680278602815e-18
+      - -1.4210948301815623e-05
+    - - 5.289680278602815e-18
+      - 0.0005943705951032275
+      - 2.1493354716163946e-18
+    - - -1.4210948301815623e-05
+      - 2.1493354716163946e-18
+      - 0.0005556968465181233
     basis: bulk-density manufactured solid
-- id: high_g_accel
+- cite: https://www.adafruit.com/product/5374 ; https://www.analog.com/en/products/adxl375.html
+  estimate: false
+  id: high_g_accel
   type: commercial
   parent: avionics_bay
   position_m: 0.345
   lateral_offset_m:
-  - 0
+  - 0.0
   - -0.0063
   geometry:
     bbox_m:
@@ -1719,22 +1930,33 @@ parts:
     - 0.0046
   material: commercial
   mass_kg: 0.001
-  cite: https://www.adafruit.com/product/5374 ; https://www.analog.com/en/products/adxl375.html
-  estimate: false
+  density_kg_m3: null
+  cg_offset_m: 0.012799999999999997
+  electrical:
+    supply_v: 3.3
+    current_a: 0.001
+    nominal_v: null
+    capacity_mah: null
+    max_discharge_a: null
+    bus: SPI
+    stall_torque_nm: null
+    speed_s_per_60deg: null
+    deadband_us: null
+    stall_current_a: null
+  print: null
+  explode_offset: 0.0
   learn: ADXL375 +/-200 g accelerometer records launch acceleration that clips the
     low-g IMU. The low-g IMU still supplies gyro and fine acceleration. Noise, timing,
     alignment, wiring and data fusion require bench calibration; range alone does
     not qualify the sensor.
+  tank: null
+  engine: null
   build:
     method: purchased
     cost_usd: 24.95
     generator: envelope
     notes: Adafruit PID 5374 supplier envelope/mass; no purchase. Mount via carrier
       clips until exact hole drawing is frozen.
-  electrical:
-    supply_v: 3.3
-    current_a: 0.001
-    bus: SPI
   cad:
     generator: envelope
     parameters: {}
@@ -1744,25 +1966,6 @@ parts:
     color: '#ae75c5'
     notes: Nominal CAD design; density/tolerances unmeasured; physical proof tests
       remain required.
-  cad_mass:
-    shape_sha256: 600921243dd6700b188818fad9fe61adae0c5f55e72730734918a6054c475ca0
-    volume_m3: 2.084352e-06
-    cg_local_body_m:
-    - -0.012799999999999997
-    - 5.921759525532937e-20
-    - 2.940209281316622e-20
-    inertia_per_kg_m2:
-    - - 2.787083333333333e-05
-      - 8.666829801483647e-23
-      - 1.9377570749717805e-37
-    - - 8.666829801483647e-23
-      - 5.637666666666678e-05
-      - -2.362838012328557e-24
-    - - 1.9377570749717805e-37
-      - -2.362838012328557e-24
-      - 8.072083333333342e-05
-    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
-  cg_offset_m: 0.012799999999999997
   engineering:
     function: ADXL375 +/-200 g accelerometer records launch acceleration that clips
       the low-g IMU.
@@ -1784,32 +1987,638 @@ parts:
     required_physical_verification:
     - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
     - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+  cad_mass:
+    shape_sha256: cafa967bd6e02afe6e68a67804c7cc1797e18cb7b23bc82b84c1c71b7a46555d
+    volume_m3: 2.084352e-06
+    cg_local_body_m:
+    - -0.012799999999999997
+    - 5.921759525532937e-20
+    - 2.940209281316622e-20
+    inertia_per_kg_m2:
+    - - 2.787083333333333e-05
+      - 8.666829801483647e-23
+      - 1.9377570749717805e-37
+    - - 8.666829801483647e-23
+      - 5.637666666666678e-05
+      - -2.362838012328557e-24
+    - - 1.9377570749717805e-37
+      - -2.362838012328557e-24
+      - 8.072083333333342e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: https://shop.gag.com/product/120mah-lipo-battery/
+  estimate: true
+  id: recovery_battery
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.333
+  lateral_offset_m:
+  - 0.0
+  - 0.012
+  geometry:
+    bbox_m:
+    - 0.03
+    - 0.015
+    - 0.004
+  material: commercial
+  mass_kg: 0.0036
+  density_kg_m3: null
+  cg_offset_m: 0.015
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: Dedicated 1S 120 mAh LiPo envelope for the recovery controller; no connection
+    to the flight-computer battery net.
+  tank: null
+  engine: null
+  build:
+    method: purchased
+    cost_usd: 0.0
+    generator: envelope
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
+  engineering:
+    function: Dedicated 1S 120 mAh LiPo envelope for the recovery controller; no connection
+      to the flight-computer battery net.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Seller dimensions and mass are approximate. Connector polarity,
+      protection board, pulse behavior, charging method and restraint need confirmation.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: 24723425b58d07c27981d44da41c3d0c91a853abe0855429648630d03e42e006
+    volume_m3: 1.8000000000000001e-06
+    cg_local_body_m:
+    - -0.015
+    - -1.5414183146314416e-19
+    - -3.9474596431116674e-21
+    inertia_per_kg_m2:
+    - - 2.008333333333333e-05
+      - -1.1128501653237388e-23
+      - 0.0
+    - - -1.1128501653237388e-23
+      - 7.633333333333332e-05
+      - -1.3504096779426903e-24
+    - - 0.0
+      - -1.3504096779426903e-24
+      - 9.375e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: https://shop.gag.com/product/rotary-switch/
+  estimate: true
+  id: recovery_power_switch
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.47
+  lateral_offset_m:
+  - 0.0
+  - -0.019
+  geometry:
+    bbox_m:
+    - 0.028575
+    - 0.015875
+    - 0.0127
+  material: commercial
+  mass_kg: 0.0037
+  density_kg_m3: null
+  cg_offset_m: 0.0142875
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: Separate external positive-line rotary arming switch for the dedicated recovery
+    battery.
+  tank: null
+  engine: null
+  build:
+    method: purchased
+    cost_usd: 0.0
+    generator: envelope
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
+  engineering:
+    function: Separate external positive-line rotary arming switch for the dedicated
+      recovery battery.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Independent switch moved into clear upper-tube space forward of
+      the modular joint. Panel shaft, reinforcing mount and tool-access envelope must
+      be checked against supplier geometry.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: e70652c56dd928198b8798aff9f19108e7f0a77d590f459f60e097f5c8f02cc2
+    volume_m3: 5.7610771874999995e-06
+    cg_local_body_m:
+    - -0.0142875
+    - -8.715105697731849e-21
+    - -2.4083474777951064e-20
+    inertia_per_kg_m2:
+    - - 3.444213541666667e-05
+      - 1.5568196196333086e-22
+      - -2.506168190555118e-22
+    - - 1.5568196196333086e-22
+      - 8.14850520833333e-05
+      - -9.088796064907528e-24
+    - - -2.506168190555118e-22
+      - -9.088796064907528e-24
+      - 8.904552083333336e-05
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: recovery_mount_carrier
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.333
+  lateral_offset_m:
+  - 0.0
+  - 0.0125
+  geometry:
+    bbox_m:
+    - 0.085
+    - 0.023
+    - 0.008
+  material: ASA
+  mass_kg: 0.0014669700000000002
+  density_kg_m3: null
+  cg_offset_m: 0.02918676148796499
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: ASA block-and-rail carrier proposal supporting the battery and four EasyMini
+    board-hole standoffs.
+  tank: null
+  engine: null
+  build:
+    method: printed
+    cost_usd: 0.0
+    generator: brackets
+    notes: CAD-derived study geometry; actual fabrication, material and mass remain
+      unverified.
+  cad:
+    generator: brackets
+    parameters:
+      blocks:
+      - size_mm:
+        - 16.5
+        - 2.0
+        - 30.0
+        position_mm:
+        - 0.0
+        - 3.5
+        - 0.0
+      - size_mm:
+        - 3.0
+        - 2.0
+        - 31.75
+        position_mm:
+        - -3.5
+        - 3.0
+        - 50.175
+      - size_mm:
+        - 3.0
+        - 2.0
+        - 31.75
+        position_mm:
+        - 3.5
+        - 3.0
+        - 50.175
+      pockets: []
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#b98248'
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
+  engineering:
+    function: ASA block-and-rail carrier proposal supporting the battery and four
+      EasyMini board-hole standoffs.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Simple CAD support concept only. No self-locking capture, cable
+      clamp, pressure-port clearance, local wall/sled attachment, print orientation
+      or load qualification is established.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: 9a9cef3990be8423ebe600991d9e4a786fe40dbef412e1ff844c4541e3d70272
+    volume_m3: 1.371e-06
+    cg_local_body_m:
+    - -0.02918676148796499
+    - -4.146128290357988e-20
+    - -0.0033610503282275705
+    inertia_per_kg_m2:
+    - - 2.0378851267343075e-05
+      - -2.770162583651842e-21
+      - 5.12213489171602e-06
+    - - -2.770162583651842e-21
+      - 0.0006008560150864583
+      - -1.0941423890966597e-22
+    - - 5.12213489171602e-06
+      - -1.0941423890966597e-22
+      - 0.000620467864037933
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: recovery_alignment_pins
+  type: commercial
+  parent: recovery_mount_carrier
+  position_m: 0.38
+  lateral_offset_m:
+  - 0.0
+  - 0.0135
+  geometry:
+    bbox_m:
+    - 0.0381
+    - 0.01397
+    - 0.0032
+  material: nylon
+  mass_kg: 0.00025
+  density_kg_m3: null
+  cg_offset_m: 0.01905
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: Four nonconductive alignment/retention-pin envelopes positioned through the
+    EasyMini outline holes.
+  tank: null
+  engine: null
+  build:
+    method: assembled
+    cost_usd: 0.0
+    generator: pins
+    notes: CAD-derived study geometry; actual fabrication, material and mass remain
+      unverified.
+  cad:
+    generator: pins
+    parameters:
+      pins:
+      - start_mm:
+        - -6.985
+        - 3.0
+        - 3.175
+        axis:
+        - 0
+        - -1
+        - 0
+        radius_mm: 1.2
+        length_mm: 6.0
+      - start_mm:
+        - 6.985
+        - 3.0
+        - 3.175
+        axis:
+        - 0
+        - -1
+        - 0
+        radius_mm: 1.2
+        length_mm: 6.0
+      - start_mm:
+        - -6.985
+        - 3.0
+        - 34.925000000000004
+        axis:
+        - 0
+        - -1
+        - 0
+        radius_mm: 1.2
+        length_mm: 6.0
+      - start_mm:
+        - 6.985
+        - 3.0
+        - 34.925000000000004
+        axis:
+        - 0
+        - -1
+        - 0
+        radius_mm: 1.2
+        length_mm: 6.0
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#8879aa'
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
+  engineering:
+    function: Four nonconductive alignment/retention-pin envelopes positioned through
+      the EasyMini outline holes.
+    material_profile: nylon
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Cylindrical nylon pin proxies have no modeled head, thread, nut,
+      preload, pullout or anti-rotation feature; retention is not closed.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: d0b2b7d7bc8a9e6fc6199b546c72e12bbe494d65b4f94a0f18979c0fe3e99560
+    volume_m3: 1.0857344210806326e-07
+    cg_local_body_m:
+    - -0.01905
+    - 6.544351196426989e-19
+    - 3.2721755982134943e-20
+    inertia_per_kg_m2:
+    - - 5.2150225e-05
+      - -8.278604263480141e-21
+      - -1.1468975471738296e-21
+    - - -8.278604263480141e-21
+      - 0.0002553756250000003
+      - -1.9633053589280961e-22
+    - - -1.1468975471738296e-21
+      - -1.9633053589280961e-22
+      - 0.00030152585000000015
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: recovery_mount_hardware_allowance
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.333
+  lateral_offset_m:
+  - 0.0
+  - -0.021
+  geometry:
+    bbox_m:
+    - 0.085
+    - 0.002
+    - 0.002
+  material: commercial
+  mass_kg: 0.00628303
+  density_kg_m3: null
+  cg_offset_m: 0.04249999999999999
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: Unmodeled screws, washers and positive retention allowance; separate in mass
+    from CAD-derived carrier/pins.
+  tank: null
+  engine: null
+  build:
+    method: purchased
+    cost_usd: 0.0
+    generator: budget
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
+  cad:
+    generator: budget
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#c89b4f'
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
+  engineering:
+    function: Unmodeled screws, washers and positive retention allowance; separate
+      in mass from CAD-derived carrier/pins.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Mass allowance only. The representative budget solid is not a physical
+      part or validated fit.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: 431c8e25a9faf5a646273b54268a2115f42487d4e1e8cbc2e20b95ff31d97ea9
+    volume_m3: 3.4000000000000003e-07
+    cg_local_body_m:
+    - -0.04249999999999999
+    - 1.5951158074891198e-20
+    - -6.530723674265627e-21
+    inertia_per_kg_m2:
+    - - 6.666666666666667e-07
+      - 9.273207281222763e-25
+      - -1.4849146451219045e-37
+    - - 9.273207281222763e-25
+      - 0.0006024166666666672
+      - 1.6223453077518987e-26
+    - - -1.4849146451219045e-37
+      - 1.6223453077518987e-26
+      - 0.0006024166666666675
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
+- cite: null
+  estimate: true
+  id: recovery_output_harness
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.38
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.08
+    - 0.004
+    - 0.003
+  material: commercial
+  mass_kg: 0.004
+  density_kg_m3: null
+  cg_offset_m: 0.04
+  electrical: null
+  print: null
+  explode_offset: 0.0
+  learn: Estimated service wiring and connector allowance for the recovery controller's
+    own output bundle.
+  tank: null
+  engine: null
+  build:
+    method: purchased
+    cost_usd: 0.0
+    generator: budget
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
+  cad:
+    generator: budget
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#d18a4d'
+    notes: Preliminary study copy; no manufactured fit or qualification is claimed.
+  engineering:
+    function: Estimated service wiring and connector allowance for the recovery controller's
+      own output bundle.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Flex-wire path, output connector, strain relief and bend radius
+      are not represented as solid geometry.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+  cad_mass:
+    shape_sha256: 2817406494b3fb6e1dcd59bcd9bd8226cf95f5c56a9672692b43126c853695b4
+    volume_m3: 9.600000000000001e-07
+    cg_local_body_m:
+    - -0.04
+    - 1.0582807649581445e-20
+    - -9.71445146547012e-21
+    inertia_per_kg_m2:
+    - - 2.0833333333333334e-06
+      - -1.8962040255477155e-23
+      - 0.0
+    - - -1.8962040255477155e-23
+      - 0.0005340833333333334
+      - -1.2134854517154661e-24
+    - - 0.0
+      - -1.2134854517154661e-24
+      - 0.0005346666666666666
+    basis: uniform envelope inertia; supplied/estimated mass, unmeasured
 netlist:
 - net: VBAT
   from: battery
   to: regulator_5v
   gauge_awg: 22
+  pin: null
 - net: 5V_LOGIC
   from: regulator_5v
   to: flight_computer
   gauge_awg: 26
+  pin: null
 - net: SPI
   from: flight_computer
   to:
   - imu
   - baro
+  gauge_awg: null
+  pin: null
 - net: PYRO_1
   from: flight_computer
   to: pyro_mosfet
+  gauge_awg: null
   pin: null
 - net: ARM
   from: arming_switch
   to: flight_computer
+  gauge_awg: null
   pin: null
-- net: RECOVERY_INDEPENDENT
-  from: battery
+- net: HIGH_G_SPI
+  from: flight_computer
+  to: high_g_accel
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_BAT_POS
+  from: recovery_battery
+  to: recovery_power_switch
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_ARMED_POS
+  from: recovery_power_switch
   to: independent_recovery
-  gauge_awg: 24
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_RETURN
+  from: recovery_battery
+  to: independent_recovery
+  gauge_awg: 28
+  pin: null
+- net: RECOVERY_OUTPUT_BUNDLE
+  from: independent_recovery
+  to: recovery_output_harness
+  gauge_awg: 26
+  pin: null
 recovery:
   canopy_diameter_m: 0.75
   drag_coefficient: 0.75

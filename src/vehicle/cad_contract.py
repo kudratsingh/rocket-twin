@@ -18,7 +18,12 @@ def generator_revision() -> str:
     return hashlib.sha256(
         b"".join(
             p.read_bytes()
-            for p in [root / "cad/parts.py", root / "vehicle/geometry.py", Path(__file__)]
+            for p in [
+                *sorted((root / "cad").glob("*_parts.py")),
+                root / "cad/parts.py",
+                root / "vehicle/geometry.py",
+                Path(__file__),
+            ]
         )
     ).hexdigest()
 

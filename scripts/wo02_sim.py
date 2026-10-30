@@ -100,8 +100,14 @@ def metrics(final: Any, rows: Any, p: Any) -> dict[str, Any]:
 
 
 def code_digest() -> str:
+    # Executable flight/input/CAD-mass closure only. Offline analysis and viewer
+    # edits cannot change this run; all shared physics and mass generators can.
     return hashlib.sha256(
-        b"".join(p.read_bytes() for p in sorted(Path("src").rglob("*.py")))
+        b"".join(
+            p.read_bytes()
+            for folder in ["src/sim", "src/vehicle", "src/cad"]
+            for p in sorted(Path(folder).glob("*.py"))
+        )
         + Path(__file__).read_bytes()
     ).hexdigest()
 

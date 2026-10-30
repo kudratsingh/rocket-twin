@@ -1,8 +1,23 @@
-version: neutral-coaxial-opaque-bands-v2
-part_ids: [motor_liner, motor_mount, gimbal_inner, tvc_gimbal, gimbal_frame, thermal_guard, aft_shell, servo_support, servo_pitch, servo_yaw, fin_bonds, flight_computer, battery]
-annular_barrier_part_ids: [motor_mount, gimbal_inner, tvc_gimbal, gimbal_frame, thermal_guard, aft_shell]
-contact_conductance_w_k: [0.02, 0.2]
+version: neutral-coaxial-material-shield-v3
+part_ids: [motor_liner, motor_radiant_shield, motor_mount, retention, thrust_pads, aft_thrust_pads, aft_retainer, retention_hardware, cassette_mount_screws, gimbal_inner, tvc_gimbal, gimbal_frame, thermal_guard, aft_shell, servo_support, servo_pitch, servo_yaw, fin_bonds, flight_computer, battery]
+annular_barrier_part_ids: [motor_radiant_shield, motor_mount, gimbal_inner, tvc_gimbal, gimbal_frame, thermal_guard, aft_shell]
+contact_conductance_w_k: [0.02, 0.2, 0.2, 0.2]
+direct_contact_pairs:
+  - [motor_liner, motor_radiant_shield]
+direct_contact_conductance_w_k: [0.02, 0.2, 0.2, 0.2]
+prescribed_case_contact_part_ids: [thrust_pads, aft_thrust_pads]
+case_contact_conductance_w_k: [0.02, 0.2, 0.2, 0.2]
+required_case_coupled_part_ids: [retention, thrust_pads, aft_thrust_pads, aft_retainer, retention_hardware, cassette_mount_screws]
+pad_conduction_part_ids: [thrust_pads, aft_thrust_pads]
 contact_pairs:
+  - [retention, thrust_pads]
+  - [retention, motor_mount]
+  - [thrust_pads, motor_mount]
+  - [aft_thrust_pads, aft_retainer]
+  - [aft_retainer, retention_hardware]
+  - [retention_hardware, motor_mount]
+  - [cassette_mount_screws, motor_mount]
+  - [cassette_mount_screws, gimbal_inner]
   - [motor_mount, gimbal_inner]
   - [gimbal_inner, tvc_gimbal]
   - [tvc_gimbal, gimbal_frame]
@@ -20,13 +35,20 @@ upper_bay_cooling_w_k:
 refinement_cells: [4, 8, 16]
 refinement_peak_delta_k: 0.2
 limitations:
-  - Alternative model-topology study; no active geometry, materials or physical qualification changed.
+  - Corrected material/thermal topology for the current modeled material package; no physical qualification or measured thermal history is established.
   - Exact commercial motor exterior temperatures are still explicit exploratory bounds, not measured histories.
   - Closed long-cylinder exchange in each axial band ignores end view factors; not a 3D radiation solution or a universally conservative bound.
   - Split clamps, pivot holes, sparse rails, drive lugs and non-coaxial servo envelopes need angular visibility and moving-geometry checks.
-  - No path radiates through the opaque motor liner or through an intervening modeled annular shield; real openings and nozzle end exposure remain unmodeled.
-  - Only the liner resolves radial gradients; all other parts are uniform capacities, not surface hot-spot predictions.
+  - No path radiates through the opaque motor liner, direct liner/shield contact, or intervening modeled annular shield; real openings and nozzle end exposure remain unmodeled.
+  - The foil shield is an ideal continuous annulus; seam, wrinkles, oxidation, contamination, edge bypass and finite-end view factors are not resolved.
+  - Only the mica liner resolves radial gradients; the radiant foil and other parts are uniform capacities, not surface hot-spot predictions.
   - Static air conduction, no circulation; external shell convection and upper bay cooling are estimated boundary paths.
   - Contact conductance ranges are estimates; real fasteners, bonds, printed orientation and temperature-dependent properties require calibration.
+  - Direct mica/foil contact uses series radial half-wall resistance and bounded interface conductance, with no gap-air conduction or radiation at the touching surfaces.
+  - Axial retention/support contacts are lumped part-to-node conductances; liner-side contacts map to its outer radial cell and do not resolve end-face heat spreading or plate hotspots.
+  - Mica thrust-pad cross-section is inferred from recorded CAD volume divided by thickness. Each modeled pad connection adds half-thickness radial conduction in series with an estimated interface conductance; sector contact shape, preload and end-face heat spreading remain unresolved.
+  - The TVC cassette radial surfaces use the CAD grip-ring radii (motor-clear radius to grip outer radius), not its larger forestop/end-block envelope. If any other coincident annular intervals still overlap radially, the later outer annulus is omitted from that band and the excluded pair is recorded; configured lumped support contacts remain active.
+  - Radially averaged nodes do not qualify local hot contact plates, pad edges, fastener holes, or bonded interfaces.
+  - Regular radiative surroundings use emissivity 0.9; the foil outer surface uses 0.1 nominal and 0.3 upper/aged bounds.
   - Prescribed case boundary has no finite motor heat capacity or plume model; energy residual checks the network, not the motor's available heat.
   - Neither computed passing temperatures nor convergence authorizes materials, physical work or a flight.

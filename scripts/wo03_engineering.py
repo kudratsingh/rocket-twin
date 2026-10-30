@@ -14,8 +14,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 import yaml
 
-from src.analysis.engineering import structural, thermal
+from src.analysis.engineering import structural
+from src.analysis.motor_support import motor_support
 from src.analysis.records import AnalysisRecord, export_record, load_compatible
+from src.analysis.thermal_topology import run_thermal_topology
 from src.sim.inputs import source_hashes
 from src.vehicle.schema import load_vehicle, vehicle_input_paths
 
@@ -31,7 +33,9 @@ def main() -> int:
     parser.add_argument("--require-benchmark", action="store_true")
     args = parser.parse_args()
     cfgpath = Path("configs/engineering/wo03.yaml")
+    study_path = Path("configs/studies/wo03-thermal-topology.yaml")
     cfg = yaml.safe_load(cfgpath.read_text())
+    study = yaml.safe_load(study_path.read_text())
     platform = yaml.safe_load(args.config.read_text())
     paths = platform["vehicles"] + ["configs/vehicle/wo02/performance-g54.yaml"]
     run = datetime.now(UTC).strftime("wo03-engineering-%Y%m%dT%H%M%S%fZ")
@@ -40,7 +44,7 @@ def main() -> int:
     cad_hash = hashlib.sha256(
         b"".join(p.read_bytes() for p in sorted(Path("src/cad").glob("*.py")))
     ).hexdigest()
-    inputs = {args.config, cfgpath}
+    inputs = {args.config, cfgpath, study_path}
     for p in paths:
         inputs.update(vehicle_input_paths(p))
     inputs.update(Path("src").rglob("*.py"))
@@ -56,8 +60,31 @@ def main() -> int:
         v = load_vehicle(path)
         assert v.motor
         structure = structural(v, cfg)
-        thermal_cases = [thermal(v, cfg, severe) for severe in [False, True]]
-        refined = thermal(v, cfg, True, max_step_s=1.0)
+        support = motor_support(v, cfg, float(structure["peak_scaled_thrust_n"]))
+        structure["motor_support"] = support
+        mount = next((p for p in v.parts if p.id == "motor_mount"), None)
+        if mount and mount.cad and mount.cad.generator == "motor_cassette":
+            rails = support["screens"].get("rails")
+            for row in structure["rows"]:
+                if row["part_id"] == mount.id and row["case"] == "motor_thrust":
+                    row.update(
+                        {
+                            "stress_pa": None,
+                            "strength_bound_pa": None,
+                            "margin": None,
+                            "passed": None,
+                            "evidence": "unavailable: legacy structural() rail area is invalid for the current motor cassette",
+                            "unavailable_reason": (
+                                "The legacy mount equation assumes a 3x6x3 mm rail section. "
+                                "Use the recorded actual-CAD motor_support rail screen instead."
+                            ),
+                            "motor_support_rail_screen": rails,
+                        }
+                    )
+        thermal_cases = [
+            run_thermal_topology(v, cfg, study, severe, cells=8) for severe in (False, True)
+        ]
+        refined = run_thermal_topology(v, cfg, study, True, cells=8, max_step_s=1.0)
         delta = float(
             np.max(
                 np.abs(
@@ -85,11 +112,12 @@ def main() -> int:
             "assumptions": [
                 cfg["scope"],
                 "Material, case boundary, contact and load inputs are estimates.",
+                "Fin panel screen remains an unreinforced flat-panel hand bound; installed tabs/gussets are not represented as a gusset FEA pass.",
             ],
             "limits": [
                 "Part means and elementary load-path screens; no qualified spatial FEA field."
             ],
-            "sources": [str(cfgpath), *cfg["material_sources"].values()],
+            "sources": [str(cfgpath), str(study_path), *cfg["material_sources"].values()],
             "uncertainty": "Bounded scenarios, not a probability distribution or measured physical validation.",
             "required_physical_tests": [
                 "Material/orientation and hot joint coupons; instrumented burn/soak; proof and recovery tests."
@@ -101,9 +129,14 @@ def main() -> int:
             cases[case] = {
                 "kind": "transient_thermal",
                 "boundary": t["case_boundary_basis"],
-                "external_case_peak_c": t["external_case_peak_c"],
+                "external_case_peak_c": t.get(
+                    "external_case_peak_c", t.get("prescribed_case_peak_c")
+                ),
                 "ambient_c": t["ambient_c"],
-                "cooling_tau_s": t["cooling_tau_s"],
+                "cooling_tau_s": t.get("cooling_tau_s", t.get("post_burn_cooling_tau_s")),
+                "radial_cells": t.get("radial_cells"),
+                "thermal_model": t.get("model", "legacy-thermal-radial-v1"),
+                "pad_conduction": t.get("pad_conduction", []),
             }
             asset = f"fields/{case}.json"
             values = [
@@ -205,7 +238,7 @@ def main() -> int:
                 "fields": fields,
                 "tools": {
                     "numpy": np.__version__,
-                    "thermal": "SciPy solve_ivp RK45 rtol1e-8 atol1e-7",
+                    "thermal": "SciPy solve_ivp BDF rtol1e-8 atol1e-7",
                 },
                 "input_sha256": hashes,
             }
@@ -213,13 +246,13 @@ def main() -> int:
         folder = Path("build") / v.id / "analysis" / run
         manifest = export_record(folder, record, assets)
         load_compatible(manifest, record.identity)
-        bypart = {p.id: [] for p in v.parts}
+        bypart: dict[str, list[dict[str, Any]]] = {p.id: [] for p in v.parts}
         for t in thermal_cases:
             for row in t["peaks"]:
                 bypart[row["part_id"]].append({"case": t["case"], **row})
         for row in structure["rows"]:
             bypart[row["part_id"]].append(row)
-        table = []
+        table: list[dict[str, Any]] = []
         for p in v.parts:
             e = p.engineering
             table.append(
@@ -233,6 +266,10 @@ def main() -> int:
                     "critical_dimensions_si": p.geometry,
                     "cad_feature_dimensions_mm": p.cad.parameters if p.cad else {},
                     "mass_provenance": {"estimated": p.estimate, "citation": p.cite},
+                    "motor_support": support if p.id == "motor_mount" else None,
+                    "motor_support_rail_screen": (
+                        support["screens"].get("rails") if p.id == "motor_mount" else None
+                    ),
                     "print_settings": p.print_settings.model_dump() if p.print_settings else None,
                     "tolerances_mm": e.tolerances_mm if e else None,
                     "load_cases": e.load_cases if e else [],
@@ -247,7 +284,7 @@ def main() -> int:
                 }
             )
         (folder / "engineering-table.json").write_text(json.dumps(table, indent=2) + "\n")
-        header = "| Part | Function | Material / method | Mass basis; g | Critical dimensions / tolerances | Cases | Results / margin | Evidence / physical verification |\n|---|---|---|---|---|---|---|---|\n"
+        header = "| Part | Function | Material / method | Mass basis; g | Critical dimensions / tolerances | Cases | Results / margin | Motor support rail screen | Evidence / physical verification |\n|---|---|---|---|---|---|---|---|---|\n"
 
         def cell(value: Any) -> str:
             return str(value).replace("|", "/").replace("\n", " ")
@@ -256,7 +293,7 @@ def main() -> int:
         for p in table:
             results = (
                 "; ".join(
-                    f"{r['case']}: {r.get('margin',r.get('margin_k','unavailable'))}"
+                    f"{r['case']}: {r.get('margin') if r.get('margin') is not None else r.get('unavailable_reason', r.get('margin_k', 'unavailable'))}"
                     for r in p["results"]
                 )
                 or "Unavailable"
@@ -269,6 +306,7 @@ def main() -> int:
                 f"{p['critical_dimensions_si']}; +/-mm {p['tolerances_mm']}",
                 p["load_cases"],
                 results,
+                p["motor_support_rail_screen"],
                 f"{p['evidence_status']}; {p['physical_verification']}",
             ]
             lines.append("| " + " | ".join(map(cell, vals)) + " |")
@@ -283,15 +321,20 @@ def main() -> int:
         summary = {
             "vehicle": v.id,
             "structural": structure,
+            "motor_support": support,
             "thermal": [
                 {
                     "case": t["case"],
                     "peaks": t["peaks"],
                     "energy_residual_j": t["energy_residual_j"],
+                    "model": t.get("model", "legacy-thermal-radial-v1"),
+                    "pad_conduction": t.get("pad_conduction", []),
                 }
                 for t in thermal_cases
             ],
             "thermal_step_refinement_max_delta_k": delta,
+            "thermal_refinement_threshold_k": study["refinement_peak_delta_k"],
+            "thermal_step_refinement_passed": delta < study["refinement_peak_delta_k"],
             "analysis_manifest": str(manifest),
             "export_consumer_check_passed": True,
             "engineering_benchmark_passed": False,

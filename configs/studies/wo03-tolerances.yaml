@@ -6,11 +6,20 @@ configurations:
   G12-L: configs/vehicle/platform/tvc-finless.yaml
 engineering_inputs: configs/engineering/wo03.yaml
 ambient_reference_c: 15.0
-maximum_external_case_sensitivity_c: 250.0
-host_delta_t_k: [0.0, 235.0]
-insert_delta_t_k: [0.0, 235.0]
-thermal_delta_basis: Fit design basis uses independent component temperatures from 15 C ambient to each part's declared material.limit_c, capped at 250 C. Full hot sensitivity separately uses independent 0..235 K changes from the 250 C external scenario. Neither is a measured paired history; physical and thermal gates remain open.
-thermal_evidence_record: runs/wo03-engineering-20261030T175947969565Z/record.json
+maximum_external_case_sensitivity_c: 300.0
+host_delta_t_k:
+- 0.0
+- 285.0
+insert_delta_t_k:
+- 0.0
+- 285.0
+thermal_delta_basis: Fit design basis uses independent component temperatures from
+  15 C ambient to each part's declared material.limit_c, capped at 250 C. Full hot
+  sensitivity separately uses independent 0..235 K changes from the 250 C external
+  scenario. Neither is a measured paired history; physical and thermal gates remain
+  open. The latest 300 C external sensitivity is deliberately outside the substrate/structural
+  service domains; paired in-domain expansion still uses each declared material limit.
+thermal_evidence_record: runs/wo03-thermal-20261030T204848956297Z/record.json
 minimum_required_clearance_mm:
   radial_fit: 0.1
   key_flank: 0.1
@@ -19,14 +28,25 @@ minimum_required_clearance_mm:
   combined_motion_radial: 0.5
 combined_motion_uncertainty_mm:
   centerline_eccentricity: 0.5
-  centerline_eccentricity_basis: Provisional design sensitivity allowance; no as-built concentricity measurement.
+  centerline_eccentricity_basis: Provisional design sensitivity allowance; no as-built
+    concentricity measurement.
   shaft_or_pivot_location: 0.25
-  shaft_or_pivot_location_basis: Provisional purchased-shaft and pivot-location sensitivity; supplier dimensions and installed location are unavailable.
-tolerance_interpretation: Treat PartEngineering.tolerances_mm.linear as symmetric plus/minus on the named linear feature; hole_diameter as symmetric plus/minus on diameter, divided by two for a radial bound. These are design tolerances, not measured process capability.
-key_flank_interpretation: Compute slot-minus-key width interval, then divide by two for centered per-flank clearance. Key centering/anti-float location is unverified; unilateral clearance may range from zero to the full width gap and is not qualified.
+  shaft_or_pivot_location_basis: Provisional purchased-shaft and pivot-location sensitivity;
+    supplier dimensions and installed location are unavailable.
+tolerance_interpretation: Treat PartEngineering.tolerances_mm.linear as symmetric
+  plus/minus on the named linear feature; hole_diameter as symmetric plus/minus on
+  diameter, divided by two for a radial bound. These are design tolerances, not measured
+  process capability.
+key_flank_interpretation: Compute slot-minus-key width interval, then divide by two
+  for centered per-flank clearance. Key centering/anti-float location is unverified;
+  unilateral clearance may range from zero to the full width gap and is not qualified.
 critical_unknowns:
-  - Exact purchased motor-case OD/length tolerance and lot-specific installed envelope.
-  - Pivot bearing-hole definitions are implementation constants in CAD generator, not dimensions in the resolved spec; no spec-owned bore size to stack.
-  - Servo spline, rod-end articulation, harness bend/slack and continuous combined motion remain unavailable.
-  - Actual temperatures of paired components, manufacturing tolerances and assembled eccentricity are unmeasured.
-  - Key centering/capture inside the slot is unverified; independent unilateral flank clearance is unavailable.
+- Exact purchased motor-case OD/length tolerance and lot-specific installed envelope.
+- Pivot bearing-hole definitions are implementation constants in CAD generator, not
+  dimensions in the resolved spec; no spec-owned bore size to stack.
+- Servo spline, rod-end articulation, harness bend/slack and continuous combined motion
+  remain unavailable.
+- Actual temperatures of paired components, manufacturing tolerances and assembled
+  eccentricity are unmeasured.
+- Key centering/capture inside the slot is unverified; independent unilateral flank
+  clearance is unavailable.

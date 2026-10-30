@@ -63,7 +63,14 @@ def main() -> int:
         v = load_design(path)
         report, solids = export_vehicle(v, Path("build") / v.id, not args.check_only)
         report["rigid_intersections"] = rigid_intersections(v, solids)
-        report["nominal_interfaces_motion"] = verify(v, solids)
+        report["nominal_interfaces_motion"] = (
+            {
+                "passed": False,
+                "status": "not-run-during-mass-reconciliation; run make cad separately",
+            }
+            if args.reconcile
+            else verify(v, solids)
+        )
         if not args.check_only:
             (Path("build") / v.id / "manifest.json").write_text(json.dumps(report, indent=2) + "\n")
         reports.append(report)
@@ -100,7 +107,10 @@ def main() -> int:
                     part["mass_kg"] = row["cad_mass_kg"]
                     part.pop("density_kg_m3", None)
                     part["estimate"] = True
-                part["cg_offset_m"] = -row["properties"]["cg_local_body_m"][0]
+                offset = -row["properties"]["cg_local_body_m"][0]
+                # Symmetric zero-station parts can integrate to a tiny negative
+                # centroid. Remove only sub-nanometre kernel roundoff.
+                part["cg_offset_m"] = 0.0 if -1e-12 < offset < 0 else offset
             owner.write_text(yaml.safe_dump(data, sort_keys=False))
         print(
             "CAD mass/centroid/inertia adopted as unmeasured design estimates; regenerate and revalidate."
@@ -116,24 +126,26 @@ def main() -> int:
         and all(p["valid_solid"] for p in r["parts"])
         for r in reports
     )
+    inputs_unchanged = all(
+        hashlib.sha256(Path(p).read_bytes()).hexdigest() == h for p, h in hashes.items()
+    )
+    export_passed = passed and not args.reconcile and inputs_unchanged
     record = {
         "run_id": run,
         "work_order": "03",
         "elapsed_s": time.perf_counter() - start,
         "reports": reports,
-        "cad_export_benchmark_passed": passed and not args.reconcile,
+        "cad_export_benchmark_passed": export_passed,
         "expanded_wo03_benchmark_passed": False,
         "reconciled_estimates": args.reconcile,
         "input_sha256": hashes,
-        "inputs_unchanged": all(
-            hashlib.sha256(Path(p).read_bytes()).hexdigest() == h for p, h in hashes.items()
-        ),
+        "inputs_unchanged": inputs_unchanged,
         "flight_ready": False,
         "cost_usd": 0,
     }
     (out / "record.json").write_text(json.dumps(record, indent=2) + "\n")
     print(out / "record.json")
-    return int(args.require_benchmark and not passed)
+    return int(args.require_benchmark and not export_passed)
 
 
 if __name__ == "__main__":

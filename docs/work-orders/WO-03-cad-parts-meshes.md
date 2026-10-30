@@ -5,6 +5,14 @@ repository checks; paid compute requires separate approval. ADR-0007 expands thi
 work order without changing the sequence. WO-04 starts after all WO-03 criteria
 below are met and recorded. G80 reference, G54 conditional, G12 controls.
 
+ADR-0008 adopts the combined correction package into the active specifications.
+Use [the integrated property report](../wo03-integrated-vehicle.md) and
+[issue closure table](../wo03-correction-closure.md), including remaining design
+failures. Proposal-only recovery, fin or motor-support passes are historical
+inputs; acceptance applies to the complete resolved vehicle, wiring and allowance.
+Known-case verification, nominal CAD motion, minimum-thickness analysis, installed
+root evidence and later physical qualification are distinct evidence levels.
+
 ## Deliverables
 
 1. Spec-driven CadQuery solids for every part in all three actual configurations;

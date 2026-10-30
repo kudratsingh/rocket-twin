@@ -26,8 +26,10 @@ materials:
     cte_per_k: 3.0e-05
     limit_c: 45
     basis: Estimated weak-direction birch-ply screen; supplier grade, grain, moisture,
-      bond and hot coupons unverified. 45 C is a conservative bonded-assembly screen,
-      below reference epoxy HDT; it is not a measured plywood limit.
+      bond and hot coupons unverified. 45 C is a conservative provisional substrate
+      screen retained for sensitivity; it is not a measured plywood or bonded-assembly
+      limit. The separate epoxy profile carries a conditional 65 C adhesive/process
+      screen, which does not establish wood properties or assembly strength.
   cardboard:
     youngs_pa: 500000000.0
     strength_pa: 2000000.0
@@ -37,7 +39,9 @@ materials:
     cte_per_k: 8.0e-05
     limit_c: 45
     basis: Estimated kraft strength/stiffness; humidity, local bearing and adhesive
-      dominate. Not a supplier allowable.
+      dominate. 45 C is a provisional substrate screen, not a measured paper or
+      bonded-assembly limit; the separate epoxy profile has a conditional 65 C
+      adhesive/process screen. Not a supplier allowable.
   phenolic:
     youngs_pa: 3000000000.0
     strength_pa: 20000000.0
@@ -53,17 +57,95 @@ materials:
     limit_c: 60
     basis: Generic electronics packaging screen; use each exact component rating before
       physical release.
+  stainless_fastener:
+    conductivity_w_m_k: 15
+    cp_j_kg_k: 500
+    cte_per_k: 1.7e-05
+    limit_c: 150
+    temperature_limit_sensitivity_c: [60, 150]
+    temperature_limit_basis: conditional A2 fastener-assembly screen; 60 C is retained only as the former generic-profile diagnostic
+    basis: >-
+      Nominal A2 stainless fastener thermal properties are estimates. ISO 3506-1:2020
+      applications extend from -20 C to +150 C; 150 C is a conditional project
+      assembly modeling screen, not a property-class or joint qualification. Exact
+      stainless grade, property class, nuts, washers, torque, engagement, preload,
+      joint strength and hot proof remain unverified. The former generic commercial
+      60 C screen is kept only as a diagnostic sensitivity.
+    source: https://www.iso.org/standard/70045.html
   epoxy:
     youngs_pa: 2000000000.0
     strength_pa: 2000000.0
+    hot_strength_screen_pa: 1000000.0
+    cold_strength_screen_pa: 2000000.0
     poisson: 0.3
     cp_j_kg_k: 1200
     conductivity_w_m_k: 0.2
     cte_per_k: 5.0e-05
-    limit_c: 45
-    basis: Estimated wood-bond lower bound; WEST105/206 reference HDT 50.6C and onset
-      Tg52.2C do not establish a hot bond allowable. Coupon/cure/temperature qualification
-      required.
+    limit_c: 65
+    temperature_limit_sensitivity_c: [45, 65]
+    temperature_limit_basis: conditional adhesive/process screen; not a wood/paper design allowable
+    substrate_properties_measured: false
+    hot_strength_reduction_fraction: 0.5
+    basis: >-
+      Conditional ES6292 adhesive/process assembly temperature screen of 65 C. The
+      bulletin reports Tg 96.1 C by DMA and 98.9 C by DSC; its 93 C datum is HDT, not
+      Tg. It also reports 11 MPa wet epoxy-glass shear after one hour at 65.6 C for the
+      specified glass process. That test is not wood/paper evidence. 2 MPa cold and
+      1 MPa hot bond-strength screens are estimates, with a 50 percent hot reduction;
+      they are not allowables. Preserve the former 45 C limit as a separate temperature
+      sensitivity. Actual plywood, paper, adhesive interfaces and bond properties are
+      unmeasured. Representative adherend-specific hot coupons, cure and assembly tests
+      remain required.
+    source: https://ptm-w.com/technical-library/product-bulletins/Adhesives%20Bulletins/ES6292%20Bulletin.pdf
+  mica:
+    density_kg_m3: 2100
+    conductivity_w_m_k: 0.45
+    conductivity_range_w_m_k: [0.2, 0.7]
+    cp_j_kg_k: 900
+    cp_range_j_kg_k: [700, 1100]
+    limit_c: 300
+    surface_emissivity: 0.9
+    basis: >-
+      Nonstructural silicone-bonded mica sleeve estimate. Density 2100 kg/m3 and
+      supplier maximum-use temperature 500 C are from AG Associated Gaskets TDS. That
+      sheet does not publish conductivity or specific heat; k=0.2-0.7 W/(m K) and
+      cp=700-1100 J/(kg K) are explicit estimates. The 300 C loaded-system screen is
+      an assumed design limit, not a rocket liner allowable. Forming, hot-gas exposure,
+      retention and thermal-shock performance are unverified.
+    source: https://agaus.com.au/content/Technical-Data/Silicone%20Bonded%20Mica%20TDS.pdf
+  aluminum:
+    density_kg_m3: 2700
+    conductivity_w_m_k: 205
+    cp_j_kg_k: 900
+    limit_c: 300
+    surface_emissivity_by_scenario: [0.1, 0.3, 0.3, 0.9]
+    basis: >-
+      20 um nonstructural aluminum-foil radiant shield estimate. Density, conductivity
+      and specific heat are nominal generic aluminum values; they require exact alloy,
+      foil temper and supplier confirmation. Low-emissivity surfaces are modeled as
+      0.1 nominal and 0.3 upper/aged bounds. The 300 C screen is an assumed system
+      screen. Oxidation, contamination, wrinkles, seam and retention can raise effective
+      emissivity; no foil thermal or mechanical qualification is implied.
+  G11:
+    density_kg_m3: 1850
+    conductivity_w_m_k: 0.25
+    cp_j_kg_k: 1200
+    cp_range_j_kg_k: [1000, 1400]
+    youngs_pa: 10000000000.0
+    strength_pa: 50000000.0
+    hot_strength_screen_pa: 25000000.0
+    limit_c: 150
+    surface_emissivity: 0.9
+    basis: >-
+      Estimated G11 thermal/structural screening profile for TVC motor mount, inner/outer
+      gimbal and frame. Density 1850 kg/m3 is conservative relative to cited 1820 kg/m3;
+      conductivity 0.25 W/(m K) comes from the cited BASFF sheet. Specific heat is an
+      explicit 1000-1400 J/(kg K) estimate. Elastic modulus 10 GPa is a low-end estimate;
+      50 MPa cold and 25 MPa hot strengths are cautious study estimates, not allowables.
+      150 C loaded design screen is 30 C below Class H 180 C and references one-hour
+      150 C coupon evidence; laminate direction, bearings, bonds and load duration remain
+      unvalidated.
+    source: https://www.basff.it/fileup/Immagini/G11%20ENG.pdf
 loads:
   thrust_multiplier: 1.15
   design_factor: 3.0
@@ -81,18 +163,31 @@ loads:
     off-nominal probe, not an approved delay. Constant deceleration over stated cord/canopy
     travel; opening shock factor remains an uncertainty.
 thermal:
+  case_ids:
+  - lower-case-scenario
+  - upper-hot-soak
+  - case-300c-sensitivity
+  - contaminated-foil-eps0.9
   ambient_c:
   - 15
+  - 35
+  - 35
   - 35
   external_case_peak_c:
   - 120
   - 250
+  - 300
+  - 250
   post_burn_cooling_tau_s:
   - 30
+  - 120
+  - 120
   - 120
   soak_s: 300
   air_conductivity_w_m_k:
   - 0.026
+  - 0.04
+  - 0.04
   - 0.04
   surface_h_w_m2_k:
   - 5
@@ -100,11 +195,27 @@ thermal:
   emissivity:
   - 0.5
   - 0.9
+  - 0.9
+  - 0.9
+  surface_emissivity:
+  - 0.9
+  - 0.9
+  - 0.9
+  - 0.9
+  surface_h_w_m2_k_by_case:
+  - 15
+  - 5
+  - 5
+  - 5
   contact_conductance_w_k:
   - 0.02
   - 0.2
+  - 0.2
+  - 0.2
   electronics_heat_w:
   - 0.5
+  - 1.0
+  - 1.0
   - 1.0
   case_boundary_basis: Explicit exploratory exterior-case-temperature bounds; no published
     or measured history for the exact offered G80/G54/G12 configuration is established.

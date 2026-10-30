@@ -586,6 +586,7 @@ class Vehicle(Model):
                     "plywood",
                     "fiberglass",
                     "phenolic",
+                    "G11",
                 }
                 for p in self.parts
                 if p.type in structural

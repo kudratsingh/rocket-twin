@@ -91,8 +91,16 @@ fin-study: ## Isolated fin construction/mass/stability trade; no adoption.
 tolerance-study: ## Manufacturing/thermal-domain interval screens; failures stay open.
 	$(PYTHON) scripts/wo03_tolerances.py --preset tiny
 
-mount-study: ## Generate copy-only support-tube load-path proposal.
-	XDG_CACHE_HOME=$(CURDIR)/.cache $(PYTHON) scripts/wo03_mount_loadpath_study.py --preset tiny
+mount-study: motor-support ## Compatibility target; the old support-tube proposal remains historical.
+
+motor-support: ## Check the active plate/cassette/retention load paths.
+	$(PYTHON) scripts/wo03_motor_support.py --preset tiny
+
+recovery-integration: ## Check actual recovery packing, demands and resolved independent power.
+	$(PYTHON) scripts/wo03_recovery_integration.py --preset tiny
+
+integration-report: ## Record complete mass/CG/full inertia and growth sensitivities.
+	$(PYTHON) scripts/wo03_integrated_report.py --preset tiny
 
 inspection-figures: ## Render existing CAD exports; run make cad first after changes.
 	$(PYTHON) scripts/wo03_assembly_figures.py --preset tiny

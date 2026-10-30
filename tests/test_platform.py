@@ -46,7 +46,12 @@ def test_preliminary_reference_and_mode_requirements(name: str) -> None:
         assert vehicle.motor and vehicle.motor.burn_time_s < 3  # superseded universal gate
     else:
         assert result["average_TWR_diagnostic_only"] < 3  # time/rail gates apply instead
-        assert result["launch_screen"]["longest_useful_control_interval_s"] > 5
+        assert vehicle.design
+        interval = result["launch_screen"]["longest_useful_control_interval_s"]
+        assert interval >= vehicle.design.minimum_control_time_s
+        assert result["launch_screen"]["control_time_target_met"] == (
+            interval >= vehicle.design.target_control_time_s
+        )
 
 
 def test_fin_plate_radial_inertia_against_rectangle() -> None:

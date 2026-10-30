@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import sys
 from datetime import UTC, datetime
 from itertools import product
 from pathlib import Path
+from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
@@ -28,6 +30,7 @@ def main() -> int:
     parser.add_argument("--config", type=Path, default=Path("configs/platform.yaml"))
     parser.add_argument("--preset", choices=["tiny", "sim"], default="tiny")
     parser.add_argument("--flight-record", type=Path)
+    parser.add_argument("--skip-fin-fea", action="store_true")
     parser.add_argument("--require-benchmark", action="store_true")
     args = parser.parse_args()
     cfgpath = Path("configs/engineering/wo03.yaml")
@@ -72,7 +75,7 @@ def main() -> int:
     }
     flight = json.loads(args.flight_record.read_text()) if args.flight_record else None
     vehicles = []
-    fin_cache = {}
+    fin_cache: dict[tuple[str, float], dict[str, Any]] = {}
     for path in paths:
         v = load_vehicle(path)
         body = []
@@ -100,8 +103,23 @@ def main() -> int:
             )
         s = structural(v, cfg)
         part = next((p for p in v.parts if p.type == "fin_set"), None)
-        fin = None
-        if part:
+        fin: dict[str, Any] | None = None
+        fin_coverage: dict[str, Any]
+        field_folder = None
+        if part and args.skip_fin_fea:
+            fin = {
+                "available": False,
+                "status": "unavailable_skipped_by_cli",
+                "reason": "This run skipped fin FEA; no fin structural or modal field is available here.",
+                "dedicated_record_pointer": f"build/wo03-fin-installed-final/{v.id}/ (separate fin-analysis artifacts; not imported or verified by this run)",
+                "acceptance_closed": False,
+            }
+            fin_coverage = {
+                "status": "unavailable_skipped_by_cli",
+                "dedicated_record_pointer": fin["dedicated_record_pointer"],
+                "field_coverage": "unavailable in this report",
+            }
+        elif part:
             force = float(next(r["force_per_fin_n"] for r in s["rows"] if r["part_id"] == part.id))
             assert part.cad_mass
             key = (part.cad_mass.shape_sha256, force)
@@ -144,8 +162,16 @@ def main() -> int:
                 known_case_verified=bool(known["passed"]),
                 mesh_converged=bool(fin["mesh_converged"]),
             )
+            fin_coverage = {
+                "status": "exported",
+                "field_coverage": "fin fields exported by this run",
+                "manifest": str(field_folder / "manifest.json"),
+            }
         else:
-            field_folder = None
+            fin_coverage = {
+                "status": "not_applicable",
+                "field_coverage": "configuration has no physical fins",
+            }
         matching = [c for c in flight["cases"] if c["vehicle"] == v.id] if flight else []
         current = False
         if flight:
@@ -164,6 +190,23 @@ def main() -> int:
             ),
             "limitation": "Matching source hashes do not validate unmodeled body/fin/control coupling or measured damping/excitation.",
         }
+        flutter_cfg = copy.deepcopy(cfg)
+        if flight and current and matching:
+            max_speed = max(float(c["metrics"]["max_speed_mps"]) for c in matching)
+            flutter_cfg["vibration"]["speed_envelope_mps"] = 1.2 * max_speed
+            flutter_cfg["vibration"]["speed_envelope_basis"] = (
+                f"1.20x maximum max_speed_mps={max_speed:.6g} from current matching flight "
+                f"record {args.flight_record}; this is a comparison envelope, not a flutter pass."
+            )
+            envelope["flutter_speed_comparison_mps"] = 1.2 * max_speed
+            envelope["flutter_speed_comparison_basis"] = flutter_cfg["vibration"][
+                "speed_envelope_basis"
+            ]
+        else:
+            envelope["flutter_speed_comparison_mps"] = cfg["vibration"]["speed_envelope_mps"]
+            envelope["flutter_speed_comparison_basis"] = (
+                "Generic uncorrelated legacy envelope; flight record absent, unmatched or stale."
+            )
         identity = {
             "configuration": v.id,
             "resolved_spec_sha256": hashlib.sha256(
@@ -182,7 +225,8 @@ def main() -> int:
             "fin_shell": fin,
             "analysis_manifest": str(field_folder / "manifest.json") if field_folder else None,
             "export_consumer_check_passed": field_folder is not None,
-            "flutter": flutter_screen(v, cfg),
+            "fin_field_coverage": fin_coverage,
+            "flutter": flutter_screen(v, flutter_cfg),
             "gimbal_sensor": gimbal_sensor_screen(v, cfg),
             "flight_envelope": envelope,
             "vibration_flutter_acceptance_passed": False,
@@ -200,8 +244,8 @@ def main() -> int:
             "body first mode range",
             min(b["levels"][-1]["frequencies_hz"][0] for b in body),
             max(b["levels"][-1]["frequencies_hz"][0] for b in body),
-            "fin converged",
-            fin["mesh_converged"] if fin else "N/A",
+            "fin coverage",
+            fin_coverage["status"],
             flush=True,
         )
     result = {
@@ -217,6 +261,7 @@ def main() -> int:
         "expanded_wo03_benchmark_passed": False,
         "cost_usd": 0,
         "flight_ready": False,
+        "fin_fea_skipped": bool(args.skip_fin_fea),
     }
     out = Path("runs") / run
     out.mkdir()

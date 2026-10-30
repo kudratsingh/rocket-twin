@@ -181,17 +181,22 @@ def export_vehicle(
     return manifest, solids
 
 
-def rigid_intersections(vehicle: Vehicle, solids: dict[str, Any]) -> list[dict[str, Any]]:
+def rigid_intersections(
+    vehicle: Vehicle, solids: dict[str, Any], *, moving_ids: set[str] | None = None
+) -> list[dict[str, Any]]:
     parts = [
         p
         for p in vehicle.parts
         if p.cad and p.cad.role not in ("soft_stowage", "distributed_budget")
     ]
+    bounds = {p.id: solids[p.id].BoundingBox() for p in parts}
     collisions = []
     for i, a in enumerate(parts):
         for b in parts[i + 1 :]:
+            if moving_ids is not None and not ({a.id, b.id} & moving_ids):
+                continue
             sa, sb = solids[a.id], solids[b.id]
-            ba, bb = sa.BoundingBox(), sb.BoundingBox()
+            ba, bb = bounds[a.id], bounds[b.id]
             if any(
                 getattr(ba, ax + "max") <= getattr(bb, ax + "min") + 1e-6
                 or getattr(bb, ax + "max") <= getattr(ba, ax + "min") + 1e-6

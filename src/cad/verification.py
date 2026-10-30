@@ -38,9 +38,9 @@ def verify(vehicle: Vehicle, solids: dict[str, Any]) -> dict[str, Any]:
     }
     result: dict[str, Any] = {
         "interfaces": interfaces,
-        "interface_passed": 0 < radial_gap <= 0.5,
+        "interface_passed": 0 < radial_gap <= 0.5 + 1e-9,
         "sweep": None,
-        "passed": 0 < radial_gap <= 0.5,
+        "passed": 0 < radial_gap <= 0.5 + 1e-9,
     }
     if not vehicle.tvc:
         return result
@@ -58,6 +58,10 @@ def verify(vehicle: Vehicle, solids: dict[str, Any]) -> dict[str, Any]:
     failures = []
     max_shaft = 0.0
     min_ratio = 1.0
+    moving_ids = {p.id for p in parts if p.cad and p.cad.moving_group != "fixed"} | {
+        "gimbal_links",
+        "servo_horns",
+    }
     for pitch in np.linspace(-limit, limit, 5):
         for yaw in np.linspace(-limit, limit, 5):
             link = linkage(vehicle, pitch, yaw)
@@ -77,7 +81,7 @@ def verify(vehicle: Vehicle, solids: dict[str, Any]) -> dict[str, Any]:
             min_ratio = min(min_ratio, 1 / float(np.abs(jac).sum(axis=1).max()))
             posed = pose(vehicle, solids, pitch, yaw)
             joints = [point for a in link["axes"] for point in [a["start_mm"], a["end_mm"]]]
-            for hit in rigid_intersections(aft, posed):
+            for hit in rigid_intersections(aft, posed, moving_ids=moving_ids):
                 intersection = posed[hit["a"]].intersect(posed[hit["b"]])
                 # Only the pushrod and horn mating zones can be excluded.
                 if "gimbal_links" in (hit["a"], hit["b"]):
@@ -109,6 +113,7 @@ def verify(vehicle: Vehicle, solids: dict[str, Any]) -> dict[str, Any]:
     shell_clearance = (ps["aft_shell"].geometry["inner_radius_m"] - excursion) * 1000
     sweep = {
         "grid": "5 x 5 inclusive pitch/yaw; 25 poses",
+        "fixed_pair_coverage": "All fixed/fixed pairs checked in the neutral assembly; only pairs containing a moving part repeat at each pose.",
         "axis_limit_deg": limit,
         "max_servo_travel_deg": max_shaft,
         "minimum_sampled_rate_ratio": min_ratio,

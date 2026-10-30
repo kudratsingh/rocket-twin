@@ -32,6 +32,12 @@ RECOVERY_IDS = (
     "shock_cord",
     "recovery_protection",
     "independent_recovery",
+    "recovery_battery",
+    "recovery_power_switch",
+    "recovery_mount_carrier",
+    "recovery_alignment_pins",
+    "recovery_mount_hardware_allowance",
+    "recovery_output_harness",
 )
 AVIONICS_IDS = (
     "avionics_bay",
@@ -191,6 +197,18 @@ def _component_note(manifest: dict[str, Any], ids: tuple[str, ...]) -> str:
     return textwrap.fill(", ".join(available), width=39, subsequent_indent="  ")
 
 
+def _part_bounds(
+    parts: list[tuple[str, trimesh.Trimesh]], maximum_y: float, keep: set[str]
+) -> np.ndarray:
+    selected = [
+        _coords(np.asarray(mesh.vertices), maximum_y) for name, mesh in parts if name in keep
+    ]
+    if not selected:
+        raise ValueError(f"No exported geometry for selected part IDs: {sorted(keep)}")
+    vertices = np.concatenate(selected)
+    return np.stack((vertices.min(axis=0), vertices.max(axis=0)))
+
+
 def _render_gimbal_internal(
     *,
     output: Path,
@@ -208,11 +226,24 @@ def _render_gimbal_internal(
     fig = plt.figure(figsize=(14, 7.5))
     ax = fig.add_axes([0.025, 0.12, 0.72, 0.82], projection="3d")
     _draw_meshes(ax, detail_parts, maximum_y, alpha_overrides={"motor": 0.16})
-    # Focus on the gimbal ring/pivots around 0.66-0.73 m, with margin for the
-    # exported servo, horn and drive-link geometry upstream of the central ring.
-    ax.set_xlim(0.57, 0.785)
-    ax.set_ylim(-0.035, 0.035)
-    ax.set_zlim(-0.035, 0.035)
+    detail_bounds = _part_bounds(detail_parts, maximum_y, visible)
+    station_span = float(detail_bounds[1, 0] - detail_bounds[0, 0])
+    radial_span = max(
+        float(detail_bounds[1, 1] - detail_bounds[0, 1]),
+        float(detail_bounds[1, 2] - detail_bounds[0, 2]),
+    )
+    ax.set_xlim(
+        float(detail_bounds[0, 0] - station_span * 0.04),
+        float(detail_bounds[1, 0] + station_span * 0.04),
+    )
+    ax.set_ylim(
+        float(detail_bounds[0, 1] - radial_span * 0.04),
+        float(detail_bounds[1, 1] + radial_span * 0.04),
+    )
+    ax.set_zlim(
+        float(detail_bounds[0, 2] - radial_span * 0.04),
+        float(detail_bounds[1, 2] + radial_span * 0.04),
+    )
     ax.set_xlabel("Station (m; nose origin)", labelpad=12, fontsize=9)
     ax.set_ylabel("Export Z (m)", labelpad=2, fontsize=9)
     ax.set_zlabel("Export X (m)", labelpad=2, fontsize=9)
@@ -228,12 +259,21 @@ def _render_gimbal_internal(
     ax.zaxis.pane.set_alpha(0.02)
     legend_ids = "\n".join(name for name, _ in detail_parts if name != "motor")
     hidden_ids = ", ".join(sorted(hidden))
+    ring_ids = visible & {
+        "tvc_gimbal",
+        "gimbal_inner",
+        "outer_pivots",
+        "inner_pivots",
+    }
+    ring_bounds = _part_bounds(detail_parts, maximum_y, ring_ids or visible)
+    ring_station = f"{ring_bounds[0, 0]:.3f}-{ring_bounds[1, 0]:.3f} m"
     fig.text(
         0.77,
         0.92,
         "GIMBAL INTERNAL · EXPORTED PART IDS\n"
         + legend_ids
-        + "\n\ncentral rings/pivots: station 0.68-0.703 m"
+        + "\n\ncentral ring/pivots span:\n"
+        + ring_station
         + "\nmotor: transparent context envelope\n\nHIDDEN PART IDS\n"
         + textwrap.fill(hidden_ids, width=34),
         va="top",
@@ -278,7 +318,8 @@ def _render(
     fig.savefig(output / f"{mode_id}_assembled.png", dpi=140)
     plt.close(fig)
 
-    hidden = SHELL_PARTS & {name for name, _ in meshes}
+    part_names = {name for name, _ in meshes}
+    hidden = SHELL_PARTS & part_names
     visible = {name for name, _ in meshes} - hidden
     # Use only the actual exported visible parts; no clipping/cutting operation alters geometry.
     cut_vertices = np.concatenate(
@@ -296,7 +337,10 @@ def _render(
         "SHELL PARTS HIDDEN\n"
         + textwrap.fill(", ".join(sorted(hidden)), width=39)
         + "\n\nRECOVERY PART IDS\n"
-        + _component_note(manifest, RECOVERY_IDS)
+        + _component_note(
+            manifest,
+            tuple(part_id for part_id in RECOVERY_IDS if part_id in part_names),
+        )
         + "\n\nAVIONICS PART IDS\n"
         + _component_note(manifest, AVIONICS_IDS)
         + "\n\nAFT MODULE PART IDS\n"
@@ -322,10 +366,7 @@ def _render(
         else {name for name, _ in meshes} & set(FIXED_AFT_IDS)
     )
     detail_parts = [(name, mesh) for name, mesh in meshes if name in detail_ids]
-    detail_vertices = np.concatenate(
-        [_coords(np.asarray(mesh.vertices), maximum_y) for _, mesh in detail_parts]
-    )
-    detail_bounds = np.stack((detail_vertices.min(axis=0), detail_vertices.max(axis=0)))
+    detail_bounds = _part_bounds(detail_parts, maximum_y, detail_ids)
     x0, x1 = float(detail_bounds[0, 0]), float(detail_bounds[1, 0])
     fig = plt.figure(figsize=(12, 7))
     ax = fig.add_axes([0.035, 0.14, 0.68, 0.78], projection="3d")

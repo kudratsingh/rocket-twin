@@ -794,3 +794,85 @@ PID-to-RL and every existing release gate remain intact. Paid compute/purchases 
 ## Negative results, crashes and surprises
 
 - (record here)
+
+## WO-03 integrated active vehicle — 2026-10-30
+
+ADR-0008 adopts the recovery, fin/root, support/retention, thermal and fit corrections
+into the active shared and mode specs. The original WO-02 record and proposal-only
+runs remain historical; they are not rewritten as integrated passes. Full details,
+including unresolved design failures versus owner-performed qualification, are in
+[the closure table](wo03-correction-closure.md) and
+[generated mass/CG/full inertia report](wo03-integrated-vehicle.md).
+
+- Complete CAD/export/nominal motion: `wo03-20261030T205235088123Z`, 237.27 s,
+  unchanged inputs, all six variants pass. Both inclusive 25-pose TVC sweeps pass
+  at commanded +/-0.087 rad; nominal neutral rigid intersections are zero; continuous
+  cylindrical liner/shell bound is 5.135 mm. This is not full tolerance/wiring or
+  continuous-mechanism verification.
+- Complete source-hypothesis flight: `wo02-20261030T204849990760Z`, 27 cases, five
+  nominal comparisons, 4096-env CPU step and unchanged code/input hashes. G80/G54/
+  finned G12 nominal apogees 635.19/755.53/531.16 m; G54 gain about 18.9%. Maximum
+  nominal RocketPy discrepancy is G12 altitude 2.064% and time 0.917%, within 5%; the
+  preserved earlier 0.004% result does not describe the updated vehicle. Finned G12
+  uncontrolled locked-gimbal nominal tilt reaches 26 degrees; wind/low-thrust cases
+  retain severe attitude results. This is not a PID, RL or flight success.
+- Mass including 50 g growth: G80 789.462 g, G54 867.991 g, finned G12 830.147 g,
+  finless695.944 g. Minimum established growth/depletion passive margins are 1.314793/
+  1.045596/1.218129 cal for the finned modes. The previous G54 .991 and first combined
+  .961 revisions failed; no rounding/allowance waiver was used. Additional **unsourced
+  exploratory** motor-CG aft shift 10% of length gives G54 .980899 cal; exact CG or more
+  design margin remains required. Finless negative passive margin is expected and
+  carries no passive-stability pass claim.
+- Corrected opaque/radial and serial end-pad thermal model:
+  `wo03-thermal-20261030T204848956297Z`, four current-identity exports/consumer checks,
+  known cases and spatial/time refinement pass, unchanged inputs. All standard upper
+  cases pass configured limits. G54 shell still fails45 C in the 300 C case (46.33 C)
+  and contaminated-foil case (47.10 C). Fasteners use a conditional stainless assembly
+  profile; the old generic 60 C electronics limit is retained only as sensitivity.
+- Support hand calculations: `wo03-motor-support-20261030T204829437762Z`. Fixed 9 mm
+  G11 web and 18 mm integral bond fingers give G80/G54 hot plate margins+.504/+.263,
+  hot finger-bond+.899/+.595. G54 hot net-rail Euler margin+.173. Pin bore orientation
+  is radial: axial edge ligament 1.3 mm, not the earlier incorrect radial-wall-minus-
+  bore estimate. Detailed contact/local stress, exact case/closure/nozzle capture,
+  thread/washer/preload and positive pin retention remain open.
+- Minimum-thickness fin panels: `wo03-fin-acceptance-20261030T204800907793Z` and
+  `wo03-fin-acceptance-20261030T205213529823Z`; actual rectangular/gusset model, five
+  S6 mesh levels, orthotropic estimated properties. Cold displacement 0.3307 mm and
+  half-stiffness 0.6612 mm pass 1 mm; estimated directional DF3 strength passes. Dominant
+  stress/displacement/modes converge; small Syy/tau relative checks remain failed,
+  even though their values are below 1% of their strength bounds. Criterion not waived.
+- Installed fin/root records `wo03-fin-installed-20261030T205715365284Z`,
+  `wo03-fin-installed-20261030T205816596002Z`, and
+  `wo03-fin-installed-20261030T210211507451Z` retain unrated peel/root stiffness and
+  severe max-q times CN2 bare-shell/single-rail failures. Current coincident panel
+  force estimates are 1.253/1.183/.390 N; full Cartesian sensitivities are 308.2/272.8/
+  57.63 N and are not coincident operational maxima. Low-AR/root/body/control flutter
+  remains unqualified despite positive numerical panel speed ratios.
+- Exact nominal geometry fields: `wo03-fin-nominal-fields-20261030T210337367164Z`.
+  Three vehicle-bound exports use actual 6.35 mm geometry; displacement about 0.28967 mm
+  at 40kPa/5deg. Single 5 mm mesh, calculated/unvalidated, no convergence borrowed from
+  minimum copies. Minimum 6.05 mm fields were correctly rejected against nominal CAD.
+- Vibration/body: `wo03-vibration-20261030T205443545391Z`, all four current models,
+  known fixtures, mesh, mass/CG and rigid-nullspace checks pass. Tube domains end at
+  actual 1.200/1.175 m, with outboard mass levers; overall envelope 1.212 m is not a fake
+  zero-stiffness tube. Body first modes roughly 16–26 Hz; gross gimbal screens 32.6–
+  51.6 Hz. Measured compliance/damping/excitation/filter/actuator coupling is pending.
+- Tolerances: `wo03-tolerances-20261030T205656390867Z`. Coupler in-domain minimum
+  .2732 mm and key centered per-flank .26447 mm pass. Fixed mount/shell .02093 mm and
+  TVC rail/outer-foil cold .030 mm fail .1 mm; unavailable expansion/installed envelope
+  data is not a thermal pass. A remote cassette end-block envelope is no longer
+  falsely used as the grip-plane radius.
+- Recovery: `wo03-recovery-integration-20261030T204618137637Z`, dedicated source/
+  switched positive/return/output graph passes all modes. Mode-level main-battery
+  override fixed; regression covers all six resolved variants. Modeled package
+  circumscribed 58.728 mm vs shoulder 61.6 mm gives 1.436 mm radial space, not physical
+  packing proof. Switch mounting/arming access, board retention, wire routing and
+  rated anchor/bulkhead transfer remain open design items; off-nominal factored
+  anchor demand reaches 1831.7 N. Physical continuity, pulse, extraction and deployment
+  tests remain owner-performed later gates.
+
+Local Ruff/Black/strict mypy and 116 tests pass. STEP/GLB and inspection previews are
+regenerated locally; the preview camera now derives its station limits from the
+actual meshes. G80 reference/G54 conditional/G12 controls, custom fabrication and
+committed PID-to-RL remain. **Expanded WO-03 benchmark=false; no WO-04 start.** No
+purchases, fabrication, paid run or physical/flight release; WO-10 owner review remains.

@@ -22,9 +22,16 @@ maximum nominal motor designation or a heavier rocket approaching the mass cap.
 ## Preliminary physical platform
 
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
-assembly. Starting trade recommendation: 66 mm diameter, 800 mm overall length,
-custom printed nose/sled, light kraft tubes with custom reinforced joints and cut
-plywood load-transfer parts; positively retained interchangeable aft modules.
+assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case
+envelope and 1,212 mm overall retention/hardware envelope. The original 800 mm
+recommendation is preserved in the WO-01/02 records. Equipment remains forward in
+the extended shared upper. Custom printed nose/sled, kraft tubes, aircraft-plywood
+fins with gussets, machined G11 hot/load-transfer parts, mica/foil thermal protection
+and positively retained interchangeable aft modules remain substantial fabrication
+and integration work. These are unmeasured design estimates, not accepted hardware.
+See [adopted corrections and closure](wo03-correction-closure.md), the generated
+[mass/CG/inertia report](wo03-integrated-vehicle.md) and
+[ADR-0008](adr/0008-integrated-wo03-corrections.md).
 
 | Configuration | Purpose | Preliminary motor/configuration |
 |---|---|---|
@@ -98,8 +105,11 @@ No sim success silently authorizes a flight or removes a failed safety gate.
 ## Fabrication and cost envelope
 
 Custom work includes tube cutting/sealing, bonded and keyed couplers, plywood
-bulkheads/fins/centering parts, printed nose/sled/gimbal/servo supports, positive
-motor retention, wiring/power/recovery integration and a TVC guide/test fixture.
+fins/gussets/centering frames, G11 recovery/thrust plates and hot gimbal/cassette,
+printed nose/sled/servo supports, mica/foil protection, positive motor retention,
+wiring/power/recovery integration and a TVC guide/test fixture. The trainer's current
+screen requires 5 m usable guide travel while retaining its 10 m/s departure gate;
+the actual equipment and club acceptance are unresolved launch dependencies.
 Compare all-printed PETG/ASA, hand-rolled kraft and glass/epoxy as documented trades;
 material selection follows mass, loads, heat, fabrication learning and testability.
 
