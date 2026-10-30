@@ -13,7 +13,7 @@ WO-01 pins plus RocketPy 1.13.0/SciPy 1.17.1 on a clean Linux runner; its hosted
 check results are linked from PR #1. Use `make setup` on a network-enabled machine for the minimal WO-01 setup;
 use `make check smoke tiny` in the existing local environment. The owner subsequently
 installed RocketPy 1.13.0 (`make setup-reference`), and the static reference comparison
-has passed. SciPy resolved to 1.17.1. CAD, JAX, web and firmware remain untested;
+has passed. SciPy resolved to 1.17.1. JAX is now CPU-tested in WO-02; CAD, web and firmware remain untested;
 later work orders resolve their pins. Matplotlib's cache is kept in ignored
 `.cache/matplotlib/` by Make, avoiding writes outside the workspace.
 
@@ -136,5 +136,6 @@ platform benchmark. No dependency upgrade or new paid environment is implied.
 0.4 line), PyArrow 23.0.1, existing RocketPy/SciPy pins and WO-01 requirements.
 Physics comparison uses float64; embedded policies remain float32. No GPU or paid
 run is needed. Host PyPI DNS is restricted; the owner was given the terminal install
-command. Local JAX validation is pending that installation; hosted CI installs the
-same pins on clean Linux. Full project lock/CAD/web stacks remain separate.
+command and installed it successfully. Local arm64 CPU validation passes: 65 tests,
+actual-mode flight benchmarks and a 4,096-env step. Hosted CI installs the same pins
+on clean Linux. Full project lock/CAD/web stacks remain separate.

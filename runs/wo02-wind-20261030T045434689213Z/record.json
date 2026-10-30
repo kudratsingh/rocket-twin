@@ -1,0 +1,129 @@
+{
+  "run_id": "wo02-wind-20261030T045434689213Z",
+  "work_order": "02",
+  "validation_scope": "Ancillary steady 1m/s crosswind comparison; not wind-gust/attitude/flight qualification",
+  "base_run": "runs/wo02-20261030T044930127544Z/record.json",
+  "base_sha256": "570cd86e51f03a953bdf480951812cfdfb49d1b642ee08647e93e43698c0e334",
+  "script_sha256": "123a6cb39d9cebe266ca7fdd37b286207e548a5df70155529dae38d6bc2606d5",
+  "input_sha256": {
+    "configs/wo02.yaml": "b39ebccec75c15a96d50bb65a014574f7f01ae93033c3c39b6f3653daed76fee",
+    "configs/vehicle/platform/performance.yaml": "b5d980a7786d7d655ef9a2aa90977169873ca5c2a7f7fb5b93eafdf7eaa15bcd",
+    "configs/vehicle/platform/common-upper.yaml": "36c6e784cae529cc68f679162e3ee352d7fa680b850ae2e6ad1b4dc4be2ec2a1",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+    "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+    "configs/vehicle/platform/tvc-finned.yaml": "0958ee4e43781b636d6be8cb6ed0739ba92964f9e749581718016d5daf3726c1",
+    "configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.eng": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+    "configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.yaml": "006202c41835ec978f91c65ec43d58c590cf54bdb60293541e5dd4b96009d414",
+    "configs/vehicle/wo02/performance-g54.yaml": "09397a570ab36b328d5fefdae80c2e8a99c5c8bc845675309450c3061c993d5a",
+    "configs/vehicle/wo02/../platform/common-upper.yaml": "36c6e784cae529cc68f679162e3ee352d7fa680b850ae2e6ad1b4dc4be2ec2a1",
+    "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+    "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.yaml": "779383496d11ef9197cfb59441bc8a8827e5b28cc98f0d88d3a6ae74e47b1eba",
+    "configs/vehicle/wo02/performance-g33.yaml": "9eff21ecd881bcbc17851c0a267c645d25ef524d4da968603c1e3808d1134d51",
+    "configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.eng": "a9229db79f909b6cddd606435671edf9bc46316c763a1378c2c17f5d75b96288",
+    "configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.yaml": "0f945c71a455941554da9cb00af6395f581263a6250d8905c899ac82782aacc7",
+    "configs/vehicle/wo02/performance-g12.yaml": "678eaca8658071efede71861c6372f89e38c81d55f90589cbd0694361e3dfd35"
+  },
+  "rows": [
+    {
+      "vehicle": "modular-performance-v1",
+      "case": {
+        "wind_east_mps": 1
+      },
+      "reference": {
+        "reference": "RocketPy 1.13.0",
+        "apogee_agl_m": 697.5122807202617,
+        "apogee_time_s": 9.650326597111519,
+        "max_speed_mps": 212.68316508115657,
+        "guide_exit_s": 0.13623982839167714,
+        "guide_exit_mps": 24.25858397942365,
+        "end_time_s": 9.650326597111519,
+        "recovery_full_flight": false,
+        "shared_inertia_input": true,
+        "nozzle_pressure_correction": "zero; exit area unknown"
+      },
+      "own_metrics": {
+        "effective_loaded_mass_kg": 0.4720300000000001,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.4095300000000001,
+        "powered_net_acceleration_peak_g": 21.126810943641395,
+        "finite": true,
+        "apogee_agl_m": 697.5847315823047,
+        "apogee_time_s": 9.650000000000091,
+        "max_speed_mps": 212.681753416754,
+        "guide_exit_s": 0.1370000000000001,
+        "guide_exit_mps": 24.406274194702732,
+        "powered_specific_force_peak_g": 22.126810943641395,
+        "accel_range_exceeded": true,
+        "powered_max_mach": 0.632336711151271,
+        "powered_max_alpha_deg": 2.322248745008565,
+        "powered_max_tilt_deg": 1.9180591746019349,
+        "max_dynamic_pressure_pa": 25115.884956442555,
+        "apogee_downrange_m": 15.902849976677246,
+        "electronic_apogee_trigger_s": 9.65100000000009,
+        "inflation_complete_s": 10.251000000000092,
+        "impact_time_s": 160.9370000004044,
+        "impact_speed_mps": 4.704605749373637,
+        "landing_downrange_m": 169.41974765563418,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": null,
+        "burnout_s": 1.8079
+      },
+      "errors": {
+        "apogee_agl_m": 0.0001038703748241776,
+        "apogee_time_s": 3.384311485643554e-05
+      }
+    },
+    {
+      "vehicle": "modular-tvc-finned-v1",
+      "case": {
+        "wind_east_mps": 1
+      },
+      "reference": {
+        "reference": "RocketPy 1.13.0",
+        "apogee_agl_m": 838.6696582973486,
+        "apogee_time_s": 17.981666632216395,
+        "max_speed_mps": 86.20895038828476,
+        "guide_exit_s": 0.4402482450104573,
+        "guide_exit_mps": 13.621006487639006,
+        "end_time_s": 17.981666632216395,
+        "recovery_full_flight": false,
+        "shared_inertia_input": true,
+        "nozzle_pressure_correction": "zero; exit area unknown"
+      },
+      "own_metrics": {
+        "effective_loaded_mass_kg": 0.5757700000000001,
+        "effective_depletion_mass_kg": 0.082,
+        "effective_burnout_mass_kg": 0.4937700000000001,
+        "powered_net_acceleration_peak_g": 4.561599536863066,
+        "finite": true,
+        "apogee_agl_m": 848.3377660441964,
+        "apogee_time_s": 18.07699999999911,
+        "max_speed_mps": 85.90486684481517,
+        "guide_exit_s": 0.44100000000000034,
+        "guide_exit_mps": 13.652996166137275,
+        "powered_specific_force_peak_g": 5.561518579457597,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.25805840995890234,
+        "powered_max_alpha_deg": 4.170285209493929,
+        "powered_max_tilt_deg": 26.844605944086243,
+        "max_dynamic_pressure_pa": 3947.406014036613,
+        "apogee_downrange_m": 317.2490591775944,
+        "electronic_apogee_trigger_s": 18.07799999999911,
+        "inflation_complete_s": 18.677999999999113,
+        "impact_time_s": 194.03200000056242,
+        "impact_speed_mps": 4.814984861977486,
+        "landing_downrange_m": 181.90714136261957,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": null,
+        "burnout_s": 12.601
+      },
+      "errors": {
+        "apogee_agl_m": 0.011527909292051719,
+        "apogee_time_s": 0.005301698097990082
+      }
+    }
+  ],
+  "flight_ready": false,
+  "cost_usd": 0
+}

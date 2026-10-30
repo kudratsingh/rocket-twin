@@ -1,0 +1,167 @@
+{
+  "run_id": "wo02-20261030T045326632046Z",
+  "work_order": "02",
+  "preset": "tiny",
+  "protocol": "wo02-source-hypotheses-v1",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "device": "[CpuDevice(id=0)]",
+  "versions": {
+    "jax": "0.4.38",
+    "jaxlib": "0.4.38",
+    "rocketpy": "1.13.0",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pyarrow": "23.0.1"
+  },
+  "checks": {
+    "code_and_inputs_unchanged_during_run": true,
+    "actual_mode_reference_comparisons": true,
+    "4096_envs_cpu_step": true,
+    "tiny_under_120s": true
+  },
+  "wo02_benchmark_passed": true,
+  "flight_ready": false,
+  "cost_usd": 0,
+  "elapsed_s": 10.102065749990288,
+  "input_sha256": {
+    "configs/wo02.yaml": "b39ebccec75c15a96d50bb65a014574f7f01ae93033c3c39b6f3653daed76fee",
+    "configs/vehicle/platform/performance.yaml": "b5d980a7786d7d655ef9a2aa90977169873ca5c2a7f7fb5b93eafdf7eaa15bcd",
+    "configs/vehicle/platform/common-upper.yaml": "36c6e784cae529cc68f679162e3ee352d7fa680b850ae2e6ad1b4dc4be2ec2a1",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+    "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+    "configs/vehicle/platform/tvc-finned.yaml": "0958ee4e43781b636d6be8cb6ed0739ba92964f9e749581718016d5daf3726c1",
+    "configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.eng": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+    "configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.yaml": "006202c41835ec978f91c65ec43d58c590cf54bdb60293541e5dd4b96009d414"
+  },
+  "code_sha256": "ea43cbbff3c4721a4f20036da592ac503867d87f60e87653dba4e76309048c8d",
+  "batch": {
+    "environments": 4096,
+    "seconds_after_compile": 0.004087833018274978,
+    "env_steps_per_second": 1001997.8755708736
+  },
+  "cases": [
+    {
+      "vehicle": "modular-performance-v1",
+      "config": "configs/vehicle/platform/performance.yaml",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "sensor_noise": true,
+        "elevation_m": 850
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.4720300000000001,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.4095300000000001,
+        "powered_net_acceleration_peak_g": 21.07195708933909,
+        "finite": true,
+        "apogee_agl_m": 698.0039866424962,
+        "apogee_time_s": 9.650000000000109,
+        "max_speed_mps": 212.70681738693833,
+        "guide_exit_s": 0.14000000000000004,
+        "guide_exit_mps": 25.003229743222914,
+        "powered_specific_force_peak_g": 22.07195708933909,
+        "accel_range_exceeded": true,
+        "powered_max_mach": 0.6323381582709616,
+        "powered_max_alpha_deg": 1.1668511215228542e-14,
+        "powered_max_tilt_deg": 0.0,
+        "max_dynamic_pressure_pa": 25115.749791770504,
+        "apogee_downrange_m": 1.644149800982716e-13,
+        "electronic_apogee_trigger_s": 9.65500000000011,
+        "inflation_complete_s": 10.255000000000111,
+        "impact_time_s": null,
+        "impact_speed_mps": null,
+        "landing_downrange_m": null,
+        "recovery_horizon_complete": false,
+        "motor_delay_probes": null,
+        "burnout_s": 1.8079
+      },
+      "rocketpy": {
+        "reference": "RocketPy 1.13.0",
+        "apogee_agl_m": 697.948267312559,
+        "apogee_time_s": 9.650939808183454,
+        "max_speed_mps": 212.70420593872979,
+        "guide_exit_s": 0.13623919534659196,
+        "guide_exit_mps": 24.258699261621317,
+        "end_time_s": 9.650939808183454,
+        "recovery_full_flight": false,
+        "shared_inertia_input": true,
+        "nozzle_pressure_correction": "zero; exit area unknown"
+      },
+      "relative_errors": {
+        "apogee_agl_m": 7.983303712720647e-05,
+        "apogee_time_s": 9.737996527012139e-05
+      },
+      "reference_benchmark_passed": true,
+      "guide_speed_target_mps": 15.0,
+      "guide_requirement_passed": true,
+      "flight_ready": false
+    },
+    {
+      "vehicle": "modular-tvc-finned-v1",
+      "config": "configs/vehicle/platform/tvc-finned.yaml",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "sensor_noise": true,
+        "elevation_m": 850
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.5757700000000001,
+        "effective_depletion_mass_kg": 0.082,
+        "effective_burnout_mass_kg": 0.4937700000000001,
+        "powered_net_acceleration_peak_g": 4.557279768605384,
+        "finite": true,
+        "apogee_agl_m": 902.6891045532358,
+        "apogee_time_s": 18.590000000000586,
+        "max_speed_mps": 84.45495847653103,
+        "guide_exit_s": 0.4450000000000003,
+        "guide_exit_mps": 13.826607203178181,
+        "powered_specific_force_peak_g": 5.557279768605384,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.25250943575415813,
+        "powered_max_alpha_deg": 1.2199229408800921e-14,
+        "powered_max_tilt_deg": 0.0,
+        "max_dynamic_pressure_pa": 3771.349108813841,
+        "apogee_downrange_m": 2.18934898711437e-13,
+        "electronic_apogee_trigger_s": 18.595000000000585,
+        "inflation_complete_s": 19.195000000000586,
+        "impact_time_s": null,
+        "impact_speed_mps": null,
+        "landing_downrange_m": null,
+        "recovery_horizon_complete": false,
+        "motor_delay_probes": null,
+        "burnout_s": 12.601
+      },
+      "rocketpy": {
+        "reference": "RocketPy 1.13.0",
+        "apogee_agl_m": 902.6964053757433,
+        "apogee_time_s": 18.592039759552414,
+        "max_speed_mps": 84.45537286211128,
+        "guide_exit_s": 0.44023955749581956,
+        "guide_exit_mps": 13.621229546356327,
+        "end_time_s": 18.592039759552414,
+        "recovery_full_flight": false,
+        "shared_inertia_input": true,
+        "nozzle_pressure_correction": "zero; exit area unknown"
+      },
+      "relative_errors": {
+        "apogee_agl_m": 8.087793929462426e-06,
+        "apogee_time_s": 0.00010971144523179867
+      },
+      "reference_benchmark_passed": true,
+      "guide_speed_target_mps": 10.0,
+      "guide_requirement_passed": true,
+      "flight_ready": false
+    }
+  ],
+  "limitations": [
+    "Numerical source hypotheses; motor identity/classification/lot/stock not frozen",
+    "Mass distributions, servo/load/thermal/aerodynamic derivatives unmeasured",
+    "Calm apogee/time comparison does not validate wind or attitude accuracy",
+    "Parachute point drag/inflation approximation, not opening-load qualification",
+    "Finless burnout/recovery transition not validated; no controlled flight here",
+    "No physical work, paid run, PID/RL controller or WO-10 gate waived"
+  ]
+}

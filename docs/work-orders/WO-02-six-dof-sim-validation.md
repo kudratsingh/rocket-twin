@@ -51,3 +51,13 @@ until the trajectory establishes suitability. Plugged G12ST-P requires independe
 electronic recovery. Simulate through recovery, including long burns. Finless
 known-answer tests do not establish stable flight or replace WO-06/07 closed-loop
 validation and the later burnout-to-recovery gate.
+
+## Completion evidence
+
+Numerical benchmark met: final Mac CPU records and 65-test validation are linked in
+[results](../results.md) and the [study report](../wo02-flight-study.md). Both actual
+finned baselines plus three alternative hypotheses pass the 5% apogee/time gate;
+4,096 CPU environments step through the same core; tiny completes below 120 s.
+Full sensitivity cases include guide, wind, acceleration, recovery and source-mass
+uncertainty. This closes WO-02 model validation, not motor procurement, measured
+aerodynamics, structure/heat, control, HIL, finless transition or flight release.

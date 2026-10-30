@@ -1,6 +1,6 @@
 # WO-02 flight validation and delivered-performance study
 
-Status: in progress. The JAX core merged in [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2).
+Status: numerical benchmark met on Mac CPU; physical/control/launch gates remain. The JAX core merged in [PR #2](https://github.com/kudratsingh/rocket-twin/pull/2).
 Paired validation and this study are in [PR #3](https://github.com/kudratsingh/rocket-twin/pull/3).
 Do not infer flight readiness or a frozen motor choice from a numerical comparison.
 
@@ -127,7 +127,23 @@ No PID/RL superiority claim or unsafe flight follows from this work order.
 ## Results and next decision
 
 Final paired values, uncertainty/drift/timing, sensor-range findings and run IDs
-will be recorded in `docs/results.md` after the hosted study and local checks.
+are in [results](results.md), full Mac record `wo02-20261030T044930127544Z`, tiny `wo02-20261030T045326632046Z`
+and steady-wind reference `wo02-wind-20261030T045434689213Z`. The 65-test suite and local benchmarks pass.
+All five calm comparisons are within 0.004%; all 27 cases reach impact by 360 s.
 The actual club/site/date, operating altitude ceiling and usable guide equipment
 remain unresolved. Delivered altitude must be weighed against drift, guidance,
 recovery, heat, structural loads, stock and eligibility before freezing hardware.
+
+## Conditional direction after the study
+
+Keep G80 as the starting reference; prioritize G54 as the near-160 N s upgrade
+if exact source/hardware, stock, California/club evidence and aft-growth margin
+can be closed. Fixed G12 is the calm-altitude leader but has guide/wind/heat/recovery
+penalties. G33 also needs a departure redesign. Do not freeze hardware from these
+figures alone. Preserve long-duration G12 TVC for PID-to-RL research, with measured
+actuator authority and a qualified operating envelope still required.
+
+The source comparison caught a duplicate-origin RASP import defect that suppressed
+CTI reference mass depletion. Validated point arrays and explicit depletion tests
+now close it; prior coarse passes are superseded. Code/input hashes are captured
+before and checked after each run. A passing result always retains flight_ready=false.
