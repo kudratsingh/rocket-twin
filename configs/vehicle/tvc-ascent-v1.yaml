@@ -1,0 +1,503 @@
+# SI spec; component estimates require CAD and measurement validation.
+id: tvc-ascent-v1
+name: TVC Ascent v1
+class: model_rocket
+axis:
+  body_x: nose
+  body_z: down
+  world: NED
+limits:
+  max_liftoff_mass_kg: 1.5
+  max_propellant_kg: 0.125
+  max_total_impulse_ns: 320
+  metal_structure_allowed: false
+airframe:
+  body_diameter_m: 0.078
+  length_m: 0.7
+  nose:
+    shape: ogive
+    length_m: 0.16
+  material_default: PETG
+aero:
+  passive_stubs:
+    enabled: false
+    span_m: 0.02
+    count: 3
+    root_chord_m: 0.08
+    tip_chord_m: 0.04
+    sweep_m: 0.02
+    position_m: 0.6
+  cd_model:
+    type: empirical_mach_table
+    reference: Mandell et al., Topics in Advanced Model Rocketry
+    mach:
+    - 0
+    - 0.3
+    - 0.6
+    - 0.8
+    cd:
+    - 0.45
+    - 0.45
+    - 0.5
+    - 0.65
+    base_drag_cd: 0.12
+    estimate: true
+motor:
+  id: estes-f15
+  curve: configs/vehicle/motors/Estes_F15.eng
+  propellant_mass_kg: 0.06
+  casing_mass_kg: 0.043
+  mount_position_m: 0.586
+  ignition_delay_s: 0.0
+  thrust_scale_range:
+  - 0.85
+  - 1.15
+  burn_time_s: 3.45
+  total_impulse_ns: 49.6087275
+  average_thrust_n: 14.379341304347825
+  cite: configs/vehicle/motors/Estes_F15.yaml; source 5f4294d20002e900000007e5 and
+    historical NAR certificate, pp. 1, 3.
+tvc:
+  axes: 2
+  max_deflection_rad: 0.087
+  pivot_position_m: 0.6
+  servo_ids:
+  - servo_pitch
+  - servo_yaw
+  linkage_ratio: 1.0
+avionics:
+  loop_rate_hz: 250
+  physics_rate_hz: 1000
+  estimator: madgwick
+  sensors:
+    imu:
+      part: imu
+      accel_range_g: 16
+      gyro_range_dps: 2000
+      rate_hz: 1000
+    baro:
+      part: baro
+      rate_hz: 50
+  abort:
+    max_tilt_rad: 0.52
+    max_rate_rad_s: 6.0
+    sensor_dropout_ms: 20
+    servo_fault_ms: 50
+    action_on_abort:
+      gimbal: centre
+      recovery: arm
+parts:
+- id: nose_cone
+  type: nose_cone
+  parent: null
+  position_m: 0.0
+  geometry:
+    shape: ogive
+    length_m: 0.16
+    shoulder_length_m: 0.03
+    wall_m: 0.0016
+    radius_m: 0.039
+  material: PETG
+  mass_kg: 0.04
+  print:
+    orientation: tip_up
+    layer_mm: 0.2
+    infill_pct: 10
+    walls: 3
+    supports: false
+  explode_offset: -0.25
+  learn: The ogive reduces abrupt area changes; its small-angle CP is forward of the
+    body. The shoulder aligns the removable nose and transfers ejection load. Wall
+    and mass are estimates pending CAD and thermal checks; thin walls can split during
+    recovery.
+  estimate: true
+  cg_offset_m: 0.10400000000000001
+- id: body_upper
+  type: body_tube
+  parent: nose_cone
+  position_m: 0.16
+  geometry:
+    length_m: 0.25
+    od_m: 0.078
+    wall_m: 0.0016
+    radius_m: 0.039
+    inner_radius_m: 0.0374
+  material: PETG
+  mass_kg: 0.122
+  print:
+    orientation: axis_vertical
+    layer_mm: 0.2
+    infill_pct: 0
+    walls: 3
+    supports: false
+  explode_offset: -0.1
+  learn: The constant-diameter shell carries axial loads and houses recovery. PETG
+    bulk density does not account for print voids. This wall mass is an estimate;
+    CAD volume and a weighed print must replace it before building.
+  estimate: true
+  cg_offset_m: 0.125
+- id: avionics_bay
+  type: avionics_bay
+  parent: body_upper
+  position_m: 0.2
+  geometry:
+    length_m: 0.12
+    sled: true
+    radius_m: 0.039
+  material: PETG
+  mass_kg: 0.018
+  learn: The sled fixes sensor orientation and allows battery access. Locating sensors
+    near the CG reduces rotational acceleration contamination but does not remove
+    vibration. Fastener retention and vibration isolation remain to be validated.
+  estimate: true
+  cg_offset_m: 0.06
+- id: flight_computer
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.23
+  geometry:
+    bbox_m:
+    - 0.061
+    - 0.018
+    - 0.006
+  mass_kg: 0.012
+  electrical:
+    supply_v: 5.0
+    current_a: 0.1
+  learn: The Cortex-M7 FPU supports estimation and small policies at 250 Hz. SD logging
+    preserves raw sensor and control traces. Power transients and blocking writes
+    can violate the loop deadline; current and mass are estimates.
+  estimate: true
+  cg_offset_m: 0.0305
+- id: imu
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.24
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.015
+    - 0.004
+  mass_kg: 0.002
+  electrical:
+    supply_v: 3.3
+    bus: SPI
+  learn: Gyros track angular rates; accelerometers measure specific force, not gravity
+    alone during thrust. Bias and axis alignment matter for attitude estimation. Rigid
+    alignment and vibration characterization are needed before trusting this sensor.
+  estimate: true
+  cg_offset_m: 0.01
+- id: baro
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.245
+  geometry:
+    bbox_m:
+    - 0.015
+    - 0.012
+    - 0.003
+  mass_kg: 0.001
+  electrical:
+    supply_v: 3.3
+    bus: SPI
+  learn: Ambient pressure provides a height estimate through an atmosphere model.
+    Static ports must avoid stagnation and wake pressure. Burn-time acceleration does
+    not directly invalidate pressure, but airflow and filtering can bias and delay
+    the reading.
+  estimate: true
+  cg_offset_m: 0.0075
+- id: battery
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.27
+  geometry:
+    bbox_m:
+    - 0.055
+    - 0.03
+    - 0.015
+  mass_kg: 0.03
+  electrical:
+    nominal_v: 7.4
+    capacity_mah: 450
+    max_discharge_a: 9
+  learn: A 2S pack supplies regulator headroom through discharge. Servo current spikes
+    can brown out logic unless rails and decoupling are sized correctly. Capacity,
+    mass and discharge rating are estimates pending a selected cell and measurements.
+  estimate: true
+  cg_offset_m: 0.0275
+- id: body_lower
+  type: body_tube
+  parent: body_upper
+  position_m: 0.41
+  geometry:
+    length_m: 0.17
+    od_m: 0.078
+    wall_m: 0.0016
+    radius_m: 0.039
+    inner_radius_m: 0.0374
+  material: PETG
+  mass_kg: 0.083
+  print:
+    orientation: axis_vertical
+    layer_mm: 0.2
+    infill_pct: 0
+    walls: 3
+    supports: false
+  learn: The lower shell transmits gimbal loads to the upper body. Wall buckling and
+    layer adhesion are outside this rigid-body model. The shell stops ahead of the
+    moving motor; clearance and strength require CAD verification.
+  estimate: true
+  cg_offset_m: 0.085
+- id: parachute_bay
+  type: recovery
+  parent: body_upper
+  position_m: 0.33
+  geometry:
+    length_m: 0.08
+    radius_m: 0.039
+  mass_kg: 0.025
+  learn: The chute and shock cord dissipate descent energy after ejection. Ejection
+    pressure must separate the nose without damaging the body. Packed volume, heat
+    protection and deployment reliability require ground testing; no flight claim
+    is made.
+  estimate: true
+  cg_offset_m: 0.04
+- id: tvc_gimbal
+  type: tvc_gimbal
+  parent: body_lower
+  position_m: 0.56
+  geometry:
+    outer_ring_od_m: 0.07
+    inner_ring_id_m: 0.032
+    max_deflection_rad: 0.087
+    length_m: 0.04
+    radius_m: 0.035
+  material: PETG
+  mass_kg: 0.022
+  print:
+    orientation: flat
+    layer_mm: 0.16
+    infill_pct: 40
+    walls: 4
+    supports: true
+  learn: Two orthogonal rings redirect thrust to create pitch and yaw moments about
+    the CG. Small deflections limit lateral force and linkage travel. Pivot friction,
+    heat and servo load are not yet validated; failure can remove control authority.
+  estimate: true
+  cg_offset_m: 0.02
+- id: servo_pitch
+  type: servo
+  parent: tvc_gimbal
+  position_m: 0.54
+  geometry:
+    bbox_m:
+    - 0.023
+    - 0.012
+    - 0.029
+  mass_kg: 0.014
+  electrical:
+    supply_v: 5.0
+    stall_torque_nm: 0.18
+    speed_s_per_60deg: 0.1
+    deadband_us: 5
+    stall_current_a: 1.2
+  learn: Servo torque must overcome pivot friction and thrust misalignment. Speed,
+    latency and deadband limit control bandwidth. The listed values are generic estimates,
+    not a verified selected servo; stall current must be checked against the regulator.
+  estimate: true
+  cg_offset_m: 0.0115
+- id: servo_yaw
+  type: servo
+  parent: tvc_gimbal
+  position_m: 0.54
+  geometry:
+    bbox_m:
+    - 0.023
+    - 0.012
+    - 0.029
+  mass_kg: 0.014
+  electrical:
+    supply_v: 5.0
+    stall_torque_nm: 0.18
+    speed_s_per_60deg: 0.1
+    deadband_us: 5
+    stall_current_a: 1.2
+  learn: The yaw servo drives the second ring through a linkage. Its axis must be
+    independent of pitch to avoid cross coupling. Speed and torque ratings are estimates;
+    joint clearance and current spikes require measurement.
+  estimate: true
+  cg_offset_m: 0.0115
+- id: motor_mount
+  type: motor_mount
+  parent: tvc_gimbal
+  position_m: 0.586
+  geometry:
+    id_m: 0.029
+    length_m: 0.1
+    retention: clip
+    radius_m: 0.017
+  material: PETG
+  mass_kg: 0.016
+  learn: The mount retains the certified motor under thrust and ejection loading.
+    A polymer mount near exhaust requires thermal isolation and clearance verification.
+    Geometry and mass are estimates, and this model does not establish thermal suitability.
+  estimate: true
+  cg_offset_m: 0.05
+- id: motor
+  type: motor
+  parent: motor_mount
+  position_m: 0.586
+  geometry:
+    diameter_m: 0.029
+    length_m: 0.114
+    radius_m: 0.0145
+  mass_kg: 0.103
+  learn: A certified F15 supplies fixed thrust rather than throttle authority. The
+    certificate reports a 3.45 s burn and 49.61 N s impulse. Uniform propellant depletion
+    is an approximation; the source RASP file is now imported unchanged; recovery-delay
+    selection remains pending.
+  estimate: false
+  cg_offset_m: 0.057
+  cite: configs/vehicle/motors/Estes_F15.yaml; source 5f4294d20002e900000007e5 and
+    historical NAR certificate, pp. 1, 3.
+- id: rail_guide
+  type: rail_guide
+  parent: body_lower
+  position_m: 0.45
+  geometry:
+    type: rail_button
+    count: 2
+    length_m: 0.04
+    radius_m: 0.004
+  material: nylon
+  mass_kg: 0.003
+  learn: Two rail contacts constrain attitude while speed and control authority build.
+    Spacing and clearance determine binding risk. This simplified equivalent cylinder
+    is only a mass envelope; actual guide dimensions arrive with CAD.
+  estimate: true
+  cg_offset_m: 0.02
+- id: regulator_5v
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.28
+  geometry:
+    bbox_m:
+    - 0.025
+    - 0.018
+    - 0.008
+  material: commercial
+  mass_kg: 0.008
+  cg_offset_m: 0.0125
+  estimate: true
+  learn: The regulator supplies logic and servos from the 2S battery. Its estimated
+    current capacity must cover simultaneous stalls with thermal margin. Noise isolation
+    and brownout behavior require bench validation.
+- id: pyro_mosfet
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.28
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.015
+    - 0.005
+  material: commercial
+  mass_kg: 0.003
+  cg_offset_m: 0.01
+  estimate: true
+  learn: This board reserves the later electronic recovery channel in the netlist.
+    Its electrical ratings are estimates; continuity, arming and fault behavior must
+    be verified before connection to any recovery device.
+- id: arming_switch
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.28
+  geometry:
+    bbox_m:
+    - 0.012
+    - 0.008
+    - 0.01
+  material: commercial
+  mass_kg: 0.003
+  cg_offset_m: 0.006
+  estimate: true
+  learn: The arming switch gives an explicit hardware enable state. Contact rating
+    and wiring must withstand the intended loads. Estimated mass and rating must be
+    replaced by selected component data.
+- id: harness
+  type: commercial
+  parent: avionics_bay
+  position_m: 0.28
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.015
+    - 0.01
+  material: commercial
+  mass_kg: 0.01
+  cg_offset_m: 0.05
+  estimate: true
+  learn: The harness accounts for wires, connectors and strain relief. Voltage drop
+    and intermittent contacts can remove control authority. This is a lumped mass
+    estimate; the generated wiring and measured harness will replace it.
+netlist:
+- net: VBAT
+  from: battery
+  to: regulator_5v
+  gauge_awg: 22
+- net: 5V_SERVO
+  from: regulator_5v
+  to:
+  - servo_pitch
+  - servo_yaw
+  gauge_awg: 22
+- net: 5V_LOGIC
+  from: regulator_5v
+  to: flight_computer
+  gauge_awg: 26
+- net: SERVO_PITCH_PWM
+  from: flight_computer
+  to: servo_pitch
+  pin: null
+- net: SERVO_YAW_PWM
+  from: flight_computer
+  to: servo_yaw
+  pin: null
+- net: SPI
+  from: flight_computer
+  to:
+  - imu
+  - baro
+- net: PYRO_1
+  from: flight_computer
+  to: pyro_mosfet
+  pin: null
+- net: ARM
+  from: arming_switch
+  to: flight_computer
+  pin: null
+scale: model
+stages:
+- id: sustainer
+  name: Single solid stage
+  parts:
+  - nose_cone
+  - body_upper
+  - avionics_bay
+  - flight_computer
+  - imu
+  - baro
+  - battery
+  - body_lower
+  - parachute_bay
+  - tvc_gimbal
+  - servo_pitch
+  - servo_yaw
+  - motor_mount
+  - motor
+  - rail_guide
+  - regulator_5v
+  - pyro_mosfet
+  - arming_switch
+  - harness
+events: []

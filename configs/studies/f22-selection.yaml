@@ -1,0 +1,54 @@
+baseline: configs/vehicle/tvc-ascent-v1.yaml
+mount_reserve_kg:
+- 0.0
+- 0.01
+- 0.02
+candidates:
+- id: f22j_legacy_2000_curve
+  curve: configs/studies/motors/AeroTech_F22_legacy.eng
+  evidence_status: historical_comparison_only; superseded_performance_evidence_in_2026_posttest
+- id: f22j_nar_posttest_2026
+  curve: configs/studies/motors/AeroTech_F22J_posttest_2026.eng
+  evidence_status: report_and_RASP_points_reviewed; rejected_baseline_TWR; seven_second_delay_test_failures
+screening_only:
+- id: f22j_legacy_published_mass_labels
+  diameter_m: 0.029
+  length_m: 0.124
+  assembled_mass_hypotheses_kg:
+  - 0.1329
+  - 0.1356
+  published_average_thrust_n: 19.6
+  published_burn_time_s: 3.31
+  posttest_total_impulse_ns: 55.08
+  status: historical_summary_only; newer_report_available_and_baseline_TWR_fails
+  source_note: Product -5J lists 132.9 g and -7J lists 135.6 g; 2024 matrix assigns
+    these masses to the opposite delays. The 65 N s legacy summary must not be mixed
+    with the current NAR post-test impulse.
+- id: f22j_posttest_report_summary
+  diameter_m: 0.029
+  length_m: 0.125
+  assembled_mass_hypotheses_kg:
+  - 0.1287
+  - 0.132
+  published_average_thrust_n: 14.52
+  published_burn_time_s: 3.83
+  posttest_total_impulse_ns: 55.08
+  status: current_test_summary; baseline_TWR_fail; not_a_specific_sold_delay_mass
+  source_note: Bounds of the six measured initial masses; report means are not substituted
+    into the page 3 sampled trace.
+sources:
+  product_5j: https://aerotech-rocketry.com/products/product_b3edb817-b2c0-a3c6-8575-8d8eb5427353
+  product_7j: https://aerotech-rocketry.com/products/product_3b9b0b1e-10a7-5992-86c4-c86c67780c2d
+  current_nar_listing: https://www.nar.org/content.aspx?club_id=114127&module_id=670148&page_id=22
+  current_nar_posttest: https://www.nar.org/docs.ashx?id=1770551
+  current_nar_original: https://www.nar.org/docs.ashx?id=1481245
+  historical_certificate: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/f22j_nar_cert_1642721656272.pdf
+  hobby_dimensions: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/rms%2029%3A40-120_1698854805136.pdf
+  source_curve_page: https://www.thrustcurve.org/simfiles/5f4294d20002e90000000452/
+pdf_sources:
+- historical_certificate
+- hobby_dimensions
+- current_nar_posttest
+- current_nar_original
+curve_candidates:
+- AeroTech:F22

@@ -1,0 +1,63 @@
+{
+  "run_id": "wo01-motors-20261030T003713058296Z",
+  "work_order": "01",
+  "preset": "tiny",
+  "cost_usd": 0,
+  "validation_status": "unvalidated motor selection; static math comparisons scoped per row",
+  "input_sha256": {
+    "configs/studies/f22-selection.yaml": "31d4522b485b0f63347e981bd78a7c40c102cea3fee812cf1fb8868a9dc25557",
+    "configs/vehicle/tvc-ascent-v1.yaml": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a"
+  },
+  "code_sha256": "28334b6c540cf97dbcc5f3c240ffbf7ceda932020ce97bba2e5d52cad5869890",
+  "source_urls": {
+    "product_5j": "https://aerotech-rocketry.com/products/product_b3edb817-b2c0-a3c6-8575-8d8eb5427353",
+    "product_7j": "https://aerotech-rocketry.com/products/product_3b9b0b1e-10a7-5992-86c4-c86c67780c2d",
+    "current_nar_listing": "https://www.nar.org/content.aspx?club_id=114127&module_id=670148&page_id=22",
+    "current_nar_posttest": "https://www.nar.org/docs.ashx?id=1770551",
+    "current_nar_original": "https://www.nar.org/docs.ashx?id=1481245",
+    "historical_certificate": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/f22j_nar_cert_1642721656272.pdf",
+    "hobby_dimensions": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/rms%2029%3A40-120_1698854805136.pdf",
+    "source_curve_page": "https://www.thrustcurve.org/simfiles/5f4294d20002e90000000452/"
+  },
+  "rows": [],
+  "summary_screening": [
+    {
+      "id": "f22j_5_or_7_delay_unresolved",
+      "diameter_m": 0.029,
+      "length_m": 0.124,
+      "assembled_mass_hypotheses_kg": [
+        0.1329,
+        0.1356
+      ],
+      "published_average_thrust_n": 19.6,
+      "published_burn_time_s": 3.31,
+      "posttest_total_impulse_ns": 55.08,
+      "status": "exact_delay_mass_labels_and_current_curve_unresolved; clearance_stock",
+      "source_note": "Product -5J lists 132.9 g and -7J lists 135.6 g; 2024 matrix assigns these masses to the opposite delays. The 65 N s legacy summary must not be mixed with the current NAR post-test impulse.",
+      "mass_scenarios": [
+        {
+          "assumed_assembled_motor_mass_kg": 0.1329,
+          "liftoff_mass_kg": 0.5789000000000002,
+          "summary_only_twr": 3.4524853643750886,
+          "max_burn_time_for_twr_3_at_posttest_impulse_s": 3.2340628209146236
+        },
+        {
+          "assumed_assembled_motor_mass_kg": 0.1356,
+          "liftoff_mass_kg": 0.5816000000000001,
+          "summary_only_twr": 3.4364576640934303,
+          "max_burn_time_for_twr_3_at_posttest_impulse_s": 3.219049117997723
+        }
+      ],
+      "incremental_mount_mass_kg": 0.02,
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.5816000000000001,
+      "summary_only_twr": 3.4364576640934303,
+      "reference_comparison": null,
+      "selected": false,
+      "selection_eligible": false,
+      "note": "Summary evidence only: no thrust trace, CG, mechanical fit, certification correspondence or purchase availability validated"
+    }
+  ],
+  "motor_selected": false,
+  "main_spec_unchanged": true,
+  "wo01_complete": false
+}

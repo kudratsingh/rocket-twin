@@ -1,0 +1,144 @@
+reviewed_on: '2026-10-29'
+selection_status: no_motor_selected
+working_airframe: configs/vehicle/tvc-ascent-v1.yaml
+collection:
+  command: make fetch-f22-sources
+  manifest: data/f22-study-sources/manifest.json
+  result: partial_collector_failure_then_owner_manual_posttest_import
+  downloaded:
+  - historical_certificate
+  - hobby_dimensions
+  - legacy_RASP_curve
+  current_nar_posttest: owner downloaded Aero_F22J_2026-05-02_tr.pdf; unchanged local
+    copy archived and all three pages visually reviewed
+  current_nar_original: not requested after denial
+historical_certificate:
+  file: data/f22-study-sources/historical_certificate.pdf
+  source_url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/f22j_nar_cert_1642721656272.pdf
+  sha256: db3258b64e3d37e0208bdf817b728b37985e57b396185507d8d22892e7b17a9c
+  method: complete page visually reviewed
+  designation: AEROTECH F22 RELOADABLE
+  certification_effective_date: '1993-12-23'
+  contest_effective_date: '1994-03-23'
+  test_date: '1992-07-18'
+  samples_tested: 10
+  required_hardware: AEROTECH RMS-29/40-120 Reload System and AEROTECH F22 Reload
+    Kit
+  casing_length_m: 0.124
+  propellant_mass_kg: 0.0463
+  total_impulse_ns: 65.0
+  peak_thrust_n: 31.15
+  burn_time_s: 3.31
+  burn_time_stddev_s: 0.23
+  delay_s: 4
+  loaded_mass_kg: 0.1356
+  measured_delay_s: 3.59
+  conclusion: report explicitly confirms legacy performance, hardware and historical
+    certification date; does not resolve the newer 55.08 N s listing or present purchase
+    configuration
+legacy_curve:
+  file: configs/studies/motors/AeroTech_F22_legacy.eng
+  source_url: https://www.thrustcurve.org/simfiles/5f4294d20002e90000000452/
+  sha256: f9b0836c1d9021d2ea51f2cce17a8379b506fbf57d89f051f31de9abfe79fffc
+  api_source: user
+  comment_date: '2000-07-04'
+  header_delays_s:
+  - 4
+  - 7
+  header_length_m: 0.125
+  header_loaded_mass_kg: 0.1342
+  header_propellant_mass_kg: 0.0463
+  source_duration_s: 3.31
+  integrated_impulse_ns: 64.996987
+  integrated_mean_thrust_n: 19.636551963746225
+  conclusion: legacy reconstruction corresponds to old impulse, duration and peak
+    thrust; header mass/delay/length do not establish one exact assembled variant
+    or current performance
+current_nar_listing:
+  url: https://www.nar.org/content.aspx?club_id=114127&module_id=670148&page_id=22
+  verified_via: public web page
+  page_updated: '2026-08-12'
+  designation: F22J
+  type: reload
+  dimensions_mm:
+  - 29
+  - 125
+  delays_s:
+  - 4
+  - 7
+  total_impulse_ns: 55.08
+  propellant_mass_kg: 0.0463
+  posttest_url: https://www.nar.org/docs.ashx?id=1770551
+  posttest_reviewed: true
+  conclusion: 55.08 N s is confirmed by the May 2 2026 post-test; legacy nominal performance
+    no longer supports selecting F22 for the current baseline.
+hobby_drawing:
+  file: data/f22-study-sources/hobby_dimensions.pdf
+  source_url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/rms%2029%3A40-120_1698854805136.pdf
+  sha256: 77f2b293a7cffe6a9ca76a44d58da4b3bcb8fb63d63d080e8097cd50f02f5fff
+  method: complete sheet visually reviewed
+  drawing_title: RMS-29/40 MOTOR DIMENSIONAL DRAWING
+  revision: A, first release 2003-10-08
+  units: inches
+  dimensioned_axial_spans_in:
+  - 4.874
+  - 5.464
+  - 5.639
+  - 5.994
+  - 0.25
+  aft_closure_diameter_in: 1.23
+  aft_closure_diameter_m: 0.031242
+  forward_closure_diameter_in: 1.125
+  conclusion: drawing shows installed features beyond the nominal casing; 5.994 inch
+    span excludes separately dimensioned 0.250 inch aft-closure span and nozzle projection.
+    Source title is retained exactly; full F22 configuration and gimbal clearance
+    remain unverified.
+remaining_evidence:
+- Current formal certification status after failed delay testing, if F22 is ever reconsidered;
+  not needed to reject its current performance
+- Reconciliation of current performance with the exact sold F22 reload and recovery
+  delay
+- Assembled case, closure and nozzle envelope with loaded mass and mass distribution
+- Actual mount, retention and gimbal-clearance design; 20 g is only a reserve
+- Purchase availability for the selected exact configuration
+posttest_report:
+  file: data/f22-study-sources/current_nar_posttest.pdf
+  source_url: https://www.nar.org/docs.ashx?id=1770551
+  sha256: f7d8a5d3bcad0e7e32d11be0e8560552f41e6ee8b043241ff951f5ad98608b58
+  method: All three pages rendered with PDFKit and visually reviewed; table and page
+    3 points checked against text extraction.
+  test_date: '2026-05-02'
+  samples_tested: 6
+  dimensions_mm:
+  - 29
+  - 125
+  required_hardware: RMS-29/40-120
+  propellant_mass_kg: 0.0463
+  delays_s:
+  - 4
+  - 7
+  report_total_impulse_ns: 55.08
+  report_average_burn_time_s: 3.83
+  report_average_thrust_n: 14.52
+  report_average_max_thrust_n: 20.57
+  report_result: FAIL
+  failure_reason: All three nominal 7 s samples failed for long delay. Measured delays
+    9.40, 9.18, 8.83 s; mean 9.13 s. Four-second samples mean 4.07 s.
+  tested_initial_masses_kg:
+  - 0.1316
+  - 0.1308
+  - 0.132
+  - 0.1287
+  - 0.1317
+  - 0.1305
+  representative_curve_header_loaded_mass_kg: 0.1309
+  representative_curve_file: configs/studies/motors/AeroTech_F22J_posttest_2026.eng
+  representative_curve_integrated_impulse_ns: 55.808606999999995
+  representative_curve_end_time_s: 4.178
+  representative_curve_mean_thrust_n: 13.357732647199615
+  baseline_with_20g_reserve_mass_kg: 0.5769
+  report_average_thrust_twr: 2.566524425799882
+  representative_curve_twr: 2.3610845118693065
+  conclusion: Reject F22 for the unchanged baseline TWR requirement using either the
+    reported mean thrust or sampled representative curve. Do not infer formal decertification
+    from a failed post-test alone.

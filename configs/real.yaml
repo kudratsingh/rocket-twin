@@ -1,0 +1,28 @@
+preset: real
+vehicle: modular-tvc-finned-v1
+serial:
+  port: /dev/tty.usbmodemXXXX
+  baud: 2000000
+hil:
+  loop_rate_hz: 250
+  max_jitter_ms: 2.0
+  fault_injection: true
+bench:
+  servo_step_deg: 5.0
+  tilt_test_angles_deg:
+  - 5
+  - 10
+  - 15
+flight:
+  go_no_go:
+    max_wind_mps: 1.0
+    min_battery_v: 7.6
+    require_log_card: true
+    require_continuity: true
+    require_independent_recovery: true
+    require_hil_release: true
+  controller: pid
+  release_authorized: false
+logs:
+  dir: data/flights
+  hub_dataset: KudratSingh22/rocket-twin-flights

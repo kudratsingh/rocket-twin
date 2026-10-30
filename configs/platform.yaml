@@ -1,0 +1,14 @@
+id: modular-rocket-v1
+decision: docs/adr/0006-modular-platform-rebaseline.md
+shared_upper: configs/vehicle/platform/common-upper.yaml
+interface:
+  body_outer_diameter_m: 0.066
+  aft_separation_station_m: 0.52
+  coupler_overlap_each_side_m: 0.05
+  description: Keyed custom joint with axial stop and positive retention; final tolerances, materials and proof loads in WO-03.
+vehicles:
+  - configs/vehicle/platform/performance.yaml
+  - configs/vehicle/platform/tvc-finned.yaml
+  - configs/vehicle/platform/tvc-finless.yaml
+legacy_reference: configs/vehicle/tvc-ascent-v1.yaml
+authorization_scope: Reversible WO-01 models and plans; GitHub pushes and PRs authorized under AGENTS.md. No purchase, fabrication, paid run or flight release.

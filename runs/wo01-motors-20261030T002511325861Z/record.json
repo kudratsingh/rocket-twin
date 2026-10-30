@@ -1,0 +1,1680 @@
+{
+  "run_id": "wo01-motors-20261030T002511325861Z",
+  "work_order": "01",
+  "preset": "tiny",
+  "cost_usd": 0,
+  "validation_status": "unvalidated motor selection; static math comparisons scoped per row",
+  "input_sha256": {
+    "configs/studies/motor-selection.yaml": "98f1a34dafd91e2a7870e1bbb2841a0788a05dacda07070a30d87e63027ca373",
+    "configs/vehicle/tvc-ascent-v1.yaml": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a",
+    "configs/vehicle/motors/Estes_F15.eng": "22a1b91e43769c698a089fe86f6ba847aae88e262d27348969a4556ed3f57833",
+    "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng": "23380952677bcd1aee072f425aecfbcadee0ae3a73474d05cdca5aa0abf8da8a",
+    "configs/vehicle/motors/AeroTech_G25_152mm.eng": "47ddafb0683be2a77bef56314aad7d2d52919582bafceda28f748a50beece9c6",
+    "configs/studies/motors/AeroTech_F25_molded.eng": "89b874f3a44ec2cfd11bf230185322f413a33b9a79662cada508b804dc5d0ebc"
+  },
+  "code_sha256": "063fca36821a7014299ceeec378e2b674f7807ef2000bfe1ce9e346bb3b5543f",
+  "source_urls": {
+    "product": "https://aerotech-rocketry.com/products/product_c968e0dc-44a1-0a42-42dc-d69b16336291",
+    "matrix": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/aerotech%20master%20motor%20matrix%2012-19-24_1734643280505.pdf",
+    "rms_dimensions": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/rms%2029%3A120_1698856038824.pdf",
+    "rms_certificate": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/at%20g25w%20dec%2018_1656554678334.pdf",
+    "old_g25_certificate": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/g25w_nar_cert_1642720675355.pdf",
+    "f25_certificate": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/f25w_nar_cert_1642720562609.pdf"
+  },
+  "rows": [
+    {
+      "curve": "configs/vehicle/motors/Estes_F15.eng",
+      "designation": "F15",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.103,
+      "motor_dry_mass_included_kg": 0.043,
+      "propellant_mass_kg": 0.06,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 3.45,
+      "mean_thrust_n": 14.379341304347825,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5290000000000001,
+      "burnout_mass_kg": 0.4690000000000001,
+      "cg_liftoff_m": 0.4161313799621928,
+      "cg_burnout_m": 0.3871076759061834,
+      "mean_thrust_to_liftoff_weight": 2.7718048128519213,
+      "additional_mass_headroom_to_twr_3_kg": -0.04023841800044453,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5290000000000001,
+              "cg_m": 0.4161313799621928,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.396144125805293
+            },
+            "rocketpy": {
+              "mass_kg": 0.529,
+              "cg_m": 0.41613137996219274,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.3961441258053
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4690000000000001,
+              "cg_m": 0.3871076759061834,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.024045355856455
+            },
+            "rocketpy": {
+              "mass_kg": 0.46900000000000003,
+              "cg_m": 0.3871076759061833,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.02404535585646
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 1.1102230246251565e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 5.329070518200751e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f15_reference",
+      "evidence_status": "historical_reference_accepted"
+    },
+    {
+      "curve": "configs/vehicle/motors/Estes_F15.eng",
+      "designation": "F15",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.103,
+      "motor_dry_mass_included_kg": 0.043,
+      "propellant_mass_kg": 0.06,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 3.45,
+      "mean_thrust_n": 14.379341304347825,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5390000000000001,
+      "burnout_mass_kg": 0.4790000000000001,
+      "cg_liftoff_m": 0.42021057513914656,
+      "cg_burnout_m": 0.39230375782881005,
+      "mean_thrust_to_liftoff_weight": 2.720379862706246,
+      "additional_mass_headroom_to_twr_3_kg": -0.05023841800044454,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5390000000000001,
+              "cg_m": 0.42021057513914656,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.448441499868802
+            },
+            "rocketpy": {
+              "mass_kg": 0.539,
+              "cg_m": 0.42021057513914656,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.44844149986881
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4790000000000001,
+              "cg_m": 0.39230375782881005,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.090661790761924
+            },
+            "rocketpy": {
+              "mass_kg": 0.47900000000000004,
+              "cg_m": 0.39230375782881,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.090661790761931
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f15_reference",
+      "evidence_status": "historical_reference_accepted"
+    },
+    {
+      "curve": "configs/vehicle/motors/Estes_F15.eng",
+      "designation": "F15",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.103,
+      "motor_dry_mass_included_kg": 0.043,
+      "propellant_mass_kg": 0.06,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 3.45,
+      "mean_thrust_n": 14.379341304347825,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5490000000000002,
+      "burnout_mass_kg": 0.4890000000000001,
+      "cg_liftoff_m": 0.4241411657559198,
+      "cg_burnout_m": 0.3972873210633947,
+      "mean_thrust_to_liftoff_weight": 2.670828316937462,
+      "additional_mass_headroom_to_twr_3_kg": -0.06023841800044455,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5490000000000002,
+              "cg_m": 0.4241411657559198,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.498833687263332
+            },
+            "rocketpy": {
+              "mass_kg": 0.549,
+              "cg_m": 0.4241411657559198,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.498833687263339
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4890000000000001,
+              "cg_m": 0.3972873210633947,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.154553627102754
+            },
+            "rocketpy": {
+              "mass_kg": 0.48900000000000005,
+              "cg_m": 0.3972873210633946,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.15455362710276
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 1.1102230246251565e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f15_reference",
+      "evidence_status": "historical_reference_accepted"
+    },
+    {
+      "curve": "configs/vehicle/motors/Estes_F15.eng",
+      "designation": "F15",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.103,
+      "motor_dry_mass_included_kg": 0.043,
+      "propellant_mass_kg": 0.06,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 3.45,
+      "mean_thrust_n": 14.379341304347825,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5290000000000001,
+      "burnout_mass_kg": 0.4690000000000001,
+      "cg_liftoff_m": 0.4161313799621928,
+      "cg_burnout_m": 0.3871076759061834,
+      "mean_thrust_to_liftoff_weight": 2.7718048128519213,
+      "additional_mass_headroom_to_twr_3_kg": -0.04023841800044453,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5290000000000001,
+              "cg_m": 0.4161313799621928,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.396144125805293
+            },
+            "rocketpy": {
+              "mass_kg": 0.529,
+              "cg_m": 0.41613137996219274,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.3961441258053
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4690000000000001,
+              "cg_m": 0.3871076759061834,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.024045355856455
+            },
+            "rocketpy": {
+              "mass_kg": 0.46900000000000003,
+              "cg_m": 0.3871076759061833,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.02404535585646
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 1.1102230246251565e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 5.329070518200751e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f15_reference",
+      "evidence_status": "historical_reference_accepted"
+    },
+    {
+      "curve": "configs/vehicle/motors/Estes_F15.eng",
+      "designation": "F15",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.103,
+      "motor_dry_mass_included_kg": 0.043,
+      "propellant_mass_kg": 0.06,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 3.45,
+      "mean_thrust_n": 14.379341304347825,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5390000000000001,
+      "burnout_mass_kg": 0.4790000000000001,
+      "cg_liftoff_m": 0.42021057513914656,
+      "cg_burnout_m": 0.39230375782881005,
+      "mean_thrust_to_liftoff_weight": 2.720379862706246,
+      "additional_mass_headroom_to_twr_3_kg": -0.05023841800044454,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5390000000000001,
+              "cg_m": 0.42021057513914656,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.448441499868802
+            },
+            "rocketpy": {
+              "mass_kg": 0.539,
+              "cg_m": 0.42021057513914656,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.44844149986881
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4790000000000001,
+              "cg_m": 0.39230375782881005,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.090661790761924
+            },
+            "rocketpy": {
+              "mass_kg": 0.47900000000000004,
+              "cg_m": 0.39230375782881,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.090661790761931
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f15_reference",
+      "evidence_status": "historical_reference_accepted"
+    },
+    {
+      "curve": "configs/vehicle/motors/Estes_F15.eng",
+      "designation": "F15",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.103,
+      "motor_dry_mass_included_kg": 0.043,
+      "propellant_mass_kg": 0.06,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 3.45,
+      "mean_thrust_n": 14.379341304347825,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5490000000000002,
+      "burnout_mass_kg": 0.4890000000000001,
+      "cg_liftoff_m": 0.4241411657559198,
+      "cg_burnout_m": 0.3972873210633947,
+      "mean_thrust_to_liftoff_weight": 2.670828316937462,
+      "additional_mass_headroom_to_twr_3_kg": -0.06023841800044455,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5490000000000002,
+              "cg_m": 0.4241411657559198,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.498833687263332
+            },
+            "rocketpy": {
+              "mass_kg": 0.549,
+              "cg_m": 0.4241411657559198,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.498833687263339
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4890000000000001,
+              "cg_m": 0.3972873210633947,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.154553627102754
+            },
+            "rocketpy": {
+              "mass_kg": 0.48900000000000005,
+              "cg_m": 0.3972873210633946,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.15455362710276
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 1.1102230246251565e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f15_reference",
+      "evidence_status": "historical_reference_accepted"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+      "designation": "G25",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.71,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1197,
+      "motor_dry_mass_included_kg": 0.0572,
+      "propellant_mass_kg": 0.0625,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 5.3,
+      "mean_thrust_n": 22.16967745283019,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "g25_124mm_single_use_historical",
+      "evidence_status": "certificate_and_current_variant_unresolved"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+      "designation": "G25",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.71,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1197,
+      "motor_dry_mass_included_kg": 0.0572,
+      "propellant_mass_kg": 0.0625,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 5.3,
+      "mean_thrust_n": 22.16967745283019,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "g25_124mm_single_use_historical",
+      "evidence_status": "certificate_and_current_variant_unresolved"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+      "designation": "G25",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.71,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1197,
+      "motor_dry_mass_included_kg": 0.0572,
+      "propellant_mass_kg": 0.0625,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 5.3,
+      "mean_thrust_n": 22.16967745283019,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "g25_124mm_single_use_historical",
+      "evidence_status": "certificate_and_current_variant_unresolved"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+      "designation": "G25",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.576,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.010000000000000009,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1197,
+      "motor_dry_mass_included_kg": 0.0572,
+      "propellant_mass_kg": 0.0625,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 5.3,
+      "mean_thrust_n": 22.16967745283019,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5457000000000001,
+      "burnout_mass_kg": 0.4832000000000001,
+      "cg_liftoff_m": 0.42197746014293563,
+      "cg_burnout_m": 0.3940358029801324,
+      "mean_thrust_to_liftoff_weight": 4.142712027696933,
+      "additional_mass_headroom_to_twr_3_kg": 0.207859317838072,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5457000000000001,
+              "cg_m": 0.42197746014293563,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.471093871712252
+            },
+            "rocketpy": {
+              "mass_kg": 0.5457000000000001,
+              "cg_m": 0.42197746014293563,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.47109387171226
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4832000000000001,
+              "cg_m": 0.3940358029801324,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.112867497830161
+            },
+            "rocketpy": {
+              "mass_kg": 0.4832,
+              "cg_m": 0.3940358029801324,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.112867497830168
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "g25_124mm_single_use_historical",
+      "evidence_status": "certificate_and_current_variant_unresolved"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+      "designation": "G25",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.576,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.010000000000000009,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1197,
+      "motor_dry_mass_included_kg": 0.0572,
+      "propellant_mass_kg": 0.0625,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 5.3,
+      "mean_thrust_n": 22.16967745283019,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5557000000000001,
+      "burnout_mass_kg": 0.4932000000000001,
+      "cg_liftoff_m": 0.4258288644952312,
+      "cg_burnout_m": 0.3989418085969181,
+      "mean_thrust_to_liftoff_weight": 4.0681625940511355,
+      "additional_mass_headroom_to_twr_3_kg": 0.19785931783807198,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5557000000000001,
+              "cg_m": 0.4258288644952312,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.520470850587837
+            },
+            "rocketpy": {
+              "mass_kg": 0.5557000000000001,
+              "cg_m": 0.42582886449523116,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.520470850587844
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4932000000000001,
+              "cg_m": 0.3989418085969181,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.175765005737669
+            },
+            "rocketpy": {
+              "mass_kg": 0.4932,
+              "cg_m": 0.398941808596918,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.175765005737675
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "g25_124mm_single_use_historical",
+      "evidence_status": "certificate_and_current_variant_unresolved"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+      "designation": "G25",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.576,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.010000000000000009,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.1197,
+      "motor_dry_mass_included_kg": 0.0572,
+      "propellant_mass_kg": 0.0625,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 5.3,
+      "mean_thrust_n": 22.16967745283019,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5657000000000001,
+      "burnout_mass_kg": 0.5032000000000001,
+      "cg_liftoff_m": 0.42954410464910725,
+      "cg_burnout_m": 0.4036528219395866,
+      "mean_thrust_to_liftoff_weight": 3.996248813000205,
+      "additional_mass_headroom_to_twr_3_kg": 0.18785931783807197,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5657000000000001,
+              "cg_m": 0.42954410464910725,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.568102134611888
+            },
+            "rocketpy": {
+              "mass_kg": 0.5657000000000001,
+              "cg_m": 0.42954410464910725,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.568102134611896
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5032000000000001,
+              "cg_m": 0.4036528219395866,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.236162612694958
+            },
+            "rocketpy": {
+              "mass_kg": 0.5032,
+              "cg_m": 0.4036528219395866,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.236162612694965
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "g25_124mm_single_use_historical",
+      "evidence_status": "certificate_and_current_variant_unresolved"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+      "designation": "G25W-10A",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7384,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.17,
+      "motor_dry_mass_included_kg": 0.07300000000000001,
+      "propellant_mass_kg": 0.097,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 4.414,
+      "mean_thrust_n": 25.308880267331222,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "g25w_10a_rms_source",
+      "evidence_status": "quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+      "designation": "G25W-10A",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7384,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.17,
+      "motor_dry_mass_included_kg": 0.07300000000000001,
+      "propellant_mass_kg": 0.097,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 4.414,
+      "mean_thrust_n": 25.308880267331222,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "g25w_10a_rms_source",
+      "evidence_status": "quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+      "designation": "G25W-10A",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.7384,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.17,
+      "motor_dry_mass_included_kg": 0.07300000000000001,
+      "propellant_mass_kg": 0.097,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 4.414,
+      "mean_thrust_n": 25.308880267331222,
+      "axial_bounds_pass": false,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "rejection": "Candidate exceeds unchanged vehicle axial envelope at fixed front station",
+      "candidate": "g25w_10a_rms_source",
+      "evidence_status": "quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+      "designation": "G25W-10A",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.5476,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.03839999999999999,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.17,
+      "motor_dry_mass_included_kg": 0.07300000000000001,
+      "propellant_mass_kg": 0.097,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 4.414,
+      "mean_thrust_n": 25.308880267331222,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5960000000000001,
+      "burnout_mass_kg": 0.4990000000000001,
+      "cg_liftoff_m": 0.4361585570469799,
+      "cg_burnout_m": 0.3996831663326653,
+      "mean_thrust_to_liftoff_weight": 4.330180459885034,
+      "additional_mass_headroom_to_twr_3_kg": 0.2642625180304936,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5960000000000001,
+              "cg_m": 0.4361585570469799,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.652902806379488
+            },
+            "rocketpy": {
+              "mass_kg": 0.5960000000000001,
+              "cg_m": 0.43615855704697976,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.652902806379492
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 1.6653345369377348e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 4.440892098500626e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4990000000000001,
+              "cg_m": 0.3996831663326653,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.185269592093403
+            },
+            "rocketpy": {
+              "mass_kg": 0.49900000000000005,
+              "cg_m": 0.3996831663326653,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.18526959209341
+            },
+            "absolute_delta": {
+              "mass_kg": 5.551115123125783e-17,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "g25w_10a_rms_source",
+      "evidence_status": "quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+      "designation": "G25W-10A",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.5476,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.03839999999999999,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.17,
+      "motor_dry_mass_included_kg": 0.07300000000000001,
+      "propellant_mass_kg": 0.097,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 4.414,
+      "mean_thrust_n": 25.308880267331222,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.6060000000000001,
+      "burnout_mass_kg": 0.5090000000000001,
+      "cg_liftoff_m": 0.4394562706270627,
+      "cg_burnout_m": 0.40432593320235755,
+      "mean_thrust_to_liftoff_weight": 4.258725336784622,
+      "additional_mass_headroom_to_twr_3_kg": 0.2542625180304936,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.6060000000000001,
+              "cg_m": 0.4394562706270627,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.695181185611318
+            },
+            "rocketpy": {
+              "mass_kg": 0.6060000000000001,
+              "cg_m": 0.43945627062706266,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.695181185611324
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5090000000000001,
+              "cg_m": 0.40432593320235755,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.244792244268944
+            },
+            "rocketpy": {
+              "mass_kg": 0.509,
+              "cg_m": 0.4043259332023576,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.244792244268952
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "g25w_10a_rms_source",
+      "evidence_status": "quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict"
+    },
+    {
+      "curve": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+      "designation": "G25W-10A",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.5476,
+      "motor_aft_m": 0.7,
+      "front_shift_m": -0.03839999999999999,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.17,
+      "motor_dry_mass_included_kg": 0.07300000000000001,
+      "propellant_mass_kg": 0.097,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 4.414,
+      "mean_thrust_n": 25.308880267331222,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.6160000000000001,
+      "burnout_mass_kg": 0.5190000000000001,
+      "cg_liftoff_m": 0.44264691558441566,
+      "cg_burnout_m": 0.4087897880539499,
+      "mean_thrust_to_liftoff_weight": 4.189590185213443,
+      "additional_mass_headroom_to_twr_3_kg": 0.2442625180304936,
+      "nominal_performance_pass": true,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.6160000000000001,
+              "cg_m": 0.44264691558441566,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.736086890192765
+            },
+            "rocketpy": {
+              "mass_kg": 0.6160000000000001,
+              "cg_m": 0.4426469155844155,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.736086890192771
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 1.6653345369377348e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 6.217248937900877e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5190000000000001,
+              "cg_m": 0.4087897880539499,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.302021152622691
+            },
+            "rocketpy": {
+              "mass_kg": 0.519,
+              "cg_m": 0.40878978805394994,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.3020211526227
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 8.881784197001252e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "g25w_10a_rms_source",
+      "evidence_status": "quarantined_97g_header_vs_62g_TRA_report_and_RMS_DMS_identity_conflict"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F25_molded.eng",
+      "designation": "F25",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.6839999999999999,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.0972,
+      "motor_dry_mass_included_kg": 0.058399999999999994,
+      "propellant_mass_kg": 0.0388,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 2.69,
+      "mean_thrust_n": 26.30737211895911,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5232000000000001,
+      "burnout_mass_kg": 0.4844000000000001,
+      "cg_liftoff_m": 0.4121301605504587,
+      "cg_burnout_m": 0.39427848885218825,
+      "mean_thrust_to_liftoff_weight": 5.127303874339853,
+      "additional_mass_headroom_to_twr_3_kg": 0.37100179568487046,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5232000000000001,
+              "cg_m": 0.4121301605504587,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.344846441039472
+            },
+            "rocketpy": {
+              "mass_kg": 0.5232,
+              "cg_m": 0.4121301605504587,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.344846441039479
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4844000000000001,
+              "cg_m": 0.39427848885218825,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.115978855164209
+            },
+            "rocketpy": {
+              "mass_kg": 0.4844,
+              "cg_m": 0.3942784888521883,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.115978855164219
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 9.769962616701378e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f25_molded_short_burn",
+      "evidence_status": "rejected_for_default_2p69s_curve_below_3s_requirement"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F25_molded.eng",
+      "designation": "F25",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.6839999999999999,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.0972,
+      "motor_dry_mass_included_kg": 0.058399999999999994,
+      "propellant_mass_kg": 0.0388,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 2.69,
+      "mean_thrust_n": 26.30737211895911,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5332000000000001,
+      "burnout_mass_kg": 0.4944000000000001,
+      "cg_liftoff_m": 0.41632876969242305,
+      "cg_burnout_m": 0.3991676779935275,
+      "mean_thrust_to_liftoff_weight": 5.031142886449008,
+      "additional_mass_headroom_to_twr_3_kg": 0.36100179568487045,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5332000000000001,
+              "cg_m": 0.41632876969242305,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.398674763372348
+            },
+            "rocketpy": {
+              "mass_kg": 0.5332,
+              "cg_m": 0.4163287696924231,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.398674763372356
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4944000000000001,
+              "cg_m": 0.3991676779935275,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.178660767232661
+            },
+            "rocketpy": {
+              "mass_kg": 0.4944,
+              "cg_m": 0.3991676779935275,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.178660767232668
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f25_molded_short_burn",
+      "evidence_status": "rejected_for_default_2p69s_curve_below_3s_requirement"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F25_molded.eng",
+      "designation": "F25",
+      "pose": "hold_motor_front_station",
+      "motor_front_m": 0.586,
+      "motor_aft_m": 0.6839999999999999,
+      "front_shift_m": 0.0,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.0972,
+      "motor_dry_mass_included_kg": 0.058399999999999994,
+      "propellant_mass_kg": 0.0388,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 2.69,
+      "mean_thrust_n": 26.30737211895911,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5432000000000001,
+      "burnout_mass_kg": 0.5044000000000001,
+      "cg_liftoff_m": 0.4203727908689249,
+      "cg_burnout_m": 0.4038630055511499,
+      "mean_thrust_to_liftoff_weight": 4.938522435667547,
+      "additional_mass_headroom_to_twr_3_kg": 0.35100179568487044,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5432000000000001,
+              "cg_m": 0.4203727908689249,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.450521188712115
+            },
+            "rocketpy": {
+              "mass_kg": 0.5432,
+              "cg_m": 0.4203727908689249,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.4505211887121225
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5044000000000001,
+              "cg_m": 0.4038630055511499,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.238857274381666
+            },
+            "rocketpy": {
+              "mass_kg": 0.5044000000000001,
+              "cg_m": 0.40386300555114985,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.238857274381673
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.105427357601002e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f25_molded_short_burn",
+      "evidence_status": "rejected_for_default_2p69s_curve_below_3s_requirement"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F25_molded.eng",
+      "designation": "F25",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.602,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.016000000000000014,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.0972,
+      "motor_dry_mass_included_kg": 0.058399999999999994,
+      "propellant_mass_kg": 0.0388,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.0,
+      "burn_time_s": 2.69,
+      "mean_thrust_n": 26.30737211895911,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5232000000000001,
+      "burnout_mass_kg": 0.4844000000000001,
+      "cg_liftoff_m": 0.41510263761467886,
+      "cg_burnout_m": 0.3962074731626754,
+      "mean_thrust_to_liftoff_weight": 5.127303874339853,
+      "additional_mass_headroom_to_twr_3_kg": 0.37100179568487046,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5232000000000001,
+              "cg_m": 0.41510263761467886,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.382955121349986
+            },
+            "rocketpy": {
+              "mass_kg": 0.5232,
+              "cg_m": 0.4151026376146789,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.382955121349995
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 8.881784197001252e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4844000000000001,
+              "cg_m": 0.3962074731626754,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.140709423247378
+            },
+            "rocketpy": {
+              "mass_kg": 0.4844,
+              "cg_m": 0.3962074731626755,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.140709423247387
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 1.1102230246251565e-16,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 8.881784197001252e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f25_molded_short_burn",
+      "evidence_status": "rejected_for_default_2p69s_curve_below_3s_requirement"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F25_molded.eng",
+      "designation": "F25",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.602,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.016000000000000014,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.0972,
+      "motor_dry_mass_included_kg": 0.058399999999999994,
+      "propellant_mass_kg": 0.0388,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.01,
+      "burn_time_s": 2.69,
+      "mean_thrust_n": 26.30737211895911,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5332000000000001,
+      "burnout_mass_kg": 0.4944000000000001,
+      "cg_liftoff_m": 0.4192454988747187,
+      "cg_burnout_m": 0.4010576456310679,
+      "mean_thrust_to_liftoff_weight": 5.031142886449008,
+      "additional_mass_headroom_to_twr_3_kg": 0.36100179568487045,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5332000000000001,
+              "cg_m": 0.4192454988747187,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.436068727247933
+            },
+            "rocketpy": {
+              "mass_kg": 0.5332,
+              "cg_m": 0.4192454988747187,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.436068727247941
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.4944000000000001,
+              "cg_m": 0.4010576456310679,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.202891121560102
+            },
+            "rocketpy": {
+              "mass_kg": 0.4944,
+              "cg_m": 0.40105764563106794,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.2028911215601115
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 9.769962616701378e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f25_molded_short_burn",
+      "evidence_status": "rejected_for_default_2p69s_curve_below_3s_requirement"
+    },
+    {
+      "curve": "configs/studies/motors/AeroTech_F25_molded.eng",
+      "designation": "F25",
+      "pose": "hold_aft_station",
+      "motor_front_m": 0.602,
+      "motor_aft_m": 0.7,
+      "front_shift_m": 0.016000000000000014,
+      "body_wall_m": 0.0016,
+      "motor_loaded_mass_kg": 0.0972,
+      "motor_dry_mass_included_kg": 0.058399999999999994,
+      "propellant_mass_kg": 0.0388,
+      "existing_mount_mass_kg": 0.016,
+      "incremental_mount_mass_kg": 0.02,
+      "burn_time_s": 2.69,
+      "mean_thrust_n": 26.30737211895911,
+      "axial_bounds_pass": true,
+      "nominal_bore_pass": true,
+      "mechanical_fit_verified": false,
+      "selected": false,
+      "liftoff_mass_kg": 0.5432000000000001,
+      "burnout_mass_kg": 0.5044000000000001,
+      "cg_liftoff_m": 0.423235824742268,
+      "cg_burnout_m": 0.4057155035685963,
+      "mean_thrust_to_liftoff_weight": 4.938522435667547,
+      "additional_mass_headroom_to_twr_3_kg": 0.35100179568487044,
+      "nominal_performance_pass": false,
+      "cg_model": "uniform motor midpoint, unvalidated; same assumption given to reference",
+      "reference_comparison": {
+        "reference": "RocketPy",
+        "version": "1.13.0",
+        "motor_mode": "source curve; static endpoints only",
+        "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+        "rows": [
+          {
+            "state": "liftoff",
+            "rocket_twin": {
+              "mass_kg": 0.5432000000000001,
+              "cg_m": 0.423235824742268,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.487226751190873
+            },
+            "rocketpy": {
+              "mass_kg": 0.5432,
+              "cg_m": 0.42323582474226806,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.487226751190881
+            },
+            "absolute_delta": {
+              "mass_kg": 1.1102230246251565e-16,
+              "cg_m": 5.551115123125783e-17,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          },
+          {
+            "state": "burnout",
+            "rocket_twin": {
+              "mass_kg": 0.5044000000000001,
+              "cg_m": 0.4057155035685963,
+              "cp_m": 0.07323213814937993,
+              "stability_margin_cal": -4.262607248964313
+            },
+            "rocketpy": {
+              "mass_kg": 0.5044000000000001,
+              "cg_m": 0.4057155035685963,
+              "cp_m": 0.07323213814937933,
+              "stability_margin_cal": -4.262607248964321
+            },
+            "absolute_delta": {
+              "mass_kg": 0.0,
+              "cg_m": 0.0,
+              "cp_m": 5.967448757360216e-16,
+              "stability_margin_cal": 7.993605777301127e-15
+            },
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "candidate": "f25_molded_short_burn",
+      "evidence_status": "rejected_for_default_2p69s_curve_below_3s_requirement"
+    }
+  ],
+  "summary_screening": [
+    {
+      "id": "f25w_single_use",
+      "manufacturer": "AeroTech",
+      "diameter_m": 0.029,
+      "length_m": 0.098,
+      "published_total_mass_kg": 0.09,
+      "published_average_thrust_n": 25.6,
+      "published_burn_time_s": 3.1,
+      "source": "https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/aerotech%20master%20motor%20matrix%2012-19-24_1734643280505.pdf",
+      "source_locator": "page 2, F25-4W/6W/9W rows; matrix updated 2024-12-19",
+      "status": "matrix_summary_only; older_NAR_report_differs_from_downloaded_molded_curve",
+      "screening_liftoff_mass_with_max_mount_reserve_kg": 0.5360000000000001,
+      "summary_only_twr": 4.8702863903423435,
+      "reference_comparison": null,
+      "selected": false,
+      "note": "No time trace, CG or reference validation inferred from summary data"
+    }
+  ],
+  "motor_selected": false,
+  "main_spec_unchanged": true,
+  "wo01_complete": false
+}

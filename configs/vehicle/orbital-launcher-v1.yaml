@@ -1,0 +1,71 @@
+# orbital-launcher-v1 — DIGITAL ONLY, full scale. Never built.
+# SKELETON: the agent completes every part, every learn: block and every citation in WO-05b.
+# Class-representative two-stage reusable medium-lift launcher. No vendor names, logos or
+# proprietary figures. Every number carries `cite:` (source) or `estimate: true`.
+# Units: SI. Positions are metres from the vehicle nose (fairing tip) along the axis.
+
+id: orbital-launcher-v1
+name: Orbital Launcher v1 (digital, class-representative)
+class: digital_only
+scale: full                   # ECI frame, rotating Earth, standard atmosphere (ADR-0005)
+axis: {body_x: nose, body_z: down, world: ECI}
+
+mission:
+  launch_site: {lat_deg: 28.5, lon_deg: -80.6, azimuth_deg: 90, elevation_m: 3}   # generic east-coast site
+  target_orbit: {altitude_km: 200, inclination_deg: 28.5, circular: true}
+  payload_kg: 5000
+  events:                     # scripted in WO-05b; times/thresholds set by the agent from the sim
+    - {name: liftoff,         trigger: {thrust_to_weight_gt: 1.0}}
+    - {name: pitch_over,      trigger: {t_plus_s: null}, params: {kick_deg: null}}
+    - {name: max_q_bucket,    trigger: {q_pa_gt: null}, params: {throttle: 0.7}}
+    - {name: meco,            trigger: {stage1_propellant_remaining_kg: null}}
+    - {name: separation,      trigger: {after: meco, delay_s: 3}}
+    - {name: ses,             trigger: {after: separation, delay_s: 2}}
+    - {name: fairing_jettison, trigger: {q_pa_lt: 1000}}
+    - {name: seco,            trigger: {orbital_energy_target: true}}
+    - {name: s1_flip,         trigger: {after: separation, delay_s: 10}}
+    - {name: s1_boostback,    trigger: {after: s1_flip, delay_s: 5}, params: {engines: 3, target_downrange_km: null}}
+    - {name: s1_entry_burn,   trigger: {altitude_km_lt: 70}, params: {engines: 3}}
+    - {name: s1_landing_burn, trigger: {altitude_km_lt: null}, params: {engines: 1}}
+    - {name: s1_touchdown,    trigger: {altitude_m_lt: 0}}
+  off_nominal:
+    - {name: engine_out, at_t_plus_s: 60, engine: s1_engine_ring_3}
+
+vehicle:                      # cited class figures the agent fills; these drive the WO-05b benchmark
+  liftoff_mass_kg: null       # cite:
+  liftoff_thrust_n: null      # cite:
+  payload_to_leo_kg: null     # cite:
+  height_m: null
+  diameter_m: 3.7
+
+stages:
+  - id: stage1
+    name: First stage
+    dry_mass_kg: null         # cite: or estimate
+    propellant_mass_kg: null  # cite:
+    propellant: {oxidizer: LOX, fuel: RP-1, mixture_ratio: 2.34}
+    engines: {ref: engines/gg-lox-rp1-sl.yaml, count: 9, layout: octaweb, gimbal_engines: [centre, ring_1, ring_5]}
+    reusable: true
+    parts: []                 # agent fills: octaweb, engines ×9, LOX tank, RP-1 tank, common bulkhead,
+                              # COPVs, pressurisation, grid fins ×4, legs ×4, RCS, interstage, avionics
+  - id: stage2
+    name: Second stage
+    dry_mass_kg: null
+    propellant_mass_kg: null
+    propellant: {oxidizer: LOX, fuel: RP-1, mixture_ratio: 2.36}
+    engines: {ref: engines/gg-lox-rp1-vac.yaml, count: 1}
+    reusable: false
+    parts: []                 # agent fills: engine, vacuum nozzle extension, tanks, RCS, avionics, payload adapter
+
+fairing:
+  halves: 2
+  mass_kg: null               # cite: or estimate
+  length_m: null
+  parts: []
+
+# Every part in the trees above follows the WO-01 part format plus, where relevant:
+#   propulsion: {thrust_sl_n, thrust_vac_n, isp_sl_s, isp_vac_s, throttle_range, gimbal_rad, mass_kg}
+#   tank: {volume_m3, propellant, fill_fraction, ullage_pressure_pa, wall_material, wall_m}
+#   cite: "<source, section/table>"  or  estimate: true
+#   learn: |  what it does · the physics or engineering reason · the simplification v1 makes ·
+#             the full treatment and its docs/EXTENSIONS.md interface · what fails if wrong

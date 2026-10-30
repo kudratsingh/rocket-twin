@@ -1,0 +1,302 @@
+{
+  "run_id": "wo01-20261029T221057430780Z",
+  "work_order": "01",
+  "preset": "sim",
+  "config_sha256": "b6c8db48069ec6942fb4a72b098c5ea6da44811fc9959b601ab568a0961b3220",
+  "code_sha256": "1355db0334da1e9c22530f7cba30fa03d5faccbfb8fe0f60422a94c46c119fe4",
+  "seed": 0,
+  "device": "cpu",
+  "cost_usd": 0,
+  "elapsed_s": 0.7652457499934826,
+  "vehicle": "tvc-ascent-f15-1p2mm-study",
+  "validation_status": "unvalidated",
+  "states": {
+    "liftoff": {
+      "mass_kg": 0.4784348640545092,
+      "cg_m": 0.4209964925909333,
+      "inertia_kg_m2": [
+        [
+          0.0003336270775501798,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.015664982067312698,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.015665695817312694
+        ]
+      ],
+      "budget_kg": {
+        "nose_cone": 0.04,
+        "body_upper": 0.09192551431816018,
+        "avionics_bay": 0.018,
+        "flight_computer": 0.012,
+        "imu": 0.002,
+        "baro": 0.001,
+        "battery": 0.03,
+        "body_lower": 0.06250934973634893,
+        "parachute_bay": 0.025,
+        "tvc_gimbal": 0.022,
+        "servo_pitch": 0.014,
+        "servo_yaw": 0.014,
+        "motor_mount": 0.016,
+        "motor": 0.103,
+        "rail_guide": 0.003,
+        "regulator_5v": 0.008,
+        "pyro_mosfet": 0.003,
+        "arming_switch": 0.003,
+        "harness": 0.01
+      },
+      "cp_m": 0.07323213814937993,
+      "stability_margin_cal": -4.4585173646353
+    },
+    "burnout": {
+      "mass_kg": 0.4184348640545092,
+      "cg_m": 0.3891630781486588,
+      "inertia_kg_m2": [
+        [
+          0.0003273195775501798,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.012215687099657563,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.012216400849657562
+        ]
+      ],
+      "budget_kg": {
+        "nose_cone": 0.04,
+        "body_upper": 0.09192551431816018,
+        "avionics_bay": 0.018,
+        "flight_computer": 0.012,
+        "imu": 0.002,
+        "baro": 0.001,
+        "battery": 0.03,
+        "body_lower": 0.06250934973634893,
+        "parachute_bay": 0.025,
+        "tvc_gimbal": 0.022,
+        "servo_pitch": 0.014,
+        "servo_yaw": 0.014,
+        "motor_mount": 0.016,
+        "motor": 0.043,
+        "rail_guide": 0.003,
+        "regulator_5v": 0.008,
+        "pyro_mosfet": 0.003,
+        "arming_switch": 0.003,
+        "harness": 0.01
+      },
+      "cp_m": 0.07323213814937993,
+      "stability_margin_cal": -4.050396666657422
+    }
+  },
+  "motor_catalog": {
+    "entries": [
+      {
+        "file": "configs/vehicle/motors/AeroTech_F10_historical.eng",
+        "sha256": "559c57784f0f89424370971283ebc524767828c20c0ed74352ed291a3de1d26a",
+        "review_status": "rejected_for_default",
+        "review_note": "Out of production in fetched motor listing; source file length 92 mm versus listing 85 mm. Certificate date/variant unresolved.",
+        "accepted": false,
+        "diameter_m": 0.029,
+        "length_m": 0.092,
+        "loaded_mass_kg": 0.083,
+        "propellant_mass_kg": 0.04,
+        "burn_time_s": 7.05,
+        "total_impulse_ns": 75.18445000000001,
+        "average_thrust_n": 10.664460992907804
+      },
+      {
+        "file": "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng",
+        "sha256": "23380952677bcd1aee072f425aecfbcadee0ae3a73474d05cdca5aa0abf8da8a",
+        "review_status": "comparison_only",
+        "review_note": "API marks user source; file comments say NAR-derived. Close to listing dimensions and impulse but certificate date and selected variant unresolved.",
+        "accepted": false,
+        "diameter_m": 0.029,
+        "length_m": 0.124,
+        "loaded_mass_kg": 0.1197,
+        "propellant_mass_kg": 0.0625,
+        "burn_time_s": 5.3,
+        "total_impulse_ns": 117.4992905,
+        "average_thrust_n": 22.16967745283019
+      },
+      {
+        "file": "configs/vehicle/motors/AeroTech_G25_152mm.eng",
+        "sha256": "47ddafb0683be2a77bef56314aad7d2d52919582bafceda28f748a50beece9c6",
+        "review_status": "quarantined",
+        "review_note": "Certification-labelled source has 152.4 mm length / 97 g propellant; listing has 124 mm / 62.5 g. Certificate correspondence unresolved.",
+        "accepted": false,
+        "diameter_m": 0.029,
+        "length_m": 0.1524,
+        "loaded_mass_kg": 0.17,
+        "propellant_mass_kg": 0.097,
+        "burn_time_s": 4.414,
+        "total_impulse_ns": 111.71339750000001,
+        "average_thrust_n": 25.308880267331222
+      },
+      {
+        "file": "configs/vehicle/motors/Estes_F15.eng",
+        "sha256": "22a1b91e43769c698a089fe86f6ba847aae88e262d27348969a4556ed3f57833",
+        "review_status": "accepted_for_digital_model",
+        "review_note": "Matches cited historical F15 certificate; recovery-delay variant and current certification not established.",
+        "accepted": true,
+        "diameter_m": 0.029,
+        "length_m": 0.114,
+        "loaded_mass_kg": 0.103,
+        "propellant_mass_kg": 0.06,
+        "burn_time_s": 3.45,
+        "total_impulse_ns": 49.6087275,
+        "average_thrust_n": 14.379341304347825
+      }
+    ],
+    "input_sha256": {
+      "configs/vehicle/motors/AeroTech_F10_historical.eng": "559c57784f0f89424370971283ebc524767828c20c0ed74352ed291a3de1d26a",
+      "configs/vehicle/motors/AeroTech_F10_historical.yaml": "dc81d927bb41984800a4a652cbd40ec65220acd72c9c47d6a41769a602fc6bd8",
+      "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng": "23380952677bcd1aee072f425aecfbcadee0ae3a73474d05cdca5aa0abf8da8a",
+      "configs/vehicle/motors/AeroTech_G25_124mm_derived.yaml": "580beff7f1dcb93bbae3ac8a3a044d3ca5ef94c0f6d4b4b7051eb87f4d0035a2",
+      "configs/vehicle/motors/AeroTech_G25_152mm.eng": "47ddafb0683be2a77bef56314aad7d2d52919582bafceda28f748a50beece9c6",
+      "configs/vehicle/motors/AeroTech_G25_152mm.yaml": "0c333d54331472d4a1bb7f30a25cbe277576752acc7a0893d6a3bea049657ac5",
+      "configs/vehicle/motors/Estes_F15.eng": "22a1b91e43769c698a089fe86f6ba847aae88e262d27348969a4556ed3f57833",
+      "configs/vehicle/motors/Estes_F15.yaml": "9f81b023049107267f9e516dad7388e347453ecadf7024ae85d3f772c04eb28c"
+    },
+    "default_curve_verified": true,
+    "certified_curves_complete": false,
+    "scope": "Historical source provenance only; not current certification or flight approval"
+  },
+  "reference_comparisons": {
+    "configured": {
+      "reference": "RocketPy",
+      "version": "1.13.0",
+      "motor_mode": "source curve; static endpoints only",
+      "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+      "rows": [
+        {
+          "state": "liftoff",
+          "rocket_twin": {
+            "mass_kg": 0.4784348640545092,
+            "cg_m": 0.4209964925909333,
+            "cp_m": 0.07323213814937993,
+            "stability_margin_cal": -4.4585173646353
+          },
+          "rocketpy": {
+            "mass_kg": 0.4784348640545091,
+            "cg_m": 0.4209964925909334,
+            "cp_m": 0.07323213814937933,
+            "stability_margin_cal": -4.458517364635308
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 1.1102230246251565e-16,
+            "cp_m": 5.967448757360216e-16,
+            "stability_margin_cal": 7.993605777301127e-15
+          },
+          "passed": true
+        },
+        {
+          "state": "burnout",
+          "rocket_twin": {
+            "mass_kg": 0.4184348640545092,
+            "cg_m": 0.3891630781486588,
+            "cp_m": 0.07323213814937993,
+            "stability_margin_cal": -4.050396666657422
+          },
+          "rocketpy": {
+            "mass_kg": 0.4184348640545091,
+            "cg_m": 0.38916307814865886,
+            "cp_m": 0.07323213814937933,
+            "stability_margin_cal": -4.050396666657429
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 5.551115123125783e-17,
+            "cp_m": 5.967448757360216e-16,
+            "stability_margin_cal": 7.105427357601002e-15
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "stub_geometry_sensitivity": {
+      "reference": "RocketPy",
+      "version": "1.13.0",
+      "motor_mode": "source curve; static endpoints only",
+      "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+      "rows": [
+        {
+          "state": "liftoff",
+          "rocket_twin": {
+            "mass_kg": 0.4784348640545092,
+            "cg_m": 0.4209964925909333,
+            "cp_m": 0.20653937617587284,
+            "stability_margin_cal": -2.749450210449493
+          },
+          "rocketpy": {
+            "mass_kg": 0.4784348640545091,
+            "cg_m": 0.4209964925909334,
+            "cp_m": 0.20653937617587237,
+            "stability_margin_cal": -2.7494502104495004
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 1.1102230246251565e-16,
+            "cp_m": 4.718447854656915e-16,
+            "stability_margin_cal": 7.549516567451064e-15
+          },
+          "passed": true
+        },
+        {
+          "state": "burnout",
+          "rocket_twin": {
+            "mass_kg": 0.4184348640545092,
+            "cg_m": 0.3891630781486588,
+            "cp_m": 0.20653937617587284,
+            "stability_margin_cal": -2.341329512471615
+          },
+          "rocketpy": {
+            "mass_kg": 0.4184348640545091,
+            "cg_m": 0.38916307814865886,
+            "cp_m": 0.20653937617587237,
+            "stability_margin_cal": -2.3413295124716216
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 5.551115123125783e-17,
+            "cp_m": 4.718447854656915e-16,
+            "stability_margin_cal": 6.661338147750939e-15
+          },
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "note": "Aerodynamic geometry cross-check only; no physical fins or fin mass added. passive_stubs.enabled=True"
+    }
+  },
+  "reference_comparison_error": null,
+  "validation_scope": "static properties only; component masses, inertia and flight remain unvalidated",
+  "average_thrust_to_weight": 3.0647531276725886,
+  "checks": {
+    "spec_valid": true,
+    "liftoff_mass_within_spec_cap": true,
+    "propellant_within_spec_cap": true,
+    "impulse_within_spec_cap": true,
+    "average_thrust_to_weight_ge_3": true,
+    "burn_time_ge_3s": true,
+    "reference_comparison_complete": true,
+    "default_curve_verified": true,
+    "certified_curves_complete": false,
+    "cpu_runtime_under_120s": true
+  },
+  "inertia_status": "nose shell integrals and equivalent shapes; CAD validation pending",
+  "depletion_model": "uniform mass fraction; not time or impulse fraction"
+}

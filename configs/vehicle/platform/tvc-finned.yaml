@@ -1,0 +1,448 @@
+id: modular-tvc-finned-v1
+name: Modular Tvc Finned v1
+shared: common-upper.yaml
+aero:
+  passive_stubs:
+    enabled: false
+    span_m: 0.02
+    count: 3
+    root_chord_m: 0.08
+    tip_chord_m: 0.04
+    sweep_m: 0.02
+    position_m: 0.65
+  cd_model:
+    type: empirical_mach_table
+    reference: Mandell et al.; preliminary shape/fin estimates, not calibrated drag
+    mach:
+    - 0
+    - 0.3
+    - 0.6
+    - 0.8
+    cd:
+    - 0.45
+    - 0.45
+    - 0.5
+    - 0.65
+    base_drag_cd: 0.12
+    estimate: true
+motor:
+  id: aerotech-g12st-p-SKU071200-provisional
+  curve: configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.eng
+  propellant_mass_kg: 0.082
+  casing_mass_kg: 0.06799999999999999
+  mount_position_m: 0.644
+  ignition_delay_s: 0
+  thrust_scale_range:
+  - 0.85
+  - 1.15
+  burn_time_s: 12.601
+  total_impulse_ns: 145.84684085
+  average_thrust_n: 11.57422750972145
+  qualification:
+    certified_impulse_ns: 143.97
+    certified_average_thrust_n: 11.31
+    motor_type: commercial_solid_nonsparky
+    source: Current NAR interactive listing / manufacturer summary; discrepancies
+      retained in curve sidecar. Exact source/hardware/California recheck required
+      before procurement.
+    california_verified: true
+    exact_hardware_verified: false
+  cite: configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.yaml
+  estimate: true
+parts:
+- id: aft_shell
+  type: body_tube
+  parent: interface_coupler
+  position_m: 0.52
+  geometry:
+    length_m: 0.28
+    radius_m: 0.033
+    inner_radius_m: 0.0325
+    wall_m: 0.0005
+    od_m: 0.066
+  material: cardboard
+  mass_kg: 0.0234
+  estimate: true
+  learn: Interchangeable aft shell transfers fin, motor and guide loads through the
+    keyed coupler. Tube slots and local reinforcement depend on the actual mode; they
+    are not a hidden aerodynamic switch.
+  build:
+    method: cut
+    cost_usd: 6
+    generator: body_tube
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: aft_interface_hardware
+  type: commercial
+  parent: aft_shell
+  position_m: 0.53
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.01
+  estimate: true
+  learn: Positive axial stops, indexing keys and removable fasteners connect the aft
+    module. Repeated assembly, crushing, shear and retention loads must be verified
+    before swapping flight hardware.
+  build:
+    method: assembled
+    cost_usd: 8
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: motor_mount
+  type: motor_mount
+  parent: tvc_gimbal
+  position_m: 0.62
+  geometry:
+    length_m: 0.16
+    radius_m: 0.017
+    inner_radius_m: 0.0145
+    id_m: 0.029
+  material: plywood
+  mass_kg: 0.012
+  estimate: true
+  learn: Custom centering/load-transfer assembly supports a certified commercial motor
+    and liner. This ring envelope is not a solid tube; gimbal or fixed retention and
+    thermal spacing require separate CAD.
+  build:
+    method: cut
+    cost_usd: 5
+    generator: motor_mount
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: motor_liner
+  type: commercial
+  parent: motor_mount
+  position_m: 0.64
+  geometry:
+    bbox_m:
+    - 0.15
+    - 0.032
+    - 0.032
+  material: phenolic
+  mass_kg: 0.007
+  estimate: true
+  learn: A purchased phenolic or paper liner and air gap isolate the commercial case
+    from structural polymer. Its mass and envelope are provisional; case and surrounding
+    temperatures require measurement.
+  build:
+    method: purchased
+    cost_usd: 3
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: retention
+  type: commercial
+  parent: motor_mount
+  position_m: 0.78
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.008
+  estimate: true
+  learn: Positive removable motor retention transfers thrust and prevents ejection.
+    It must clear the nozzle and preserve all certified motor hardware without modification.
+  build:
+    method: assembled
+    cost_usd: 8
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: motor
+  type: motor
+  parent: motor_mount
+  position_m: 0.644
+  geometry:
+    length_m: 0.156
+    radius_m: 0.0145
+    diameter_m: 0.029
+  material: commercial
+  mass_kg: 0.15
+  estimate: true
+  learn: The full commercial motor mass is counted exactly once. Curve and envelope
+    are a documented numerical hypothesis until exact sold variant, measured CG and
+    installed case/nozzle dimensions are reconciled.
+  build:
+    method: purchased
+    cost_usd: 49
+    generator: motor
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  cg_offset_m: 0.078
+  cite: configs/studies/rebaseline/motors/AeroTech_G12ST_2021_published.yaml
+- id: fin_set
+  type: fin_set
+  parent: aft_shell
+  position_m: 0.64
+  geometry:
+    length_m: 0.16
+    radius_m: 0.033
+    count: 3
+    span_m: 0.095
+    root_chord_m: 0.16
+    tip_chord_m: 0.08
+    sweep_m: 0.06
+    thickness_m: 0.002
+  material: plywood
+  mass_kg: 0.03762000000000001
+  estimate: true
+  learn: Three custom cut trapezoidal fins provide passive restoring torque. Planform
+    and radial mass moments enter the twin; grain direction, root attachment and flutter
+    remain later structural/aerodynamic checks.
+  build:
+    method: cut
+    cost_usd: 6
+    generator: trapezoidal_fin_set
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: fin_bonds
+  type: commercial
+  parent: aft_shell
+  position_m: 0.67
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.006
+  estimate: true
+  learn: Fin tabs and bonded root fillets transfer aerodynamic bending into the motor
+    support and shell. Adhesive mass is counted; coupon, pull and flutter limits remain
+    unverified.
+  build:
+    method: bonded
+    cost_usd: 3
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: tvc_gimbal
+  type: tvc_gimbal
+  parent: aft_shell
+  position_m: 0.67
+  geometry:
+    length_m: 0.06
+    radius_m: 0.029
+    inner_radius_m: 0.018
+  material: ASA
+  mass_kg: 0.026
+  estimate: true
+  learn: Custom nested two-axis rings and pivots vector the complete motor. Moving
+    inertia, bearing slop, motor attachment and full swept thermal envelope must be
+    derived from CAD and measured.
+  build:
+    method: printed
+    cost_usd: 5
+    generator: tvc_gimbal
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  print:
+    orientation: load_path_review_in_WO03
+    layer_mm: 0.2
+    infill_pct: 20
+    walls: 3
+    supports: false
+    line_width_mm: 0.4
+- id: gimbal_links
+  type: commercial
+  parent: tvc_gimbal
+  position_m: 0.68
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.008
+  estimate: true
+  learn: Custom links, horns, pivots and fasteners connect both servos to independent
+    axes. Backlash, buckling, load paths and travel stops enter the later measured
+    actuator model.
+  build:
+    method: assembled
+    cost_usd: 6
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: servo_support
+  type: commercial
+  parent: aft_shell
+  position_m: 0.56
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.025
+    - 0.02
+  material: ASA
+  mass_kg: 0.006
+  estimate: true
+  learn: Custom servo brackets transfer actuator loads to the aft shell and preserve
+    indexed assembly alignment. Layer orientation, elastic deflection and mount torque
+    require testing.
+  build:
+    method: printed
+    cost_usd: 2
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  print:
+    orientation: load_path_review_in_WO03
+    layer_mm: 0.2
+    infill_pct: 20
+    walls: 3
+    supports: false
+    line_width_mm: 0.4
+- id: thermal_guard
+  type: commercial
+  parent: aft_shell
+  position_m: 0.7
+  geometry:
+    bbox_m:
+    - 0.05
+    - 0.04
+    - 0.04
+  material: phenolic
+  mass_kg: 0.008
+  estimate: true
+  learn: A separate nonmetallic thermal barrier protects rings, wiring and aft shell
+    from case heating and exhaust. No printed polymer is assumed to survive direct
+    plume exposure.
+  build:
+    method: assembled
+    cost_usd: 5
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+- id: servo_pitch
+  type: servo
+  parent: servo_support
+  position_m: 0.56
+  geometry:
+    bbox_m:
+    - 0.03
+    - 0.013
+    - 0.027
+  material: commercial
+  mass_kg: 0.014
+  estimate: true
+  learn: Purchased metal-gear digital servo drives one TVC axis. Torque, loaded speed,
+    current and deadband are budget estimates; characterize at voltage, temperature
+    and aerodynamic/thrust load before controller qualification.
+  build:
+    method: purchased
+    cost_usd: 20
+    generator: servo
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  electrical:
+    supply_v: 5
+    current_a: 0.2
+    stall_torque_nm: 0.25
+    speed_s_per_60deg: 0.1
+    deadband_us: 5
+    stall_current_a: 1
+  lateral_offset_m:
+  - 0.022
+  - 0
+- id: servo_yaw
+  type: servo
+  parent: servo_support
+  position_m: 0.6
+  geometry:
+    bbox_m:
+    - 0.03
+    - 0.013
+    - 0.027
+  material: commercial
+  mass_kg: 0.014
+  estimate: true
+  learn: Purchased metal-gear digital servo drives one TVC axis. Torque, loaded speed,
+    current and deadband are budget estimates; characterize at voltage, temperature
+    and aerodynamic/thrust load before controller qualification.
+  build:
+    method: purchased
+    cost_usd: 20
+    generator: servo
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  electrical:
+    supply_v: 5
+    current_a: 0.2
+    stall_torque_nm: 0.25
+    speed_s_per_60deg: 0.1
+    deadband_us: 5
+    stall_current_a: 1
+  lateral_offset_m:
+  - -0.022
+  - 0
+design:
+  mode: tvc_finned
+  mass_allowance_kg: 0.05
+  rail_length_m: 2.4
+  minimum_rail_exit_mps: 10
+  screening_wind_mps: 1
+  rail_friction_n: 0.5
+  drag_coefficient_upper: 0.8
+  thrust_scale_lower: 0.85
+  minimum_static_margin_cal: 1.0
+  minimum_control_time_s: 2.0
+  target_control_time_s: 5.0
+  control_thrust_to_weight: 1.2
+  provenance: 'ADR-0006 and docs/wo01-rebaseline.md: provisional engineering screens,
+    not flight release criteria. 50 g vehicle mass growth is outside the physical
+    parts; rail model ignores mass loss conservatively.'
+tvc:
+  axes: 2
+  max_deflection_rad: 0.087
+  pivot_position_m: 0.7
+  servo_ids:
+  - servo_pitch
+  - servo_yaw
+  linkage_ratio: 1
+netlist:
+- net: VBAT
+  from: battery
+  to: regulator_5v
+  gauge_awg: 22
+- net: 5V_LOGIC
+  from: regulator_5v
+  to: flight_computer
+  gauge_awg: 26
+- net: SPI
+  from: flight_computer
+  to:
+  - imu
+  - baro
+- net: PYRO_1
+  from: flight_computer
+  to: pyro_mosfet
+  pin: null
+- net: ARM
+  from: arming_switch
+  to: flight_computer
+  pin: null
+- net: RECOVERY_INDEPENDENT
+  from: battery
+  to: independent_recovery
+  gauge_awg: 24
+- net: 5V_SERVO
+  from: regulator_5v
+  to:
+  - servo_pitch
+  - servo_yaw
+  gauge_awg: 22
+- net: SERVO_PITCH_PWM
+  from: flight_computer
+  to: servo_pitch
+  pin: null
+- net: SERVO_YAW_PWM
+  from: flight_computer
+  to: servo_yaw
+  pin: null
