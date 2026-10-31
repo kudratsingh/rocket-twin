@@ -174,6 +174,49 @@ evidence_sources:
     stable heat accounting.
   limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement and full required
     matrix remain open. No actual temperature acceptance or adoption.
+- path: runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-closure-plan.md
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-thermal-method-decision.md
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-strip-refinement-preflight.md
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-thermal-error-isolation.md
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-support-closure-audit.md
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-installed-fin-closure-audit.md
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
+  limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
+    and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
+- path: docs/wo03-robin-lumped-trial.md
+  scope: One of two explicitly bounded fixture-only wall-treatment trials.
+  limitation: 'Rejected standalone: source/heat or local-temperature accuracy fails. No actual operator
+    repair or design acceptance; branch stopped after two trials.'
+- path: docs/wo03-robin-hybrid-trial.md
+  scope: One of two explicitly bounded fixture-only wall-treatment trials.
+  limitation: 'Rejected standalone: source/heat or local-temperature accuracy fails. No actual operator
+    repair or design acceptance; branch stopped after two trials.'
 configurations:
   G80: configs/vehicle/platform/performance.yaml
   G54: configs/vehicle/wo02/performance-g54.yaml
@@ -411,6 +454,13 @@ requirements:
   - runs/wo03-fit-structure-20261030T221226140993Z/record.json
   - runs/wo03-support-fea-20261030T225615144070Z/record.json
   - docs/wo03-bonded-support.md
+  - runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  - docs/wo03-closure-plan.md
+  - docs/wo03-thermal-method-decision.md
+  - docs/wo03-strip-refinement-preflight.md
+  - docs/wo03-thermal-error-isolation.md
+  - docs/wo03-support-closure-audit.md
+  - docs/wo03-installed-fin-closure-audit.md
   status: open
   evidence_basis: Exact clipped sections and internal bracing are calculated; G54 eigenvalue factor3.7439>DF3
     is frame-only. Coupled bond/shell/joint strength remains open; ideal strip-end restraints are rejected
@@ -449,6 +499,13 @@ requirements:
   - runs/wo03-fin-installed-20261030T210211507451Z/record.json
   - runs/wo03-fin-nominal-fields-20261030T210337367164Z/record.json
   - docs/wo03-trainer-fin-package.md
+  - runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  - docs/wo03-closure-plan.md
+  - docs/wo03-thermal-method-decision.md
+  - docs/wo03-strip-refinement-preflight.md
+  - docs/wo03-thermal-error-isolation.md
+  - docs/wo03-support-closure-audit.md
+  - docs/wo03-installed-fin-closure-audit.md
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-THERM-001
@@ -494,6 +551,15 @@ requirements:
   - docs/wo03-gas-field-diagnostic.md
   - docs/wo03-stable-gas-ledger.md
   - docs/wo03-refined-gas-boundary.md
+  - runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  - docs/wo03-closure-plan.md
+  - docs/wo03-thermal-method-decision.md
+  - docs/wo03-strip-refinement-preflight.md
+  - docs/wo03-thermal-error-isolation.md
+  - docs/wo03-support-closure-audit.md
+  - docs/wo03-installed-fin-closure-audit.md
+  - docs/wo03-robin-lumped-trial.md
+  - docs/wo03-robin-hybrid-trial.md
   status: open
   evidence_basis: Unchanged45C substrate and required combined300C/epsilon0.9/35C case. Candidate69df
     actual burn/soak debug completed; complete source gas operator has nonphysical nodal/group undershoots
@@ -590,6 +656,13 @@ requirements:
   - docs/wo03-recovery-packaging.md
   - runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
   - docs/wo03-package-closure-progress.md
+  - runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  - docs/wo03-closure-plan.md
+  - docs/wo03-thermal-method-decision.md
+  - docs/wo03-strip-refinement-preflight.md
+  - docs/wo03-thermal-error-isolation.md
+  - docs/wo03-support-closure-audit.md
+  - docs/wo03-installed-fin-closure-audit.md
   status: open
   evidence_basis: Three-leg rounded G11 aft anchor and complete carrier are isolated candidates. Section
     estimates do not close splice, gas/heat, bond peel, service or installed capacity. Total versus incremental
@@ -765,6 +838,13 @@ requirements:
   - runs/wo03-fin-installed-20261030T205816596002Z/record.json
   - runs/wo03-fin-installed-20261030T210211507451Z/record.json
   - runs/wo03-fin-nominal-fields-20261030T210337367164Z/record.json
+  - runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  - docs/wo03-closure-plan.md
+  - docs/wo03-thermal-method-decision.md
+  - docs/wo03-strip-refinement-preflight.md
+  - docs/wo03-thermal-error-isolation.md
+  - docs/wo03-support-closure-audit.md
+  - docs/wo03-installed-fin-closure-audit.md
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-AERO-001
@@ -846,6 +926,15 @@ requirements:
   - docs/wo03-gas-field-diagnostic.md
   - docs/wo03-stable-gas-ledger.md
   - docs/wo03-refined-gas-boundary.md
+  - runs/wo03-closure-evidence-20261031T072741974902Z/record.json
+  - docs/wo03-closure-plan.md
+  - docs/wo03-thermal-method-decision.md
+  - docs/wo03-strip-refinement-preflight.md
+  - docs/wo03-thermal-error-isolation.md
+  - docs/wo03-support-closure-audit.md
+  - docs/wo03-installed-fin-closure-audit.md
+  - docs/wo03-robin-lumped-trial.md
+  - docs/wo03-robin-hybrid-trial.md
   status: export_contract_verified
   evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-ABORT-001

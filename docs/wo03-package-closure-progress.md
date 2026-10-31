@@ -1,3 +1,23 @@
+# Fixed-scope closure continuation — 2026-10-31
+
+[Three concrete deliverables, compute caps and failure decisions](wo03-closure-plan.md)
+govern this continuation. **No complete correction package is accepted.**
+The working vehicle and its previous recorded properties remain unchanged.
+
+| Existing issue | Closed subitem / executed result | Still required for design acceptance |
+| --- | --- | --- |
+| Impossible thermal fields | Exact affine935:1 case passes; curved wall forcing reproduces local undershoots on regular meshes. Strong-case error4.617→1.156→0.288 K, with energy closure at every level. [Isolation](wo03-thermal-error-isolation.md) | Actual local temperature accuracy is unqualified. No error bound transfers from the fixture. Two bounded wall treatments were tried and rejected for source/local-accuracy defects. That branch is stopped; validate a different treatment or justified bounds before full-size retries. |
+| Repeated invalid/capped meshes | Necessary count proves old parent/vertex-preserving targets exceed120k/240k before volume meshing. [Preflight](wo03-strip-refinement-preflight.md) | Qualified analysis mesh/mapping or justified bounded alternative, existing required matrix and45°C screen. [Decision](wo03-thermal-method-decision.md) |
+| Brace-ring geometry/load identity | Current69df ring bore is15.8mm; rejected24.8mm-bore stiffness penalty does not apply. Exact rail channel43.429mm²/I158.005mm⁴ and thrust/branch forces are recorded. | Old frame-only buckling cannot transfer to changed rails/attachments. Conservative full-transfer shell screen3.209MPa versus2MPa fails; complete hot bond/ring/body/retention capacities remain open. [Support audit](wo03-support-closure-audit.md) |
+| Separate recovery path and mass | Source branch masses/forces balance; total versus incremental recovery allocations are separated. | Retained fixed rail path1,388.822N versus660N fails; changed historical aliases have no inherited CAD pass. G12+8g thermal mass probe9.985m/s fails10m/s with full growth. No thermal hardware is accepted by that probe. |
+| Installed fin/root | Tab+curved-foot common-root equilibrium and contact integration converge. With ideal rigid backing,0.1mm foot bond carries96.157% moment and requires2.357MPa hot normal capacity atDF3. | Actual peel capacity and foundation response unknown. Support needs about360N·m/rad if translation is zero, or147kN/m if rotation is zero; combined motions share one budget. Installed strength/flutter not closed. [Fin audit](wo03-installed-fin-closure-audit.md) |
+
+The source-bound current G54 thermal copy and later recovery/root copies are
+separate identities. No mass, stiffness or thermal pass is composed across them.
+The history below retains earlier findings at their actual identities.
+
+---
+
 # Current numerical correction and closure
 
 The actual baffle69df790… has its first completed burn/soak debug histories.

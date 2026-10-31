@@ -1028,3 +1028,62 @@ paid run, candidate adoption, full WO04 transition or flight release.
 Curated executed numerical evidence: `runs/wo03-numerical-diagnostics-20261031T065322651352Z/record.json`.
 Raw fields/operators/meshes remain local and hash-bound. The active vehicle,
 45°C screen,G12 departure requirement/full allowance and all later gates remain.
+
+
+## Bounded closure and engineering isolation — 2026-10-31
+
+**No complete package or thermal design is accepted.** PR #14 merged at
+`a900b884c89e4c77a1c6f338a8cc2fd4c0549c5d` after every required exact-head
+check passed in41178650950. [The fixed closure plan](wo03-closure-plan.md) now
+states three deliverables, compute caps and stop/replan decisions.
+
+- Mesh preflight closes the resource-feasibility question for the old scheme:
+  necessary original-edge subdivisions alone require≥122,166nodes/245,188tris,
+  already above120k/240k. A failed cap does not imply failed temperature design;
+  another identical full-size attempt is not justified.
+- Error isolation: nine independent fixture levels complete in2.303s wall/1.992CPU s.
+  Exact linear935:1 gap passes all unchanged tolerances. Curved strong-wall nodal
+  error4.616905→1.155561→0.287913K; finest true-boundary undershoot0.287798K.
+  Local/global ledgers and5% map convergence pass while local-temperature and
+  strict reference-heat checks remain failed. This isolates a spatial/wall-input
+  mechanism and forbids promoting energy closure to actual accuracy.
+- Support/recovery audit:2.010s. Current69df bore15.8mm retains the brace-ring
+  section; the rejected24.8mm-bore penalty is unrelated. Actual channel43.429mm²,
+  weakI158.005mm⁴; oldframeλ3.743855 cannot transfer. Netflank110.0505N is distinct
+  from upperjoint58.2161N. Conservative DF3 shell-transfer envelope3.20887MPa
+  exceeds2MPa. Recovery all-through-rails1,388.822N exceeds660N. Branch forces
+  balance, but interface/peel/retention capacities remain unknown.
+- Installed-fin audit:6.05s. Common tab/foot equilibrium is verified and converged;
+  ideal rigid0.1mm foot carries96.157% root moment and requires2.357MPa hot normal
+  capacity atDF3. Actual foundation is unverified; required pure-rotation stiffness
+  is360–361N·m/rad, or pure-translation147–148kN/m. No full installed/flutter pass.
+  Historical G12+8g thermal mass probe9.98513m/s and rejected cheek9.97616m/s
+  remain below10m/s. Full50g and unconfirmed5m guide are unchanged.
+- Four mutable recovery YAML aliases have changed source hashes/stale caches.
+  Embedded source mass/force ledgers reproduce, but no historical geometry pass
+  is transferred. Original failures and copies remain retained.
+
+Motor exterior temperature/end/soak histories, foil condition, hot/wet paper and
+bond properties, installed-root stiffness and G54 motorCG are decision-driving
+uncertainties. Required evidence is explicit in the plan and individual audits;
+no numerical convergence result resolves an estimated material input.
+
+Curated executed evidence: `runs/wo03-closure-evidence-20261031T072741974902Z/record.json`.
+The actual-baffle diagnostic remains failed;45°C and combined300°C/degraded foil/
+35°C cases remain. No active geometry/mass/CG/inertia change, build, paid run,
+frontend/browser activity or flight release. [Current closure table](wo03-package-closure-progress.md).
+
+
+The two authorized fixture-only corrective wall trials are complete and rejected.
+Trial1 (2.524s wall) removes envelope violations but leaves4.21108W strong-wall
+continuum source defect at the finest grid. Trial2 (2.534s wall) preserves original
+B/D exactly and restores continuum net heat to≤7.48e-13W, yet strong-wall nodal
+error remains9.02025K and nested-field change8.430% fails5%. Discrete ledgers
+close in both; neither is actual accuracy evidence. This branch is stopped after
+two trials; production thermal arrays, failed actual cache and required limits
+are unchanged. [Method decision](wo03-thermal-method-decision.md).
+
+The fin-attachment report now explicitly flags its axial-Z root-moment to radial-X
+rail-bending mapping as unverified; old numerical surrogate values are retained,
+with no installed-capacity or acceptance promotion. The source-bound installed
+contact audit above remains the separate recorded calculation at its as-run code.
