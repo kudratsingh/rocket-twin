@@ -1,0 +1,3535 @@
+{
+  "run_id": "wo03-recovery-packaging-20261031T003400482420Z",
+  "study": "wo03-independent-recovery-packaging-candidate",
+  "preset": "tiny",
+  "elapsed_s": 169.65302966700256,
+  "source_hashes_before": {
+    "configs/platform.yaml": "104854031bad268e3c944c158885a01b9cc8ac70172096f11934e33d955c4371",
+    "configs/studies/wo03-recovery-packaging.yaml": "79fa1c40b7737f0d1f846e9982c534b8c43e3bc89db5da1b2add1ec8da0815fe",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_recovery_packaging.py": "f19c4d815261ce6c5ec4e486c1a10d1a0c66d0350b9efa644d4a463783cd770c",
+    "configs/vehicle/platform/performance.yaml": "5a6106673430fc2ce05b8f84aa1da488aa6b75825f48233eaf5bad8c6046b11d",
+    "configs/vehicle/platform/common-upper.yaml": "3093febecb8ba1856f5b0000cdf5a470b185437d8f19986aec89ff8e4d399a91",
+    "configs/vehicle/wo02/performance-g54.yaml": "aacdc35ed53f5d652bed68ee52e47134d0ba508406a733dad4855702939f765d",
+    "configs/vehicle/wo02/../platform/common-upper.yaml": "3093febecb8ba1856f5b0000cdf5a470b185437d8f19986aec89ff8e4d399a91",
+    "configs/vehicle/platform/tvc-finned.yaml": "77f8c31f7f266cbf7cfa294f42d5371e8238a3c19da10437c00700cd64cbcd47",
+    "configs/vehicle/platform/tvc-finless.yaml": "877f19b642dfae88360063cefa2f7a8d977a73f6a4330b7bdbc029d8908d66d0"
+  },
+  "source_hashes_after": {
+    "configs/platform.yaml": "104854031bad268e3c944c158885a01b9cc8ac70172096f11934e33d955c4371",
+    "configs/studies/wo03-recovery-packaging.yaml": "79fa1c40b7737f0d1f846e9982c534b8c43e3bc89db5da1b2add1ec8da0815fe",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_recovery_packaging.py": "f19c4d815261ce6c5ec4e486c1a10d1a0c66d0350b9efa644d4a463783cd770c",
+    "configs/vehicle/platform/performance.yaml": "5a6106673430fc2ce05b8f84aa1da488aa6b75825f48233eaf5bad8c6046b11d",
+    "configs/vehicle/platform/common-upper.yaml": "3093febecb8ba1856f5b0000cdf5a470b185437d8f19986aec89ff8e4d399a91",
+    "configs/vehicle/wo02/performance-g54.yaml": "aacdc35ed53f5d652bed68ee52e47134d0ba508406a733dad4855702939f765d",
+    "configs/vehicle/wo02/../platform/common-upper.yaml": "3093febecb8ba1856f5b0000cdf5a470b185437d8f19986aec89ff8e4d399a91",
+    "configs/vehicle/platform/tvc-finned.yaml": "77f8c31f7f266cbf7cfa294f42d5371e8238a3c19da10437c00700cd64cbcd47",
+    "configs/vehicle/platform/tvc-finless.yaml": "877f19b642dfae88360063cefa2f7a8d977a73f6a4330b7bdbc029d8908d66d0"
+  },
+  "inputs_unchanged": true,
+  "modes": [
+    {
+      "mode": "modular-performance-v1",
+      "resolved_copy": "build/wo03-recovery-packaging/modular-performance-v1/resolved-copy.yaml",
+      "assembly_glb": "build/wo03-recovery-packaging/modular-performance-v1/assembly.glb",
+      "assembly_step": "build/wo03-recovery-packaging/modular-performance-v1/assembly.step",
+      "package_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.7442273020438706,
+            "cg_station_m": 0.7903931170478793,
+            "cg_lateral_m": [
+              -2.1308743575197715e-05,
+              0.0007378899423367044
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008933610943995244,
+                0.0001900119296243345,
+                -0.00016743676514124144
+              ],
+              [
+                0.0001900119296243345,
+                0.12586401530557007,
+                -1.1470180976283417e-07
+              ],
+              [
+                -0.00016743676514124144,
+                -1.1470180976283417e-07,
+                0.1258659986172727
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.6817273020438706,
+            "cg_station_m": 0.758708262825747,
+            "cg_lateral_m": [
+              -2.326230546051018e-05,
+              0.0008055388706659329
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008867536009794436,
+                0.00018950945381930416,
+                -0.00015003677900451482
+              ],
+              [
+                0.00018950945381930416,
+                0.11762569583802326,
+                -1.157746235900142e-07
+              ],
+              [
+                -0.00015003677900451482,
+                -1.157746235900142e-07,
+                0.11762771626868469
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8169350705835456,
+            "static_margin_cal": 1.3515838984539454
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.7896823522104203,
+            "static_margin_cal": 1.76450387380433
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-performance-v1",
+          "mode": "performance",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.7442273020438706,
+          "burnout_mass_kg": 0.6817273020438706,
+          "cg_liftoff_m": 0.7903931170478793,
+          "cg_burnout_m": 0.758708262825747,
+          "cg_lateral_liftoff_m": [
+            -2.1308743575197715e-05,
+            0.0007378899423367044
+          ],
+          "cg_lateral_burnout_m": [
+            -2.326230546051018e-05,
+            0.0008055388706659329
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0008933610943995244,
+              0.0001900119296243345,
+              -0.00016743676514124144
+            ],
+            [
+              0.0001900119296243345,
+              0.12586401530557007,
+              -1.1470180976283417e-07
+            ],
+            [
+              -0.00016743676514124144,
+              -1.1470180976283417e-07,
+              0.1258659986172727
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0008867536009794436,
+              0.00018950945381930416,
+              -0.00015003677900451482
+            ],
+            [
+              0.00018950945381930416,
+              0.11762569583802326,
+              -1.157746235900142e-07
+            ],
+            [
+              -0.00015003677900451482,
+              -1.157746235900142e-07,
+              0.11762771626868469
+            ]
+          ],
+          "cp_m": 0.906139607881506,
+          "static_margins_with_aft_mass_allowance_cal": [
+            1.3515838984539454,
+            1.76450387380433
+          ],
+          "average_TWR_diagnostic_only": 10.098232952175298,
+          "source_terminal_time_s": 1.8079,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.7942273020438706,
+            "rail_exit_time_s": 0.19242933389364508,
+            "rail_exit_speed_mps": 16.651121920507283,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.4897584838414861,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 10.995824712830858,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.11953936092848365,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.003,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.01925374538364414,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.04574033190860166,
+            "motor_liner": 0.010065964454996504,
+            "retention": 0.04292932739783429,
+            "motor": 0.1282,
+            "fin_set": 0.1316238690174014,
+            "fin_bonds": 0.008,
+            "motor_radiant_shield": 0.0006562178841010795,
+            "thrust_pads": 0.00029932937844339547,
+            "aft_retainer": 0.020256493058707727,
+            "retention_hardware": 0.007,
+            "aft_thrust_pads": 0.00029932937844339547,
+            "recovery_easymini_components": 0.0035,
+            "recovery_switch_g11_doubler": 0.0020781194772935183,
+            "recovery_mount_carrier": 0.004297337178998893,
+            "recovery_battery_tray": 0.0006636675,
+            "recovery_battery_band": 0.00035,
+            "recovery_standoffs": 0.0001066507874040663,
+            "recovery_fasteners": 0.0006832587030439369,
+            "recovery_nuts": 0.0002451710517871839,
+            "recovery_sled_fasteners": 0.0006357860964555416,
+            "recovery_sled_nuts": 0.0001944762019057032,
+            "recovery_sled_reinforcement": 0.0003713487113213489,
+            "recovery_mount_hardware_allowance": 0.003139321735486285
+          },
+          "parts_cost_estimate_usd": 386.95,
+          "recovery_area_for_6mps_m2": 0.5244922001069712,
+          "source_assumptions": {
+            "sha256": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+            "source_url": "https://www.thrustcurve.org/simfiles/5f4294d20002e9000000044a/",
+            "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+            "review_status": "preliminary_numerical_hypothesis",
+            "diameter_m": 0.029,
+            "length_m": 0.128,
+            "loaded_mass_kg": 0.1282,
+            "propellant_mass_kg": 0.0625,
+            "burn_time_s": 1.8079,
+            "total_impulse_ns": 133.243509636,
+            "average_thrust_n": 73.7007078024227,
+            "physical_configuration_verified": false,
+            "notes": "Historical 2007 G80 dataset labels motor G78; current SKU 78010 summary 136.6 N s, 127.9 g, 124 mm versus source 128.2 g, 128 mm and integrated impulse below 136.6. Keep this conservative preliminary dataset distinct from the conflicting 2013 G80NBT header 69 g propellant."
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "baseline_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.739462164600174,
+            "cg_station_m": 0.7928144429856833,
+            "cg_lateral_m": [
+              -2.144605550568645e-05,
+              0.00021378824489121068
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008890800457199279,
+                0.00019005032767725142,
+                -3.007265701206595e-05
+              ],
+              [
+                0.00019005032767725142,
+                0.12517526173939691,
+                -1.063903708495872e-07
+              ],
+              [
+                -3.007265701206595e-05,
+                -1.063903708495872e-07,
+                0.125180260247728
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.676962164600174,
+            "cg_station_m": 0.7611301060537026,
+            "cg_lateral_m": [
+              -2.342604573142824e-05,
+              0.0002335260766407774
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008825065814995285,
+                0.00018954786014268996,
+                -2.5063733468982697e-05
+              ],
+              [
+                0.00018954786014268996,
+                0.11704601929437686,
+                -1.0670338417469099e-07
+              ],
+              [
+                -2.5063733468982697e-05,
+                -1.0670338417469099e-07,
+                0.11705102089162876
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8193632489836638,
+            "static_margin_cal": 1.3147933166339743
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.7921406535004375,
+            "static_margin_cal": 1.7272568845616447
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-performance-v1",
+          "mode": "performance",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.739462164600174,
+          "burnout_mass_kg": 0.676962164600174,
+          "cg_liftoff_m": 0.7928144429856833,
+          "cg_burnout_m": 0.7611301060537026,
+          "cg_lateral_liftoff_m": [
+            -2.144605550568645e-05,
+            0.00021378824489121068
+          ],
+          "cg_lateral_burnout_m": [
+            -2.342604573142824e-05,
+            0.0002335260766407774
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0008890800457199279,
+              0.00019005032767725142,
+              -3.007265701206595e-05
+            ],
+            [
+              0.00019005032767725142,
+              0.12517526173939691,
+              -1.063903708495872e-07
+            ],
+            [
+              -3.007265701206595e-05,
+              -1.063903708495872e-07,
+              0.125180260247728
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0008825065814995285,
+              0.00018954786014268996,
+              -2.5063733468982697e-05
+            ],
+            [
+              0.00018954786014268996,
+              0.11704601929437686,
+              -1.0670338417469099e-07
+            ],
+            [
+              -2.5063733468982697e-05,
+              -1.0670338417469099e-07,
+              0.11705102089162876
+            ]
+          ],
+          "cp_m": 0.906139607881506,
+          "static_margins_with_aft_mass_allowance_cal": [
+            1.3147933166339743,
+            1.7272568845616447
+          ],
+          "average_TWR_diagnostic_only": 10.163306556017625,
+          "source_terminal_time_s": 1.8079,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.789462164600174,
+            "rail_exit_time_s": 0.19182969209476983,
+            "rail_exit_speed_mps": 16.70639481163787,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.4907125989440937,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 10.92985289855477,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.11914760498671084,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.0065,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_mount_carrier": 0.0014669700000000002,
+            "recovery_alignment_pins": 0.00025,
+            "recovery_mount_hardware_allowance": 0.00628303,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.01925374538364414,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.04574033190860166,
+            "motor_liner": 0.010065964454996504,
+            "retention": 0.04292932739783429,
+            "motor": 0.1282,
+            "fin_set": 0.1316238690174014,
+            "fin_bonds": 0.008,
+            "motor_radiant_shield": 0.0006562178841010795,
+            "thrust_pads": 0.00029932937844339547,
+            "aft_retainer": 0.020256493058707727,
+            "retention_hardware": 0.007,
+            "aft_thrust_pads": 0.00029932937844339547
+          },
+          "parts_cost_estimate_usd": 386.95,
+          "recovery_area_for_6mps_m2": 0.5213453963957102,
+          "source_assumptions": {
+            "sha256": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+            "source_url": "https://www.thrustcurve.org/simfiles/5f4294d20002e9000000044a/",
+            "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+            "review_status": "preliminary_numerical_hypothesis",
+            "diameter_m": 0.029,
+            "length_m": 0.128,
+            "loaded_mass_kg": 0.1282,
+            "propellant_mass_kg": 0.0625,
+            "burn_time_s": 1.8079,
+            "total_impulse_ns": 133.243509636,
+            "average_thrust_n": 73.7007078024227,
+            "physical_configuration_verified": false,
+            "notes": "Historical 2007 G80 dataset labels motor G78; current SKU 78010 summary 136.6 N s, 127.9 g, 124 mm versus source 128.2 g, 128 mm and integrated impulse below 136.6. Keep this conservative preliminary dataset distinct from the conflicting 2013 G80NBT header 69 g propellant."
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "candidate_mass_delta_g": 4.765137443696554,
+      "replaced_active_mount_mass_g": 8.0,
+      "candidate_component_masses_g": {
+        "recovery_easymini_components": 3.5,
+        "recovery_switch_g11_doubler": 2.078119477293518,
+        "recovery_mount_carrier": 4.297337178998893,
+        "recovery_battery_tray": 0.6636675,
+        "recovery_battery_band": 0.35,
+        "recovery_standoffs": 0.10665078740406629,
+        "recovery_fasteners": 0.683258703043937,
+        "recovery_nuts": 0.2451710517871839,
+        "recovery_sled_fasteners": 0.6357860964555416,
+        "recovery_sled_nuts": 0.1944762019057032,
+        "recovery_sled_reinforcement": 0.3713487113213489,
+        "recovery_mount_hardware_allowance": 3.139321735486285
+      },
+      "new_modeled_mount_and_retention_mass_g": 12.765137443696474,
+      "candidate_mass_delta_vs_previous_two_row_candidate_g": -2.153094835277246,
+      "old_allowance_reduction": {
+        "old_generic_allowance_g": 6.28303,
+        "explicit_new_hardware_deducted_g": 3.143708264513715,
+        "residual_allowance_g": 3.139321735486285,
+        "calculation": "max(0, old 6.283 g allowance - CAD-derived tray/band/screw/nut/reinforcement masses)"
+      },
+      "inserted_pair_intersections": [
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "unexplained_candidate_intersections": [],
+      "named_contact_pair_intersections": [
+        {
+          "a": "body_upper",
+          "b": "recovery_power_switch",
+          "intersection_mm3": 129.39174768104908
+        },
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "cad_solid_validity": {
+        "nose_cone": true,
+        "body_upper": true,
+        "interface_coupler": true,
+        "avionics_bay": true,
+        "recovery_bulkhead": true,
+        "recovery_anchor": true,
+        "parachute": true,
+        "shock_cord": true,
+        "recovery_protection": true,
+        "independent_recovery": true,
+        "micro_sd": true,
+        "adhesive_finish": true,
+        "rail_guides": true,
+        "flight_computer": true,
+        "imu": true,
+        "baro": true,
+        "battery": true,
+        "regulator_5v": true,
+        "pyro_mosfet": true,
+        "arming_switch": true,
+        "harness": true,
+        "joint_stop": true,
+        "high_g_accel": true,
+        "recovery_battery": true,
+        "recovery_power_switch": true,
+        "recovery_output_harness": true,
+        "aft_shell": true,
+        "aft_interface_hardware": true,
+        "motor_mount": true,
+        "motor_liner": true,
+        "retention": true,
+        "motor": true,
+        "fin_set": true,
+        "fin_bonds": true,
+        "motor_radiant_shield": true,
+        "thrust_pads": true,
+        "aft_retainer": true,
+        "retention_hardware": true,
+        "aft_thrust_pads": true,
+        "recovery_easymini_components": true,
+        "recovery_switch_g11_doubler": true,
+        "recovery_mount_carrier": true,
+        "recovery_battery_tray": true,
+        "recovery_battery_band": true,
+        "recovery_standoffs": true,
+        "recovery_fasteners": true,
+        "recovery_nuts": true,
+        "recovery_sled_fasteners": true,
+        "recovery_sled_nuts": true,
+        "recovery_sled_reinforcement": true,
+        "recovery_mount_hardware_allowance": true
+      },
+      "recovery_topology": [
+        {
+          "net": "RECOVERY_BAT_POS",
+          "from": "recovery_battery",
+          "to": "recovery_power_switch"
+        },
+        {
+          "net": "RECOVERY_ARMED_POS",
+          "from": "recovery_power_switch",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_RETURN",
+          "from": "recovery_battery",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_OUTPUT_BUNDLE",
+          "from": "independent_recovery",
+          "to": "recovery_output_harness"
+        }
+      ],
+      "recovery_topology_passed": true,
+      "switch_tool_corridor": {
+        "diameter_mm": 6.0,
+        "depth_mm": 25.0,
+        "intersects_other_copied_parts": [],
+        "clear_of_other_copied_parts": true,
+        "actuator_tool_interface_verified": false
+      },
+      "service_sweeps": {
+        "carrier_removal": {
+          "path_id": "remove_aft_module_disconnect_leads_remove_mounts_then_slide_carrier_aft_through_coupler",
+          "translation_mm": [
+            0.0,
+            0.0,
+            585.0
+          ],
+          "start_offset_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_step_count": 293,
+          "sample_spacing_mm_max": 1.9965870307167235,
+          "source_tolerance_mm_each": 0.25,
+          "nominal_brep_collision": null,
+          "nominal_brep_clear": true,
+          "expanded_bound_collision_candidate": null,
+          "expanded_bound_clear": true,
+          "minimum_checked_brep_separation_mm": 0.8999999999999986,
+          "expected_start_contact_pairs": [],
+          "moving_parts": [
+            "independent_recovery",
+            "recovery_battery",
+            "recovery_battery_tray",
+            "recovery_easymini_components",
+            "recovery_fasteners",
+            "recovery_mount_carrier",
+            "recovery_nuts",
+            "recovery_standoffs"
+          ],
+          "checked_obstacle_parts": [
+            "adhesive_finish",
+            "arming_switch",
+            "avionics_bay",
+            "baro",
+            "battery",
+            "body_upper",
+            "flight_computer",
+            "harness",
+            "high_g_accel",
+            "imu",
+            "interface_coupler",
+            "joint_stop",
+            "micro_sd",
+            "nose_cone",
+            "parachute",
+            "pyro_mosfet",
+            "rail_guides",
+            "recovery_anchor",
+            "recovery_bulkhead",
+            "recovery_power_switch",
+            "recovery_protection",
+            "recovery_sled_nuts",
+            "recovery_sled_reinforcement",
+            "recovery_switch_g11_doubler",
+            "regulator_5v",
+            "shock_cord"
+          ],
+          "analytic_radial_obstacle_proofs": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "active_body_upper_aft_end_station_m": 0.918,
+          "carrier_front_station_m": 0.333,
+          "axial_translation_mm_through_coupler_opening": 585.0,
+          "removed_aft_module_parts_before_sweep": [
+            "aft_interface_hardware",
+            "aft_retainer",
+            "aft_shell",
+            "aft_thrust_pads",
+            "fin_bonds",
+            "fin_set",
+            "motor",
+            "motor_liner",
+            "motor_mount",
+            "motor_radiant_shield",
+            "retention",
+            "retention_hardware",
+            "thrust_pads"
+          ],
+          "max_package_radial_extent_mm": 23.542201963830614,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 8.957798036169386,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 8.457798036169386,
+          "minimum_radial_bore_clearances": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "clear_under_screened_assumptions": true,
+          "requires_removing_aft_module_six_carrier_screws_and_controller_output_disconnection": true
+        },
+        "battery_extraction": {
+          "path_segments": [
+            {
+              "path_id": "after_carrier_withdrawal_unplug_release_band_then_lift_cell_outward_from_tray",
+              "translation_mm": [
+                0.0,
+                -8.0,
+                0.0
+              ],
+              "start_offset_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sample_step_count": 16,
+              "sample_spacing_mm_max": 0.5,
+              "source_tolerance_mm_each": 0.25,
+              "nominal_brep_collision": null,
+              "nominal_brep_clear": true,
+              "expanded_bound_collision_candidate": null,
+              "expanded_bound_clear": true,
+              "minimum_checked_brep_separation_mm": 0.0,
+              "expected_start_contact_pairs": [
+                [
+                  "recovery_battery",
+                  "recovery_battery_tray"
+                ]
+              ],
+              "moving_parts": [
+                "recovery_battery"
+              ],
+              "checked_obstacle_parts": [
+                "independent_recovery",
+                "recovery_battery_tray",
+                "recovery_easymini_components",
+                "recovery_fasteners",
+                "recovery_mount_carrier",
+                "recovery_nuts",
+                "recovery_standoffs"
+              ],
+              "analytic_radial_obstacle_proofs": {}
+            }
+          ],
+          "carrier_withdrawal_translation_mm": 585.0,
+          "outward_cell_lift_mm": 8.0,
+          "max_cell_radial_extent_mm": 25.144581921360317,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 7.355418078639683,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 6.855418078639683,
+          "main_battery_geometry_part_checked": false,
+          "connector_or_lead_protrusion_modeled": false,
+          "clear_under_screened_assumptions": true
+        }
+      },
+      "three_row_mount_beam_screen": {
+        "material": "G11",
+        "hot_modulus_gpa_estimate": 5.0,
+        "support_rows_station_m": [
+          0.36,
+          0.39,
+          0.421
+        ],
+        "mount_row_count": 3,
+        "carrier_length_m": 0.092,
+        "carrier_width_mm": 26.0,
+        "carrier_thickness_mm": 1.0,
+        "rectangular_section_I_mm4": 2.1666666666666665,
+        "board_point_load_n_including_project_factor": 3.4,
+        "board_supported_span_mm": 30.0,
+        "board_simply_supported_deflection_mm": 0.17653846153846156,
+        "cell_overhang_load_n_including_project_factor": 7.6,
+        "cell_cantilever_overhang_mm": 12.0,
+        "cell_cantilever_deflection_mm": 0.4040861538461539,
+        "additional_factor_applied": false,
+        "interpretation": "Linear-elastic beam screen using estimated hot modulus and specified point loads; load path, restraint, fasteners, laminate property and thermal qualification remain unverified."
+      },
+      "axial_service_clearances_mm": {
+        "battery_end_to_board_front": 17.0,
+        "board_end_to_switch_front": 37.612,
+        "battery_end_to_switch_front": 92.713,
+        "carrier_to_sled_face_nominal": 8.5,
+        "carrier_aft_end_station_m": 0.425,
+        "previous_mount_row_to_carrier_aft_end_mm": 35.0,
+        "third_mount_row_to_carrier_aft_end_mm": 4.0,
+        "controller_end_to_third_screwhead_axial_clearance_mm": 0.6
+      },
+      "flight_ready": false
+    },
+    {
+      "mode": "modular-performance-g54-hypothesis",
+      "resolved_copy": "build/wo03-recovery-packaging/modular-performance-g54-hypothesis/resolved-copy.yaml",
+      "assembly_glb": "build/wo03-recovery-packaging/modular-performance-g54-hypothesis/assembly.glb",
+      "assembly_step": "build/wo03-recovery-packaging/modular-performance-g54-hypothesis/assembly.step",
+      "package_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.8227560306550998,
+            "cg_station_m": 0.8119020604880669,
+            "cg_lateral_m": [
+              -1.927491036231467e-05,
+              0.0006674613379051132
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0009048248954248388,
+                0.00019035303025224237,
+                -0.00017924857008284252
+              ],
+              [
+                0.00019035303025224237,
+                0.1295671491695586,
+                -1.1358491430670875e-07
+              ],
+              [
+                -0.00017924857008284252,
+                -1.1358491430670875e-07,
+                0.1295690938370946
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.7259560306550998,
+            "cg_station_m": 0.7726199561448859,
+            "cg_lateral_m": [
+              -2.184505406838454e-05,
+              0.0007564615731547756
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008945998794890484,
+                0.00018973007308586992,
+                -0.00015767649447217557
+              ],
+              [
+                0.00018973007308586992,
+                0.11975864487481229,
+                -1.149963288753691e-07
+              ],
+              [
+                -0.00015767649447217557,
+                -1.149963288753691e-07,
+                0.11976063837676652
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8348235829673567,
+            "static_margin_cal": 1.0805458320325658
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8009321301919234,
+            "static_margin_cal": 1.5940526922664031
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-performance-g54-hypothesis",
+          "mode": "performance",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.8227560306550998,
+          "burnout_mass_kg": 0.7259560306550998,
+          "cg_liftoff_m": 0.8119020604880669,
+          "cg_burnout_m": 0.7726199561448859,
+          "cg_lateral_liftoff_m": [
+            -1.927491036231467e-05,
+            0.0006674613379051132
+          ],
+          "cg_lateral_burnout_m": [
+            -2.184505406838454e-05,
+            0.0007564615731547756
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0009048248954248388,
+              0.00019035303025224237,
+              -0.00017924857008284252
+            ],
+            [
+              0.00019035303025224237,
+              0.1295671491695586,
+              -1.1358491430670875e-07
+            ],
+            [
+              -0.00017924857008284252,
+              -1.1358491430670875e-07,
+              0.1295690938370946
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0008945998794890484,
+              0.00018973007308586992,
+              -0.00015767649447217557
+            ],
+            [
+              0.00018973007308586992,
+              0.11975864487481229,
+              -1.149963288753691e-07
+            ],
+            [
+              -0.00015767649447217557,
+              -1.149963288753691e-07,
+              0.11976063837676652
+            ]
+          ],
+          "cp_m": 0.906139607881506,
+          "static_margins_with_aft_mass_allowance_cal": [
+            1.0805458320325658,
+            1.5940526922664031
+          ],
+          "average_TWR_diagnostic_only": 6.534626122546956,
+          "source_terminal_time_s": 3.026,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.8727560306550999,
+            "rail_exit_time_s": 0.18535828938179125,
+            "rail_exit_speed_mps": 17.406245089427458,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.5656791089749467,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 12.08303001603365,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.11439960323596658,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.003,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.01925374538364414,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.04932680459790339,
+            "motor_liner": 0.014705744945971466,
+            "retention": 0.04292932739783429,
+            "fin_set": 0.1316238690174014,
+            "fin_bonds": 0.008,
+            "motor": 0.1982,
+            "motor_radiant_shield": 0.0009586933150538666,
+            "thrust_pads": 0.00029932937844339547,
+            "aft_retainer": 0.020256493058707727,
+            "retention_hardware": 0.007,
+            "aft_thrust_pads": 0.00029932937844339547,
+            "recovery_easymini_components": 0.0035,
+            "recovery_switch_g11_doubler": 0.0020781194772935183,
+            "recovery_mount_carrier": 0.004297337178998893,
+            "recovery_battery_tray": 0.0006636675,
+            "recovery_battery_band": 0.00035,
+            "recovery_standoffs": 0.0001066507874040663,
+            "recovery_fasteners": 0.0006832587030439369,
+            "recovery_nuts": 0.0002451710517871839,
+            "recovery_sled_fasteners": 0.0006357860964555416,
+            "recovery_sled_nuts": 0.0001944762019057032,
+            "recovery_sled_reinforcement": 0.0003713487113213489,
+            "recovery_mount_hardware_allowance": 0.003139321735486285
+          },
+          "parts_cost_estimate_usd": 447.95,
+          "recovery_area_for_6mps_m2": 0.576351038924164,
+          "source_assumptions": {
+            "sha256": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+            "source_url": "https://www.thrustcurve.org/simfiles/5f4294d20002e900000006e7/",
+            "review_status": "preliminary_numerical_hypothesis",
+            "representation": "RSE numeric t/f extraction into RASP; normalized web transcription; not an original download",
+            "physical_configuration_verified": false,
+            "certified_propellant_kg": 0.0865,
+            "notes": "Curve depletion header conflicts with manufacturer/certificate propellant. Retain native header as an explicit hypothesis, not a reconciled purchasable configuration. Exact installed envelope, stock, lot and California classification pending.",
+            "diameter_m": 0.029,
+            "length_m": 0.187,
+            "loaded_mass_kg": 0.1982,
+            "propellant_mass_kg": 0.0968,
+            "burn_time_s": 3.026,
+            "total_impulse_ns": 159.54434599999996,
+            "average_thrust_n": 52.72450297422339
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "baseline_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.8179908932114034,
+            "cg_station_m": 0.8142162329399144,
+            "cg_lateral_m": [
+              -1.9387192153358945e-05,
+              0.00019326415446103336
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0009005084153407668,
+                0.00019038972896112457,
+                -3.345602999525336e-05
+              ],
+              [
+                0.00019038972896112457,
+                0.12879908770370854,
+                -1.060648886045358e-07
+              ],
+              [
+                -3.345602999525336e-05,
+                -1.060648886045358e-07,
+                0.1288040830000713
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.7211908932114034,
+            "cg_station_m": 0.7749851931171159,
+            "cg_lateral_m": [
+              -2.1989388351494584e-05,
+              0.00021920454046413864
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008903281732017234,
+                0.00018976758168689323,
+                -2.7254060883199293e-05
+              ],
+              [
+                0.00018976758168689323,
+                0.11913234109607146,
+                -1.0647626542547197e-07
+              ],
+              [
+                -2.7254060883199293e-05,
+                -1.0647626542547197e-07,
+                0.11913734045203911
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8371302848136823,
+            "static_margin_cal": 1.0455958040579347
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8033189565685397,
+            "static_margin_cal": 1.557888656257066
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-performance-g54-hypothesis",
+          "mode": "performance",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.8179908932114034,
+          "burnout_mass_kg": 0.7211908932114034,
+          "cg_liftoff_m": 0.8142162329399144,
+          "cg_burnout_m": 0.7749851931171159,
+          "cg_lateral_liftoff_m": [
+            -1.9387192153358945e-05,
+            0.00019326415446103336
+          ],
+          "cg_lateral_burnout_m": [
+            -2.1989388351494584e-05,
+            0.00021920454046413864
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0009005084153407668,
+              0.00019038972896112457,
+              -3.345602999525336e-05
+            ],
+            [
+              0.00019038972896112457,
+              0.12879908770370854,
+              -1.060648886045358e-07
+            ],
+            [
+              -3.345602999525336e-05,
+              -1.060648886045358e-07,
+              0.1288040830000713
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0008903281732017234,
+              0.00018976758168689323,
+              -2.7254060883199293e-05
+            ],
+            [
+              0.00018976758168689323,
+              0.11913234109607146,
+              -1.0647626542547197e-07
+            ],
+            [
+              -2.7254060883199293e-05,
+              -1.0647626542547197e-07,
+              0.11913734045203911
+            ]
+          ],
+          "cp_m": 0.906139607881506,
+          "static_margins_with_aft_mass_allowance_cal": [
+            1.0455958040579347,
+            1.557888656257066
+          ],
+          "average_TWR_diagnostic_only": 6.572693039765139,
+          "source_terminal_time_s": 3.026,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.8679908932114034,
+            "rail_exit_time_s": 0.1848368360044341,
+            "rail_exit_speed_mps": 17.460012296523438,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.5687320933325895,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 12.017058201757566,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.1140503671811088,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.0065,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_mount_carrier": 0.0014669700000000002,
+            "recovery_alignment_pins": 0.00025,
+            "recovery_mount_hardware_allowance": 0.00628303,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.01925374538364414,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.04932680459790339,
+            "motor_liner": 0.014705744945971466,
+            "retention": 0.04292932739783429,
+            "fin_set": 0.1316238690174014,
+            "fin_bonds": 0.008,
+            "motor": 0.1982,
+            "motor_radiant_shield": 0.0009586933150538666,
+            "thrust_pads": 0.00029932937844339547,
+            "aft_retainer": 0.020256493058707727,
+            "retention_hardware": 0.007,
+            "aft_thrust_pads": 0.00029932937844339547
+          },
+          "parts_cost_estimate_usd": 447.95,
+          "recovery_area_for_6mps_m2": 0.5732042352129029,
+          "source_assumptions": {
+            "sha256": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+            "source_url": "https://www.thrustcurve.org/simfiles/5f4294d20002e900000006e7/",
+            "review_status": "preliminary_numerical_hypothesis",
+            "representation": "RSE numeric t/f extraction into RASP; normalized web transcription; not an original download",
+            "physical_configuration_verified": false,
+            "certified_propellant_kg": 0.0865,
+            "notes": "Curve depletion header conflicts with manufacturer/certificate propellant. Retain native header as an explicit hypothesis, not a reconciled purchasable configuration. Exact installed envelope, stock, lot and California classification pending.",
+            "diameter_m": 0.029,
+            "length_m": 0.187,
+            "loaded_mass_kg": 0.1982,
+            "propellant_mass_kg": 0.0968,
+            "burn_time_s": 3.026,
+            "total_impulse_ns": 159.54434599999996,
+            "average_thrust_n": 52.72450297422339
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "candidate_mass_delta_g": 4.765137443696443,
+      "replaced_active_mount_mass_g": 8.0,
+      "candidate_component_masses_g": {
+        "recovery_easymini_components": 3.5,
+        "recovery_switch_g11_doubler": 2.078119477293518,
+        "recovery_mount_carrier": 4.297337178998893,
+        "recovery_battery_tray": 0.6636675,
+        "recovery_battery_band": 0.35,
+        "recovery_standoffs": 0.10665078740406629,
+        "recovery_fasteners": 0.683258703043937,
+        "recovery_nuts": 0.2451710517871839,
+        "recovery_sled_fasteners": 0.6357860964555416,
+        "recovery_sled_nuts": 0.1944762019057032,
+        "recovery_sled_reinforcement": 0.3713487113213489,
+        "recovery_mount_hardware_allowance": 3.139321735486285
+      },
+      "new_modeled_mount_and_retention_mass_g": 12.765137443696474,
+      "candidate_mass_delta_vs_previous_two_row_candidate_g": -2.153094835277357,
+      "old_allowance_reduction": {
+        "old_generic_allowance_g": 6.28303,
+        "explicit_new_hardware_deducted_g": 3.143708264513715,
+        "residual_allowance_g": 3.139321735486285,
+        "calculation": "max(0, old 6.283 g allowance - CAD-derived tray/band/screw/nut/reinforcement masses)"
+      },
+      "inserted_pair_intersections": [
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "unexplained_candidate_intersections": [],
+      "named_contact_pair_intersections": [
+        {
+          "a": "body_upper",
+          "b": "recovery_power_switch",
+          "intersection_mm3": 129.39174768104908
+        },
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "cad_solid_validity": {
+        "nose_cone": true,
+        "body_upper": true,
+        "interface_coupler": true,
+        "avionics_bay": true,
+        "recovery_bulkhead": true,
+        "recovery_anchor": true,
+        "parachute": true,
+        "shock_cord": true,
+        "recovery_protection": true,
+        "independent_recovery": true,
+        "micro_sd": true,
+        "adhesive_finish": true,
+        "rail_guides": true,
+        "flight_computer": true,
+        "imu": true,
+        "baro": true,
+        "battery": true,
+        "regulator_5v": true,
+        "pyro_mosfet": true,
+        "arming_switch": true,
+        "harness": true,
+        "joint_stop": true,
+        "high_g_accel": true,
+        "recovery_battery": true,
+        "recovery_power_switch": true,
+        "recovery_output_harness": true,
+        "aft_shell": true,
+        "aft_interface_hardware": true,
+        "motor_mount": true,
+        "motor_liner": true,
+        "retention": true,
+        "fin_set": true,
+        "fin_bonds": true,
+        "motor": true,
+        "motor_radiant_shield": true,
+        "thrust_pads": true,
+        "aft_retainer": true,
+        "retention_hardware": true,
+        "aft_thrust_pads": true,
+        "recovery_easymini_components": true,
+        "recovery_switch_g11_doubler": true,
+        "recovery_mount_carrier": true,
+        "recovery_battery_tray": true,
+        "recovery_battery_band": true,
+        "recovery_standoffs": true,
+        "recovery_fasteners": true,
+        "recovery_nuts": true,
+        "recovery_sled_fasteners": true,
+        "recovery_sled_nuts": true,
+        "recovery_sled_reinforcement": true,
+        "recovery_mount_hardware_allowance": true
+      },
+      "recovery_topology": [
+        {
+          "net": "RECOVERY_BAT_POS",
+          "from": "recovery_battery",
+          "to": "recovery_power_switch"
+        },
+        {
+          "net": "RECOVERY_ARMED_POS",
+          "from": "recovery_power_switch",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_RETURN",
+          "from": "recovery_battery",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_OUTPUT_BUNDLE",
+          "from": "independent_recovery",
+          "to": "recovery_output_harness"
+        }
+      ],
+      "recovery_topology_passed": true,
+      "switch_tool_corridor": {
+        "diameter_mm": 6.0,
+        "depth_mm": 25.0,
+        "intersects_other_copied_parts": [],
+        "clear_of_other_copied_parts": true,
+        "actuator_tool_interface_verified": false
+      },
+      "service_sweeps": {
+        "carrier_removal": {
+          "path_id": "remove_aft_module_disconnect_leads_remove_mounts_then_slide_carrier_aft_through_coupler",
+          "translation_mm": [
+            0.0,
+            0.0,
+            585.0
+          ],
+          "start_offset_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_step_count": 293,
+          "sample_spacing_mm_max": 1.9965870307167235,
+          "source_tolerance_mm_each": 0.25,
+          "nominal_brep_collision": null,
+          "nominal_brep_clear": true,
+          "expanded_bound_collision_candidate": null,
+          "expanded_bound_clear": true,
+          "minimum_checked_brep_separation_mm": 0.8999999999999986,
+          "expected_start_contact_pairs": [],
+          "moving_parts": [
+            "independent_recovery",
+            "recovery_battery",
+            "recovery_battery_tray",
+            "recovery_easymini_components",
+            "recovery_fasteners",
+            "recovery_mount_carrier",
+            "recovery_nuts",
+            "recovery_standoffs"
+          ],
+          "checked_obstacle_parts": [
+            "adhesive_finish",
+            "arming_switch",
+            "avionics_bay",
+            "baro",
+            "battery",
+            "body_upper",
+            "flight_computer",
+            "harness",
+            "high_g_accel",
+            "imu",
+            "interface_coupler",
+            "joint_stop",
+            "micro_sd",
+            "nose_cone",
+            "parachute",
+            "pyro_mosfet",
+            "rail_guides",
+            "recovery_anchor",
+            "recovery_bulkhead",
+            "recovery_power_switch",
+            "recovery_protection",
+            "recovery_sled_nuts",
+            "recovery_sled_reinforcement",
+            "recovery_switch_g11_doubler",
+            "regulator_5v",
+            "shock_cord"
+          ],
+          "analytic_radial_obstacle_proofs": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "active_body_upper_aft_end_station_m": 0.918,
+          "carrier_front_station_m": 0.333,
+          "axial_translation_mm_through_coupler_opening": 585.0,
+          "removed_aft_module_parts_before_sweep": [
+            "aft_interface_hardware",
+            "aft_retainer",
+            "aft_shell",
+            "aft_thrust_pads",
+            "fin_bonds",
+            "fin_set",
+            "motor",
+            "motor_liner",
+            "motor_mount",
+            "motor_radiant_shield",
+            "retention",
+            "retention_hardware",
+            "thrust_pads"
+          ],
+          "max_package_radial_extent_mm": 23.542201963830614,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 8.957798036169386,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 8.457798036169386,
+          "minimum_radial_bore_clearances": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "clear_under_screened_assumptions": true,
+          "requires_removing_aft_module_six_carrier_screws_and_controller_output_disconnection": true
+        },
+        "battery_extraction": {
+          "path_segments": [
+            {
+              "path_id": "after_carrier_withdrawal_unplug_release_band_then_lift_cell_outward_from_tray",
+              "translation_mm": [
+                0.0,
+                -8.0,
+                0.0
+              ],
+              "start_offset_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sample_step_count": 16,
+              "sample_spacing_mm_max": 0.5,
+              "source_tolerance_mm_each": 0.25,
+              "nominal_brep_collision": null,
+              "nominal_brep_clear": true,
+              "expanded_bound_collision_candidate": null,
+              "expanded_bound_clear": true,
+              "minimum_checked_brep_separation_mm": 0.0,
+              "expected_start_contact_pairs": [
+                [
+                  "recovery_battery",
+                  "recovery_battery_tray"
+                ]
+              ],
+              "moving_parts": [
+                "recovery_battery"
+              ],
+              "checked_obstacle_parts": [
+                "independent_recovery",
+                "recovery_battery_tray",
+                "recovery_easymini_components",
+                "recovery_fasteners",
+                "recovery_mount_carrier",
+                "recovery_nuts",
+                "recovery_standoffs"
+              ],
+              "analytic_radial_obstacle_proofs": {}
+            }
+          ],
+          "carrier_withdrawal_translation_mm": 585.0,
+          "outward_cell_lift_mm": 8.0,
+          "max_cell_radial_extent_mm": 25.144581921360317,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 7.355418078639683,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 6.855418078639683,
+          "main_battery_geometry_part_checked": false,
+          "connector_or_lead_protrusion_modeled": false,
+          "clear_under_screened_assumptions": true
+        }
+      },
+      "three_row_mount_beam_screen": {
+        "material": "G11",
+        "hot_modulus_gpa_estimate": 5.0,
+        "support_rows_station_m": [
+          0.36,
+          0.39,
+          0.421
+        ],
+        "mount_row_count": 3,
+        "carrier_length_m": 0.092,
+        "carrier_width_mm": 26.0,
+        "carrier_thickness_mm": 1.0,
+        "rectangular_section_I_mm4": 2.1666666666666665,
+        "board_point_load_n_including_project_factor": 3.4,
+        "board_supported_span_mm": 30.0,
+        "board_simply_supported_deflection_mm": 0.17653846153846156,
+        "cell_overhang_load_n_including_project_factor": 7.6,
+        "cell_cantilever_overhang_mm": 12.0,
+        "cell_cantilever_deflection_mm": 0.4040861538461539,
+        "additional_factor_applied": false,
+        "interpretation": "Linear-elastic beam screen using estimated hot modulus and specified point loads; load path, restraint, fasteners, laminate property and thermal qualification remain unverified."
+      },
+      "axial_service_clearances_mm": {
+        "battery_end_to_board_front": 17.0,
+        "board_end_to_switch_front": 37.612,
+        "battery_end_to_switch_front": 92.713,
+        "carrier_to_sled_face_nominal": 8.5,
+        "carrier_aft_end_station_m": 0.425,
+        "previous_mount_row_to_carrier_aft_end_mm": 35.0,
+        "third_mount_row_to_carrier_aft_end_mm": 4.0,
+        "controller_end_to_third_screwhead_axial_clearance_mm": 0.6
+      },
+      "flight_ready": false
+    },
+    {
+      "mode": "modular-tvc-finned-v1",
+      "resolved_copy": "build/wo03-recovery-packaging/modular-tvc-finned-v1/resolved-copy.yaml",
+      "assembly_glb": "build/wo03-recovery-packaging/modular-tvc-finned-v1/assembly.glb",
+      "assembly_step": "build/wo03-recovery-packaging/modular-tvc-finned-v1/assembly.step",
+      "package_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.7849124830643415,
+            "cg_station_m": 0.7986422951839857,
+            "cg_lateral_m": [
+              0.0005427731673221848,
+              3.2675917908884984e-05
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008958145313427262,
+                0.0002784535349829843,
+                -0.0002817544507466825
+              ],
+              [
+                0.0002784535349829843,
+                0.12608163593518015,
+                6.766002673037405e-07
+              ],
+              [
+                -0.0002817544507466825,
+                6.766002673037405e-07,
+                0.1260808154645686
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.7029124830643415,
+            "cg_station_m": 0.7609201997115594,
+            "cg_lateral_m": [
+              0.000606091718056111,
+              3.6487808198338574e-05
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008871672080099992,
+                0.0002945242579853912,
+                -0.00028078696440583426
+              ],
+              [
+                0.0002945242579853912,
+                0.11633687900332479,
+                6.782242447681466e-07
+              ],
+              [
+                -0.00028078696440583426,
+                6.782242447681466e-07,
+                0.1163360316549132
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8233968480982555,
+            "static_margin_cal": 1.2536781785340987
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.7908758592626238,
+            "static_margin_cal": 1.7464204336194276
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-tvc-finned-v1",
+          "mode": "tvc_finned",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.7849124830643415,
+          "burnout_mass_kg": 0.7029124830643415,
+          "cg_liftoff_m": 0.7986422951839857,
+          "cg_burnout_m": 0.7609201997115594,
+          "cg_lateral_liftoff_m": [
+            0.0005427731673221848,
+            3.2675917908884984e-05
+          ],
+          "cg_lateral_burnout_m": [
+            0.000606091718056111,
+            3.6487808198338574e-05
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0008958145313427262,
+              0.0002784535349829843,
+              -0.0002817544507466825
+            ],
+            [
+              0.0002784535349829843,
+              0.12608163593518015,
+              6.766002673037405e-07
+            ],
+            [
+              -0.0002817544507466825,
+              6.766002673037405e-07,
+              0.1260808154645686
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0008871672080099992,
+              0.0002945242579853912,
+              -0.00028078696440583426
+            ],
+            [
+              0.0002945242579853912,
+              0.11633687900332479,
+              6.782242447681466e-07
+            ],
+            [
+              -0.00028078696440583426,
+              6.782242447681466e-07,
+              0.1163360316549132
+            ]
+          ],
+          "cp_m": 0.906139607881506,
+          "static_margins_with_aft_mass_allowance_cal": [
+            1.2536781785340987,
+            1.7464204336194276
+          ],
+          "average_TWR_diagnostic_only": 1.5036615799866997,
+          "source_terminal_time_s": 12.601,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.8349124830643415,
+            "rail_exit_time_s": 0.8828536859369651,
+            "rail_exit_speed_mps": 10.077807560036636,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 3.914998435389972,
+            "control_time_screen_pass": true,
+            "control_time_target_met": false,
+            "control_threshold_source_thrust_n": 11.559098120531187,
+            "screening_wind_mps": 1.0,
+            "kinematic_crosswind_angle_rad": 0.09890417011693861,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.003,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.0175684344695427,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.03855402325837641,
+            "motor_liner": 0.012267894179526973,
+            "motor": 0.15,
+            "fin_set": 0.1268566065174014,
+            "fin_bonds": 0.008,
+            "tvc_gimbal": 0.007529086193889445,
+            "gimbal_links": 0.008,
+            "servo_support": 0.004904855264343459,
+            "thermal_guard": 0.00420495893497683,
+            "servo_pitch": 0.014,
+            "servo_yaw": 0.014,
+            "gimbal_inner": 0.0058844204505552064,
+            "gimbal_frame": 0.02565145543439037,
+            "outer_pivots": 0.002,
+            "inner_pivots": 0.002,
+            "servo_horns": 6.655778195895337e-05,
+            "motor_radiant_shield": 0.0007997655462481468,
+            "thrust_pads": 0.00022546973890680044,
+            "aft_retainer": 0.0036969317340842076,
+            "retention_hardware": 0.007,
+            "cassette_mount_screws": 0.0015,
+            "aft_thrust_pads": 0.00029932937844339547,
+            "recovery_easymini_components": 0.0035,
+            "recovery_switch_g11_doubler": 0.0020781194772935183,
+            "recovery_mount_carrier": 0.004297337178998893,
+            "recovery_battery_tray": 0.0006636675,
+            "recovery_battery_band": 0.00035,
+            "recovery_standoffs": 0.0001066507874040663,
+            "recovery_fasteners": 0.0006832587030439369,
+            "recovery_nuts": 0.0002451710517871839,
+            "recovery_sled_fasteners": 0.0006357860964555416,
+            "recovery_sled_nuts": 0.0001944762019057032,
+            "recovery_sled_reinforcement": 0.0003713487113213489,
+            "recovery_mount_hardware_allowance": 0.003139321735486285
+          },
+          "parts_cost_estimate_usd": 541.95,
+          "recovery_area_for_6mps_m2": 0.5513598991274696,
+          "source_assumptions": {
+            "sha256": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+            "source_url": "https://www.thrustcurve.org/simfiles/6015a048b94d0e00040a8436/",
+            "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+            "review_status": "preliminary_numerical_hypothesis",
+            "diameter_m": 0.029,
+            "length_m": 0.156,
+            "loaded_mass_kg": 0.15,
+            "propellant_mass_kg": 0.082,
+            "burn_time_s": 12.601,
+            "total_impulse_ns": 145.84684085,
+            "average_thrust_n": 11.57422750972145,
+            "physical_configuration_verified": false,
+            "notes": "2021 reformulated curve: 150 g, 156 mm, integrated impulse differs from TRA report 143.97 N s, 150.32 g, 155.98 mm and advertised 147 mm. No dimension or summary is overwritten."
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "baseline_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.7801473456206449,
+            "cg_station_m": 0.800987733384934,
+            "cg_lateral_m": [
+              0.0005460884267691382,
+              -0.00046840098712922726
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008909903259555357,
+                0.0002774543085928032,
+                -0.0001399244828976537
+              ],
+              [
+                0.0002774543085928032,
+                0.12536252008067472,
+                4.631267019641561e-07
+              ],
+              [
+                -0.0001399244828976537,
+                4.631267019641561e-07,
+                0.12536525514295557
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.698147345620645,
+            "cg_station_m": 0.7632836498163933,
+            "cg_lateral_m": [
+              0.0006102285417118677,
+              -0.0005234164236062527
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0008823226465394027,
+                0.0002935173580737102,
+                -0.00015370237648473605
+              ],
+              [
+                0.0002935173580737102,
+                0.11574940126300114,
+                4.3968850655654985e-07
+              ],
+              [
+                -0.00015370237648473605,
+                4.3968850655654985e-07,
+                0.115752129103544
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.8257431137871792,
+            "static_margin_cal": 1.218128698398891
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.906139607881506,
+            "cg_with_50g_aft_growth_m": 0.7932721509325312,
+            "static_margin_cal": 1.710112984075376
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-tvc-finned-v1",
+          "mode": "tvc_finned",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.7801473456206449,
+          "burnout_mass_kg": 0.698147345620645,
+          "cg_liftoff_m": 0.800987733384934,
+          "cg_burnout_m": 0.7632836498163933,
+          "cg_lateral_liftoff_m": [
+            0.0005460884267691382,
+            -0.00046840098712922726
+          ],
+          "cg_lateral_burnout_m": [
+            0.0006102285417118677,
+            -0.0005234164236062527
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0008909903259555357,
+              0.0002774543085928032,
+              -0.0001399244828976537
+            ],
+            [
+              0.0002774543085928032,
+              0.12536252008067472,
+              4.631267019641561e-07
+            ],
+            [
+              -0.0001399244828976537,
+              4.631267019641561e-07,
+              0.12536525514295557
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0008823226465394027,
+              0.0002935173580737102,
+              -0.00015370237648473605
+            ],
+            [
+              0.0002935173580737102,
+              0.11574940126300114,
+              4.3968850655654985e-07
+            ],
+            [
+              -0.00015370237648473605,
+              4.3968850655654985e-07,
+              0.115752129103544
+            ]
+          ],
+          "cp_m": 0.906139607881506,
+          "static_margins_with_aft_mass_allowance_cal": [
+            1.218128698398891,
+            1.710112984075376
+          ],
+          "average_TWR_diagnostic_only": 1.5128459400151792,
+          "source_terminal_time_s": 12.601,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.830147345620645,
+            "rail_exit_time_s": 0.8781626926754771,
+            "rail_exit_speed_mps": 10.171749534148352,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 4.079043028261742,
+            "control_time_screen_pass": true,
+            "control_time_target_met": false,
+            "control_threshold_source_thrust_n": 11.493126306255103,
+            "screening_wind_mps": 1.0,
+            "kinematic_crosswind_angle_rad": 0.09799659678614382,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.0065,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_mount_carrier": 0.0014669700000000002,
+            "recovery_alignment_pins": 0.00025,
+            "recovery_mount_hardware_allowance": 0.00628303,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.0175684344695427,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.03855402325837641,
+            "motor_liner": 0.012267894179526973,
+            "motor": 0.15,
+            "fin_set": 0.1268566065174014,
+            "fin_bonds": 0.008,
+            "tvc_gimbal": 0.007529086193889445,
+            "gimbal_links": 0.008,
+            "servo_support": 0.004904855264343459,
+            "thermal_guard": 0.00420495893497683,
+            "servo_pitch": 0.014,
+            "servo_yaw": 0.014,
+            "gimbal_inner": 0.0058844204505552064,
+            "gimbal_frame": 0.02565145543439037,
+            "outer_pivots": 0.002,
+            "inner_pivots": 0.002,
+            "servo_horns": 6.655778195895337e-05,
+            "motor_radiant_shield": 0.0007997655462481468,
+            "thrust_pads": 0.00022546973890680044,
+            "aft_retainer": 0.0036969317340842076,
+            "retention_hardware": 0.007,
+            "cassette_mount_screws": 0.0015,
+            "aft_thrust_pads": 0.00029932937844339547
+          },
+          "parts_cost_estimate_usd": 541.95,
+          "recovery_area_for_6mps_m2": 0.5482130954162086,
+          "source_assumptions": {
+            "sha256": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+            "source_url": "https://www.thrustcurve.org/simfiles/6015a048b94d0e00040a8436/",
+            "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+            "review_status": "preliminary_numerical_hypothesis",
+            "diameter_m": 0.029,
+            "length_m": 0.156,
+            "loaded_mass_kg": 0.15,
+            "propellant_mass_kg": 0.082,
+            "burn_time_s": 12.601,
+            "total_impulse_ns": 145.84684085,
+            "average_thrust_n": 11.57422750972145,
+            "physical_configuration_verified": false,
+            "notes": "2021 reformulated curve: 150 g, 156 mm, integrated impulse differs from TRA report 143.97 N s, 150.32 g, 155.98 mm and advertised 147 mm. No dimension or summary is overwritten."
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "candidate_mass_delta_g": 4.765137443696554,
+      "replaced_active_mount_mass_g": 8.0,
+      "candidate_component_masses_g": {
+        "recovery_easymini_components": 3.5,
+        "recovery_switch_g11_doubler": 2.078119477293518,
+        "recovery_mount_carrier": 4.297337178998893,
+        "recovery_battery_tray": 0.6636675,
+        "recovery_battery_band": 0.35,
+        "recovery_standoffs": 0.10665078740406629,
+        "recovery_fasteners": 0.683258703043937,
+        "recovery_nuts": 0.2451710517871839,
+        "recovery_sled_fasteners": 0.6357860964555416,
+        "recovery_sled_nuts": 0.1944762019057032,
+        "recovery_sled_reinforcement": 0.3713487113213489,
+        "recovery_mount_hardware_allowance": 3.139321735486285
+      },
+      "new_modeled_mount_and_retention_mass_g": 12.765137443696474,
+      "candidate_mass_delta_vs_previous_two_row_candidate_g": -2.153094835277246,
+      "old_allowance_reduction": {
+        "old_generic_allowance_g": 6.28303,
+        "explicit_new_hardware_deducted_g": 3.143708264513715,
+        "residual_allowance_g": 3.139321735486285,
+        "calculation": "max(0, old 6.283 g allowance - CAD-derived tray/band/screw/nut/reinforcement masses)"
+      },
+      "inserted_pair_intersections": [
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "unexplained_candidate_intersections": [],
+      "named_contact_pair_intersections": [
+        {
+          "a": "body_upper",
+          "b": "recovery_power_switch",
+          "intersection_mm3": 129.39174768104908
+        },
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "cad_solid_validity": {
+        "nose_cone": true,
+        "body_upper": true,
+        "interface_coupler": true,
+        "avionics_bay": true,
+        "recovery_bulkhead": true,
+        "recovery_anchor": true,
+        "parachute": true,
+        "shock_cord": true,
+        "recovery_protection": true,
+        "independent_recovery": true,
+        "micro_sd": true,
+        "adhesive_finish": true,
+        "rail_guides": true,
+        "flight_computer": true,
+        "imu": true,
+        "baro": true,
+        "battery": true,
+        "regulator_5v": true,
+        "pyro_mosfet": true,
+        "arming_switch": true,
+        "harness": true,
+        "joint_stop": true,
+        "high_g_accel": true,
+        "recovery_battery": true,
+        "recovery_power_switch": true,
+        "recovery_output_harness": true,
+        "aft_shell": true,
+        "aft_interface_hardware": true,
+        "motor_mount": true,
+        "motor_liner": true,
+        "motor": true,
+        "fin_set": true,
+        "fin_bonds": true,
+        "tvc_gimbal": true,
+        "gimbal_links": true,
+        "servo_support": true,
+        "thermal_guard": true,
+        "servo_pitch": true,
+        "servo_yaw": true,
+        "gimbal_inner": true,
+        "gimbal_frame": true,
+        "outer_pivots": true,
+        "inner_pivots": true,
+        "servo_horns": true,
+        "motor_radiant_shield": true,
+        "thrust_pads": true,
+        "aft_retainer": true,
+        "retention_hardware": true,
+        "cassette_mount_screws": true,
+        "aft_thrust_pads": true,
+        "recovery_easymini_components": true,
+        "recovery_switch_g11_doubler": true,
+        "recovery_mount_carrier": true,
+        "recovery_battery_tray": true,
+        "recovery_battery_band": true,
+        "recovery_standoffs": true,
+        "recovery_fasteners": true,
+        "recovery_nuts": true,
+        "recovery_sled_fasteners": true,
+        "recovery_sled_nuts": true,
+        "recovery_sled_reinforcement": true,
+        "recovery_mount_hardware_allowance": true
+      },
+      "recovery_topology": [
+        {
+          "net": "RECOVERY_BAT_POS",
+          "from": "recovery_battery",
+          "to": "recovery_power_switch"
+        },
+        {
+          "net": "RECOVERY_ARMED_POS",
+          "from": "recovery_power_switch",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_RETURN",
+          "from": "recovery_battery",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_OUTPUT_BUNDLE",
+          "from": "independent_recovery",
+          "to": "recovery_output_harness"
+        }
+      ],
+      "recovery_topology_passed": true,
+      "switch_tool_corridor": {
+        "diameter_mm": 6.0,
+        "depth_mm": 25.0,
+        "intersects_other_copied_parts": [],
+        "clear_of_other_copied_parts": true,
+        "actuator_tool_interface_verified": false
+      },
+      "service_sweeps": {
+        "carrier_removal": {
+          "path_id": "remove_aft_module_disconnect_leads_remove_mounts_then_slide_carrier_aft_through_coupler",
+          "translation_mm": [
+            0.0,
+            0.0,
+            585.0
+          ],
+          "start_offset_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_step_count": 293,
+          "sample_spacing_mm_max": 1.9965870307167235,
+          "source_tolerance_mm_each": 0.25,
+          "nominal_brep_collision": null,
+          "nominal_brep_clear": true,
+          "expanded_bound_collision_candidate": null,
+          "expanded_bound_clear": true,
+          "minimum_checked_brep_separation_mm": 0.8999999999999986,
+          "expected_start_contact_pairs": [],
+          "moving_parts": [
+            "independent_recovery",
+            "recovery_battery",
+            "recovery_battery_tray",
+            "recovery_easymini_components",
+            "recovery_fasteners",
+            "recovery_mount_carrier",
+            "recovery_nuts",
+            "recovery_standoffs"
+          ],
+          "checked_obstacle_parts": [
+            "adhesive_finish",
+            "arming_switch",
+            "avionics_bay",
+            "baro",
+            "battery",
+            "body_upper",
+            "flight_computer",
+            "harness",
+            "high_g_accel",
+            "imu",
+            "interface_coupler",
+            "joint_stop",
+            "micro_sd",
+            "nose_cone",
+            "parachute",
+            "pyro_mosfet",
+            "rail_guides",
+            "recovery_anchor",
+            "recovery_bulkhead",
+            "recovery_power_switch",
+            "recovery_protection",
+            "recovery_sled_nuts",
+            "recovery_sled_reinforcement",
+            "recovery_switch_g11_doubler",
+            "regulator_5v",
+            "shock_cord",
+            "thermal_guard",
+            "tvc_gimbal"
+          ],
+          "analytic_radial_obstacle_proofs": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "active_body_upper_aft_end_station_m": 0.918,
+          "carrier_front_station_m": 0.333,
+          "axial_translation_mm_through_coupler_opening": 585.0,
+          "removed_aft_module_parts_before_sweep": [
+            "aft_interface_hardware",
+            "aft_retainer",
+            "aft_shell",
+            "aft_thrust_pads",
+            "cassette_mount_screws",
+            "fin_bonds",
+            "fin_set",
+            "gimbal_frame",
+            "gimbal_inner",
+            "gimbal_links",
+            "inner_pivots",
+            "motor",
+            "motor_liner",
+            "motor_mount",
+            "motor_radiant_shield",
+            "outer_pivots",
+            "retention_hardware",
+            "servo_horns",
+            "servo_pitch",
+            "servo_support",
+            "servo_yaw",
+            "thrust_pads"
+          ],
+          "max_package_radial_extent_mm": 23.542201963830614,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 8.957798036169386,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 8.457798036169386,
+          "minimum_radial_bore_clearances": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "clear_under_screened_assumptions": true,
+          "requires_removing_aft_module_six_carrier_screws_and_controller_output_disconnection": true
+        },
+        "battery_extraction": {
+          "path_segments": [
+            {
+              "path_id": "after_carrier_withdrawal_unplug_release_band_then_lift_cell_outward_from_tray",
+              "translation_mm": [
+                0.0,
+                -8.0,
+                0.0
+              ],
+              "start_offset_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sample_step_count": 16,
+              "sample_spacing_mm_max": 0.5,
+              "source_tolerance_mm_each": 0.25,
+              "nominal_brep_collision": null,
+              "nominal_brep_clear": true,
+              "expanded_bound_collision_candidate": null,
+              "expanded_bound_clear": true,
+              "minimum_checked_brep_separation_mm": 0.0,
+              "expected_start_contact_pairs": [
+                [
+                  "recovery_battery",
+                  "recovery_battery_tray"
+                ]
+              ],
+              "moving_parts": [
+                "recovery_battery"
+              ],
+              "checked_obstacle_parts": [
+                "independent_recovery",
+                "recovery_battery_tray",
+                "recovery_easymini_components",
+                "recovery_fasteners",
+                "recovery_mount_carrier",
+                "recovery_nuts",
+                "recovery_standoffs"
+              ],
+              "analytic_radial_obstacle_proofs": {}
+            }
+          ],
+          "carrier_withdrawal_translation_mm": 585.0,
+          "outward_cell_lift_mm": 8.0,
+          "max_cell_radial_extent_mm": 25.144581921360317,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 7.355418078639683,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 6.855418078639683,
+          "main_battery_geometry_part_checked": false,
+          "connector_or_lead_protrusion_modeled": false,
+          "clear_under_screened_assumptions": true
+        }
+      },
+      "three_row_mount_beam_screen": {
+        "material": "G11",
+        "hot_modulus_gpa_estimate": 5.0,
+        "support_rows_station_m": [
+          0.36,
+          0.39,
+          0.421
+        ],
+        "mount_row_count": 3,
+        "carrier_length_m": 0.092,
+        "carrier_width_mm": 26.0,
+        "carrier_thickness_mm": 1.0,
+        "rectangular_section_I_mm4": 2.1666666666666665,
+        "board_point_load_n_including_project_factor": 3.4,
+        "board_supported_span_mm": 30.0,
+        "board_simply_supported_deflection_mm": 0.17653846153846156,
+        "cell_overhang_load_n_including_project_factor": 7.6,
+        "cell_cantilever_overhang_mm": 12.0,
+        "cell_cantilever_deflection_mm": 0.4040861538461539,
+        "additional_factor_applied": false,
+        "interpretation": "Linear-elastic beam screen using estimated hot modulus and specified point loads; load path, restraint, fasteners, laminate property and thermal qualification remain unverified."
+      },
+      "axial_service_clearances_mm": {
+        "battery_end_to_board_front": 17.0,
+        "board_end_to_switch_front": 37.612,
+        "battery_end_to_switch_front": 92.713,
+        "carrier_to_sled_face_nominal": 8.5,
+        "carrier_aft_end_station_m": 0.425,
+        "previous_mount_row_to_carrier_aft_end_mm": 35.0,
+        "third_mount_row_to_carrier_aft_end_mm": 4.0,
+        "controller_end_to_third_screwhead_axial_clearance_mm": 0.6
+      },
+      "flight_ready": false
+    },
+    {
+      "mode": "modular-tvc-finless-v1",
+      "resolved_copy": "build/wo03-recovery-packaging/modular-tvc-finless-v1/resolved-copy.yaml",
+      "assembly_glb": "build/wo03-recovery-packaging/modular-tvc-finless-v1/assembly.glb",
+      "assembly_step": "build/wo03-recovery-packaging/modular-tvc-finless-v1/assembly.step",
+      "package_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.6507087580080347,
+            "cg_station_m": 0.7286011721576747,
+            "cg_lateral_m": [
+              0.00028588739926143687,
+              3.941507709344938e-05
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0002973988803761717,
+                0.00021675739633572025,
+                -0.000279958054523807
+              ],
+              [
+                0.00021675739633572025,
+                0.10695411771450926,
+                6.700117289776728e-07
+              ],
+              [
+                -0.000279958054523807,
+                6.700117289776728e-07,
+                0.10694626213728281
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.5687087580080347,
+            "cg_station_m": 0.6718784587673264,
+            "cg_lateral_m": [
+              0.0003271084397489249,
+              4.5098190420178195e-05
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00028877081629033577,
+                0.0002273094906312341,
+                -0.0002785032453533801
+              ],
+              [
+                0.0002273094906312341,
+                0.09226317393373405,
+                6.710689553360635e-07
+              ],
+              [
+                -0.0002785032453533801,
+                6.710689553360635e-07,
+                0.0922553108339397
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.06415878736947342,
+            "cg_with_50g_aft_growth_m": 0.7630947347339814,
+            "static_margin_cal": -10.589938596431939
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.06415878736947342,
+            "cg_with_50g_aft_growth_m": 0.7155275532921577,
+            "static_margin_cal": -9.869223726101275
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-tvc-finless-v1",
+          "mode": "tvc_finless",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.6507087580080347,
+          "burnout_mass_kg": 0.5687087580080347,
+          "cg_liftoff_m": 0.7286011721576747,
+          "cg_burnout_m": 0.6718784587673264,
+          "cg_lateral_liftoff_m": [
+            0.00028588739926143687,
+            3.941507709344938e-05
+          ],
+          "cg_lateral_burnout_m": [
+            0.0003271084397489249,
+            4.5098190420178195e-05
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0002973988803761717,
+              0.00021675739633572025,
+              -0.000279958054523807
+            ],
+            [
+              0.00021675739633572025,
+              0.10695411771450926,
+              6.700117289776728e-07
+            ],
+            [
+              -0.000279958054523807,
+              6.700117289776728e-07,
+              0.10694626213728281
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.00028877081629033577,
+              0.0002273094906312341,
+              -0.0002785032453533801
+            ],
+            [
+              0.0002273094906312341,
+              0.09226317393373405,
+              6.710689553360635e-07
+            ],
+            [
+              -0.0002785032453533801,
+              6.710689553360635e-07,
+              0.0922553108339397
+            ]
+          ],
+          "cp_m": 0.06415878736947342,
+          "static_margins_with_aft_mass_allowance_cal": [
+            -10.589938596431939,
+            -9.869223726101275
+          ],
+          "average_TWR_diagnostic_only": 1.8137803278517393,
+          "source_terminal_time_s": 12.601,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.7007087580080348,
+            "rail_exit_time_s": 0.7626359735185914,
+            "rail_exit_speed_mps": 12.924293318593698,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 11.385861499706381,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 9.701090176545168,
+            "screening_wind_mps": 1.0,
+            "kinematic_crosswind_angle_rad": 0.07721981785685782,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.003,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.018221315930637375,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.03855402325837641,
+            "motor_liner": 0.012267894179526973,
+            "motor": 0.15,
+            "tvc_gimbal": 0.007529086193889445,
+            "gimbal_links": 0.008,
+            "servo_support": 0.004904855264343459,
+            "thermal_guard": 0.00420495893497683,
+            "servo_pitch": 0.014,
+            "servo_yaw": 0.014,
+            "gimbal_inner": 0.0058844204505552064,
+            "gimbal_frame": 0.02565145543439037,
+            "outer_pivots": 0.002,
+            "inner_pivots": 0.002,
+            "servo_horns": 6.655778195895337e-05,
+            "motor_radiant_shield": 0.0007997655462481468,
+            "thrust_pads": 0.00022546973890680044,
+            "aft_retainer": 0.0036969317340842076,
+            "retention_hardware": 0.007,
+            "cassette_mount_screws": 0.0015,
+            "aft_thrust_pads": 0.00029932937844339547,
+            "recovery_easymini_components": 0.0035,
+            "recovery_switch_g11_doubler": 0.0020781194772935183,
+            "recovery_mount_carrier": 0.004297337178998893,
+            "recovery_battery_tray": 0.0006636675,
+            "recovery_battery_band": 0.00035,
+            "recovery_standoffs": 0.0001066507874040663,
+            "recovery_fasteners": 0.0006832587030439369,
+            "recovery_nuts": 0.0002451710517871839,
+            "recovery_sled_fasteners": 0.0006357860964555416,
+            "recovery_sled_nuts": 0.0001944762019057032,
+            "recovery_sled_reinforcement": 0.0003713487113213489,
+            "recovery_mount_hardware_allowance": 0.003139321735486285
+          },
+          "parts_cost_estimate_usd": 532.95,
+          "recovery_area_for_6mps_m2": 0.4627343799137706,
+          "source_assumptions": {
+            "sha256": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+            "source_url": "https://www.thrustcurve.org/simfiles/6015a048b94d0e00040a8436/",
+            "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+            "review_status": "preliminary_numerical_hypothesis",
+            "diameter_m": 0.029,
+            "length_m": 0.156,
+            "loaded_mass_kg": 0.15,
+            "propellant_mass_kg": 0.082,
+            "burn_time_s": 12.601,
+            "total_impulse_ns": 145.84684085,
+            "average_thrust_n": 11.57422750972145,
+            "physical_configuration_verified": false,
+            "notes": "2021 reformulated curve: 150 g, 156 mm, integrated impulse differs from TRA report 143.97 N s, 150.32 g, 155.98 mm and advertised 147 mm. No dimension or summary is overwritten."
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "baseline_mass_and_inertia": {
+        "states": [
+          {
+            "burn_fraction": 0.0,
+            "mass_kg": 0.6459436205643382,
+            "cg_station_m": 0.73091721300277,
+            "cg_lateral_m": [
+              0.0002879963989048658,
+              -0.000565717773442364
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0002925403062218616,
+                0.000216326544035419,
+                -0.0001655297776573565
+              ],
+              [
+                0.000216326544035419,
+                0.10646873736508101,
+                5.574391519437823e-07
+              ],
+              [
+                -0.0001655297776573565,
+                5.574391519437823e-07,
+                0.1064644737296394
+              ]
+            ]
+          },
+          {
+            "burn_fraction": 1.0,
+            "mass_kg": 0.5639436205643381,
+            "cg_station_m": 0.6740519744144133,
+            "cg_lateral_m": [
+              0.0003298724018403493,
+              -0.0006479757434427206
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0002838822071982569,
+                0.0002269051523331651,
+                -0.00018630957474883526
+              ],
+              [
+                0.0002269051523331651,
+                0.0919329506746014,
+                5.421367481272672e-07
+              ],
+              [
+                -0.00018630957474883526,
+                5.421367481272672e-07,
+                0.09192870930784489
+              ]
+            ]
+          }
+        ],
+        "margins_with_full_50g_aft_growth": [
+          {
+            "burn_fraction": 0.0,
+            "cp_station_m": 0.06415878736947342,
+            "cg_with_50g_aft_growth_m": 0.7654805578472218,
+            "static_margin_cal": -10.626087431481036
+          },
+          {
+            "burn_fraction": 1.0,
+            "cp_station_m": 0.06415878736947342,
+            "cg_with_50g_aft_growth_m": 0.7178628397420067,
+            "static_margin_cal": -9.904606854129291
+          }
+        ],
+        "preliminary_screen": {
+          "vehicle": "modular-tvc-finless-v1",
+          "mode": "tvc_finless",
+          "checks": {
+            "spec_valid": true,
+            "mass_with_growth_below_1p5kg": true,
+            "single_G_scope_evidence_declared": true,
+            "source_traceable_and_config_consistent": true,
+            "all_parts_have_build_and_cost": true,
+            "rail_departure_screen": true,
+            "mode_static_margin_screen": true,
+            "mode_useful_control_time_screen": true,
+            "independent_static_reference": false
+          },
+          "preliminary_design_benchmark_passed": false,
+          "flight_ready": false,
+          "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+          "nominal_mass_kg": 0.6459436205643382,
+          "burnout_mass_kg": 0.5639436205643381,
+          "cg_liftoff_m": 0.73091721300277,
+          "cg_burnout_m": 0.6740519744144133,
+          "cg_lateral_liftoff_m": [
+            0.0002879963989048658,
+            -0.000565717773442364
+          ],
+          "cg_lateral_burnout_m": [
+            0.0003298724018403493,
+            -0.0006479757434427206
+          ],
+          "inertia_liftoff_kg_m2": [
+            [
+              0.0002925403062218616,
+              0.000216326544035419,
+              -0.0001655297776573565
+            ],
+            [
+              0.000216326544035419,
+              0.10646873736508101,
+              5.574391519437823e-07
+            ],
+            [
+              -0.0001655297776573565,
+              5.574391519437823e-07,
+              0.1064644737296394
+            ]
+          ],
+          "inertia_burnout_kg_m2": [
+            [
+              0.0002838822071982569,
+              0.0002269051523331651,
+              -0.00018630957474883526
+            ],
+            [
+              0.0002269051523331651,
+              0.0919329506746014,
+              5.421367481272672e-07
+            ],
+            [
+              -0.00018630957474883526,
+              5.421367481272672e-07,
+              0.09192870930784489
+            ]
+          ],
+          "cp_m": 0.06415878736947342,
+          "static_margins_with_aft_mass_allowance_cal": [
+            -10.626087431481036,
+            -9.904606854129291
+          ],
+          "average_TWR_diagnostic_only": 1.8271606172140455,
+          "source_terminal_time_s": 12.601,
+          "launch_screen": {
+            "worst_case_mass_kg": 0.6959436205643382,
+            "rail_exit_time_s": 0.7587375644013226,
+            "rail_exit_speed_mps": 13.035440885660378,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 11.39533525347349,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 9.635118362269083,
+            "screening_wind_mps": 1.0,
+            "kinematic_crosswind_angle_rad": 0.0765639789556925,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "reference_comparison": null,
+          "parts_budget_kg": {
+            "nose_cone": 0.033017273687055475,
+            "body_upper": 0.05603234701199932,
+            "interface_coupler": 0.02106733049353741,
+            "avionics_bay": 0.00904460569417429,
+            "recovery_bulkhead": 0.0302337452203521,
+            "recovery_anchor": 0.004,
+            "parachute": 0.035,
+            "shock_cord": 0.01,
+            "recovery_protection": 0.006,
+            "independent_recovery": 0.0065,
+            "micro_sd": 0.003,
+            "adhesive_finish": 0.012,
+            "rail_guides": 0.0006229991634585588,
+            "flight_computer": 0.012,
+            "imu": 0.002,
+            "baro": 0.001,
+            "battery": 0.03,
+            "regulator_5v": 0.008,
+            "pyro_mosfet": 0.003,
+            "arming_switch": 0.003,
+            "harness": 0.012,
+            "joint_stop": 0.0013192554674232185,
+            "high_g_accel": 0.001,
+            "recovery_battery": 0.0036,
+            "recovery_power_switch": 0.0037,
+            "recovery_mount_carrier": 0.0014669700000000002,
+            "recovery_alignment_pins": 0.00025,
+            "recovery_mount_hardware_allowance": 0.00628303,
+            "recovery_output_harness": 0.004,
+            "aft_shell": 0.018221315930637375,
+            "aft_interface_hardware": 0.006,
+            "motor_mount": 0.03855402325837641,
+            "motor_liner": 0.012267894179526973,
+            "motor": 0.15,
+            "tvc_gimbal": 0.007529086193889445,
+            "gimbal_links": 0.008,
+            "servo_support": 0.004904855264343459,
+            "thermal_guard": 0.00420495893497683,
+            "servo_pitch": 0.014,
+            "servo_yaw": 0.014,
+            "gimbal_inner": 0.0058844204505552064,
+            "gimbal_frame": 0.02565145543439037,
+            "outer_pivots": 0.002,
+            "inner_pivots": 0.002,
+            "servo_horns": 6.655778195895337e-05,
+            "motor_radiant_shield": 0.0007997655462481468,
+            "thrust_pads": 0.00022546973890680044,
+            "aft_retainer": 0.0036969317340842076,
+            "retention_hardware": 0.007,
+            "cassette_mount_screws": 0.0015,
+            "aft_thrust_pads": 0.00029932937844339547
+          },
+          "parts_cost_estimate_usd": 532.95,
+          "recovery_area_for_6mps_m2": 0.4595875762025095,
+          "source_assumptions": {
+            "sha256": "602ba205b51341871cff72c39a2b60cea4ae71137a3d65a1066b1a5330eb9b33",
+            "source_url": "https://www.thrustcurve.org/simfiles/6015a048b94d0e00040a8436/",
+            "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+            "review_status": "preliminary_numerical_hypothesis",
+            "diameter_m": 0.029,
+            "length_m": 0.156,
+            "loaded_mass_kg": 0.15,
+            "propellant_mass_kg": 0.082,
+            "burn_time_s": 12.601,
+            "total_impulse_ns": 145.84684085,
+            "average_thrust_n": 11.57422750972145,
+            "physical_configuration_verified": false,
+            "notes": "2021 reformulated curve: 150 g, 156 mm, integrated impulse differs from TRA report 143.97 N s, 150.32 g, 155.98 mm and advertised 147 mm. No dimension or summary is overwritten."
+          },
+          "later_required_gates": [
+            "exact sold motor/source/envelope and California approval",
+            "WO-02 rail/trajectory/recovery and crosswind validation",
+            "WO-03 CAD, measured masses, proof loads and temperatures",
+            "WO-06/07 realistic PID and RL validation",
+            "WO-09/10 independent recovery, abort and HIL",
+            "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+          ]
+        },
+        "flight_ready": false
+      },
+      "candidate_mass_delta_g": 4.765137443696554,
+      "replaced_active_mount_mass_g": 8.0,
+      "candidate_component_masses_g": {
+        "recovery_easymini_components": 3.5,
+        "recovery_switch_g11_doubler": 2.078119477293518,
+        "recovery_mount_carrier": 4.297337178998893,
+        "recovery_battery_tray": 0.6636675,
+        "recovery_battery_band": 0.35,
+        "recovery_standoffs": 0.10665078740406629,
+        "recovery_fasteners": 0.683258703043937,
+        "recovery_nuts": 0.2451710517871839,
+        "recovery_sled_fasteners": 0.6357860964555416,
+        "recovery_sled_nuts": 0.1944762019057032,
+        "recovery_sled_reinforcement": 0.3713487113213489,
+        "recovery_mount_hardware_allowance": 3.139321735486285
+      },
+      "new_modeled_mount_and_retention_mass_g": 12.765137443696474,
+      "candidate_mass_delta_vs_previous_two_row_candidate_g": -2.153094835277246,
+      "old_allowance_reduction": {
+        "old_generic_allowance_g": 6.28303,
+        "explicit_new_hardware_deducted_g": 3.143708264513715,
+        "residual_allowance_g": 3.139321735486285,
+        "calculation": "max(0, old 6.283 g allowance - CAD-derived tray/band/screw/nut/reinforcement masses)"
+      },
+      "inserted_pair_intersections": [
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "unexplained_candidate_intersections": [],
+      "named_contact_pair_intersections": [
+        {
+          "a": "body_upper",
+          "b": "recovery_power_switch",
+          "intersection_mm3": 129.39174768104908
+        },
+        {
+          "a": "avionics_bay",
+          "b": "recovery_sled_fasteners",
+          "intersection_mm3": 58.90486225480867
+        },
+        {
+          "a": "recovery_power_switch",
+          "b": "recovery_switch_g11_doubler",
+          "intersection_mm3": 409.11282556406206
+        }
+      ],
+      "cad_solid_validity": {
+        "nose_cone": true,
+        "body_upper": true,
+        "interface_coupler": true,
+        "avionics_bay": true,
+        "recovery_bulkhead": true,
+        "recovery_anchor": true,
+        "parachute": true,
+        "shock_cord": true,
+        "recovery_protection": true,
+        "independent_recovery": true,
+        "micro_sd": true,
+        "adhesive_finish": true,
+        "rail_guides": true,
+        "flight_computer": true,
+        "imu": true,
+        "baro": true,
+        "battery": true,
+        "regulator_5v": true,
+        "pyro_mosfet": true,
+        "arming_switch": true,
+        "harness": true,
+        "joint_stop": true,
+        "high_g_accel": true,
+        "recovery_battery": true,
+        "recovery_power_switch": true,
+        "recovery_output_harness": true,
+        "aft_shell": true,
+        "aft_interface_hardware": true,
+        "motor_mount": true,
+        "motor_liner": true,
+        "motor": true,
+        "tvc_gimbal": true,
+        "gimbal_links": true,
+        "servo_support": true,
+        "thermal_guard": true,
+        "servo_pitch": true,
+        "servo_yaw": true,
+        "gimbal_inner": true,
+        "gimbal_frame": true,
+        "outer_pivots": true,
+        "inner_pivots": true,
+        "servo_horns": true,
+        "motor_radiant_shield": true,
+        "thrust_pads": true,
+        "aft_retainer": true,
+        "retention_hardware": true,
+        "cassette_mount_screws": true,
+        "aft_thrust_pads": true,
+        "recovery_easymini_components": true,
+        "recovery_switch_g11_doubler": true,
+        "recovery_mount_carrier": true,
+        "recovery_battery_tray": true,
+        "recovery_battery_band": true,
+        "recovery_standoffs": true,
+        "recovery_fasteners": true,
+        "recovery_nuts": true,
+        "recovery_sled_fasteners": true,
+        "recovery_sled_nuts": true,
+        "recovery_sled_reinforcement": true,
+        "recovery_mount_hardware_allowance": true
+      },
+      "recovery_topology": [
+        {
+          "net": "RECOVERY_BAT_POS",
+          "from": "recovery_battery",
+          "to": "recovery_power_switch"
+        },
+        {
+          "net": "RECOVERY_ARMED_POS",
+          "from": "recovery_power_switch",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_RETURN",
+          "from": "recovery_battery",
+          "to": "independent_recovery"
+        },
+        {
+          "net": "RECOVERY_OUTPUT_BUNDLE",
+          "from": "independent_recovery",
+          "to": "recovery_output_harness"
+        }
+      ],
+      "recovery_topology_passed": true,
+      "switch_tool_corridor": {
+        "diameter_mm": 6.0,
+        "depth_mm": 25.0,
+        "intersects_other_copied_parts": [],
+        "clear_of_other_copied_parts": true,
+        "actuator_tool_interface_verified": false
+      },
+      "service_sweeps": {
+        "carrier_removal": {
+          "path_id": "remove_aft_module_disconnect_leads_remove_mounts_then_slide_carrier_aft_through_coupler",
+          "translation_mm": [
+            0.0,
+            0.0,
+            585.0
+          ],
+          "start_offset_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sample_step_count": 293,
+          "sample_spacing_mm_max": 1.9965870307167235,
+          "source_tolerance_mm_each": 0.25,
+          "nominal_brep_collision": null,
+          "nominal_brep_clear": true,
+          "expanded_bound_collision_candidate": null,
+          "expanded_bound_clear": true,
+          "minimum_checked_brep_separation_mm": 0.8999999999999986,
+          "expected_start_contact_pairs": [],
+          "moving_parts": [
+            "independent_recovery",
+            "recovery_battery",
+            "recovery_battery_tray",
+            "recovery_easymini_components",
+            "recovery_fasteners",
+            "recovery_mount_carrier",
+            "recovery_nuts",
+            "recovery_standoffs"
+          ],
+          "checked_obstacle_parts": [
+            "adhesive_finish",
+            "arming_switch",
+            "avionics_bay",
+            "baro",
+            "battery",
+            "body_upper",
+            "flight_computer",
+            "harness",
+            "high_g_accel",
+            "imu",
+            "interface_coupler",
+            "joint_stop",
+            "micro_sd",
+            "nose_cone",
+            "parachute",
+            "pyro_mosfet",
+            "rail_guides",
+            "recovery_anchor",
+            "recovery_bulkhead",
+            "recovery_power_switch",
+            "recovery_protection",
+            "recovery_sled_nuts",
+            "recovery_sled_reinforcement",
+            "recovery_switch_g11_doubler",
+            "regulator_5v",
+            "shock_cord",
+            "thermal_guard",
+            "tvc_gimbal"
+          ],
+          "analytic_radial_obstacle_proofs": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "active_body_upper_aft_end_station_m": 0.918,
+          "carrier_front_station_m": 0.333,
+          "axial_translation_mm_through_coupler_opening": 585.0,
+          "removed_aft_module_parts_before_sweep": [
+            "aft_interface_hardware",
+            "aft_retainer",
+            "aft_shell",
+            "aft_thrust_pads",
+            "cassette_mount_screws",
+            "gimbal_frame",
+            "gimbal_inner",
+            "gimbal_links",
+            "inner_pivots",
+            "motor",
+            "motor_liner",
+            "motor_mount",
+            "motor_radiant_shield",
+            "outer_pivots",
+            "retention_hardware",
+            "servo_horns",
+            "servo_pitch",
+            "servo_support",
+            "servo_yaw",
+            "thrust_pads"
+          ],
+          "max_package_radial_extent_mm": 23.542201963830614,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 8.957798036169386,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 8.457798036169386,
+          "minimum_radial_bore_clearances": {
+            "body_upper": {
+              "minimum_bore_radius_mm": 32.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 8.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 8.457798036169386,
+              "passed": true
+            },
+            "interface_coupler": {
+              "minimum_bore_radius_mm": 30.5,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 6.957798036169386,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.457798036169386,
+              "passed": true
+            },
+            "joint_stop": {
+              "minimum_bore_radius_mm": 30.6,
+              "moving_package_outer_radial_bound_mm": 23.542201963830614,
+              "nominal_radial_clearance_mm": 7.0577980361693875,
+              "clearance_after_two_0p25mm_source_tolerances_mm": 6.5577980361693875,
+              "passed": true
+            }
+          },
+          "clear_under_screened_assumptions": true,
+          "requires_removing_aft_module_six_carrier_screws_and_controller_output_disconnection": true
+        },
+        "battery_extraction": {
+          "path_segments": [
+            {
+              "path_id": "after_carrier_withdrawal_unplug_release_band_then_lift_cell_outward_from_tray",
+              "translation_mm": [
+                0.0,
+                -8.0,
+                0.0
+              ],
+              "start_offset_mm": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sample_step_count": 16,
+              "sample_spacing_mm_max": 0.5,
+              "source_tolerance_mm_each": 0.25,
+              "nominal_brep_collision": null,
+              "nominal_brep_clear": true,
+              "expanded_bound_collision_candidate": null,
+              "expanded_bound_clear": true,
+              "minimum_checked_brep_separation_mm": 0.0,
+              "expected_start_contact_pairs": [
+                [
+                  "recovery_battery",
+                  "recovery_battery_tray"
+                ]
+              ],
+              "moving_parts": [
+                "recovery_battery"
+              ],
+              "checked_obstacle_parts": [
+                "independent_recovery",
+                "recovery_battery_tray",
+                "recovery_easymini_components",
+                "recovery_fasteners",
+                "recovery_mount_carrier",
+                "recovery_nuts",
+                "recovery_standoffs"
+              ],
+              "analytic_radial_obstacle_proofs": {}
+            }
+          ],
+          "carrier_withdrawal_translation_mm": 585.0,
+          "outward_cell_lift_mm": 8.0,
+          "max_cell_radial_extent_mm": 25.144581921360317,
+          "body_inner_radius_mm": 32.5,
+          "nominal_tube_radial_clearance_mm": 7.355418078639683,
+          "tube_radial_clearance_after_two_source_tolerances_mm": 6.855418078639683,
+          "main_battery_geometry_part_checked": false,
+          "connector_or_lead_protrusion_modeled": false,
+          "clear_under_screened_assumptions": true
+        }
+      },
+      "three_row_mount_beam_screen": {
+        "material": "G11",
+        "hot_modulus_gpa_estimate": 5.0,
+        "support_rows_station_m": [
+          0.36,
+          0.39,
+          0.421
+        ],
+        "mount_row_count": 3,
+        "carrier_length_m": 0.092,
+        "carrier_width_mm": 26.0,
+        "carrier_thickness_mm": 1.0,
+        "rectangular_section_I_mm4": 2.1666666666666665,
+        "board_point_load_n_including_project_factor": 3.4,
+        "board_supported_span_mm": 30.0,
+        "board_simply_supported_deflection_mm": 0.17653846153846156,
+        "cell_overhang_load_n_including_project_factor": 7.6,
+        "cell_cantilever_overhang_mm": 12.0,
+        "cell_cantilever_deflection_mm": 0.4040861538461539,
+        "additional_factor_applied": false,
+        "interpretation": "Linear-elastic beam screen using estimated hot modulus and specified point loads; load path, restraint, fasteners, laminate property and thermal qualification remain unverified."
+      },
+      "axial_service_clearances_mm": {
+        "battery_end_to_board_front": 17.0,
+        "board_end_to_switch_front": 37.612,
+        "battery_end_to_switch_front": 92.713,
+        "carrier_to_sled_face_nominal": 8.5,
+        "carrier_aft_end_station_m": 0.425,
+        "previous_mount_row_to_carrier_aft_end_mm": 35.0,
+        "third_mount_row_to_carrier_aft_end_mm": 4.0,
+        "controller_end_to_third_screwhead_axial_clearance_mm": 0.6
+      },
+      "flight_ready": false
+    }
+  ],
+  "collision_exceptions": [
+    [
+      "body_upper",
+      "recovery_power_switch"
+    ],
+    [
+      "body_upper",
+      "recovery_switch_g11_doubler"
+    ],
+    [
+      "independent_recovery",
+      "recovery_easymini_components"
+    ],
+    [
+      "independent_recovery",
+      "recovery_fasteners"
+    ],
+    [
+      "recovery_battery",
+      "recovery_battery_band"
+    ],
+    [
+      "recovery_battery_tray",
+      "recovery_battery"
+    ],
+    [
+      "recovery_easymini_components",
+      "recovery_standoffs"
+    ],
+    [
+      "recovery_fasteners",
+      "recovery_nuts"
+    ],
+    [
+      "recovery_fasteners",
+      "recovery_standoffs"
+    ],
+    [
+      "recovery_mount_carrier",
+      "recovery_battery_tray"
+    ],
+    [
+      "recovery_mount_carrier",
+      "recovery_fasteners"
+    ],
+    [
+      "recovery_mount_carrier",
+      "recovery_nuts"
+    ],
+    [
+      "recovery_mount_carrier",
+      "recovery_sled_fasteners"
+    ],
+    [
+      "recovery_mount_carrier",
+      "recovery_standoffs"
+    ],
+    [
+      "recovery_sled_fasteners",
+      "avionics_bay"
+    ],
+    [
+      "recovery_sled_fasteners",
+      "recovery_sled_nuts"
+    ],
+    [
+      "recovery_sled_nuts",
+      "avionics_bay"
+    ],
+    [
+      "recovery_sled_reinforcement",
+      "avionics_bay"
+    ],
+    [
+      "recovery_sled_reinforcement",
+      "recovery_sled_fasteners"
+    ],
+    [
+      "recovery_standoffs",
+      "independent_recovery"
+    ],
+    [
+      "recovery_switch_g11_doubler",
+      "recovery_power_switch"
+    ]
+  ],
+  "previous_candidate_reference": {
+    "record_id": "runs/wo03-recovery-packaging-20261030T225451142327Z/record.json",
+    "package_mass_delta_g": 6.9182322789738,
+    "new_package_mass_delta_g": 4.765137443696554,
+    "mass_delta_reduction_g": 2.153094835277246
+  },
+  "three_row_mount_beam_screen": {
+    "material": "G11",
+    "hot_modulus_gpa_estimate": 5.0,
+    "support_rows_station_m": [
+      0.36,
+      0.39,
+      0.421
+    ],
+    "mount_row_count": 3,
+    "carrier_length_m": 0.092,
+    "carrier_width_mm": 26.0,
+    "carrier_thickness_mm": 1.0,
+    "rectangular_section_I_mm4": 2.1666666666666665,
+    "board_point_load_n_including_project_factor": 3.4,
+    "board_supported_span_mm": 30.0,
+    "board_simply_supported_deflection_mm": 0.17653846153846156,
+    "cell_overhang_load_n_including_project_factor": 7.6,
+    "cell_cantilever_overhang_mm": 12.0,
+    "cell_cantilever_deflection_mm": 0.4040861538461539,
+    "additional_factor_applied": false,
+    "interpretation": "Linear-elastic beam screen using estimated hot modulus and specified point loads; load path, restraint, fasteners, laminate property and thermal qualification remain unverified."
+  },
+  "portable_copy_output": {
+    "latest_json": "build/wo03-recovery-packaging/latest.json",
+    "mode_copy_root": "build/wo03-recovery-packaging",
+    "resolved_spec_filenames": [
+      "build/wo03-recovery-packaging/modular-performance-v1/resolved-copy.yaml",
+      "build/wo03-recovery-packaging/modular-performance-g54-hypothesis/resolved-copy.yaml",
+      "build/wo03-recovery-packaging/modular-tvc-finned-v1/resolved-copy.yaml",
+      "build/wo03-recovery-packaging/modular-tvc-finless-v1/resolved-copy.yaml"
+    ],
+    "assembly_glb_filenames": [
+      "build/wo03-recovery-packaging/modular-performance-v1/assembly.glb",
+      "build/wo03-recovery-packaging/modular-performance-g54-hypothesis/assembly.glb",
+      "build/wo03-recovery-packaging/modular-tvc-finned-v1/assembly.glb",
+      "build/wo03-recovery-packaging/modular-tvc-finless-v1/assembly.glb"
+    ]
+  },
+  "source_deployment_or_hardware_qualification": false,
+  "acceptance_passed": false,
+  "flight_ready": false,
+  "open_questions": [
+    "Exact Schurter 0033.4518 drawing, bushing length, anti-rotation/retention stack and DC contact rating.",
+    "Exact EasyMini terminal/pressure-port keepouts and board orientation versus the drawing.",
+    "Cell connector polarity, pulse sag, cell retention and validation by approved ground-load test.",
+    "Real flexible-wire bend and strain-relief path, arming-hole physical access, connector service access.",
+    "Crossbar local reinforcement print process, captive nuts, screw lengths and extraction path.",
+    "G11-to-sled attachment strength, component relief adequacy and standoff/screw preload.",
+    "No physical fit, deployment proof, electrical fault test or hardware release is claimed."
+  ]
+}

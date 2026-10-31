@@ -1,5 +1,7 @@
 # WO-03 selected-package closure progress
 
+**Model correction:** historical aft-canted pose/rate results below require revalidation after the [spec-owned fixed-shaft correction](wo03-fixed-shaft-correction.md). Mass/adhesive ledgers and independent load bounds are unaffected. Original outward-arm/cap and flat inboard-arm nominal conflicts remain separate findings.
+
 Updated 2026-10-31. G80 remains the conventional reference, G54 conditional and G12
 the PID-to-RL trainer. Substantial custom construction and the work-order sequence
 remain unchanged. **Expanded WO-03 acceptance is open.** PR #9 is merged at

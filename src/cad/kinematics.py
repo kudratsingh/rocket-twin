@@ -10,6 +10,7 @@ Reference: Shigley, Mechanical Engineering Design, linkage position analysis.
 from __future__ import annotations
 
 import importlib
+from collections.abc import Callable
 from typing import Any
 
 cq: Any = importlib.import_module("cadquery")
@@ -30,17 +31,29 @@ def linkage(vehicle: Vehicle, pitch: float, yaw: float) -> dict[str, Any]:
     assert vehicle.tvc
     ps = {p.id: p for p in vehicle.parts}
     links = ps["gimbal_links"]
-    assert links.cad
+    horns = ps["servo_horns"]
+    assert links.cad and horns.cad
     pivot = np.array([0, 0, vehicle.tvc.pivot_position_m * 1000])
     rx, ry = rotation(pitch, yaw)
     results = []
     for i, (a, b) in enumerate(links.cad.parameters["segments_mm"]):
         a = np.array(a, dtype=float) + [0, 0, links.position_m * 1000]
         b = np.array(b, dtype=float) + [0, 0, links.position_m * 1000]
-        servo = ps["servo_yaw" if i == 0 else "servo_pitch"]
-        shaft = np.array(
-            [servo.lateral_offset_m[0] * 1000, -servo.lateral_offset_m[1] * 1000, a[2]]
+        # The manufactured horn declares the shaft and neutral tip. Inferring
+        # shaft height from the rod tip silently moves a canted horn's shaft
+        # and shortens its effective lever arm. Flat legacy horns are unchanged.
+        shaft_local, tip_local = horns.cad.parameters["segments_mm"][i]
+        offset = np.array(
+            [
+                horns.lateral_offset_m[0] * 1000,
+                -horns.lateral_offset_m[1] * 1000,
+                horns.position_m * 1000,
+            ]
         )
+        shaft = np.array(shaft_local, dtype=float) + offset
+        tip = np.array(tip_local, dtype=float) + offset
+        if not np.allclose(a, tip, rtol=0, atol=1e-7):
+            raise ValueError("Rod neutral start must match the spec-owned servo-horn tip")
         arm = a - shaft
         end = pivot + ry @ ((b - pivot) if i == 0 else rx @ (b - pivot))
         length = np.linalg.norm(b - a)
@@ -49,12 +62,36 @@ def linkage(vehicle: Vehicle, pitch: float, yaw: float) -> dict[str, Any]:
             rp, r_y = rotation(angle if i == 1 else 0, angle if i == 0 else 0)
             return shaft + (r_y if i == 0 else rp) @ arm
 
-        theta = brentq(
-            lambda angle, end=end, horn=horn, length=length: np.linalg.norm(end - horn(angle))
-            - length,
-            -60,
-            60,
-        )
+        def closure(
+            angle: float,
+            end: Any = end,
+            horn_fn: Callable[[float], Any] = horn,
+            rod_length: float = float(length),
+        ) -> float:
+            return float(np.linalg.norm(end - horn_fn(angle)) - rod_length)
+
+        alternatives: list[float] = []
+        if abs(closure(0)) < 1e-10:
+            theta = 0.0
+        elif closure(-60) * closure(60) < 0:
+            # Preserve the original monotone flat-horn solution and precision.
+            theta = float(brentq(closure, -60, 60))
+        else:
+            # Canted arms can have two interior roots despite equal endpoint
+            # signs. Select the assembly solution nearest neutral, and expose
+            # ambiguity rather than claiming continuous branch validation.
+            angles = np.linspace(-60, 60, 241)
+            residuals = [closure(float(a)) for a in angles]
+            for a0, a1, f0, f1 in zip(angles[:-1], angles[1:], residuals[:-1], residuals[1:]):
+                if abs(f0) < 1e-10:
+                    alternatives.append(float(a0))
+                elif f0 * f1 < 0:
+                    alternatives.append(float(brentq(closure, float(a0), float(a1))))
+            if abs(residuals[-1]) < 1e-10:
+                alternatives.append(float(angles[-1]))
+            if not alternatives:
+                raise ValueError("No fixed-length linkage solution within the ±60° model bounds")
+            theta = min(alternatives, key=abs)
         results.append(
             {
                 "shaft_deg": theta,
@@ -62,6 +99,8 @@ def linkage(vehicle: Vehicle, pitch: float, yaw: float) -> dict[str, Any]:
                 "end_mm": end.tolist(),
                 "shaft_mm": shaft.tolist(),
                 "rod_length_mm": float(length),
+                "interior_solution_candidates_deg": alternatives,
+                "continuous_branch_validation": "not established by an isolated pose",
             }
         )
     return {"axes": results}

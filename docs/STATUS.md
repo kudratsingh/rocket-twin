@@ -27,7 +27,7 @@ forward-shifted carbon/PVC fin/root copy is 81.948 g, with explicit gap bonds.
 Reallocating duplicated root adhesive removes 3.626547 g from the vehicle bill.
 The complete recovery/fin copy with an 8 g thermal mass probe passes the guide
 arithmetic narrowly (10.01298 m/s on current rails), but rod/cassette motion and
-matched/single-leg rail capacity still fail. No candidate is adopted. See the
+matched/single-leg rail capacity still fail. The canted-horn motion/rate diagnostics are now superseded by the [fixed-shaft model correction](wo03-fixed-shaft-correction.md) and require revalidation; their mass and hand-load ledgers are unaffected. No candidate is adopted. See the
 [closure table](wo03-package-closure-progress.md), [thermal correction](wo03-multilayer-shield.md),
 [fin/root study](wo03-trainer-fin-package.md) and [recovery audit](wo03-recovery-budget-closure.md).
 
@@ -86,6 +86,11 @@ PRs #4–10 are merged after required hosted checks. Geometry remains the
 [PR #10](https://github.com/kudratsingh/rocket-twin/pull/10) publishes the subsequent
 analysis/budget tools at `e41c6c0693da02afa27b1c208cbd97eb16c73261`; exact-head
 workflow `41149095128` passed before merge.
+[PR #11](https://github.com/kudratsingh/rocket-twin/pull/11) is open for the subsequent
+correction methods/evidence. Its first hosted check caught two referenced local
+evidence records missing from the commit; they are being published with the
+fixed-shaft linkage correction. Merge remains gated on the required checks for
+the final head. Frontend implementation remains held for its separate preview PR.
 The next correction package remains isolated: no braced-mount, recovery-anchor or
 trainer-fin candidate is adopted merely because an individual screen passes.
 Earlier closure-foundation test run: 123 tests passed; the latest local check is recorded above. See the [three-priority closure progress](wo03-package-closure-progress.md),

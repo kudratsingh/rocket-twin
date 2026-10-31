@@ -1,0 +1,1150 @@
+{
+  "run_id": "wo03-secondary-shield-20261031T001841Z",
+  "source_candidate": "build/wo03-correction-package/latest/G54-0.075/resolved-candidate.yaml",
+  "source_sha256": "5b08b5c64988cc37305dcd58d927339ee3e73daa926cddd993c1fa73bdcc48ba",
+  "source_inputs_sha256_before": {
+    "build/wo03-correction-package/latest/G54-0.075/resolved-candidate.yaml": "5b08b5c64988cc37305dcd58d927339ee3e73daa926cddd993c1fa73bdcc48ba",
+    "build/wo03-correction-package/latest-record.json": "126eff3c42c92461155a0951e7934e8e63f8a8e0257d70ec64fe6d8b8dda358b",
+    "configs/engineering/wo03-thermal-acceptance.yaml": "855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-thermal-topology.yaml": "cd5d8ca2553048205ed2b9432740e151c933ddeccb3e44076a7f60ae1d1d882a"
+  },
+  "source_inputs_sha256_after": {
+    "build/wo03-correction-package/latest/G54-0.075/resolved-candidate.yaml": "5b08b5c64988cc37305dcd58d927339ee3e73daa926cddd993c1fa73bdcc48ba",
+    "build/wo03-correction-package/latest-record.json": "126eff3c42c92461155a0951e7934e8e63f8a8e0257d70ec64fe6d8b8dda358b",
+    "configs/engineering/wo03-thermal-acceptance.yaml": "855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-thermal-topology.yaml": "cd5d8ca2553048205ed2b9432740e151c933ddeccb3e44076a7f60ae1d1d882a"
+  },
+  "case_id": "combined_300C_eps09_at35C",
+  "geometry_candidates": [
+    0.018,
+    0.022
+  ],
+  "records": [
+    {
+      "candidate_id": "G54_R18mm",
+      "mode": "modular-performance-g54-hypothesis",
+      "candidate_vehicle_identity_sha256": "b327b4e728fc264466fdac86d3191ae0016e53551dca412d48e21e8aafb47338",
+      "case_id": "combined_300C_eps09_at35C",
+      "role": "required_robustness_case",
+      "ambient_c": 35.0,
+      "prescribed_case_peak_c": 300.0,
+      "prelaunch_powered_soak_s": 0.0,
+      "prelaunch_energy_balance": null,
+      "initial_condition": {
+        "units": {
+          "temperature": "C"
+        },
+        "basis": "configured ambient unless study initial_temperature_c or per-part overrides are provided",
+        "configured_ambient_c": 35.0,
+        "requested_part_overrides_c": {},
+        "overrides_not_present_in_vehicle": [],
+        "initial_temperature_by_part_c": {
+          "motor_liner": 34.99999999999994,
+          "motor_radiant_shield": 35.0,
+          "motor_mount": 35.0,
+          "retention": 35.0,
+          "thrust_pads": 35.0,
+          "aft_thrust_pads": 35.0,
+          "aft_retainer": 35.0,
+          "retention_hardware": 35.0,
+          "aft_shell": 35.0,
+          "fin_bonds": 35.0,
+          "flight_computer": 35.0,
+          "battery": 35.0,
+          "mount_shell_bond_0": 35.0,
+          "mount_shell_bond_1": 35.0,
+          "mount_shell_bond_2": 35.0,
+          "mount_shell_bond_3": 35.0,
+          "mount_shell_bond_4": 35.0,
+          "secondary_radiant_shield": 35.0,
+          "shield_spacer_front": 35.0,
+          "shield_spacer_aft": 35.0
+        },
+        "initial_temperature_by_node_c": {
+          "motor_liner.cell_0": 35.0,
+          "motor_liner.cell_1": 35.0,
+          "motor_liner.cell_2": 35.0,
+          "motor_liner.cell_3": 35.0,
+          "motor_liner.cell_4": 35.0,
+          "motor_liner.cell_5": 35.0,
+          "motor_liner.cell_6": 35.0,
+          "motor_liner.cell_7": 35.0,
+          "motor_radiant_shield": 35.0,
+          "motor_mount": 35.0,
+          "retention": 35.0,
+          "thrust_pads": 35.0,
+          "aft_thrust_pads": 35.0,
+          "aft_retainer": 35.0,
+          "retention_hardware": 35.0,
+          "aft_shell": 35.0,
+          "fin_bonds": 35.0,
+          "flight_computer": 35.0,
+          "battery": 35.0,
+          "mount_shell_bond_0": 35.0,
+          "mount_shell_bond_1": 35.0,
+          "mount_shell_bond_2": 35.0,
+          "mount_shell_bond_3": 35.0,
+          "mount_shell_bond_4": 35.0,
+          "secondary_radiant_shield": 35.0,
+          "shield_spacer_front": 35.0,
+          "shield_spacer_aft": 35.0
+        }
+      },
+      "cooling_tau_s": 120.0,
+      "burn_time_s": 3.026,
+      "soak_end_time_s": 303.026,
+      "screen_limit_substrate_c": 45.0,
+      "bond_geometry_sensitivity": {
+        "radial_gap_m": 0.00068,
+        "mount_outer_radius_m": 0.03182,
+        "shell_inner_radius_m": 0.0325,
+        "mount_mass_kg": 0.0537475176728661,
+        "mount_volume_m3": 7.918866499440183e-05,
+        "mount_shape_sha256": "908401c1ba059965a6533c0168353ef0ed6ffd6e1c1478f820e8dc52399e7c3e",
+        "bonds": [
+          {
+            "part_id": "mount_shell_bond_0",
+            "gap_m": 0.00068,
+            "axial_position_m": 0.99,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 4.122171685369463e-07,
+            "cad_area_m2": 0.0006062017184366857,
+            "mass_kg": 0.0004946606022443355,
+            "shape_sha256": "61b1efb209e8c1428a472221ea5df58dc8f2fd9e2c881481d16ce3d29430a401",
+            "slot_interrupted": false
+          },
+          {
+            "part_id": "mount_shell_bond_1",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.045,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 4.122171685369463e-07,
+            "cad_area_m2": 0.0006062017184366857,
+            "mass_kg": 0.0004946606022443355,
+            "shape_sha256": "c8b675ffef89493300f211a23b82cf3cfc8139f5a926ef267abd140930c00941",
+            "slot_interrupted": false
+          },
+          {
+            "part_id": "mount_shell_bond_2",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.1,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 3.6744468452084676e-07,
+            "cad_area_m2": 0.0005403598301777158,
+            "mass_kg": 0.0004409336214250161,
+            "shape_sha256": "21dd909be5364d9097937988f261e272267caad883079529a0dca0727d2f280c",
+            "slot_interrupted": true
+          },
+          {
+            "part_id": "mount_shell_bond_3",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.1385,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 3.6744468452084676e-07,
+            "cad_area_m2": 0.0005403598301777158,
+            "mass_kg": 0.0004409336214250161,
+            "shape_sha256": "21dd909be5364d9097937988f261e272267caad883079529a0dca0727d2f280c",
+            "slot_interrupted": true
+          },
+          {
+            "part_id": "mount_shell_bond_4",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.177,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 3.6744468452084676e-07,
+            "cad_area_m2": 0.0005403598301777158,
+            "mass_kg": 0.0004409336214250161,
+            "shape_sha256": "21dd909be5364d9097937988f261e272267caad883079529a0dca0727d2f280c",
+            "slot_interrupted": true
+          }
+        ],
+        "bond_mass_kg": 0.0023121220687637193,
+        "bond_area_m2": 0.0028334829274065188,
+        "bond_volume_m3": 1.926768390636433e-06,
+        "ring_bore_radius_m": 0.0183,
+        "ring_inner_radii_mm": [
+          18.3,
+          18.3,
+          18.3,
+          18.3,
+          18.3
+        ]
+      },
+      "bond_interface_contact_conductance_w_k_per_ring": 2.0,
+      "material_property_corner": "high_k_low_cp",
+      "material_property_factors": {
+        "conductivity": 1.3,
+        "specific_heat": 0.7
+      },
+      "max_temperature_c": 276.30636319903635,
+      "worst_limited_part": {
+        "part_id": "aft_shell",
+        "peak_c": 46.951225194761435,
+        "peak_time_s": 64.0,
+        "screen_limit_c": 45.0,
+        "margin_k": -1.9512251947614345,
+        "material_profile": "cardboard",
+        "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+      },
+      "parts_over_declared_limit": [
+        {
+          "part_id": "motor_mount",
+          "peak_c": 45.35733091951829,
+          "peak_time_s": 155.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -0.3573309195182901,
+          "material_profile": "plywood",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 46.951225194761435,
+          "peak_time_s": 64.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -1.9512251947614345,
+          "material_profile": "cardboard",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        }
+      ],
+      "thermal_screen_status": "FAIL_SCREEN",
+      "energy_residual_j": 4.661160346586257e-11,
+      "peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 276.30636319903635,
+          "peak_time_s": 11.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 23.693636800963645,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "motor_radiant_shield",
+          "peak_c": 153.36107341980647,
+          "peak_time_s": 20.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 146.63892658019353,
+          "material_profile": "aluminum",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 45.35733091951829,
+          "peak_time_s": 155.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -0.3573309195182901,
+          "material_profile": "plywood",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "retention",
+          "peak_c": 43.17625497533692,
+          "peak_time_s": 303.026,
+          "screen_limit_c": 150.0,
+          "margin_k": 106.82374502466308,
+          "material_profile": "G11",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "thrust_pads",
+          "peak_c": 115.5977837507993,
+          "peak_time_s": 15.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 184.4022162492007,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_thrust_pads",
+          "peak_c": 151.0629855543607,
+          "peak_time_s": 20.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 148.9370144456393,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_retainer",
+          "peak_c": 46.13403434442796,
+          "peak_time_s": 257.0,
+          "screen_limit_c": 150.0,
+          "margin_k": 103.86596565557204,
+          "material_profile": "G11",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "retention_hardware",
+          "peak_c": 45.38755552619244,
+          "peak_time_s": 210.0,
+          "screen_limit_c": 150.0,
+          "margin_k": 104.61244447380756,
+          "material_profile": "stainless_fastener",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 46.951225194761435,
+          "peak_time_s": 64.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -1.9512251947614345,
+          "material_profile": "cardboard",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 45.80314138295432,
+          "peak_time_s": 119.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.196858617045677,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 44.259084212234995,
+          "peak_time_s": 165.0,
+          "screen_limit_c": 60.0,
+          "margin_k": 15.740915787765005,
+          "material_profile": "commercial",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 42.59460027329908,
+          "peak_time_s": 303.026,
+          "screen_limit_c": 60.0,
+          "margin_k": 17.40539972670092,
+          "material_profile": "commercial",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_0",
+          "peak_c": 45.42670094865207,
+          "peak_time_s": 111.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.57329905134793,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_1",
+          "peak_c": 45.42670094865207,
+          "peak_time_s": 111.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.57329905134793,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_2",
+          "peak_c": 45.426706069179545,
+          "peak_time_s": 111.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.573293930820455,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_3",
+          "peak_c": 45.426706069179545,
+          "peak_time_s": 111.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.573293930820455,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_4",
+          "peak_c": 45.426706069179545,
+          "peak_time_s": 111.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.573293930820455,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "secondary_radiant_shield",
+          "peak_c": 114.36884963070634,
+          "peak_time_s": 24.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 185.63115036929366,
+          "material_profile": "aluminum",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "shield_spacer_front",
+          "peak_c": 131.60414931455153,
+          "peak_time_s": 30.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 168.39585068544847,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "shield_spacer_aft",
+          "peak_c": 131.60414931455153,
+          "peak_time_s": 30.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 168.39585068544847,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        }
+      ],
+      "limitations": [
+        "Corrected material/thermal topology for the current modeled material package; no physical qualification or measured thermal history is established.",
+        "Exact commercial motor exterior temperatures are still explicit exploratory bounds, not measured histories.",
+        "Closed long-cylinder exchange in each axial band ignores end view factors; not a 3D radiation solution or a universally conservative bound.",
+        "Split clamps, pivot holes, sparse rails, drive lugs and non-coaxial servo envelopes need angular visibility and moving-geometry checks.",
+        "No path radiates through the opaque motor liner, direct liner/shield contact, or intervening modeled annular shield; real openings and nozzle end exposure remain unmodeled.",
+        "The foil shield is an ideal continuous annulus; seam, wrinkles, oxidation, contamination, edge bypass and finite-end view factors are not resolved.",
+        "Only the mica liner resolves radial gradients; the radiant foil and other parts are uniform capacities, not surface hot-spot predictions.",
+        "Static air conduction, no circulation; external shell convection and upper bay cooling are estimated boundary paths.",
+        "Contact conductance ranges are estimates; real fasteners, bonds, printed orientation and temperature-dependent properties require calibration.",
+        "Direct mica/foil contact uses series radial half-wall resistance and bounded interface conductance, with no gap-air conduction or radiation at the touching surfaces.",
+        "Axial retention/support contacts are lumped part-to-node conductances; liner-side contacts map to its outer radial cell and do not resolve end-face heat spreading or plate hotspots.",
+        "Mica thrust-pad cross-section is inferred from recorded CAD volume divided by thickness. Each modeled pad connection adds half-thickness radial conduction in series with an estimated interface conductance; sector contact shape, preload and end-face heat spreading remain unresolved.",
+        "The TVC cassette radial surfaces use the CAD grip-ring radii (motor-clear radius to grip outer radius), not its larger forestop/end-block envelope. If any other coincident annular intervals still overlap radially, the later outer annulus is omitted from that band and the excluded pair is recorded; configured lumped support contacts remain active.",
+        "Radially averaged nodes do not qualify local hot contact plates, pad edges, fastener holes, or bonded interfaces.",
+        "Regular radiative surroundings use emissivity 0.9; the foil outer surface uses 0.1 nominal and 0.3 upper/aged bounds.",
+        "Prescribed case boundary has no finite motor heat capacity or plume model; energy residual checks the network, not the motor's available heat.",
+        "Neither computed passing temperatures nor convergence authorizes materials, physical work or a flight."
+      ],
+      "acceptance_interpretation": "required robustness case; a numerical screen pass does not close the absent exact motor history or foil-aging correlation",
+      "candidate_mass_cg_inertia": {
+        "mass_kg": 0.8362866892158598,
+        "cg_m": 0.8207748645297983,
+        "cg_lateral_m": [
+          -4.766134286291796e-05,
+          0.0001890360331832482
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009980010689192977,
+            0.00018499233607470749,
+            -3.4492873033868845e-05
+          ],
+          [
+            0.00018499233607470749,
+            0.13050248149637167,
+            -1.1053470154256059e-07
+          ],
+          [
+            -3.4492873033868845e-05,
+            -1.1053470154256059e-07,
+            0.13050805753205863
+          ]
+        ],
+        "budget_kg": {
+          "nose_cone": 0.033017273687055475,
+          "body_upper": 0.05603234701199932,
+          "interface_coupler": 0.02106733049353741,
+          "avionics_bay": 0.00904460569417429,
+          "recovery_bulkhead": 0.0302337452203521,
+          "recovery_anchor": 0.004,
+          "parachute": 0.035,
+          "shock_cord": 0.01,
+          "recovery_protection": 0.006,
+          "independent_recovery": 0.0065,
+          "micro_sd": 0.003,
+          "adhesive_finish": 0.012,
+          "rail_guides": 0.0006229991634585588,
+          "flight_computer": 0.012,
+          "imu": 0.002,
+          "baro": 0.001,
+          "battery": 0.03,
+          "regulator_5v": 0.008,
+          "pyro_mosfet": 0.003,
+          "arming_switch": 0.003,
+          "harness": 0.012,
+          "joint_stop": 0.0013192554674232185,
+          "high_g_accel": 0.001,
+          "recovery_battery": 0.0036,
+          "recovery_power_switch": 0.0037,
+          "recovery_mount_carrier": 0.0014669700000000002,
+          "recovery_alignment_pins": 0.00025,
+          "recovery_mount_hardware_allowance": 0.00628303,
+          "recovery_output_harness": 0.004,
+          "aft_shell": 0.01925374538364414,
+          "aft_interface_hardware": 0.006,
+          "motor_mount": 0.0537475176728661,
+          "motor_liner": 0.014705744945971466,
+          "retention": 0.04292932739783429,
+          "fin_set": 0.13979631901740136,
+          "fin_bonds": 0.008,
+          "motor": 0.1982,
+          "motor_radiant_shield": 0.0009586933150538666,
+          "thrust_pads": 0.00029932937844339547,
+          "aft_retainer": 0.020256493058707727,
+          "retention_hardware": 0.007,
+          "aft_thrust_pads": 0.00029932937844339547,
+          "mount_shell_bond_0": 0.0004946606022443355,
+          "mount_shell_bond_1": 0.0004946606022443355,
+          "mount_shell_bond_2": 0.0004409336214250161,
+          "mount_shell_bond_3": 0.0004409336214250161,
+          "mount_shell_bond_4": 0.0004409336214250161,
+          "mount_bond_fillets": 0.001,
+          "secondary_radiant_shield": 0.0011414224181218225,
+          "shield_spacer_front": 0.0006245442213039363,
+          "shield_spacer_aft": 0.0006245442213039363
+        }
+      },
+      "nominal_candidate_mass_cg_inertia": {
+        "mass_kg": 0.8371893750653164,
+        "cg_m": 0.8210161227666386,
+        "cg_lateral_m": [
+          -4.760995279382394e-05,
+          0.0001888322081500183
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009985549865881938,
+            0.0001850019522774059,
+            -3.4531013142814736e-05
+          ],
+          [
+            0.0001850019522774059,
+            0.13054543588609085,
+            -1.1052657737304961e-07
+          ],
+          [
+            -3.4531013142814736e-05,
+            -1.1052657737304961e-07,
+            0.1305510118916038
+          ]
+        ],
+        "budget_kg": {
+          "nose_cone": 0.033017273687055475,
+          "body_upper": 0.05603234701199932,
+          "interface_coupler": 0.02106733049353741,
+          "avionics_bay": 0.00904460569417429,
+          "recovery_bulkhead": 0.0302337452203521,
+          "recovery_anchor": 0.004,
+          "parachute": 0.035,
+          "shock_cord": 0.01,
+          "recovery_protection": 0.006,
+          "independent_recovery": 0.0065,
+          "micro_sd": 0.003,
+          "adhesive_finish": 0.012,
+          "rail_guides": 0.0006229991634585588,
+          "flight_computer": 0.012,
+          "imu": 0.002,
+          "baro": 0.001,
+          "battery": 0.03,
+          "regulator_5v": 0.008,
+          "pyro_mosfet": 0.003,
+          "arming_switch": 0.003,
+          "harness": 0.012,
+          "joint_stop": 0.0013192554674232185,
+          "high_g_accel": 0.001,
+          "recovery_battery": 0.0036,
+          "recovery_power_switch": 0.0037,
+          "recovery_mount_carrier": 0.0014669700000000002,
+          "recovery_alignment_pins": 0.00025,
+          "recovery_mount_hardware_allowance": 0.00628303,
+          "recovery_output_harness": 0.004,
+          "aft_shell": 0.01925374538364414,
+          "aft_interface_hardware": 0.006,
+          "motor_mount": 0.05764765587019078,
+          "motor_liner": 0.014705744945971466,
+          "retention": 0.04292932739783429,
+          "fin_set": 0.13979631901740136,
+          "fin_bonds": 0.008,
+          "motor": 0.1982,
+          "motor_radiant_shield": 0.0009586933150538666,
+          "thrust_pads": 0.00029932937844339547,
+          "aft_retainer": 0.020256493058707727,
+          "retention_hardware": 0.007,
+          "aft_thrust_pads": 0.00029932937844339547,
+          "mount_shell_bond_0": 0.00036473890708177463,
+          "mount_shell_bond_1": 0.00036473890708177463,
+          "mount_shell_bond_2": 0.0003252342558207992,
+          "mount_shell_bond_3": 0.0003252342558207992,
+          "mount_shell_bond_4": 0.0003252342558207992,
+          "mount_bond_fillets": 0.001
+        }
+      },
+      "active_adoption": false,
+      "flight_ready": false,
+      "shield_radius_m": 0.018,
+      "mount_ring_bore_radius_m": 0.0183,
+      "foil_wall_m": 2e-05,
+      "shield_axial_start_m": 1.013,
+      "shield_axial_end_m": 1.2,
+      "shield_axial_length_m": 0.187,
+      "aft_trim_before_retainer_m": 0.0,
+      "cad_intersections_involving_new_parts": [],
+      "cad_validity": {
+        "secondary_radiant_shield": true,
+        "shield_spacer_front": true,
+        "shield_spacer_aft": true
+      },
+      "source_candidate_yaml_sha256": "5b08b5c64988cc37305dcd58d927339ee3e73daa926cddd993c1fa73bdcc48ba",
+      "screen_cells": 8
+    },
+    {
+      "candidate_id": "G54_R22mm",
+      "mode": "modular-performance-g54-hypothesis",
+      "candidate_vehicle_identity_sha256": "140fb249b3f1e2a355ab09fad12a9cbdf308e3545b80b1849a26b740cd798994",
+      "case_id": "combined_300C_eps09_at35C",
+      "role": "required_robustness_case",
+      "ambient_c": 35.0,
+      "prescribed_case_peak_c": 300.0,
+      "prelaunch_powered_soak_s": 0.0,
+      "prelaunch_energy_balance": null,
+      "initial_condition": {
+        "units": {
+          "temperature": "C"
+        },
+        "basis": "configured ambient unless study initial_temperature_c or per-part overrides are provided",
+        "configured_ambient_c": 35.0,
+        "requested_part_overrides_c": {},
+        "overrides_not_present_in_vehicle": [],
+        "initial_temperature_by_part_c": {
+          "motor_liner": 34.99999999999994,
+          "motor_radiant_shield": 35.0,
+          "motor_mount": 35.0,
+          "retention": 35.0,
+          "thrust_pads": 35.0,
+          "aft_thrust_pads": 35.0,
+          "aft_retainer": 35.0,
+          "retention_hardware": 35.0,
+          "aft_shell": 35.0,
+          "fin_bonds": 35.0,
+          "flight_computer": 35.0,
+          "battery": 35.0,
+          "mount_shell_bond_0": 35.0,
+          "mount_shell_bond_1": 35.0,
+          "mount_shell_bond_2": 35.0,
+          "mount_shell_bond_3": 35.0,
+          "mount_shell_bond_4": 35.0,
+          "secondary_radiant_shield": 35.0,
+          "shield_spacer_front": 35.0,
+          "shield_spacer_aft": 35.0
+        },
+        "initial_temperature_by_node_c": {
+          "motor_liner.cell_0": 35.0,
+          "motor_liner.cell_1": 35.0,
+          "motor_liner.cell_2": 35.0,
+          "motor_liner.cell_3": 35.0,
+          "motor_liner.cell_4": 35.0,
+          "motor_liner.cell_5": 35.0,
+          "motor_liner.cell_6": 35.0,
+          "motor_liner.cell_7": 35.0,
+          "motor_radiant_shield": 35.0,
+          "motor_mount": 35.0,
+          "retention": 35.0,
+          "thrust_pads": 35.0,
+          "aft_thrust_pads": 35.0,
+          "aft_retainer": 35.0,
+          "retention_hardware": 35.0,
+          "aft_shell": 35.0,
+          "fin_bonds": 35.0,
+          "flight_computer": 35.0,
+          "battery": 35.0,
+          "mount_shell_bond_0": 35.0,
+          "mount_shell_bond_1": 35.0,
+          "mount_shell_bond_2": 35.0,
+          "mount_shell_bond_3": 35.0,
+          "mount_shell_bond_4": 35.0,
+          "secondary_radiant_shield": 35.0,
+          "shield_spacer_front": 35.0,
+          "shield_spacer_aft": 35.0
+        }
+      },
+      "cooling_tau_s": 120.0,
+      "burn_time_s": 3.026,
+      "soak_end_time_s": 303.026,
+      "screen_limit_substrate_c": 45.0,
+      "bond_geometry_sensitivity": {
+        "radial_gap_m": 0.00068,
+        "mount_outer_radius_m": 0.03182,
+        "shell_inner_radius_m": 0.0325,
+        "mount_mass_kg": 0.048275680084402396,
+        "mount_volume_m3": 7.918866499440183e-05,
+        "mount_shape_sha256": "5b49214a7bafa25afb38f1830331f70476d845b106e3d8e41c55503d62330ecb",
+        "bonds": [
+          {
+            "part_id": "mount_shell_bond_0",
+            "gap_m": 0.00068,
+            "axial_position_m": 0.99,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 4.122171685369463e-07,
+            "cad_area_m2": 0.0006062017184366857,
+            "mass_kg": 0.0004946606022443355,
+            "shape_sha256": "61b1efb209e8c1428a472221ea5df58dc8f2fd9e2c881481d16ce3d29430a401",
+            "slot_interrupted": false
+          },
+          {
+            "part_id": "mount_shell_bond_1",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.045,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 4.122171685369463e-07,
+            "cad_area_m2": 0.0006062017184366857,
+            "mass_kg": 0.0004946606022443355,
+            "shape_sha256": "c8b675ffef89493300f211a23b82cf3cfc8139f5a926ef267abd140930c00941",
+            "slot_interrupted": false
+          },
+          {
+            "part_id": "mount_shell_bond_2",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.1,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 3.6744468452084676e-07,
+            "cad_area_m2": 0.0005403598301777158,
+            "mass_kg": 0.0004409336214250161,
+            "shape_sha256": "21dd909be5364d9097937988f261e272267caad883079529a0dca0727d2f280c",
+            "slot_interrupted": true
+          },
+          {
+            "part_id": "mount_shell_bond_3",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.1385,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 3.6744468452084676e-07,
+            "cad_area_m2": 0.0005403598301777158,
+            "mass_kg": 0.0004409336214250161,
+            "shape_sha256": "21dd909be5364d9097937988f261e272267caad883079529a0dca0727d2f280c",
+            "slot_interrupted": true
+          },
+          {
+            "part_id": "mount_shell_bond_4",
+            "gap_m": 0.00068,
+            "axial_position_m": 1.177,
+            "axial_width_m": 0.003,
+            "cad_volume_m3": 3.6744468452084676e-07,
+            "cad_area_m2": 0.0005403598301777158,
+            "mass_kg": 0.0004409336214250161,
+            "shape_sha256": "21dd909be5364d9097937988f261e272267caad883079529a0dca0727d2f280c",
+            "slot_interrupted": true
+          }
+        ],
+        "bond_mass_kg": 0.0023121220687637193,
+        "bond_area_m2": 0.0028334829274065188,
+        "bond_volume_m3": 1.926768390636433e-06,
+        "ring_bore_radius_m": 0.0223,
+        "ring_inner_radii_mm": [
+          22.3,
+          22.3,
+          22.3,
+          22.3,
+          22.3
+        ]
+      },
+      "bond_interface_contact_conductance_w_k_per_ring": 2.0,
+      "material_property_corner": "high_k_low_cp",
+      "material_property_factors": {
+        "conductivity": 1.3,
+        "specific_heat": 0.7
+      },
+      "max_temperature_c": 276.59615579597494,
+      "worst_limited_part": {
+        "part_id": "aft_shell",
+        "peak_c": 46.52337172132411,
+        "peak_time_s": 75.0,
+        "screen_limit_c": 45.0,
+        "margin_k": -1.5233717213241107,
+        "material_profile": "cardboard",
+        "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+      },
+      "parts_over_declared_limit": [
+        {
+          "part_id": "motor_mount",
+          "peak_c": 45.58535891738205,
+          "peak_time_s": 152.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -0.5853589173820524,
+          "material_profile": "plywood",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 46.52337172132411,
+          "peak_time_s": 75.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -1.5233717213241107,
+          "material_profile": "cardboard",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        }
+      ],
+      "thermal_screen_status": "FAIL_SCREEN",
+      "energy_residual_j": 1.887201506178826e-11,
+      "peaks": [
+        {
+          "part_id": "motor_liner",
+          "peak_c": 276.59615579597494,
+          "peak_time_s": 11.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 23.403844204025063,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "motor_radiant_shield",
+          "peak_c": 150.81827488838422,
+          "peak_time_s": 15.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 149.18172511161578,
+          "material_profile": "aluminum",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "motor_mount",
+          "peak_c": 45.58535891738205,
+          "peak_time_s": 152.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -0.5853589173820524,
+          "material_profile": "plywood",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "retention",
+          "peak_c": 43.29143252480185,
+          "peak_time_s": 303.026,
+          "screen_limit_c": 150.0,
+          "margin_k": 106.70856747519815,
+          "material_profile": "G11",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "thrust_pads",
+          "peak_c": 115.63102893927021,
+          "peak_time_s": 15.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 184.3689710607298,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_thrust_pads",
+          "peak_c": 151.06392424911206,
+          "peak_time_s": 20.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 148.93607575088794,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_retainer",
+          "peak_c": 46.2639574236909,
+          "peak_time_s": 256.0,
+          "screen_limit_c": 150.0,
+          "margin_k": 103.7360425763091,
+          "material_profile": "G11",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "retention_hardware",
+          "peak_c": 45.533802193677786,
+          "peak_time_s": 207.0,
+          "screen_limit_c": 150.0,
+          "margin_k": 104.46619780632221,
+          "material_profile": "stainless_fastener",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "aft_shell",
+          "peak_c": 46.52337172132411,
+          "peak_time_s": 75.0,
+          "screen_limit_c": 45.0,
+          "margin_k": -1.5233717213241107,
+          "material_profile": "cardboard",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "fin_bonds",
+          "peak_c": 45.66180583567893,
+          "peak_time_s": 126.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.338194164321067,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "flight_computer",
+          "peak_c": 44.29276029508469,
+          "peak_time_s": 174.0,
+          "screen_limit_c": 60.0,
+          "margin_k": 15.70723970491531,
+          "material_profile": "commercial",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "battery",
+          "peak_c": 42.62867778393934,
+          "peak_time_s": 303.026,
+          "screen_limit_c": 60.0,
+          "margin_k": 17.371322216060662,
+          "material_profile": "commercial",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_0",
+          "peak_c": 45.5707592282198,
+          "peak_time_s": 116.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.4292407717802,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_1",
+          "peak_c": 45.5707592282198,
+          "peak_time_s": 116.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.4292407717802,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_2",
+          "peak_c": 45.57076498110871,
+          "peak_time_s": 116.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.42923501889129,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_3",
+          "peak_c": 45.57076498110871,
+          "peak_time_s": 116.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.42923501889129,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "mount_shell_bond_4",
+          "peak_c": 45.57076498110865,
+          "peak_time_s": 116.0,
+          "screen_limit_c": 65.0,
+          "margin_k": 19.429235018891347,
+          "material_profile": "epoxy",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "secondary_radiant_shield",
+          "peak_c": 92.57177723869842,
+          "peak_time_s": 22.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 207.42822276130158,
+          "material_profile": "aluminum",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "shield_spacer_front",
+          "peak_c": 102.30656243161837,
+          "peak_time_s": 71.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 197.69343756838163,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        },
+        {
+          "part_id": "shield_spacer_aft",
+          "peak_c": 102.30656243161837,
+          "peak_time_s": 71.0,
+          "screen_limit_c": 300.0,
+          "margin_k": 197.69343756838163,
+          "material_profile": "mica",
+          "evidence": "calculated using estimated/assumed thermal properties and prescribed boundary"
+        }
+      ],
+      "limitations": [
+        "Corrected material/thermal topology for the current modeled material package; no physical qualification or measured thermal history is established.",
+        "Exact commercial motor exterior temperatures are still explicit exploratory bounds, not measured histories.",
+        "Closed long-cylinder exchange in each axial band ignores end view factors; not a 3D radiation solution or a universally conservative bound.",
+        "Split clamps, pivot holes, sparse rails, drive lugs and non-coaxial servo envelopes need angular visibility and moving-geometry checks.",
+        "No path radiates through the opaque motor liner, direct liner/shield contact, or intervening modeled annular shield; real openings and nozzle end exposure remain unmodeled.",
+        "The foil shield is an ideal continuous annulus; seam, wrinkles, oxidation, contamination, edge bypass and finite-end view factors are not resolved.",
+        "Only the mica liner resolves radial gradients; the radiant foil and other parts are uniform capacities, not surface hot-spot predictions.",
+        "Static air conduction, no circulation; external shell convection and upper bay cooling are estimated boundary paths.",
+        "Contact conductance ranges are estimates; real fasteners, bonds, printed orientation and temperature-dependent properties require calibration.",
+        "Direct mica/foil contact uses series radial half-wall resistance and bounded interface conductance, with no gap-air conduction or radiation at the touching surfaces.",
+        "Axial retention/support contacts are lumped part-to-node conductances; liner-side contacts map to its outer radial cell and do not resolve end-face heat spreading or plate hotspots.",
+        "Mica thrust-pad cross-section is inferred from recorded CAD volume divided by thickness. Each modeled pad connection adds half-thickness radial conduction in series with an estimated interface conductance; sector contact shape, preload and end-face heat spreading remain unresolved.",
+        "The TVC cassette radial surfaces use the CAD grip-ring radii (motor-clear radius to grip outer radius), not its larger forestop/end-block envelope. If any other coincident annular intervals still overlap radially, the later outer annulus is omitted from that band and the excluded pair is recorded; configured lumped support contacts remain active.",
+        "Radially averaged nodes do not qualify local hot contact plates, pad edges, fastener holes, or bonded interfaces.",
+        "Regular radiative surroundings use emissivity 0.9; the foil outer surface uses 0.1 nominal and 0.3 upper/aged bounds.",
+        "Prescribed case boundary has no finite motor heat capacity or plume model; energy residual checks the network, not the motor's available heat.",
+        "Neither computed passing temperatures nor convergence authorizes materials, physical work or a flight."
+      ],
+      "acceptance_interpretation": "required robustness case; a numerical screen pass does not close the absent exact motor history or foil-aging correlation",
+      "candidate_mass_cg_inertia": {
+        "mass_kg": 0.8330135384743257,
+        "cg_m": 0.8196894413139746,
+        "cg_lateral_m": [
+          -4.784861804219813e-05,
+          0.0001897788103454578
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009968004188914406,
+            0.00018494907268284334,
+            -3.432128030299945e-05
+          ],
+          [
+            0.00018494907268284334,
+            0.13023787990232424,
+            -1.1056430756069846e-07
+          ],
+          [
+            -3.432128030299945e-05,
+            -1.1056430756069846e-07,
+            0.13024345604797105
+          ]
+        ],
+        "budget_kg": {
+          "nose_cone": 0.033017273687055475,
+          "body_upper": 0.05603234701199932,
+          "interface_coupler": 0.02106733049353741,
+          "avionics_bay": 0.00904460569417429,
+          "recovery_bulkhead": 0.0302337452203521,
+          "recovery_anchor": 0.004,
+          "parachute": 0.035,
+          "shock_cord": 0.01,
+          "recovery_protection": 0.006,
+          "independent_recovery": 0.0065,
+          "micro_sd": 0.003,
+          "adhesive_finish": 0.012,
+          "rail_guides": 0.0006229991634585588,
+          "flight_computer": 0.012,
+          "imu": 0.002,
+          "baro": 0.001,
+          "battery": 0.03,
+          "regulator_5v": 0.008,
+          "pyro_mosfet": 0.003,
+          "arming_switch": 0.003,
+          "harness": 0.012,
+          "joint_stop": 0.0013192554674232185,
+          "high_g_accel": 0.001,
+          "recovery_battery": 0.0036,
+          "recovery_power_switch": 0.0037,
+          "recovery_mount_carrier": 0.0014669700000000002,
+          "recovery_alignment_pins": 0.00025,
+          "recovery_mount_hardware_allowance": 0.00628303,
+          "recovery_output_harness": 0.004,
+          "aft_shell": 0.01925374538364414,
+          "aft_interface_hardware": 0.006,
+          "motor_mount": 0.048275680084402396,
+          "motor_liner": 0.014705744945971466,
+          "retention": 0.04292932739783429,
+          "fin_set": 0.13979631901740136,
+          "fin_bonds": 0.008,
+          "motor": 0.1982,
+          "motor_radiant_shield": 0.0009586933150538666,
+          "thrust_pads": 0.00029932937844339547,
+          "aft_retainer": 0.020256493058707727,
+          "retention_hardware": 0.007,
+          "aft_thrust_pads": 0.00029932937844339547,
+          "mount_shell_bond_0": 0.0004946606022443355,
+          "mount_shell_bond_1": 0.0004946606022443355,
+          "mount_shell_bond_2": 0.0004409336214250161,
+          "mount_shell_bond_3": 0.0004409336214250161,
+          "mount_shell_bond_4": 0.0004409336214250161,
+          "mount_bond_fillets": 0.001,
+          "secondary_radiant_shield": 0.0012310701521024109,
+          "shield_spacer_front": 0.0016790637777785008,
+          "shield_spacer_aft": 0.0016790637777785008
+        }
+      },
+      "nominal_candidate_mass_cg_inertia": {
+        "mass_kg": 0.8371893750653164,
+        "cg_m": 0.8210161227666386,
+        "cg_lateral_m": [
+          -4.760995279382394e-05,
+          0.0001888322081500183
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009985549865881938,
+            0.0001850019522774059,
+            -3.4531013142814736e-05
+          ],
+          [
+            0.0001850019522774059,
+            0.13054543588609085,
+            -1.1052657737304961e-07
+          ],
+          [
+            -3.4531013142814736e-05,
+            -1.1052657737304961e-07,
+            0.1305510118916038
+          ]
+        ],
+        "budget_kg": {
+          "nose_cone": 0.033017273687055475,
+          "body_upper": 0.05603234701199932,
+          "interface_coupler": 0.02106733049353741,
+          "avionics_bay": 0.00904460569417429,
+          "recovery_bulkhead": 0.0302337452203521,
+          "recovery_anchor": 0.004,
+          "parachute": 0.035,
+          "shock_cord": 0.01,
+          "recovery_protection": 0.006,
+          "independent_recovery": 0.0065,
+          "micro_sd": 0.003,
+          "adhesive_finish": 0.012,
+          "rail_guides": 0.0006229991634585588,
+          "flight_computer": 0.012,
+          "imu": 0.002,
+          "baro": 0.001,
+          "battery": 0.03,
+          "regulator_5v": 0.008,
+          "pyro_mosfet": 0.003,
+          "arming_switch": 0.003,
+          "harness": 0.012,
+          "joint_stop": 0.0013192554674232185,
+          "high_g_accel": 0.001,
+          "recovery_battery": 0.0036,
+          "recovery_power_switch": 0.0037,
+          "recovery_mount_carrier": 0.0014669700000000002,
+          "recovery_alignment_pins": 0.00025,
+          "recovery_mount_hardware_allowance": 0.00628303,
+          "recovery_output_harness": 0.004,
+          "aft_shell": 0.01925374538364414,
+          "aft_interface_hardware": 0.006,
+          "motor_mount": 0.05764765587019078,
+          "motor_liner": 0.014705744945971466,
+          "retention": 0.04292932739783429,
+          "fin_set": 0.13979631901740136,
+          "fin_bonds": 0.008,
+          "motor": 0.1982,
+          "motor_radiant_shield": 0.0009586933150538666,
+          "thrust_pads": 0.00029932937844339547,
+          "aft_retainer": 0.020256493058707727,
+          "retention_hardware": 0.007,
+          "aft_thrust_pads": 0.00029932937844339547,
+          "mount_shell_bond_0": 0.00036473890708177463,
+          "mount_shell_bond_1": 0.00036473890708177463,
+          "mount_shell_bond_2": 0.0003252342558207992,
+          "mount_shell_bond_3": 0.0003252342558207992,
+          "mount_shell_bond_4": 0.0003252342558207992,
+          "mount_bond_fillets": 0.001
+        }
+      },
+      "active_adoption": false,
+      "flight_ready": false,
+      "shield_radius_m": 0.022,
+      "mount_ring_bore_radius_m": 0.0223,
+      "foil_wall_m": 2e-05,
+      "shield_axial_start_m": 1.013,
+      "shield_axial_end_m": 1.178,
+      "shield_axial_length_m": 0.165,
+      "aft_trim_before_retainer_m": 0.022,
+      "cad_intersections_involving_new_parts": [],
+      "cad_validity": {
+        "secondary_radiant_shield": true,
+        "shield_spacer_front": true,
+        "shield_spacer_aft": true
+      },
+      "source_candidate_yaml_sha256": "5b08b5c64988cc37305dcd58d927339ee3e73daa926cddd993c1fa73bdcc48ba",
+      "screen_cells": 8
+    }
+  ],
+  "active_adoption": false,
+  "flight_ready": false
+}
