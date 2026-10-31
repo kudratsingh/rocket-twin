@@ -70,6 +70,22 @@ Purchases, physical work, paid runs, WO-10 owner review and flight release remai
 
 ## Run locally
 
+The owner-authorized early inspection/experiment preview can run while expanded
+WO-03 acceptance remains open:
+
+```bash
+make preview
+```
+
+Open **http://127.0.0.1:5173**. The launcher installs the exact web dependencies
+on first use, starts the local Python API at port 8000 and Vite at port 5173, and
+stops the launched API when you press Ctrl-C. Use Node 22 and the existing project
+Python environment (`make setup-viewer` if needed). After installation the lockfile
+is used by `npm ci`. See [web instructions](web/README.md) and
+[ADR-0009](docs/adr/0009-early-inspection-experiments.md) for the limited scope.
+Browser interaction and successful simulated flights do not approve construction
+or flight; PID and reinforcement learning remain later work orders.
+
 Use Python 3.11 and uv. On a fresh network-enabled machine:
 
 ```sh

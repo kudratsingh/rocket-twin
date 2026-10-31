@@ -1,0 +1,212 @@
+.experiment {
+  display: grid;
+  grid-template-columns: clamp(172px, 23vw, 278px) minmax(0, 1fr) clamp(220px, 28vw, 340px);
+  height: 100%;
+  min-height: 0;
+  color: #d9e5e8;
+  background: #0c1419;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.experiment > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.experiment aside {
+  overflow: auto;
+  padding: 20px;
+  border-right: 1px solid #2b3d46;
+}
+.experiment .exp-results {
+  border-right: 0;
+  border-left: 1px solid #2b3d46;
+}
+.experiment h2 {
+  font-size: 19px;
+}
+.experiment h3 {
+  font-size: 15px;
+  margin-top: 24px;
+}
+.experiment p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a6bbc2;
+}
+.experiment label {
+  display: block;
+  font-size: 12px;
+  color: #a6bbc2;
+  margin: 14px 0;
+}
+.experiment input:not([type='range']),
+.experiment select {
+  display: block;
+  background: #15242c;
+  border: 1px solid #37505b;
+  color: #e3eff0;
+  padding: 8px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 6px;
+}
+.experiment button {
+  background: #213942;
+  color: #e0f2f1;
+  border: 1px solid #43636d;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+}
+.experiment button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.exp-error {
+  color: #ff9999 !important;
+}
+.exp-run {
+  display: flex;
+  gap: 4px;
+  margin: 6px 0;
+}
+.exp-run button:first-child {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.exp-run small {
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+.experiment main {
+  overflow: auto;
+  min-width: 0;
+  padding: 16px;
+}
+.exp-replay {
+  height: max(400px, 52vh);
+  background: #101e25;
+  border: 1px solid #30444b;
+}
+.exp-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+.exp-controls input {
+  flex: 1;
+  min-width: 80px;
+  width: 0;
+}
+.exp-controls select {
+  width: auto;
+  margin: 0;
+}
+.exp-events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.exp-events button {
+  font-size: 11px;
+}
+.exp-plots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: 15px;
+}
+.exp-plot {
+  height: 130px;
+  background: #14242c;
+  padding: 8px;
+  font-size: 11px;
+  position: relative;
+}
+.exp-plot span {
+  float: right;
+  color: #a6bbc2;
+}
+.exp-plot svg {
+  width: 100%;
+  height: 100px;
+  cursor: crosshair;
+}
+.exp-info {
+  padding: 12px;
+  border: 1px solid #30444b;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+.exp-empty {
+  padding: 50px;
+  color: #a6bbc2;
+}
+
+@media (min-width: 1600px) {
+  .experiment {
+    grid-template-columns: 310px minmax(0, 1fr) 390px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .experiment aside,
+  .experiment main {
+    padding: 14px 12px;
+  }
+  .experiment h2 {
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+  .experiment h3 {
+    font-size: 13px;
+  }
+  .experiment p {
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+  .experiment label {
+    font-size: 11px;
+  }
+  .experiment button {
+    padding: 7px;
+    font-size: 10px;
+  }
+  .exp-controls {
+    gap: 8px;
+  }
+  .exp-controls input {
+    flex-basis: 110px;
+  }
+  .exp-controls > span {
+    font-size: 10px;
+  }
+  .exp-plots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .exp-plot {
+    min-width: 0;
+  }
+  .exp-plot span {
+    float: none;
+    display: block;
+    margin-top: 3px;
+  }
+  .exp-plot svg {
+    height: 86px;
+  }
+  .exp-info {
+    padding: 10px;
+  }
+  .exp-empty {
+    padding: 24px 16px;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+}

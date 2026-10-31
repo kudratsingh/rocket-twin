@@ -1,0 +1,839 @@
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Line, OrbitControls, useGLTF } from '@react-three/drei';
+import { Matrix4, Quaternion, Vector3 } from 'three';
+import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
+import type { InspectionDocument, Part } from '../types';
+import './experiment.css';
+
+type RecordRun = {
+  run_id: string;
+  status: string;
+  progress: string;
+  error?: string;
+  configuration: string;
+  vehicle_id?: string;
+  resolved_sha256?: string;
+  cad_revision_sha256?: string;
+  code_sha256?: string;
+  input_sha256?: Record<string, string>;
+  case?: Record<string, number | boolean>;
+  settings: { wind_mps: number; wind_direction_deg: number; gust_mps: number };
+  metrics?: Record<string, number | boolean | null>;
+  events?: Record<string, number | null>;
+  trajectory_complete?: boolean;
+  validity?: string[];
+  limitations: string[];
+};
+type Telemetry = { columns: Record<string, number[]> };
+type Loaded = { record: RecordRun; telemetry: Telemetry; vehicle: InspectionDocument };
+const choices = [
+  ['modular-performance-v1', 'Performance · G80 reference'],
+  ['modular-performance-g54-hypothesis', 'Performance · G54 conditional'],
+  ['modular-tvc-finned-v1', 'Finned trainer · G12, locked gimbal'],
+  ['modular-tvc-finless-v1', 'Finless trainer · static inspection only'],
+];
+async function json<T>(url: string, options?: RequestInit): Promise<T> {
+  const response = await fetch(url, options);
+  const data = await response.json();
+  if (!response.ok)
+    throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail));
+  return data as T;
+}
+function nearest(t: number, times: number[]) {
+  let lo = 0,
+    hi = times.length - 1;
+  while (lo < hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    if (times[mid] < t) lo = mid + 1;
+    else hi = mid;
+  }
+  return lo;
+}
+function value(c: Record<string, number[]>, name: string, t: number) {
+  const i = nearest(t, c.time_s);
+  if (i === 0) return c[name][0];
+  const a = i - 1,
+    f = Math.max(0, Math.min(1, (t - c.time_s[a]) / (c.time_s[i] - c.time_s[a])));
+  return c[name][a] * (1 - f) + c[name][i] * f;
+}
+function MeshPart({ part }: { part: Part }) {
+  const model = useGLTF(part.mesh_url!);
+  const scene = useMemo(() => model.scene.clone(true), [model]);
+  return <primitive object={scene} />;
+}
+function attitude(c: Record<string, number[]>, t: number) {
+  const i = nearest(t, c.time_s);
+  const q = (j: number) => new Quaternion(c.qx[j], c.qy[j], c.qz[j], c.qw[j]).normalize();
+  if (i === 0) return q(0);
+  const a = i - 1,
+    f = Math.max(0, Math.min(1, (t - c.time_s[a]) / (c.time_s[i] - c.time_s[a])));
+  return q(a).slerp(q(i), f);
+}
+function FlightGeometry({ run, time }: { run: Loaded; time: number }) {
+  const c = run.telemetry.columns,
+    q = attitude(c, time);
+  // GLB [body y, forward, -body z]; display [east, up, -north].
+  const bodyFromCad = new Matrix4().set(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
+  const sceneFromNed = new Matrix4().set(0, 1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 0, 1);
+  const rot = new Quaternion().setFromRotationMatrix(
+    sceneFromNed.multiply(new Matrix4().makeRotationFromQuaternion(q)).multiply(bodyFromCad),
+  );
+  const length = Number(run.vehicle.summary.length_m);
+  const cg = value(c, 'cg_station_m', time);
+  return (
+    <group
+      position={[value(c, 'east_m', time), -value(c, 'down_m', time), -value(c, 'north_m', time)]}
+      quaternion={rot}
+    >
+      <group position={[0, -(length - cg), 0]}>
+        {run.vehicle.parts
+          .filter((p) => p.mesh_url)
+          .map((p) => (
+            <Suspense key={p.id} fallback={null}>
+              <MeshPart part={p} />
+            </Suspense>
+          ))}
+      </group>
+    </group>
+  );
+}
+function ReplayCamera({
+  loc,
+  mode,
+  fitToken,
+  run,
+}: {
+  loc: Vector3;
+  mode: 'follow' | 'free';
+  fitToken: number;
+  run: Loaded;
+}) {
+  const controls = useRef<OrbitControlsType>(null);
+  const previous = useRef<Vector3 | null>(null);
+  const { camera } = useThree();
+  useEffect(() => {
+    const c = run.telemetry.columns;
+    const target = new Vector3(c.east_m[0], -c.down_m[0], -c.north_m[0]);
+    camera.position.copy(target).add(new Vector3(2, 1.5, 3));
+    controls.current?.target.copy(target);
+    controls.current?.update();
+    previous.current = target;
+  }, [camera, run]);
+  useEffect(() => {
+    if (!fitToken) return;
+    const c = run.telemetry.columns;
+    const points = c.time_s.map((_, i) => new Vector3(c.east_m[i], -c.down_m[i], -c.north_m[i]));
+    const min = points[0].clone(),
+      max = points[0].clone();
+    for (const point of points) {
+      min.min(point);
+      max.max(point);
+    }
+    const center = min.clone().add(max).multiplyScalar(0.5);
+    const radius = Math.max(2, max.distanceTo(min) * 0.5);
+    camera.position
+      .copy(center)
+      .add(new Vector3(1, 0.8, 1.4).normalize().multiplyScalar(radius * 2.8));
+    controls.current?.target.copy(center);
+    controls.current?.update();
+    previous.current = null;
+  }, [fitToken, camera, run]);
+  useFrame(() => {
+    if (mode === 'follow' && controls.current) {
+      if (previous.current) {
+        const delta = loc.clone().sub(previous.current);
+        camera.position.add(delta);
+        controls.current.target.add(delta);
+      } else {
+        camera.position.copy(loc).add(new Vector3(2, 1.5, 3));
+        controls.current.target.copy(loc);
+      }
+      previous.current = loc.clone();
+      controls.current.update();
+    } else previous.current = null;
+  });
+  return <OrbitControls ref={controls} makeDefault enableDamping />;
+}
+function FlightScene({
+  run,
+  other,
+  time,
+  mode,
+  fitToken,
+}: {
+  run: Loaded;
+  other: Loaded | null;
+  time: number;
+  mode: 'follow' | 'free';
+  fitToken: number;
+}) {
+  const path = (r: Loaded) =>
+    r.telemetry.columns.time_s.map(
+      (_, i) =>
+        [
+          r.telemetry.columns.east_m[i],
+          -r.telemetry.columns.down_m[i],
+          -r.telemetry.columns.north_m[i],
+        ] as [number, number, number],
+    );
+  const c = run.telemetry.columns;
+  const loc = new Vector3(
+    value(c, 'east_m', time),
+    -value(c, 'down_m', time),
+    -value(c, 'north_m', time),
+  );
+  const theta = (run.record.settings.wind_direction_deg * Math.PI) / 180;
+  const wind = run.record.settings.wind_mps;
+  return (
+    <Canvas camera={{ position: [2, 1.5, 3], fov: 45, near: 0.01, far: 5000 }}>
+      <ambientLight intensity={1.4} />
+      <directionalLight position={[20, 50, 30]} intensity={2} />
+      <ReplayCamera loc={loc} mode={mode} fitToken={fitToken} run={run} />
+      <gridHelper args={[100, 20, '#38505b', '#24343c']} />
+      <Line points={path(run)} color="#54d8d2" lineWidth={2} />
+      {other && <Line points={path(other)} color="#f5b960" lineWidth={2} />}
+      <FlightGeometry run={run} time={time} />
+      {other && (
+        <FlightGeometry run={other} time={Math.min(time, other.telemetry.columns.time_s.at(-1)!)} />
+      )}
+      {wind > 0 && (
+        <arrowHelper
+          args={[
+            new Vector3(Math.sin(theta), 0, -Math.cos(theta)),
+            new Vector3(0, 0.1, 0),
+            Math.max(3, wind),
+            '#f5b960',
+          ]}
+        />
+      )}
+    </Canvas>
+  );
+}
+function StaticPreview({ vehicle, reset }: { vehicle: InspectionDocument; reset: number }) {
+  const length = typeof vehicle.summary.length_m === 'number' ? vehicle.summary.length_m : null;
+  if (!length || !vehicle.parts.some((p) => p.mesh_url))
+    return (
+      <div className="exp-empty">Actual CAD geometry is unavailable for this configuration.</div>
+    );
+  return (
+    <Canvas
+      key={`${vehicle.id}-${reset}`}
+      camera={{ position: [2, length / 2 + 1, 2], fov: 35, near: 0.001, far: 100 }}
+    >
+      <ambientLight intensity={1.4} />
+      <directionalLight position={[2, 3, 3]} intensity={2} />
+      <OrbitControls makeDefault target={[0, length / 2, 0]} />
+      <gridHelper args={[4, 20, '#38505b', '#24343c']} />
+      {vehicle.parts
+        .filter((p) => p.mesh_url)
+        .map((p) => (
+          <Suspense key={p.id} fallback={null}>
+            <MeshPart part={p} />
+          </Suspense>
+        ))}
+    </Canvas>
+  );
+}
+const channels = [
+  ['height', 'Height above launch (m)'],
+  ['height_ft', 'Height above launch (ft)'],
+  ['speed', 'Speed (m/s)'],
+  ['speed_mph', 'Speed (mph)'],
+  ['acceleration', 'Net acceleration (m/s²)'],
+  ['specific', 'Specific force (m/s²)'],
+  ['tilt', 'Tilt from vertical (°)'],
+  ['downrange', 'Horizontal distance from launch (m)'],
+  ['downrange_ft', 'Horizontal distance from launch (ft)'],
+];
+function series(c: Record<string, number[]>, name: string): number[] | null {
+  const names: Record<string, string> = {
+    height: 'height_m',
+    height_ft: 'height_ft',
+    speed: 'speed_mps',
+    speed_mph: 'speed_mph',
+    acceleration: 'net_acceleration_mps2',
+    specific: 'specific_force_mps2',
+    tilt: 'tilt_deg',
+    downrange: 'downrange_m',
+    downrange_ft: 'downrange_ft',
+  };
+  const values = c[names[name]];
+  return Array.isArray(values) && values.length > 0 && values.every(Number.isFinite)
+    ? values
+    : null;
+}
+function headline(n: number | boolean | null | undefined, unit: string) {
+  return typeof n === 'number' && Number.isFinite(n) && n >= 0
+    ? `${n.toFixed(1)} ${unit}`
+    : 'unavailable';
+}
+function RunDetails({ run, label }: { run: Loaded; label: string }) {
+  const record = run.record;
+  const settings = record.settings;
+  return (
+    <section>
+      <h3>
+        {label}: {record.run_id}
+      </h3>
+      <p>
+        Configuration and motor:{' '}
+        {choices.find(([id]) => id === record.configuration)?.[1] ?? record.configuration}
+      </p>
+      <p>
+        Steady wind: {settings.wind_mps} m/s · Direction toward: {settings.wind_direction_deg}°
+        clockwise from north · Gust amplitude: {settings.gust_mps} m/s
+      </p>
+      <details>
+        <summary>Run identity and simulation settings</summary>
+        <p>Resolved specification SHA-256: {record.resolved_sha256 ?? 'unavailable'}</p>
+        <p>CAD generator SHA-256: {record.cad_revision_sha256 ?? 'unavailable'}</p>
+        <p>Simulation code SHA-256: {record.code_sha256 ?? 'unavailable'}</p>
+        <p>Simulation case: {record.case ? JSON.stringify(record.case) : 'unavailable'}</p>
+        <p>
+          Input file hashes:{' '}
+          {record.input_sha256 ? JSON.stringify(record.input_sha256) : 'unavailable'}
+        </p>
+      </details>
+      <p>
+        Peak height: {headline(record.metrics?.apogee_agl_m, 'm')} · Peak speed:{' '}
+        {headline(record.metrics?.max_speed_mps, 'm/s')} · Guide exit speed:{' '}
+        {record.events?.guide_exit == null
+          ? 'unavailable'
+          : headline(record.metrics?.guide_exit_mps, 'm/s')}{' '}
+        · Landing displacement:{' '}
+        {record.metrics?.landing_downrange_m == null
+          ? 'not recorded'
+          : headline(record.metrics.landing_downrange_m, 'm')}
+      </p>
+    </section>
+  );
+}
+function ComparisonDifferences({ a, b }: { a: RecordRun; b: RecordRun }) {
+  const rows: [string, unknown, unknown][] = [
+    ['Configuration', a.configuration, b.configuration],
+    ...Array.from(new Set([...Object.keys(a.settings), ...Object.keys(b.settings)]))
+      .sort()
+      .map((key): [string, unknown, unknown] => [
+        key,
+        a.settings[key as keyof typeof a.settings],
+        b.settings[key as keyof typeof b.settings],
+      ]),
+    ...Array.from(new Set([...Object.keys(a.case ?? {}), ...Object.keys(b.case ?? {})]))
+      .sort()
+      .map((key): [string, unknown, unknown] => [`case: ${key}`, a.case?.[key], b.case?.[key]]),
+    ['Simulation code SHA-256', a.code_sha256, b.code_sha256],
+    ['Resolved specification SHA-256', a.resolved_sha256, b.resolved_sha256],
+    ['CAD generator SHA-256', a.cad_revision_sha256, b.cad_revision_sha256],
+    ...Array.from(
+      new Set([...Object.keys(a.input_sha256 ?? {}), ...Object.keys(b.input_sha256 ?? {})]),
+    )
+      .sort()
+      .map((key): [string, unknown, unknown] => [
+        `input: ${key}`,
+        a.input_sha256?.[key],
+        b.input_sha256?.[key],
+      ]),
+  ];
+  const differences = rows.filter(
+    ([, left, right]) => left !== right || left == null || right == null,
+  );
+  return (
+    <details open>
+      <summary>Differences and unavailable settings ({differences.length})</summary>
+      {differences.length ? (
+        differences.map(([label, left, right]) => (
+          <p key={label}>
+            <strong>{label}</strong>
+            <br />
+            A: {String(left ?? 'unavailable')}
+            <br />
+            B: {String(right ?? 'unavailable')}
+          </p>
+        ))
+      ) : (
+        <p>Recorded settings and identities match.</p>
+      )}
+    </details>
+  );
+}
+function Plot({
+  run,
+  other,
+  name,
+  time,
+  setTime,
+}: {
+  run: Loaded;
+  other: Loaded | null;
+  name: string;
+  time: number;
+  setTime: (v: number) => void;
+}) {
+  const a = series(run.telemetry.columns, name),
+    comparison = other ? series(other.telemetry.columns, name) : null;
+  if (!a)
+    return (
+      <div className="exp-plot">
+        <strong>{channels.find((x) => x[0] === name)?.[1]}</strong>
+        <p>Unavailable in this recorded telemetry. Missing data is not zero.</p>
+      </div>
+    );
+  const b = comparison ?? [];
+  const max = Math.max(...a, ...b, 0.001),
+    min = Math.min(...a, ...b, 0);
+  const end = Math.max(
+    run.telemetry.columns.time_s.at(-1)!,
+    other?.telemetry.columns.time_s.at(-1) ?? 0,
+  );
+  const points = (r: Loaded, v: number[]) =>
+    v
+      .map(
+        (n, i) =>
+          `${(r.telemetry.columns.time_s[i] / end) * 100},${95 - ((n - min) / (max - min || 1)) * 90}`,
+      )
+      .join(' ');
+  return (
+    <div className="exp-plot">
+      <strong>{channels.find((x) => x[0] === name)?.[1]}</strong>
+      <span>
+        {min.toFixed(1)} – {max.toFixed(1)}
+      </span>
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        onClick={(e) =>
+          setTime(
+            ((e.clientX - e.currentTarget.getBoundingClientRect().left) /
+              e.currentTarget.clientWidth) *
+              end,
+          )
+        }
+      >
+        <polyline
+          points={points(run, a)}
+          fill="none"
+          stroke="#54d8d2"
+          vectorEffect="non-scaling-stroke"
+        />
+        {other && comparison && (
+          <polyline
+            points={points(other, b)}
+            fill="none"
+            stroke="#f5b960"
+            vectorEffect="non-scaling-stroke"
+          />
+        )}
+        <line
+          x1={(time / end) * 100}
+          x2={(time / end) * 100}
+          y1="0"
+          y2="100"
+          stroke="#fff"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+      {other && !comparison && <p>Comparison channel unavailable.</p>}
+    </div>
+  );
+}
+export default function Experiment({
+  configurationId,
+  vehicle,
+  onConfigurationChange,
+}: {
+  configurationId: string;
+  vehicle: InspectionDocument | null;
+  onConfigurationChange: (id: string) => void;
+}) {
+  const [wind, setWind] = useState(0),
+    [direction, setDirection] = useState(0),
+    [gust, setGust] = useState(0),
+    [runs, setRuns] = useState<RecordRun[]>([]),
+    [current, setCurrent] = useState<Loaded | null>(null),
+    [other, setOther] = useState<Loaded | null>(null),
+    [pending, setPending] = useState(''),
+    [status, setStatus] = useState(''),
+    [error, setError] = useState(''),
+    [time, setTime] = useState(0),
+    [playing, setPlaying] = useState(false),
+    [speed, setSpeed] = useState(1),
+    [mode, setMode] = useState<'follow' | 'free'>('follow'),
+    [fitToken, setFitToken] = useState(0),
+    [resetPreview, setResetPreview] = useState(0);
+  const shown = current?.record.vehicle_id === configurationId ? current : null;
+  const replayEnd = shown
+    ? Math.max(
+        shown.telemetry.columns.time_s.at(-1) ?? 0,
+        other?.telemetry.columns.time_s.at(-1) ?? 0,
+      )
+    : 0;
+  const refresh = useCallback(
+    () =>
+      json<RecordRun[]>('/api/runs')
+        .then(setRuns)
+        .catch((e) => setError(String(e))),
+    [],
+  );
+  useEffect(() => {
+    void refresh();
+  }, [refresh]);
+  const load = useCallback(
+    async (id: string, compare = false) => {
+      try {
+        const record = await json<RecordRun>(`/api/runs/${id}`);
+        const [telemetry, vehicle] = await Promise.all([
+          json<Telemetry>(`/api/runs/${id}/telemetry`),
+          json<InspectionDocument>(`/api/vehicles/${record.vehicle_id}`),
+        ]);
+        if (
+          vehicle.identity?.resolved_spec_sha256 !== record.resolved_sha256 ||
+          vehicle.identity?.cad_revision_sha256 !== record.cad_revision_sha256
+        )
+          throw new Error(
+            'Saved run configuration does not match current CAD identity. Replay is unavailable.',
+          );
+        if (typeof vehicle.summary.length_m !== 'number')
+          throw new Error('Matching geometry length is unavailable.');
+        if (!vehicle.parts.some((p) => p.mesh_url))
+          throw new Error(
+            'Matching CAD meshes unavailable; replay cannot be attached to different geometry.',
+          );
+        const item = { record, telemetry, vehicle };
+        if (compare) setOther(item);
+        else {
+          onConfigurationChange(record.vehicle_id!);
+          setCurrent(item);
+          setTime(0);
+          setPlaying(false);
+        }
+        setError('');
+      } catch (e) {
+        setError(String(e));
+      }
+    },
+    [onConfigurationChange],
+  );
+  useEffect(() => {
+    if (!pending) return;
+    let timer: number;
+    let alive = true;
+    const poll = async () => {
+      try {
+        const r = await json<RecordRun>(`/api/experiments/${pending}`);
+        if (!alive) return;
+        setStatus(r.progress);
+        if (r.status === 'complete') {
+          setPending('');
+          void refresh();
+          void load(pending);
+        } else if (r.status === 'failed') {
+          setError(r.error ?? 'Run failed');
+          setPending('');
+          void refresh();
+        } else timer = window.setTimeout(poll, 1200);
+      } catch (e) {
+        setError(String(e));
+        setPending('');
+      }
+    };
+    void poll();
+    return () => {
+      alive = false;
+      clearTimeout(timer);
+    };
+  }, [pending, refresh, load]);
+  useEffect(() => {
+    if (!playing || !shown) return;
+    let last = performance.now(),
+      frame = 0;
+    const tick = (now: number) => {
+      setTime((t) => {
+        const next = t + ((now - last) / 1000) * speed;
+        if (next >= replayEnd) {
+          setPlaying(false);
+          return replayEnd;
+        }
+        return next;
+      });
+      last = now;
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [playing, shown, speed, replayEnd]);
+  async function start() {
+    try {
+      setError('');
+      const r = await json<{ run_id: string }>('/api/experiments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          configuration: configurationId,
+          wind_mps: wind,
+          wind_direction_deg: direction,
+          gust_mps: gust,
+          preset: 'sim',
+        }),
+      });
+      setPending(r.run_id);
+      setStatus('Queued');
+    } catch (e) {
+      setError(String(e));
+    }
+  }
+  return (
+    <div className="experiment">
+      <aside>
+        <h2>Run an experiment</h2>
+        <p>
+          Simulated, preliminary, unguided flights using complete configurations. Finless unguided
+          flight is unsupported. Proportional–integral–derivative (PID) and reinforcement learning
+          (RL) controllers are later work.
+        </p>
+        <label>
+          Vehicle and motor
+          <select
+            value={configurationId}
+            onChange={(e) => {
+              setPlaying(false);
+              onConfigurationChange(e.target.value);
+            }}
+          >
+            {choices.map(([id, label]) => (
+              <option value={id} key={id}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Steady wind (m/s)
+          <input
+            type="number"
+            min="0"
+            max="10"
+            step="0.1"
+            value={wind}
+            onChange={(e) => setWind(Number(e.target.value))}
+          />
+        </label>
+        <label>
+          Wind direction toward (° clockwise from north)
+          <input
+            type="number"
+            min="0"
+            max="359"
+            value={direction}
+            onChange={(e) => setDirection(Number(e.target.value))}
+          />
+        </label>
+        <label>
+          Gust amplitude (m/s)
+          <input
+            type="number"
+            min="0"
+            max="5"
+            step="0.1"
+            value={gust}
+            onChange={(e) => setGust(Number(e.target.value))}
+          />
+        </label>
+        <button
+          disabled={!!pending || configurationId === 'modular-tvc-finless-v1'}
+          onClick={() => void start()}
+        >
+          Run on CPU
+        </button>
+        {configurationId === 'modular-tvc-finless-v1' && (
+          <p>
+            Finless unguided simulation is unsupported. The actual design is shown for inspection.
+          </p>
+        )}
+        {pending && (
+          <p role="status">
+            {status} · {pending}
+          </p>
+        )}
+        {error && (
+          <p role="alert" className="exp-error">
+            {error}
+          </p>
+        )}
+        <h3>Saved runs</h3>
+        {runs.map((r) => (
+          <div key={r.run_id} className="exp-run">
+            <button disabled={r.status !== 'complete'} onClick={() => void load(r.run_id)}>
+              {r.configuration}
+              <br />
+              <small>
+                {r.run_id} · {r.status}
+              </small>
+            </button>
+            <button disabled={r.status !== 'complete'} onClick={() => void load(r.run_id, true)}>
+              Compare
+            </button>
+          </div>
+        ))}
+      </aside>
+      <main>
+        {shown ? (
+          <>
+            <div className="exp-replay">
+              <FlightScene run={shown} other={other} time={time} mode={mode} fitToken={fitToken} />
+            </div>
+            <div className="exp-controls">
+              <button onClick={() => setMode(mode === 'follow' ? 'free' : 'follow')}>
+                Camera: {mode}
+              </button>
+              <button
+                onClick={() => {
+                  setMode('free');
+                  setFitToken((n) => n + 1);
+                }}
+              >
+                Fit trajectory
+              </button>
+              <button
+                onClick={() => {
+                  if (!playing && time >= replayEnd) setTime(0);
+                  setPlaying(!playing);
+                }}
+              >
+                {playing ? 'Pause' : 'Play'}
+              </button>
+              <select
+                aria-label="Replay speed"
+                value={speed}
+                onChange={(e) => setSpeed(Number(e.target.value))}
+              >
+                {[0.25, 0.5, 1, 2, 4].map((n) => (
+                  <option key={n} value={n}>
+                    {n}×
+                  </option>
+                ))}
+              </select>
+              <input
+                type="range"
+                aria-label="Replay time"
+                min="0"
+                max={replayEnd}
+                step="0.01"
+                value={time}
+                onChange={(e) => setTime(Number(e.target.value))}
+              />
+              <span>T+{time.toFixed(2)} s</span>
+            </div>
+            <p>
+              Orbit and zoom with mouse. Teal: {shown.record.run_id}
+              {other && ` · Gold: ${other.record.run_id}`}
+              {other && ' · A finished run remains at its last recorded pose.'}
+            </p>
+            <p>
+              {shown.record.trajectory_complete
+                ? 'Landing recorded.'
+                : 'Trajectory incomplete: landing was not recorded within the simulated horizon.'}
+            </p>
+            <div className="exp-events">
+              {Object.entries(shown.record.events ?? {}).map(([k, v]) => (
+                <button key={k} disabled={v === null} onClick={() => setTime(v!)}>
+                  {k.replace('_', ' ')}: {v === null ? 'not recorded' : `T+${v.toFixed(2)} s`}
+                </button>
+              ))}
+            </div>
+            <div className="exp-plots">
+              {channels.map(([name]) => (
+                <Plot
+                  key={name}
+                  run={shown}
+                  other={other}
+                  name={name}
+                  time={time}
+                  setTime={setTime}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="exp-replay">
+              {vehicle && vehicle.id === configurationId ? (
+                <StaticPreview vehicle={vehicle} reset={resetPreview} />
+              ) : (
+                <div className="exp-empty">Loading the selected actual configuration…</div>
+              )}
+            </div>
+            <div className="exp-controls">
+              <button onClick={() => setResetPreview((n) => n + 1)}>Reset view</button>
+            </div>
+            <p>
+              Selected design preview. Run a supported configuration or load a saved run to see its
+              prediction.
+            </p>
+          </>
+        )}
+      </main>
+      <aside className="exp-results">
+        <h2>Selected design</h2>
+        <p>{choices.find(([id]) => id === configurationId)?.[1] ?? configurationId}</p>
+        <p>
+          The selected design uses its resolved configuration and available CAD; engineering
+          acceptance remains open.
+        </p>
+        {shown ? (
+          <>
+            {' '}
+            <div className="exp-info">
+              <h3>Simulated preliminary results · unguided</h3>
+              <RunDetails run={shown} label="A · teal" />
+              {other && (
+                <>
+                  <RunDetails run={other} label="B · gold" />
+                  <button
+                    onClick={() => {
+                      setOther(null);
+                      setTime((t) => Math.min(t, shown.telemetry.columns.time_s.at(-1) ?? 0));
+                    }}
+                  >
+                    Clear comparison
+                  </button>
+                  <p>
+                    Compare complete configurations, not motors alone: mounting, mass, geometry and
+                    recovery may also differ. Match wind, gust and other case settings to
+                    investigate a motor change; model and input identities still matter.
+                  </p>
+                  <ComparisonDifferences a={shown.record} b={other.record} />
+                  {other.record.validity?.map((l) => (
+                    <p key={l}>B: {l}</p>
+                  ))}
+                  {other.record.limitations.map((l) => (
+                    <p key={l}>B: {l}</p>
+                  ))}
+                </>
+              )}
+              <p>
+                Guide exit speed is the speed when the rocket leaves its launch guide. Landing
+                displacement is the straight-line distance from launch to landing, not the length of
+                the flight path.
+              </p>
+              <p>
+                Net acceleration includes gravity and is the magnitude of the change in velocity,
+                not necessarily the rate of change of speed. Specific force is the modeled
+                accelerometer-like force per unit mass and excludes gravity. The idealized landing
+                clamp does not model the impact or contact force.
+              </p>
+              {shown.record.validity?.map((l) => (
+                <p key={l}>{l}</p>
+              ))}
+              {shown.record.limitations.map((l) => (
+                <p key={l}>{l}</p>
+              ))}
+            </div>
+          </>
+        ) : (
+          <p>No run prediction selected for this design.</p>
+        )}
+      </aside>
+    </div>
+  );
+}

@@ -11,6 +11,14 @@ setup-cad: ## Install pinned CAD dependencies.
 setup-viewer: ## Install CAD and API dependencies before WO-04.
 	uv pip install --python $(PYTHON) -r requirements-wo04.txt
 
+preview: ## Authorized early local inspection/experiment preview; WO-03 acceptance remains open.
+	bash scripts/wo04_preview.sh
+
+web-check: ## Strict TypeScript, lint and production build for the local preview.
+	npm --prefix web run typecheck
+	npm --prefix web run lint
+	npm --prefix web run build
+
 setup-sim: ## Install pinned WO-02 CPU/reference/telemetry dependencies.
 	uv pip install --python $(PYTHON) -r requirements-wo02.txt
 
