@@ -29,10 +29,23 @@ The separate G12 0.753 g forefoil still fails at 45.913°C. [Thermal report](wo0
 The selected G54 baffle candidate clears nominal hardware and its declared staged
 assembly path; actual notches/seams/supports and mass are exported. It remains
 unaccepted thermally/structurally. Its 846.010 g / 1.197510-cal full-growth minimum
-belongs to that candidate, not the active 817.991 g G54. Actual CAD radiation,
-opened-area gas flow and coupled matrix work continue. [Fit/assembly](wo03-baffle-fit.md)
+belongs to that candidate, not the active 817.991 g G54. Actual three-level CAD radiation is recorded; local optical convergence and
+common-surface gas/conduction/transient coupling remain open. [Fit/assembly](wo03-baffle-fit.md)
 and [occupancy](wo03-interface-occupancy.md). The new circular-pad candidate removes
 source material overlaps; it is not adopted into active geometry.
+
+The next actual-CAD correction increment records all 1,785 face owners and
+three optical levels, a valid 427,940-tetrahedron coarse gas mesh, an explicitly
+rejected zero-volume middle mesh and a time-capped fine attempt. Local gas
+convergence is open. Count-weighted radiation fitting passes its declared
+sampling consistency check; the older unweighted fit is rejected at 26 entries.
+The common-surface coupling agrees with independent plate calorimetry. Current
+local check: **199 tests**, Ruff/Black 200 files and strict mypy 74 modules.
+[Executed geometry/method evidence](../runs/wo03-actual-geometry-20261031T052235281133Z/record.json) and
+[thermal correction report](wo03-thermal-model-corrections.md) separate these
+checks from the still-unavailable actual-candidate required transient matrix.
+Actual baffle temperature/margin Analysis fields remain unavailable; its new
+geometry-only preview is hash-compatible. No correction is adopted on this basis.
 
 Active source-cache regeneration after the opt-in CAD primitive change preserves
 **exactly the same geometry, materials, masses, centroids and full inertia** in all
@@ -81,8 +94,10 @@ This export benchmark does not close expanded engineering acceptance. The preser
 comparisons and 4,096-env CPU step with unchanged code/inputs. G12 reference errors
 are now 2.064% altitude / 0.917% time, not the historical 0.004% claim.
 
-Standard upper thermal cases pass after the combined corrections; G54 300 C and
-contaminated-foil sensitivities still fail the conservative 45 C shell screen.
+**Historical band-model statement, superseded for acceptance:** its standard
+upper cases passed; G54 300 C and contaminated-foil sensitivities failed. The
+corrected actual-geometry required matrix has no accepted pass yet; retain the
+45 C substrate screen and earlier failures.
 Dominant fin stress/displacement and body modes converge; small fin components,
 installed-root peel/stiffness and full flutter remain open. Minimum frame/liner
 fits, service/arming/routing and recovery-anchor capacity remain design items.
@@ -99,6 +114,12 @@ workflow `41149095128` passed before merge.
 The first failed check exposed two missing evidence records; the corrected final
 head includes them and the fixed-shaft linkage model. Frontend implementation
 remains held for its separate preview PR.
+[PR #12](https://github.com/kudratsingh/rocket-twin/pull/12) merged at
+`e39ef7140482903be855ca21d8ea07d2ccefd0a3` after exact-head workflow
+`41169031880` passed for `81269e1853361b71e0e060179a55fad73291f2f0`.
+It publishes occupancy, finite common-surface proxy evidence and the fitting
+baffle. The subsequent actual-CAD optical/gas/material-mapping work remains local
+until its focused PR checks pass; method success does not close thermal acceptance.
 
 Fresh active CAD export `wo03-20261031T022318571108Z` passes all six variants,
 neutral intersections and both 25-pose sweeps with unchanged inputs at generator

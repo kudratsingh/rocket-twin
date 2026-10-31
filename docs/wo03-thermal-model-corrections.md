@@ -75,13 +75,80 @@ remains open. Do not combine the pre-baffle temperatures above with this new
 mass and call it one validated vehicle. G12 receives no baffle mass or thermal
 credit from this different fixed-motor configuration.
 
-The old candidate CAD identity has approximately 1 µm chord overlaps. It cannot supply uniquely material-tagged actual-CAD radiation surfaces. The primary agent created an **opt-in circular-pad correction candidate** in [`wo03-circular-pad-candidate-20261031T034153884353Z`](../runs/wo03-circular-pad-candidate-20261031T034153884353Z/record.json). That candidate is separate from active configuration. A verified cache refresh found the active geometry, material/CAD parameters, mass, CG and full inertias unchanged exactly; only cache identities were refreshed. Actual ray analysis and the required transient matrix on the candidate geometry remain outstanding. The corrected proxy results above use the prior candidate identity and must not be transferred to the candidate geometry.
+The old candidate CAD identity has approximately 1 µm chord overlaps. It cannot supply uniquely material-tagged actual-CAD radiation surfaces. The primary agent created an **opt-in circular-pad correction candidate** in [`wo03-circular-pad-candidate-20261031T034153884353Z`](../runs/wo03-circular-pad-candidate-20261031T034153884353Z/record.json). That candidate is separate from active configuration. A verified cache refresh found the active geometry, material/CAD parameters, mass, CG and full inertias unchanged exactly; only cache identities were refreshed. Actual ray analysis and the required transient matrix on the candidate geometry remain outstanding. The older proxy and current exact-pad replay keep separate physical identities. Neither replay supplies temperatures for the fitting-baffle geometry.
 
-A separate G12 fore-shield record, [`wo03-tvc-fore-shield-20261031T025947335730Z`](../runs/wo03-tvc-fore-shield-20261031T025947335730Z/record.json), adds 0.753216 g but still reports 45.912899°C and fails the substrate screen. It is not accepted. The proposed R26 ring-baffle geometry is rejected for nominal interference with actual mount rails; its evidence and limits are in [the finite thermal report](wo03-finite-thermal.md). A different fitting-baffle investigation is in progress and has no pass result.
+A separate G12 fore-shield record, [`wo03-tvc-fore-shield-20261031T025947335730Z`](../runs/wo03-tvc-fore-shield-20261031T025947335730Z/record.json), adds 0.753216 g but still reports 45.912899°C and fails the substrate screen. It is not accepted. The proposed R26 ring-baffle geometry is rejected for nominal interference with actual mount rails; its evidence and limits are in [the finite thermal report](wo03-finite-thermal.md). The fitting-baffle candidate passes only its stated nominal fit, sampled assembly and static comparisons; it has no accepted thermal result.
+
+## Actual fitting-baffle material layout and visibility
+
+The current actual-CAD occupancy record is
+`runs/wo03-interface-occupancy-20261031T040905840132Z/record.json`, at
+candidate `69df790…` / generator `1193713…`. It independently repeats the
+nominal partition on the **fitting-baffle** source. This replaces transferring
+occupancy by inference from its earlier parent.
+
+| Affected physical region | Material and mechanism | Midradius area per ring | Radial thickness | Correction and remaining assumption |
+| --- | --- | ---: | ---: | --- |
+| Mount-to-shell rings 0/1 | Epoxy conduction and its two material contacts | 606.201718 mm² | 0.680 mm | No parallel gas volume. Retain epoxy and contact uncertainty; no claim of measured wetting. |
+| Slotted rings 2/3/4: glued portion | Epoxy conduction and contacts | 540.359846 mm² | 0.680 mm | Only the actual glued portion receives this path. |
+| Slotted rings 2/3/4: fin-occupied portion | Plywood conduction, directional properties and its contacts | 57.243246 mm² | 0.680 mm region | No gas through the occupied fin. Installed contact/bond quality remains uncertain. |
+| Slotted rings 2/3/4: genuine opening | Gas conduction; radiation only where first-hit geometry permits | 8.598626 mm² | 0.680 mm nominal region | Preserve the actual three-dimensional opening; this midradius area alone is not a radiative view factor. |
+| Baffle notches, seams and supports | Gas around finite solids; opaque first-hit radiation; solid support conduction | Actual placed STEP faces, not a full annulus | Spec-owned 20 µm foil, 1.2 mm seams and 0.6 mm support stacks | All features remain in the void Boolean and optical surface map. No thermally sealed notch is invented. |
+
+The area figures partition one interface; they are not independent full-area
+allocations. Volume and three probe-thickness checks close their nominal
+partition. Bond coverage, thickness, wetting and contact quality remain bounded
+inputs requiring later physical measurement.
+
+The actual first-hit radiation study now preserves every source solid, finite
+ring end, slot, notch and seam. Its three fitting-baffle levels use
+93,502 / 123,724 / 144,690 boundary triangles and
+150,000 / 450,000 / 1,150,000 rays; zero rays escape. Fine raw area-weighted
+reciprocity error is 1.195%; the last global exchange-area change is 3.184%.
+**Local view-factor convergence is not established.** These are visibility
+calculations, not a temperature or baffle-cooling result.
+
+Some longitudinal foil-to-ring direct paths fall by 51–67% at point estimates,
+but seven of eight end comparisons have uncertainty intervals including no
+change. New baffle faces see their adjacent ring with view factors around
+0.964–0.978. An equal-radiosity exchange-area diagnostic therefore does not
+show that total ring heating falls. Gas exchange and the solid support path
+must be solved with those same surfaces. See [actual CAD radiation](wo03-cad-radiation.md).
+
+The subsequent [count-weighted operator check](wo03-cad-radiosity.md) rejects
+the old unweighted balancing at 26 small-surface entries outside conservative
+sampling intervals. Its count-likelihood replacement respects those intervals,
+closure and reciprocity, but does not close local optical convergence. No
+transient may silently use the rejected operator.
+
+A [geometry-only candidate preview](../build/wo03-fitting-baffle-preview/actual-baffle-layout.png)
+has been regenerated from all hash-checked actual placed STL assets. Its
+compatible Analysis manifest explicitly marks temperature and thermal margins
+unavailable, with no values or invented time axis. It cannot inherit the
+pre-baffle proxy's fields. This refresh is offline WO-03 work; frontend and
+computer-use development remain paused.
+
+The frozen [material connection map](wo03-surface-materials.md) uniquely owns
+all 1,785 fluid faces. It deliberately leaves 897 irregular faces without an
+accepted half-wall approximation. Missing paths are not insulation. An explicit
+[local-material-chord screening approximation](wo03-surface-chords.md) now covers
+all 144,690 boundary triangles, with 97,496 exact BRep queries in152.39s. Its
+three-point path variation reaches21-fold, so geometric completion is not
+quadrature convergence or a bound on internal gradients. The coarse gas mesh
+is valid but refinement failed/capped. Neither establishes thermal acceptance. Motor end/nozzle temperatures
+and external opening conditions remain separate source hypotheses.
+
+The independent common-surface gas/radiation fixture
+`wo03-gas-radiation-20261031T051417456778Z` matches scalar parallel-plate
+calorimetry over 6 / 48 / 384 tetrahedra: maximum heat error
+3.86e-15 W, energy imbalance below 3e-15 W. A separate opening fixture holds
+physical gas at 300 K while radiative brightness is 500 K. This verifies
+coupling bookkeeping only. It does not supply rocket temperatures or qualify
+local hot spots. [Coupling method](wo03-gas-radiation.md).
 
 ## Remaining acceptance work
 
-This is not the full required matrix. The executed transient covers a fixed G54 coaxial proxy only. Required design closure still includes G80 and G12, all specified gap/contact variants, actual angular rails/slots/pads/end hardware, local hot spots and a new baffle design if retained. The revised circular-pad geometry needs its own material-tagged radiation analysis and the required matrix. The motor case exterior history/bound, temperature-dependent material behavior and end boundary evidence also remain unresolved. These are **design acceptance items**, not silently deferred physical tests.
+This is not the full required matrix. The executed transient covers a fixed G54 coaxial proxy only. Required design closure still includes G80 and G12, all specified gap/contact variants, actual angular rails/slots/pads/end hardware, local hot spots and a new baffle design if retained. Actual material-tagged radiation has now been executed separately on the circular-pad and fitting-baffle geometries. Its local sampling uncertainty, gas coupling and the required transient matrix remain open. The motor case exterior history/bound, temperature-dependent material behavior and end boundary evidence also remain unresolved. These are **design acceptance items**, not silently deferred physical tests.
 
 No result here closes structural or fit acceptance, and no purchasing, physical build/test, paid run, or flight-release gate is cleared. Exact-part thermocouple, bond/process and hot-soak measurements remain later owner-performed qualification after a design passes the required analytical gates.
 
@@ -101,3 +168,21 @@ The related occupancy record is regenerated with:
 ```
 
 This is the historically executed command under the run's recorded source snapshot. Since the CAD generator has changed since that snapshot, current-root execution may reject the old cached inputs; generate explicitly compatible current inputs before attempting a new run and do not assume this command reproduces the archived record as-is. The archived per-case JSON files and source hashes are the evidence for the values summarized here. The older band-model numbers are preserved in `runs/wo03-multilayer-shield-20261031T022026246942Z/thermal-results.json` solely as historical results, not current acceptance evidence.
+
+## Correction closure for this increment
+
+| Issue | Implemented correction / criterion | Current result | Evidence | Remaining verification |
+| --- | --- | --- | --- | --- |
+| Gas through adhesive-filled volume | Disjoint actual glue/fin/open occupancy; no duplicate material ownership | Nominal partition balances, real slots retained | Occupancy record040905; actual CAD boundary | Wetting/gap/contact ranges and physical bond inspection |
+| Radiation through solid barriers or missing baffle notches | Opaque first-hit visibility using actual placed STEP | Zero escaped rays, all source faces retained; local ray uncertainty open | Actual CAD radiation / three optical levels | Thermal propagation and local sensitivity |
+| Rail-colliding baffle | Notched/seamed20µm panels, indexed support stacks, baffle-first assembly | Nominal fit and588sampled assembly poses pass; thermal acceptance open | Fitting-baffle source035358 | Manufacturing/thermal tolerances, physical installation |
+| Irregular material half walls | Exact normal-chord screening paths, explicit component/liner mappings | All141,699Robin facets covered; large local variation remains | Chord record051623, wall-energy QA | Solid-gradient and quadrature refinement; measured properties |
+| Biased simple reciprocal fit | Count-likelihood fit, raw counts retained, simultaneous interval check | Old26-entry incompatibility rejected; replacement compatible | Radiosity record051129 | Local optical/temperature convergence |
+| Gas discretization | Actual void tetrahedra, fixed source surface correspondence | Coarse passes; medium zero-volume and fine cap remain failures | Gas-mesh compact summary | Correct/validate mesh sequence and conditioning |
+| Common-surface bookkeeping | Gas/radiation/halfwall solve and signed reservoir ledger | Independent scalar plate and separate opening-input checks pass | Coupling fixtures and tests | Corrected actual-candidate burn/soak matrix and energy/refinement |
+| Compatible Analysis/preview | Exact revision geometry; unavailable temperature/margins | Consumer identity check passes; no stale fields transferred | Baffle preview record/Analysis manifest | Export compatible numeric histories only after actual solve |
+
+The new geometry and screening package remains unaccepted. Part-average
+calculations cannot establish missing local substrate temperatures. Actual
+material/boundary/contact measurements stay in later owner-performed work;
+open design/numerical findings above remain WO-03 acceptance items.

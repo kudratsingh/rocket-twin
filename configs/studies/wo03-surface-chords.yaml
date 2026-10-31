@@ -1,0 +1,46 @@
+id: wo03-fitting69df-local-material-chord-screen
+baseline_record: runs/wo03-surface-materials-20261031T045222607795Z/record.json
+baseline_faces: runs/wo03-surface-materials-20261031T045222607795Z/face-material-map.json
+baseline_components: runs/wo03-surface-materials-20261031T045222607795Z/component-state-proposals.json
+candidate: runs/wo03-baffle-fit-20261031T035358211715Z/resolved-candidate.json
+manifest: runs/wo03-baffle-fit-20261031T035358211715Z/geometry-manifest.json
+boundary: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/fine-boundary.npz
+benchmark_record: runs/wo03-surface-chords-20261031T045941742893Z/record.json
+cache_benchmark_record: runs/wo03-surface-chords-20261031T051544047634Z/record.json
+use_cached_classifier: true
+engineering: configs/engineering/wo03.yaml
+expected_sha256:
+  baseline_record: ab8c06bacc966384487d8ea93b7ca51f67c25d72f90b3775dbabaa84179169ff
+  baseline_faces: f1a76e27c6c121c3a935ba0a6742b72ef0237e4b708f7134d37ad5fd84e13bb3
+  baseline_components: eed1b44bbb3e42061e6a65c3ac5852e87224981f103089adafc6ecd8cf0f941b
+  candidate: c80a6d4f563c6c99c92ba7acbbc9ad4b6a0fa0655166f71bbf5a618959e32535
+  manifest: 6e0c0b9f421d271d974bf3552721c8756b53cb3ada284c8f946a0e6785a93866
+  boundary: fc435123d45a21aefacea906b259d1a5298895092374ba12bc489c868c1c948e
+  benchmark_record: 7b69ef058a268b1f24af01e5e9757fc2d9a0ec6934273f2455bf3833c8b22acf
+  cache_benchmark_record: 4fdbabfd1f3dd90b2760eccc2c89fad31e6f3779d0d8f66d23b78d698b8fdfec
+  engineering: f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678
+benchmark_queries: 1000
+maximum_queries: 600000
+maximum_level_seconds: 300.0
+authorized_full_level_seconds: 1500.0
+authorized_full_level_queries: 100000
+source_surface_deflection_mm: 0.002
+numerical_geometry_tolerance_mm: 0.0000001
+maximum_normal_chord_mm: 500.0
+minimum_normal_chord_mm: 0.00001
+probe_offset_mm: 0.000001
+minimum_normal_alignment: 0.99
+triangle_quadrature_barycentric:
+  - [0.6666666666666666, 0.16666666666666666, 0.16666666666666666]
+  - [0.16666666666666666, 0.6666666666666666, 0.16666666666666666]
+  - [0.16666666666666666, 0.16666666666666666, 0.6666666666666666]
+scope:
+  approximation: local_mid_chord_to_component_bulk
+  unresolved_internal_gradients: true
+  directional_conductivity_measured: false
+  capacity_division_adopted: false
+  new_temperature_solve: false
+  acceptance: false
+  flight_ready: false
+  cpu_workers: 1
+  cost_usd: 0

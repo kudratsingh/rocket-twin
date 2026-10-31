@@ -1,0 +1,18 @@
+id: wo03-actual-fitting-baffle-radiosity-screening
+ray_operator: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/fine-operator.npz
+surface_groups: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/surface-groups.json
+candidate: runs/wo03-baffle-fit-20261031T035358211715Z/resolved-candidate.json
+engineering: configs/engineering/wo03.yaml
+candidate_identity: 69df790ec9bcba1465be4fa9861a7ad5fbc467091cbf58f44dee069e56e00bac
+cad_revision_sha256: 1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b
+sampling_family_alpha: 0.05
+foil_emissivities:
+- 0.1
+- 0.3
+- 0.9
+unlisted_surface_emissivity: 0.9
+expected_sha256:
+  ray_operator: 45cf710d8be814dda708514385f82ec68332140f75d0252ee9d41cff7f7da4b8
+  surface_groups: 17e438947d2aa7c745b0a6c1a4c3317a61015eaaf840e22e41b31deb19cfd3ed
+  candidate: c80a6d4f563c6c99c92ba7acbbc9ad4b6a0fa0655166f71bbf5a618959e32535
+  engineering: f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678

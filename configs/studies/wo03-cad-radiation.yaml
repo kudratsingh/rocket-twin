@@ -1,0 +1,58 @@
+id: wo03-cad-first-hit-radiation-fitting-baffle-interior-v3
+source_record: runs/wo03-baffle-fit-20261031T035358211715Z/record.json
+source_resolved: runs/wo03-baffle-fit-20261031T035358211715Z/resolved-candidate.json
+source_geometry_manifest: runs/wo03-baffle-fit-20261031T035358211715Z/geometry-manifest.json
+expected_resolved_file_sha256: c80a6d4f563c6c99c92ba7acbbc9ad4b6a0fa0655166f71bbf5a618959e32535
+expected_manifest_sha256: 6e0c0b9f421d271d974bf3552721c8756b53cb3ada284c8f946a0e6785a93866
+expected_candidate_identity: 69df790ec9bcba1465be4fa9861a7ad5fbc467091cbf58f44dee069e56e00bac
+expected_source_cad_revision: 1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b
+comparison:
+  before_record: build/wo03-cad-radiation-interior-fine-bounded-v1/report.json
+  before_groups: build/wo03-cad-radiation-interior-fine-bounded-v1/surface-groups.json
+  before_operator: build/wo03-cad-radiation-interior-fine-bounded-v1/fine-operator.npz
+  before_candidate_identity: e25026cdc3b63f53a01cb4b91f3fb4b7e15c1b3e70e53924e95a639f4c5166b6
+enclosure:
+  fore_station_m: 0.990
+  aft_station_m: 1.212
+  outer_radius_m: 0.0325
+  fore_boundary: black_fore_reservoir_unknown_environment
+  aft_boundary: black_aft_reservoir_unknown_nozzle_plume_environment
+  radial_boundary: actual_adjacent_paper_or_solid_else_black_radial_reservoir_at_real_openings
+  coverage_audit: true
+  scope: interior_tube_control_volume_matches_shared_thermal_solver_external_shell_losses_owned_separately
+  supersedes_domain_only: build/wo03-cad-radiation-circular-rays-v1/report.json
+  reservoir_temperature_assignment: unavailable_owned_by_primary_surface_solver
+geometry:
+  opaque_roles: [manufactured, purchased_envelope]
+  excluded_role: distributed_budget
+  boolean_tolerance_mm: 0.0000001
+  interior_offset_mm: 0.0001
+  weld_tolerance_mm: 0.0000001
+  max_triangles: 150000
+  mesh_relative_volume_limit: 0.005
+  face_ownership: Boolean_modified_or_unchanged_face_history_then_actual_interior_surface_verification
+  missing_nozzle: certified_motor_geometry_not_available_cylindrical_source_envelope_only
+numerics:
+  seed: 713451
+  min_rays_per_group: 24
+  ray_origin_offset_mm: 0.00001
+  max_total_rays: 5000000
+  prior_executed_rays_upper_bound: 3020000
+  known_levels:
+    - {id: coarse, deflection_mm: 0.02, angular_tolerance_rad: 0.20, rays: 12000}
+    - {id: medium, deflection_mm: 0.01, angular_tolerance_rad: 0.14, rays: 24000}
+    - {id: fine, deflection_mm: 0.005, angular_tolerance_rad: 0.10, rays: 48000}
+  levels:
+    - {id: coarse, deflection_mm: 0.005, angular_tolerance_rad: 0.15, rays: 150000}
+    - {id: medium, deflection_mm: 0.0028, angular_tolerance_rad: 0.11, rays: 450000}
+    - {id: fine, deflection_mm: 0.002, angular_tolerance_rad: 0.10, rays: 1150000}
+  max_geometry_seconds: 600
+  max_ray_seconds: 600
+acceptance:
+  no_unowned_or_ambiguous_faces: true
+  boundary_edges_per_undirected_mesh_edge: 2
+  no_escaped_rays: true
+  normal_direction_verified_into_fluid: true
+  raw_reciprocity_reported_before_any_projection: true
+  strength_or_temperature_acceptance: false
+  flight_ready: false

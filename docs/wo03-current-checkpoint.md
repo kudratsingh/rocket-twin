@@ -1,3 +1,19 @@
+# Actual-CAD thermal correction — current continuation
+
+PR #12 has merged after required exact-head checks. New local geometry/method
+evidence: `runs/wo03-actual-geometry-20261031T052235281133Z/record.json`. Actual openings/owners, three optical
+levels, common-surface calorimetry, one valid coarse gas mesh and failed/capped
+refinement remain distinct. Count-weighted reconciliation passes its sampling
+consistency check; this is not local convergence or a temperature pass.
+Current local regression: 199 tests, Ruff/Black and strict mypy pass.
+
+The required corrected-candidate burn/soak matrix is not yet executed. Actual
+temperatures/margins remain unavailable in the compatible Analysis manifest;
+the geometry-only preview is refreshed. Keep 45°C and the combined 300°C /
+contaminated-foil / 35°C requirement, earlier failures and G12 guide budget.
+No candidate adoption, full WO-04 transition or build/flight release. Frontend
+and computer use remain paused; physical/paid/WO-10 owner gates stay intact.
+
 # Thermal/layout continuation — 2026-10-30 (UTC run IDs)
 
 WO-03 remains open. [The thermal correction report](wo03-thermal-model-corrections.md)

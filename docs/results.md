@@ -946,3 +946,40 @@ acceptance claim is inferred. Cost $0; no purchases, physical work or paid runs.
 - G12 forefoil stays rejected as thermal solution:0.753216g,45.912899°C versus45. Part-mean Analysis fields exported only for compatible e250 diagnostic; unavailable part coverage stays unavailable. No active candidate adoption, build, paid compute or flight release.
 
 Compact source-linked evidence: `runs/wo03-thermal-layout-20261031T042330617623Z/record.json`. Full ignored histories/meshes/STEP/source snapshots retain their original hashes locally.
+
+## Actual-CAD thermal layout and common-surface methods — 2026-10-30
+
+**WO-03 remains open; no new actual-baffle temperature pass.** Curated executed
+evidence: `runs/wo03-actual-geometry-20261031T052235281133Z/record.json`. Exact candidate `69df790…` / generator
+`1193713…` retains notches, seams, adhesive and finite supports. Raw rays/actual
+meshes stay local and are pinned by SHA256; no measured strength/temperature.
+
+- Actual occupancy removes duplicate gas through glue while retaining 8.598626 mm²
+  open midradius area at each slotted ring. First-hit geometry preserves that
+  opening and blocks rays at real solids.
+- Three optical levels have zero escaped rays; last global exchange change is
+  3.184%. Local convergence remains open. Baffles see adjacent rings strongly,
+  so direct-path blocking alone establishes no cooling.
+- Gas coarse mesh: 80,186 nodes / 427,940 tetrahedra, all 144,690 source facets
+  retained, PLC closure 1.18e−14 relative. Middle mesh is rejected for a zero-
+  volume cell; fine attempt reaches 300.05 s cap. No convergence pass.
+- Unweighted radiation balancing exceeds simultaneous sampling intervals at 26
+  entries and is rejected. Count-likelihood fitting satisfies closure/reciprocity
+  and those intervals, but widths up to 0.858 do not establish local precision.
+- Common-surface calorimetry over 6/48/384 tetrahedra differs from an independent
+  scalar solution by at most 3.86e−15 W; energy error <3e−15 W. Physical gas at
+  300 K remains distinct from radiative brightness at 500 K.
+- Local regression: 199 tests, Ruff/Black 200 files, strict mypy 74 modules.
+  These include unpublished preview/study work; focused-PR checks apply to the
+  published subset. No dependency upgrade, paid run or physical work.
+
+The 45°C substrate screen and required 300°C + contaminated-foil / 35°C case
+are unchanged. Earlier 44.749°C band-model and 46.059/51.975°C pre-baffle proxy
+results retain their historical scopes; they are not new-baffle fields. The
+baffle's 846.010 g / 1.197510 calibre remains a separate fit/static candidate
+result. Active masses and G12 departure assumptions are unchanged; G12 receives
+no thermal or mass credit from the G54 baffle.
+
+[Connection/closure report](wo03-thermal-model-corrections.md),
+[gas mesh](wo03-cad-gas-mesh.md), [radiation fit](wo03-cad-radiosity.md),
+[coupling verification](wo03-gas-radiation.md).
