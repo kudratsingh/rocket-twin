@@ -1,5 +1,8 @@
 """Candidate acceptance must analyze its own minimum manufactured thickness."""
 
+import subprocess
+import sys
+
 import pytest
 
 from scripts.wo03_fin_acceptance import _minimum_thickness_copy
@@ -17,3 +20,16 @@ def test_thinner_candidate_never_inherits_historical_6mm_minimum() -> None:
     fin.engineering.tolerances_mm.pop("thickness")
     with pytest.raises(ValueError, match="spec-owned thickness tolerance"):
         _minimum_thickness_copy(fin)
+
+
+def test_installed_fin_entrypoint_uses_current_acceptance_interface() -> None:
+    # A shared acceptance API change must not leave the installed-root runner
+    # importing the superseded fixed-thickness constant.
+    result = subprocess.run(
+        [sys.executable, "scripts/wo03_fin_installed.py", "--help"],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    assert "--vehicle" in result.stdout

@@ -23,10 +23,10 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.wo03_fin_acceptance import (
-    MINIMUM_THICKNESS_MM,
     ORTHOTROPIC,
     TEMPERATURE_STIFFNESS_AND_STRENGTH_FRACTION,
     _component_screen,
+    _minimum_thickness_copy,
     panel_force_n,
     run_acceptance,
 )
@@ -271,6 +271,7 @@ def run_installed(
             raise ValueError(
                 f"{vehicle.id}: installed orthotropic plywood model requires plywood fins"
             )
+        minimum_thickness_m = float(_minimum_thickness_copy(fin).geometry["thickness_m"])
         frame_id = "gimbal_frame" if vehicle.tvc is not None else "motor_mount"
         frame = next((p for p in vehicle.parts if p.id == frame_id), None)
         shell = _part(vehicle.parts, "body_tube", "aft_shell")
@@ -414,7 +415,7 @@ def run_installed(
                         update={
                             "geometry": {
                                 **fin.geometry,
-                                "thickness_m": MINIMUM_THICKNESS_MM / 1000,
+                                "thickness_m": minimum_thickness_m,
                             },
                             "cad_mass": None,
                         }
@@ -446,7 +447,7 @@ def run_installed(
                         update={
                             "geometry": {
                                 **fin.geometry,
-                                "thickness_m": MINIMUM_THICKNESS_MM / 1000,
+                                "thickness_m": minimum_thickness_m,
                             },
                             "cad_mass": None,
                         }
@@ -540,7 +541,7 @@ def run_installed(
                 sweep_m=float(fin.geometry["sweep_m"]),
                 root_chord_m=float(fin.geometry["root_chord_m"]),
                 tip_chord_m=float(fin.geometry["tip_chord_m"]),
-                base_fin_thickness_m=MINIMUM_THICKNESS_MM / 1000,
+                base_fin_thickness_m=minimum_thickness_m,
                 root_gusset_thickness_varies=gusset_span > 0,
                 root_attachment_stiffness_verified=False,
                 flight_max_q_available=True,
@@ -553,7 +554,7 @@ def run_installed(
                                 update={
                                     "geometry": {
                                         **part.geometry,
-                                        "thickness_m": MINIMUM_THICKNESS_MM / 1000,
+                                        "thickness_m": minimum_thickness_m,
                                     }
                                 }
                             )
@@ -570,7 +571,7 @@ def run_installed(
             screen_range = [float(v) for v in flutter_at_speed["screen_speed_range_mps"]]
             flutter["numerical_screen"] = {
                 "source_method": "Existing WO-03 vibration implementation of Martin/NACA TN 4197 Eq. 18, evaluated on the minimum-thickness rectangular unswept base panel with current study material ranges.",
-                "minimum_thickness_m": MINIMUM_THICKNESS_MM / 1000,
+                "minimum_thickness_m": minimum_thickness_m,
                 "speed_range_mps": screen_range,
                 "fresh_flight_max_speed_mps": fresh_speed_bound,
                 "ratio_range_to_fresh_speed": [
@@ -655,7 +656,7 @@ def run_installed(
                 "resolved_spec_sha256": resolved_hash,
                 "part_id": fin.id,
                 "source_fin_shape_sha256": fin.cad_mass.shape_sha256 if fin.cad_mass else None,
-                "minimum_thickness_m": MINIMUM_THICKNESS_MM / 1000,
+                "minimum_thickness_m": minimum_thickness_m,
                 "parent_run_id": panel_report.get("run_id"),
             },
             "panel_cache_proof": None,
