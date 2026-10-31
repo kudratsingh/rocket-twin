@@ -1123,3 +1123,30 @@ method, required matrix,45C screen or working vehicle changed. See
 The owner separately resumed early preview code/non-browser checks through a
 Terra agent. Browser verification/screenshots remain paused pending owner testing.
 Failed or incompatible analysis cannot become accepted active overlays.
+
+
+## WO-03 timed-session load routing and cut equilibrium (2026-10-31)
+
+The archived G12 layered-fin contact calculation is not the69df G54 baffle copy.
+Its2.017N m tangent root moment is axial-Z; expressing the same wrench about
+the body axis gives3.919N m. This does not add load or determine rail torsion.
+Physical Fz/Mx/My remain unknown/null; the old radial-X rail-bending surrogate
+remains unverified. Hash-verified historical STEP sections are recorded, with
+no material-capacity or installed-flutter acceptance.
+
+For the separateG54 thermal copy, all170 placedSTEP files passed source-hash,
+validity and source-CG-in-bounds checks in one bounded60s child (reported6.58s
+wall). BRep-extents and nominal-extents cut bounds agree within1.5e-14N across
+ninecuts. At1.006m combined nonmotor-path demand is51.682–73.091N under
+the explicitly assumed single motor contact. Assigning all of it to the gross
+shell would giveDF3 1.507–2.131MPa, straddling the unchanged2MPa estimate;
+actual shell/rail/bond shares remain unknown. The prior3.20887MPa all-transfer
+scenario remains failed. T/M=157.7084m/s² is inertial-plus-weight specificforce,
+not netflight acceleration (verticalnodrag T/M−g=147.9017m/s²).
+
+Three self-contained known-case tests and local static checks pass. The
+executed pre-format support source and current formatted source have identical
+ASTs. No newgeometry, FEA, heat calculation, designadoption or physicaltest was
+performed. Complete recovery/thermal/fin integration remains open. Evidence:
+`runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json`, [fin routing](wo03-fin-load-routing.md),
+[support cuts](wo03-support-cutloads.md). Ownerrequested stop remains09:49UTC.

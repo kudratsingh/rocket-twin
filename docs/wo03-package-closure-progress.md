@@ -1,3 +1,20 @@
+# Timed-session force-accounting checkpoint — 2026-10-31
+
+No design correction package is adopted and WO-03 remains open. The following
+subitems close force/reference bookkeeping for their exact source models; they
+do not close installed capacity, thermal accuracy, recovery or flutter gates.
+
+| Issue / previous finding | Executed correction or clarification | Criterion / new result | Remaining verification |
+| --- | --- | --- | --- |
+| Root axial-Z moment fed into radial-X rail-bending surrogate | Trace archived G12 tab/foot wrenches at explicit tangent/body/rail reference points | Independent transform and round trip pass;2.017N m tangent moment becomes3.919N m about body axis for the same force. Actual historical STEP section checked. | Reference-point wrench is not a rail cut reaction. Fz/Mx/My physical components remain null; actual load sharing, hot joint capacity, foundation and flutter unclosed. No G54 transfer. [Fin evidence](wo03-fin-load-routing.md) |
+|110.0505N motor-flank envelope versus58.2161N whole-part joint grouping | Separate all-nonmotor free-body cuts, count170 model parts/motor separation and50g growth once, retain assumed motor contact | All170 STEP hashes/validity/bounds checked. At1.006m, combined cut51.682–73.091N; STEP/nominal results agree within1.5e-14N. T/M is effective axial specific force; gravity is included. | Shell/rail/bond shares remain null. Shell-only sensitivity1.507–2.131MPa still straddles2MPa; prior3.20887MPa all-transfer failure retained. Not a complete recovery package. [Support evidence](wo03-support-cutloads.md) |
+
+Compact evidence: `runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json`. Earlier reports below remain at their original
+identities. Owner-performed hot joint, root-compliance, proof and modal tests
+remain later gates; they cannot substitute for missing analytical design closure.
+
+---
+
 # Fixed-scope closure continuation — 2026-10-31
 
 [Three concrete deliverables, compute caps and failure decisions](wo03-closure-plan.md)

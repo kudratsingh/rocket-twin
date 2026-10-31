@@ -1,0 +1,15 @@
+id: wo03-fin-load-routing-v1
+contact_audit: build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json
+contact_table: build/wo03-installed-fin-closure-audit-v1/completed-audit/connection-table.csv
+hoop_copy: build/wo03-recovery-clearance/hoop/resolved-candidate.yaml
+hoop_record: build/wo03-recovery-clearance/hoop/record.json
+thermal_candidate: runs/wo03-baffle-fit-20261031T035358211715Z/resolved-candidate.json
+thermal_candidate_record: runs/wo03-baffle-fit-20261031T035358211715Z/record.json
+foot_bond_m: 0.0001
+reference_stations_m: [1.075, 1.115, 1.13]
+budget:
+  cpu_workers: 1
+  max_child_seconds_per_case_all_levels: 120
+  total_cpu_seconds: 600
+default_output: build/wo03-fin-load-routing-v1/final-metadata-corrected
+scope: Wrench transport and historical contact sensitivities only; no installed structural acceptance.
