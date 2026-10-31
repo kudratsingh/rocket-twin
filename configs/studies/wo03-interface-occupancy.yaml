@@ -1,0 +1,21 @@
+id: wo03-actual-interface-occupancy
+status: nominal_geometry_partition_not_thermal_acceptance
+candidate_record: runs/wo03-baffle-fit-20261031T035358211715Z/record.json
+probe_thicknesses_mm: [0.1, 0.01, 0.001]
+materials:
+  adhesive: explicit_mount_shell_bond_solids
+  fin: actual_fin_set_solid
+  support: actual_motor_mount_solid
+  body: actual_aft_shell_solid
+uncertainty:
+  adhesive_radial_gap_m: [0.00032, 0.00050, 0.00068]
+  contact_conductance_w_k_per_ring: [2, 10, 50]
+  source: configs/engineering/wo03-thermal-acceptance.yaml
+  wetting_voids_and_meniscus: unavailable_until_process_and_section_measurements
+  area_scope: nominal_geometry_only_each_gap_variant_requires_its_own_CAD
+scope:
+  physical_volume_and_area_allocation: calculated
+  radiation_visibility: first_hit_tracer_separate_never_inferred_from_area_alone
+  thermal_acceptance: false
+  active_adoption: false
+  flight_ready: false

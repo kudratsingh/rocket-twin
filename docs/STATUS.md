@@ -18,25 +18,32 @@ owner's explicit sequence exception for read-only inspection, recorded Analysis,
 real backend experiments and replay/comparison. Full WO-04/05 prerequisites and
 completion criteria remain; no engineering, physical-build or flight release.
 
-The current correction studies verify finite axial/peel calculation fixtures,
-reject the thin paper doubler, and identify the brace-stiffness loss from enlarged
-shield bores. Segmented foils preserve the original bores and calculate G54
-44.749°C in one combined hot/degraded-foil corner, with only 0.251 K reserve;
-the complete candidate matrix and a compatible G12 shield remain open. The
-forward-shifted carbon/PVC fin/root copy is 81.948 g, with explicit gap bonds.
-Reallocating duplicated root adhesive removes 3.626547 g from the vehicle bill.
-The complete recovery/fin copy with an 8 g thermal mass probe passes the guide
-arithmetic narrowly (10.01298 m/s on current rails), but rod/cassette motion and
-matched/single-leg rail capacity still fail. The canted-horn motion/rate diagnostics are now superseded by the [fixed-shaft model correction](wo03-fixed-shaft-correction.md) and require revalidation; their mass and hand-load ledgers are unaffected. No candidate is adopted. See the
-[closure table](wo03-package-closure-progress.md), [thermal correction](wo03-multilayer-shield.md),
-[fin/root study](wo03-trainer-fin-package.md) and [recovery audit](wo03-recovery-budget-closure.md).
+The current thermal correction has an executed actual-CAD material partition,
+verified common-surface radiation/conduction coupling and a 30-case **diagnostic**
+G54 grid. The former 44.749°C one-point pass is superseded as acceptance evidence:
+finite ring/end heating raises the required-case support result to 46.059°C with
+ambient end reservoirs, or 51.975°C with hot end assumptions. The current coaxial
+proxy still omits actual slot gas/radiation, so it cannot close the required matrix.
+The separate G12 0.753 g forefoil still fails at 45.913°C. [Thermal report](wo03-thermal-model-corrections.md).
 
-Latest local validation: `make check smoke` passes **148 tests**, lint, formatting
-and strict typing. `make benchmark` passes the unchanged active static platform
-and actual G80/finned-G12 RocketPy comparisons, including the 4,096-environment
-CPU step: `wo01-platform-20261031T015813020621Z` and
-`wo02-20261031T015813539484Z`. These are regression results for the active vehicles,
-not acceptance or flight predictions for the rejected/candidate corrections.
+The selected G54 baffle candidate clears nominal hardware and its declared staged
+assembly path; actual notches/seams/supports and mass are exported. It remains
+unaccepted thermally/structurally. Its 846.010 g / 1.197510-cal full-growth minimum
+belongs to that candidate, not the active 817.991 g G54. Actual CAD radiation,
+opened-area gas flow and coupled matrix work continue. [Fit/assembly](wo03-baffle-fit.md)
+and [occupancy](wo03-interface-occupancy.md). The new circular-pad candidate removes
+source material overlaps; it is not adopted into active geometry.
+
+Active source-cache regeneration after the opt-in CAD primitive change preserves
+**exactly the same geometry, materials, masses, centroids and full inertia** in all
+six active variants. Fresh CAD `wo03-20261031T034832494277Z` passes all variants and
+both 25-pose sweeps with unchanged inputs at generator `1193713d…`.
+`make benchmark` passes static/actual G80/finned-G12 RocketPy and 4,096-env CPU:
+`wo01-platform-20261031T034519135584Z`, `wo02-20261031T034519948032Z`.
+The latest whole local check passes **187 tests**, Ruff/Black and strict typing
+(69 source modules); it includes local preview and other unpublished method tests.
+The focused PR receives its own required exact-head hosted checks.
+These are regression/method checks, not expanded engineering or flight acceptance.
 
 The unmerged local preview is `http://127.0.0.1:5173`; its local `make preview`
 launcher and frontend changes are held for a separate PR while preview work is paused.
@@ -86,11 +93,23 @@ PRs #4–10 are merged after required hosted checks. Geometry remains the
 [PR #10](https://github.com/kudratsingh/rocket-twin/pull/10) publishes the subsequent
 analysis/budget tools at `e41c6c0693da02afa27b1c208cbd97eb16c73261`; exact-head
 workflow `41149095128` passed before merge.
-[PR #11](https://github.com/kudratsingh/rocket-twin/pull/11) is open for the subsequent
-correction methods/evidence. Its first hosted check caught two referenced local
-evidence records missing from the commit; they are being published with the
-fixed-shaft linkage correction. Merge remains gated on the required checks for
-the final head. Frontend implementation remains held for its separate preview PR.
+[PR #11](https://github.com/kudratsingh/rocket-twin/pull/11) merged at
+`cf0bdef92439403e053d8604f449e72e990ab762` after exact-head workflow
+`41159867221` passed for `a5ca0fb00619221a5af8502f9173b5947047fa02`.
+The first failed check exposed two missing evidence records; the corrected final
+head includes them and the fixed-shaft linkage model. Frontend implementation
+remains held for its separate preview PR.
+
+Fresh active CAD export `wo03-20261031T022318571108Z` passes all six variants,
+neutral intersections and both 25-pose sweeps with unchanged inputs at generator
+revision `b3440d2b97dcaf525fc1f40c5cf224dda6d9e02fa7bedcb43d58f822a0793108`.
+The earlier source-changing run is rejected. Active geometry remains PR #9.
+The new original-arm/windowed-cap candidate separately clears its 25 nominal
+poses; installed load capacity, wiring and continuous/tolerance motion remain open.
+[Clearance](wo03-recovery-clearance.md), [fore-bay shield](wo03-tvc-fore-shield.md),
+[finite-radiation diagnostic](wo03-finite-radiation.md) and
+[free-flight load audit](wo03-flight-loads.md) retain their own source identities.
+
 The next correction package remains isolated: no braced-mount, recovery-anchor or
 trainer-fin candidate is adopted merely because an individual screen passes.
 Earlier closure-foundation test run: 123 tests passed; the latest local check is recorded above. See the [three-priority closure progress](wo03-package-closure-progress.md),

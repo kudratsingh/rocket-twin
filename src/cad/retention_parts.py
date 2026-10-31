@@ -179,12 +179,38 @@ def _thrust_plate(geometry: Mapping[str, Any], params: Mapping[str, Any]) -> Any
 
 
 def _sector(
-    ri: float, ro: float, angle_center_deg: float, angle_width_deg: float, thickness: float
+    ri: float,
+    ro: float,
+    angle_center_deg: float,
+    angle_width_deg: float,
+    thickness: float,
+    *,
+    circular_boundaries: bool = False,
 ) -> Any:
     if ri < 0 or ri >= ro:
         raise ValueError("sector radii must satisfy 0 <= inner < outer")
     if not 0 < angle_width_deg < 180:
         raise ValueError("sector angle must be between 0 and 180 degrees")
+    if circular_boundaries:
+        # Intersect a true annulus with an oversized angular wedge. Chordal
+        # inner polygons otherwise intrude into an adjacent cylindrical foil.
+        half = math.radians(angle_width_deg / 2)
+        length = ro / math.cos(half) + 1
+        a, b = (math.radians(angle_center_deg + sign * angle_width_deg / 2) for sign in (-1, 1))
+        wedge = (
+            cq.Workplane("XY")
+            .polyline(
+                [
+                    (0, 0),
+                    (length * math.cos(a), length * math.sin(a)),
+                    (length * math.cos(b), length * math.sin(b)),
+                ]
+            )
+            .close()
+            .extrude(thickness)
+            .val()
+        )
+        return _tube(ro, ri, thickness).intersect(wedge)
     steps = max(8, math.ceil(angle_width_deg / 3))
     start = angle_center_deg - angle_width_deg / 2
     outer_points = [
@@ -211,7 +237,17 @@ def _sector_pads(geometry: Mapping[str, Any], params: Mapping[str, Any]) -> Any:
         _value(params, "thickness_mm", default=_length_mm(geometry)), "thickness_mm"
     )
     width = _positive(params["sector_angle_deg"], "sector_angle_deg")
-    solids = [_sector(ri, ro, angle, width, thickness) for angle in (0.0, 120.0, 240.0)]
+    solids = [
+        _sector(
+            ri,
+            ro,
+            angle,
+            width,
+            thickness,
+            circular_boundaries=bool(params.get("circular_boundaries", False)),
+        )
+        for angle in (0.0, 120.0, 240.0)
+    ]
     return cq.Compound.makeCompound(solids)
 
 

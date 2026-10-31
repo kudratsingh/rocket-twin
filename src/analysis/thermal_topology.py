@@ -86,6 +86,7 @@ def run_thermal_topology(
     *,
     scenario_index: int | None = None,
     heat_flow_step_s: float = 1.0,
+    surface_exchange: Any | None = None,
 ) -> dict[str, Any]:
     assert vehicle.motor
     parts = {p.id: p for p in vehicle.parts}
@@ -286,6 +287,8 @@ def run_thermal_topology(
             resistance_a = np.log(ra / ca) / (2 * np.pi * profile(a)["conductivity_w_m_k"] * length)
             resistance_b = np.log(cb / rb) / (2 * np.pi * profile(b)["conductivity_w_m_k"] * length)
             interface = {
+                "start_m": float(start),
+                "end_m": float(end),
                 "source_part_id": source,
                 "target_part_id": target,
                 "source_node": cells - 1 if source == liner.id else index[source],
@@ -413,6 +416,19 @@ def run_thermal_topology(
         for name, conductance in study["upper_bay_cooling_w_k"].items()
         if name in index
     ]
+    if surface_exchange is not None:
+        surface_exchange.prepare(
+            [f"motor_liner.cell_{i}" for i in range(cells)] + other_ids,
+            {
+                "motor_radius_m": float(motor.geometry["radius_m"]),
+                "liner_inner_radius_m": float(lg["inner_radius_m"]),
+                "start_m": float(liner.position_m),
+                "end_m": float(liner.position_m + lg["length_m"]),
+                "air_conductivity_w_m_k": float(air_k),
+                "liner_radial_centres_m": wall.centres_m.tolist(),
+            },
+            interfaces,
+        )
 
     def boundary(t: float) -> float:
         if t < 0 or (prelaunch_powered_soak_s > 0 and t == 0):
@@ -435,29 +451,34 @@ def run_thermal_topology(
                     float(-flow),
                 )
             )
-        case_heat = opaque_gap_flux(
-            boundary(t),
-            float(temperature[0]),
-            0,
-            wall.inner_half_resistance_k_w,
-            motor.geometry["radius_m"],
-            lg["inner_radius_m"],
-            lg["length_m"],
-            air_k,
-            emissivity,
-            inner_surface_emissivity=surface_emissivity(motor),
-            outer_surface_emissivity=surface_emissivity(liner),
-        )
-        q[0] += case_heat
-        links.append(
-            (
-                "motor_case_to_liner_inner",
-                "motor_case_boundary",
-                "motor_liner.cell_0",
-                "prescribed_case_gap",
-                float(case_heat),
+        case_heat = (
+            0.0
+            if surface_exchange is not None
+            else opaque_gap_flux(
+                boundary(t),
+                float(temperature[0]),
+                0,
+                wall.inner_half_resistance_k_w,
+                motor.geometry["radius_m"],
+                lg["inner_radius_m"],
+                lg["length_m"],
+                air_k,
+                emissivity,
+                inner_surface_emissivity=surface_emissivity(motor),
+                outer_surface_emissivity=surface_emissivity(liner),
             )
         )
+        q[0] += case_heat
+        if surface_exchange is None:
+            links.append(
+                (
+                    "motor_case_to_liner_inner",
+                    "motor_case_boundary",
+                    "motor_liner.cell_0",
+                    "prescribed_case_gap",
+                    float(case_heat),
+                )
+            )
         case_contact_heat = 0.0
         case_temperature = boundary(t)
         for node, part_id, conductance in case_contacts:
@@ -474,6 +495,10 @@ def run_thermal_topology(
                 )
             )
         for interface_index, interface in enumerate(interfaces):
+            if surface_exchange is not None and interface["model"] != "direct_solid_contact":
+                # The coupled adapter handles gas and finite-geometry radiation
+                # at the SAME physical surfaces behind the material half walls.
+                continue
             a = int(interface["source_node"])
             b = int(interface["target_node"])
             resistance_a = float(interface["source_half_wall_resistance_k_w"])
@@ -511,6 +536,20 @@ def run_thermal_topology(
                     float(flux),
                 )
             )
+        surface_external = 0.0
+        if surface_exchange is not None:
+            surface_heat, surface_external, surface_links = surface_exchange.rates(
+                temperature,
+                case_temperature_k=case_temperature,
+                ambient_temperature_k=float(ambient),
+            )
+            surface_heat = np.asarray(surface_heat, dtype=float)
+            if surface_heat.shape != q.shape or not np.isfinite(surface_heat).all():
+                raise ValueError("Coupled surface heat has incompatible nodes or nonfinite values")
+            if not np.isfinite(surface_external):
+                raise ValueError("Coupled surface boundary energy is nonfinite")
+            q += surface_heat
+            links.extend(surface_links)
         for a, b, conductance, source_id, target_id in contacts:
             flux = conductance * (temperature[b] - temperature[a])
             q[a] += flux
@@ -530,7 +569,7 @@ def run_thermal_topology(
             + surface_emissivity(shell) * SIGMA * (ambient**4 - temperature[shell_n] ** 4)
         )
         q[shell_n] += shell_loss
-        external = case_heat + case_contact_heat + shell_loss
+        external = case_heat + case_contact_heat + shell_loss + surface_external
         links.append(
             (
                 "aft_shell_external_convection_and_radiation",
@@ -573,6 +612,65 @@ def run_thermal_topology(
         q, external, _ = rates(t, state)
         return np.concatenate((q / capacities, [external]))
 
+    def common_surface_jacobian(t: float, state: Any) -> Any:
+        """Analytic implicit-surface/linear-contact Jacobian for the finite model.
+
+        Inner surface solve residuals must not act as numerical noise in SciPy's
+        automatically shrinking temperature perturbations. The legacy model
+        retains its historical solver path; the finite model supplies physical
+        derivatives, including external-energy integration, explicitly.
+        """
+        assert surface_exchange is not None
+        temperature = state[:count]
+        derivative, external_derivative = surface_exchange.jacobian(
+            temperature,
+            case_temperature_k=boundary(t),
+            ambient_temperature_k=float(ambient),
+        )
+        derivative = np.asarray(derivative, dtype=float).copy()
+        external_derivative = np.asarray(external_derivative, dtype=float).copy()
+        if derivative.shape != (count, count) or external_derivative.shape != (count,):
+            raise ValueError("Surface Jacobian dimensions do not match thermal nodes")
+
+        def pair(a: int, b: int, conductance: float) -> None:
+            derivative[a, a] -= conductance
+            derivative[b, b] -= conductance
+            derivative[a, b] += conductance
+            derivative[b, a] += conductance
+
+        for node, value in enumerate(wall.internal_conductance_w_k):
+            pair(node, node + 1, float(value))
+        for interface in interfaces:
+            if interface["model"] == "direct_solid_contact":
+                resistance = (
+                    float(interface["source_half_wall_resistance_k_w"])
+                    + float(interface["target_half_wall_resistance_k_w"])
+                    + 1 / float(interface["contact_conductance_w_k"])
+                )
+                pair(int(interface["source_node"]), int(interface["target_node"]), 1 / resistance)
+        for a, b, conductance, _, _ in contacts:
+            pair(a, b, float(conductance))
+        for node, _, conductance in case_contacts:
+            derivative[node, node] -= conductance
+            external_derivative[node] -= conductance
+        shell_n = index["aft_shell"]
+        shell_loss_derivative = -shell_area * (
+            convection + 4 * surface_emissivity(shell) * SIGMA * temperature[shell_n] ** 3
+        )
+        derivative[shell_n, shell_n] += shell_loss_derivative
+        external_derivative[shell_n] += shell_loss_derivative
+        for node, conductance in external_cooling:
+            derivative[node, node] -= conductance
+            external_derivative[node] -= conductance
+        result = np.zeros((count + 1, count + 1))
+        result[:count, :count] = derivative / capacities[:, None]
+        result[-1, :count] = external_derivative
+        if not np.isfinite(result).all():
+            raise ValueError("Nonfinite common-surface ODE Jacobian")
+        return result
+
+    solver_jacobian = {} if surface_exchange is None else {"jac": common_surface_jacobian}
+
     end = burn + settings["soak_s"]
     times_after_ignition = np.unique(np.append(np.arange(0.0, end, 1.0), [burn, end]))
     initial_state = np.append(initial_temperature, 0.0)
@@ -590,6 +688,7 @@ def run_thermal_topology(
             atol=1e-7,
             max_step=max_step_s,
             dense_output=True,
+            **solver_jacobian,
         )
         if not solution.success:
             raise RuntimeError(solution.message)
@@ -614,6 +713,7 @@ def run_thermal_topology(
             atol=1e-7,
             max_step=max_step_s,
             dense_output=True,
+            **solver_jacobian,
         )
         if not prelaunch.success:
             raise RuntimeError(prelaunch.message)
@@ -629,6 +729,7 @@ def run_thermal_topology(
             atol=1e-7,
             max_step=max_step_s,
             dense_output=True,
+            **solver_jacobian,
         )
         if not post_burn.success:
             raise RuntimeError(post_burn.message)
@@ -710,6 +811,47 @@ def run_thermal_topology(
             "energy_balance_residual_j": prelaunch_stored_energy - prelaunch_external_energy,
             "evidence": "calculated using the shared thermal rates/RHS; electronics power is the configured estimated 1 W flight-computer load for this scenario",
         }
+    jacobian_verification = []
+    if surface_exchange is not None:
+        delta_k = 0.001
+        for sample_time in (0.0, min(burn + 60.0, end)):
+            state = np.asarray(dense_state(sample_time), dtype=float)
+            analytic = common_surface_jacobian(sample_time, state)
+            numerical = np.zeros_like(analytic)
+            for node in range(count):
+                plus, minus = state.copy(), state.copy()
+                plus[node] += delta_k
+                minus[node] -= delta_k
+                numerical[:, node] = (rhs(sample_time, plus) - rhs(sample_time, minus)) / (
+                    2 * delta_k
+                )
+            temperature_error = float(np.linalg.norm(analytic[:count] - numerical[:count]))
+            temperature_scale = max(float(np.linalg.norm(analytic[:count])), 1e-20)
+            boundary_error = float(np.linalg.norm(analytic[-1] - numerical[-1]))
+            boundary_scale = max(float(np.linalg.norm(analytic[-1])), 1e-20)
+            jacobian_verification.append(
+                {
+                    "time_s": sample_time,
+                    "central_temperature_step_k": delta_k,
+                    "temperature_derivative_relative_frobenius_error": temperature_error
+                    / temperature_scale,
+                    "boundary_energy_derivative_relative_norm_error": boundary_error
+                    / boundary_scale,
+                    "maximum_temperature_derivative_absolute_difference_per_s": float(
+                        np.max(abs(analytic[:count] - numerical[:count]))
+                    ),
+                    "maximum_boundary_derivative_absolute_difference_w_k": float(
+                        np.max(abs(analytic[-1] - numerical[-1]))
+                    ),
+                    "derivative_energy_balance_residual_w_k": float(
+                        np.max(abs(capacities @ analytic[:count, :count] - analytic[-1, :count]))
+                    ),
+                    "verification_tolerance_relative": 0.001,
+                    "passed": temperature_error / temperature_scale < 0.001
+                    and boundary_error / boundary_scale < 0.001,
+                    "scope": "Analytic versus independent central differences at two recorded states; temperature/spatial convergence remains separate",
+                }
+            )
     temperatures = np.column_stack(
         (
             states[:, :cells] @ wall.capacities_j_k / sum(wall.capacities_j_k),
@@ -838,7 +980,13 @@ def run_thermal_topology(
         ),
     }
     return {
-        "model": "neutral-coaxial-material-shield-v3",
+        "model": (
+            "finite-common-surface-exchange-v1"
+            if surface_exchange is not None
+            else "neutral-coaxial-material-shield-v3"
+        ),
+        "surface_exchange": surface_exchange.metadata() if surface_exchange is not None else None,
+        "common_surface_jacobian_verification": jacobian_verification,
         "case": case_ids[scenario],
         "scenario_index": scenario,
         "ambient_c": float(ambient - 273.15),
