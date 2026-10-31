@@ -6,6 +6,11 @@ completed two three-grid fixtures, with useful individual checks, but did not
 verify the difficult spatial-wall cases or sufficiently precise energy accounting.
 No production heat method or working vehicle changed. WO-03 remains open.
 
+The later [isolated-distribution preflight](wo03-elmer-isolated-setup.md) found a
+MacPorts source port with arm64 build records, but no verified accessible binary,
+runtime closure or relocatable installation for this host. It adds distribution
+evidence, not a successful setup or solver test. No further packet was executed.
+
 ## Declared allowance and what was executed
 
 Two packets were declared before execution: Elmer and installed CalculiX 2.23.
