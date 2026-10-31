@@ -1,3 +1,31 @@
+# Current numerical checkpoint — completed diagnostic, acceptance open
+
+PR #13 merged at8e71c206… after replacement hosted run41172768750 passed all
+required checks. The later local continuation is a **completed failed-model
+investigation**, not accepted thermal design evidence.
+
+Exact G54 baffle69df790… / CAD1193713… completed 3.026 s burn +300 s soak in
+run `wo03-actual-transient-20261031T061319026057Z`. Debug means: motor support
+50.672°C, aft substrate42.585°C. Source gas fields violate physical bounds;
+these numbers cannot establish a pass against45°C. Global ODE energy closure
+and unverified local connection-energy quadrature have separate statuses.
+[Full report and four gates](wo03-actual-debug-transient.md).
+
+The five flattened middle-mesh cells are diagnosed from retained raw output.
+One optimized trial and its exact-duplicate quotient still fail unchanged guards.
+Native isotropic remeshing is incomplete and has observed wall-fidelity defects.
+The targeted boundary pilot preserved original planar material surfaces,
+openings and optical ancestry but stopped at its resource cap before resolving
+the intended traces. No new actual factor or convergence pass follows.
+
+Active geometry, G12 departure budget,45°C screen, required combined300°C /
+contaminated foil /35°C case and all release gates remain unchanged. Failed debug
+Analysis records are not registered on active vehicles. Frontend remains paused.
+
+---
+
+The checkpoints below are historical and superseded by the current report above.
+
 # Actual-CAD thermal correction — current continuation
 
 PR #12 has merged after required exact-head checks. New local geometry/method

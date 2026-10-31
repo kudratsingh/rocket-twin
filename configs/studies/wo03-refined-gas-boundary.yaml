@@ -1,0 +1,25 @@
+id: wo03-targeted-linear-optical-PLC-subdivision-v1
+frozen_config: configs/studies/wo03-cad-gas-mesh.yaml
+native_mapping: build/wo03-cad-gas-native-mapping-v1/mapping/native-face-mapping.json
+native_mapping_sha256: edc708223a34743ac8568be8ba39369f55e469247982967206d87f66a1e0e8d9
+rules:
+  global_axial_mm: 12.0
+  local_axial_mm: 0.1
+  end_band_mm: 0.4
+  local_radius_mm: 16.0
+  plane_edge_mm: 1.0
+boundary_caps:
+  max_boundary_nodes: 120000
+  max_boundary_triangles: 240000
+bulk_spacing_mm: 4.0
+hard_worker_seconds: 300
+geometry:
+  linear_midpoints_only: true
+  old_vertices_bitwise: true
+  CAD_projection_or_vertex_movement: forbidden
+  all_incident_triangles_split: true
+  old_geometry_volume_quality_guards: unchanged
+physics:
+  old_wall_M_B_D_copy: forbidden
+  original_optical_parent_mapping: required
+  thermal_solve_or_adoption: false

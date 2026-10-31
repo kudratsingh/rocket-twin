@@ -1,0 +1,19 @@
+id: wo03-actual-G54-common-surface-nominal-part-mean-diagnostic
+factor_record: build/wo03-actual-gas-factor/coarse-nominal/record.json
+gas_operator: build/wo03-actual-gas-factor/coarse-nominal/gas-response.npz
+gas_metadata: build/wo03-actual-gas-factor/coarse-nominal/gas-response.json
+factor_config: configs/studies/wo03-actual-gas-factor.yaml
+parent_map: runs/wo03-surface-chords-20261031T051623357877Z/component-bulk-parent-map.json
+candidate: runs/wo03-baffle-fit-20261031T035358211715Z/resolved-candidate.json
+candidate_record: runs/wo03-baffle-fit-20261031T035358211715Z/record.json
+candidate_identity: 69df790ec9bcba1465be4fa9861a7ad5fbc467091cbf58f44dee069e56e00bac
+surface_groups: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/surface-groups.json
+acceptance_matrix: configs/engineering/wo03-thermal-acceptance.yaml
+engineering: configs/engineering/wo03.yaml
+topology: configs/studies/wo03-thermal-topology.yaml
+construction: configs/studies/wo03-multilayer-shield.yaml
+radiosity_record: runs/wo03-cad-radiosity-20261031T051129909396Z/record.json
+surface_tolerance_k: 0.00000001
+heat_flow_step_s: 2.0
+child_seconds: 600
+scope: Nominal material part-average diagnostic only; unchanged source cases,45Cscreen, no local hot spots or acceptance. All motor surfaces share explicitly declared case-history hypothesis; opening gas ambient and radiative brightness separate.

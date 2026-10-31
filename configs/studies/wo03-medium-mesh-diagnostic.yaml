@@ -1,0 +1,19 @@
+id: wo03-old-optical-PLC-medium-deterministic-diagnostic
+original_config: configs/studies/wo03-cad-gas-mesh.yaml
+mapping: build/wo03-cad-gas-native-mapping-v1/mapping/native-face-mapping.json
+mapping_record: build/wo03-cad-gas-native-mapping-v1/mapping/mapping-result.json
+original_result: build/wo03-cad-gas-actual-v1/medium/medium-result.json
+original_log: build/wo03-cad-gas-actual-v1/medium/worker.log
+manifest: runs/wo03-baffle-fit-20261031T035358211715Z/geometry-manifest.json
+expected_sha256:
+  original_config: cf7ffd260915fbb0666dc65bea061072d5f45a00aa8f39f63e1d325a385aee71
+  mapping: edc708223a34743ac8568be8ba39369f55e469247982967206d87f66a1e0e8d9
+  mapping_record: f3feb7ec3b0da98e86730016a0ac1da259e733a1e28197e9b74819f3fb62e048
+  original_result: 4abbac284ca70226acab331beb80ec6f6638e4bd0cf893e7e7231c0244e13bad
+  original_log: 3d1b8a70d7d4fdbe50b16e8890dde0d753eef442d09b4042c797d667f054993f
+  manifest: 6e0c0b9f421d271d974bf3552721c8756b53cb3ada284c8f946a0e6785a93866
+shared_module_sha256: acc1e7358c6f584ad409635dd407053892586077496bf8baa87f2fed322ab119
+expected_original_counts: {boundary_nodes: 71917, seeds: 17901, nodes: 90580, tetrahedra: 549653}
+caps: {seconds: 300, cpu_workers: 1, max_nodes: 150000, max_tetrahedra: 750000, detailed_zero_cells: 12}
+prohibited: [drop_cells, move_vertices, optimize_or_repair, change_lattice_or_jitter, additional_mesh_attempt, heat_calculation]
+status: diagnostic_replay_not_accuracy_or_temperature_acceptance
