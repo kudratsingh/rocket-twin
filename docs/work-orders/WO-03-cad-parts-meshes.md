@@ -47,6 +47,13 @@ root evidence and later physical qualification are distinct evidence levels.
    sources, uncertainty and sensitivities. Produce temperature histories/peaks,
    energy/time-step checks and resulting design decisions. Define thermocouple,
    hot-soak, adhesive and electronics tests for the owner-performed stages.
+   Partition partly bonded regions into geometry-derived adhesive, other-solid
+   and genuinely open areas; do not apply full-area gas and glue through the same
+   volume. Resolve visible ring/end, slot/notch/seam radiation and relevant gas
+   leakage with compatible CAD, contacts and source uncertainty. Record a short
+   connection table, before/after histories and part-average versus local coverage.
+   Rejected or superseded thermal passes remain historical evidence. ADR-0010
+   defines the interior control volume and common-surface exchange bookkeeping.
 6. Spec-owned tolerance and thermal-expansion stacks for couplers, indexing keys,
    motor/retention, bearings/pins, rods/servos and removable modules. Report minimum,
    nominal and maximum clearances against required minima. Check insertion/removal,

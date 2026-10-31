@@ -936,3 +936,13 @@ RocketPy flight comparisons plus 4,096-env CPU step. Records:
 The latter tiny G12 errors are 2.0744% altitude/0.9285% time; historical WO-02
 acceptance evidence is preserved. No candidate flight-accuracy or engineering
 acceptance claim is inferred. Cost $0; no purchases, physical work or paid runs.
+
+## Thermal material-layout and fitting-baffle continuation — 2026-10-30
+
+- Executed actual-CAD occupancy: slotted ring area606.201718 mm² partitions into540.359846 glue,57.243246 fin,8.598626 open. No full-area parallel air through adhesive is valid; actual open paths still require compatible radiation/gas mapping. [Connection table](wo03-interface-occupancy.md).
+- Correct common-surface finite proxy and analytic derivatives: current pre-baffle e250 candidate, CAD1193713, thirty case/corner/end scenarios. Required combined high-k means46.058694°C mount /43.525445°C shell with ambient ends;51.974698/50.083576°C with hot-end assumption. Former one-point pass superseded; no boundary or45°C screen waiver. [Report](wo03-thermal-model-corrections.md).
+- Circular-pad fix is explicit candidate-only. Active cache regeneration preserves exactly all six geometries/materials/masses/CG/full inertia. New active CAD and static/flight regressions pass with unchanged inputs. [Cache/geometry proof](wo03-circular-pad-candidate.md).
+- Fitting baffle69df candidate:32 new parts nominal clearances pass;24panels/588 sampled rigid assembly poses pass. G54 mass846.009911g;−0.078409g;1.197510cal minimum full growth/depletion; independent RocketPy static endpoints pass. Thermal/structural/flight/root acceptance remains open; no G12 credit.
+- G12 forefoil stays rejected as thermal solution:0.753216g,45.912899°C versus45. Part-mean Analysis fields exported only for compatible e250 diagnostic; unavailable part coverage stays unavailable. No active candidate adoption, build, paid compute or flight release.
+
+Compact source-linked evidence: `runs/wo03-thermal-layout-20261031T042330617623Z/record.json`. Full ignored histories/meshes/STEP/source snapshots retain their original hashes locally.

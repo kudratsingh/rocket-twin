@@ -1,3 +1,24 @@
+# Current thermal-layout and baffle checkpoint
+
+WO-03 remains open. **No new correction package is adopted.** The table below
+separates executed candidate evidence from the active PR9 vehicle and later
+physical qualification. The detailed earlier table is retained below as history.
+
+| Issue / previous finding | Implemented candidate correction | Criterion | Current result | Evidence | Remaining verification |
+|---|---|---|---|---|---|
+| Full-area air path also crossed glue/fin | CAD-disjoint glue, fin and genuine open regions | One material allocation per volume; valid radiation visibility | Slotted ring areas606.202 mm² =540.360 glue+57.243 fin+8.599 open; volume and area refinements balance. Actual slot gas/radiation coupling still pending | [Occupancy](wo03-interface-occupancy.md) | Required matrix on actual geometry; later wetting/contact sections |
+| Finite ring/end heating missing;44.749°C one-point pass | Common-surface finite radiation/gas solve, retained contacts and analytic derivatives | Required cases and45°C substrate; energy/numerical checks | Current pre-baffle proxy combined high-k:46.059°C ambient ends /51.975°C hot-end assumption; failed. All60 derivative checks pass; actual angular/gas coverage remains open | [Thermal report](wo03-thermal-model-corrections.md) | Full compatible required matrix/refinement; later instrumented case/soak |
+| Inner pad chords overlapped adjacent foil | Opt-in exact circular boundaries; all138 candidate caches rebuilt | No material overlap; exact cache/configuration identity |62 pads corrected; adjacent overlap≤1e-7mm³; +0.000385g. Active geometry/mass/CG/full inertia unchanged after separate cache regeneration | [Pad correction](wo03-circular-pad-candidate.md) | Actual ray/operator/conductive-contact validation; later fabricated fit |
+| R26 baffle hit rails | R24.8 notched/seamed panels, circular supports, larger end windows and staged baffle-first installation | Hardware/tolerance bounds, assembly, then thermal and structure |32 parts nominal clearances pass;24 panels / 588 sampled assembly poses pass. G54 −0.078409g; minimum growth/depletion margin1.197510cal, independent static pass. No thermal/flight acceptance | [Baffle](wo03-baffle-fit.md) | Compatible full thermal/structural/flight checks; later foil/bond/hot mechanism tests |
+| G12 small forefoil still too hot | Explicit0.753 g geometry/contacts retained as failed probe |45°C shell; full 50 g and10 m/s / assumed 5 m |45.912899°C fails; no G54 baffle mass/thermal credit transferred toG12 | [Forefoil](wo03-tvc-fore-shield.md) | Its own corrected shield/recovery/root and complete guide budget |
+| Recovery, fin root and complete integration remain open | Separate actual load-path/installed-root work continues | Existing expanded WO-03 criteria | No invented stiffness, paper peel allowance, retention or mass saving closes these items | [Existing root study](wo03-trainer-fin-package.md) | Complete load paths, installed strength/stiffness/flutter, package revalidation; then owner proof |
+
+Compact executed thermal evidence: [`runs/wo03-thermal-layout-20261031T042330617623Z/record.json`](../runs/wo03-thermal-layout-20261031T042330617623Z/record.json).
+All temperatures are calculated using estimated inputs; mean fields are not
+measured or local hot-spot qualification. Physical, paid-run, WO-10 owner-review and flight gates remain.
+
+---
+
 # WO-03 selected-package closure progress
 
 **Model correction:** historical aft-canted pose/rate results below require revalidation after the [spec-owned fixed-shaft correction](wo03-fixed-shaft-correction.md). Mass/adhesive ledgers and independent load bounds are unaffected. Original outward-arm/cap and flat inboard-arm nominal conflicts remain separate findings.

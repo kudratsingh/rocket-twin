@@ -1,0 +1,40 @@
+id: wo03-finite-radiation
+status: finite_geometry_static_diagnostic_not_transient_or_acceptance
+source_record: runs/wo03-multilayer-shield-20261031T022026246942Z/record.json
+expected_candidate_identity: 7aecfec03d1197a71be48a466b0530accf46b17a642382ef7ef484af6e6af531
+expected_cad_revision_sha256: b3440d2b97dcaf525fc1f40c5cf224dda6d9e02fa7bedcb43d58f822a0793108
+selected_times_s: [3.026, 11, 27, 60, 92, 180, 303.026]
+surface_emissivity: 0.9
+unknown_end_boundary_emissivity: 1.0
+boundary_brackets:
+  cold: recorded_ambient_temperature
+  hot: recorded_prescribed_case_temperature_at_same_time
+numerics:
+  seed: 43117
+  chunk_size: 4096
+  max_total_rays: 4800000
+  known_case_rays: 80000
+  levels:
+    - {id: coarse_rays, max_axial_patch_m: 0.015, ray_budget: 200000, seed_offset: 0}
+    - {id: medium_rays, max_axial_patch_m: 0.015, ray_budget: 600000, seed_offset: 1}
+    - {id: fine_rays, max_axial_patch_m: 0.015, ray_budget: 1200000, seed_offset: 2}
+    - {id: independent_repeat, max_axial_patch_m: 0.015, ray_budget: 1200000, seed_offset: 3}
+    - {id: refined_patches, max_axial_patch_m: 0.0075, ray_budget: 1000000, seed_offset: 4}
+  tiny_levels:
+    - {id: tiny, max_axial_patch_m: 0.03, ray_budget: 100000, seed_offset: 0}
+scope:
+  geometry: fixed_G54_neutral_coaxial_only
+  interval: recorded_liner_axial_interval
+  material_temperature_basis: recorded_lumped_nodes_and_liner_radial_cells
+  comparison: same_recorded_node_temperatures_finite_vs_long_cylinder_radiation_only
+  active_adoption: false
+  transient_pass_available: false
+  flight_ready: false
+limitations:
+  - The same-time material-node temperature comparison isolates radiation geometry; it does not recalculate coupled wall surface temperatures, conduction, convection or temperatures.
+  - Axisymmetric annuli retain actual foil thicknesses, segment ends, ring stations, thicknesses, bores and bond gaps, but fill angular fin slots/notches and omit sparse rails, sector spacers, seams and retention blocks. Neither a universal upper nor lower bound for complete CAD is claimed.
+  - The diagnostic is truncated at the liner ends. The forward ring, forward thrust plate, aft retainer, nozzle and upper bay are missing boundary geometry, explicitly replaced by black end-reservoir sensitivity brackets.
+  - Ambient and prescribed exterior-case temperatures bracket the assumed missing end-boundary radiosity; they are not measured data or a proof of actual nozzle/plume/end temperatures.
+  - The original foil and mica are opaque; their touching cylindrical faces are removed from the radiation enclosure.
+  - All foil surfaces retain the contaminated emissivity 0.9. No shield or radiation term is removed and the 45 C substrate screen remains unchanged.
+  - Sampling intervals and convergence apply only to the stated geometric and diffuse-gray reduction. Material uncertainty, axial thermal gradients and physical verification remain open.

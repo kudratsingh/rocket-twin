@@ -197,3 +197,10 @@ explicit construction trade with its own verification, not an automatic budget
 credit. Full WO-04 completion depends on one adopted package passing expanded
 WO-03 acceptance and being recorded. The owner-authorized limited preview remains
 a separate exception and is currently paused while WO-03 work resumes.
+
+The thermal-layout correction in [ADR-0010](adr/0010-thermal-occupancy-and-interior-exchange.md)
+keeps the existing sequence and screens. It requires disjoint CAD-derived glue,
+other-solid and open regions, geometry-compatible end/slot radiation and gas,
+common-surface coupling, numerical refinements and exact candidate exports. Old
+proxy passes are historical; full required-case and installed-design closure is
+still WO-03 work. No candidate's fit result or temperature field releases hardware.

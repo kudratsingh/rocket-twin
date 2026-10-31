@@ -1,0 +1,79 @@
+id: wo03-baffle-fit
+status: one_actual_notched_family_fit_and_service_path_screen_not_thermal_acceptance
+source_record: runs/wo03-circular-pad-candidate-20261031T034153884353Z/record.json
+expected_candidate_identity: e25026cdc3b63f53a01cb4b91f3fb4b7e15c1b3e70e53924e95a639f4c5166b6
+historical_source_lineage: runs/wo03-multilayer-shield-20261031T022026246942Z/record.json
+rejected_predecessor: runs/wo03-finite-thermal-20261031T030801091027Z/record.json
+geometry:
+  source_mount_bore_radius_m_unchanged: 0.0158
+  baffle_clearance_opening_radius_m: 0.0162
+  baffle_outer_radius_m: 0.0248
+  foil_wall_m: 0.000020
+  source_hardware_xy_notch_inflation_m: 0.0010
+  radial_seam_width_m: 0.0012
+  seam_angles_deg: [90.0, 210.0, 330.0]
+  support_angles_deg: [30.0, 150.0, 270.0]
+  pad_sector_angle_deg: 10.0
+  pad_inner_radius_m: 0.0240
+  pad_outer_radius_m: 0.0243
+  stand_off_m: 0.000600
+  mica_thickness_m: 0.000560
+  adhesive_thickness_m_each: 0.000020
+  segment_ring_clearance_m: 0.0018
+  spacer_axial_length_m_unchanged: 0.0010
+  parallel_gap_air_conductivity_w_m_k_estimate: 0.04
+  intended_support_contact_path: ring_20um_epoxy_560um_mica_20um_epoxy_notched_foil
+uncertainty_assumptions:
+  source_foil_edge_error_m: 0.00025
+  source_hardware_linear_error_m: 0.0001
+  baffle_cut_profile_error_m: 0.00005
+  baffle_cut_profile_is_proposed_process_not_measured: true
+  support_cut_profile_error_m: 0.000025
+  support_cut_profile_is_proposed_process_not_measured: true
+  stand_off_stack_error_m: 0.00005
+  assembly_eccentricity_m: 0.0001
+  required_clearance_m: 0.0003
+  foil_cte_per_k_estimate: 0.000023
+  source_plywood_cte_per_k: 0.000030
+  ambient_c: 35.0
+  foil_temperature_probe_c: 300.0
+  hardware_temperature_probe_c: 65.0
+  hardware_65C_probe_is_not_a_raised_45C_substrate_screen: true
+service_path:
+  staged_baffle_first_sequence:
+    allowed_removals: motor_liner_original_and_added_foil_wraps_body_aft_removable_retainer_hardware_and_aft_pads
+    retained_integral_hardware: actual_monolithic_motor_mount_including_all_rails_blocks_and_rings_plus_forward_thrust_plate_and_fore_thrust_pads
+    support_installation: all_real_mica_and_epoxy_support_sets_present_before_panels
+    panel_yaw_to_open_rail_window_deg: 30.0
+    panel_tilt_deg: 45.0
+    central_workspace_radial_shift_m: -0.008
+    midbay_radial_shifts_m: [0.08, 0.06, 0.04, 0.025, 0.015, 0.010, 0.006, 0.003, 0.0, -0.003, -0.008]
+    flatten_angles_deg: [45.0, 30.0, 15.0, 0.0]
+    recenter_radial_shifts_m: [-0.008, -0.004, 0.0]
+    restore_yaw_angles_deg: [30.0, 20.0, 10.0, 0.0]
+    final_axial_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+    aft_approach_stations_m: [1.23, 1.21, 1.205, 1.2, 1.195, 1.185]
+  radial_panel_translation_m: [0.08, 0.06, 0.04, 0.025, 0.015, 0.01, 0.006, 0.003, 0.001, 0.0]
+  assembly_condition: cage_open_before_permanent_shell_bonding_outer_shell_excluded_for_radial_access_probe
+  motor_extraction_aft_translation_m: [0.0, 0.002, 0.005, 0.01, 0.02, 0.04, 0.08, 0.14, 0.20, 0.24]
+  aft_retainer_and_removable_hardware_removed_for_motor_extraction: true
+  motor_extraction_removed_part_ids: [aft_retainer, retention_hardware, aft_thrust_pads]
+  no_continuous_swept_clearance_claim: true
+mass:
+  density_kg_m3: {aluminum: 2700.0, mica: 2100.0, epoxy: 1200.0}
+  additional_mass_reserve_kg: 0.0015
+numerics:
+  collision_volume_tolerance_mm3: 0.00001
+  stl_tolerance_mm: 0.03
+  stl_angular_tolerance_rad: 0.1
+scope:
+  foil_emissivity_unchanged: 0.9
+  source_case_c_unchanged: 300.0
+  ambient_c_unchanged: 35.0
+  substrate_screen_c_unchanged: 45.0
+  structural_ring_bores_changed: false
+  all_notches_and_seams_exported_as_actual_solids: true
+  actual_cad_thermal_reanalysis_required: true
+  thermal_acceptance_available: false
+  active_adoption: false
+  flight_ready: false

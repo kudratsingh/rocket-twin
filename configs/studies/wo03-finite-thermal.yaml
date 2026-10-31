@@ -1,0 +1,60 @@
+id: wo03-finite-thermal
+status: condensed_radiation_and_one_baffle_geometry_diagnostic_no_transient
+candidate_source_record: runs/wo03-multilayer-shield-20261031T022026246942Z/record.json
+finite_source_record: runs/wo03-finite-radiation-20261031T025007289697Z/record.json
+finite_source_level: fine_rays
+expected_candidate_identity: 7aecfec03d1197a71be48a466b0530accf46b17a642382ef7ef484af6e6af531
+expected_cad_revision_sha256: b3440d2b97dcaf525fc1f40c5cf224dda6d9e02fa7bedcb43d58f822a0793108
+selected_times_s: [11, 27, 60, 92]
+surface_emissivity: 0.9
+unknown_end_boundary_emissivity: 1.0
+operator_verification:
+  random_seed: 173101
+  random_cases: 24
+  arbitrary_temperature_range_k: [280.0, 650.0]
+  direct_max_error_w: 1.0e-8
+  energy_max_error_w: 1.0e-9
+baffle_candidate:
+  id: eight_ring_face_baffles_r15p8_bore
+  foil_wall_m: 0.000020
+  outer_radius_m: 0.0260
+  bore: exact_source_ring_inner_radius
+  ring_face_to_foil_near_surface_m: 0.000250
+  mica_pad_thickness_m: 0.000210
+  adhesive_layer_thickness_m_each_interface: 0.000020
+  pads_per_baffle: 3
+  pad_start_angles_deg: [0.0, 120.0, 240.0]
+  pad_sector_angle_deg: 10.0
+  pad_inner_radius_m: 0.0250
+  pad_outer_radius_m: 0.0255
+  density_kg_m3: {aluminum: 2700.0, mica: 2100.0, epoxy: 1200.0}
+  conductivity_w_m_k: {mica: 0.45, epoxy: 0.15}
+  assumed_gap_air_conductivity_w_m_k: 0.04
+  added_mass_reserve_kg: 0.00075
+  temperature_data_status: unavailable_for_new_baffles_pads_and_adhesive
+  contact_path: ring_20um_epoxy_210um_mica_20um_epoxy_foil
+  thermal_probe_basis: explicit_cold_mount_and_hot_original_foil_temperature_probes_at_recorded_times_not_predicted_baffle_history
+numerics:
+  seed: 52171
+  chunk_size: 4096
+  max_additional_rays: 4800000
+  baffle_levels:
+    - {id: coarse, max_axial_patch_m: 0.015, ray_budget: 300000, seed_offset: 0}
+    - {id: fine, max_axial_patch_m: 0.015, ray_budget: 1500000, seed_offset: 1}
+    - {id: repeat, max_axial_patch_m: 0.015, ray_budget: 1500000, seed_offset: 2}
+    - {id: refined_patches, max_axial_patch_m: 0.0075, ray_budget: 1200000, seed_offset: 3}
+scope:
+  source_bore_radius_m: 0.0158
+  fixed_G54_neutral_geometry_only: true
+  active_adoption: false
+  common_surface_coupling: primary_agent_separate_implementation_required
+  transient_run_authorized_in_this_runner: false
+  flight_ready: false
+limitations:
+  - Material-node condensation is an exact radiosity algebra reduction at supplied patch temperature groups, not proof that material-node temperatures equal surface temperatures.
+  - A replacement transient must solve gas conduction and radiation at the same physical surfaces behind solid half-wall resistances. This runner does not integrate a transient.
+  - New foil baffle, mica pad and adhesive temperatures are unavailable. Explicit cold/hot diagnostic probes are assumptions using recorded mount/original-foil values, not predicted or measured baffle histories.
+  - The fully specified three-sector mica supports and adhesive layers are in the mass/contact ledger but excluded from the coaxial ray geometry. They are never replaced by opaque full annular pads.
+  - The 0.230 mm nominal foil-end gap is not a tolerance, warpage, assembly, bond or vibration pass.
+  - Fin slots, rails, seams, actual end/nozzle/upper-bay geometry and other original diagnostic exclusions remain. No conservative complete-CAD bound is claimed.
+  - Foil emissivity stays 0.9; the required 300 C case, 35 C ambient and 45 C substrate screen are unchanged.

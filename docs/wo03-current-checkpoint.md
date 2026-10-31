@@ -1,3 +1,14 @@
+# Thermal/layout continuation — 2026-10-30 (UTC run IDs)
+
+WO-03 remains open. [The thermal correction report](wo03-thermal-model-corrections.md)
+and [fitting-baffle study](wo03-baffle-fit.md) supersede earlier one-point thermal
+acceptance statements. Active geometry/mass/inertia is unchanged; only cache
+identities were regenerated after the opt-in exact-pad primitive. New candidate
+geometry, scoped calculations and active regression evidence retain separate
+identities. Actual partial openings, corrected radiation/gas coupling and the
+complete required matrix remain in progress. Frontend work remains paused.
+Physical/paid/WO-10 owner/flight gates remain unchanged.
+
 # Latest correction-package continuation — 2026-10-30
 
 The accepted numerical baseline is merged PR #9; **WO-03 remains open**.

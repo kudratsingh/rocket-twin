@@ -1,0 +1,30 @@
+id: wo03-tvc-fixed-fore-bay-shield
+status: isolated_geometry_and_thermal_probe_not_adopted
+source_record: build/wo03-recovery-clearance/hoop/record.json
+clearance_config: configs/studies/wo03-recovery-clearance.yaml
+budget_config: configs/studies/wo03-recovery-budget-closure.yaml
+acceptance_matrix: configs/engineering/wo03-thermal-acceptance.yaml
+required_case: combined_300C_eps09_at35C
+property_corner: high_k_low_cp
+foil:
+  start_station_m: 1.025
+  end_station_m: 1.075
+  outer_radius_m: 0.029
+  wall_m: 0.00002
+  radial_manufacturing_tolerance_mm_estimate: 0.10
+supports:
+  axial_length_m: 0.001
+  tangential_width_mm: 1.0
+  inner_cylinder_clearance_mm: 0.0
+  pad_conduction_path_m_conservative: 0.0008
+  interface_contact_w_k_estimate: 0.02
+  retaining_adhesive_and_application_allowance_kg: 0.00025
+  body: Three mica pads at each end, matched to the actual flat G11 rail-wing faces outside the fin channel; adhesive/interface conductance and retention remain unmeasured.
+numerics: {radial_cells: 16, max_step_s: 0.5, heat_flow_step_s: 0.25}
+motion_grid_each_axis: 5
+intersection_threshold_mm3: 0.05
+limitations:
+  - This short fore-bay foil is an explicit experimental part, not the fixed-motor multilayer assembly or an accepted TVC thermal solution.
+  - The long-cylinder thermal approximation omits finite-end and angular bypass. Its short aspect ratio is a material validity limitation; no full thermal acceptance follows from a passing mean temperature.
+  - Neutral contact geometry is not a measured adhesive joint, foil roundness, vibration/retention, expansion or wiring qualification.
+  - The complete cap/ring/rail/body/root strength, compliant recovery, retained 50 g allowance and controller gates remain open.

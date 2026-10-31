@@ -1,0 +1,21 @@
+id: wo03-finite-common-surface-transient
+status: corrected_transient_diagnostic_not_complete_angular_cad_acceptance
+candidate_record: runs/wo03-circular-pad-candidate-20261031T034153884353Z/record.json
+finite_record: runs/wo03-finite-radiation-20261031T025007289697Z/record.json
+finite_level: fine_rays
+acceptance_matrix: configs/engineering/wo03-thermal-acceptance.yaml
+construction: configs/studies/wo03-multilayer-shield.yaml
+default_case: combined_300C_eps09_at35C
+default_corner: high_k_low_cp
+end_boundary_modes: [ambient, case]
+numerics:
+  radial_cells: 16
+  max_step_s: 1.0
+  heat_flow_step_s: 1.0
+  common_surface_residual_w: 0.0000001
+scope:
+  substrate_screen_c: 45.0
+  angular_geometry_coverage: unresolved_until_actual_cad_first_hit_analysis
+  slotted_bond_full_annulus_proxy: true
+  engineering_acceptance: false
+  flight_ready: false
