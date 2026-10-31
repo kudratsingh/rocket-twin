@@ -217,3 +217,16 @@ the bounded calculation's algebra and integration. They do not establish
 material allowables or an installed continuum model. Ruff and Black pass for
 the new script. No new expensive FEA is justified while these particular
 load-routing and interface-property blockers remain unresolved.
+
+
+## Publication dependency correction
+
+The first PR15 hosted check exposed an unpublished local-study import. The
+finite-contact function is now in `src/analysis/fin_contact.py`; its AST is
+identical to the helper in the original as-run module. The published audit imports
+that pure module and records its hash, and a clean-import/known-case regression
+checks the planar-contact and series/parallel spring answers. Original actual
+results and hashes above remain unchanged; this extraction runs no new installed
+analysis and does not promote capacity. The historical as-run driver and the
+published driver have different source identities; the curated evidence records
+the unchanged calculation and the explicit import-only correction.

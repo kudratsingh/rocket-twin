@@ -1087,3 +1087,13 @@ The fin-attachment report now explicitly flags its axial-Z root-moment to radial
 rail-bending mapping as unverified; old numerical surrogate values are retained,
 with no installed-capacity or acceptance promotion. The source-bound installed
 contact audit above remains the separate recorded calculation at its as-run code.
+
+
+PR15's first hosted run41181626411 failed before tests because the installed-fin
+audit imported an unpublished local driver helper. The unchanged function is now
+published in `src/analysis/fin_contact.py`, with AST equivalence to its original
+as-run source and a regression importing the published audit and checking its
+independent planar-contact/foundation fixtures. Seven relevant local tests,
+Ruff/Black and strict module typing pass. The original failed hosted run remains
+historical; required checks must pass on the replacement exact head before merge.
+No actual engineering calculation or acceptance result changed.

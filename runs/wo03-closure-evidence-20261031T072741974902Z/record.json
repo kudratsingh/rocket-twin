@@ -15181,5 +15181,21 @@
     "numeric_surrogate_values_changed": false,
     "moment_transfer_verified": false,
     "prior_as_run_source_available_at_commit": "a900b884c89e4c77a1c6f338a8cc2fd4c0549c5d"
+  },
+  "publication_dependency_correction": {
+    "prior_helper_source": "scripts/wo03_installed_root.py",
+    "prior_helper_source_sha256": "cd65af636c5cf6e48f3548ee4ebbce3d084577554b182ecbc4ebf62c6d3df1c1",
+    "matches_as_run_input": true,
+    "published_pure_helper": "src/analysis/fin_contact.py",
+    "published_pure_helper_sha256": "c013873f638aff8b52d994de856fd4c9a3ba57b67e4b92b028ee9fc8491e947a",
+    "function_AST_identical": true,
+    "function_AST_sha256": "4244e20978952104bffe283018d5390a8ee1293194094a8d4d0d99a28f60a35c",
+    "audit_driver": "scripts/wo03_installed_fin_closure_audit.py",
+    "audit_driver_sha256": "4b5df465045112db798ced5bc8f8f4809d00ea677b6d9b1825860732db5d6c9c",
+    "numeric_calculation_changed": false,
+    "original_audit_record_unchanged": true,
+    "new_import_and_analytic_fixture_test": "tests/test_fin_contact.py",
+    "tests_passed": 7,
+    "hosted_first_run_failed": 41181626411
   }
 }

@@ -22,6 +22,12 @@ other retains it but has excessive local temperature/reference-heat error.
 That branch is stopped after two trials. [Decision and next route](wo03-thermal-method-decision.md).
 The numerical question now requires a different geometry/discretization or a
 justified bounding treatment; no actual temperature pass or new full-size run.
+[PR #15](https://github.com/kudratsingh/rocket-twin/pull/15) publishes this bounded
+continuation. Its first check exposed a missing local-only helper dependency;
+the shared pure helper is now included with unchanged-function evidence and
+an import/known-case regression. Exact-head hosted status remains on the PR;
+a software check never overrides the engineering findings above.
+
 
 
 

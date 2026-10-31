@@ -37,8 +37,8 @@ sys.path.insert(0, str(ROOT))
 import numpy as np
 import yaml
 
-from scripts.wo03_installed_root import finite_contact_matrix
 from scripts.wo03_trainer_fin_root import layered_panel
+from src.analysis.fin_contact import finite_contact_matrix
 from src.vehicle.schema import load_vehicle, vehicle_input_paths
 
 FIN_RECORD = Path("build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json")
@@ -248,7 +248,7 @@ def worker(output: Path) -> None:
         Path(fin["resolved_copy"]),
         Path(fin["cad_exports"]["fin-layers.step"]["path"]),
         Path(hoop["frame_step"]["path"]),
-        Path("scripts/wo03_installed_root.py"),
+        Path("src/analysis/fin_contact.py"),
         Path("scripts/wo03_trainer_fin_root.py"),
         Path("src/analysis/fin_attachment.py"),
         Path("configs/engineering/wo03.yaml"),
