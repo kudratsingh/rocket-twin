@@ -1,0 +1,32 @@
+# Provisional study inputs, not material allowables or qualification.
+candidate: build/wo03-correction-package-20261030T224434934669Z/G54-0.075/resolved-candidate.yaml
+mount_stations_mm: [0, 55, 110, 148.5, 187]
+materials:
+  plywood: {young_cold_mpa: 2000, young_hot_mpa: 1000, strength_cold_mpa: 10, strength_hot_mpa: 5}
+  epoxy: {young_nominal_mpa: 2000, young_lower_mpa: 100, poisson: 0.3, shear_cold_mpa: 2, shear_hot_mpa: 1}
+  cardboard: {young_cold_mpa: 500, young_hot_mpa: 250, strength_mpa: 2}
+bond_gap_mm: {nominal: 0.5, lower: 0.32, upper: 0.68}
+thermal_conductivity_w_m_k: [0.15, 0.25]
+status: exploratory
+trade_only:
+  adhesive:
+    candidate: Sikaflex-252-class moisture-cure polyurethane
+    source: https://industry.sika.com/content/dam/dms/us01/o/sikaflex-252.pdf
+    assumed_young_mpa: [2, 20] # engineering sensitivity, not manufacturer modulus
+    assumed_hot_shear_strength_mpa: 1 # existing provisional screening value
+    gap_mm: 0.5 # bondline suitability, cure and substrate preparation not established
+    density_kg_m3: 1200
+    thermal_k_w_m_k_estimate: [0.15, 0.25]
+    thermal_cp_j_kg_k_estimate: 1200
+  strips:
+    source: https://media.easycomposites.co.uk/datasheets/EC-TDS-Carbon-Fibre-Pultrusions.pdf
+    count: 3
+    width_mm: 3
+    thickness_mm: 0.5
+    station_mm: [922, 1200]
+    angles_deg: [60, 180, 300]
+    assumed_hot_axial_modulus_mpa: 14000 # not a supplier hot allowable
+    assumed_hot_axial_compressive_strength_mpa: 200 # estimate, not supplier hot allowable
+    density_kg_m3: 1400
+    film_thickness_mm: 0.5
+    initial_joint_model: ideal_front_projection

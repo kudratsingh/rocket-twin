@@ -85,6 +85,7 @@ def run_thermal_topology(
     max_step_s: float = 2,
     *,
     scenario_index: int | None = None,
+    heat_flow_step_s: float = 1.0,
 ) -> dict[str, Any]:
     assert vehicle.motor
     parts = {p.id: p for p in vehicle.parts}
@@ -105,6 +106,9 @@ def run_thermal_topology(
     else:
         convection = settings["surface_h_w_m2_k"][1 - scenario]
     burn = vehicle.motor.burn_time_s
+    prelaunch_powered_soak_s = float(study.get("prelaunch_powered_soak_s", 0.0))
+    if prelaunch_powered_soak_s < 0:
+        raise ValueError("prelaunch_powered_soak_s must be nonnegative")
 
     def profile(part: Part) -> dict[str, Any]:
         return dict(cfg["materials"].get(material_profile(part), cfg["materials"]["commercial"]))
@@ -123,12 +127,13 @@ def run_thermal_topology(
         return float(value)
 
     pad_conduction_ids = set(study.get("pad_conduction_part_ids", [])) & set(parts)
+    pad_thickness_overrides = study.get("pad_conduction_thickness_m", {})
     pad_data: dict[str, dict[str, float]] = {}
     for part_id in pad_conduction_ids:
         pad = parts[part_id]
         if pad.cad_mass is None:
             raise ValueError(f"{part_id}: pad conduction requires recorded CAD volume")
-        thickness = float(pad.geometry["length_m"])
+        thickness = float(pad_thickness_overrides.get(part_id, pad.geometry["length_m"]))
         if thickness <= 0:
             raise ValueError(f"{part_id}: pad thickness must be positive")
         area = float(pad.cad_mass.volume_m3) / thickness
@@ -177,6 +182,48 @@ def run_thermal_topology(
         )
     )
     count = len(capacities)
+    ids = [liner.id, *other_ids]
+    initial_part_overrides = study.get("initial_part_temperature_c", {})
+    # A few study-level component names intentionally span vehicle variants.
+    # The older fixed-mount vehicles have one gimbal_servo assembly rather than
+    # separate pitch/yaw servos and no servo_support node. Apply the hottest
+    # servo bound to that lumped assembly, and record omitted components.
+    normalized_initial_overrides: dict[str, float] = {}
+    absent_initial_overrides: list[str] = []
+    for name, value in initial_part_overrides.items():
+        if name in ids:
+            normalized_initial_overrides[name] = float(value)
+        elif name in {"servo_pitch", "servo_yaw"} and "gimbal_servo" in ids:
+            normalized_initial_overrides["gimbal_servo"] = max(
+                normalized_initial_overrides.get("gimbal_servo", -float("inf")),
+                float(value),
+            )
+        elif name in {"servo_pitch", "servo_yaw", "servo_support"}:
+            absent_initial_overrides.append(name)
+        else:
+            absent_initial_overrides.append(name)
+    unknown_initial_parts = sorted(
+        name
+        for name in absent_initial_overrides
+        if name not in {"servo_pitch", "servo_yaw", "servo_support"}
+    )
+    if unknown_initial_parts:
+        raise ValueError(
+            f"initial temperature overrides name absent thermal parts: {unknown_initial_parts}"
+        )
+    if "initial_temperature_c" in study:
+        initial_base_k = float(study["initial_temperature_c"]) + 273.15
+    else:
+        initial_base_k = float(ambient)
+    initial_temperature = np.full(count, initial_base_k)
+    liner_initial_c = normalized_initial_overrides.get(liner.id)
+    if liner_initial_c is not None:
+        initial_temperature[:cells] = float(liner_initial_c) + 273.15
+    for part_index, name in enumerate(other_ids):
+        if name in normalized_initial_overrides:
+            initial_temperature[cells + part_index] = normalized_initial_overrides[name] + 273.15
+    if np.any(initial_temperature <= 0):
+        raise ValueError("initial part temperatures must be above absolute zero")
     z0, z1 = liner.position_m, liner.position_m + lg["length_m"]
     barriers = []
     for name in study["annular_barrier_part_ids"]:
@@ -283,6 +330,8 @@ def run_thermal_topology(
                 direct_contact_conductance * _as_float(interface["length_m"]) / total_length
             )
     contacts = []
+    lumped_contact_metadata = []
+    pair_overrides = study.get("contact_pair_conductance_w_k", {})
     for a, b in study["contact_pairs"]:
         if a not in parts or b not in parts:
             continue
@@ -292,8 +341,23 @@ def run_thermal_topology(
             continue
         node_a = cells - 1 if a == liner.id else index[a]
         node_b = cells - 1 if b == liner.id else index[b]
-        base_conductance = float(study["contact_conductance_w_k"][scenario])
+        pair_key = f"{a}->{b}"
+        override = pair_overrides.get(pair_key)
+        base_conductance = float(
+            override[scenario]
+            if isinstance(override, (tuple, list))
+            else override if override is not None else study["contact_conductance_w_k"][scenario]
+        )
         effective_conductance = pad_lumped_conductance(base_conductance, (a, b))
+        lumped_contact_metadata.append(
+            {
+                "source_part_id": a,
+                "target_part_id": b,
+                "base_conductance_w_k": base_conductance,
+                "effective_conductance_w_k": effective_conductance,
+                "pair_specific_override": override is not None,
+            }
+        )
         contacts.append(
             (
                 node_a,
@@ -351,12 +415,26 @@ def run_thermal_topology(
     ]
 
     def boundary(t: float) -> float:
+        if t < 0 or (prelaunch_powered_soak_s > 0 and t == 0):
+            return float(ambient)
         return float(peak if t <= burn else ambient + (peak - ambient) * np.exp(-(t - burn) / tau))
 
-    def rhs(t: float, state: Any) -> Any:
+    def rates(t: float, state: Any) -> tuple[Any, float, list[tuple[str, str, str, str, float]]]:
         temperature = state[:count]
         q = np.zeros(count)
         q[:cells] = wall_heat_rates(wall, temperature[:cells])
+        links: list[tuple[str, str, str, str, float]] = []
+        radial_flow = wall.internal_conductance_w_k * np.diff(temperature[:cells])
+        for cell, flow in enumerate(radial_flow):
+            links.append(
+                (
+                    f"liner_radial_cell_{cell}_to_{cell + 1}",
+                    f"motor_liner.cell_{cell}",
+                    f"motor_liner.cell_{cell + 1}",
+                    "internal_radial_conduction",
+                    float(-flow),
+                )
+            )
         case_heat = opaque_gap_flux(
             boundary(t),
             float(temperature[0]),
@@ -371,13 +449,31 @@ def run_thermal_topology(
             outer_surface_emissivity=surface_emissivity(liner),
         )
         q[0] += case_heat
+        links.append(
+            (
+                "motor_case_to_liner_inner",
+                "motor_case_boundary",
+                "motor_liner.cell_0",
+                "prescribed_case_gap",
+                float(case_heat),
+            )
+        )
         case_contact_heat = 0.0
         case_temperature = boundary(t)
-        for node, _, conductance in case_contacts:
+        for node, part_id, conductance in case_contacts:
             flux = conductance * (case_temperature - temperature[node])
             q[node] += flux
             case_contact_heat += flux
-        for interface in interfaces:
+            links.append(
+                (
+                    f"case_contact:{part_id}",
+                    "motor_case_boundary",
+                    part_id,
+                    "estimated_case_contact",
+                    float(flux),
+                )
+            )
+        for interface_index, interface in enumerate(interfaces):
             a = int(interface["source_node"])
             b = int(interface["target_node"])
             resistance_a = float(interface["source_half_wall_resistance_k_w"])
@@ -406,10 +502,28 @@ def run_thermal_topology(
                 )
             q[a] -= flux
             q[b] += flux
-        for a, b, conductance, _, _ in contacts:
+            links.append(
+                (
+                    f"radial_interface_{interface_index}:{interface['source_part_id']}->{interface['target_part_id']}",
+                    str(interface["source_part_id"]),
+                    str(interface["target_part_id"]),
+                    str(interface["model"]),
+                    float(flux),
+                )
+            )
+        for a, b, conductance, source_id, target_id in contacts:
             flux = conductance * (temperature[b] - temperature[a])
             q[a] += flux
             q[b] -= flux
+            links.append(
+                (
+                    f"lumped_contact:{source_id}->{target_id}",
+                    source_id,
+                    target_id,
+                    "estimated_lumped_contact",
+                    float(-flux),
+                )
+            )
         shell_n = index["aft_shell"]
         shell_loss = shell_area * (
             convection * (ambient - temperature[shell_n])
@@ -417,36 +531,195 @@ def run_thermal_topology(
         )
         q[shell_n] += shell_loss
         external = case_heat + case_contact_heat + shell_loss
+        links.append(
+            (
+                "aft_shell_external_convection_and_radiation",
+                "ambient",
+                "aft_shell",
+                "external_boundary",
+                float(shell_loss),
+            )
+        )
         for node, conductance in external_cooling:
             flux = conductance * (ambient - temperature[node])
             q[node] += flux
             external += flux
+            part_id = other_ids[node - cells]
+            links.append(
+                (
+                    f"upper_bay_cooling:{part_id}",
+                    "ambient",
+                    part_id,
+                    "estimated_lumped_external_cooling",
+                    float(flux),
+                )
+            )
         if "flight_computer" in index:
             power = settings["electronics_heat_w"][scenario]
             q[index["flight_computer"]] += power
             external += power
+            links.append(
+                (
+                    "flight_computer_electronics_power",
+                    "electrical_power",
+                    "flight_computer",
+                    "estimated_internal_heat_source",
+                    float(power),
+                )
+            )
+        return q, float(external), links
+
+    def rhs(t: float, state: Any) -> Any:
+        q, external, _ = rates(t, state)
         return np.concatenate((q / capacities, [external]))
 
     end = burn + settings["soak_s"]
-    times = np.unique(np.append(np.arange(0, end, 1.0), [burn, end]))
-    solution = solve_ivp(
-        rhs,
-        (0, end),
-        np.append(np.full(count, ambient), 0),
-        method="BDF",
-        t_eval=times,
-        rtol=1e-8,
-        atol=1e-7,
-        max_step=max_step_s,
-    )
-    if not solution.success:
-        raise RuntimeError(solution.message)
-    states = solution.y[:count].T
-    ids = [liner.id, *other_ids]
+    times_after_ignition = np.unique(np.append(np.arange(0.0, end, 1.0), [burn, end]))
+    initial_state = np.append(initial_temperature, 0.0)
+    prelaunch_energy_balance: dict[str, Any] | None = None
+    if prelaunch_powered_soak_s == 0:
+        # Retain the historical solve path exactly when the optional warm-up is off.
+        times = times_after_ignition
+        solution = solve_ivp(
+            rhs,
+            (0, end),
+            initial_state,
+            method="BDF",
+            t_eval=times,
+            rtol=1e-8,
+            atol=1e-7,
+            max_step=max_step_s,
+            dense_output=True,
+        )
+        if not solution.success:
+            raise RuntimeError(solution.message)
+        assert solution.sol is not None
+        dense_state = solution.sol
+        states = solution.y[:count].T
+        external_energy_history = solution.y[-1]
+        solver_evaluations = solution.nfev
+        initial_temperature = solution.y[:count, 0]
+        final_temperature = solution.y[:count, -1]
+        net_external_energy = float(solution.y[-1, -1])
+    else:
+        start = -prelaunch_powered_soak_s
+        times_before_ignition = np.unique(np.append(np.arange(start, 0.0, 1.0), [start, 0.0]))
+        prelaunch = solve_ivp(
+            rhs,
+            (start, 0.0),
+            initial_state,
+            method="BDF",
+            t_eval=times_before_ignition,
+            rtol=1e-8,
+            atol=1e-7,
+            max_step=max_step_s,
+            dense_output=True,
+        )
+        if not prelaunch.success:
+            raise RuntimeError(prelaunch.message)
+        assert prelaunch.sol is not None
+        ignition_state = prelaunch.y[:, -1]
+        post_burn = solve_ivp(
+            rhs,
+            (0.0, end),
+            ignition_state,
+            method="BDF",
+            t_eval=times_after_ignition,
+            rtol=1e-8,
+            atol=1e-7,
+            max_step=max_step_s,
+            dense_output=True,
+        )
+        if not post_burn.success:
+            raise RuntimeError(post_burn.message)
+        assert post_burn.sol is not None
+        times = np.concatenate((times_before_ignition[:-1], times_after_ignition))
+        states = np.vstack((prelaunch.y[:count, :-1].T, post_burn.y[:count].T))
+        external_energy_history = np.concatenate((prelaunch.y[-1, :-1], post_burn.y[-1]))
+
+        def dense_state(sample_times: Any) -> Any:
+            samples = np.asarray(sample_times, dtype=float)
+            if samples.ndim == 0:
+                value = float(samples)
+                return prelaunch.sol(value) if value < 0.0 else post_burn.sol(value)
+            return np.column_stack(
+                [
+                    prelaunch.sol(float(value)) if value < 0.0 else post_burn.sol(float(value))
+                    for value in samples
+                ]
+            )
+
+        solver_evaluations = prelaunch.nfev + post_burn.nfev
+        initial_temperature = prelaunch.y[:count, 0]
+        final_temperature = post_burn.y[:count, -1]
+        net_external_energy = float(post_burn.y[-1, -1])
+        ignition_temperature = ignition_state[:count]
+        prelaunch_stored_energy = float(capacities @ (ignition_temperature - initial_temperature))
+        prelaunch_external_energy = float(ignition_state[-1])
+        ids_for_warmup = [liner.id, *other_ids]
+        ignition_part_temperature = np.concatenate(
+            (
+                [ignition_temperature[:cells] @ wall.capacities_j_k / sum(wall.capacities_j_k)],
+                ignition_temperature[cells:],
+            )
+        )
+        prelaunch_energy_balance = {
+            "units": {"temperature": "K", "energy": "J", "time": "s", "power": "W"},
+            "duration_s": prelaunch_powered_soak_s,
+            "interval_s_ignition_relative": [start, 0.0],
+            "start_condition": "thermal nodes initialized from configured ambient plus any study-level part overrides; electronics power active through prelaunch interval",
+            "case_boundary_during_prelaunch_c": float(ambient - 273.15),
+            "electronics_power_w": float(settings["electronics_heat_w"][scenario]),
+            "electronics_energy_input_j": float(
+                settings["electronics_heat_w"][scenario] * prelaunch_powered_soak_s
+            ),
+            "start_temperature_c": float(initial_base_k - 273.15),
+            "start_temperature_by_part_c": {
+                name: float(value - 273.15)
+                for name, value in zip(
+                    ids,
+                    np.concatenate(
+                        (
+                            [
+                                initial_temperature[:cells]
+                                @ wall.capacities_j_k
+                                / sum(wall.capacities_j_k)
+                            ],
+                            initial_temperature[cells:],
+                        )
+                    ),
+                    strict=True,
+                )
+            },
+            "ignition_temperature_by_part_c": {
+                name: float(value - 273.15)
+                for name, value in zip(ids_for_warmup, ignition_part_temperature, strict=True)
+            },
+            "ignition_temperature_by_node_c": {
+                **{
+                    f"{liner.id}.cell_{index}": float(value - 273.15)
+                    for index, value in enumerate(ignition_temperature[:cells])
+                },
+                **{
+                    name: float(ignition_temperature[cells + index] - 273.15)
+                    for index, name in enumerate(other_ids)
+                },
+            },
+            "stored_energy_since_uniform_ambient_j": prelaunch_stored_energy,
+            "net_external_energy_since_uniform_ambient_j": prelaunch_external_energy,
+            "energy_balance_residual_j": prelaunch_stored_energy - prelaunch_external_energy,
+            "evidence": "calculated using the shared thermal rates/RHS; electronics power is the configured estimated 1 W flight-computer load for this scenario",
+        }
     temperatures = np.column_stack(
         (
             states[:, :cells] @ wall.capacities_j_k / sum(wall.capacities_j_k),
             states[:, cells:],
+        )
+    )
+    initial_part_temperature = np.concatenate(
+        (
+            [initial_temperature[:cells] @ wall.capacities_j_k / sum(wall.capacities_j_k)],
+            initial_temperature[cells:],
         )
     )
     peaks = []
@@ -475,12 +748,126 @@ def run_thermal_topology(
                 for sensitivity in sensitivities
             ]
         peaks.append(peak_row)
+
+    def sample_rates(sample_times: np.ndarray) -> tuple[np.ndarray, dict[str, dict[str, Any]]]:
+        sampled_states = dense_state(sample_times)[:count].T
+        node_rates = np.zeros((len(sample_times), count))
+        histories: dict[str, dict[str, Any]] = {}
+        for sample_index, (sample_time, sample_state) in enumerate(
+            zip(sample_times, sampled_states, strict=True)
+        ):
+            q, _, links = rates(float(sample_time), sample_state)
+            node_rates[sample_index] = q
+            for name, source_id, target_id, kind, flux_w in links:
+                entry = histories.setdefault(
+                    name,
+                    {
+                        "connection": name,
+                        "source": source_id,
+                        "target": target_id,
+                        "type": kind,
+                        "positive_direction": f"{source_id} -> {target_id}",
+                        "flux_w": [],
+                    },
+                )
+                entry["flux_w"].append(float(flux_w))
+        return node_rates, histories
+
+    if heat_flow_step_s <= 0:
+        raise ValueError("heat_flow_step_s must be positive")
+    fine_step_s = min(heat_flow_step_s, max_step_s)
+    timeline_start = -prelaunch_powered_soak_s
+    fine_times = np.unique(np.append(np.arange(timeline_start, end, fine_step_s), [0.0, burn, end]))
+    fine_node_rates, fine_links = sample_rates(fine_times)
+    coarse_node_rates, coarse_links = sample_rates(times)
+    for name, entry in fine_links.items():
+        flux = np.asarray(entry["flux_w"], dtype=float)
+        positive = np.maximum(flux, 0.0)
+        negative = np.maximum(-flux, 0.0)
+        coarse_flux = np.asarray(coarse_links[name]["flux_w"], dtype=float)
+        del entry["flux_w"]
+        entry.update(
+            {
+                "units": {"flux": "W", "energy": "J", "time": "s"},
+                "history_times_s": times.tolist(),
+                "flux_w_by_time": coarse_flux.tolist(),
+                "net_energy_j": float(np.trapezoid(flux, fine_times)),
+                "positive_energy_j": float(np.trapezoid(positive, fine_times)),
+                "negative_energy_j": float(np.trapezoid(negative, fine_times)),
+                "positive_peak_w": float(positive.max()),
+                "negative_peak_w": float(negative.max()),
+                "coarse_1s_net_energy_j": float(np.trapezoid(coarse_flux, times)),
+                "quadrature_refinement_delta_j": float(
+                    np.trapezoid(flux, fine_times) - np.trapezoid(coarse_flux, times)
+                ),
+            }
+        )
+    node_names = [f"motor_liner.cell_{i}" for i in range(cells)] + other_ids
+    node_balance = []
+    for node, name in enumerate(node_names):
+        stored_j = float(capacities[node] * (final_temperature[node] - initial_temperature[node]))
+        net_fine_j = float(np.trapezoid(fine_node_rates[:, node], fine_times))
+        net_coarse_j = float(np.trapezoid(coarse_node_rates[:, node], times))
+        node_balance.append(
+            {
+                "node": name,
+                "heat_capacity_j_k": float(capacities[node]),
+                "initial_temperature_k": float(initial_temperature[node]),
+                "final_temperature_k": float(final_temperature[node]),
+                "stored_energy_j": stored_j,
+                "integrated_net_heat_fine_j": net_fine_j,
+                "balance_residual_fine_j": stored_j - net_fine_j,
+                "integrated_net_heat_1s_j": net_coarse_j,
+                "balance_residual_1s_j": stored_j - net_coarse_j,
+                "quadrature_refinement_delta_j": net_fine_j - net_coarse_j,
+            }
+        )
+    heat_flow = {
+        "units": {"flux": "W", "energy": "J", "temperature": "K", "time": "s"},
+        "times_s": times.tolist(),
+        "fine_sample_step_s": fine_step_s,
+        "integration": "trapezoid; fine sampling uses the ODE solver dense output at <=0.5 s without changing solver integration or the thermal solution",
+        "sign_convention": "positive follows source -> target; negative_energy_j is the magnitude of reverse flow",
+        "connections": list(fine_links.values()),
+        "node_energy_balance": node_balance,
+        "maximum_abs_node_balance_residual_fine_j": max(
+            abs(row["balance_residual_fine_j"]) for row in node_balance
+        ),
+        "maximum_abs_node_balance_residual_1s_j": max(
+            abs(row["balance_residual_1s_j"]) for row in node_balance
+        ),
+    }
     return {
         "model": "neutral-coaxial-material-shield-v3",
         "case": case_ids[scenario],
         "scenario_index": scenario,
         "ambient_c": float(ambient - 273.15),
         "prescribed_case_peak_c": float(peak - 273.15),
+        "prelaunch_powered_soak_s": prelaunch_powered_soak_s,
+        "prelaunch_energy_balance": prelaunch_energy_balance,
+        "initial_condition": {
+            "units": {"temperature": "C"},
+            "basis": "configured ambient unless study initial_temperature_c or per-part overrides are provided",
+            "configured_ambient_c": float(ambient - 273.15),
+            "requested_part_overrides_c": {
+                name: float(value) for name, value in initial_part_overrides.items()
+            },
+            "overrides_not_present_in_vehicle": sorted(absent_initial_overrides),
+            "initial_temperature_by_part_c": {
+                name: float(value - 273.15)
+                for name, value in zip(ids, initial_part_temperature, strict=True)
+            },
+            "initial_temperature_by_node_c": {
+                **{
+                    f"{liner.id}.cell_{index}": float(value - 273.15)
+                    for index, value in enumerate(initial_temperature[:cells])
+                },
+                **{
+                    name: float(initial_temperature[cells + index] - 273.15)
+                    for index, name in enumerate(other_ids)
+                },
+            },
+        },
         "post_burn_cooling_tau_s": float(tau),
         "air_conductivity_w_m_k": float(air_k),
         "external_convection_w_m2_k": float(convection),
@@ -498,6 +885,7 @@ def run_thermal_topology(
             for part_id, other_id in sorted(excluded_overlapping_barriers)
         ],
         "interfaces": interfaces,
+        "lumped_contact_paths": lumped_contact_metadata,
         "prescribed_case_contact_paths": [
             {"part_id": part_id, "conductance_w_k": conductance}
             for _, part_id, conductance in case_contacts
@@ -513,11 +901,12 @@ def run_thermal_topology(
         "case_coupled_part_ids": sorted(case_coupled),
         "required_case_coupled_support_part_ids": sorted(required_support_nodes),
         "energy_residual_j": float(
-            np.max(np.abs((states - ambient) @ capacities - solution.y[-1]))
+            np.max(np.abs((states - initial_temperature) @ capacities - external_energy_history))
         ),
-        "net_external_energy_j": float(solution.y[-1, -1]),
+        "net_external_energy_j": net_external_energy,
+        "heat_flow": heat_flow,
         "solver_max_step_s": max_step_s,
-        "solver_evaluations": solution.nfev,
+        "solver_evaluations": solver_evaluations,
         "case_boundary_basis": settings["case_boundary_basis"],
         "limitations": study["limitations"],
         "thermal_acceptance_passed": False,

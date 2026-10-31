@@ -27,14 +27,23 @@ from src.vehicle.motors import load_rasp
 from src.vehicle.schema import Vehicle
 
 
-def screen_launch(vehicle: Vehicle, dt: float = 0.001) -> dict[str, Any]:
+def screen_launch(
+    vehicle: Vehicle, dt: float = 0.001, *, study_nominal_mass_kg: float | None = None
+) -> dict[str, Any]:
     if not np.isfinite(dt) or not 0 < dt <= 0.01:
         raise ValueError("rail screen timestep must be finite and in (0, 0.01]")
     if vehicle.design is None or vehicle.motor is None or not vehicle.motor.curve:
         raise ValueError("screen requires a design profile and source curve")
     d = vehicle.design
     curve = load_rasp(vehicle.motor.curve)
-    mass = mass_properties(vehicle).mass_kg + d.mass_allowance_kg
+    if study_nominal_mass_kg is not None and (
+        not np.isfinite(study_nominal_mass_kg) or study_nominal_mass_kg <= 0
+    ):
+        raise ValueError("Rail-study nominal mass must be finite and positive")
+    nominal_mass = (
+        mass_properties(vehicle).mass_kg if study_nominal_mass_kg is None else study_nominal_mass_kg
+    )
+    mass = nominal_mass + d.mass_allowance_kg
     area = np.pi * (vehicle.airframe["body_diameter_m"] / 2) ** 2
     x = v = 0.0
     exit_time = exit_speed = None

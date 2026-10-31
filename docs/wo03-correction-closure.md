@@ -5,6 +5,14 @@ mode specifications** under ADR-0008. This is a combined vehicle calculation, no
 a collection of proposal-only passes. **Expanded WO-03 acceptance remains open;
 WO-04 has not started.** No physical qualification or flight release is claimed.
 
+## Latest follow-on closure work
+
+The active ADR-0008 package below remains the baseline. The new
+[bonded-brace / thermal-matrix / recovery-budget closure table](wo03-package-closure-progress.md)
+records later corrections and failures. These isolated studies are not yet a
+new adopted vehicle; the earlier 1.045596 calibre margin must not be copied onto
+a heavier completed package without integrated revalidation.
+
 ## Adopted configuration
 
 All modes share the 66 mm upper assembly, now with 400 mm extra tube length while

@@ -47,6 +47,16 @@ def test_independent_hot_insert_cold_host_closes_clearance() -> None:
     assert closed["status"] == "fail"
 
 
+def test_cte_interval_includes_cold_host_and_high_expansion_insert() -> None:
+    shift = _thermal_gap_bounds(1.6, 1.5025, (11e-6, 15e-6), (10e-6, 18e-6), [0, 135], [0, 135])
+    assert shift is not None
+    assert shift == pytest.approx((-1.5025 * 18e-6 * 135, 1.6 * 15e-6 * 135))
+    # Ø3.200 ±.020 mm bore, purchased Ø3.002..3.008 mm dowel.
+    fit = interval_stack(1.6, 1.5025, 0.01, 0.0015, 0.05, shift)
+    assert fit["minimum_mm"] > 0.08
+    assert fit["status"] == "pass"
+
+
 def test_key_flank_uses_half_width_gap_and_fails_at_point075() -> None:
     result = interval_stack(5.75, 5.6, 0.0, 0.0, 0.1, clearance_factor=2.0)
     assert result["nominal_mm"] == pytest.approx(0.075)

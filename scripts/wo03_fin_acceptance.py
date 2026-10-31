@@ -1,6 +1,7 @@
 """Run a minimum-thickness orthotropic plywood fin screen on an explicit vehicle copy.
 
-This script is deliberately not invoked until the selected active fin is adopted.
+Run on an active specification or an explicit candidate before adoption. The
+minimum thickness is derived from that part's declared manufacturing tolerance.
 It neither edits source specifications nor qualifies the root attachment.
 """
 
@@ -37,7 +38,6 @@ ORTHOTROPIC = {
 }
 STRENGTH_PA = {"sxx_spanwise": 10.0e6, "syy_chordwise": 10.0e6, "tauxy_in_plane": 2.0e6}
 MESH_LEVELS_MM = [10.0, 7.0, 5.0, 3.5, 2.5]
-MINIMUM_THICKNESS_MM = 6.05
 TEMPERATURE_STIFFNESS_AND_STRENGTH_FRACTION = 0.5
 DESIGN_FACTOR = 3.0
 
@@ -58,7 +58,14 @@ def panel_force_n(
 
 def _minimum_thickness_copy(fin: Part) -> Part:
     geometry = dict(fin.geometry)
-    geometry["thickness_m"] = MINIMUM_THICKNESS_MM / 1000
+    if not fin.engineering or "thickness" not in fin.engineering.tolerances_mm:
+        raise ValueError("Fin minimum-thickness analysis requires a spec-owned thickness tolerance")
+    minimum = (
+        float(geometry["thickness_m"]) - float(fin.engineering.tolerances_mm["thickness"]) / 1000
+    )
+    if minimum <= 0:
+        raise ValueError("Fin minimum thickness must remain positive")
+    geometry["thickness_m"] = minimum
     return fin.model_copy(update={"geometry": geometry, "cad_mass": None})
 
 

@@ -1,0 +1,304 @@
+{
+  "run_id": "wo03-recovery-budget-20261030T230910555661Z",
+  "source_sha256": {
+    "scripts/wo03_recovery_mass_budget.py": "22107b5a18e8548c85c29a3ed1806ab1ce57eb26f01948555de79c6489e4a9a1",
+    "configs/studies/wo03-recovery-mass-budget.yaml": "118ee5d884ca6b07e79a05262b1114c3d7d0d15986819f6358babbf7dc2f4895",
+    "configs/vehicle/platform/common-upper.yaml": "3b827f6d249d3f073ed9dd611f44cd04e71b4a678a2447c5fe40d81023e91f66",
+    "configs/vehicle/platform/tvc-finned.yaml": "0db5d39090258e47d990a4fbe1c57218de19105a5094536a26c85f8bd49ffa9d",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/kinematics.py": "eaeb3f77b35991fbe85d8979a8b384051e4773fefbc28e64b7513dba672f9138",
+    "src/cad/parts.py": "3e25d89a9c2e747d2bd3a1086438dbdffd767e451ff45e220fc2f47f212125c8",
+    "src/cad/retention_parts.py": "923ea14991a32d9f5577fa7c76fcfcf0dbe3c98542480bf8533aba40a7547f52",
+    "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+    "src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+    "src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+    "src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "src/vehicle/schema.py": "dc72a9d8b8b1d8bcb56de83c9ded854c37c795b1983fc8b2d91314ac0c008cb2",
+    "src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d"
+  },
+  "inputs_unchanged": true,
+  "dedicated_parts": [
+    {
+      "part_id": "parachute",
+      "mass_kg": 0.035
+    },
+    {
+      "part_id": "shock_cord",
+      "mass_kg": 0.01
+    },
+    {
+      "part_id": "recovery_protection",
+      "mass_kg": 0.006
+    },
+    {
+      "part_id": "recovery_bulkhead",
+      "mass_kg": 0.0302337452203521
+    },
+    {
+      "part_id": "recovery_anchor",
+      "mass_kg": 0.004
+    },
+    {
+      "part_id": "independent_recovery",
+      "mass_kg": 0.0065
+    },
+    {
+      "part_id": "recovery_battery",
+      "mass_kg": 0.0036
+    },
+    {
+      "part_id": "recovery_power_switch",
+      "mass_kg": 0.0037
+    },
+    {
+      "part_id": "recovery_mount_carrier",
+      "mass_kg": 0.0014669700000000002
+    },
+    {
+      "part_id": "recovery_alignment_pins",
+      "mass_kg": 0.00025
+    },
+    {
+      "part_id": "recovery_mount_hardware_allowance",
+      "mass_kg": 0.00628303
+    },
+    {
+      "part_id": "recovery_output_harness",
+      "mass_kg": 0.004
+    }
+  ],
+  "shared_structure_already_in_fixed_mass": [
+    {
+      "part_id": "body_upper",
+      "mass_kg": 0.05603234701199932
+    },
+    {
+      "part_id": "interface_coupler",
+      "mass_kg": 0.02106733049353741
+    },
+    {
+      "part_id": "joint_stop",
+      "mass_kg": 0.0013192554674232185
+    },
+    {
+      "part_id": "aft_shell",
+      "mass_kg": 0.0175684344695427
+    },
+    {
+      "part_id": "gimbal_frame",
+      "mass_kg": 0.02565145543439037
+    },
+    {
+      "part_id": "motor_mount",
+      "mass_kg": 0.03855402325837641
+    },
+    {
+      "part_id": "outer_pivots",
+      "mass_kg": 0.002
+    },
+    {
+      "part_id": "inner_pivots",
+      "mass_kg": 0.002
+    },
+    {
+      "part_id": "gimbal_inner",
+      "mass_kg": 0.0058844204505552064
+    },
+    {
+      "part_id": "tvc_gimbal",
+      "mass_kg": 0.007529086193889445
+    }
+  ],
+  "candidates": [
+    {
+      "candidate": "active",
+      "budget": {
+        "nominal_vehicle_mass_kg": 0.7801473456206449,
+        "dedicated_recovery_mass_kg": 0.11103374522035211,
+        "fixed_nonrecovery_mass_kg": 0.6691136004002928,
+        "growth_allowance_kg": 0.05,
+        "guide_length_m": 5.0,
+        "minimum_departure_mps": 10.0,
+        "current_screen": {
+          "worst_case_mass_kg": 0.830147345620645,
+          "rail_exit_time_s": 0.8781626926754771,
+          "rail_exit_speed_mps": 10.171749534148352,
+          "rail_screen_pass": true,
+          "longest_useful_control_interval_s": 4.079043028261742,
+          "control_time_screen_pass": true,
+          "control_time_target_met": false,
+          "control_threshold_source_thrust_n": 11.493126306255103,
+          "screening_wind_mps": 1.0,
+          "kinematic_crosswind_angle_rad": 0.09799659678614382,
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+        },
+        "limits_by_timestep": [
+          {
+            "dt_s": 0.001,
+            "maximum_nominal_vehicle_kg": 0.7888809415285903,
+            "maximum_total_recovery_kg": 0.11976734112829757
+          },
+          {
+            "dt_s": 0.0005,
+            "maximum_nominal_vehicle_kg": 0.7888810770607222,
+            "maximum_total_recovery_kg": 0.11976747666042942
+          }
+        ],
+        "maximum_total_recovery_kg": 0.11976734112829757,
+        "maximum_increment_kg": 0.008733595907945452,
+        "numerical_mass_limit_spread_kg": 1.3553213185080182e-07,
+        "guide_availability_confirmed": false,
+        "flight_ready": false
+      }
+    },
+    {
+      "candidate": "main-pack-only",
+      "budget": {
+        "nominal_vehicle_mass_kg": 0.7634473456206449,
+        "dedicated_recovery_mass_kg": 0.11103374522035211,
+        "fixed_nonrecovery_mass_kg": 0.6524136004002927,
+        "growth_allowance_kg": 0.05,
+        "guide_length_m": 5.0,
+        "minimum_departure_mps": 10.0,
+        "current_screen": {
+          "worst_case_mass_kg": 0.8134473456206449,
+          "rail_exit_time_s": 0.8620152985801746,
+          "rail_exit_speed_mps": 10.50457784775286,
+          "rail_screen_pass": true,
+          "longest_useful_control_interval_s": 4.616350919122966,
+          "control_time_screen_pass": true,
+          "control_time_target_met": false,
+          "control_threshold_source_thrust_n": 11.261920110960984,
+          "screening_wind_mps": 1.0,
+          "kinematic_crosswind_angle_rad": 0.09491057492100605,
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+        },
+        "limits_by_timestep": [
+          {
+            "dt_s": 0.001,
+            "maximum_nominal_vehicle_kg": 0.7888809415283782,
+            "maximum_total_recovery_kg": 0.13646734112808545
+          },
+          {
+            "dt_s": 0.0005,
+            "maximum_nominal_vehicle_kg": 0.7888810770608922,
+            "maximum_total_recovery_kg": 0.13646747666059944
+          }
+        ],
+        "maximum_total_recovery_kg": 0.13646734112808545,
+        "maximum_increment_kg": 0.025433595907733336,
+        "numerical_mass_limit_spread_kg": 1.355325139895669e-07,
+        "guide_availability_confirmed": false,
+        "flight_ready": false
+      }
+    },
+    {
+      "candidate": "main-pack-and-6mm-trainer-fins",
+      "budget": {
+        "nominal_vehicle_mass_kg": 0.7569171290172144,
+        "dedicated_recovery_mass_kg": 0.11103374522035211,
+        "fixed_nonrecovery_mass_kg": 0.6458833837968623,
+        "growth_allowance_kg": 0.05,
+        "guide_length_m": 5.0,
+        "minimum_departure_mps": 10.0,
+        "current_screen": {
+          "worst_case_mass_kg": 0.8069171290172145,
+          "rail_exit_time_s": 0.8558195924426604,
+          "rail_exit_speed_mps": 10.63606102176376,
+          "rail_screen_pass": true,
+          "longest_useful_control_interval_s": 4.7975600132721965,
+          "control_time_screen_pass": true,
+          "control_time_target_met": false,
+          "control_threshold_source_thrust_n": 11.171511336390587,
+          "screening_wind_mps": 1.0,
+          "kinematic_crosswind_angle_rad": 0.0937441930575907,
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+        },
+        "limits_by_timestep": [
+          {
+            "dt_s": 0.001,
+            "maximum_nominal_vehicle_kg": 0.7888809415284777,
+            "maximum_total_recovery_kg": 0.14299755773161538
+          },
+          {
+            "dt_s": 0.0005,
+            "maximum_nominal_vehicle_kg": 0.7888810770608332,
+            "maximum_total_recovery_kg": 0.14299769326397094
+          }
+        ],
+        "maximum_total_recovery_kg": 0.14299755773161538,
+        "maximum_increment_kg": 0.03196381251126326,
+        "numerical_mass_limit_spread_kg": 1.3553235556074128e-07,
+        "guide_availability_confirmed": false,
+        "flight_ready": false
+      },
+      "fin_shape_sha256": "e419bac4a4ebf7688dae4d22eaa5316865da7f530789aac1067dd2712dd864e5",
+      "fin_new_mass_kg": 0.12032638991397095,
+      "fin_strength_flutter_validated": false
+    },
+    {
+      "candidate": "main-pack-and-5mm-trainer-fins-with-20mm-gussets",
+      "budget": {
+        "nominal_vehicle_mass_kg": 0.744438447686145,
+        "dedicated_recovery_mass_kg": 0.11103374522035211,
+        "fixed_nonrecovery_mass_kg": 0.6334047024657928,
+        "growth_allowance_kg": 0.05,
+        "guide_length_m": 5.0,
+        "minimum_departure_mps": 10.0,
+        "current_screen": {
+          "worst_case_mass_kg": 0.794438447686145,
+          "rail_exit_time_s": 0.8441526585271357,
+          "rail_exit_speed_mps": 10.889647923982377,
+          "rail_screen_pass": true,
+          "longest_useful_control_interval_s": 5.143834980474985,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "control_threshold_source_thrust_n": 10.998747957178354,
+          "screening_wind_mps": 1.0,
+          "kinematic_crosswind_angle_rad": 0.09157350243045279,
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+        },
+        "limits_by_timestep": [
+          {
+            "dt_s": 0.001,
+            "maximum_nominal_vehicle_kg": 0.7888809415282285,
+            "maximum_total_recovery_kg": 0.15547623906243568
+          },
+          {
+            "dt_s": 0.0005,
+            "maximum_nominal_vehicle_kg": 0.7888810770607455,
+            "maximum_total_recovery_kg": 0.15547637459495267
+          }
+        ],
+        "maximum_total_recovery_kg": 0.15547623906243568,
+        "maximum_increment_kg": 0.04444249384208357,
+        "numerical_mass_limit_spread_kg": 1.3553251698716906e-07,
+        "guide_availability_confirmed": false,
+        "flight_ready": false
+      },
+      "fin_shape_sha256": "83076e94f81ec1d9f0242417666f74e061bb04d86c20bec61ae6a2606e6cd00d",
+      "fin_new_mass_kg": 0.10784770858290148,
+      "fin_strength_flutter_validated": false
+    }
+  ],
+  "battery_duty_screen": {
+    "required_output_energy_j": 1450.0,
+    "available_output_energy_j": 2685.312,
+    "energy_margin": 0.8519393103448276,
+    "peak_pack_current_a": 2.604166666666666,
+    "supplier_stated_continuous_a": 8.1,
+    "basis": "Bounded provisional duty cycle; motor ignition and recovery outputs do not draw from this pack. Enforce a later arming timer and qualify actual duty/temperature before use.",
+    "bench_qualified": false
+  },
+  "active_adoption": false,
+  "expanded_wo03_passed": false,
+  "flight_ready": false
+}

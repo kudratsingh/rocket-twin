@@ -15,4 +15,5 @@ DENSITY_KG_M3: dict[str, float] = {
     "G11": 1850,  # Conservative density versus cited 1820 kg/m3 stock.
     "mica": 2100,
     "aluminum": 2700,  # Nonstructural radiant foil only in model configurations.
+    "epoxy": 1200,  # Estimated cured adhesive; actual mix, fillers and voids require weighing.
 }

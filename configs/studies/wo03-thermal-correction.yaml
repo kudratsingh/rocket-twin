@@ -1,0 +1,60 @@
+version: wo03-thermal-correction-screen-v2
+reference_thermal_study: configs/studies/wo03-thermal-topology.yaml
+engineering_inputs: configs/engineering/wo03.yaml
+scenario_indices: [0, 1, 2, 3]
+refinement_cells: [8, 16]
+max_step_s: 1.0
+fixed_screen_limit_c: 45.0
+reference_ambient_c: 35.0
+conditional_ambient_points_c: [25.0, 30.0, 32.0]
+ambient_search:
+  lower_c: 25.0
+  upper_c: 35.0
+  iterations: 8
+  target_margin_k: 3.0
+  scenarios: [2, 3]
+  scenario_3_case_peak_override_c: 300.0
+skin:
+  id: thermal_correction_fin_can_skin
+  material: fiberglass
+  thermal_profile_key: thermal_correction_glass_epoxy
+  thicknesses_m: [0.00025, 0.0004]
+  density_range_kg_m3: [1600.0, 1850.0]
+  conductivity_range_w_m_k: [0.2, 0.3]
+  cp_range_j_kg_k: [1000.0, 1200.0]
+  nominal_conductivity_w_m_k: 0.25
+  nominal_cp_j_kg_k: 1100.0
+  emissivity: 0.9
+  axial_start_m: 1.08
+  maximum_axial_end_m: 1.20
+  cad_slot_width_mm: 7.3
+  physical_slot_width_mm: 7.3
+  note: >-
+    CAD mass uses the cut slot geometry. Thermal effect is not simulated: the existing
+    radial solver cannot represent interrupted/angular barriers and must not treat the
+    slotted skin as a continuous opaque annulus.
+mount_shell_bond:
+  id: thermal_correction_mount_shell_bond
+  density_kg_m3: 1200.0
+  conductivity_range_w_m_k: [0.15, 0.25]
+  nominal_conductivity_w_m_k: 0.20
+  radial_gap_nominal_m: 0.0005
+  radial_gap_bounds_m: [0.00032, 0.00068]
+  interface_conductance_w_k: 1000000.0
+  fillet_allowance_included: false
+  basis: >-
+    User-requested bounded adhesive bridge assumption. CAD bond volume is generated at nominal
+    0.5 mm radial gap with fin-slot material removed and density 1200 kg/m3. Conductivity,
+    contact wetting, temperature dependence, fillet volume and mechanical transfer are not
+    qualified; interface resistance uses a high conductance as an ideal-wetted sensitivity.
+limitations:
+  - Candidate changes are in-memory screens only and are not active vehicle, CAD, material, or build selections.
+  - The 250 C prescribed motor-case peak, 120 s upper soak tau, and 35 C ambient remain unchanged; 300 C and contaminated foil emissivity 0.9 remain explicit sensitivities.
+  - Aluminum foil surface emissivity remains an uncertain scenario input; no candidate receives an assumed favorable emissivity.
+  - The conditional ambient values are future operating-envelope probes; actual club, weather and launch-day monitor conditions are unconfirmed. Original 35 C results remain visible and failing rows are not relabeled.
+  - Scenario 3 is also re-evaluated at a 300 C prescribed case peak with 120 s tau and outer foil emissivity 0.9. This deliberately combines the high source bound with the contaminated-surface sensitivity.
+  - The 0.25/0.4 mm fiberglass skin CAD is slotted to preserve the fin openings. The thermal solver treats any annular barrier as continuous and cannot model that interrupted wall, so no thermal reduction is computed for this skin.
+  - The skin's nominal exact CAD mass is bounded with 1600-1850 kg/m3 assumed density. The added laminate is only a structural/thermal candidate geometry; no shell or fin-root load improvement is calculated.
+  - Nominal geometry does not include adhesive thickness, concentricity, fit tolerance, thermal expansion, vibration movement, material orientation or production process. Physical fit, coupons and instrumented hot tests remain required.
+  - Radially averaged node means do not predict local gradients, fin-slot leakage, end-view-factor bypass, contact hotspots, or 3D heat spreading.
+  - The 45 C plywood/cardboard screen is unchanged; no lower prescribed source temperature or hardware qualification is inferred.

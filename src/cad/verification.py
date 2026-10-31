@@ -34,7 +34,15 @@ def verify(vehicle: Vehicle, solids: dict[str, Any]) -> dict[str, Any]:
             - (ps["body_upper"].position_m + ps["body_upper"].geometry["length_m"])
         )
         * 1000,
-        "nominal_pin_radial_gap_mm": 0.2 if vehicle.tvc else None,
+        "nominal_pin_radial_gap_mm": (
+            float(ps["tvc_gimbal"].cad.parameters["pivot_bore_diameter_mm"]) / 2
+            - max(float(pin["radius_mm"]) for pin in ps["outer_pivots"].cad.parameters["pins"])
+            if vehicle.tvc
+            and ps["tvc_gimbal"].cad
+            and ps["outer_pivots"].cad
+            and "pivot_bore_diameter_mm" in ps["tvc_gimbal"].cad.parameters
+            else None
+        ),
     }
     result: dict[str, Any] = {
         "interfaces": interfaces,

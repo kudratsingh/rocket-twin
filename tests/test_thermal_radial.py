@@ -247,3 +247,191 @@ def test_actual_open_frame_is_not_an_opaque_full_length_tube() -> None:
         "retention_hardware",
         "cassette_mount_screws",
     } <= set(tvc_result["case_coupled_part_ids"])
+
+
+def test_topology_exports_energy_balanced_connection_histories_and_pair_override() -> None:
+    import copy
+
+    import yaml
+
+    from src.analysis.thermal_topology import run_thermal_topology
+    from src.vehicle.schema import load_vehicle
+
+    vehicle = load_vehicle("configs/vehicle/wo02/performance-g54.yaml")
+    cfg = yaml.safe_load(Path("configs/engineering/wo03.yaml").read_text())
+    study = yaml.safe_load(Path("configs/studies/wo03-thermal-topology.yaml").read_text())
+    baseline = run_thermal_topology(
+        vehicle, cfg, study, False, cells=4, scenario_index=2, heat_flow_step_s=1.0
+    )
+    refined = run_thermal_topology(
+        vehicle, cfg, study, False, cells=4, scenario_index=2, heat_flow_step_s=0.05
+    )
+    shell_peak = next(row for row in baseline["peaks"] if row["part_id"] == "aft_shell")
+    refined_shell_peak = next(row for row in refined["peaks"] if row["part_id"] == "aft_shell")
+    assert shell_peak["peak_c"] == pytest.approx(46.331353, abs=1e-6)
+    assert refined_shell_peak["peak_c"] == pytest.approx(shell_peak["peak_c"], abs=1e-12)
+    assert baseline["energy_residual_j"] < 1e-6
+    assert baseline["heat_flow"]["units"] == {
+        "flux": "W",
+        "energy": "J",
+        "temperature": "K",
+        "time": "s",
+    }
+    assert len(baseline["heat_flow"]["times_s"]) == len(baseline["times_s"])
+    lumped = next(
+        edge
+        for edge in baseline["heat_flow"]["connections"]
+        if edge["connection"] == "lumped_contact:motor_mount->aft_shell"
+    )
+    assert len(lumped["flux_w_by_time"]) == len(baseline["times_s"])
+    assert lumped["net_energy_j"] < 0
+    assert lumped["negative_energy_j"] > abs(lumped["net_energy_j"])
+    assert (
+        refined["heat_flow"]["maximum_abs_node_balance_residual_fine_j"]
+        < baseline["heat_flow"]["maximum_abs_node_balance_residual_fine_j"]
+    )
+    assert refined["heat_flow"]["maximum_abs_node_balance_residual_fine_j"] < 5.0
+
+    overridden = copy.deepcopy(study)
+    overridden["contact_pair_conductance_w_k"] = {
+        "motor_mount->aft_shell": [0.03, 0.03, 0.03, 0.03]
+    }
+    result = run_thermal_topology(
+        vehicle, cfg, overridden, False, cells=4, scenario_index=2, heat_flow_step_s=1.0
+    )
+    paths = result["lumped_contact_paths"]
+    pair = next(
+        row
+        for row in paths
+        if row["source_part_id"] == "motor_mount" and row["target_part_id"] == "aft_shell"
+    )
+    unrelated = next(
+        row
+        for row in paths
+        if row["source_part_id"] == "aft_shell" and row["target_part_id"] == "fin_bonds"
+    )
+    assert pair["pair_specific_override"] is True
+    assert pair["base_conductance_w_k"] == pytest.approx(0.03)
+    assert unrelated["pair_specific_override"] is False
+    assert unrelated["base_conductance_w_k"] == pytest.approx(study["contact_conductance_w_k"][2])
+
+
+def test_pad_conduction_uses_radial_bond_gap_separate_from_cad_ring_width() -> None:
+    import copy
+
+    import yaml
+
+    from src.analysis.thermal_topology import run_thermal_topology
+    from src.vehicle.schema import load_vehicle
+
+    vehicle = load_vehicle("configs/vehicle/wo02/performance-g54.yaml")
+    cfg = yaml.safe_load(Path("configs/engineering/wo03.yaml").read_text())
+    study = yaml.safe_load(Path("configs/studies/wo03-thermal-topology.yaml").read_text())
+    bond = copy.deepcopy(next(part for part in vehicle.parts if part.id == "aft_thrust_pads"))
+    bond.id = "synthetic_cad_ring_bond"
+    bond.parent = "motor_mount"
+    vehicle.parts.append(bond)
+    study["part_ids"].append(bond.id)
+    study["pad_conduction_part_ids"] = [bond.id]
+    study["pad_conduction_thickness_m"] = {bond.id: 0.0005}
+
+    result = run_thermal_topology(
+        vehicle, cfg, study, False, cells=4, scenario_index=2, heat_flow_step_s=1.0
+    )
+    row = next(part for part in result["pad_conduction"] if part["part_id"] == bond.id)
+    assert bond.geometry["length_m"] == pytest.approx(0.003)
+    assert row["thickness_m"] == pytest.approx(0.0005)
+    assert row["area_m2"] == pytest.approx(bond.cad_mass.volume_m3 / 0.0005)
+    expected = row["conductivity_nominal_w_m_k"] * row["area_m2"] / 0.0005
+    assert row["full_path_conductance_nominal_w_k"] == pytest.approx(expected)
+
+
+def test_powered_prelaunch_soak_warms_from_ambient_and_preserves_zero_default() -> None:
+    import copy
+
+    import yaml
+
+    from src.analysis.thermal_topology import run_thermal_topology
+    from src.vehicle.schema import load_vehicle
+
+    vehicle = load_vehicle("configs/vehicle/wo02/performance-g54.yaml")
+    cfg = yaml.safe_load(Path("configs/engineering/wo03.yaml").read_text())
+    cfg["thermal"]["ambient_c"][3] = 25.0
+    cfg["thermal"]["external_case_peak_c"][3] = 300.0
+    study = yaml.safe_load(Path("configs/studies/wo03-thermal-topology.yaml").read_text())
+
+    default = run_thermal_topology(
+        vehicle, cfg, study, False, cells=4, scenario_index=3, heat_flow_step_s=2.0
+    )
+    explicit_zero_study = copy.deepcopy(study)
+    explicit_zero_study["prelaunch_powered_soak_s"] = 0.0
+    explicit_zero = run_thermal_topology(
+        vehicle,
+        cfg,
+        explicit_zero_study,
+        False,
+        cells=4,
+        scenario_index=3,
+        heat_flow_step_s=2.0,
+    )
+    assert explicit_zero["times_s"] == default["times_s"]
+    assert explicit_zero["temperature_k"] == default["temperature_k"]
+
+    warm_study = copy.deepcopy(study)
+    warm_study["prelaunch_powered_soak_s"] = 600.0
+    warmed = run_thermal_topology(
+        vehicle,
+        cfg,
+        warm_study,
+        False,
+        cells=4,
+        scenario_index=3,
+        heat_flow_step_s=2.0,
+    )
+    warmup = warmed["prelaunch_energy_balance"]
+    assert warmed["times_s"][0] == -600.0
+    assert 0.0 in warmed["times_s"]
+    assert warmed["times_s"][-1] == pytest.approx(vehicle.motor.burn_time_s + 300.0)
+    assert warmup["start_temperature_c"] == pytest.approx(25.0)
+    assert warmup["case_boundary_during_prelaunch_c"] == pytest.approx(25.0)
+    assert warmup["electronics_power_w"] == pytest.approx(1.0)
+    assert warmup["electronics_energy_input_j"] == pytest.approx(600.0)
+    assert warmup["ignition_temperature_by_part_c"]["flight_computer"] > 25.0
+    assert warmup["energy_balance_residual_j"] == pytest.approx(0.0, abs=1e-4)
+    assert warmed["energy_residual_j"] < 1e-5
+    assert warmed["thermal_acceptance_passed"] is False
+
+    ignition_bound_study = copy.deepcopy(study)
+    ignition_bound_study["initial_temperature_c"] = 30.0
+    ignition_bound_study["initial_part_temperature_c"] = {
+        "flight_computer": 40.0,
+        "battery": 35.0,
+        "servo_pitch": 40.0,
+        "servo_yaw": 40.0,
+        "servo_support": 35.0,
+    }
+    ignition_bound = run_thermal_topology(
+        vehicle,
+        cfg,
+        ignition_bound_study,
+        False,
+        cells=4,
+        scenario_index=3,
+        heat_flow_step_s=2.0,
+    )
+    initial_parts = ignition_bound["initial_condition"]["initial_temperature_by_part_c"]
+    assert initial_parts["motor_liner"] == pytest.approx(30.0)
+    assert initial_parts["aft_shell"] == pytest.approx(30.0)
+    assert initial_parts["flight_computer"] == pytest.approx(40.0)
+    assert initial_parts["battery"] == pytest.approx(35.0)
+    assert ignition_bound["initial_condition"]["requested_part_overrides_c"][
+        "servo_pitch"
+    ] == pytest.approx(40.0)
+    assert ignition_bound["initial_condition"]["overrides_not_present_in_vehicle"] == [
+        "servo_pitch",
+        "servo_support",
+        "servo_yaw",
+    ]
+    assert ignition_bound["prelaunch_powered_soak_s"] == 0.0
+    assert ignition_bound["times_s"][0] == 0.0
+    assert ignition_bound["energy_residual_j"] < 1e-5

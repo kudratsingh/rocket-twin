@@ -1,0 +1,1379 @@
+{
+  "run_id": "wo03-fit-structure-20261030T221226140993Z",
+  "source_hashes": {
+    "scripts/wo03_fit_structure.py": "3d8a2d743d83d45dcac31e557a24d24d1e5b402b35de89c91bf29f2d287e6bb7",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-fit-correction.yaml": "e5d4382571a156b7cd461c07749532ecc49fb5ff976578de747efc6c460656bd",
+    "configs/vehicle/platform/common-upper.yaml": "b41e4bbe5f1f51eaddf99794b8774ba1e41ff15a2da2de6624f06906d6269b5c",
+    "configs/vehicle/platform/performance.yaml": "2e87ef4720a620c5698c117a588f2e2d0bedade83548f189d8fb32422feb633d",
+    "configs/vehicle/platform/tvc-finned.yaml": "fc4a5c802ae4d646f31824ccc1e2a29db9916860958ca2cd9952d903d382fce0",
+    "configs/vehicle/wo02/performance-g54.yaml": "e21f59e22a2b1cae7826097e303378d6901d94caf1ead9614b4590bf5709400b",
+    "src/analysis/motor_support.py": "7dde60eaec56db34dbf69e4ddc3e06a4bb10f86b37c3bc2212de336baca2aa16",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/kinematics.py": "eaeb3f77b35991fbe85d8979a8b384051e4773fefbc28e64b7513dba672f9138",
+    "src/cad/parts.py": "f730a2ddcb02864a40684730677f9afdb991a3d86b5efec5905d14a1c5608352",
+    "src/cad/retention_parts.py": "923ea14991a32d9f5577fa7c76fcfcf0dbe3c98542480bf8533aba40a7547f52",
+    "src/cad/verification.py": "7d2be409ff4a07ee5af8d4e01a811adb51ea95c340bbeca36e0c6a83152c445e"
+  },
+  "inputs_unchanged": false,
+  "known_rectangle_relative_error": 2.220446049250313e-16,
+  "known_case_passed": true,
+  "results": [
+    {
+      "configuration": "G80",
+      "candidate": "package-a",
+      "sections": [
+        {
+          "station_mm": 45.000000000000036,
+          "rail_angle_deg": 0,
+          "area_mm2": 81.73798318963934,
+          "principal_second_moments_mm4": [
+            317.1840703311652,
+            959.0906460123704
+          ],
+          "section_centroid_mm": [
+            28.40784552529143,
+            -1.2653898370609507e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 6.993109020327056,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 128.5000000000001,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621880636,
+            794.5750353510891
+          ],
+          "section_centroid_mm": [
+            27.59785475043304,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.32009304611001,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 178.50000000000017,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621851532,
+            794.5750353510891
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1531652692662014e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 95.0,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621858808,
+            794.5750353510164
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        }
+      ],
+      "beam_column_hot": [
+        {
+          "per_rail_service_force_n": 39.17666666666667,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 90.00000000000007,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 209.0278717998719,
+          "factored_load_to_euler_ratio": 0.5622695145292679,
+          "euler_margin": 0.7785065242905802,
+          "initial_eccentricity_mm": 0,
+          "first_mode_amplification": 2.2845107507753486,
+          "factored_compression_plus_bending_mpa": 2.653915535077321,
+          "strength_margin": 0.8840087161456427,
+          "factored_lateral_displacement_increment_mm": 0.0,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 39.17666666666667,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 90.00000000000007,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 209.0278717998719,
+          "factored_load_to_euler_ratio": 0.5622695145292679,
+          "euler_margin": 0.7785065242905802,
+          "initial_eccentricity_mm": 0.1,
+          "first_mode_amplification": 2.2845107507753486,
+          "factored_compression_plus_bending_mpa": 3.7996106765979922,
+          "strength_margin": 0.31592429476926953,
+          "factored_lateral_displacement_increment_mm": 0.12845107507753487,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 39.17666666666667,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 90.00000000000007,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 209.0278717998719,
+          "factored_load_to_euler_ratio": 0.5622695145292679,
+          "euler_margin": 0.7785065242905802,
+          "initial_eccentricity_mm": 0.2,
+          "first_mode_amplification": 2.2845107507753486,
+          "factored_compression_plus_bending_mpa": 4.945305818118664,
+          "strength_margin": 0.011059817914788495,
+          "factored_lateral_displacement_increment_mm": 0.25690215015506973,
+          "passed": true
+        }
+      ],
+      "support": {
+        "configuration_id": "modular-performance-v1",
+        "mode": "performance",
+        "thrust_n": 117.53,
+        "reverse_load_n": 150.0,
+        "design_factor": 3.0,
+        "acceptance_closed": false,
+        "flight_ready": false,
+        "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+        "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+        "screens": {
+          "rails": {
+            "mount_id": "motor_mount",
+            "generator": "mount",
+            "rail_count": 3,
+            "rail_cross_section_mm": [
+              7.0,
+              12.0
+            ],
+            "net_single_rail_section_area_mm2": 46.040000000000006,
+            "channel_net_section": {
+              "cut_center_radius_mm": 30.0,
+              "cut_radial_depth_mm": 6.4,
+              "cut_tangential_width_mm": 7.3,
+              "net_single_rail_section_area_mm2": 46.040000000000006,
+              "net_single_rail_inertias_mm4": {
+                "axis_x": 839.4259666666667,
+                "axis_y": 201.36445710975983
+              },
+              "method": "Rail cross-section rectangle minus the intersecting fin-channel rectangle. This ideal net section omits notch-root concentration and local plate/rail restraint."
+            },
+            "rail_total_area_m2": 0.00013812,
+            "rail_axial_stress_pa": 850926.7303793802,
+            "rail_axial_margin_cold": 2.917297711222667,
+            "rail_axial_margin_hot_half_strength": 0.9586488556113335,
+            "support_stations_m": [
+              0.0,
+              0.09000000000000007,
+              0.16700000000000018,
+              0.19000000000000017
+            ],
+            "maximum_assumed_unsupported_span_m": 0.09000000000000007,
+            "weak_axis_inertia_m4": 2.0136445710975983e-10,
+            "single_rail_pinned_euler_load_n": 490.71297089221036,
+            "forward_rail_euler_margin_cold": 3.175214591101934,
+            "forward_rail_euler_margin_hot_E_half": 1.087607295550967,
+            "youngs_modulus_pa": 2000000000.0,
+            "strength_screen_pa": 10000000.0,
+            "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+          },
+          "thrust_plate_and_pads": {
+            "plate_id": "retention",
+            "plate_station_m": 1.06,
+            "plate_thickness_m": 0.009000000000000001,
+            "outer_radius_m": 0.032,
+            "inner_radius_m": 0.012,
+            "rail_slot_count_assumed": 3,
+            "rail_slot_footprint_area_m2": 0.00027528,
+            "nominal_slot_footprint_average_pressure_pa": 426947.1083987213,
+            "pad_total_area_m2": 4.753229684881356e-05,
+            "pad_active_area_m2": 4.7532296848813554e-05,
+            "active_pad_count_assumption": 3,
+            "pad_average_compression_pa": 2472634.562007993,
+            "pad_compression_provisional_capacity_pa": 20000000.0,
+            "pad_margin_design_factor_3": 1.6961795200552232,
+            "plate_sector_cantilever_bending_pa": 5542364.581211986,
+            "plate_bending_margin_cold_material_screen": 2.007140079374218,
+            "plate_bending_margin_hot_half_strength": 0.503570039687109,
+            "plate_bending_strength_estimate_pa": 50000000.0,
+            "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+          },
+          "reverse_retainer": {
+            "cap_id": "aft_retainer",
+            "reverse_case_load_n": 150.0,
+            "fastener_count_assumed": 3,
+            "hardware_envelope_id": "retention_hardware",
+            "hardware_estimated_mass_kg": 0.007,
+            "M3_screw_shank_lengths_mm": [
+              20.0,
+              20.0,
+              20.0
+            ],
+            "individual_fastener_load_n": 50.0,
+            "hole_or_shank_diameter_m": 0.0034,
+            "M3_nominal_diameter_m": 0.003,
+            "nominal_M3_tensile_area_m2": 5.03e-06,
+            "nominal_M3_tensile_stress_pa": 9940357.852882704,
+            "thread_engagement_m_assumed": null,
+            "captive_nut_pocket_present": true,
+            "G11_thread_cylinder_area_m2": null,
+            "G11_thread_shear_stress_pa": null,
+            "G11_thread_cylinder_margin_DF3": null,
+            "G11_thread_cylinder_margin_DF3_hot": null,
+            "block_cross_section_area_m2": 0.000144,
+            "block_cross_section_average_stress_pa": 347222.2222222222,
+            "block_cross_section_margin_DF3_cold": 8.600000000000001,
+            "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+            "plywood_strength_screen_pa": 10000000.0,
+            "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+          },
+          "fixed_mount_bond_proxy": {
+            "assumed_bond_area_m2": 0.0006031857894892404,
+            "average_shear_pa": 194848.75480823393,
+            "strength_screens_pa": {
+              "cold": 2000000.0,
+              "hot": 1000000.0
+            },
+            "margin_DF3_cold": 2.4214571569768872,
+            "margin_DF3_hot": 0.7107285784884436,
+            "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+          },
+          "fixed_thrust_plate_bond_sensitivities": {
+            "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+            "bond_finger_count": 6,
+            "bond_finger_clipped_radial_contact_width_mm": 6.2,
+            "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+            "bond_finger_length_mm": 18.0,
+            "slot_sidewall_average_shear_pa": 175522.70011947432,
+            "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+            "outer_plate_to_shell_average_shear_pa": 64949.58493607797,
+            "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+            "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+            "slot_margin_DF3_cold": 2.798179188292351,
+            "slot_margin_DF3_hot": 0.8990895941461754,
+            "outer_bond_margin_DF3_cold": 9.264371470930664,
+            "outer_bond_margin_DF3_hot": 4.132185735465332,
+            "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+          }
+        },
+        "unresolved": [
+          "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+          "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+          "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+        ]
+      }
+    },
+    {
+      "configuration": "G80",
+      "candidate": "package-a-braced",
+      "sections": [
+        {
+          "station_mm": 22.500000000000018,
+          "rail_angle_deg": 0,
+          "area_mm2": 81.73798318963935,
+          "principal_second_moments_mm4": [
+            317.1840703310924,
+            959.0906460123522
+          ],
+          "section_centroid_mm": [
+            28.407845525291428,
+            -1.3740514879900505e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 6.993109020327057,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 67.50000000000004,
+          "rail_angle_deg": 0,
+          "area_mm2": 81.73798318963352,
+          "principal_second_moments_mm4": [
+            317.18407033120155,
+            959.0906460124068
+          ],
+          "section_centroid_mm": [
+            28.40784552529143,
+            -1.1567281861319114e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 6.993109020327056,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 109.2500000000001,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.5495062187336,
+            794.5750353510164
+          ],
+          "section_centroid_mm": [
+            27.59785475043304,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.32009304611001,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 147.75000000000017,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621851532,
+            794.5750353506526
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 178.50000000000017,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621851532,
+            794.5750353510891
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1531652692662014e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 95.0,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621858808,
+            794.5750353510164
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        }
+      ],
+      "beam_column_hot": [
+        {
+          "per_rail_service_force_n": 39.17666666666667,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 45.000000000000036,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 836.1114871994876,
+          "factored_load_to_euler_ratio": 0.14056737863231697,
+          "euler_margin": 6.114026097162321,
+          "initial_eccentricity_mm": 0,
+          "first_mode_amplification": 1.1635583466783248,
+          "factored_compression_plus_bending_mpa": 2.653915535077321,
+          "strength_margin": 0.8840087161456427,
+          "factored_lateral_displacement_increment_mm": 0.0,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 39.17666666666667,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 45.000000000000036,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 836.1114871994876,
+          "factored_load_to_euler_ratio": 0.14056737863231697,
+          "euler_margin": 6.114026097162321,
+          "initial_eccentricity_mm": 0.1,
+          "first_mode_amplification": 1.1635583466783248,
+          "factored_compression_plus_bending_mpa": 3.2374466671644613,
+          "strength_margin": 0.5444269864619213,
+          "factored_lateral_displacement_increment_mm": 0.01635583466783248,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 39.17666666666667,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 45.000000000000036,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 836.1114871994876,
+          "factored_load_to_euler_ratio": 0.14056737863231697,
+          "euler_margin": 6.114026097162321,
+          "initial_eccentricity_mm": 0.2,
+          "first_mode_amplification": 1.1635583466783248,
+          "factored_compression_plus_bending_mpa": 3.820977799251602,
+          "strength_margin": 0.30856557213688296,
+          "factored_lateral_displacement_increment_mm": 0.03271166933566496,
+          "passed": true
+        }
+      ],
+      "support": {
+        "configuration_id": "modular-performance-v1",
+        "mode": "performance",
+        "thrust_n": 117.53,
+        "reverse_load_n": 150.0,
+        "design_factor": 3.0,
+        "acceptance_closed": false,
+        "flight_ready": false,
+        "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+        "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+        "screens": {
+          "rails": {
+            "mount_id": "motor_mount",
+            "generator": "mount",
+            "rail_count": 3,
+            "rail_cross_section_mm": [
+              7.0,
+              12.0
+            ],
+            "net_single_rail_section_area_mm2": 46.040000000000006,
+            "channel_net_section": {
+              "cut_center_radius_mm": 30.0,
+              "cut_radial_depth_mm": 6.4,
+              "cut_tangential_width_mm": 7.3,
+              "net_single_rail_section_area_mm2": 46.040000000000006,
+              "net_single_rail_inertias_mm4": {
+                "axis_x": 839.4259666666667,
+                "axis_y": 201.36445710975983
+              },
+              "method": "Rail cross-section rectangle minus the intersecting fin-channel rectangle. This ideal net section omits notch-root concentration and local plate/rail restraint."
+            },
+            "rail_total_area_m2": 0.00013812,
+            "rail_axial_stress_pa": 850926.7303793802,
+            "rail_axial_margin_cold": 2.917297711222667,
+            "rail_axial_margin_hot_half_strength": 0.9586488556113335,
+            "support_stations_m": [
+              0.0,
+              0.04500000000000003,
+              0.09000000000000007,
+              0.12850000000000011,
+              0.16700000000000018,
+              0.19000000000000017
+            ],
+            "maximum_assumed_unsupported_span_m": 0.04500000000000003,
+            "weak_axis_inertia_m4": 2.0136445710975983e-10,
+            "single_rail_pinned_euler_load_n": 1962.8518835688415,
+            "forward_rail_euler_margin_cold": 15.700858364407736,
+            "forward_rail_euler_margin_hot_E_half": 7.350429182203868,
+            "youngs_modulus_pa": 2000000000.0,
+            "strength_screen_pa": 10000000.0,
+            "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+          },
+          "thrust_plate_and_pads": {
+            "plate_id": "retention",
+            "plate_station_m": 1.06,
+            "plate_thickness_m": 0.009000000000000001,
+            "outer_radius_m": 0.032,
+            "inner_radius_m": 0.012,
+            "rail_slot_count_assumed": 3,
+            "rail_slot_footprint_area_m2": 0.00027528,
+            "nominal_slot_footprint_average_pressure_pa": 426947.1083987213,
+            "pad_total_area_m2": 4.753229684881356e-05,
+            "pad_active_area_m2": 4.7532296848813554e-05,
+            "active_pad_count_assumption": 3,
+            "pad_average_compression_pa": 2472634.562007993,
+            "pad_compression_provisional_capacity_pa": 20000000.0,
+            "pad_margin_design_factor_3": 1.6961795200552232,
+            "plate_sector_cantilever_bending_pa": 5542364.581211986,
+            "plate_bending_margin_cold_material_screen": 2.007140079374218,
+            "plate_bending_margin_hot_half_strength": 0.503570039687109,
+            "plate_bending_strength_estimate_pa": 50000000.0,
+            "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+          },
+          "reverse_retainer": {
+            "cap_id": "aft_retainer",
+            "reverse_case_load_n": 150.0,
+            "fastener_count_assumed": 3,
+            "hardware_envelope_id": "retention_hardware",
+            "hardware_estimated_mass_kg": 0.007,
+            "M3_screw_shank_lengths_mm": [
+              20.0,
+              20.0,
+              20.0
+            ],
+            "individual_fastener_load_n": 50.0,
+            "hole_or_shank_diameter_m": 0.0034,
+            "M3_nominal_diameter_m": 0.003,
+            "nominal_M3_tensile_area_m2": 5.03e-06,
+            "nominal_M3_tensile_stress_pa": 9940357.852882704,
+            "thread_engagement_m_assumed": null,
+            "captive_nut_pocket_present": true,
+            "G11_thread_cylinder_area_m2": null,
+            "G11_thread_shear_stress_pa": null,
+            "G11_thread_cylinder_margin_DF3": null,
+            "G11_thread_cylinder_margin_DF3_hot": null,
+            "block_cross_section_area_m2": 0.000144,
+            "block_cross_section_average_stress_pa": 347222.2222222222,
+            "block_cross_section_margin_DF3_cold": 8.600000000000001,
+            "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+            "plywood_strength_screen_pa": 10000000.0,
+            "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+          },
+          "fixed_mount_bond_proxy": {
+            "assumed_bond_area_m2": 0.0006031857894892404,
+            "average_shear_pa": 194848.75480823393,
+            "strength_screens_pa": {
+              "cold": 2000000.0,
+              "hot": 1000000.0
+            },
+            "margin_DF3_cold": 2.4214571569768872,
+            "margin_DF3_hot": 0.7107285784884436,
+            "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+          },
+          "fixed_thrust_plate_bond_sensitivities": {
+            "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+            "bond_finger_count": 6,
+            "bond_finger_clipped_radial_contact_width_mm": 6.2,
+            "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+            "bond_finger_length_mm": 18.0,
+            "slot_sidewall_average_shear_pa": 175522.70011947432,
+            "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+            "outer_plate_to_shell_average_shear_pa": 64949.58493607797,
+            "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+            "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+            "slot_margin_DF3_cold": 2.798179188292351,
+            "slot_margin_DF3_hot": 0.8990895941461754,
+            "outer_bond_margin_DF3_cold": 9.264371470930664,
+            "outer_bond_margin_DF3_hot": 4.132185735465332,
+            "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+          }
+        },
+        "unresolved": [
+          "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+          "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+          "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+        ]
+      }
+    },
+    {
+      "configuration": "G54",
+      "candidate": "package-a",
+      "sections": [
+        {
+          "station_mm": 55.00000000000004,
+          "rail_angle_deg": 0,
+          "area_mm2": 81.73798318963935,
+          "principal_second_moments_mm4": [
+            317.1840703310924,
+            959.0906460124068
+          ],
+          "section_centroid_mm": [
+            28.407845525291428,
+            -1.3740514879900505e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 6.993109020327057,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 148.50000000000003,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621822428,
+            794.5750353503615
+          ],
+          "section_centroid_mm": [
+            27.59785475043304,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.32009304611001,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 198.49999999999994,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950622026155,
+            794.5750353519622
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1531652692662014e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 115.0,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621858808,
+            794.5750353509436
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        }
+      ],
+      "beam_column_hot": [
+        {
+          "per_rail_service_force_n": 46.65626666666666,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 110.00000000000009,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 139.92774889058595,
+          "factored_load_to_euler_ratio": 1.0002933736141653,
+          "euler_margin": -0.00029328757133051386,
+          "initial_eccentricity_mm": 0,
+          "first_mode_amplification": null,
+          "factored_compression_plus_bending_mpa": null,
+          "strength_margin": null,
+          "factored_lateral_displacement_increment_mm": null,
+          "passed": false
+        },
+        {
+          "per_rail_service_force_n": 46.65626666666666,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 110.00000000000009,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 139.92774889058595,
+          "factored_load_to_euler_ratio": 1.0002933736141653,
+          "euler_margin": -0.00029328757133051386,
+          "initial_eccentricity_mm": 0.1,
+          "first_mode_amplification": null,
+          "factored_compression_plus_bending_mpa": null,
+          "strength_margin": null,
+          "factored_lateral_displacement_increment_mm": null,
+          "passed": false
+        },
+        {
+          "per_rail_service_force_n": 46.65626666666666,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 110.00000000000009,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 139.92774889058595,
+          "factored_load_to_euler_ratio": 1.0002933736141653,
+          "euler_margin": -0.00029328757133051386,
+          "initial_eccentricity_mm": 0.2,
+          "first_mode_amplification": null,
+          "factored_compression_plus_bending_mpa": null,
+          "strength_margin": null,
+          "factored_lateral_displacement_increment_mm": null,
+          "passed": false
+        }
+      ],
+      "support": {
+        "configuration_id": "modular-performance-g54-hypothesis",
+        "mode": "performance",
+        "thrust_n": 139.9688,
+        "reverse_load_n": 150.0,
+        "design_factor": 3.0,
+        "acceptance_closed": false,
+        "flight_ready": false,
+        "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+        "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+        "screens": {
+          "rails": {
+            "mount_id": "motor_mount",
+            "generator": "mount",
+            "rail_count": 3,
+            "rail_cross_section_mm": [
+              7.0,
+              12.0
+            ],
+            "net_single_rail_section_area_mm2": 46.040000000000006,
+            "channel_net_section": {
+              "cut_center_radius_mm": 30.0,
+              "cut_radial_depth_mm": 6.4,
+              "cut_tangential_width_mm": 7.3,
+              "net_single_rail_section_area_mm2": 46.040000000000006,
+              "net_single_rail_inertias_mm4": {
+                "axis_x": 839.4259666666667,
+                "axis_y": 201.36445710975983
+              },
+              "method": "Rail cross-section rectangle minus the intersecting fin-channel rectangle. This ideal net section omits notch-root concentration and local plate/rail restraint."
+            },
+            "rail_total_area_m2": 0.00013812,
+            "rail_axial_stress_pa": 1013385.4619171732,
+            "rail_axial_margin_cold": 2.289304473568396,
+            "rail_axial_margin_hot_half_strength": 0.644652236784198,
+            "support_stations_m": [
+              0.0,
+              0.11000000000000008,
+              0.18699999999999994,
+              0.20999999999999996
+            ],
+            "maximum_assumed_unsupported_span_m": 0.11000000000000008,
+            "weak_axis_inertia_m4": 2.0136445710975983e-10,
+            "single_rail_pinned_euler_load_n": 328.4938069609011,
+            "forward_rail_euler_margin_cold": 1.3469073605039203,
+            "forward_rail_euler_margin_hot_E_half": 0.17345368025196017,
+            "youngs_modulus_pa": 2000000000.0,
+            "strength_screen_pa": 10000000.0,
+            "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+          },
+          "thrust_plate_and_pads": {
+            "plate_id": "retention",
+            "plate_station_m": 1.001,
+            "plate_thickness_m": 0.009000000000000001,
+            "outer_radius_m": 0.032,
+            "inner_radius_m": 0.012,
+            "rail_slot_count_assumed": 3,
+            "rail_slot_footprint_area_m2": 0.00027528,
+            "nominal_slot_footprint_average_pressure_pa": 508459.7500726533,
+            "pad_total_area_m2": 4.753229684881356e-05,
+            "pad_active_area_m2": 4.7532296848813554e-05,
+            "active_pad_count_assumption": 3,
+            "pad_average_compression_pa": 2944709.3719287356,
+            "pad_compression_provisional_capacity_pa": 20000000.0,
+            "pad_margin_design_factor_3": 1.2639472439007151,
+            "plate_sector_cantilever_bending_pa": 6600511.525523221,
+            "plate_bending_margin_cold_material_screen": 1.5250568235839124,
+            "plate_bending_margin_hot_half_strength": 0.2625284117919562,
+            "plate_bending_strength_estimate_pa": 50000000.0,
+            "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+          },
+          "reverse_retainer": {
+            "cap_id": "aft_retainer",
+            "reverse_case_load_n": 150.0,
+            "fastener_count_assumed": 3,
+            "hardware_envelope_id": "retention_hardware",
+            "hardware_estimated_mass_kg": 0.007,
+            "M3_screw_shank_lengths_mm": [
+              20.0,
+              20.0,
+              20.0
+            ],
+            "individual_fastener_load_n": 50.0,
+            "hole_or_shank_diameter_m": 0.0034,
+            "M3_nominal_diameter_m": 0.003,
+            "nominal_M3_tensile_area_m2": 5.03e-06,
+            "nominal_M3_tensile_stress_pa": 9940357.852882704,
+            "thread_engagement_m_assumed": null,
+            "captive_nut_pocket_present": true,
+            "G11_thread_cylinder_area_m2": null,
+            "G11_thread_shear_stress_pa": null,
+            "G11_thread_cylinder_margin_DF3": null,
+            "G11_thread_cylinder_margin_DF3_hot": null,
+            "block_cross_section_area_m2": 0.000144,
+            "block_cross_section_average_stress_pa": 347222.2222222222,
+            "block_cross_section_margin_DF3_cold": 8.600000000000001,
+            "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+            "plywood_strength_screen_pa": 10000000.0,
+            "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+          },
+          "fixed_mount_bond_proxy": {
+            "assumed_bond_area_m2": 0.0006031857894892404,
+            "average_shear_pa": 232049.23331917578,
+            "strength_screens_pa": {
+              "cold": 2000000.0,
+              "hot": 1000000.0
+            },
+            "margin_DF3_cold": 1.8729535414999172,
+            "margin_DF3_hot": 0.4364767707499586,
+            "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+          },
+          "fixed_thrust_plate_bond_sensitivities": {
+            "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+            "bond_finger_count": 6,
+            "bond_finger_clipped_radial_contact_width_mm": 6.2,
+            "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+            "bond_finger_length_mm": 18.0,
+            "slot_sidewall_average_shear_pa": 209033.45280764633,
+            "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+            "outer_plate_to_shell_average_shear_pa": 77349.74443972525,
+            "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+            "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+            "slot_margin_DF3_cold": 2.189282182886472,
+            "slot_margin_DF3_hot": 0.5946410914432361,
+            "outer_bond_margin_DF3_cold": 7.618860624499751,
+            "outer_bond_margin_DF3_hot": 3.3094303122498756,
+            "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+          }
+        },
+        "unresolved": [
+          "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+          "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+          "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+        ]
+      }
+    },
+    {
+      "configuration": "G54",
+      "candidate": "package-a-braced",
+      "sections": [
+        {
+          "station_mm": 27.50000000000002,
+          "rail_angle_deg": 0,
+          "area_mm2": 81.73798318963935,
+          "principal_second_moments_mm4": [
+            317.1840703310924,
+            959.0906460123522
+          ],
+          "section_centroid_mm": [
+            28.407845525291428,
+            -1.3740514879900505e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 6.993109020327057,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 82.50000000000006,
+          "rail_angle_deg": 0,
+          "area_mm2": 81.73798318963352,
+          "principal_second_moments_mm4": [
+            317.184070330765,
+            959.0906460121157
+          ],
+          "section_centroid_mm": [
+            28.40784552529143,
+            -1.1567281861319114e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 6.993109020327056,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 129.25000000000003,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621895188,
+            794.5750353512346
+          ],
+          "section_centroid_mm": [
+            27.59785475043304,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.32009304611001,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 167.74999999999994,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621851532,
+            794.5750353512346
+          ],
+          "section_centroid_mm": [
+            27.59785475043304,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.32009304611001,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 198.49999999999994,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950622026155,
+            794.5750353519622
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1531652692662014e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 115.0,
+          "rail_angle_deg": 0,
+          "area_mm2": 44.28550888171948,
+          "principal_second_moments_mm4": [
+            171.54950621858808,
+            794.5750353509436
+          ],
+          "section_centroid_mm": [
+            27.597854750433044,
+            1.1782744169599422e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 7.320093046110008,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        }
+      ],
+      "beam_column_hot": [
+        {
+          "per_rail_service_force_n": 46.65626666666666,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 55.00000000000004,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 559.7109955632934,
+          "factored_load_to_euler_ratio": 0.25007334340311704,
+          "euler_margin": 2.9988268497214627,
+          "initial_eccentricity_mm": 0,
+          "first_mode_amplification": 1.3334637343576146,
+          "factored_compression_plus_bending_mpa": 3.1606004658055857,
+          "strength_margin": 0.5819778722729452,
+          "factored_lateral_displacement_increment_mm": 0.0,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 46.65626666666666,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 55.00000000000004,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 559.7109955632934,
+          "factored_load_to_euler_ratio": 0.25007334340311704,
+          "euler_margin": 2.9988268497214627,
+          "initial_eccentricity_mm": 0.1,
+          "first_mode_amplification": 1.3334637343576146,
+          "factored_compression_plus_bending_mpa": 3.9570157337589977,
+          "strength_margin": 0.2635784986506009,
+          "factored_lateral_displacement_increment_mm": 0.03334637343576146,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 46.65626666666666,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 55.00000000000004,
+          "youngs_modulus_mpa": 1000.0,
+          "strength_screen_mpa": 5.0,
+          "euler_capacity_n": 559.7109955632934,
+          "factored_load_to_euler_ratio": 0.25007334340311704,
+          "euler_margin": 2.9988268497214627,
+          "initial_eccentricity_mm": 0.2,
+          "first_mode_amplification": 1.3334637343576146,
+          "factored_compression_plus_bending_mpa": 4.75343100171241,
+          "strength_margin": 0.05187179496215766,
+          "factored_lateral_displacement_increment_mm": 0.06669274687152292,
+          "passed": true
+        }
+      ],
+      "support": {
+        "configuration_id": "modular-performance-g54-hypothesis",
+        "mode": "performance",
+        "thrust_n": 139.9688,
+        "reverse_load_n": 150.0,
+        "design_factor": 3.0,
+        "acceptance_closed": false,
+        "flight_ready": false,
+        "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+        "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+        "screens": {
+          "rails": {
+            "mount_id": "motor_mount",
+            "generator": "mount",
+            "rail_count": 3,
+            "rail_cross_section_mm": [
+              7.0,
+              12.0
+            ],
+            "net_single_rail_section_area_mm2": 46.040000000000006,
+            "channel_net_section": {
+              "cut_center_radius_mm": 30.0,
+              "cut_radial_depth_mm": 6.4,
+              "cut_tangential_width_mm": 7.3,
+              "net_single_rail_section_area_mm2": 46.040000000000006,
+              "net_single_rail_inertias_mm4": {
+                "axis_x": 839.4259666666667,
+                "axis_y": 201.36445710975983
+              },
+              "method": "Rail cross-section rectangle minus the intersecting fin-channel rectangle. This ideal net section omits notch-root concentration and local plate/rail restraint."
+            },
+            "rail_total_area_m2": 0.00013812,
+            "rail_axial_stress_pa": 1013385.4619171732,
+            "rail_axial_margin_cold": 2.289304473568396,
+            "rail_axial_margin_hot_half_strength": 0.644652236784198,
+            "support_stations_m": [
+              0.0,
+              0.05500000000000004,
+              0.11000000000000008,
+              0.1485,
+              0.18699999999999994,
+              0.20999999999999996
+            ],
+            "maximum_assumed_unsupported_span_m": 0.05500000000000004,
+            "weak_axis_inertia_m4": 2.0136445710975983e-10,
+            "single_rail_pinned_euler_load_n": 1313.9752278436044,
+            "forward_rail_euler_margin_cold": 8.387629442015681,
+            "forward_rail_euler_margin_hot_E_half": 3.6938147210078407,
+            "youngs_modulus_pa": 2000000000.0,
+            "strength_screen_pa": 10000000.0,
+            "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+          },
+          "thrust_plate_and_pads": {
+            "plate_id": "retention",
+            "plate_station_m": 1.001,
+            "plate_thickness_m": 0.009000000000000001,
+            "outer_radius_m": 0.032,
+            "inner_radius_m": 0.012,
+            "rail_slot_count_assumed": 3,
+            "rail_slot_footprint_area_m2": 0.00027528,
+            "nominal_slot_footprint_average_pressure_pa": 508459.7500726533,
+            "pad_total_area_m2": 4.753229684881356e-05,
+            "pad_active_area_m2": 4.7532296848813554e-05,
+            "active_pad_count_assumption": 3,
+            "pad_average_compression_pa": 2944709.3719287356,
+            "pad_compression_provisional_capacity_pa": 20000000.0,
+            "pad_margin_design_factor_3": 1.2639472439007151,
+            "plate_sector_cantilever_bending_pa": 6600511.525523221,
+            "plate_bending_margin_cold_material_screen": 1.5250568235839124,
+            "plate_bending_margin_hot_half_strength": 0.2625284117919562,
+            "plate_bending_strength_estimate_pa": 50000000.0,
+            "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+          },
+          "reverse_retainer": {
+            "cap_id": "aft_retainer",
+            "reverse_case_load_n": 150.0,
+            "fastener_count_assumed": 3,
+            "hardware_envelope_id": "retention_hardware",
+            "hardware_estimated_mass_kg": 0.007,
+            "M3_screw_shank_lengths_mm": [
+              20.0,
+              20.0,
+              20.0
+            ],
+            "individual_fastener_load_n": 50.0,
+            "hole_or_shank_diameter_m": 0.0034,
+            "M3_nominal_diameter_m": 0.003,
+            "nominal_M3_tensile_area_m2": 5.03e-06,
+            "nominal_M3_tensile_stress_pa": 9940357.852882704,
+            "thread_engagement_m_assumed": null,
+            "captive_nut_pocket_present": true,
+            "G11_thread_cylinder_area_m2": null,
+            "G11_thread_shear_stress_pa": null,
+            "G11_thread_cylinder_margin_DF3": null,
+            "G11_thread_cylinder_margin_DF3_hot": null,
+            "block_cross_section_area_m2": 0.000144,
+            "block_cross_section_average_stress_pa": 347222.2222222222,
+            "block_cross_section_margin_DF3_cold": 8.600000000000001,
+            "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+            "plywood_strength_screen_pa": 10000000.0,
+            "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+          },
+          "fixed_mount_bond_proxy": {
+            "assumed_bond_area_m2": 0.0006031857894892404,
+            "average_shear_pa": 232049.23331917578,
+            "strength_screens_pa": {
+              "cold": 2000000.0,
+              "hot": 1000000.0
+            },
+            "margin_DF3_cold": 1.8729535414999172,
+            "margin_DF3_hot": 0.4364767707499586,
+            "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+          },
+          "fixed_thrust_plate_bond_sensitivities": {
+            "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+            "bond_finger_count": 6,
+            "bond_finger_clipped_radial_contact_width_mm": 6.2,
+            "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+            "bond_finger_length_mm": 18.0,
+            "slot_sidewall_average_shear_pa": 209033.45280764633,
+            "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+            "outer_plate_to_shell_average_shear_pa": 77349.74443972525,
+            "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+            "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+            "slot_margin_DF3_cold": 2.189282182886472,
+            "slot_margin_DF3_hot": 0.5946410914432361,
+            "outer_bond_margin_DF3_cold": 7.618860624499751,
+            "outer_bond_margin_DF3_hot": 3.3094303122498756,
+            "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+          }
+        },
+        "unresolved": [
+          "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+          "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+          "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+        ]
+      }
+    },
+    {
+      "configuration": "G12-F",
+      "candidate": "package-a",
+      "sections": [
+        {
+          "station_mm": 30.0,
+          "rail_angle_deg": 150,
+          "area_mm2": 21.0000000000003,
+          "principal_second_moments_mm4": [
+            21.437500000005382,
+            63.00000000000311
+          ],
+          "section_centroid_mm": [
+            17.5,
+            6.525864504865039e-17
+          ],
+          "extreme_fibre_upper_bound_mm": 3.473110997362451,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 64.0,
+          "rail_angle_deg": 150,
+          "area_mm2": 11.552160938590976,
+          "principal_second_moments_mm4": [
+            11.792832398897856,
+            57.26306313043254
+          ],
+          "section_centroid_mm": [
+            17.500000000000004,
+            -1.633788822624359e-15
+          ],
+          "extreme_fibre_upper_bound_mm": 3.4731109973624545,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 113.49999999999996,
+          "rail_angle_deg": 150,
+          "area_mm2": 20.999999999998806,
+          "principal_second_moments_mm4": [
+            21.437499999950816,
+            62.999999999914436
+          ],
+          "section_centroid_mm": [
+            17.5,
+            8.012770341417136e-17
+          ],
+          "extreme_fibre_upper_bound_mm": 3.473110997362451,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        },
+        {
+          "station_mm": 158.99999999999991,
+          "rail_angle_deg": 150,
+          "area_mm2": 13.995720058750617,
+          "principal_second_moments_mm4": [
+            13.902360838656255,
+            57.49554923593701
+          ],
+          "section_centroid_mm": [
+            17.168681957494005,
+            5.19336721071261e-16
+          ],
+          "extreme_fibre_upper_bound_mm": 3.651285361904901,
+          "basis": "Exact CAD BRep volume/moments of constant rail section; 0.1 mm slice, depth inertia removed"
+        }
+      ],
+      "beam_column_hot": [
+        {
+          "per_rail_service_force_n": 17.9762825,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 80.99999999999991,
+          "youngs_modulus_mpa": 5000.0,
+          "strength_screen_mpa": 25.0,
+          "euler_capacity_n": 88.69881919331785,
+          "factored_load_to_euler_ratio": 0.6079996102593297,
+          "euler_margin": 0.64473789641653,
+          "initial_eccentricity_mm": 0,
+          "first_mode_amplification": 2.55101787184843,
+          "factored_compression_plus_bending_mpa": 4.6682908753327785,
+          "strength_margin": 4.355278980600771,
+          "factored_lateral_displacement_increment_mm": 0.0,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 17.9762825,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 80.99999999999991,
+          "youngs_modulus_mpa": 5000.0,
+          "strength_screen_mpa": 25.0,
+          "euler_capacity_n": 88.69881919331785,
+          "factored_load_to_euler_ratio": 0.6079996102593297,
+          "euler_margin": 0.64473789641653,
+          "initial_eccentricity_mm": 0.1,
+          "first_mode_amplification": 2.55101787184843,
+          "factored_compression_plus_bending_mpa": 8.719971244465306,
+          "strength_margin": 1.8669819313759626,
+          "factored_lateral_displacement_increment_mm": 0.15510178718484302,
+          "passed": true
+        },
+        {
+          "per_rail_service_force_n": 17.9762825,
+          "design_factor_applied_once": 3.0,
+          "effective_pinned_span_mm": 80.99999999999991,
+          "youngs_modulus_mpa": 5000.0,
+          "strength_screen_mpa": 25.0,
+          "euler_capacity_n": 88.69881919331785,
+          "factored_load_to_euler_ratio": 0.6079996102593297,
+          "euler_margin": 0.64473789641653,
+          "initial_eccentricity_mm": 0.2,
+          "first_mode_amplification": 2.55101787184843,
+          "factored_compression_plus_bending_mpa": 12.771651613597832,
+          "strength_margin": 0.9574602217760766,
+          "factored_lateral_displacement_increment_mm": 0.31020357436968604,
+          "passed": true
+        }
+      ],
+      "support": {
+        "configuration_id": "modular-tvc-finned-v1",
+        "mode": "tvc_finned",
+        "thrust_n": 35.952565,
+        "reverse_load_n": 150.0,
+        "design_factor": 3.0,
+        "acceptance_closed": false,
+        "flight_ready": false,
+        "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+        "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+        "screens": {
+          "rails": {
+            "mount_id": "motor_mount",
+            "generator": "motor_cassette",
+            "rail_count": 2,
+            "rail_cross_section_mm": [
+              3.5,
+              6.0
+            ],
+            "net_single_rail_section_area_mm2": 21.0,
+            "channel_net_section": null,
+            "rail_total_area_m2": 4.2e-05,
+            "rail_axial_stress_pa": 856013.4523809524,
+            "rail_axial_margin_cold": 18.470099004062714,
+            "rail_axial_margin_hot_half_strength": 8.735049502031357,
+            "support_stations_m": [
+              0.0,
+              0.005,
+              0.055,
+              0.073,
+              0.15399999999999991,
+              0.16399999999999992
+            ],
+            "maximum_assumed_unsupported_span_m": 0.08099999999999992,
+            "weak_axis_inertia_m4": 2.14375e-11,
+            "single_rail_pinned_euler_load_n": 322.4807869964236,
+            "forward_rail_euler_margin_cold": 4.97974557116993,
+            "forward_rail_euler_margin_hot_E_half": 1.9898727855849652,
+            "youngs_modulus_pa": 10000000000.0,
+            "strength_screen_pa": 50000000.0,
+            "method": "Equal forward load share over 2 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+          },
+          "gimbal_pins_and_ligaments": {
+            "load_n": 35.952565,
+            "pin_sets": [
+              {
+                "pin_set": "outer_pivots",
+                "lug_part": "tvc_gimbal",
+                "pin_count": 2,
+                "pin_diameter_m": 0.003,
+                "load_per_pin_n": 17.9762825,
+                "single_shear_stress_pa": 2543123.7495922972,
+                "double_shear_stress_pa": 1271561.8747961486,
+                "nominal_inter_ring_clearance_m": 0.001299999999999999,
+                "cantilever_bending_moment_nm": 0.011684583624999991,
+                "pin_bending_stress_pa": 4408081.1659599785,
+                "lug_axial_thickness_m": 0.006,
+                "lug_projected_bearing_stress_pa": 1498023.5416666665,
+                "gross_radial_wall_m": 0.004,
+                "bore_diameter_assumed_m": 0.0034,
+                "bore_center_axial_station_m": 0.003,
+                "axial_edge_ligament_estimate_m": 0.0013000000000000002,
+                "lug_two_plane_shearout_stress_pa": 1728488.7019230765,
+                "method": "Each opposed pin shares one half of axial thrust. Shear stress is reported for single and double shear. Bending treats radial clearance as a conservative simply-overhung gap (M=Fpin*g/2). The bore is radial through the concentric ring wall; projected bearing length is radial wall (Ro\u2212Ri), and axial edge ligament is (6 mm axial thickness\u22123.4 mm bore)/2. Bore center lies at z=t/2 in CAD. Pin material strength, positive axial retention, hot load capacity and contact remain unverified."
+              },
+              {
+                "pin_set": "inner_pivots",
+                "lug_part": "gimbal_inner",
+                "pin_count": 2,
+                "pin_diameter_m": 0.003,
+                "load_per_pin_n": 17.9762825,
+                "single_shear_stress_pa": 2543123.7495922972,
+                "double_shear_stress_pa": 1271561.8747961486,
+                "nominal_inter_ring_clearance_m": 0.0010000000000000009,
+                "cantilever_bending_moment_nm": 0.008988141250000008,
+                "pin_bending_stress_pa": 3390831.666123066,
+                "lug_axial_thickness_m": 0.006,
+                "lug_projected_bearing_stress_pa": 1619484.9099099091,
+                "gross_radial_wall_m": 0.003700000000000002,
+                "bore_diameter_assumed_m": 0.0034,
+                "bore_center_axial_station_m": 0.003,
+                "axial_edge_ligament_estimate_m": 0.0013000000000000002,
+                "lug_two_plane_shearout_stress_pa": 1868636.4345114334,
+                "method": "Each opposed pin shares one half of axial thrust. Shear stress is reported for single and double shear. Bending treats radial clearance as a conservative simply-overhung gap (M=Fpin*g/2). The bore is radial through the concentric ring wall; projected bearing length is radial wall (Ro\u2212Ri), and axial edge ligament is (6 mm axial thickness\u22123.4 mm bore)/2. Bore center lies at z=t/2 in CAD. Pin material strength, positive axial retention, hot load capacity and contact remain unverified."
+              }
+            ]
+          },
+          "thrust_plate_and_pads": {
+            "plate_id": "motor_mount",
+            "plate_station_m": 1.036,
+            "plate_thickness_m": 0.005,
+            "outer_radius_m": 0.018000000000000002,
+            "inner_radius_m": 0.008,
+            "rail_slot_count_assumed": 3,
+            "rail_slot_footprint_area_m2": null,
+            "nominal_slot_footprint_average_pressure_pa": null,
+            "pad_total_area_m2": 3.580368427541164e-05,
+            "pad_active_area_m2": 3.580368427541164e-05,
+            "active_pad_count_assumption": 3.0,
+            "pad_average_compression_pa": 1004158.2515207969,
+            "pad_compression_provisional_capacity_pa": 20000000.0,
+            "pad_margin_design_factor_3": 5.639059786213981,
+            "plate_sector_cantilever_bending_pa": 1315848.9727928515,
+            "plate_bending_margin_cold_material_screen": 11.666093914480284,
+            "plate_bending_margin_hot_half_strength": 5.333046957240142,
+            "plate_bending_strength_estimate_pa": 50000000.0,
+            "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry. The rod relief is a partial annular cut; this is not a full-ring pass and does not resolve load redistribution or local stress at the relief edge.",
+            "integral_stop": true,
+            "rod_relief": {
+              "keep_radius_mm": 13.9,
+              "center_deg": 20,
+              "width_deg": 80
+            },
+            "loaded_sector_equivalents_before_rounding": 3.0
+          },
+          "reverse_retainer": {
+            "cap_id": "aft_retainer",
+            "reverse_case_load_n": 150.0,
+            "fastener_count_assumed": 3,
+            "hardware_envelope_id": "retention_hardware",
+            "hardware_estimated_mass_kg": 0.007,
+            "M3_screw_shank_lengths_mm": [
+              16.0,
+              16.0,
+              16.0
+            ],
+            "individual_fastener_load_n": 50.0,
+            "hole_or_shank_diameter_m": 0.0034,
+            "M3_nominal_diameter_m": 0.003,
+            "nominal_M3_tensile_area_m2": 5.03e-06,
+            "nominal_M3_tensile_stress_pa": 9940357.852882704,
+            "thread_engagement_m_assumed": 0.01,
+            "captive_nut_pocket_present": false,
+            "G11_thread_cylinder_area_m2": 9.42477796076938e-05,
+            "G11_thread_shear_stress_pa": 530516.4769729845,
+            "G11_thread_cylinder_margin_DF3": 30.41592653589793,
+            "G11_thread_cylinder_margin_DF3_hot": 14.707963267948966,
+            "block_cross_section_area_m2": 4.8e-05,
+            "block_cross_section_average_stress_pa": 1041666.6666666666,
+            "block_cross_section_margin_DF3_cold": 15.0,
+            "block_cross_section_margin_DF3_hot_half_strength": 7.0,
+            "plywood_strength_screen_pa": 10000000.0,
+            "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+          },
+          "TVC_radial_screw_bearing": {
+            "screw_count": 3,
+            "nominal_hole_diameter_m": 0.0027,
+            "configured_radial_hole_depth_m": 0.008,
+            "per_screw_axial_load_n": 11.984188333333334,
+            "gross_shank_single_shear_area_m2": 5.725552611167398e-06,
+            "gross_shank_single_shear_stress_pa": 2093105.966742631,
+            "G11_bearing_stress_pa": 554823.5339506173,
+            "G11_hot_strength_screen_pa": 25000000.0,
+            "G11_hot_bearing_margin_DF3": 14.01979066027695,
+            "method": "Three radial screws share axial load equally. Gross shank single-shear and an upper-bound G11 projected bearing screen use configured screw-hole depth as engagement. Actual shear planes, wall thickness, thread stripping, countersink and gimbal ligaments require detailed geometry and fastener data; no screw strength capacity is assigned."
+          }
+        },
+        "unresolved": [
+          "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+          "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+          "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+        ]
+      }
+    }
+  ],
+  "acceptance_closed": false,
+  "flight_ready": false,
+  "limitations": [
+    "Pinned spans require real ring/frame restraint; exact shell/bond/brace flexibility and imperfect support are not proved.",
+    "Column sections include actual cylinder trimming. Rings, foreplate, pins, bonds and retention retain their individual screening limitations in support output.",
+    "Extreme-fibre distance is the centroid to the most distant bounding-box corner, bounding any principal bending direction; eccentricity and equal rail load share are assumptions.",
+    "No new FEA or physical test is claimed by this analytical check."
+  ]
+}

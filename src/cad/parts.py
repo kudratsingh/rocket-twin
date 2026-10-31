@@ -40,7 +40,7 @@ def compound(solids: list[Any]) -> Any:
     return cq.Compound.makeCompound(solids)
 
 
-def local_shape(part: Part) -> Any:
+def _base_shape(part: Part) -> Any:
     if not part.cad:
         raise ValueError(f"{part.id}: missing CAD definition")
     g = part.geometry
@@ -144,10 +144,13 @@ def local_shape(part: Part) -> Any:
         return compound([stem, eye, washer])
     if kind == "mount":
         rings = [
-            tube(radius, g["inner_radius_m"] * 1000, thickness).translate((0, 0, z))
-            for z, thickness in zip(
+            tube(radius, inner_radius, thickness).translate((0, 0, z))
+            for z, thickness, inner_radius in zip(
                 o["ring_stations_mm"],
                 o.get("ring_thicknesses_mm", [o["ring_thickness_mm"]] * len(o["ring_stations_mm"])),
+                o.get(
+                    "ring_inner_radii_mm", [g["inner_radius_m"] * 1000] * len(o["ring_stations_mm"])
+                ),
                 strict=True,
             )
         ]
@@ -165,9 +168,10 @@ def local_shape(part: Part) -> Any:
                 (rail if o.get("fin_channels") else rail.cut(slot)).rotate((0, 0, 0), (0, 0, 1), a)
             )
         if o.get("pivot_ring"):
+            pivot_t = o.get("pivot_ring_thickness_mm", 8)
             rings.append(
-                tube(radius, g["inner_radius_m"] * 1000, 8).translate(
-                    (0, 0, o["pivot_station_mm"] - 4)
+                tube(radius, g["inner_radius_m"] * 1000, pivot_t).translate(
+                    (0, 0, o["pivot_station_mm"] - pivot_t / 2)
                 )
             )
         shape = rings[0]
@@ -192,7 +196,10 @@ def local_shape(part: Part) -> Any:
             z = o["pivot_station_mm"]
             shape = shape.cut(
                 cq.Solid.makeCylinder(
-                    1.7, 2 * radius + 4, cq.Vector(0, -radius - 2, z), cq.Vector(0, 1, 0)
+                    o.get("pivot_bore_diameter_mm", 3.4) / 2,
+                    2 * radius + 4,
+                    cq.Vector(0, -radius - 2, z),
+                    cq.Vector(0, 1, 0),
                 )
             )
         if o.get("fin_channels"):
@@ -243,7 +250,7 @@ def local_shape(part: Part) -> Any:
             for axis in [(1, 0, 0), (0, 1, 0)]:
                 shape = shape.cut(
                     cq.Solid.makeCylinder(
-                        1.7,
+                        o.get("pivot_bore_diameter_mm", 3.4) / 2,
                         2 * radius + 4,
                         cq.Vector(-axis[0] * (radius + 2), -axis[1] * (radius + 2), length / 2),
                         cq.Vector(*axis),
@@ -252,7 +259,10 @@ def local_shape(part: Part) -> Any:
         elif kind == "gimbal_inner":
             shape = shape.cut(
                 cq.Solid.makeCylinder(
-                    1.7, 2 * radius + 4, cq.Vector(-radius - 2, 0, length / 2), cq.Vector(1, 0, 0)
+                    o.get("pivot_bore_diameter_mm", 3.4) / 2,
+                    2 * radius + 4,
+                    cq.Vector(-radius - 2, 0, length / 2),
+                    cq.Vector(1, 0, 0),
                 )
             )
         for center in o.get("socket_centers_mm", []):
@@ -278,7 +288,10 @@ def local_shape(part: Part) -> Any:
             bore = o["link_bore"]
             shape = shape.cut(
                 cq.Solid.makeCylinder(
-                    1.6, bore["length_mm"], cq.Vector(*bore["start_mm"]), cq.Vector(*bore["axis"])
+                    bore.get("diameter_mm", 3.2) / 2,
+                    bore["length_mm"],
+                    cq.Vector(*bore["start_mm"]),
+                    cq.Vector(*bore["axis"]),
                 )
             )
         return shape
@@ -369,11 +382,24 @@ def local_shape(part: Part) -> Any:
         for item in o["pins"]:
             x, y, z = item["start_mm"]
             axis = item["axis"]
-            shapes.append(
-                cq.Solid.makeCylinder(
-                    item["radius_mm"], item["length_mm"], cq.Vector(x, y, z), cq.Vector(*axis)
-                )
+            tip = float(item.get("tip_length_mm", 0))
+            if tip < 0 or tip >= float(item["length_mm"]):
+                raise ValueError(f"{part.id}: pin tip must be shorter than its total length")
+            start, direction = cq.Vector(x, y, z), cq.Vector(*axis).normalized()
+            shaft = cq.Solid.makeCylinder(
+                item["radius_mm"], item["length_mm"] - tip, start, direction
             )
+            if tip:
+                shaft = shaft.fuse(
+                    cq.Solid.makeCone(
+                        item["radius_mm"],
+                        0,
+                        tip,
+                        start + direction.multiply(item["length_mm"] - tip),
+                        direction,
+                    )
+                )
+            shapes.append(shaft)
         return compound(shapes)
     if kind == "links":
         shapes = []
@@ -415,6 +441,47 @@ def local_shape(part: Part) -> Any:
             shape = shape.cut(hole)
         return shape
     raise ValueError(f"{part.id}: unimplemented generator {kind}")
+
+
+def local_shape(part: Part) -> Any:
+    """Generate the part and apply explicit local-axis drilled access features.
+
+    Machining holes are spec-owned cylinders. They represent clearances and
+    passages, not thread geometry, connector qualification or a strength claim.
+    Existing configurations without these operations retain their exact solids.
+    """
+    shape = _base_shape(part)
+    assert part.cad
+    for block in part.cad.parameters.get("reinforcement_blocks", []):
+        added = box(*block["size_mm"])
+        if block.get("angle_deg"):
+            added = added.rotate((0, 0, 0), (0, 0, 1), block["angle_deg"])
+        shape = shape.fuse(added.translate(tuple(block["position_mm"])))
+    for hole in part.cad.parameters.get("machining_holes", []):
+        diameter, length = float(hole["diameter_mm"]), float(hole["length_mm"])
+        if diameter <= 0 or length <= 0:
+            raise ValueError(f"{part.id}: machining-hole dimensions must be positive")
+        shape = shape.cut(
+            cq.Solid.makeCylinder(
+                diameter / 2,
+                length,
+                cq.Vector(*hole["start_mm"]),
+                cq.Vector(*hole["axis"]),
+            )
+        )
+    for hole in part.cad.parameters.get("machining_cones", []):
+        if min(float(hole["diameter_mm"]), float(hole["length_mm"])) <= 0:
+            raise ValueError(f"{part.id}: cone dimensions must be positive")
+        shape = shape.cut(
+            cq.Solid.makeCone(
+                float(hole["diameter_mm"]) / 2,
+                0,
+                float(hole["length_mm"]),
+                cq.Vector(*hole["start_mm"]),
+                cq.Vector(*hole["axis"]),
+            )
+        )
+    return shape
 
 
 def placed_shape(part: Part) -> Any:

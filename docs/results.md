@@ -876,3 +876,19 @@ regenerated locally; the preview camera now derives its station limits from the
 actual meshes. G80 reference/G54 conditional/G12 controls, custom fabrication and
 committed PID-to-RL remain. **Expanded WO-03 benchmark=false; no WO-04 start.** No
 purchases, fabrication, paid run or physical/flight release; WO-10 owner review remains.
+
+
+## WO-03 bonded brace / explicit thermal matrix / complete recovery budget — 2026-10-30
+
+The [current closure progress](wo03-package-closure-progress.md) records the executed
+three-priority studies and separates isolated candidate results from PR #9 active
+geometry. Exact clipped rail sections and the internal-ring buckling model replace
+optimistic section/support assumptions. The complete bond/shell/joint path remains
+open. The 420-row thermal matrix keeps 35°C / 300°C / contaminated foil required and
+failed, with unchanged 45°C substrate screen; 25°C rows are proposals only. The G12
+complete recovery ceiling is 119.767 g at the unchanged conservative guide/departure
+criterion and full 50 g growth. The current 111.034 g allocation leaves 8.734 g.
+
+Local follow-on test run: 123 tests pass. No candidate-only pass closes the installed
+fin/root, retention, joint, thermal, recovery-service or integrated WO-03 gates.
+No WO-04 start, physical build, purchases, paid run or flight readiness is claimed.

@@ -1,0 +1,28 @@
+id: wo03-correction-package
+status: candidate_not_adopted
+fit_study: configs/studies/wo03-fit-correction.yaml
+thermal_study: configs/studies/wo03-thermal-correction.yaml
+configurations:
+  G80: configs/vehicle/platform/performance.yaml
+  G54: configs/vehicle/wo02/performance-g54.yaml
+  G12-F: configs/vehicle/platform/tvc-finned.yaml
+  G12-L: configs/vehicle/platform/tvc-finless.yaml
+fixed_mount:
+  outer_radius_mm: 32
+  brace_existing_spans: true
+  bond_gap_m: 0.0005
+  bond_density_kg_m3: 1200
+  additional_fillet_mass_kg: 0.001
+g54_fin_span_candidates_m: [0.070, 0.075, 0.077]
+pivots:
+  bore_diameter_mm: 3.2
+  bore_tolerance_diameter_mm: 0.02
+  pin_diameter_mm: 3.005
+  pin_tolerance_diameter_mm: 0.003
+  pin_length_mm: 7
+  pin_source: https://www.mcmaster.com/91595A113/
+  pin_identity: 3 mm x 7 mm high-strength alloy steel precision dowel, source diameter 3.002..3.008 mm
+  note: Bearing fit only. Plain dowels have no positive axial retention; selection and acceptance remain open.
+linkage:
+  bore_diameter_mm: 3.2
+  note: Existing nominal geometry parameterized; purchased rod-end articulation remains open.

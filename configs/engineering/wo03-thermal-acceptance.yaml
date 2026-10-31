@@ -1,0 +1,188 @@
+version: wo03-explicit-thermal-acceptance-matrix-v1
+source_record: build/wo03-correction-package/latest-record.json
+candidate_package: regenerated_source_identified_package
+engineering_inputs: configs/engineering/wo03.yaml
+thermal_topology: configs/studies/wo03-thermal-topology.yaml
+candidates:
+  - id: G80
+    mode: modular-performance-v1
+    role: actual_fixed_mount_performance_reference
+    candidate_yaml: build/wo03-correction-package/latest/G80-0.070/resolved-candidate.yaml
+    mount_shell_bond_applicable: true
+  - id: G54
+    mode: modular-performance-g54-hypothesis
+    role: conditional_fixed_mount_performance_candidate
+    candidate_yaml: build/wo03-correction-package/latest/G54-0.075/resolved-candidate.yaml
+    mount_shell_bond_applicable: true
+  - id: G12_finned
+    mode: modular-tvc-finned-v1
+    role: actual_finned_tvc_configuration
+    candidate_yaml: build/wo03-correction-package/latest/G12-F-0.070/resolved-candidate.yaml
+    mount_shell_bond_applicable: false
+  - id: G12_finless
+    mode: modular-tvc-finless-v1
+    role: future_finless_tvc_configuration
+    candidate_yaml: build/wo03-correction-package/latest/G12-L-0.070/resolved-candidate.yaml
+    mount_shell_bond_applicable: false
+acceptance:
+  substrate_screen_c: 45.0
+  screen_source: configs/engineering/wo03.yaml materials plywood/cardboard; provisional substrate screen, not measured limit
+  uncertainty_rule: any required case may fail; absent exact motor-case history and foil-aging correlation, combined 300C/epsilon0.9 at35C remains a required robustness case
+  required_robustness_case: combined_300C_eps0.9_at35C
+  overall_status_if_robustness_unverified: OPEN
+cases:
+  - id: lower_case_15C_120C
+    source_scenario_index: 0
+    case_peak_c: 120.0
+    ambient_c: 15.0
+    cooling_tau_s: 30.0
+    outer_foil_emissivity: 0.1
+    role: configured_lower_boundary_reference
+    status_basis: original configured case; bounded screen only
+    case_source_basis: configs/engineering/wo03.yaml thermal.case_boundary_basis; exact motor exterior history unavailable
+  - id: upper_hot_soak_250C_eps03_at35C
+    source_scenario_index: 1
+    case_peak_c: 250.0
+    ambient_c: 35.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.3
+    role: required_original_35C_case
+    status_basis: original upper hot-soak case; bounded screen only
+    case_source_basis: configs/engineering/wo03.yaml thermal.case_boundary_basis; exact motor exterior history unavailable
+  - id: case_300C_eps03_at35C
+    source_scenario_index: 2
+    case_peak_c: 300.0
+    ambient_c: 35.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.3
+    role: required_original_35C_sensitivity
+    status_basis: original high-case sensitivity; retained unchanged
+    case_source_basis: configs/engineering/wo03.yaml thermal.case_boundary_basis; exact motor exterior history unavailable
+  - id: contaminated_250C_eps09_at35C
+    source_scenario_index: 3
+    case_peak_c: 250.0
+    ambient_c: 35.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.9
+    role: required_original_35C_foil_degradation_sensitivity
+    status_basis: original contaminated-foil sensitivity; retained unchanged
+    case_source_basis: configs/engineering/wo03.yaml thermal.case_boundary_basis; no measured foil aging/emissivity correlation
+  - id: combined_300C_eps09_at35C
+    source_scenario_index: 3
+    case_peak_c: 300.0
+    ambient_c: 35.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.9
+    role: required_robustness_case
+    status_basis: required pending evidence; absent exact motor history or aging correlation, cannot justify excluding this physically possible combination
+    case_source_basis: combined source-temperature and contaminated-foil sensitivity; exploratory, not claimed as measured or expected history
+    peak_override_c: 300.0
+  - id: upper_hot_soak_250C_eps03_at25C
+    source_scenario_index: 1
+    case_peak_c: 250.0
+    ambient_c: 25.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.3
+    role: proposed_operating_restriction_probe
+    status_basis: conditional ambient proposal only; not an accepted boundary change
+    case_source_basis: same prescribed source history as original 35C case; ambient alone changes
+  - id: case_300C_eps03_at25C
+    source_scenario_index: 2
+    case_peak_c: 300.0
+    ambient_c: 25.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.3
+    role: proposed_operating_restriction_probe
+    status_basis: conditional ambient proposal only; not an accepted boundary change
+    case_source_basis: same prescribed source history as original 35C case; ambient alone changes
+  - id: contaminated_250C_eps09_at25C
+    source_scenario_index: 3
+    case_peak_c: 250.0
+    ambient_c: 25.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.9
+    role: proposed_operating_restriction_probe
+    status_basis: conditional ambient proposal only; not an accepted boundary change
+    case_source_basis: same source/foil sensitivity as original 35C case; ambient alone changes
+  - id: combined_300C_eps09_at25C
+    source_scenario_index: 3
+    case_peak_c: 300.0
+    ambient_c: 25.0
+    cooling_tau_s: 120.0
+    outer_foil_emissivity: 0.9
+    role: proposed_operating_restriction_robustness_probe
+    status_basis: conditional ambient proposal only; combined robustness case remains required at35C unless stronger evidence supports a controlled restriction
+    case_source_basis: combined source-temperature and contaminated-foil sensitivity at proposed ambient; not an accepted boundary change
+    peak_override_c: 300.0
+bonded_brace_sensitivities:
+  fixed_mount_candidate_ids: [G80, G54]
+  gap_k_bounds:
+    - id: low_conductance
+      radial_gap_m: 0.00068
+      adhesive_conductivity_w_m_k: 0.15
+    - id: nominal
+      radial_gap_m: 0.00050
+      adhesive_conductivity_w_m_k: 0.20
+    - id: high_conductance
+      radial_gap_m: 0.00032
+      adhesive_conductivity_w_m_k: 0.25
+  adhesive_density_kg_m3: 1200.0
+  interface_contact_conductance_w_k_per_ring: [2.0, 10.0, 50.0]
+  interface_contact_basis: estimated bonded-interface wetting/contact sensitivity per ring, not measured; 2-50 W/K spans approximately 3e3-8e4 W/m2K for the CAD ring contact area; replace with hot bond coupon/assembly measurements
+  ideal_wetted_value_excluded_w_k: 1000000.0
+  note: Rebuild mount and annular bond CAD masses for each radial gap variant; retain exact ring stations and fin-slot interruptions.
+material_property_uncertainty:
+  basis: coherent sensitivity corners, not statistical confidence intervals or correlated material measurements
+  factors:
+    - id: low_k_high_cp
+      conductivity_factor: 0.7
+      cp_factor: 1.3
+    - id: nominal
+      conductivity_factor: 1.0
+      cp_factor: 1.0
+    - id: high_k_low_cp
+      conductivity_factor: 1.3
+      cp_factor: 0.7
+  use_explicit_profile_ranges_when_present: true
+  adhesive_conductivity_handled_by_gap_k_bounds: true
+  adhesive_cp_factor_applied: true
+  density_and_geometry: use actual candidate CAD volumes/densities; unchanged except bond gap rebuild
+  foil_emissivity: use case-specific engineering profile values, including epsilon0.9 degraded/contaminated sensitivity
+  temperature_dependent_properties: unavailable; sensitivity does not model degradation/phase/process changes
+execution:
+  default_preset: tiny
+  tiny_cells: 8
+  sim_cells: 16
+  max_step_s: 2.0
+  heat_flow_postprocess_step_s: 2.0
+  zero_cost: true
+warm_start_proposal:
+  case_id: combined_300C_eps09_at25C
+  prelaunch_powered_soak_s: 600.0
+  initial_condition: all thermal nodes begin at the shaded 25C ambient before arming; configured flight-computer heat is powered through the prelaunch interval
+  electronics_power_source: configs/engineering/wo03.yaml thermal.electronics_heat_w[scenario_index]
+  purpose: conditional operating-restriction probe only; does not modify the required 35C robustness case or any active limit
+ignition_bound_proposal:
+  case_id: combined_300C_eps09_at25C
+  prelaunch_powered_soak_s: 0.0
+  ambient_c: 25.0
+  initial_temperature_c: 30.0
+  initial_part_temperature_c:
+    flight_computer: 40.0
+    battery: 35.0
+    servo_pitch: 40.0
+    servo_yaw: 40.0
+    servo_support: 35.0
+  interpretation: controlled maximum component temperatures at ignition after shade/prearm handling; other thermal nodes are bounded at30C; this is not a measured solar-heating model
+  proposed_monitoring: verify ambient25C maximum and component temperatures at ignition; owner instrumented validation in WO09/WO11 before use
+  purpose: conservative ignition-condition bound only; retains combined 35C robustness requirement and all active limits
+reporting:
+  no_active_adoption: true
+  no_limit_relaxation: true
+  no_flight_ready_claim: true
+  physical_validation_required:
+    - Obtain exact offered motor case exterior time-temperature history or conservatively bounded measured history.
+    - Measure foil emissivity before and after thermal exposure/contamination and correlate field degradation to epsilon.
+    - Measure adhesive conductivity, heat capacity, bondline gap, actual wetted area and contact conductance on representative hot assemblies.
+    - Instrument thermocouples at case/liner, support/mount rings, case front/aft thrust pads, outer shell, fin bond/root, avionics and TVC joints during burn and post-burn soak.
+    - Verify substrate, epoxy, mica, foil, fastener and G11 temperatures and hot-joint strength on exact materials/production process.

@@ -19,8 +19,11 @@ including the full 50 g allowance. It remains conditional: an additional explora
 motor-CG sensitivity fails, along with high-case/degraded-foil shell temperature.
 [Mass, CG and full inertia](wo03-integrated-vehicle.md) use the complete package.
 
-Current CAD export `wo03-20261030T205235088123Z` passes all six variants, neutral
-rigid intersections and both 25-pose TVC sweeps; input hashes unchanged. Current
+The preserved PR #9 CAD export `wo03-20261030T205235088123Z` passes all six variants,
+neutral rigid intersections and both 25-pose TVC sweeps at that CAD revision.
+Local source-owned bore/machining support has since changed the CAD code identity;
+`wo03-20261030T232131510413Z` reconciles the unchanged active geometry/property caches,
+but does not substitute for a fresh complete motion/export benchmark. The preserved
 27-case flight campaign `wo02-20261030T204849990760Z` passes the five nominal RocketPy
 comparisons and 4,096-env CPU step with unchanged code/inputs. G12 reference errors
 are now 2.064% altitude / 0.917% time, not the historical 0.004% claim.
@@ -32,11 +35,12 @@ installed-root peel/stiffness and full flutter remain open. Minimum frame/liner
 fits, service/arming/routing and recovery-anchor capacity remain design items.
 Physical qualification is separately retained in the owner-performed stages.
 
-PRs #4–8 are merged after required hosted checks; published baseline before integration is
-`7907320b16bf40fecfca6add337e84ee947940e3`. The integration work is published through the work-order
-branch `wo-03-integrated-corrections`; current required-check status is on GitHub. Current local checks: Ruff/Black/strict mypy and 116 tests pass;
-installed-fin and nominal-field records are saved and linked in the closure table. No purchase, physical
-work or paid compute. See [checkpoint](wo03-current-checkpoint.md) and [results](results.md).
+PRs #4–9 are merged after required hosted checks. The integrated baseline is
+`2c7fc132c377f8bac7b9bb4f7e880ba84605c6d8` ([PR #9](https://github.com/kudratsingh/rocket-twin/pull/9)).
+The next correction package remains isolated: no braced-mount, recovery-anchor or
+trainer-fin candidate is adopted merely because an individual screen passes.
+Current follow-on test run: 123 tests pass. See the [three-priority closure progress](wo03-package-closure-progress.md),
+[checkpoint](wo03-current-checkpoint.md) and [results](results.md). No purchase, physical work or paid compute.
 
 ### Completed WO-02 milestone
 

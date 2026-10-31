@@ -27,8 +27,24 @@ def _sha256(data: bytes) -> str:
 def _material_cte(part: Any, engineering: dict[str, Any]) -> float | None:
     profile = part.engineering.material_profile if part.engineering else part.material
     material = engineering.get("materials", {}).get(profile, {})
+    bounds = material.get("cte_range_per_k")
+    if bounds is not None:
+        return max(abs(float(x)) for x in bounds)
     value = material.get("cte_per_k")
     return float(value) if value is not None else None
+
+
+def _material_cte_range(part: Any, engineering: dict[str, Any]) -> tuple[float, float] | None:
+    profile = part.engineering.material_profile if part.engineering else part.material
+    material = engineering.get("materials", {}).get(profile, {})
+    bounds = material.get("cte_range_per_k")
+    if bounds is not None:
+        lo, hi = (float(x) for x in bounds)
+        if lo > hi:
+            raise ValueError("CTE bounds must be ordered")
+        return lo, hi
+    value = _material_cte(part, engineering)
+    return (value, value) if value is not None else None
 
 
 def _material_limit_c(part: Any, engineering: dict[str, Any]) -> float | None:
@@ -60,22 +76,27 @@ def _tolerance(part: Any, dimension: str, interpretation: str) -> float | None:
     tolerance = part.engineering.tolerances_mm
     if interpretation == "radius_from_hole" and "hole_diameter" in tolerance:
         return float(tolerance["hole_diameter"]) / 2
+    if interpretation == "radius_from_diameter" and "diameter" in tolerance:
+        return float(tolerance["diameter"]) / 2
     return float(tolerance["linear"]) if "linear" in tolerance else None
 
 
 def _thermal_gap_bounds(
     host_nominal_mm: float,
     insert_nominal_mm: float,
-    host_cte_per_k: float | None,
-    insert_cte_per_k: float | None,
+    host_cte_per_k: float | tuple[float, float] | None,
+    insert_cte_per_k: float | tuple[float, float] | None,
     host_delta_t_k: list[float],
     insert_delta_t_k: list[float],
 ) -> tuple[float, float] | None:
     if host_cte_per_k is None or insert_cte_per_k is None:
         return None
+    host_ctes = host_cte_per_k if isinstance(host_cte_per_k, tuple) else (host_cte_per_k,)
+    insert_ctes = insert_cte_per_k if isinstance(insert_cte_per_k, tuple) else (insert_cte_per_k,)
     shifts = [
-        host_cte_per_k * host_nominal_mm * host_dt
-        - insert_cte_per_k * insert_nominal_mm * insert_dt
+        host_cte * host_nominal_mm * host_dt - insert_cte * insert_nominal_mm * insert_dt
+        for host_cte in host_ctes
+        for insert_cte in insert_ctes
         for host_dt in host_delta_t_k
         for insert_dt in insert_delta_t_k
     ]
@@ -131,8 +152,8 @@ def _pair(
 ) -> dict[str, Any]:
     host_tolerance = _tolerance(host, name, host_tol_kind)
     insert_tolerance = _tolerance(insert, name, insert_tol_kind)
-    host_cte = _material_cte(host, engineering)
-    insert_cte = _material_cte(insert, engineering)
+    host_cte = _material_cte_range(host, engineering)
+    insert_cte = _material_cte_range(insert, engineering)
     host_domain = _domain_temperature(host, engineering, study)
     insert_domain = _domain_temperature(insert, engineering, study)
     domain_thermal = (
@@ -374,51 +395,81 @@ def analyze_vehicle(
             )
         motion_bound = {"status": "not_applicable"}
     else:
-        pivot_host = parts["tvc_gimbal"]
-        pin = parts["outer_pivots"]
-        assert pin.cad is not None
-        pin_radii = [float(p["radius_mm"]) for p in pin.cad.parameters["pins"]]
-        stacks.append(
-            _unavailable(
-                "tvc_gimbal_bearing_hole_to_outer_pivot_pin",
-                pivot_host,
-                pin,
-                None,
-                float(required["pivot_radial"]),
-                (
-                    "Pin radius is spec-owned CAD data; bearing-hole radius is a generator constant, not a resolved-spec dimension. Hole tolerance stack unavailable."
-                    if pin_radii
-                    else "Pivot pin geometry unavailable."
-                ),
-            )
-        )
-        inner_pin = parts["inner_pivots"]
         inner_host = parts["gimbal_inner"]
         links = parts["gimbal_links"]
-        assert inner_host.cad is not None and inner_pin.cad is not None and links.cad is not None
-        stacks.append(
-            _unavailable(
-                "gimbal_inner_bearing_hole_to_inner_pivot_pin",
-                inner_host,
-                inner_pin,
-                None,
-                float(required["pivot_radial"]),
-                "Pin radius is spec-owned CAD data; bearing-hole radius is a generator constant, not a resolved-spec dimension. Hole tolerance stack unavailable.",
-            )
-        )
+        assert inner_host.cad is not None and links.cad is not None
+        for host_id, pin_id in [
+            ("tvc_gimbal", "outer_pivots"),
+            ("gimbal_frame", "outer_pivots"),
+            ("gimbal_inner", "inner_pivots"),
+            ("tvc_gimbal", "inner_pivots"),
+        ]:
+            host, pin = parts[host_id], parts[pin_id]
+            assert host.cad is not None and pin.cad is not None
+            bore_diameter = host.cad.parameters.get("pivot_bore_diameter_mm")
+            interface_name = f"{host_id}_bearing_hole_to_{pin_id}"
+            if bore_diameter is None:
+                stacks.append(
+                    _unavailable(
+                        interface_name,
+                        host,
+                        pin,
+                        None,
+                        float(required["pivot_radial"]),
+                        "No resolved-spec bearing-bore diameter. Generator default is not dimensional evidence.",
+                    )
+                )
+            else:
+                pin_radius = max(float(item["radius_mm"]) for item in pin.cad.parameters["pins"])
+                row = _pair(
+                    interface_name,
+                    host,
+                    pin,
+                    float(bore_diameter) / 2,
+                    pin_radius,
+                    float(required["pivot_radial"]),
+                    engineering,
+                    study,
+                    host_tol_kind="radius_from_hole",
+                    insert_tol_kind="radius_from_diameter",
+                    clearance_definition="one-sided radial bearing clearance; half the bore-minus-pin diametral gap",
+                )
+                row["axial_retention_status"] = (
+                    "open; a bearing-clearance pass does not retain the pin"
+                )
+                stacks.append(row)
         bore_length = float(inner_host.cad.parameters["link_bore"]["length_mm"])
         rod_diameter = float(links.cad.parameters["radius_mm"]) * 2
-        # A bore's CAD axis length is not its diameter; the generator bore radius is not spec-owned.
-        stacks.append(
-            _unavailable(
+        link_bore_diameter = inner_host.cad.parameters["link_bore"].get("diameter_mm")
+        if link_bore_diameter is None:
+            stacks.append(
+                _unavailable(
+                    "linkage_rod_to_bore_and_rod_end_envelope",
+                    inner_host,
+                    links,
+                    None,
+                    float(required["linkage_radial"]),
+                    f"Rod diameter {rod_diameter:.3f} mm and axial bore length {bore_length:.3f} mm are present, but bore radius/rod-end articulation are generator/purchased details not represented by the resolved specification.",
+                )
+            )
+        else:
+            row = _pair(
                 "linkage_rod_to_bore_and_rod_end_envelope",
                 inner_host,
                 links,
-                None,
+                float(link_bore_diameter) / 2,
+                rod_diameter / 2,
                 float(required["linkage_radial"]),
-                f"Rod diameter {rod_diameter:.3f} mm and axial bore length {bore_length:.3f} mm are present, but bore radius/rod-end articulation are generator/purchased details not represented by the resolved specification.",
+                engineering,
+                study,
+                host_tol_kind="radius_from_hole",
+                insert_tol_kind="radius_from_diameter",
+                clearance_definition="radial rod-to-bore clearance only; excludes rod-end articulation and assembly withdrawal",
             )
-        )
+            row["articulation_status"] = (
+                "unavailable: exact purchased rod ends, angular limits and wiring still require closure"
+            )
+            stacks.append(row)
 
         assert vehicle.tvc is not None
         shell, pivot = parts["aft_shell"], vehicle.tvc.pivot_position_m
