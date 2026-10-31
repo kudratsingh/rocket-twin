@@ -1,0 +1,51 @@
+id: wo03-observed-actual-coarse-nominal-Robin-factor
+mesh: build/wo03-cad-gas-actual-v1/coarse/mesh.npz
+groups: build/wo03-cad-gas-actual-v1/coarse/boundary-groups.json
+correspondence: build/wo03-cad-gas-actual-v1/coarse/boundary-source-correspondence.npz
+source_optical_boundary: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/fine-boundary.npz
+wall_directory: runs/wo03-surface-chords-20261031T051623357877Z
+engineering: configs/engineering/wo03.yaml
+thermal_acceptance: configs/engineering/wo03-thermal-acceptance.yaml
+selected_case_id: combined_300C_eps09_at35C
+material_operator_corner: nominal
+shared_motor_case_temperature_id: screening_shared_required_hot_case_history_k
+ambient_physical_gas_temperature_id: ambient_opening_gas_temperature_k
+observation_equivalence_record: build/wo03-gas-progress/final-fixtures/record.json
+explicit_budget_revision: Primary explicitly authorized ONE observed900s repeat to prioritize completed actual-baffle diagnostic temperature calculation; same geometry/equations/materials/temperature criteria and all other resource limits. Original300s failed attempt remains preserved. No automatic extra attempt.
+expected_sha256:
+  engineering: f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678
+  thermal_acceptance: 855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d
+  condition_builder: a4e91ca0b1dbbb12ba93ac72e5f61b7539017793f2b241493ea8df500f18d266
+  checkpoint_writer: c0d45a6206762027692f30f470bfd99156008c15d675112621066f3b629b99c7
+  observation_equivalence_record: 65bfbb822594775470f127fe517e3a7ffb8292c76f1b385c4b085b35cd05466e
+  original_capped_record: 45e7dd8e1e5192ccade8a4669f40787e959ef84f51170c8639536dbfe9da8a7f
+  wrapper: 2f08e4d5bc350fe9b05837f92ab4e074712d6cb2f78913f2cc0da86b9adee5d9
+  mesh: aefc71e318393ae781fefb5e5d2195eb6383dc32214f292eb4445f1de86b4351
+  groups: dfa2bb48de5a6e36ffe23f80be8427dc71321dde6e911a5cde9307eccdf2871a
+  correspondence: cb020bcc3fe8de1d10e0cfe2574f1a2b456b58f1e067a42d449ecfef297dce0d
+  source_optical_boundary: fc435123d45a21aefacea906b259d1a5298895092374ba12bc489c868c1c948e
+  wall_record: 1a5174136586ec242e3c91f65d9beb3ec00026a0a05c46d68249d139e2fe649a
+  wall_operator: d1753e8046b06e8a09f241802ed4145241c3dec38bd7effcf5069debda25a284
+  wall_metadata: 63a9cb397c8923504c27b17c1397d0e11ff39ca81f05b17f1317103bb114faf1
+  wall_qa: e8fb0d6ea8df732d0f072091eca16d7424ac0623baf8c2446abb8de9bd5fe09c
+  frozen_robin_module: 6a1756130bee8c0db5527d81e86480a41a398366c982784189c9c54dd552fc9f
+  frozen_assembly_module: e81c6e909b2c24dfa7d3fc62cd58450fa2d0d08401145daf0c347205d9768df3
+budget:
+  threads: 1
+  child_seconds: 900
+  max_tetrahedra: 750000
+  max_nodes: 150000
+  max_factor_free_nodes: 100000
+  factor_memory_limit_mb: 1536
+  reduced_map_memory_limit_mb: 128
+  rhs_block_size: 16
+  ordering: MMD_AT_PLUS_A
+checks:
+  uniform_temperature_k: 300
+  uniform_maximum_error_k: 0.0001
+  heat_balance_absolute_tolerance_w: 0.000001
+  form_absolute_tolerance_w_times_k: 0.001
+  selected_signed_unit_load_group_ids: [0, 1, 5, 495]
+  overshoot_reporting_tolerance_k: 0.000001
+scope: One nominal-material wall operator with required-hot boundary/airk.04 source only; not high-k material corner, not solid transient, radiation, ODE or thermal acceptance. Physical gas-opening temperature independent of black radiative brightness. Original motor face hypotheses retained and aliased explicitly only for this screening.
+default_output: build/wo03-actual-gas-observed/coarse-nominal

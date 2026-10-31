@@ -1,0 +1,21 @@
+id: wo03-one-default-volume-only-optimized-medium-PLC
+base_diagnostic: configs/studies/wo03-medium-mesh-diagnostic.yaml
+base_diagnostic_sha256: b7412189685dc22016e4325d6653c35b4370c30b623c212cc9be6f87d736afd1
+fixture_builder: scripts/wo03_cad_gas_mesh.py
+fixture_builder_sha256: 7193e3650c0169074d40312f9e4f76e242a2f7070dc76eba47f6f5ab7336e1bf
+diagnostic_helpers: scripts/wo03_medium_mesh_diagnostic.py
+diagnostic_helpers_sha256: d19273a29ed570cd32e7e6186b14921b237b3f74153d66171af1353124024509
+fixtures: [cavity, thin_barrier_window]
+spacing_mm: 3.0
+optimizer: {method: '', force: false, niter: 1, dimension: 3}
+caps: {max_worker_seconds: 300, max_nodes: 150000, max_tetrahedra: 750000, cpu_workers: 1}
+requirements:
+  original_boundary_coordinate_bits_immutable: true
+  original_boundary_node_tags_immutable: true
+  all_labelled_boundary_facets_immutable: true
+  preserve_pre_and_post_raw: true
+  original_validity_guards_unchanged: true
+  manual_cell_deletion: false
+  additional_actual_attempt: false
+  PDE_or_heat_calculation: false
+  engineering_acceptance: false

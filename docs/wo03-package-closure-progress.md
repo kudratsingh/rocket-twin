@@ -1,4 +1,26 @@
-# Current thermal-layout and baffle checkpoint
+# Current numerical correction and closure
+
+The actual baffle69df790… has its first completed burn/soak debug histories.
+**Source numerical field checks failed; no temperature acceptance or adoption.**
+[Diagnostic report](wo03-actual-debug-transient.md) separates mesh validity,
+completion, accuracy and temperature acceptance. Debug means50.672°C support /
+42.585°C shell do not prove a physical result. The unchanged45°C screen applies.
+The original pre-baffle coaxial cases and old band pass below remain historical;
+none may substitute for the actual-candidate required matrix.
+
+| Issue → previous finding | Correction / criterion | New result and evidence | Remaining verification |
+| --- | --- | --- | --- |
+| Actual coarse factor time cap | One observed900 s cap, same equations/limits | Complete operator; field checks failed. [Factor](wo03-actual-gas-observed.md) | Resolve nonphysical fields; no accepted input operator |
+| Middle flattened cell | Capture raw mesh and exact determinant; unchanged geometry guards | Five exact flattened cells diagnosed; optimized and duplicate-only trials remain invalid. [Mesh](wo03-medium-mesh-diagnostic.md) | Valid sufficiently resolved mesh |
+| No actual baffle burn/soak histories | Explicit failed-operator investigation only; ordinary path blocks |303.026 s completed; validation failed. [Report](wo03-actual-debug-transient.md) | Source accuracy, spatial/time refinement, complete required matrix |
+| Heat accounting | Global integration versus local route integration checked separately |0.001700 J global residual;470.811 J largest local audit imbalance | Resolve local quadrature; no accepted dominant integrated heat routes |
+| Displayed analysis evidence | Exact candidate/CAD and failed status required | Compatible debug part means export; no active registration | Accurate accepted fields and owner measurements later |
+
+No structural/recovery/root/flutter item closes through these numerical studies.
+
+---
+
+# Current thermal-layout and baffle checkpoint — prior state
 
 WO-03 remains open. **No new correction package is adopted.** The table below
 separates executed candidate evidence from the active PR9 vehicle and later

@@ -983,3 +983,48 @@ no thermal or mass credit from the G54 baffle.
 [Connection/closure report](wo03-thermal-model-corrections.md),
 [gas mesh](wo03-cad-gas-mesh.md), [radiation fit](wo03-cad-radiosity.md),
 [coupling verification](wo03-gas-radiation.md).
+
+
+## Actual replacement-baffle numerical diagnosis and debug transient — 2026-10-30 local
+
+**Completed diagnostic; failed numerical model; temperature acceptance unavailable.**
+Candidate `69df790…`, CAD `1193713…`, run
+`wo03-actual-transient-20261031T061319026057Z`: 3.026 s burn plus300 s soak,
+492.070 s execution,1,062 evaluations,140 part means. Required combined300°C case,
+foil emissivity0.9,35°C ambient,nominal properties only. Debug motor-support mean
+50.672°C / aft substrate42.585°C / foil-baffle peaks67.497–77.031°C.
+**These are not credible physical predictions or a pass against45°C.**
+
+- The separate complete gas-factor repeat returns before its900 s budget but
+  fails field checks:181.615–602.731 K under308.15–573.15 K unforced reservoirs,
+  194 below-ambient group means. Local rows reproduce the extremes; the trace has
+ 187 mm axial facets across a0.2 mm gap. No clipping or weaker threshold.
+- Global ODE energy residual0.001700 J against2,790.395 J is small. Separate
+  connection-energy quadrature has470.811 J maximum local imbalance and remains
+  unverified; no accepted dominant-route totals are inferred.
+- Stable local heat accounting is implemented and verified separately. Twelve
+  fixture levels preserve solve matrices, factors, fields and G/R exactly; C/J
+  differ only at recorded roundoff scale. Read-only actual-field ledger residual
+  falls to0.103 µW under unchanged1 µW criterion, without changing any field or
+  retroactively passing the failed source operator.
+- Captured middle replay has five exact flattened cells. One volume optimization
+  removes zero cells but has duplicate/nonmanifold topology; duplicate-only
+  coalescing remains invalid. Native meshing and targeted planar-boundary
+  refinement hit their declared resource caps. The latter preserves surfaces and
+  openings but does not achieve its resolution targets; no new volume/heat result.
+- Debug Analysis exports force failed validation, retain exact case/configuration/
+  CAD identity and mark missing coverage unavailable. Consumer check passes; no
+  active registration. Ordinary transient execution blocks failed/incomplete
+  source operators; source-artifact and output/vehicle tampering are rejected.
+
+`make check` passes Ruff/Black(222files),strict mypy(77modules); full local smoke
+passes224tests. These include local paused preview tests; the focused engineering
+PR receives its own exact-head hosted checks. PR #13 is merged at8e71c206… after
+all required replacement hosted checks passed (41172768750). Subsequent diagnostics
+are the next focused local increment. No dependency upgrade, physical work,
+paid run, candidate adoption, full WO04 transition or flight release.
+
+[Detailed diagnostic and gate table](wo03-actual-debug-transient.md).
+Curated executed numerical evidence: `runs/wo03-numerical-diagnostics-20261031T065322651352Z/record.json`.
+Raw fields/operators/meshes remain local and hash-bound. The active vehicle,
+45°C screen,G12 departure requirement/full allowance and all later gates remain.

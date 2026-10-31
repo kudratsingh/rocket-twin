@@ -968,7 +968,7 @@ def run_thermal_topology(
         "units": {"flux": "W", "energy": "J", "temperature": "K", "time": "s"},
         "times_s": times.tolist(),
         "fine_sample_step_s": fine_step_s,
-        "integration": "trapezoid; fine sampling uses the ODE solver dense output at <=0.5 s without changing solver integration or the thermal solution",
+        "integration": f"trapezoid; fine sampling uses the ODE solver dense output with maximum requested spacing {fine_step_s:g} s without changing solver integration or the thermal solution",
         "sign_convention": "positive follows source -> target; negative_energy_j is the magnitude of reverse flow",
         "connections": list(fine_links.values()),
         "node_energy_balance": node_balance,

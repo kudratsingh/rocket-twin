@@ -34,18 +34,47 @@ common-surface gas/conduction/transient coupling remain open. [Fit/assembly](wo0
 and [occupancy](wo03-interface-occupancy.md). The new circular-pad candidate removes
 source material overlaps; it is not adopted into active geometry.
 
-The next actual-CAD correction increment records all 1,785 face owners and
-three optical levels, a valid 427,940-tetrahedron coarse gas mesh, an explicitly
-rejected zero-volume middle mesh and a time-capped fine attempt. Local gas
-convergence is open. Count-weighted radiation fitting passes its declared
-sampling consistency check; the older unweighted fit is rejected at 26 entries.
-The common-surface coupling agrees with independent plate calorimetry. Current
-local check: **199 tests**, Ruff/Black 200 files and strict mypy 74 modules.
-[Executed geometry/method evidence](../runs/wo03-actual-geometry-20261031T052235281133Z/record.json) and
-[thermal correction report](wo03-thermal-model-corrections.md) separate these
-checks from the still-unavailable actual-candidate required transient matrix.
-Actual baffle temperature/margin Analysis fields remain unavailable; its new
-geometry-only preview is hash-compatible. No correction is adopted on this basis.
+**A first actual replacement-baffle burn/soak calculation is complete, but its
+numerical model failed.** Candidate `69df790…`, generator `1193713…`, run
+`wo03-actual-transient-20261031T061319026057Z` covers 3.026 s burn plus 300 s soak.
+Debug part means are 50.672°C motor support and 42.585°C aft substrate; these
+are **not credible design temperatures or a pass against 45°C**. The complete
+source gas factor produces 181.615–602.731 K under 308.15–573.15 K boundaries,
+including 194 below-ambient surface means. [Diagnostic report](wo03-actual-debug-transient.md).
+
+**Four thermal gates remain separate:** coarse mesh geometry passes its recorded
+guards; calculation completion now has both a returned operator and a completed
+transient; actual numerical accuracy fails its field checks and lacks relevant
+refinement; temperature acceptance remains unavailable. The global ODE energy
+residual is 0.001700 J, but the local connection-energy audit has up to470.811 J
+imbalance and is unverified. Diagnostic Analysis exports have `validation: failed`
+and are not registered on an active vehicle. No physical design is adopted.
+
+The captured middle-mesh replay diagnoses five exact coplanar tetrahedra.
+One volume-only optimization removes them but fails connectivity; exact duplicate
+coalescing also fails the unchanged guards. The native analysis-mesh pilot stops
+at its surface resource cap and shows thin-wall fidelity defects. The targeted,
+geometry-preserving boundary pilot retained the original material surfaces but
+reached its120k-node/240k-triangle cap before its resolution targets. It is
+incomplete, with no volume mesh or new heat result. No new mesh is called accurate
+before its geometry, source mapping, field and refinement checks pass.
+[Mesh diagnosis](wo03-medium-mesh-diagnostic.md), [field diagnosis](wo03-gas-field-diagnostic.md).
+
+[PR #13](https://github.com/kudratsingh/rocket-twin/pull/13) **merged** at
+`8e71c206839087723bedbef3209e38d2e4662ef4`. Its replacement exact-head hosted run
+`41172768750` passed every required check after the Linux GLU fix. The first
+missing-GLU run remains failed historical evidence. Subsequent numerical
+diagnostics and the completed debug transient are local pending their focused PR.
+Latest local check passes224tests,Ruff/Black(222files) and strict mypy(77modules).
+These are regression/guard checks, not actual thermal acceptance.
+
+Published geometry/method evidence remains
+[`wo03-actual-geometry-20261031T052235281133Z`](../runs/wo03-actual-geometry-20261031T052235281133Z/record.json):
+1,785 face owners, three optical levels and known-case common-surface calorimetry.
+Those method checks do not establish actual local convergence. The new candidate
+uses the full screened material mapping at nominal properties; remaining source,
+material/contact and local optical uncertainties still block the required matrix.
+The separate G12 0.753 g shield remains failed at45.913°C; no G54 credit transfers.
 
 Active source-cache regeneration after the opt-in CAD primitive change preserves
 **exactly the same geometry, materials, masses, centroids and full inertia** in all
@@ -53,7 +82,7 @@ six active variants. Fresh CAD `wo03-20261031T034832494277Z` passes all variants
 both 25-pose sweeps with unchanged inputs at generator `1193713d…`.
 `make benchmark` passes static/actual G80/finned-G12 RocketPy and 4,096-env CPU:
 `wo01-platform-20261031T034519135584Z`, `wo02-20261031T034519948032Z`.
-The latest whole local check passes **187 tests**, Ruff/Black and strict typing
+An earlier whole local check passed **187 tests**, Ruff/Black and strict typing
 (69 source modules); it includes local preview and other unpublished method tests.
 The focused PR receives its own required exact-head hosted checks.
 These are regression/method checks, not expanded engineering or flight acceptance.
@@ -118,8 +147,9 @@ remains held for its separate preview PR.
 `e39ef7140482903be855ca21d8ea07d2ccefd0a3` after exact-head workflow
 `41169031880` passed for `81269e1853361b71e0e060179a55fad73291f2f0`.
 It publishes occupancy, finite common-surface proxy evidence and the fitting
-baffle. The subsequent actual-CAD optical/gas/material-mapping work remains local
-until its focused PR checks pass; method success does not close thermal acceptance.
+baffle. PR #13 subsequently published the actual-CAD optical/gas/material mapping after
+required checks. Newer diagnostic work remains local; method success does not
+close thermal acceptance.
 
 Fresh active CAD export `wo03-20261031T022318571108Z` passes all six variants,
 neutral intersections and both 25-pose sweeps with unchanged inputs at generator

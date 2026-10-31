@@ -86,6 +86,24 @@ part-function/load-path documentation are available. Record evidence in STATUS a
 results before advancing to WO-04. Actual strength, temperature, fit, recovery and
 control qualification remain owner-performed WO-09–11 gates; flight_ready stays false.
 
+## Thermal numerical evidence: four separate gates
+
+The owner explicitly reinforced these distinctions after the actual gas-mesh
+and factor attempts. Every current report and closure table separates:
+
+| Gate | Required evidence | Current examples and non-claims |
+| --- | --- | --- |
+| Mesh validity | Positive-volume cells, complete material/boundary ownership, geometry/barrier preservation, orientation and domain closure | The old coarse mesh passes its recorded geometric checks; its middle mesh is invalid. Neither establishes accurate temperatures; the subsequent complete coarse debug transient uses a failed field operator. |
+| Calculation completion | A completed solver result with exact input/configuration/CAD/mesh identities and usable outputs | A runtime-capped fine mesh or coarse factor is incomplete. A cap alone establishes neither numerical success nor numerical failure. |
+| Numerical accuracy | Applicable known cases, residual/heat-balance checks, and required time/spatial refinements supporting stable relevant temperatures/heat routes | Method fixtures cannot fill missing actual-solve energy or refinement evidence. Preserve invalid attempts and diagnose them or document a replacement method. |
+| Temperature acceptance | Applicable unchanged required-case matrix and limits, with result resolution, uncertainty and margins explicit | The completed failed-operator debug run establishes no credible new-baffle temperature; 45°C substrate and combined300°C/contaminated-foil/35°C cases remain. A completed provisional coarse result alone cannot accept the design. |
+
+Use explicit states such as invalid, incomplete, unestablished and unavailable;
+do not turn missing data into a zero/pass or describe a time cap as a failed
+physical temperature case. Part means and calculated local hot spots remain
+distinct. Current working geometry and release gates remain unchanged while
+these calculations are corrected.
+
 ## Analysis export deliverable and acceptance (owner extension)
 
 Export versioned analysis manifests and field/history assets for the Analysis view

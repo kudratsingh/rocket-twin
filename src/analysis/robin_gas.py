@@ -16,6 +16,7 @@ from __future__ import annotations
 import resource
 import sys
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
@@ -24,6 +25,10 @@ from scipy.sparse import coo_matrix
 from scipy.sparse.linalg import splu
 
 from src.analysis.gas_conduction import _positive_offdiagonal, assemble_tetra_conductivity
+
+
+class GasProgressCallbackError(RuntimeError):
+    """Observation/checkpoint failed; the factor must not silently continue."""
 
 
 @dataclass(frozen=True)
@@ -159,6 +164,7 @@ class RobinGasFactor:
     mean_by_group_neumann_k_w: Any
     reservoir_heat_by_group_neumann: Any
     diagnostics: dict[str, Any]
+    _stable_ledger_cache: Any = None
 
     def _solve(self, bulk: Any, prescribed: Any, loads: Any) -> Any:
         count = bulk.shape[1]
@@ -170,11 +176,95 @@ class RobinGasFactor:
             raise ValueError("Unexpected reconstructed field shape")
         return field
 
-    def _reservoir_heat(self, field: Any, bulk: Any, loads: Any) -> Any:
+    def _raw_reservoir_heat(self, field: Any, bulk: Any, loads: Any) -> Any:
+        """Prior assembled evaluation, retained as a roundoff diagnostic."""
         into_bulk = np.asarray(self.B_w_k.T @ field) - self.D_bulk_w_k[:, None] * bulk
         residual = np.asarray(self.A_w_k @ field - self.B_w_k @ bulk - self.L_per_area @ loads)
         into_prescribed = -np.asarray(self.E_prescribed.T @ residual)
         return np.vstack((into_bulk, into_prescribed))
+
+    def _ledger_arrays(self) -> dict[str, Any]:
+        if self._stable_ledger_cache is None:
+            faces, matrices, references = [], [], []
+            paths, bulk_columns, vectors, diagonals = [], [], [], []
+            for face, term in enumerate(self.wall_terms):
+                if term is None:
+                    continue
+                references.append(term["indexed"][0][0])
+                faces.append(face)
+                matrices.append(term["matrix"])
+                for column, vector, diagonal in term["indexed"]:
+                    paths.append(len(faces) - 1)
+                    bulk_columns.append(column)
+                    vectors.append(vector)
+                    diagonals.append(diagonal)
+            pf = np.asarray(paths, dtype=int)
+            b = np.asarray(vectors, dtype=float).reshape(-1, 3)
+            m = np.asarray(matrices, dtype=float).reshape(-1, 3, 3)
+            summed = np.zeros((len(faces), 3))
+            np.add.at(summed, pf, b)
+            self._stable_ledger_cache = {
+                "nodes": np.asarray(self.mesh.boundary_triangles)[np.asarray(faces, dtype=int)],
+                "matrix": m,
+                "reference_bulk": np.asarray(references, dtype=int),
+                "path_face": pf,
+                "path_bulk": np.asarray(bulk_columns, dtype=int),
+                "vectors": b,
+                "maximum_source_row_partition_defect_w_k": float(
+                    np.abs(m.sum(axis=2) - summed).max(initial=0)
+                ),
+                "maximum_source_B_D_partition_defect_w_k": float(
+                    np.abs(b.sum(axis=1) - np.asarray(diagonals)).max(initial=0)
+                ),
+            }
+        return self._stable_ledger_cache  # type: ignore[no-any-return]
+
+    def _stable_heat_and_residual(self, field: Any, bulk: Any, loads: Any) -> tuple[Any, Any]:
+        """Partition-of-unity heat evaluation; A/B/D/L and solve stay untouched.
+
+        Source wall partitions are already validated. Their finite arithmetic
+        defects are reported, not used as artificial heat at uniform T. Element
+        gradients and wall heat use local temperature differences before sums.
+        """
+        cache = self._ledger_arrays()
+        count = field.shape[1]
+        residual = np.zeros_like(field)
+        for start in range(0, len(self.assembly.tetrahedra), 25000):
+            stop = min(start + 25000, len(self.assembly.tetrahedra))
+            cells = self.assembly.tetrahedra[start:stop]
+            values = field[cells]
+            gradients = self.assembly.gradients_per_m[start:stop]
+            gradient = np.einsum("tic,tij->tjc", values - values[:, :1], gradients)
+            local = (
+                self.diagnostics["conductivity_w_m_k"]
+                * self.assembly.volumes_m3[start:stop, None, None]
+                * np.einsum("tij,tjc->tic", gradients, gradient)
+            )
+            np.add.at(residual, cells.ravel(), local.reshape(-1, count))
+        nodes, pf, pb = cache["nodes"], cache["path_face"], cache["path_bulk"]
+        vectors = cache["vectors"]
+        into_bulk = np.zeros((len(self.bulk_ids), count))
+        np.add.at(
+            into_bulk,
+            pb,
+            np.einsum("pi,pic->pc", vectors, field[nodes[pf]] - bulk[pb, None, :]),
+        )
+        reference = bulk[cache["reference_bulk"]]
+        local_wall = np.einsum(
+            "fij,fjc->fic", cache["matrix"], field[nodes] - reference[:, None, :]
+        )
+        np.add.at(
+            local_wall,
+            pf,
+            -vectors[:, :, None] * (bulk[pb] - reference[pf])[:, None, :],
+        )
+        np.add.at(residual, nodes.ravel(), local_wall.reshape(-1, count))
+        residual -= self.L_per_area @ loads
+        into_prescribed = -np.asarray(self.E_prescribed.T @ residual)
+        return np.vstack((into_bulk, into_prescribed)), residual
+
+    def _reservoir_heat(self, field: Any, bulk: Any, loads: Any) -> Any:
+        return self._stable_heat_and_residual(field, bulk, loads)[0]
 
     def reconstruct(
         self, bulk_temperature_k: Any, prescribed_temperature_k: Any, group_neumann_w: Any
@@ -195,15 +285,50 @@ class RobinGasFactor:
     def evaluate(
         self, bulk_temperature_k: Any, prescribed_temperature_k: Any, group_neumann_w: Any
     ) -> dict[str, Any]:
+        field = self.reconstruct(bulk_temperature_k, prescribed_temperature_k, group_neumann_w)
+        return self.evaluate_saved_field(
+            field, bulk_temperature_k, prescribed_temperature_k, group_neumann_w
+        )
+
+    def evaluate_saved_field(
+        self,
+        nodal_temperature_k: Any,
+        bulk_temperature_k: Any,
+        prescribed_temperature_k: Any,
+        group_neumann_w: Any,
+    ) -> dict[str, Any]:
+        """Evaluate a supplied completed field without a factor/PDE solve.
+
+        This does not establish that the field solves the stated boundary data.
+        Raw and stable reactions/free residuals remain separately reported.
+        """
         bulk = np.asarray(bulk_temperature_k, dtype=float)
         prescribed = np.asarray(prescribed_temperature_k, dtype=float)
         loads = np.asarray(group_neumann_w, dtype=float)
-        field = self.reconstruct(bulk, prescribed, loads)
+        field = np.asarray(nodal_temperature_k, dtype=float)
+        if (
+            field.shape != (len(self.mesh.points_m),)
+            or not np.isfinite(field).all()
+            or any(
+                v.shape != (size,) or not np.isfinite(v).all()
+                for v, size in [
+                    (bulk, len(self.bulk_ids)),
+                    (prescribed, len(self.prescribed_ids)),
+                    (loads, len(self.group_ids)),
+                ]
+            )
+        ):
+            raise ValueError("Finite supplied field and ordered boundary vectors required")
         mean = np.asarray(self.L_per_area.T @ field)
-        into = self._reservoir_heat(field[:, None], bulk[:, None], loads[:, None])[:, 0]
+        heat, stable_residual = self._stable_heat_and_residual(
+            field[:, None], bulk[:, None], loads[:, None]
+        )
+        into = heat[:, 0]
+        raw_into = self._raw_reservoir_heat(field[:, None], bulk[:, None], loads[:, None])[:, 0]
         residual = np.asarray(self.A_w_k @ field - self.B_w_k @ bulk - self.L_per_area @ loads)
+        cell_values = field[self.assembly.tetrahedra]
         gradient = np.einsum(
-            "ti,tij->tj", field[self.assembly.tetrahedra], self.assembly.gradients_per_m
+            "ti,tij->tj", cell_values - cell_values[:, :1], self.assembly.gradients_per_m
         )
         air_form = float(
             np.sum(
@@ -228,7 +353,19 @@ class RobinGasFactor:
                 local_form += float(-2 * shifted * (vector @ surface) + diagonal * shifted**2)
             wall_form += local_form
         states = np.r_[bulk, prescribed]
-        boundary_form = float(loads @ mean - states @ into)
+        reference_temperature = float(states[0])
+        mean_difference = np.asarray(self.L_per_area.T @ (field - reference_temperature))
+        boundary_form = float(loads @ mean_difference - (states - reference_temperature) @ into)
+        unshifted_boundary_form = float(loads @ mean - states @ into)
+        raw_gradient = np.einsum("ti,tij->tj", cell_values, self.assembly.gradients_per_m)
+        raw_air_form = float(
+            np.sum(
+                self.assembly.volumes_m3
+                * self.diagnostics["conductivity_w_m_k"]
+                * np.sum(raw_gradient**2, axis=1)
+            )
+        )
+        raw_boundary_form = float(loads @ mean - states @ raw_into)
         # Exact fourth-power integral of the P1 interpolant: sum15 monomials/15.
         fourth = np.zeros(len(tris))
         for a in range(5):
@@ -264,12 +401,38 @@ class RobinGasFactor:
             "heat_into_prescribed_reservoir_w": into[len(self.bulk_ids) :].tolist(),
             "total_group_neumann_into_surface_gas_w": loads.tolist(),
             "energy_balance_residual_w": float(into.sum() - loads.sum()),
+            "heat_ledger_method": "local_wall_temperature_differences_and_element_gradient_prescribed_reactions",
+            "raw_assembled_heat_into_bulk_w": raw_into[: len(self.bulk_ids)].tolist(),
+            "raw_assembled_heat_into_prescribed_reservoir_w": raw_into[
+                len(self.bulk_ids) :
+            ].tolist(),
+            "raw_assembled_energy_balance_residual_w": float(raw_into.sum() - loads.sum()),
+            "raw_legacy_form_balance_difference_w_times_k": raw_air_form
+            + wall_form
+            - raw_boundary_form,
+            "raw_vs_stable_reservoir_heat_max_difference_w": float(np.abs(raw_into - into).max()),
+            "stable_ledger_free_residual_max_w": (
+                float(np.abs(stable_residual[self.free_nodes]).max()) if len(self.free_nodes) else 0
+            ),
             "free_residual_max_w": (
                 float(np.abs(residual[self.free_nodes]).max()) if len(self.free_nodes) else 0
             ),
             "air_dirichlet_form_w_times_k": air_form,
             "halfwall_dirichlet_form_w_times_k": wall_form,
             "boundary_work_form_w_times_k": boundary_form,
+            "boundary_work_reference_temperature_k": reference_temperature,
+            "absolute_mean_then_reference_subtraction_difference_k": float(
+                np.abs(mean - reference_temperature - mean_difference).max()
+            ),
+            "unshifted_stable_boundary_work_form_w_times_k": unshifted_boundary_form,
+            "unshifted_stable_form_balance_difference_w_times_k": air_form
+            + wall_form
+            - unshifted_boundary_form,
+            "source_wall_partition_diagnostics": {
+                key: value
+                for key, value in self._ledger_arrays().items()
+                if key.startswith("maximum_source_")
+            },
             "form_balance_difference_w_times_k": air_form + wall_form - boundary_form,
             "mean_map_reconstruction_difference_k": float(np.abs(mean - mean_from_maps).max()),
             "heat_map_reconstruction_difference_w": float(np.abs(into - heat_from_maps).max()),
@@ -289,6 +452,7 @@ def factor_robin_gas(
     reduced_map_memory_limit_mb: float = 256,
     rhs_block_size: int = 16,
     ordering: str = "COLAMD",
+    progress_callback: Callable[[dict[str, Any]], None] | None = None,
 ) -> RobinGasFactor:
     """All facets classified; conditions are group defaults OR per-facet rows.
 
@@ -296,7 +460,38 @@ def factor_robin_gas(
     Variable-h or mixed-cell triangles require caller-resolved subfacets; no
     centroid substitution is made. LU guards are conservative estimates and a
     free-node cap, not a guaranteed native allocator/RSS limit.
+
+    Optional observation receives plain phase/IDs/resource metadata and copies
+    of completed raw reduced blocks. It cannot alter the live arrays through
+    its payload. Callback exceptions stop explicitly. No node response basis or
+    native LU object is exposed; partial blocks are not a complete operator.
     """
+    observed_started = time.monotonic() if progress_callback is not None else 0.0
+    observed_ids: dict[str, Any] = {"group_ids": [], "bulk_ids": [], "prescribed_ids": []}
+    observed_counts: dict[str, Any] = {}
+
+    def observe(phase: str, *, blocks: Any = None, **extra: Any) -> None:
+        if progress_callback is None:
+            return
+        event = {
+            "phase": phase,
+            "elapsed_s": time.monotonic() - observed_started,
+            "measured_process_max_rss_bytes": int(
+                resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+                * (1 if sys.platform == "darwin" else 1024)
+            ),
+            "ordered_ids": {name: list(values) for name, values in observed_ids.items()},
+            "resource_counts": dict(observed_counts),
+            "complete_operator": False,
+            **extra,
+        }
+        if blocks is not None:
+            event["map_blocks"] = {name: value.copy() for name, value in blocks.items()}
+        try:
+            progress_callback(event)
+        except Exception as exc:
+            raise GasProgressCallbackError(f"Gas progress callback failed at {phase}") from exc
+
     if (
         not np.isfinite(factor_memory_limit_mb)
         or not np.isfinite(reduced_map_memory_limit_mb)
@@ -307,6 +502,7 @@ def factor_robin_gas(
         raise ValueError(
             "Positive explicit memory limits and bounded free-node/RHS budgets required"
         )
+    observe("assembly_begin")
     assembly = assemble_tetra_conductivity(
         mesh.points_m,
         mesh.tetrahedra,
@@ -316,6 +512,19 @@ def factor_robin_gas(
     )
     points = assembly.points_m
     n = len(points)
+    if progress_callback is not None:
+        observed_counts.update(
+            nodes=n,
+            tetrahedra=len(assembly.tetrahedra),
+            K_nonzeros=int(assembly.stiffness_w_k.nnz),
+            assembly_retained_array_bytes=assembly.retained_array_bytes,
+            minimum_scaled_tetrahedron_determinant=assembly.minimum_scaled_determinant,
+            minimum_tetrahedron_volume_m3=float(assembly.volumes_m3.min()),
+            K_diagonal_min_w_k=float(assembly.stiffness_w_k.diagonal().min()),
+            K_diagonal_max_w_k=float(assembly.stiffness_w_k.diagonal().max()),
+        )
+    observe("assembly_end")
+    observe("wall_build_begin")
     raw = np.asarray(mesh.boundary_triangles)
     raw_ids = np.asarray(mesh.boundary_group_ids)
     if (
@@ -447,22 +656,56 @@ def factor_robin_gas(
             "Disconnected air component has neither positive Robin coupling nor prescribed temperature"
         )
     A = assembly.stiffness_w_k + R
+    if progress_callback is not None:
+        observed_ids.update(group_ids=group_ids, bulk_ids=bulk_ids, prescribed_ids=prescribed_ids)
+        observed_counts.update(
+            boundary_triangles=len(triangles),
+            groups=ng,
+            bulk_states=nb,
+            prescribed_states=nd,
+            free_nodes=len(free),
+            prescribed_nodes=len(fixed),
+            A_nonzeros=int(A.nnz),
+            B_nonzeros=int(B.nnz),
+            L_nonzeros=int(L.nnz),
+            A_diagonal_min_w_k=float(A.diagonal().min()),
+            A_diagonal_max_w_k=float(A.diagonal().max()),
+        )
+    observe("wall_build_end")
+    observe("preflight_begin")
     Aff = A[free][:, free].tocsc()
     estimated_lu_bytes = int(Aff.nnz * 64 * 16 + len(free) * 16 * 8)
     map_bytes = int(8 * ((nb + nd) ** 2 + 2 * ng * (nb + nd) + ng**2))
+    if progress_callback is not None:
+        observed_counts.update(
+            free_matrix_nonzeros=int(Aff.nnz),
+            estimated_LU_bytes=estimated_lu_bytes,
+            reduced_maps_bytes=map_bytes,
+            max_factor_free_nodes=max_factor_free_nodes,
+            factor_memory_limit_bytes=factor_memory_limit_mb * 1024**2,
+            reduced_map_memory_limit_bytes=reduced_map_memory_limit_mb * 1024**2,
+            rhs_block_size=rhs_block_size,
+        )
     if len(free) > max_factor_free_nodes or estimated_lu_bytes > factor_memory_limit_mb * 1024**2:
+        observe("preflight_end", accepted=False, reason="LU_resource_budget")
         raise MemoryError(
             f"Factorization preflight stop: {len(free)} free nodes, estimated{estimated_lu_bytes/1024**2:.1f}MiB; no oversized LU attempted"
         )
     if map_bytes > reduced_map_memory_limit_mb * 1024**2:
+        observe("preflight_end", accepted=False, reason="reduced_map_resource_budget")
         raise MemoryError("Reduced-map memory budget exceeded before factorization")
     if rhs_block_size < 1:
         raise ValueError("Positive bounded RHS block size required")
     if ordering not in ("COLAMD", "MMD_AT_PLUS_A"):
         raise ValueError("Explicit COLAMD or MMD_AT_PLUS_A ordering required")
+    observe("preflight_end", accepted=True, ordering=ordering)
+    observe("LU_begin", ordering=ordering)
     factor_started = time.monotonic()
     lu = splu(Aff, permc_spec=ordering) if len(free) else None
     factor_elapsed = time.monotonic() - factor_started
+    if progress_callback is not None:
+        observed_counts["LU_actual_L_U_nonzeros"] = 0 if lu is None else int(lu.L.nnz + lu.U.nnz)
+    observe("LU_end", native_LU_elapsed_s=factor_elapsed, ordering=ordering)
     result = RobinGasFactor(
         mesh,
         assembly,
@@ -487,7 +730,7 @@ def factor_robin_gas(
         np.empty((ng, nb + nd)),
         np.empty((ng, ng)),
         np.empty((nb + nd, ng)),
-        {},
+        {"conductivity_w_m_k": conductivity_w_m_k},
     )
     nr = nb + nd
     reservoir_nodal_min = float("inf")
@@ -496,6 +739,7 @@ def factor_robin_gas(
     load_nodal_max = -float("inf")
     for start in range(0, nr, rhs_block_size):
         stop = min(start + rhs_block_size, nr)
+        observe("reservoir_block_begin", column_start=start, column_stop=stop)
         basis = np.eye(nr)[:, start:stop]
         field = result._solve(basis[:nb], basis[nb:], np.zeros((ng, stop - start)))
         reservoir_nodal_min = min(reservoir_nodal_min, float(field.min()))
@@ -504,8 +748,22 @@ def factor_robin_gas(
         result.reservoir_conductance_raw_w_k[:, start:stop] = -result._reservoir_heat(
             field, basis[:nb], np.zeros((ng, stop - start))
         )
+        observe(
+            "reservoir_block_end",
+            column_start=start,
+            column_stop=stop,
+            blocks={
+                "mean_by_reservoir_temperature": result.mean_by_reservoir_temperature[
+                    :, start:stop
+                ],
+                "reservoir_conductance_raw_w_k": result.reservoir_conductance_raw_w_k[
+                    :, start:stop
+                ],
+            },
+        )
     for start in range(0, ng, rhs_block_size):
         stop = min(start + rhs_block_size, ng)
+        observe("surface_block_begin", column_start=start, column_stop=stop)
         basis = np.eye(ng)[:, start:stop]
         field = result._solve(np.zeros((nb, stop - start)), np.zeros((nd, stop - start)), basis)
         load_nodal_min = min(load_nodal_min, float(field.min()))
@@ -514,6 +772,18 @@ def factor_robin_gas(
         result.reservoir_heat_by_group_neumann[:, start:stop] = result._reservoir_heat(
             field, np.zeros((nb, stop - start)), basis
         )
+        observe(
+            "surface_block_end",
+            column_start=start,
+            column_stop=stop,
+            blocks={
+                "mean_by_group_neumann_k_w": result.mean_by_group_neumann_k_w[:, start:stop],
+                "reservoir_heat_by_group_neumann": result.reservoir_heat_by_group_neumann[
+                    :, start:stop
+                ],
+            },
+        )
+    observe("final_checks_begin")
     C = result.reservoir_conductance_raw_w_k
     W = result.mean_by_group_neumann_k_w
     G = result.mean_by_reservoir_temperature
@@ -536,6 +806,7 @@ def factor_robin_gas(
         "boundary_triangles": len(triangles),
         "air_components": assembly.component_count,
         "conductivity_w_m_k": conductivity_w_m_k,
+        "heat_ledger_method": "local_wall_temperature_differences_and_element_gradient_prescribed_reactions",
         "ordering": ordering,
         "raw_nodal_reservoir_basis_minimum_k_k": reservoir_nodal_min,
         "raw_nodal_reservoir_basis_maximum_k_k": reservoir_nodal_max,
@@ -581,4 +852,5 @@ def factor_robin_gas(
         "raw_matrix_clipped_repaired_or_corner_prioritized": False,
         "actual_rocket_mesh_temperature_or_radiation_acceptance": False,
     }
+    observe("final_checks_end", algebra_checks_pass=bool(result.diagnostics["algebra_checks_pass"]))
     return result
