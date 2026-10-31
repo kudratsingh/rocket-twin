@@ -196,7 +196,8 @@ remain completion gates. A lighter battery, panel or pressure bulkhead is an
 explicit construction trade with its own verification, not an automatic budget
 credit. Full WO-04 completion depends on one adopted package passing expanded
 WO-03 acceptance and being recorded. The owner-authorized limited preview remains
-a separate exception and is currently paused while WO-03 work resumes.
+a separate exception. The owner resumed preview implementation and designated
+frontend-agent browser verification on2026-10-31 while WO-03 remains open.
 
 The thermal-layout correction in [ADR-0010](adr/0010-thermal-occupancy-and-interior-exchange.md)
 keeps the existing sequence and screens. It requires disjoint CAD-derived glue,

@@ -4,8 +4,9 @@ Branch: `wo-03-cad` (focused dependent PRs permitted). Tier: Mac CPU and ordinar
 repository checks; paid compute requires separate approval. ADR-0007 expands this
 work order without changing the full-milestone sequence. Full WO-04 completion
 depends on the WO-03 criteria below. ADR-0009 separately permits the owner's limited
-early inspection/experiment preview; that preview is currently paused while
-engineering work resumes. G80 reference, G54 conditional, G12 controls.
+early inspection/experiment preview. The owner resumed its implementation and
+designated-agent browser verification on2026-10-31 while engineering work
+continues. G80 reference, G54 conditional, G12 controls.
 
 ADR-0008 adopts the combined correction package into the active specifications.
 Use [the integrated property report](../wo03-integrated-vehicle.md) and
@@ -94,8 +95,9 @@ two declared600-CPU-second packets,120s/case, separate600s setup caps, unchanged
 accuracy requirements and explicit unavailable results. Neither tool qualifies
 for the actual baffle yet. Publish this focused evidence before another selected
 approach; no new production numerical method or physical acceptance follows.
-The owner's later preview resumption permits code/non-browser checks only;
-computer use remains paused until testing is resumed.
+The owner subsequently authorized the bounded frontend agent to verify the
+preview in the designated Chrome window. Other agents must not use computer
+tools concurrently; see `AGENTS.md`. Full milestone and release gates remain.
 
 Follow [the three-deliverable closure plan](../wo03-closure-plan.md) and
 [thermal method decision](../wo03-thermal-method-decision.md). This records the
@@ -103,8 +105,9 @@ owner's2026-10-31 direction to isolate impossible temperatures on known cases,
 verify actual geometry and refinements, stop repeated invalid/capped attempts,
 and assess a justified bounded alternative before further expensive retries.
 It adds no physical acceptance requirement or work-order scope. Complete-package,
-recovery/support and installed-fin criteria above remain in force. Frontend and
-browser work remain paused; the saved preview and all release gates are preserved.
+recovery/support and installed-fin criteria above remain in force. The separately
+authorized preview and designated-agent browser checks proceed without changing
+these requirements or release gates.
 
 ## Thermal numerical evidence: four separate gates
 

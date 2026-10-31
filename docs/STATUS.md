@@ -15,17 +15,36 @@ No new production solver, accepted temperature or vehicle change. The two stoppe
 wall-treatment trials and failed actual fields remain preserved. Evidence:
 `runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json`.
 
-**Latest preview direction:** saved early frontend code is ready for owner-directed
-visual testing. TypeScript/lint/build/format, four frontend boundary tests and12
-API/experiment tests pass. Two current-revision calm G80/G54 runs are retained
-locally for replay. No current Analysis field matches active identities; missing
-or failed data remains unavailable/failed. Browser/computer use remains paused.
-Local port binding is denied by this sandbox (Vite5173 `EPERM`, API8000 `Errno1`),
-so no live URL is claimed: start `make preview` in a normal host terminal, then
-open `http://127.0.0.1:5173` when testing resumes. See the
-[preview handoff](wo04-preview-handoff.md). Earlier pause statements below are
-historical; full WO-03/04/05 acceptance and physical/paid/WO-10/flight gates remain.
+**Preview source published:** [PR #17](https://github.com/kudratsingh/rocket-twin/pull/17)
+is merged after both [exact-head hosted jobs](https://github.com/kudratsingh/rocket-twin/actions/runs/41185864536) passed.
+This does not complete visual acceptance or full WO-04/05.
 
+**Current preview verified locally:** after the owner restarted the host services,
+the designated frontend Terra agent checked all four current-CAD configurations
+in Chrome (42 / 42 / 53 / 51 parts). Selection, visibility/isolation, exploded
+view, fit/reset/orbit/zoom, current G80/G54 replay, event/time/speed/camera controls,
+graph scrubbing, feet/mph labels and two-run comparison responded. Finless
+unguided simulation is disabled with an explanation. A CSS-only fix separates
+balance-point/aerodynamic-force labels and wraps narrow tree/footer text; actual
+marker positions and backend values are unchanged. See
+[verification follow-up PR #18](https://github.com/kudratsingh/rocket-twin/pull/18)
+and [the current handoff](wo04-preview-handoff.md).
+
+A fresh browser-triggered G80 experiment at1m/s toward90°, zero gust, completed
+as `exp-1f2178e749f049f18181e123078679bd`; progress, save, replay and comparison
+with calm G80 were observed. Input/specification/CAD/model hashes match between
+those two runs; wind is the only case change. These are preliminary, locked,
+unguided simulations. Current compatible Analysis fields remain unavailable;
+stale fields attach no overlay, old thermal fields stay SUPERSEDED, and the
+failed baffle finding stays FAILED. Actual app screenshots were emitted through
+the computer-use tool; no screenshot files were saved by that API.
+
+The working host URL is `http://127.0.0.1:5173`, launched with `make preview`.
+The earlier sandbox bind errors and stale host snapshot are resolved for current
+browser use after the owner's restart. The primary does not use computer tools
+concurrently with the frontend agent. Full WO-03/04/05 completion and all
+physical/paid/WO-10/flight gates remain open/intact. Earlier preview pause and
+startup-blocker statements below are historical.
 
 **Current closure plan:** [three bounded deliverables](wo03-closure-plan.md):
 known-answer thermal error isolation → credible actual-geometry temperatures or
@@ -54,14 +73,14 @@ a software check never overrides the engineering findings above.
 
 
 
-**Owner-directed return to WO-03 (2026-10-30):** engineering development is resumed.
+**Historical return-to-WO-03 checkpoint (2026-10-30; preview pause superseded above):** engineering development resumed.
 Frontend preview and computer-use work remain paused. Saved preview edits and run
 records remain local; its focused PR has not yet been opened. The current work is
 the complete brace-ring/bond/body load path, required thermal cases and recovery
 within the unchanged G12 guide/mass screen, including installed fin/root behavior.
 Candidate corrections remain isolated until one complete package is revalidated.
 
-**WO-03 active and open; authorized early WO-04/05 preview is paused.**
+**WO-03 remains active and open; the early preview is separately authorized as recorded above.**
 Custom construction, maximum practical conventional performance and committed
 PID-to-RL remain core. [ADR-0009](adr/0009-early-inspection-experiments.md) records the
 owner's explicit sequence exception for read-only inspection, recorded Analysis,
@@ -139,8 +158,9 @@ An earlier whole local check passed **187 tests**, Ruff/Black and strict typing
 The focused PR receives its own required exact-head hosted checks.
 These are regression/method checks, not expanded engineering or flight acceptance.
 
-The unmerged local preview is `http://127.0.0.1:5173`; its local `make preview`
-launcher and frontend changes are held for a separate PR while preview work is paused.
+At that earlier checkpoint, the local preview at `http://127.0.0.1:5173` was
+unmerged and held for a separate PR. It was subsequently published in PR #17
+and current verification is recorded above.
 The owner started the host servers because this session cannot bind ports or reach
 npm. The configuration-switching bug (duplicate sibling component keys retaining
 earlier parts panels) is corrected. The post-fix Chrome cycle verified one parts

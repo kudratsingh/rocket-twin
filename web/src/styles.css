@@ -647,6 +647,9 @@ kbd {
 .cg-label {
   color: #7bdbd5;
   border-color: #376e70;
+  /* Keep the balance-point label to the left of its unchanged marker. */
+  margin-left: 0;
+  margin-right: 100px;
 }
 .mesh-warning {
   position: absolute;
@@ -1538,6 +1541,17 @@ kbd {
 }
 
 @media (max-width: 1100px) {
+  .app-status {
+    height: auto;
+    min-height: 28px;
+    gap: 8px;
+    padding-block: 4px;
+  }
+  .app-status > span {
+    flex: 1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
   .acceptance-banner {
     height: auto;
     min-height: 34px;
@@ -1683,5 +1697,22 @@ kbd {
   .candidate-section {
     padding-right: 12px;
     padding-left: 12px;
+  }
+}
+
+/* At narrow desktop widths give part names room before their mass. */
+@media (max-width: 900px) {
+  .tree-select {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .tree-name {
+    min-width: 0;
+    flex-basis: calc(100% - 13px);
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  .tree-mass {
+    margin-left: 13px;
   }
 }

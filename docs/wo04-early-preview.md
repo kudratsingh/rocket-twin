@@ -62,6 +62,18 @@ full Parquet telemetry. Both use CAD revision
 Replay uses recorded north/east/down position and quaternions, with a tested transform
 to the CAD/display axes. No browser flight integration.
 
+## Current-revision browser continuation — 2026-10-31
+
+After the owner restarted the host services, the current CAD identity and the
+two newer saved runs were checked in the designated Chrome window. A subsequent
+browser-triggered G80 experiment at 1 m/s wind toward 90° and zero gust,
+`exp-1f2178e749f049f18181e123078679bd`, completed, loaded, replayed and was
+compared with the current calm G80 run. The CG/CP labels were separated by a
+CSS-only change; marker positions and backend values remain unchanged. See the
+[current handoff](wo04-preview-handoff.md) for exact observed actions, run IDs,
+layout limitations and the still-unavailable compatible analysis overlays. The
+older browser evidence below remains historical.
+
 ## Current identity update — 2026-10-31
 
 The seven exports described below and the two browser-tested runs above use an
