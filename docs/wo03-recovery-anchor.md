@@ -1,5 +1,12 @@
 # WO-03 direct recovery anchor: wider ports and saddles
 
+The later [complete bill and forward-cap/opening-load audit](wo03-recovery-budget-closure.md)
+supersedes this page's 14-end mass envelope for integrated decisions. It counts
+18 ends, an actual junction and forward-frame material; it also executes nominal
+CAD and exposes link/servo interferences and rail load-transfer failures. The
+figures below remain the original isolated prototype results, not current
+integrated acceptance evidence.
+
 **Prototype only; not adopted or qualified.** This revision puts the G11 ports on a 10 mm pitch and adds integral rounded saddles. The analytical section screens pass their estimated limits for the listed cases, but the conservative illustrative splice-length budget pushes the G12 candidate above the projected mass headroom. The splice material and actual end count have not been measured; neither the 200 mm-per-end budget nor the earlier 90 mm return is demonstrated to comply with the manufacturer procedure. G11 bond peel, anchoring, thermal protection, exact routing, full assembly and owner-performed tests remain open.
 
 Run `.venv/bin/python scripts/wo03_recovery_anchor.py --config configs/studies/wo03-recovery-anchor.yaml --preset tiny`. The ignored record contains the cases, source hashes, resolved-part force split and Boolean model masses. It uses the current vehicle specs, not the primary agent's unmerged integrated battery, fin, rail, and mount variants. No active spec or generator is edited.

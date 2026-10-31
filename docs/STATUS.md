@@ -4,9 +4,54 @@ Updated: 2026-10-30 (run IDs use UTC)
 
 ## Current work order
 
-**WO-03 active; integrated corrections adopted, expanded acceptance open.**
+**Owner-directed return to WO-03 (2026-10-30):** engineering development is resumed.
+Frontend preview and computer-use work remain paused. Saved preview edits and run
+records remain local; its focused PR has not yet been opened. The current work is
+the complete brace-ring/bond/body load path, required thermal cases and recovery
+within the unchanged G12 guide/mass screen, including installed fin/root behavior.
+Candidate corrections remain isolated until one complete package is revalidated.
+
+**WO-03 active and open; authorized early WO-04/05 preview is paused.**
 Custom construction, maximum practical conventional performance and committed
-PID-to-RL remain core. No WO-04 transition or physical/flight release.
+PID-to-RL remain core. [ADR-0009](adr/0009-early-inspection-experiments.md) records the
+owner's explicit sequence exception for read-only inspection, recorded Analysis,
+real backend experiments and replay/comparison. Full WO-04/05 prerequisites and
+completion criteria remain; no engineering, physical-build or flight release.
+
+The current correction studies verify finite axial/peel calculation fixtures,
+reject the thin paper doubler, and identify the brace-stiffness loss from enlarged
+shield bores. Segmented foils preserve the original bores and calculate G54
+44.749°C in one combined hot/degraded-foil corner, with only 0.251 K reserve;
+the complete candidate matrix and a compatible G12 shield remain open. The
+forward-shifted carbon/PVC fin/root copy is 81.948 g, with explicit gap bonds.
+Reallocating duplicated root adhesive removes 3.626547 g from the vehicle bill.
+The complete recovery/fin copy with an 8 g thermal mass probe passes the guide
+arithmetic narrowly (10.01298 m/s on current rails), but rod/cassette motion and
+matched/single-leg rail capacity still fail. No candidate is adopted. See the
+[closure table](wo03-package-closure-progress.md), [thermal correction](wo03-multilayer-shield.md),
+[fin/root study](wo03-trainer-fin-package.md) and [recovery audit](wo03-recovery-budget-closure.md).
+
+Latest local validation: `make check smoke` passes **148 tests**, lint, formatting
+and strict typing. `make benchmark` passes the unchanged active static platform
+and actual G80/finned-G12 RocketPy comparisons, including the 4,096-environment
+CPU step: `wo01-platform-20261031T015813020621Z` and
+`wo02-20261031T015813539484Z`. These are regression results for the active vehicles,
+not acceptance or flight predictions for the rejected/candidate corrections.
+
+The unmerged local preview is `http://127.0.0.1:5173`; its local `make preview`
+launcher and frontend changes are held for a separate PR while preview work is paused.
+The owner started the host servers because this session cannot bind ports or reach
+npm. The configuration-switching bug (duplicate sibling component keys retaining
+earlier parts panels) is corrected. The post-fix Chrome cycle verified one parts
+list and one centered viewer for all four designs, selection, isolation, body
+hiding and explosion. Two browser-triggered full CPU JAX runs completed, replayed
+and loaded as a comparison: G80 calm `exp-173525a242be493e8e3268471b8e16aa` and
+conditional G54 with 3 m/s eastward wind `exp-da02d58e35af404faf2802bea54c942b`.
+Preview evidence is saved locally in `docs/wo04-early-preview.md`. TypeScript, lint, three
+frontend boundary tests and the production build pass. The API serves actual
+hash-checked CAD/specification data, and a real tiny JAX experiment test passes. These are
+implementation checks, not full work-order acceptance. Experiment runs are
+preliminary and unguided; finless unguided execution is unsupported.
 
 The active specs now combine the recovery package, stiffer fins/gussets, hot G11
 supports, mica/foil and serial end-pad isolation, improved fits and motor retention.
@@ -21,9 +66,10 @@ motor-CG sensitivity fails, along with high-case/degraded-foil shell temperature
 
 The preserved PR #9 CAD export `wo03-20261030T205235088123Z` passes all six variants,
 neutral rigid intersections and both 25-pose TVC sweeps at that CAD revision.
-Local source-owned bore/machining support has since changed the CAD code identity;
-`wo03-20261030T232131510413Z` reconciles the unchanged active geometry/property caches,
-but does not substitute for a fresh complete motion/export benchmark. The preserved
+Local source-owned bore/machining support changed the CAD code identity. Fresh
+`wo03-20261031T000244802098Z` passes all six CAD mass/solid/interface cases and both
+25-pose TVC sweeps with unchanged inputs; active geometry remains the PR #9 design.
+This export benchmark does not close expanded engineering acceptance. The preserved
 27-case flight campaign `wo02-20261030T204849990760Z` passes the five nominal RocketPy
 comparisons and 4,096-env CPU step with unchanged code/inputs. G12 reference errors
 are now 2.064% altitude / 0.917% time, not the historical 0.004% claim.
@@ -35,11 +81,14 @@ installed-root peel/stiffness and full flutter remain open. Minimum frame/liner
 fits, service/arming/routing and recovery-anchor capacity remain design items.
 Physical qualification is separately retained in the owner-performed stages.
 
-PRs #4–9 are merged after required hosted checks. The integrated baseline is
-`2c7fc132c377f8bac7b9bb4f7e880ba84605c6d8` ([PR #9](https://github.com/kudratsingh/rocket-twin/pull/9)).
+PRs #4–10 are merged after required hosted checks. Geometry remains the
+[PR #9](https://github.com/kudratsingh/rocket-twin/pull/9) integrated baseline.
+[PR #10](https://github.com/kudratsingh/rocket-twin/pull/10) publishes the subsequent
+analysis/budget tools at `e41c6c0693da02afa27b1c208cbd97eb16c73261`; exact-head
+workflow `41149095128` passed before merge.
 The next correction package remains isolated: no braced-mount, recovery-anchor or
 trainer-fin candidate is adopted merely because an individual screen passes.
-Current follow-on test run: 123 tests pass. See the [three-priority closure progress](wo03-package-closure-progress.md),
+Earlier closure-foundation test run: 123 tests passed; the latest local check is recorded above. See the [three-priority closure progress](wo03-package-closure-progress.md),
 [checkpoint](wo03-current-checkpoint.md) and [results](results.md). No purchase, physical work or paid compute.
 
 ### Completed WO-02 milestone

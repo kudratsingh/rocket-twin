@@ -409,9 +409,14 @@ def copy_sources(source: dict[str, Any], cfg: dict[str, Any]) -> dict[str, Any]:
         generator="envelope",
         parameters={
             "machining_holes": [
-                {"start_mm": [x, -2.2, z], "axis": [0, 1, 0], "diameter_mm": 5.4, "length_mm": 4.4}
-                for x in (-6.985, 6.985)
-                for z in (1.575, 33.325)
+                {
+                    "start_mm": [x, -2.2, z],
+                    "axis": [0, 1, 0],
+                    "diameter_mm": 5.4,
+                    "length_mm": 4.4,
+                }
+                for x in cfg["cad_geometry"]["controller_hole_x_mm"]
+                for z in cfg["cad_geometry"]["controller_component_holes_local_mm"]
             ]
         },
         role="purchased_envelope",
@@ -419,6 +424,8 @@ def copy_sources(source: dict[str, Any], cfg: dict[str, Any]) -> dict[str, Any]:
         description="Estimated 4.4 mm component keepout over the EasyMini PCB; only the four 5.4 mm reliefs are represented, exact component locations require board revision drawing/inspection.",
     )
     data["parts"].append(components)
+    recovery_battery = parts["recovery_battery"]
+    recovery_battery["lateral_offset_m"] = cfg["layout"]["battery"]["body_lateral_yz_m"]
     # Switch wall hole is a single radial bore in the study copy of body_upper.
     upper = parts["body_upper"]
     upper.pop("cad_mass", None)
@@ -577,10 +584,17 @@ def swept_clearance(
     source_tolerance_mm: float = 0.25,
     tolerance_obstacle_ids: set[str] | None = None,
     start_offset_mm: tuple[float, float, float] = (0.0, 0.0, 0.0),
+    expected_start_contacts: set[tuple[str, str]] | None = None,
+    analytic_obstacles: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """Check a translational service path against actual BReps and expanded bounds."""
+    """Check path with BReps; accept explicit radial-containment proof for rings."""
     moved = [pid for pid in moving_ids if pid in solids]
+    analytic_obstacles = analytic_obstacles or {}
     obstacles = [pid for pid in obstacle_ids if pid in solids and pid not in moving_ids]
+    analytic_obstacles = {
+        pid: proof for pid, proof in analytic_obstacles.items() if pid in obstacles
+    }
+    obstacles = [pid for pid in obstacles if pid not in analytic_obstacles]
     tolerance_obstacles = (
         set(obstacles)
         if tolerance_obstacle_ids is None
@@ -589,6 +603,8 @@ def swept_clearance(
     nominal_hit: dict[str, Any] | None = None
     tolerance_hit: dict[str, Any] | None = None
     min_pair_clearance: float | None = None
+    expected_start_contacts = expected_start_contacts or set()
+    observed_start_contacts: set[tuple[str, str]] = set()
     for i in range(steps + 1):
         fraction = i / steps if steps else 0.0
         dx, dy, dz = (start_offset_mm[j] + translation[j] * fraction for j in range(3))
@@ -599,31 +615,43 @@ def swept_clearance(
             for obstacle_id in obstacles:
                 obstacle = solids[obstacle_id]
                 obstacle_bounds = _bounds(obstacle)
-                if _bounds_overlap(shifted_bounds, obstacle_bounds):
-                    separation = shifted.distance(obstacle)
-                    if nominal_hit is None and separation < 0.05:
+                nominal_aabb = _bounds_overlap(shifted_bounds, obstacle_bounds)
+                tolerance_aabb = obstacle_id in tolerance_obstacles and _bounds_overlap(
+                    shifted_bounds, obstacle_bounds, 2 * source_tolerance_mm
+                )
+                if nominal_aabb and nominal_hit is None:
+                    overlap_volume = shifted.intersect(obstacle).Volume()
+                    if overlap_volume > 0.05:
                         nominal_hit = {
                             "step": i,
                             "fraction": fraction,
                             "moving_part": moving_id,
                             "obstacle_part": obstacle_id,
+                            "intersection_volume_mm3": overlap_volume,
                         }
-                    if obstacle_id in tolerance_obstacles:
-                        min_pair_clearance = (
-                            separation
-                            if min_pair_clearance is None
-                            else min(min_pair_clearance, separation)
-                        )
-                        if tolerance_hit is None and separation < 2 * source_tolerance_mm:
-                            tolerance_hit = {
-                                "step": i,
-                                "fraction": fraction,
-                                "moving_part": moving_id,
-                                "obstacle_part": obstacle_id,
-                                "measured_brep_separation_mm": separation,
-                                "required_two_sided_separation_mm": 2 * source_tolerance_mm,
-                                "basis": "BRep minimum-distance check with 0.25 mm applied to both parts",
-                            }
+                if tolerance_aabb:
+                    separation = shifted.distance(obstacle)
+                    pair = tuple(sorted((moving_id, obstacle_id)))
+                    expected_start_contact = (
+                        i == 0 and pair in expected_start_contacts and separation < 0.05
+                    )
+                    min_pair_clearance = (
+                        separation
+                        if min_pair_clearance is None
+                        else min(min_pair_clearance, separation)
+                    )
+                    if expected_start_contact:
+                        observed_start_contacts.add(pair)
+                    elif tolerance_hit is None and separation < 2 * source_tolerance_mm:
+                        tolerance_hit = {
+                            "step": i,
+                            "fraction": fraction,
+                            "moving_part": moving_id,
+                            "obstacle_part": obstacle_id,
+                            "measured_brep_separation_mm": separation,
+                            "required_two_sided_separation_mm": 2 * source_tolerance_mm,
+                            "basis": "BRep minimum-distance check with 0.25 mm applied to both parts",
+                        }
         if nominal_hit and tolerance_hit:
             break
     return {
@@ -638,8 +666,10 @@ def swept_clearance(
         "expanded_bound_collision_candidate": tolerance_hit,
         "expanded_bound_clear": tolerance_hit is None,
         "minimum_checked_brep_separation_mm": min_pair_clearance,
+        "expected_start_contact_pairs": sorted([list(x) for x in observed_start_contacts]),
         "moving_parts": sorted(moved),
-        "checked_obstacle_parts": sorted(obstacles),
+        "checked_obstacle_parts": sorted(obstacles + list(analytic_obstacles)),
+        "analytic_radial_obstacle_proofs": analytic_obstacles,
     }
 
 
@@ -752,6 +782,7 @@ def main() -> int:
         # CAD solids. Fasteners are removed and electrical leads disconnected
         # before carrier extraction; the flexible battery band is released first.
         body = next(p for p in vehicle.parts if p.id == "body_upper")
+        body_end_station = body.position_m + float(body.geometry["length_m"])
         body_inner_radius = float(body.geometry["inner_radius_m"]) * 1000.0
         carrier_group = {
             "recovery_mount_carrier",
@@ -769,25 +800,71 @@ def main() -> int:
             "recovery_battery_band",
             "recovery_mount_hardware_allowance",
         }
+        aft_module_parts = {
+            "aft_shell",
+            "aft_interface_hardware",
+            "aft_retainer",
+            "aft_thrust_pads",
+            "cassette_mount_screws",
+            "fin_bonds",
+            "fin_set",
+            "gimbal_frame",
+            "gimbal_inner",
+            "gimbal_links",
+            "inner_pivots",
+            "motor",
+            "motor_liner",
+            "motor_mount",
+            "motor_radiant_shield",
+            "outer_pivots",
+            "retention",
+            "retention_hardware",
+            "servo_horns",
+            "servo_pitch",
+            "servo_support",
+            "servo_yaw",
+            "thrust_pads",
+        }
+        removed_aft_module = set(solids) & aft_module_parts
         shell_ids = {"body_upper", "aft_shell", "interface_coupler", "nose_cone"}
         carrier_obstacles = (
-            set(solids) - carrier_group - service_removed_or_disconnected - {"nose_cone"}
+            set(solids) - carrier_group - service_removed_or_disconnected - removed_aft_module
         )
         carrier_tolerance_obstacles = carrier_obstacles - shell_ids
-        # Remove the nose first, then draw the complete carrier through the
-        # front opening until its front end reaches station zero.
-        carrier_translation_z = -cfg["layout"]["carrier_front_station_m"] * 1000.0
+        carrier_radial_max = max(_max_radial_bound_mm(solids[part_id]) for part_id in carrier_group)
+        part_specs = {part.id: part for part in vehicle.parts}
+        radial_bores: dict[str, dict[str, Any]] = {}
+        for obstacle_id in ("body_upper", "interface_coupler", "joint_stop"):
+            obstacle = part_specs[obstacle_id]
+            bore_mm = float(obstacle.geometry["inner_radius_m"]) * 1000.0
+            if obstacle_id == "joint_stop":
+                parameters = obstacle.cad.parameters
+                keyed_bore = float(parameters["key_radius_mm"]) - float(parameters["key_depth_mm"])
+                bore_mm = min(bore_mm, keyed_bore)
+            clearance = bore_mm - carrier_radial_max
+            radial_bores[obstacle_id] = {
+                "minimum_bore_radius_mm": bore_mm,
+                "moving_package_outer_radial_bound_mm": carrier_radial_max,
+                "nominal_radial_clearance_mm": clearance,
+                "clearance_after_two_0p25mm_source_tolerances_mm": clearance - 0.5,
+                "passed": clearance - 0.5 > 0,
+            }
+        # Remove the aft module at its existing joint, then draw the complete
+        # carrier aft through the coupler opening and clear the upper bay.
+        carrier_translation_z = (
+            body_end_station - cfg["layout"]["carrier_front_station_m"]
+        ) * 1000.0
         carrier_sweep = swept_clearance(
             solids,
             moving_ids=carrier_group,
             obstacle_ids=carrier_obstacles,
             tolerance_obstacle_ids=carrier_tolerance_obstacles,
             translation=(0.0, 0.0, carrier_translation_z),
-            steps=math.ceil(carrier_translation_z / 2.0),
-            label="remove_nose_disconnect_leads_remove_mounts_then_slide_carrier_forward_through_opening",
+            steps=math.ceil(abs(carrier_translation_z) / 2.0),
+            label="remove_aft_module_disconnect_leads_remove_mounts_then_slide_carrier_aft_through_coupler",
+            analytic_obstacles=radial_bores,
         )
-        carrier_radial_max = max(_max_radial_bound_mm(solids[part_id]) for part_id in carrier_group)
-        carrier_tube_clearance = body_inner_radius - carrier_radial_max
+        carrier_tube_clearance = radial_bores["body_upper"]["nominal_radial_clearance_mm"]
         carrier_tube_clearance_tolerance = carrier_tube_clearance - 0.5
 
         cell_id = "recovery_battery"
@@ -812,6 +889,7 @@ def main() -> int:
             translation=(0.0, -cell_lift_mm, 0.0),
             steps=math.ceil(cell_lift_mm / 0.5),
             label="after_carrier_withdrawal_unplug_release_band_then_lift_cell_outward_from_tray",
+            expected_start_contacts={("recovery_battery", "recovery_battery_tray")},
         )
         cell_lane_shape = withdrawn_group[cell_id].translate(cq.Vector(0, -cell_lift_mm, 0))
         cell_radial_max = _max_radial_bound_mm(cell_lane_shape)
@@ -824,19 +902,22 @@ def main() -> int:
             carrier_sweep["nominal_brep_clear"]
             and carrier_sweep["expanded_bound_clear"]
             and carrier_tube_clearance_tolerance > 0.0
+            and all(proof["passed"] for proof in radial_bores.values())
         )
         package_sweeps = {
             "carrier_removal": {
                 **carrier_sweep,
-                "active_body_upper_front_end_station_m": body.position_m,
+                "active_body_upper_aft_end_station_m": body_end_station,
                 "carrier_front_station_m": cfg["layout"]["carrier_front_station_m"],
-                "axial_translation_mm_through_nose_opening": carrier_translation_z,
+                "axial_translation_mm_through_coupler_opening": carrier_translation_z,
+                "removed_aft_module_parts_before_sweep": sorted(removed_aft_module),
                 "max_package_radial_extent_mm": carrier_radial_max,
                 "body_inner_radius_mm": body_inner_radius,
                 "nominal_tube_radial_clearance_mm": carrier_tube_clearance,
                 "tube_radial_clearance_after_two_source_tolerances_mm": carrier_tube_clearance_tolerance,
+                "minimum_radial_bore_clearances": radial_bores,
                 "clear_under_screened_assumptions": carrier_removal_clear,
-                "requires_nose_removal_six_carrier_screws_and_controller_output_disconnection": True,
+                "requires_removing_aft_module_six_carrier_screws_and_controller_output_disconnection": True,
             },
             "battery_extraction": {
                 "path_segments": [radial_lift],

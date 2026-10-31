@@ -48,3 +48,15 @@ the shared JAX/YAML architecture, independent RocketPy and existing sequence rem
 See the [closure table](../wo03-correction-closure.md) for current calculated results,
 unresolved design items and separate owner-performed WO-09–11 verification. Purchases,
 physical work, paid runs, WO-10 owner review and flight release remain gated.
+
+## Subsequent correction studies
+
+The later [closure progress](../wo03-package-closure-progress.md),
+[bonded-path study](../wo03-bonded-support.md),
+[segmented thermal shield](../wo03-multilayer-shield.md),
+[carbon/PVC fin-root candidate](../wo03-trainer-fin-package.md) and
+[recovery audit](../wo03-recovery-budget-closure.md) do not supersede this adopted
+vehicle. They correct physical-interface and mass-accounting assumptions and
+preserve failed load, motion and thermal cases. A favorable isolated calculation
+does not amend active geometry or close WO-03. Adoption still requires one complete
+configuration with reconciled properties and all applicable revalidation.

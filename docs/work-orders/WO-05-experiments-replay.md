@@ -2,6 +2,22 @@
 
 Branch: `wo-05-experiments`. Tier: Mac.
 
+## Limited early-preview authorization
+
+On 2026-10-30 the owner authorized real experiments, replay, understandable
+synchronized graphs and two-run comparison alongside early inspection while
+WO-03 remains open (ADR-0009). Use complete G80/G54/locked finned-G12 source
+configurations, independent saved runs and the existing Python/JAX implementation.
+Expose wind speed/direction and supported gust settings, progress, useful errors,
+configuration/model hashes and recorded events. Reject unsupported finless
+unguided runs; no active PID/RL controller is introduced.
+
+Verify changing settings, executing two actual runs, replaying their recorded
+position/orientation and comparing the results in the running local app. Keep
+preliminary/unguided status, model-domain and engineering warnings explicit. This
+subset does not waive the complete benchmark below, prerequisite acceptance,
+Arrow/channel-picker/long-run performance deliverables or physical/flight gates.
+
 ## Deliverables
 
 1. API: `POST /api/experiments` runs the sim (WO-02) in a background task with overrides from

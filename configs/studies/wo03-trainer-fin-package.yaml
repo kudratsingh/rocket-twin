@@ -1,0 +1,80 @@
+id: wo03-trainer-fin-package
+status: isolated_candidates_not_adopted
+base_vehicle: configs/vehicle/platform/tvc-finned.yaml
+budget_config: configs/studies/wo03-recovery-mass-budget.yaml
+flight_record: runs/wo02-20261030T204849990760Z/record.json
+recovery_increment_kg: 0.0521681144749093
+package_a_rail_mass_saving_kg: 0.002111
+candidates:
+  - id: metric-5mm-gusset-20mm
+    thickness_m: 0.005
+    gusset_span_mm: 20
+  - id: metric-4mm-gusset-32mm
+    thickness_m: 0.004
+    gusset_span_mm: 32
+solver_timeout_s: 900
+root_closure:
+  id: wo03-trainer-carbon-pvc5-forward25-backed-reconciled
+  prior_unreconciled_record: build/wo03-trainer-fin-root/pvc5-forward25-backed/record.json
+  root_adhesive_budget:
+    part_id: fin_bonds
+    baseline_tabs_and_fillets_kg: 0.006
+    baseline_gussets_kg: 0.002
+    allocation_basis: Reallocate only the explicitly modeled tab, gusset-face and curved-foot bonds from the existing 6 g tab/fillet plus 2 g gusset allowance. Keep the residual for unmodeled fillets and application variation. New skin/core/cap/tip-seal/frame-gap bonds remain additional.
+  historical_panel_report: build/wo03-trainer-fin-package/extended/metric-5mm-gusset-20mm/fin-fea/modular-tvc-finned-v1/wo03-fin-acceptance-20261031T000111044153Z/report.json
+  historical_refinement_report: build/wo03-trainer-fin-package/refine-2mm/comparison.json
+  forward_shift_m: 0.025
+  root_band_m: 0.020
+  core_thickness_m: 0.005
+  core_thickness_tolerance_m: 0.0003
+  skin_thickness_m: 0.00022
+  skin_thickness_tolerance_m: 0.00010
+  skin_areal_mass_kg_m2: 0.35
+  skin_youngs_pa_typical: 50100000000
+  skin_tensile_strength_pa_typical: 641000000
+  core_density_kg_m3: 75
+  core_youngs_pa_typical: 97000000
+  core_shear_pa_typical: 30000000
+  core_shear_strength_pa_typical: 1200000
+  face_bond_thickness_m: 0.0001
+  gusset_face_bond_thickness_m: 0.0001
+  foot_bond_thickness_m: 0.0001
+  edge_cap_thickness_m: 0.0002
+  edge_cap_overlap_m: 0.005
+  edge_cap_bond_thickness_m: 0.00005
+  tip_edge_seal_mass_kg: 0.001
+  hot_property_fraction: 0.5
+  design_factor: 3
+  hot_adhesive_youngs_pa_estimate: 1000000000
+  adhesive_poisson_estimate: 0.3
+  root_bond_thickness_sensitivity_m: [0.0001, 0.0003]
+  cold_skin_shear_pa_estimate: [2000000000, 5000000000]
+  cold_cap_shear_pa_estimate: 4000000000
+  added_recovery_mass_kg_hypothesis: 0.064
+  added_thermal_mass_kg_hypothesis: [0.008, 0.014]
+  sources:
+    skin:
+      url: https://media.easycomposites.co.uk/datasheets/EC-TDS-Double-Sided-High-Strength-Carbon-Sheet.pdf
+      version: 1.2; revised 2026-04-02; retrieved 2026-10-30
+      basis: Typical production sheet data, not guaranteed minima; 0.25 mm product is 0.22 +/-0.10 mm and 0.35 kg/m2; E0/90 50.1 GPa, tensile strength 641 MPa. Single ply; compression, 45-degree, transverse and full laminate engineering constants unavailable.
+    core:
+      url: https://media.easycomposites.co.uk/datasheets/EC-TDS-Easy-Cell-75-Closed-Cell-PVC-Foam.pdf
+      version: 1.0; revised 2025-07-15; retrieved 2026-10-30
+      basis: Typical density 75 kg/m3, compression modulus 97 MPa, shear modulus 30 MPa, shear strength 1.2 MPa; no hot allowables or thickness tolerance established. The 0.3 mm core tolerance is an explicit conservative study assumption.
+    assembly:
+      url: https://www.easycomposites.co.uk/double-sided-high-strength-carbon-fibre-sheet
+      basis: Supplier discusses bonding thin cured sheets to foam using epoxy and preparing the glossy bonding surfaces; this does not establish this root or bond strength.
+  property_status: The hot reduction, adhesive stiffness, glass-cap and skin shear values are study estimates; retain the existing 45 C substrate screen. Supplier Tg/service/processing temperatures are not a new rocket temperature limit.
+pressure_seal_trade:
+  nominal_thicknesses_m: [0.003, 0.0035]
+  thickness_tolerance_m: 0.0003
+  assumed_service_differential_pa: 25000
+  proposed_proof_differential_pa: 50000
+  pressure_design_factor: 3
+  youngs_modulus_pa_estimate: 10000000000
+  poisson_estimate: 0.3
+  bond_axial_overlap_m: 0.0015
+  hot_bending_screen_pa_estimate: 25000000
+  hot_bond_shear_screen_pa_estimate: 1000000
+  collar_mass_cases_kg: [0.006, 0.010]
+  basis: Proposed bounded pressure differential, not a measurement or ejection-charge rating; charge and vent behavior must establish applicability.

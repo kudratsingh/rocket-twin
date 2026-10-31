@@ -137,10 +137,17 @@ alternative motor configurations and uncertainty/recovery study now pass the
 numerical benchmark on Mac CPU. [Results](results.md), [study](wo02-flight-study.md).
 G54 is the conditional near-160 N s upgrade lead; fixed G12 has higher calm altitude
 but guide/wind/thermal/recovery penalties. No hardware freeze or sequence revision.
-Use these measured numerical loads/trajectory limits in WO-03 and the later PID/RL,
+Use these calculated loads/trajectory limits in WO-03 and the later PID/RL,
 sensor, independent recovery and flight-release gates.
 
 ## Engineering evidence expansion (ADR-0007)
+
+The owner's 2026-10-30 sequence exception in [ADR-0009](adr/0009-early-inspection-experiments.md)
+allows limited WO-04 inspection/recorded Analysis and WO-05 experiments/replay
+alongside open WO-03. The first deliverable is a usable local inspector of actual
+CAD/resolved designs. Real backend/JAX runs, synchronized replay/graphs and two-run
+comparison follow without implying engineering or flight acceptance. The full
+work-order prerequisites and every physical/paid/firmware/flight gate remain.
 
 The owner expanded WO-03 on 2026-10-29: executed structural calculations and
 targeted verified/converged FEA; bounded transient thermal and post-burn soak
@@ -178,3 +185,15 @@ attachment uncertainty and joint/gimbal/sensor/servo interactions; unresolved
 critical conclusions keep WO-03 open. The frontend exposes recorded traceability;
 WO-06–12 carry risks through modeling, fair PID/RL evaluation, owner acceptance,
 HIL, operating procedures and held-out measurement/flight correlation.
+
+The current WO-03 correction package prioritizes the complete bonded brace-ring/
+body/joint path, the explicit configuration-specific thermal acceptance matrix and
+the entire independent recovery package within the unchanged G12 guide/mass
+criterion. [Closure progress](wo03-package-closure-progress.md) separates candidate
+screens from the active integrated vehicle. Required thermal failures, joint
+strength/stiffness, installed fin/root/flutter, retention and service-access items
+remain completion gates. A lighter battery, panel or pressure bulkhead is an
+explicit construction trade with its own verification, not an automatic budget
+credit. Full WO-04 completion depends on one adopted package passing expanded
+WO-03 acceptance and being recorded. The owner-authorized limited preview remains
+a separate exception and is currently paused while WO-03 work resumes.

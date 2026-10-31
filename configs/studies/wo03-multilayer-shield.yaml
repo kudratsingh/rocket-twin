@@ -1,0 +1,56 @@
+id: wo03-multilayer-shield
+status: isolated_thermal_and_nominal_fit_study_not_adopted
+source_record: build/wo03-correction-package/latest-record.json
+acceptance_matrix: configs/engineering/wo03-thermal-acceptance.yaml
+configurations:
+  G80: build/wo03-correction-package/latest/G80-0.070/resolved-candidate.yaml
+  G54: build/wo03-correction-package/latest/G54-0.075/resolved-candidate.yaml
+candidates:
+  - id: reference_no_added_foils
+    additional_radii_m: []
+  - id: three_total_foils
+    additional_radii_m: [0.018, 0.022]
+  - id: four_total_foils
+    additional_radii_m: [0.018, 0.020, 0.022]
+  - id: five_total_foils
+    additional_radii_m: [0.017, 0.0186666667, 0.0203333333, 0.022]
+  - id: six_total_foils
+    additional_radii_m: [0.017, 0.01825, 0.0195, 0.02075, 0.022]
+  - id: six_total_foils_wide
+    additional_radii_m: [0.017, 0.018875, 0.02075, 0.022625, 0.0245]
+  - id: eight_total_foils_wide
+    additional_radii_m: [0.017, 0.01825, 0.0195, 0.02075, 0.022, 0.02325, 0.0245]
+foil_wall_m: 0.00002
+mount_bore_radial_clearance_m: 0.0003
+ring_axial_clearance_m: 0.0005
+front_axial_clearance_m: 0.002
+retention_axial_clearance_m: 0.002
+spacer_axial_length_m: 0.001
+spacer_material: mica
+spacer_variants:
+  full_ring: null
+  three_10deg_pads: 10.0
+numerics:
+  tiny: {radial_cells: 8, max_step_s: 2.0, heat_flow_step_s: 1.0}
+  sim: {radial_cells: 16, max_step_s: 0.5, heat_flow_step_s: 0.25}
+scope:
+  all_foil_surfaces_degraded_in_combined_case: true
+  required_case: combined_300C_eps09_at35C
+  material_corner: high_k_low_cp
+  fixed_mount_radial_bond_gap_m: 0.00068
+  adhesive_conductivity_w_m_k: 0.15
+  interface_contact_conductance_w_k: 2.0
+  substrate_screen_c: 45
+  case_temperature_limit_changed: false
+  ambient_limit_changed: false
+  thermal_limits_changed: false
+  tvc_applicability: unavailable_pending_actual_gimbal_and_cassette_clearance
+limitations:
+  - All added foil, mica spacers and enlarged mount bores are explicit normal-generator CAD solids with rebuilt mass.
+  - Adjacent foils have serial mica end spacers; no overlapping full-radius spacer disks or invisible ideal gaps are used.
+  - This is a fixed-motor neutral-geometry study; sampled or continuous TVC clearance is not inferred.
+  - Nominal nonintersection does not verify foil roundness, seam, installation, vibration, thermal expansion or tolerances.
+  - Enlarged ring bores require new structural and buckling checks before adoption.
+  - The coaxial model retains finite-end/opening and gas-circulation limitations; passing calculated part means do not qualify hot spots.
+  - Every added foil uses the same configured contaminated emissivity in the required combined case.
+  - Missing exact motor histories and manufactured material/contact measurements remain later verification dependencies.

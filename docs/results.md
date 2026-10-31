@@ -892,3 +892,47 @@ criterion and full 50 g growth. The current 111.034 g allocation leaves 8.734 g.
 Local follow-on test run: 123 tests pass. No candidate-only pass closes the installed
 fin/root, retention, joint, thermal, recovery-service or integrated WO-03 gates.
 No WO-04 start, physical build, purchases, paid run or flight readiness is claimed.
+
+
+## WO-03 correction revalidation after returning from the preview
+
+The owner resumed WO-03 while frontend/computer-use work stays paused. G80 remains
+the reference, G54 conditional and G12 the committed PID-to-RL trainer. Active
+vehicle geometry is unchanged and expanded engineering acceptance remains open.
+
+- Verified finite axial/shear and normal/peel fixtures reject the lightweight
+  100 mm upper-paper doubler under the retained material screens. Enlarging mount
+  bores for continuous multilayer shields removes substantial brace-ring stiffness;
+  the old 3.7439 frame factor cannot be reused.
+- Segmented eight-layer fixed-motor shields retain the original ring bores and
+  calculate G54 44.748953°C / G80 limiting mount 43.249891°C in one combined
+  300°C / ε=0.9 / 35°C corner. G54 reserve is only 0.251 K, with +8.899 g;
+  G80 adds 5.880 g. Source snapshots match every recorded input hash. Full matrix,
+  tolerances, support stiffness and a compatible TVC shield remain open.
+- The explicit carbon/PVC fin/root candidate moves 25 mm forward to remove the
+  unsupported 25 mm root foot and charges real gap bonds. Fin mass 81.947891 g;
+  panel estimate 0.606381 mm at 57.629 N/fin under minimum/hot assumptions. Installed
+  root stiffness/peel, compression/wrinkling and dynamic flutter remain unresolved.
+- An exact-once ledger removes 3.626547 g duplicated tab/gusset adhesive, leaving
+  4.373453 g residual from the old 8 g budget; every additional new bond remains.
+- The coherent recovery/cap/link copy adds 66.081 g. With 8 g thermal mass
+  sensitivity it passes the unchanged conservative guide arithmetic at 10.01298 m/s
+  on current rails, only 0.663 g mass margin. Eleven of 25 combined-motion poses
+  still interfere, and matched/single-leg rail loads exceed the estimated capacity.
+  A mass subtotal is not compatible thermal hardware or mechanical acceptance.
+- Smooth shared-core canopy opening loads do not bound short-stroke snatch. The
+  failed 0.3 m recovery structural screen remains required; no limit was waived.
+
+Evidence: [method/fin archive](../runs/wo03-resume-methods-20261031T020000Z/record.json),
+[recovery archive](../runs/wo03-recovery-closure-20261031T020015531834Z/record.json),
+[thermal G54](../runs/wo03-multilayer-shield-20261031T020146392505Z/record.json),
+[thermal G80](../runs/wo03-multilayer-shield-20261031T020146392490Z/record.json),
+[closure table](wo03-package-closure-progress.md).
+
+`make check smoke` passes 148 local tests, lint, formatting and strict typing.
+`make benchmark` passes the unchanged active static platform and G80/finned-G12
+RocketPy flight comparisons plus 4,096-env CPU step. Records:
+`wo01-platform-20261031T015813020621Z`, `wo02-20261031T015813539484Z`.
+The latter tiny G12 errors are 2.0744% altitude/0.9285% time; historical WO-02
+acceptance evidence is preserved. No candidate flight-accuracy or engineering
+acceptance claim is inferred. Cost $0; no purchases, physical work or paid runs.

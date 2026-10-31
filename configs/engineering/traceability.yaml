@@ -3,6 +3,43 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: runs/wo03-support-fea-20261030T225615144070Z/record.json
+  scope: Frame-only internal-brace eigenvalue study and known case.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
+    acceptance remains open; physical qualification and flight_ready false.
+- path: runs/wo03-recovery-budget-20261030T230910555661Z/record.json
+  scope: Exact unchanged G12 guide-limited complete recovery budget.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
+    acceptance remains open; physical qualification and flight_ready false.
+- path: runs/wo03-thermal-matrix-20261030T230041977112Z/case-summary.json
+  scope: 420-row explicit matrix projected to per-configuration/case worst results.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
+    acceptance remains open; physical qualification and flight_ready false.
+- path: docs/wo03-package-closure-progress.md
+  scope: Current selected-package closure progress table; isolated candidate evidence, no
+    new active package.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
+    acceptance remains open; physical qualification and flight_ready false.
+- path: docs/wo03-bonded-support.md
+  scope: Current G54 copy-only bonded load-path studies, reduced peel/axial fixtures,
+    rejected paper doubler, and enlarged-bore brace sensitivity.
+  limitation: These studies do not qualify the complete assembly; paper-interface
+    stress, bonded-shell transfer, ring/bracing response, and physical allowables remain open.
+- path: docs/wo03-trainer-fin-package.md
+  scope: Forward-shifted layered carbon/PVC fin-root candidate; 25 mm correction
+    places the root within shell/frame support; candidate remains isolated.
+  limitation: Panel reduction does not establish installed root stiffness/peel,
+    flutter, frame/body response, material allowables, or integrated flight acceptance.
+- path: runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
+  scope: Four-mode isolated recovery packaging copy with zero unexplained nominal
+    intersections and sampled carrier/cell service paths.
+  limitation: Acceptance is false; fastener/tool access, flexible routing, tolerances,
+    strength, retention, packing, and physical service remain unverified.
+- path: runs/wo03-secondary-shield-20261031T001841Z/record.json
+  scope: Corrected fixed-mount G54 R18/R22 shield geometry and required combined
+    35 C / 300 C / epsilon 0.9 thermal runs.
+  limitation: Both candidates exceed the unchanged 45 C screen; enlarged-bore
+    structural revalidation remains open and neither candidate is adopted.
 - path: runs/wo03-fin-nominal-fields-20261030T210337367164Z/record.json
   scope: Current installed fin/root and exact nominal-CAD field evidence; compact
     projection with full original report hash.
@@ -196,6 +233,7 @@ requirements:
   - design.screening_wind_mps
   - design.rail_friction_n
   - design.thrust_scale_lower
+  - design.mass_allowance_kg
   related_parts:
   - rail_guides
   - body_upper
@@ -214,9 +252,12 @@ requirements:
   - runs/wo02-20261030T173859843386Z/record.json
   - runs/wo02-20261030T204849990760Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
+  - runs/wo03-recovery-budget-20261030T230910555661Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: 'Current active G12 5 m usable-guide assumption is unconfirmed.
+    Exact budget root retains 10 m/s, lower thrust/friction/drag and full50g growth:
+    current dedicated111.034g, maximum119.767g. Candidate construction trades are
+    not adopted.'
 - id: RT-STAB-001
   applies_to:
   - G80
@@ -244,6 +285,8 @@ requirements:
   - runs/wo02-20261030T173859843386Z/record.json
   - runs/wo03-fin-design-20261030T184422172911Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
+  - docs/wo03-integrated-vehicle.md
+  - docs/wo03-package-closure-progress.md
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly
     establishes otherwise.
@@ -307,9 +350,11 @@ requirements:
   evidence:
   - runs/wo03-20261030T180113490389Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
+  - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: PR9 vehicle remains active. New braces/bonds, shoulder, anchors,
+    rope terminations, carrier, battery and fin trades must be integrated and CAD/mass/full-inertia
+    reconciled before accepting updated flight/static margins.
 - id: RT-MASS-002
   applies_to: *id001
   purpose_source: WO-03 mass/CG/inertia consistency
@@ -358,9 +403,13 @@ requirements:
   - runs/wo03-mount-loadpath-20261030T185139862170Z/record.json
   - runs/wo03-motor-support-20261030T204829437762Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
+  - runs/wo03-fit-structure-20261030T221226140993Z/record.json
+  - runs/wo03-support-fea-20261030T225615144070Z/record.json
+  - docs/wo03-bonded-support.md
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Exact clipped sections and internal bracing are calculated; G54
+    eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint strength remains
+    open; ideal strip-end restraints are rejected as load-path proof.
 - id: RT-LOAD-002
   applies_to: *id001
   purpose_source: Fin/guide/servo loads and joints
@@ -394,6 +443,7 @@ requirements:
   - runs/wo03-fin-installed-20261030T205816596002Z/record.json
   - runs/wo03-fin-installed-20261030T210211507451Z/record.json
   - runs/wo03-fin-nominal-fields-20261030T210337367164Z/record.json
+  - docs/wo03-trainer-fin-package.md
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly
     establishes otherwise.
@@ -426,9 +476,15 @@ requirements:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-thermal-20261030T182422090687Z/record.json
   - runs/wo03-thermal-20261030T204848956297Z/record.json
+  - configs/engineering/wo03-thermal-acceptance.yaml
+  - runs/wo03-thermal-matrix-20261030T230041977112Z/case-summary.json
+  - runs/wo03-thermal-ignition-bound-matrix-20261030T231809584945Z/case-summary.json
+  - runs/wo03-secondary-shield-20261031T001841Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Explicit required matrix uses unchanged45C substrate screen. Combined300C/epsilon0.9/35C
+    is required robustness pending source evidence, fails worstG54 shell48.78C. Proposed25C
+    operating/ignition bounds are exploratory and not adopted; required failures remain
+    open.
 - id: RT-FIT-001
   applies_to: *id001
   purpose_source: Manufacturing/thermal tolerance and service
@@ -452,9 +508,12 @@ requirements:
   - runs/wo03-20261030T180113490389Z/record.json
   - runs/wo03-tolerances-20261030T182928948369Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
+  - docs/wo03-fit-correction.md
+  - runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: PackageA interval calculations pass, but geometry adoption awaits
+    complete structural path. Pin/bore sizes are spec-owned; positive axial retention
+    and purchased articulation remain open.
 - id: RT-MOTION-001
   applies_to:
   - G12-F
@@ -497,7 +556,8 @@ requirements:
   acceptance: Provide realistic packed volume, harness/anchor/connector access and
     snag-free extraction/repacking. Verify opening loads and retention; no CAD-volume-only
     deployment qualification.
-  spec_paths: []
+  spec_paths:
+  - design.mass_allowance_kg
   related_parts:
   - parachute
   - shock_cord
@@ -516,9 +576,15 @@ requirements:
   evidence:
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
+  - docs/wo03-recovery-anchor.md
+  - docs/wo03-recovery-packaging.md
+  - runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
+  - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Three-leg rounded G11 aft anchor and complete carrier are isolated
+    candidates. Section estimates do not close splice, gas/heat, bond peel, service
+    or installed capacity. Total versus incremental budget counted once; industrial
+    eye/steel boss remain rejected.
 - id: RT-RECOVERY-002
   applies_to: *id001
   purpose_source: Plugged G12 and common-cause failures
@@ -861,6 +927,7 @@ interfaces:
   evidence:
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
+  - docs/wo03-package-closure-progress.md
 - id: IF-MOTOR-001
   name: Certified motor / liner / carrier / retention
   applies_to: *id001
@@ -894,6 +961,7 @@ interfaces:
   evidence:
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
+  - docs/wo03-package-closure-progress.md
 - id: IF-GIMBAL-001
   name: Frame / nested gimbal / servo / rods
   applies_to:
@@ -1004,6 +1072,7 @@ interfaces:
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
+  - docs/wo03-package-closure-progress.md
 - id: IF-POWER-001
   name: Main/servo and independent-recovery supplies
   applies_to: *id001

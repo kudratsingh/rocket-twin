@@ -44,6 +44,13 @@ See ADR-0006 and `docs/wo01-rebaseline.md` for the preliminary trade and gate ra
 
 ## Operating mode: fast
 
+**Owner-authorized sequence exception (2026-10-30, ADR-0009):** while expanded
+WO-03 remains open, implement a limited WO-04 read-only inspection/recorded-Analysis
+preview and limited WO-05 real-simulator experiments/replay/comparison. Deliver
+the usable inspection viewer first; Analysis must not delay it. Full work-order
+completion and engineering, build, paid-run, firmware-review and flight-release
+gates remain unchanged. This exception overrides only the start-order rule below.
+
 - Build order is the work orders, WO-01 → WO-05, WO-05b, WO-06 → WO-12, in sequence. Do not skip ahead, do not gold-plate.
 - Use work-order branches and focused PRs after substantial work items (`AGENTS.md`).
   Split large WOs into coherent PRs; do not add owner review for routine changes.

@@ -1,0 +1,55 @@
+version: wo03-secondary-shield-radius-trade-v1
+status: both_fixed_mode_candidates_fail_thermal_screen
+source_candidate: build/wo03-correction-package/latest/G54-0.075/resolved-candidate.yaml
+source_record: build/wo03-correction-package/latest-record.json
+source_candidate_sha256: 5b08b5c64988cc37305dcd58d927339ee3e73daa926cddd993c1fa73bdcc48ba
+script: scripts/wo03_secondary_shield.py
+scope:
+  modes: [G54]
+  first_probe_only: true
+  reason: both fixed-mount G54 radii fail required thermal screen; no G12 candidate evaluated
+  shield_wall_m: 0.00002
+  foil_radius_is_geometry_radius_m: true
+  mount_bore_clearance_m: 0.0003
+  mount_ring_inner_radii_updated: true
+  shield_axial_span: actual coverage recorded per candidate; G54 R22 trimmed before aft retention blocks
+  end_spacers: mica collars bridge old and new shields at actual foil endpoints
+  required_case: combined_300C_eps09_at35C
+  ambient_c: 35
+  foil_emissivity: 0.9
+  material_corner: high_k_low_cp
+  contact_conductance_w_k_per_ring: 2.0
+  substrate_limit_c: 45
+  burn_and_soak: true
+  all_foil_fully_degraded: true
+candidates:
+  - id: G54_R18mm
+    foil_radius_m: 0.018
+    mount_ring_bore_radius_m: 0.0183
+    record_status: fail_screen
+    aft_shell_peak_c: 46.951225194761435
+    mass_delta_kg: -0.0009026858494566303
+    axial_coverage_m: [1.013, 1.2]
+    evidence: runs/wo03-secondary-shield-20261031T001841Z/record.json
+  - id: G54_R22mm
+    foil_radius_m: 0.022
+    mount_ring_bore_radius_m: 0.0223
+    record_status: fail_screen
+    aft_shell_peak_c: 46.52337172132411
+    mass_delta_kg: -0.004175836590990745
+    axial_coverage_m: [1.013, 1.178]
+    aft_trim_before_retainer_m: 0.022
+    evidence: runs/wo03-secondary-shield-20261031T001841Z/record.json
+mass_and_structure:
+  in_memory_cad_mass_rebuilt: true
+  mount_and_bond_rebuilt: true
+  ring_bore_rule: physical_foil_radius_plus_0.3mm
+  ring_bore_updated_in_memory: true
+  source_hashes_unchanged_before_after: true
+  source_hashes_evidence: runs/wo03-secondary-shield-20261031T001841Z/record.json
+  new_part_cad_valid: true
+  new_part_intersections_after_aft_trim: []
+  reason: no adoption; enlarged mount rings need structural and tolerance revalidation
+  active_spec_or_cad_edited: false
+  structural_acceptance: not_claimed
+  flight_ready: false

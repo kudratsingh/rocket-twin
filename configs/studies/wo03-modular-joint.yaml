@@ -1,0 +1,121 @@
+version: wo03-modular-joint-v1
+status: isolated_candidate_not_adopted
+engineering_config: configs/engineering/wo03.yaml
+correction_package_config: configs/studies/wo03-correction-package.yaml
+configurations:
+  G80: configs/vehicle/platform/performance.yaml
+  G54: configs/vehicle/wo02/performance-g54.yaml
+  G12-F: configs/vehicle/platform/tvc-finned.yaml
+  G12-L: configs/vehicle/platform/tvc-finless.yaml
+datums_mm:
+  upper_end: 918
+  aft_start: 922
+  coupler_front: 868
+  coupler_end: 972
+  fastener_station: 946
+  pad_front: 930
+  pad_length: 32
+  bolt_angles_deg: [30, 150, 270]
+  key_angles_deg: [90, 210, 330]
+upper_bond:
+  front_mm: 868
+  length_mm: 50
+  inner_radius_mm: 32
+  outer_radius_mm: 32.5
+  note: Explicit additional cured epoxy fills the actual 0.5 mm radial gap. It is not deducted from the general finish allowance.
+bearing_lands:
+  fronts_mm: [924, 962]
+  length_mm: 10
+  inner_radius_mm: 32.1
+  outer_radius_mm: 32.35
+  bond_inner_radius_mm: 32
+  note: Two bonded G11 rings provide the overlap bearing couple; paper local compression, ovalisation and actual contact-arc stiffness remain unresolved.
+local_pads:
+  inner_g11_radii_mm: [28.3, 30.3]
+  inner_bond_radii_mm: [30.3, 30.5]
+  outer_g11_radii_mm: [33.2, 34.5]
+  outer_bond_radii_mm: [33, 33.2]
+  inner_profile_cut_diameter_mm: 49.4
+  inner_profile_cut_center_radius_mm: 30.3
+  outer_profile_cut_diameter_mm: 56.2
+  outer_profile_cut_center_radius_mm: 34.5
+  profile_cut_angles_deg: [90, 210, 330]
+keys:
+  radius_mm: 32.1
+  depth_mm: 3
+  widths_mm: [5.2, 3.2, 3.2]
+  slot_diameters_mm: [6.6, 4.8, 4.8]
+  length_mm: 25
+  passage_length_mm: 26
+  coupler_slot_widths_mm: [6, 4, 4]
+  coupler_slot_depth_mm: 4
+  additional_bond_allowance_kg: 0.0003
+  note: Four printed pieces retained; key-to-coupler adhesive and ring attachment are assembly/process dependencies. Cylindrical open-ended passages physically cross the aft-shell wall.
+fasteners:
+  count: 3
+  hypothesis: Three M3 x 10 ISO 4762-pattern socket screws, M3 nuts and 3.2 x 7 x 0.5 mm washers; exact maker, grade, locking and purchased mass not frozen.
+  source: https://www.iso.org/standard/70045.html
+  diameter_mm: 3
+  root_diameter_mm: 2.5
+  hole_diameter_mm: 3.4
+  head_diameter_mm: 5.5
+  head_height_mm: 3
+  head_inner_radius_mm: 35
+  washer_inner_radius_mm: 34.5
+  washer_thickness_mm: 0.5
+  washer_diameter_mm: 7
+  nut_outer_radius_mm: 28.3
+  nut_height_mm: 2.4
+  nut_circumscribed_diameter_mm: 6.4
+  mass_kg: 0.006
+  nut_capture_mass_allowance_kg: 0.0006
+  strength_bound_mpa: 300
+  shear_bound_mpa: 150
+  nut_thread_shear_bound_mpa: 100
+  bounds_basis: Explicit study estimates, not sourced A2-70 allowables. ISO 3506-1 does not specify shear strength or torque/clamp behaviour. No preload/friction credit.
+  nut_capture_required_parameters:
+    pocket_across_flats_mm: 5.7
+    pocket_tolerance_mm: 0.1
+    exact_nut_across_flats_mm: 5.5
+    pocket_axial_length_mm: 7
+    pocket_radial_depth_mm: 2.6
+    access_from_coupler_aft_end: true
+    cap_or_positive_lip_required: true
+  nut_capture_status: CAD support needed for rotated rectangular or hex nut pocket and positive captive lip. No cylinder or adhesive envelope is counted as antirotation or positive capture.
+tolerances_mm:
+  paper_radius: 0.1
+  g11_radius: 0.05
+  key_width: 0.1
+  key_depth: 0.1
+  slot_diameter: 0.1
+  key_radius: 0.05
+  passage_radius: 0.05
+  hole_diameter: 0.05
+  bolt_diameter: 0.02
+  station: 0.1
+thermal_fit:
+  reference_c: 15
+  joint_max_c: 45
+  paper_cte_per_k: 0.00008
+  g11_cte_per_k: [0.000011, 0.000015]
+  asa_cte_per_k: 0.00009
+  note: Conditional joint-local 45 C envelope follows the paper screen. Humidity is unbounded and requires measurement.
+strength_screens_mpa:
+  g11_bearing: 25
+  g11_tearout: 12.5
+  g11_net_tension: 25
+  paper_bearing: 2
+  paper_bond: 1
+  asa_index: 8
+  note: G11 bearing/tearout estimates use at most the existing 25 MPa hot scalar screen; no supplier laminate allowable is claimed. Paper/epoxy bond screen is an estimate.
+load_cases:
+  axial_service_n: 60
+  axial_design_n: 180
+  axial_basis: Specified front-joint 60 N service / DF3 180 N; design force is already factored.
+  conditional_upper_recovery_note: Actual common-upper mass plus full 50 g allowance; a separate aft harness branch is not implemented, so this is a conditional assignment.
+  conservative_full_recovery_note: Full candidate vehicle plus allowance; no bypass credit. All engineering velocity/travel cases retain DF exactly once.
+references:
+  fastener_equations: NASA RP-1228 Fastener Design Manual, basic shear/bearing and eccentric-joint mechanics; https://ntrs.nasa.gov/citations/19900009424
+  g11: https://www.basff.it/fileup/Immagini/G11%20ENG.pdf
+  asa: https://prusament.com/wp-content/uploads/2022/10/ASA_Prusament_TDS_2022_16_EN.pdf
+  epoxy: https://ptm-w.com/technical-library/product-bulletins/Adhesives%20Bulletins/ES6292%20Bulletin.pdf

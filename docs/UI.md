@@ -4,6 +4,21 @@ Single-page web app. Vite + React + TypeScript, react-three-fiber for 3D, uPlot 
 zustand for state, FastAPI backend at `/api`. Desktop-first; no mobile layout required.
 Dark theme, one accent colour, system font. No design system library.
 
+The owner authorized an early inspection/experiment subset on 2026-10-30
+([ADR-0009](adr/0009-early-inspection-experiments.md)) while WO-03 remains open.
+Keep the parts list left, rocket viewport center and inspector/summary right for
+every configuration. Explain terms and units in plain language. A prominent
+"Preliminary design — engineering acceptance remains open" status is always
+visible. Candidate designs are a separate, explicitly unaccepted group.
+
+First deliver working Inspect; compatible recorded Analysis is a second increment.
+The limited Experiment preview also executes the shared Python/JAX simulator,
+supports steady wind and existing gust settings, saves separate identified runs,
+replays actual recorded poses and compares two runs with synchronized graphs.
+Complete configurations replace arbitrary motor swaps. Preliminary unguided status,
+incomplete trajectories and model-domain warnings remain visible. This start-order
+exception does not waive full WO-04/05 completion or any physical/flight gate.
+
 ## Layout
 
 ```

@@ -3,8 +3,24 @@
 Read `CLAUDE.md`, then `docs/PLAN.md`, `docs/ENVIRONMENT.md`, and the current
 work order named in `docs/STATUS.md`. Follow their work order sequence and
 validation benchmarks. The project is currently in WO-03, expanded by ADR-0007 to include executed
-structural, thermal and tolerance/motion analysis. Advance to WO-04 only when
-its expanded completion criteria are met and recorded.
+structural, thermal and tolerance/motion analysis. Expanded WO-03 acceptance
+remains open.
+
+## Owner-authorized early inspection and experiment preview
+
+On 2026-10-30 the owner explicitly authorized limited WO-04 and WO-05 work in
+parallel with WO-03: first a usable, read-only design inspector using actual CAD
+and resolved specifications; then compatible recorded Analysis overlays; plus
+working experiments and replay using the existing Python/JAX simulator. Record
+exact design/run identities, explain quantities in plain language and show open
+engineering findings. Keep candidate designs separate from active configurations.
+
+This is a limited sequence exception, not completion of WO-03, WO-04 or WO-05.
+Full milestones retain their prerequisites and benchmarks. Preserve engineering
+acceptance, physical-build, paid-run, WO-10 owner review and flight-release gates.
+Preview simulations are preliminary and unguided where applicable; PID and
+reinforcement-learning controllers remain in their assigned later work orders.
+See ADR-0009 and the current work-order/status records.
 
 ## Git workflow and autonomy
 
@@ -38,3 +54,11 @@ traceability/document generation and plots with clear file ownership; retain
 critical engineering decisions and integrated acceptance with the primary agent.
 Avoid overlapping edits and an extra independent-review pass. Verify delegated
 outputs through the same required checks before publishing.
+
+## Computer use restriction
+
+Only the primary agent may use computer-use tools. Its only permitted browser
+window is the Chrome window containing the Atlas Fibre G11 PDF; other tabs in
+that same window are allowed. Do not use any other browser or application window.
+Agents should complete work through code and shell tools without computer use,
+unless the owner explicitly reassigns this restriction.

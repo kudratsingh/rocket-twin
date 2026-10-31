@@ -1,0 +1,117 @@
+id: wo03-recovery-budget-closure
+status: isolated_design_audit_not_adopted
+platform: configs/platform.yaml
+budget_config: configs/studies/wo03-recovery-mass-budget.yaml
+anchor_config: configs/studies/wo03-recovery-anchor.yaml
+anchor_record: build/wo03-recovery-anchor/record.json
+packaging_record: build/wo03-recovery-packaging/latest.json
+fin_record: build/wo03-trainer-fin-package/final/record.json
+trainer_construction_copy: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/resolved-candidate.yaml
+trainer_construction_record: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json
+trainer_fin_step: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step
+forward_frame_start_station_m: 1.012
+horn_cant_degrees: [115, 115]
+horn_cant_probe_degrees: [115, 120, 125]
+flight_record: runs/wo02-20261030T204849990760Z/record.json
+factor: 3
+stop_m: 0.3
+stop_distance_basis: Illustrative constant stopping distance only; no opening-shock qualification.
+guide_policy: Preserve 5 m usable guide, 10 m/s minimum, lower thrust, friction/drag and full separate 50 g growth. Actual equipment unconfirmed.
+rope:
+  HMPE:
+    g_per_m: 4.5
+    minimum_spliced_strength_n: 6227.51026142
+    preparation_per_end_m: 0.20
+    preparation_qualified: false
+    basis: Existing Samson AmSteel-Blue 7/64 inch evidence; 200 mm is a cutting envelope, not a demonstrated 16-pick/tuck procedure.
+  aramid:
+    g_per_m: 8.0
+    reference_strength_n: 8006.8
+    preparation_per_end_m: 0.20
+    preparation_qualified: false
+    basis: Existing estimated hot-leader construction; actual product, end method and installed mass/strength remain open.
+# Two main segments, three aft legs and four upper branches = nine pieces,
+# eighteen ends. The old fourteen-end estimate omitted the leader join and
+# either a positive coupler branch or proof of its retention.
+cut_plan:
+  - {id: main_hmpe, material: HMPE, standing_m: 0.95, start_station_m: 0.225, end_station_m: 0.600, branch: main}
+  - {id: main_hot_leader, material: aramid, standing_m: 0.25, start_station_m: 0.160, end_station_m: 0.225, branch: main}
+  - {id: aft_leg_0, material: HMPE, standing_m: 0.43, start_station_m: 0.600, end_station_m: 1.020, branch: aft}
+  - {id: aft_leg_120, material: HMPE, standing_m: 0.43, start_station_m: 0.600, end_station_m: 1.020, branch: aft}
+  - {id: aft_leg_240, material: HMPE, standing_m: 0.43, start_station_m: 0.600, end_station_m: 1.020, branch: aft}
+  - {id: nose_branch, material: HMPE, standing_m: 0.48, start_station_m: 0.165, end_station_m: 0.600, branch: nose}
+  - {id: body_branch, material: HMPE, standing_m: 0.16, start_station_m: 0.500, end_station_m: 0.600, branch: body}
+  - {id: coupler_branch, material: HMPE, standing_m: 0.35, start_station_m: 0.600, end_station_m: 0.925, branch: coupler}
+  - {id: sled_branch, material: HMPE, standing_m: 0.32, start_station_m: 0.345, end_station_m: 0.600, branch: sled}
+junction:
+  outer_radius_mm: 15
+  inner_radius_mm: 5
+  thickness_mm: 8
+  edge_radius_mm: 3
+  station_m: 0.600
+  cad_x_mm: 0
+  cad_y_mm: 0
+  density_kg_m3: 1850
+  status: Machined G11 rounded ring geometry only; load introduction, layup, bending, termination crowding and service motion are unqualified.
+hardware:
+  # Keep these allowances; a Boolean junction is charged in addition.
+  bridle_termination_and_stitch_g: 2
+  upper_body_band_g: 1.174
+  sled_tabs_g: 2.165
+  seal_and_grommet_g: 1.5
+  heat_sleeve_g: 3
+  adhesive_and_fillet_g: 2
+  future_positive_pin_delta_g_estimate: 0.8
+  existing_anchor_removed_g: 4
+  existing_shock_cord_removed_g: 10
+hardware_layout:
+  bridle_termination_and_stitch_g: {branch: main, station_m: 0.600}
+  upper_body_band_g: {branch: body, station_m: 0.500}
+  sled_tabs_g: {branch: sled, station_m: 0.345}
+  seal_and_grommet_g: {branch: body, station_m: 0.225}
+  heat_sleeve_g: {branch: main, station_m: 0.225}
+  adhesive_and_fillet_g: {branch: aft, station_m: 0.950}
+  future_positive_pin_delta_g_estimate: {branch: coupler, station_m: 0.925}
+thermal_addition_cases_g: [0, 8, 12, 14]
+opening_audit:
+  reference_vehicle: modular-performance-g54-hypothesis
+  speeds_mps: [5.0, 20.4, 23.13937946953448]
+  height_msl_m: [0.0, 1553.7916798839494]
+  integration_s: 1.0
+  dt_s: 0.001
+  opening_multiplier_sensitivities: [1, 1.5, 2, 3, 5, 8]
+  multiplier_basis: Numerical sensitivities only; no opening factor is established for this unmeasured canopy.
+  snatch_relative_speeds_mps: [5, 10, 23.13937946953448]
+  snatch_strokes_m: [0.005, 0.03, 0.1, 0.3]
+  source_opening: https://ntrs.nasa.gov/api/citations/20030065911/downloads/20030065911.pdf
+  source_model_scope: NASA Cruz/Kandis/Witkowski2003 distinguishes inflation drag/apparent-mass effects from earlier snatch. Its large DGB coefficients are not transferred to this hobby canopy.
+  compliant_candidate:
+    source: https://www.paskal.com.au/media/productattach/t/e/technical_specification_shockcord_2025_2.pdf
+    product: Paskal6mm polyester-jacket natural-rubber shockcord; source curve sensitivity only, not selected rocket hardware.
+    mass_g_per_foot: 9.52
+    strain: [0, 0.25, 0.5, 0.75, 1]
+    force_lbf: [0, 5.89, 8.09, 10.89, 14.55]
+    free_length_m: 0.6
+    caveats: No qualified dynamic/rate/hot/aged curve, end efficiency or rocket deployment evidence. Source terminology/breaking entries are not adopted as a working load or minimum. A separate strength-rated backup and both terminations must be charged.
+package_a_rail_saving_g: 2.111
+guide_steps_s: [0.001, 0.0005]
+fixed_rail_screen:
+  count: 3
+  clipped_area_each_mm2_estimate: 44
+  axial_hot_screen_mpa_estimate: 5
+body_screen:
+  diameter_mm: 66
+  kraft_wall_mm: 0.5
+  axial_hot_screen_mpa_estimate: 2
+branch_attachments:
+  main: Canopy shroud/tape attachment -> aramid leader -> HMPE main -> rounded junction. Each interface and its termination remains unrated.
+  nose: Rounded junction -> separate HMPE line -> proposed positive nose attachment; no existing printed shoulder or central eye rating is credited.
+  body: Rounded junction -> body line -> two retained wrap bands; bulkhead local retention and shell tear/peel/slip remain unrated.
+  coupler: Rounded junction -> separate coupler line -> proposed positive pins through a nonmetallic collar; 0.8 g is still a reserve, not implemented/rated hardware.
+  sled: Rounded junction -> separate sled line -> two counted G11 tabs -> avionics sled/carrier; board and battery mounts remain the separate packaging proposal.
+  aft: Rounded junction -> three legs -> full 8 mm G11 fixed frame or 9.5 mm fixed fore plate -> actual rails/rings/joints -> fins, motor retention and shell. No direct frame-to-shell path is assumed rated.
+sources_reused:
+  - docs/wo03-recovery-anchor.md
+  - docs/wo03-recovery-packaging.md
+  - docs/wo03-trainer-fin-package.md
+  - configs/studies/wo03-g11-load-properties.yaml

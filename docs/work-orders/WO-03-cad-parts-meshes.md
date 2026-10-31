@@ -2,8 +2,10 @@
 
 Branch: `wo-03-cad` (focused dependent PRs permitted). Tier: Mac CPU and ordinary
 repository checks; paid compute requires separate approval. ADR-0007 expands this
-work order without changing the sequence. WO-04 starts after all WO-03 criteria
-below are met and recorded. G80 reference, G54 conditional, G12 controls.
+work order without changing the full-milestone sequence. Full WO-04 completion
+depends on the WO-03 criteria below. ADR-0009 separately permits the owner's limited
+early inspection/experiment preview; that preview is currently paused while
+engineering work resumes. G80 reference, G54 conditional, G12 controls.
 
 ADR-0008 adopts the combined correction package into the active specifications.
 Use [the integrated property report](../wo03-integrated-vehicle.md) and
@@ -130,3 +132,32 @@ material/method, mass provenance, dimensions/tolerances, load/thermal/vibration
 cases, results/margins, evidence status and physical verification. Include preliminary
 assembly/service diagrams and identify the later dimensioned drawings, plywood
 cut/drill templates and print settings. Complete procurement/build pack remains WO-09.
+
+## Current correction-package closure priorities
+
+Retain the criteria above and close the selected package as one configuration,
+using [the current closure table](../wo03-package-closure-progress.md):
+
+- Package A with two added brace rings must demonstrate its complete rail/ring/
+  bond/body/upper-joint path, including hot properties, support stiffness, force
+  balance, local bearing, bond peel and effective buckling lengths. Frame-only
+  eigenvalues or perfectly restrained strip ends do not close the assembly.
+- Apply the explicit configuration-specific thermal matrix in
+  `configs/engineering/wo03-thermal-acceptance.yaml`. Keep the 45°C substrate
+  screen unchanged. The combined 300°C case / contaminated foil / 35°C ambient
+  is required robustness pending evidence; failed rows block acceptance unless
+  a separate justified design or operating-boundary decision resolves them.
+  Controlled-ambient and ignition-temperature proposals remain proposals until
+  their enforceable limits, rationale and effects are recorded.
+- Count the entire independent recovery system, reinforcement and mounting once.
+  Preserve conservative G12 departure at 10 m/s on the assumed 5 m usable guide
+  with the full 50 g allowance. Record total capacity and incremental headroom;
+  revalidate explicit vehicle/construction trades if the package exceeds it.
+  Actual 5 m guide availability is unresolved equipment evidence.
+
+Adoption requires one reconciled mass/CG/full-inertia model, current CAD/Analysis
+identities, and affected structural, thermal, fit, stability, flight and reference
+comparisons. Installed fin/root/flutter, retention and service-access requirements
+remain in scope. Distinguish design failures from owner-performed proof, electrical,
+deployment and flight qualification. A partial candidate pass cannot close WO-03
+or the prerequisites for full WO-04 completion.

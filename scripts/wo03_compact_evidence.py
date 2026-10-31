@@ -47,6 +47,10 @@ def main() -> int:
     parser.add_argument("--preset", choices=["tiny", "sim"], default="tiny")
     parser.add_argument("--output", type=Path, default=Path("runs"))
     parser.add_argument(
+        "--record-id",
+        help="Group reports without run IDs into a named projection; original report contents and hashes stay intact.",
+    )
+    parser.add_argument(
         "--suffix",
         default="",
         help="Artifact-folder suffix; original computation run ID is retained.",
@@ -56,7 +60,10 @@ def main() -> int:
     for path in args.reports:
         data = path.read_bytes()
         source = json.loads(data)
-        grouped[source["run_id"]].append(
+        record_id = args.record_id or source.get("run_id")
+        if not record_id:
+            raise ValueError(f"{path}: report has no run ID; supply --record-id for its projection")
+        grouped[record_id].append(
             {
                 "original_report": str(path),
                 "original_report_sha256": hashlib.sha256(data).hexdigest(),

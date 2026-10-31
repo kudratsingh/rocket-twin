@@ -96,16 +96,45 @@ def fragment_and_mesh(
         gmsh.option.setNumber("Mesh.MeshSizeMin", 0.3)
         gmsh.option.setNumber("Mesh.MeshSizeMax", size_mm)
         gmsh.option.setNumber("Mesh.ElementOrder", 2)
+        if physical is not None and physical.get("paper_doubler"):
+            gmsh.option.setNumber("Mesh.Algorithm3D", 10)
+            # Thin concentric surfaces need enough circumferential facets that
+            # their chordal approximation does not cross the 0.1 mm film.
+            gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 56)
+            gmsh.option.setNumber("Mesh.MeshSizeMin", 0.05)
+            gmsh.option.setNumber("Mesh.SecondOrderLinear", 1)
         gmsh.model.mesh.generate(3)
-        gmsh.model.mesh.optimize("HighOrder")
+        generated_count = sum(len(ids) for ids in gmsh.model.mesh.getElements(3)[1])
+        if generated_count > 150_000:
+            raise RuntimeError(
+                f"Bounded study refuses {generated_count} solid elements (>150000); "
+                "no high-order optimization or structural solve is credited"
+            )
+        if physical is None or not physical.get("paper_doubler"):
+            gmsh.model.mesh.optimize("HighOrder")
         types, element_tags, _ = gmsh.model.mesh.getElements(3)
         if set(types) != {11}:
             raise ValueError(f"Expected exclusively quadratic tetrahedra: {types}")
-        local, _ = gmsh.model.mesh.getIntegrationPoints(11, "Gauss4")
+        local, integration_weights = gmsh.model.mesh.getIntegrationPoints(11, "Gauss4")
         _, determinants, _ = gmsh.model.mesh.getJacobians(11, local)
         determinant_min = float(np.min(determinants))
         if determinant_min <= 0:
             raise ValueError(f"Nonpositive quadratic Jacobian: {determinant_min}")
+        mesh_volume_check = {}
+        if physical is not None and physical.get("paper_doubler"):
+            weights_arr = np.asarray(integration_weights, dtype=float)
+            for name, group_volumes in groups.items():
+                cad_volume = sum(float(gmsh.model.occ.getMass(3, tag)) for tag in group_volumes)
+                mesh_volume = 0.0
+                for tag in group_volumes:
+                    _, det, _ = gmsh.model.mesh.getJacobians(11, local, tag)
+                    det_arr = np.asarray(det, dtype=float).reshape(-1, len(weights_arr))
+                    mesh_volume += float(np.sum(det_arr @ weights_arr))
+                mesh_volume_check[name] = {
+                    "cad_volume_mm3": cad_volume,
+                    "mesh_volume_mm3": mesh_volume,
+                    "relative_error": mesh_volume / cad_volume - 1.0,
+                }
         gmsh.write(str(output / "mesh.msh"))
         solved = exploratory_solve(gmsh, groups, boundaries, output) if physical is None else None
         cases = {}
@@ -125,6 +154,12 @@ def fragment_and_mesh(
             "strip_bond_shared_surface_counts": strip_interfaces,
             "element_count": sum(len(x) for x in element_tags),
             "minimum_gauss_jacobian_mm3": determinant_min,
+            "mesh_volume_check": mesh_volume_check,
+            "geometry_approximation": (
+                "Straight-sided quadratic tetrahedra; 56-segment nominal circumference gives approximately 0.052 mm chord sag, comparable to 0.1 mm film thickness. No accuracy or local-gap guarantee."
+                if physical is not None and physical.get("paper_doubler")
+                else "Curved quadratic tetrahedra"
+            ),
             "exploratory_139_97_n": solved,
             "physical_cases": cases,
         }
@@ -160,6 +195,11 @@ def exploratory_solve(
             else (
                 "PAPER"
                 if name in ("aft_shell", "upper_segment")
+                or (
+                    name == "upper_doubler"
+                    and physical is not None
+                    and physical.get("paper_doubler")
+                )
                 else (
                     "ASA_STOP"
                     if name == "joint_flange"
@@ -191,7 +231,7 @@ def exploratory_solve(
         if abs(
             x[2]
             - (
-                818.0
+                float(physical.get("support_station_mm", 818.0))
                 if physical is not None and physical.get("joint_model") == "finite_shoulder_bonded"
                 else 922.0
             )
@@ -625,3 +665,549 @@ def bonded_bar_fixture(out: Path) -> dict[str, Any]:
     }
     (out / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     return report
+
+
+def _beam_shapes(xi: float, length: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Hermite transverse shapes and their first/second x derivatives.
+
+    xi lies in [0, 1]. Rotation is dv/dx. See Gere, Mechanics of Materials,
+    Euler-Bernoulli beam interpolation; N, mm, MPa throughout this module.
+    """
+    s = xi
+    n = np.array(
+        [
+            1 - 3 * s * s + 2 * s**3,
+            length * (s - 2 * s * s + s**3),
+            3 * s * s - 2 * s**3,
+            length * (-s * s + s**3),
+        ]
+    )
+    dn = np.array(
+        [
+            (-6 * s + 6 * s * s) / length,
+            1 - 4 * s + 3 * s * s,
+            (6 * s - 6 * s * s) / length,
+            -2 * s + 3 * s * s,
+        ]
+    )
+    ddn = np.array(
+        [
+            (-6 + 12 * s) / length**2,
+            (-4 + 6 * s) / length,
+            (6 - 12 * s) / length**2,
+            (-2 + 6 * s) / length,
+        ]
+    )
+    return n, dn, ddn
+
+
+def overlap_beam_spring(
+    *,
+    divisions: int,
+    length_mm: float,
+    overlap_mm: float,
+    width_mm: float,
+    thickness_mm: tuple[float, float],
+    young_mpa: tuple[float, float],
+    adhesive_thickness_mm: float,
+    adhesive_young_mpa: float,
+    adhesive_poisson: float,
+    force_n: float,
+    outer_load_fraction: float,
+    radius_mm: float | None = None,
+    hoop_young_mpa: tuple[float, float] | None = None,
+    eccentric_interface: bool = True,
+    retain_fields: bool = False,
+    opening_force_n: float = 0.0,
+) -> dict[str, Any]:
+    """Finite-overlap, linear elastic two-adherend beam/adhesive reduction.
+
+    Each adherend has independent axial, transverse and rotational degrees of
+    freedom. Adhesive shear and normal springs are integrated along the *finite*
+    overlap with three-point Gauss quadrature. They connect displacements at the
+    actual adherend surfaces, retaining the eccentricity that generates peel.
+    No outer-adherend end is grounded or projected onto an ideal joint.
+
+    Derivation: minimization of int[EA u'^2 + EI v''^2 + k_s delta_u^2 +
+    k_n delta_v^2]/2 dx - external work. This is a small-displacement version of
+    the beam/adhesive formulation in Goland and Reissner, J. Applied Mechanics
+    11 (1944), A17-A27; it does not implement their finite-rotation correction.
+    For a complete cylindrical sleeve the optional Eh*t*b/R^2 radial foundation
+    follows circumferential membrane strain v/R (Timoshenko & Woinowsky-Krieger,
+    Theory of Plates and Shells, axisymmetric cylindrical shell equations).
+    Orthotropy, contact, crushing, fracture, defects and thermal eigenstrains are
+    excluded. Hoop properties and the end-load split must be explicit inputs.
+    """
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.linalg import spsolve
+
+    positive = (
+        length_mm,
+        overlap_mm,
+        width_mm,
+        *thickness_mm,
+        *young_mpa,
+        adhesive_thickness_mm,
+        adhesive_young_mpa,
+    )
+    if (
+        divisions < 2
+        or any(x <= 0 or not np.isfinite(x) for x in positive)
+        or overlap_mm > length_mm
+        or not 0 <= outer_load_fraction <= 1
+        or not -1 < adhesive_poisson < 0.5
+        or force_n <= 0
+    ):
+        raise ValueError("Invalid finite-overlap input")
+    h = length_mm / divisions
+    first = round((length_mm - overlap_mm) / h)
+    if abs(first * h - (length_mm - overlap_mm)) > 1e-8:
+        raise ValueError("Mesh must put a node at the exact overlap start")
+    node_counts = (divisions + 1, divisions - first + 1)
+    offsets = (0, 3 * node_counts[0])
+    ndof = 3 * sum(node_counts)
+    entries: list[tuple[int, int, float]] = []
+    force = np.zeros(ndof)
+    gauss_x, gauss_w = np.polynomial.legendre.leggauss(3)
+    points = [(float((x + 1) / 2), float(w * h / 2)) for x, w in zip(gauss_x, gauss_w)]
+
+    def add(ids: list[int], local: np.ndarray) -> None:
+        entries.extend(
+            (i, j, float(local[a, b]))
+            for a, i in enumerate(ids)
+            for b, j in enumerate(ids)
+            if local[a, b] != 0
+        )
+
+    def ids(layer: int, element: int) -> list[int]:
+        start = offsets[layer] + 3 * (element if layer == 0 else element - first)
+        return list(range(start, start + 6))
+
+    for layer in (0, 1):
+        t, e = thickness_mm[layer], young_mpa[layer]
+        ea = e * width_mm * t
+        ei = e * width_mm * t**3 / 12
+        for element in range(0 if layer == 0 else first, divisions):
+            axial = ea / h * np.array([[1.0, -1.0], [-1.0, 1.0]])
+            local = np.zeros((6, 6))
+            local[np.ix_([0, 3], [0, 3])] = axial
+            for s, weight in points:
+                n, _, ddn = _beam_shapes(s, h)
+                bending = ei * np.outer(ddn, ddn)
+                if radius_mm is not None and hoop_young_mpa is not None:
+                    bending += hoop_young_mpa[layer] * t * width_mm / radius_mm**2 * np.outer(n, n)
+                local[np.ix_([1, 2, 4, 5], [1, 2, 4, 5])] += weight * bending
+            add(ids(layer, element), local)
+    g = adhesive_young_mpa / (2 * (1 + adhesive_poisson))
+    ks = g * width_mm / adhesive_thickness_mm
+    kn = adhesive_young_mpa * width_mm / adhesive_thickness_mm
+    for element in range(first, divisions):
+        local = np.zeros((12, 12))
+        for s, weight in points:
+            n, dn, _ = _beam_shapes(s, h)
+            shear_shape = np.zeros(12)
+            normal_shape = np.zeros(12)
+            shear_shape[[0, 3]] = -np.array([1 - s, s])
+            shear_shape[[6, 9]] = np.array([1 - s, s])
+            normal_shape[[1, 2, 4, 5]] = -n
+            normal_shape[[7, 8, 10, 11]] = n
+            if eccentric_interface:
+                # gamma_xy includes dv/dx across the finite film. The h/2
+                # terms make a uniform rigid rotation strain-free; omitting
+                # them creates a spurious adhesive shear under that motion.
+                shear_shape[[1, 2, 4, 5]] = (thickness_mm[0] + adhesive_thickness_mm) / 2 * dn
+                shear_shape[[7, 8, 10, 11]] = (thickness_mm[1] + adhesive_thickness_mm) / 2 * dn
+            local += weight * (
+                ks * np.outer(shear_shape, shear_shape) + kn * np.outer(normal_shape, normal_shape)
+            )
+        add(ids(0, element) + ids(1, element), local)
+    rows, cols, values = zip(*entries)
+    stiffness = coo_matrix((values, (rows, cols)), shape=(ndof, ndof)).tocsr()
+    # Only the base shell is supported, at its finite forward end. Its extension
+    # ahead of the overlap stays elastic. No extra outer sleeve endpoint support.
+    constrained = [0, 1, 2]
+    if not eccentric_interface and radius_mm is None:
+        # Exact axial-only Volkersen fixture: transverse rigid modes are removed
+        # without altering any axial stiffness or adding an axial tie.
+        constrained += [offsets[1] + 1, offsets[1] + 2]
+    force[3 * divisions] = -force_n * (1 - outer_load_fraction)
+    force[offsets[1] + 3 * (node_counts[1] - 1)] = -force_n * outer_load_fraction
+    force[3 * divisions + 1] = -opening_force_n
+    force[offsets[1] + 3 * (node_counts[1] - 1) + 1] = opening_force_n
+    free = np.setdiff1d(np.arange(ndof), constrained)
+    displacement = np.zeros(ndof)
+    displacement[free] = spsolve(stiffness[free][:, free], force[free])
+    residual = stiffness @ displacement - force
+    rigid_rotation_residual = None
+    if eccentric_interface and (hoop_young_mpa is None or max(hoop_young_mpa) == 0):
+        rotation = np.zeros(ndof)
+        separation = sum(thickness_mm) / 2 + adhesive_thickness_mm
+        for layer in (0, 1):
+            for node in range(node_counts[layer]):
+                start = offsets[layer] + 3 * node
+                rotation[start] = -separation if layer else 0.0
+                rotation[start + 1] = (node + (first if layer else 0)) * h
+                rotation[start + 2] = 1.0
+        rigid_rotation_residual = float(
+            np.max(np.abs(stiffness @ rotation)) / (abs(stiffness).sum(axis=1).max() * length_mm)
+        )
+    fields = []
+    peak_stress = np.zeros(2)
+    peak_shear = 0.0
+    peak_peel = 0.0
+    max_abs_normal = 0.0
+    for element in range(divisions):
+        a = displacement[ids(0, element)]
+        b = displacement[ids(1, element)] if element >= first else None
+        for s, _ in points:
+            n, dn, ddn = _beam_shapes(s, h)
+            row: dict[str, Any] = {"x_mm": (element + s) * h}
+            for layer, d in enumerate([a] if b is None else [a, b]):
+                strain = (d[3] - d[0]) / h
+                curvature = float(ddn @ d[[1, 2, 4, 5]])
+                surface = young_mpa[layer] * np.array(
+                    [
+                        strain - thickness_mm[layer] / 2 * curvature,
+                        strain + thickness_mm[layer] / 2 * curvature,
+                    ]
+                )
+                peak_stress[layer] = max(peak_stress[layer], float(np.max(np.abs(surface))))
+                row[f"layer_{layer}_surface_axial_stress_mpa"] = surface.tolist()
+            if b is not None:
+                slip = float(np.array([1 - s, s]) @ (b[[0, 3]] - a[[0, 3]]))
+                if eccentric_interface:
+                    slip += float(
+                        (thickness_mm[0] + adhesive_thickness_mm) / 2 * (dn @ a[[1, 2, 4, 5]])
+                        + (thickness_mm[1] + adhesive_thickness_mm) / 2 * (dn @ b[[1, 2, 4, 5]])
+                    )
+                normal = float(n @ (b[[1, 2, 4, 5]] - a[[1, 2, 4, 5]]))
+                shear = g / adhesive_thickness_mm * slip
+                peel = adhesive_young_mpa / adhesive_thickness_mm * normal
+                row.update(shear_mpa=shear, peel_mpa=peel)
+                peak_shear = max(peak_shear, abs(shear))
+                peak_peel = max(peak_peel, peel)
+                max_abs_normal = max(max_abs_normal, abs(peel))
+            fields.append(row)
+    result: dict[str, Any] = {
+        "method": "finite-overlap Euler-Bernoulli adherends with shear and normal springs",
+        "divisions": divisions,
+        "dof_count": ndof,
+        "spring_quadrature_points": 3 * (divisions - first),
+        "force_n": force_n,
+        "outer_load_fraction": outer_load_fraction,
+        "forward_extension_mm": length_mm - overlap_mm,
+        "max_axial_displacement_mm": float(np.max(np.abs(displacement[::3]))),
+        "max_radial_displacement_mm": float(np.max(np.abs(displacement[1::3]))),
+        "max_rotation_rad": float(np.max(np.abs(displacement[2::3]))),
+        "end_relative_opening_mm": float(
+            displacement[offsets[1] + 3 * (node_counts[1] - 1) + 1]
+            - displacement[3 * divisions + 1]
+        ),
+        "flat_beam_rigid_rotation_relative_residual": rigid_rotation_residual,
+        "small_rotation_screen_passed": float(np.max(np.abs(displacement[2::3]))) < 0.1,
+        "base_peak_abs_surface_axial_mpa": float(peak_stress[0]),
+        "outer_peak_abs_surface_axial_mpa": float(peak_stress[1]),
+        "peak_abs_adhesive_shear_mpa": peak_shear,
+        "peak_tensile_peel_mpa": max(0.0, peak_peel),
+        "peak_abs_adhesive_normal_mpa": max_abs_normal,
+        "axial_reaction_n": float(residual[0]),
+        "axial_equilibrium_residual_n": float(residual[0] - force_n),
+        "free_residual_n_or_nmm": float(np.max(np.abs(residual[free]))),
+        "strain_energy_nmm": float(displacement @ (stiffness @ displacement) / 2),
+        "external_work_nmm": float(displacement @ force),
+        "radius_mm": radius_mm,
+        "hoop_young_mpa": hoop_young_mpa,
+        "contact_or_failure_model": False,
+        "estimated_inputs": True,
+        "measured_data_used": False,
+        "physical_qualification": False,
+    }
+    if retain_fields:
+        result["gauss_fields"] = fields
+    return result
+
+
+def overlap_known_case(divisions: int = 120) -> dict[str, Any]:
+    """Check spring shear lag against the exact equal-EA Volkersen solution.
+
+    Two equal 1 mm adherends, E=1000 MPa, b=10 mm, L=100 mm, G=0.1 MPa,
+    h=0.5 mm, F=10 N. One left endpoint is fixed and force is applied at the
+    opposite end of the other adherend. Surface eccentricity is disabled only
+    in this analytical axial-only verification case, never in candidate runs.
+    """
+    length, width, young, thick, force, shear, gap = 100.0, 10.0, 1000.0, 1.0, 10.0, 0.1, 0.5
+    result = overlap_beam_spring(
+        divisions=divisions,
+        length_mm=length,
+        overlap_mm=length,
+        width_mm=width,
+        thickness_mm=(thick, thick),
+        young_mpa=(young, young),
+        adhesive_thickness_mm=gap,
+        adhesive_young_mpa=shear * 2.6,
+        adhesive_poisson=0.3,
+        force_n=force,
+        outer_load_fraction=1.0,
+        eccentric_interface=False,
+        retain_fields=True,
+    )
+    lam = np.sqrt(2 * shear / (gap * young * thick))
+    errors, expected = [], []
+    for row in result.pop("gauss_fields"):
+        x = row["x_mm"]
+        tau = (
+            force * lam * np.cosh(lam * (x - length / 2)) / (2 * width * np.sinh(lam * length / 2))
+        )
+        expected.append(float(tau))
+        errors.append(abs(abs(row["shear_mpa"]) - tau))
+    result.update(
+        fixture="equal-EA Volkersen axial shear lag, exact solution at every quadrature point",
+        analytical_peak_end_shear_mpa=float(
+            force * lam / (2 * width) * np.cosh(lam * length / 2) / np.sinh(lam * length / 2)
+        ),
+        max_point_relative_error=float(max(errors) / max(expected)),
+        verified=max(errors) / max(expected) < 0.01
+        and abs(result["axial_equilibrium_residual_n"]) < 1e-7
+        and abs(result["external_work_nmm"] / (2 * result["strain_energy_nmm"]) - 1) < 1e-8,
+    )
+    return result
+
+
+def bonded_path_hand_budget(
+    *,
+    force_n: float,
+    ring_bond_areas_mm2: list[float],
+    ring_stations_mm: list[float],
+    rail_area_mm2: float,
+    rail_weak_i_mm4: float,
+    paper_hot_mpa: float,
+    plywood_hot_mpa: float,
+    adhesive_hot_mpa: float,
+    bond_gap_mm: float,
+    upper_wall_mm: float,
+    aft_wall_mm: float,
+    joint_stiffness_n_mm: float,
+    design_factor: float = 3.0,
+    rail_force_n: float | None = None,
+    aft_path_length_mm: float = 255.0,
+    upper_path_length_mm: float = 778.0,
+    ring_arm_mm: float = 3.5,
+    ring_width_mm: float = 12.0,
+    ring_thickness_mm: float = 3.0,
+) -> dict[str, Any]:
+    """Trace serial stiffness and lower-bound strengths without inventing a pass.
+
+    Newton force balance, PL/EA, GA/h, cantilever bending + Timoshenko shear,
+    Euler pinned column (Gere, Mechanics of Materials). The sector-arm ring
+    model uses a deliberately restrictive 12 mm strip and 3.5 mm radial arm;
+    the actual ring has plate continuity and direct rail-to-OD paths. Its
+    compliance is an assumed sensitivity, not a derived assembled stiffness.
+    All-ring sharing and a single-ring worst placement are retained separately.
+    The full path cannot be accepted from mean shear, ring arm or gross paper.
+    """
+    from itertools import pairwise
+
+    rail_load = force_n if rail_force_n is None else rail_force_n
+    vals = [
+        force_n,
+        rail_area_mm2,
+        rail_weak_i_mm4,
+        paper_hot_mpa,
+        plywood_hot_mpa,
+        adhesive_hot_mpa,
+        bond_gap_mm,
+        upper_wall_mm,
+        aft_wall_mm,
+        joint_stiffness_n_mm,
+        design_factor,
+        rail_load,
+        aft_path_length_mm,
+        upper_path_length_mm,
+        ring_arm_mm,
+        ring_width_mm,
+        ring_thickness_mm,
+        *ring_bond_areas_mm2,
+    ]
+    if any(v <= 0 or not np.isfinite(v) for v in vals) or len(ring_bond_areas_mm2) != 5:
+        raise ValueError("Invalid hand-budget inputs")
+    base_bore = 32.5
+    upper_area = np.pi * ((base_bore + upper_wall_mm) ** 2 - base_bore**2)
+    aft_area = np.pi * ((base_bore + aft_wall_mm) ** 2 - base_bore**2)
+    g = adhesive_hot_mpa / 2.6
+    bond_k = [g * a / bond_gap_mm for a in ring_bond_areas_mm2]
+    ring_arm = ring_arm_mm
+    width, thick = ring_width_mm, ring_thickness_mm
+    inertia = width * thick**3 / 12
+    ring_bending_k = 3 * plywood_hot_mpa * inertia / ring_arm**3
+    ring_shear_k = (5 / 6) * (plywood_hot_mpa / 2.5) * (width * thick) / ring_arm
+    per_ring_k = 3 / (1 / ring_bending_k + 1 / ring_shear_k)
+    connections = [1 / (1 / k + 1 / per_ring_k) for k in bond_k]
+    paper_k = paper_hot_mpa * aft_area / aft_path_length_mm
+    upper_k = paper_hot_mpa * upper_area / upper_path_length_mm
+    bound_shortening = (
+        rail_load / sum(connections)
+        + rail_load / paper_k
+        + force_n / upper_k
+        + force_n / joint_stiffness_n_mm
+    )
+    overall_optimistic_k = force_n / bound_shortening
+    max_clear = max(b - a - 3 for a, b in pairwise(ring_stations_mm))
+    unbraced_length = ring_stations_mm[-1] - ring_stations_mm[0] - 3.0
+    full_pcr = 3 * np.pi**2 * plywood_hot_mpa * rail_weak_i_mm4 / unbraced_length**2
+    brace_pcr = 3 * np.pi**2 * plywood_hot_mpa * rail_weak_i_mm4 / max_clear**2
+    return {
+        "load_n": force_n,
+        "motor_flank_load_bound_n": rail_load,
+        "design_factor": design_factor,
+        "ring_positions_mm": ring_stations_mm,
+        "ring_bond_contact_areas_mm2": ring_bond_areas_mm2,
+        "ring_bond_shear_stiffness_n_mm": bond_k,
+        "assumed_finite_ring_axial_stiffness_n_mm": per_ring_k,
+        "finite_ring_plus_bond_stiffness_n_mm": connections,
+        "aft_shell_gross_area_mm2": float(aft_area),
+        "upper_shell_gross_area_mm2": float(upper_area),
+        "aft_shell_gross_stiffness_n_mm": float(paper_k),
+        "aft_path_length_mm": aft_path_length_mm,
+        "entire_upper_tube_axial_stiffness_n_mm": float(upper_k),
+        "upper_path_length_mm": upper_path_length_mm,
+        "assumed_joint_stiffness_n_mm": joint_stiffness_n_mm,
+        "optimistic_serial_path_stiffness_n_mm": float(overall_optimistic_k),
+        "optimistic_axial_shortening_mm": float(bound_shortening),
+        "required_minimum_hot_upper_axial_strength_mpa_gross": float(
+            design_factor * force_n / upper_area
+        ),
+        "required_minimum_hot_aft_axial_strength_mpa_gross": float(
+            design_factor * rail_load / aft_area
+        ),
+        "maximum_permissible_upper_local_stress_multiplier_at_2mpa": float(
+            2 * upper_area / (design_factor * force_n)
+        ),
+        "maximum_permissible_aft_local_stress_multiplier_at_2mpa": float(
+            2 * aft_area / (design_factor * rail_load)
+        ),
+        "required_hot_bond_shear_mpa_if_uniform_all_rings": design_factor
+        * rail_load
+        / sum(ring_bond_areas_mm2),
+        "required_hot_bond_shear_mpa_if_one_smallest_ring": design_factor
+        * rail_load
+        / min(ring_bond_areas_mm2),
+        "required_hot_plywood_axial_mpa_equal_rails": design_factor
+        * rail_load
+        / (3 * rail_area_mm2),
+        "unbraced_full_length_euler_n": float(full_pcr),
+        "ideally_braced_euler_n": float(brace_pcr),
+        "effective_unbraced_length_mm": unbraced_length,
+        "ideal_maximum_clear_braced_length_mm": max_clear,
+        "required_hot_rail_modulus_mpa_unbraced": float(
+            design_factor * rail_load * unbraced_length**2 / (3 * np.pi**2 * rail_weak_i_mm4)
+        ),
+        "required_hot_rail_modulus_mpa_ideal_braces": float(
+            design_factor * rail_load * max_clear**2 / (3 * np.pi**2 * rail_weak_i_mm4)
+        ),
+        "ring_bond_peel_strength_required_mpa": None,
+        "retention_capacity_required_n_at_least": design_factor * force_n,
+        "numerical_assembly_acceptance": False,
+        "limitations": [
+            "No physical ring is grounded: bond/ring, aft shell, whole upper tube and finite joint compliances are serial.",
+            "The scalar path is optimistic parallel sharing; it does not predict actual individual ring reactions, bending, shell ovalization, peel or local crushing.",
+            "The larger motor-flank load bounds rail/ring/bond and aft-paper demands; the forward-body reaction is used only for upper tube and joint. This avoids using the smaller joint reaction to clear the mount.",
+            "The assumed ring-sector arm is not a verified plate stiffness; actual 3D structure includes direct rail-to-OD transfer and slots.",
+            "Upper shortening uses all path force over the whole 778 mm tube and is a bound; actual upstream mass inertia reduces force toward the nose.",
+            "Euler values bracket zero and ideal brace support and are not assembled-shell buckling factors.",
+            "The retention number is only a same-magnitude reverse-load minimum; recovery opening, extraction, TVC and handling can govern separately.",
+            "No peel or mixed-mode allowable is inferred from manufacturer tensile, lap-shear, tear or service-temperature data.",
+        ],
+    }
+
+
+def peel_foundation_known_case(divisions: int = 120) -> dict[str, Any]:
+    """Verify the retained normal springs against a semi-infinite DCB solution.
+
+    Two identical Euler-Bernoulli beams on a continuous normal elastic foundation,
+    equal/opposite 1 N end forces. Relative opening w satisfies D w'''' + k w=0,
+    D=(1/EI1+1/EI2)^-1 and beta=(k/4D)^1/4. For a moment-free loaded end,
+    w(0)=P/(2 D beta^3). See Hetenyi, Beams on Elastic Foundation (1946),
+    semi-infinite beam under end force. The fixture extends over 13 decay lengths;
+    its remote clamp differs negligibly from the semi-infinite boundary.
+    Surface eccentricity is disabled to isolate and verify the normal operator.
+    """
+    young, width, thickness, length = 1000.0, 10.0, 1.0, 100.0
+    gap, adhesive_e, force = 0.5, 0.026, 1.0
+    bending = young * width * thickness**3 / 12
+    relative_bending = bending / 2
+    foundation = adhesive_e * width / gap
+    beta = (foundation / (4 * relative_bending)) ** 0.25
+    expected = force / (2 * relative_bending * beta**3)
+    result = overlap_beam_spring(
+        divisions=divisions,
+        length_mm=length,
+        overlap_mm=length,
+        width_mm=width,
+        thickness_mm=(thickness, thickness),
+        young_mpa=(young, young),
+        adhesive_thickness_mm=gap,
+        adhesive_young_mpa=adhesive_e,
+        adhesive_poisson=0.3,
+        force_n=1e-20,
+        outer_load_fraction=0.5,
+        eccentric_interface=False,
+        opening_force_n=force,
+    )
+    error = abs(result["end_relative_opening_mm"] / expected - 1)
+    result.update(
+        fixture="double-cantilever normal foundation, semi-infinite end-opening solution",
+        expected_end_opening_mm=expected,
+        beta_per_mm=beta,
+        length_over_decay_length=length * beta,
+        relative_error=error,
+        verified=error < 0.001
+        and abs(result["external_work_nmm"] / (2 * result["strain_energy_nmm"]) - 1) < 1e-8,
+    )
+    return result
+
+
+def annular_brace_sensitivity(
+    outer_radius_mm: float,
+    inner_radius_mm: float,
+    axial_thickness_mm: float,
+    young_mpa: float,
+    channel_inner_radius_mm: float | None = None,
+) -> dict[str, Any]:
+    """Elementary circumferential-brace sensitivity, never a support acceptance.
+
+    For diametrically opposed radial forces on a slender, unperforated circular
+    ring: delta=(pi/4-2/pi) P R^3/(EI). This follows Castigliano integration of
+    ring bending energy (Roark's Formulas for Stress and Strain, circular rings).
+    The section is I=t*w^3/12. Actual wide, slotted, rail-connected rings and the
+    shell/bond boundary do not match that idealization. The guaranteed continuous
+    inner band is reported separately where a fin channel crosses the ring.
+    """
+    if not 0 < inner_radius_mm < outer_radius_mm or min(axial_thickness_mm, young_mpa) <= 0:
+        raise ValueError("Invalid annular brace geometry")
+    width = outer_radius_mm - inner_radius_mm
+    radius = (outer_radius_mm + inner_radius_mm) / 2
+    inertia = axial_thickness_mm * width**3 / 12
+    result: dict[str, Any] = {
+        "outer_radius_mm": outer_radius_mm,
+        "inner_radius_mm": inner_radius_mm,
+        "radial_width_mm": width,
+        "mean_radius_mm": radius,
+        "unperforated_section_inplane_i_mm4": inertia,
+        "ideal_diametric_stiffness_n_mm": young_mpa
+        * inertia
+        / ((np.pi / 4 - 2 / np.pi) * radius**3),
+        "width_over_mean_radius": width / radius,
+        "slender_ring_assumption_demonstrated": width / radius <= 0.1,
+        "actual_assembled_support_stiffness_available": False,
+        "slots_bonds_shell_and_rail_junctions_included": False,
+        "numerical_assembly_acceptance": False,
+    }
+    if channel_inner_radius_mm is not None:
+        band_outer = min(outer_radius_mm, channel_inner_radius_mm)
+        if band_outer <= inner_radius_mm:
+            result["continuous_inner_band"] = None
+        else:
+            result["continuous_inner_band"] = annular_brace_sensitivity(
+                band_outer, inner_radius_mm, axial_thickness_mm, young_mpa
+            )
+    return result
