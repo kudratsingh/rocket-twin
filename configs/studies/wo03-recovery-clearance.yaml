@@ -1,0 +1,69 @@
+id: wo03-recovery-clearance-outward-horns
+status: isolated_geometry_and_section_trial_not_adopted
+default_output: build/wo03-recovery-clearance/hoop
+thin_reference_record: build/wo03-recovery-clearance/record.json
+thin_reference_record_sha256: b61ac097255a538f3131d3a76cd63c16a19b8c0f5d4ff62dbb41ffd714844ecb
+thin_source_script: build/wo03-recovery-clearance/source-snapshot/wo03_recovery_clearance.py
+thin_source_config: build/wo03-recovery-clearance/source-snapshot/wo03-recovery-clearance.yaml
+published_reference: 38ea0240
+frozen_budget_config: configs/studies/wo03-recovery-budget-closure.yaml
+frozen_budget_record: build/wo03-recovery-budget-closure/record.json
+frozen_owned_files:
+  - scripts/wo03_recovery_anchor.py
+  - configs/studies/wo03-recovery-anchor.yaml
+  - docs/wo03-recovery-anchor.md
+  - scripts/wo03_recovery_budget_closure.py
+  - configs/studies/wo03-recovery-budget-closure.yaml
+  - docs/wo03-recovery-budget-closure.md
+  - tests/test_recovery_anchor.py
+original_vehicle: configs/vehicle/platform/tvc-finned.yaml
+target_vehicle_id: modular-tvc-finned-v1
+frame_start_station_m: 1.012
+cap_thickness_mm: 8
+cap_min_thickness_mm: 7.7
+cap_outer_radius_mm: 32
+cap_inner_radius_mm: 24
+port_group_angles_deg: [60, 180, 300]
+port_x_mm: 28
+port_y_mm: 5
+port_diameter_mm: 3.7
+port_min_diameter_mm: 3.6
+port_max_diameter_mm: 3.8
+port_pitch_min_mm: 9.8
+port_pitch_max_mm: 10.2
+saddle_radius_mm: 3
+saddle_length_mm: 6
+hoop:
+  enabled: true
+  start_station_m: 1.020
+  thickness_mm: 5
+  thickness_tolerance_mm: 0.3
+  minimum_inner_radius_mm: 29.8
+  inner_radius_increment_mm: 0.1
+  route: Require continuous machined G11 stock with the cap/frame; one BRep solid is geometry evidence, not proof of qualified laminate/orientation/interlaminar strength. No new bond is assumed.
+rope_max_diameter_assumption_mm: 2.9
+window_center_groups:
+  - {mechanism_axis: 0, radius_mm: 26.0, angles_deg: [0, 8, 16]}
+  - {mechanism_axis: 1, radius_mm: 26.2, angles_deg: [90]}
+window_sizing:
+  diameter_increment_mm: 0.1
+  diameter_tolerance_mm: 0.1
+  projection_deflection_mm: 0.02
+  projection_roundoff_reserve_mm: 0.03
+  positive_clearance_reserve_mm: 0.15
+  coordinate_policy: Treat each part's existing linear tolerance as an independent bound on each Cartesian coordinate, sum mechanism/frame bounds, multiply by sqrt(3); add hole-radius tolerance and the stated positive reserve. This is a proposed geometric bound, not measured production capability or an angular/joint tolerance model.
+pose_grid_count_each_axis: 5
+joint_zone_radius_mm: 4
+intersection_reporting_threshold_mm3: 0.05
+minimum_local_g11_hot_screen_mpa_estimate: 25
+local_bridge_hot_flexural_screen_mpa_estimate: 80
+thermal_addition_cases_g: [0, 8, 12, 14]
+guide_steps_s: [0.001, 0.0005]
+required_preserved:
+  horn_arm_length_mm: 6
+  horn_phases: Original outward radial; +X yaw arm rotating about +Y and +Y pitch arm rotating about +X.
+  no_relief_parts: [motor_mount, motor, motor_liner, tvc_gimbal, gimbal_inner]
+  no_motion_limit_reduction: true
+  rail_matched_and_single_leg_acceptance_closed: false
+  active_adoption: false
+  flight_ready: false
