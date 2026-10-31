@@ -4,6 +4,28 @@ Updated: 2026-10-31 (run IDs use UTC)
 
 ## Current work order
 
+**Timed-session handoff (2026-10-31):** the owner directed work to stop at
+09:49 UTC /02:49 America/Los_Angeles, after saving and pushing progress. Treat
+this session as paused after that time until the owner resumes it; no autonomous
+agent continuation is authorized past the deadline. WO-03 remains open.
+
+**Latest structural accounting:** the [G12 fin routing audit](wo03-fin-load-routing.md)
+keeps axial-Z root torque separate from the old radial-X rail-bending surrogate;
+full installed reactions and three physical wrench components remain unknown.
+The [G54 support cut ledger](wo03-support-cutloads.md) now checks all170 actual
+STEP shapes and repeats all nine cut bounds with BRep extents, matching the
+nominal case within1.5e-14N. These are conditional combined-path demands, not
+shell stresses or installed capacity. The source remains the69df thermal copy,
+not a completed recovery package. Both analyses preserve their separate identities,
+all failed screens and physical verification requirements. Compact evidence:
+`runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json`.
+
+[PR #18](https://github.com/kudratsingh/rocket-twin/pull/18) and
+[PR #19](https://github.com/kudratsingh/rocket-twin/pull/19) are merged after
+required checks passed. The early preview is running and browser-verified;
+compatible current Analysis fields remain unavailable. The isolated Elmer setup
+preflight still establishes no usable/qualified solver or accepted baffle result.
+
 **Latest thermal-tool decision:** [bounded Elmer/CalculiX comparison](wo03-external-thermal-decision.md)
 qualifies neither tool for an actual-baffle attempt. Elmer was unavailable in the
 checked isolated setup; CalculiX completed straight finite-wall and cylinder

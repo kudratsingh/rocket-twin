@@ -255,6 +255,18 @@ evidence_sources:
   limitation: Neither tool qualifies actual-baffle temperatures; Elmer unavailable;
     precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
     No adoption.
+- path: docs/wo03-fin-load-routing.md
+  scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
+  limitation: Separate G12/G54 identities; unknown components and installed load shares
+    remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
+- path: docs/wo03-support-cutloads.md
+  scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
+  limitation: Separate G12/G54 identities; unknown components and installed load shares
+    remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
+- path: runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json
+  scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
+  limitation: Separate G12/G54 identities; unknown components and installed load shares
+    remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
 configurations:
   G80: configs/vehicle/platform/performance.yaml
   G54: configs/vehicle/wo02/performance-g54.yaml
@@ -885,6 +897,8 @@ requirements:
   evidence:
   - runs/wo03-vibration-20261030T175839356500Z/record.json
   - runs/wo03-vibration-20261030T205443545391Z-summary/record.json
+  - docs/wo03-fin-load-routing.md
+  - runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json
   status: open
   evidence_basis: Provisional design/specification unless an evidence record explicitly
     establishes otherwise.
