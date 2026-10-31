@@ -88,6 +88,15 @@ control qualification remain owner-performed WO-09–11 gates; flight_ready stay
 
 ## Bounded closure execution
 
+The [external-tool comparison decision](../wo03-external-thermal-decision.md)
+records the owner's research-first checkpoint: Elmer plus installed CalculiX,
+two declared600-CPU-second packets,120s/case, separate600s setup caps, unchanged
+accuracy requirements and explicit unavailable results. Neither tool qualifies
+for the actual baffle yet. Publish this focused evidence before another selected
+approach; no new production numerical method or physical acceptance follows.
+The owner's later preview resumption permits code/non-browser checks only;
+computer use remains paused until testing is resumed.
+
 Follow [the three-deliverable closure plan](../wo03-closure-plan.md) and
 [thermal method decision](../wo03-thermal-method-decision.md). This records the
 owner's2026-10-31 direction to isolate impossible temperatures on known cases,

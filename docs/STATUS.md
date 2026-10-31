@@ -4,6 +4,20 @@ Updated: 2026-10-31 (run IDs use UTC)
 
 ## Current work order
 
+**Latest thermal-tool decision:** [bounded Elmer/CalculiX comparison](wo03-external-thermal-decision.md)
+qualifies neither tool for an actual-baffle attempt. Elmer was unavailable in the
+checked isolated setup; CalculiX completed straight finite-wall and cylinder
+three-grid cases. The cylinder's individual field/heat/refinement criteria pass,
+but precise energy/local checks and difficult spatial-wall cases remain unavailable.
+No new production solver, accepted temperature or vehicle change. The two stopped
+wall-treatment trials and failed actual fields remain preserved. Evidence:
+`runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json`.
+
+**Latest preview direction:** the owner subsequently resumed saved early frontend
+code and non-browser validation through a Terra agent. Browser/computer use remains
+paused pending owner-directed testing. Earlier pause statements below are historical;
+full WO-03/04/05 acceptance and all physical/paid/WO-10/flight gates remain intact.
+
 **Current closure plan:** [three bounded deliverables](wo03-closure-plan.md):
 known-answer thermal error isolation → credible actual-geometry temperatures or
 justified bounds → one complete-package revalidation. Original full-size mesh

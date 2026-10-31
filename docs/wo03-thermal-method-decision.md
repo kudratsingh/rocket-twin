@@ -1,5 +1,10 @@
 # Thermal method decision — stop blind full-size retries
 
+**Latest checkpoint:** [external Elmer/CalculiX evaluation](wo03-external-thermal-decision.md)
+is complete as a bounded partial comparison. Neither tool is selected for an
+actual-baffle run: availability, precise energy output and spatial-wall evidence
+are unresolved. Historical stopped approaches below remain stopped.
+
 2026-10-31. **The original optical-parent-preserving mesh route is stopped under
 its present caps.** A completed debug transient exists, but its source field is
 numerically failed. The next task is the small error-isolation packet in

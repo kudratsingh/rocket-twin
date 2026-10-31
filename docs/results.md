@@ -1097,3 +1097,29 @@ independent planar-contact/foundation fixtures. Seven relevant local tests,
 Ruff/Black and strict module typing pass. The original failed hosted run remains
 historical; required checks must pass on the replacement exact head before merge.
 No actual engineering calculation or acceptance result changed.
+
+
+## WO-03 external thermal tools: research-first checkpoint (2026-10-31)
+
+Elmer plus existing CalculiX2.23 were assessed under two declared600CPU-second
+packets, oneCPU/120s per case, separate600s setup caps. Elmer setup preflight
+stopped after8s with no identified accessible arm64 binary and shell DNS failure;
+no Elmer solver ran. CalculiX completed A at2/4/8 and the existing cylinder at
+three levels using0.305709 childCPU s, peak cumulative childRSS16.27MB.
+Inclusive CalculiX setup wall time is unmeasured, so its setup-budget compliance
+is unverified. Two input errors and the explicit format-only replan are preserved.
+
+Cylinder finest field error0.23505K, heat error0.369% and last-two change0.657%
+pass those individual existing criteria. Output precision cannot establish the
+strict exact-temperature/energy checks; local balance is unavailable. B/B_strong,
+narrow finite-wall annulus, transient, contact and radiation remain unexecuted.
+The decision is **no actual-baffle solver selection or run**. No production heat
+method, required matrix,45C screen or working vehicle changed. See
+[comparison and prerequisite decision](wo03-external-thermal-decision.md),
+[Elmer sources/setup](wo03-elmer-literature.md),
+[CalculiX evidence](wo03-ccx-thermal-comparison.md) and
+`runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json`.
+
+The owner separately resumed early preview code/non-browser checks through a
+Terra agent. Browser verification/screenshots remain paused pending owner testing.
+Failed or incompatible analysis cannot become accepted active overlays.
