@@ -22,14 +22,15 @@ jobs:
             requirements-wo01.txt
             requirements-wo02.txt
             requirements-wo03.txt
+            requirements-wo04.txt
       - name: Install Gmsh shared-library runtime
         run: |
           sudo apt-get update
           sudo apt-get install --no-install-recommends -y libglu1-mesa
-      - name: Install WO-01–03 CPU dependencies and independent reference
+      - name: Install WO-01–04 CPU dependencies and independent reference
         run: |
           python -m venv .venv
-          .venv/bin/python -m pip install -r requirements-wo03.txt
+          .venv/bin/python -m pip install -r requirements-wo04.txt
       - name: Check, test and compare all modes
         run: make check smoke tiny benchmark
 
@@ -41,3 +42,29 @@ jobs:
 
       - name: Check integrated support, recovery, fits and actual geometry
         run: make fin-study tolerance-study motor-support recovery-integration integration-report inspection-figures
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked web dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
+      - name: Check formatting
+        run: npm run format:check
+      - name: Build
+        run: npm run build

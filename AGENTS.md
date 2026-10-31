@@ -10,7 +10,7 @@ The owner's 2026-10-31 continuation uses `docs/wo03-closure-plan.md`: isolate
 thermal errors on known cases, qualify actual geometry or justified bounds,
 then revalidate one complete package. Follow its declared attempt budgets and
 stop/replan conditions; do not repeat invalid or capped full-size methods blindly.
-Frontend and browser work remain paused and the saved preview must be preserved.
+Preserve the saved preview; the latest limited resumption is described below.
 
 Later owner direction on2026-10-31 resumes the saved early frontend inspection,
 experiments and replay **code and non-browser checks** through a bounded Terra

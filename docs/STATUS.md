@@ -9,14 +9,23 @@ qualifies neither tool for an actual-baffle attempt. Elmer was unavailable in th
 checked isolated setup; CalculiX completed straight finite-wall and cylinder
 three-grid cases. The cylinder's individual field/heat/refinement criteria pass,
 but precise energy/local checks and difficult spatial-wall cases remain unavailable.
+[PR #16](https://github.com/kudratsingh/rocket-twin/pull/16) is merged after
+all [exact-head hosted checks](https://github.com/kudratsingh/rocket-twin/actions/runs/41185073845) passed.
 No new production solver, accepted temperature or vehicle change. The two stopped
 wall-treatment trials and failed actual fields remain preserved. Evidence:
 `runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json`.
 
-**Latest preview direction:** the owner subsequently resumed saved early frontend
-code and non-browser validation through a Terra agent. Browser/computer use remains
-paused pending owner-directed testing. Earlier pause statements below are historical;
-full WO-03/04/05 acceptance and all physical/paid/WO-10/flight gates remain intact.
+**Latest preview direction:** saved early frontend code is ready for owner-directed
+visual testing. TypeScript/lint/build/format, four frontend boundary tests and12
+API/experiment tests pass. Two current-revision calm G80/G54 runs are retained
+locally for replay. No current Analysis field matches active identities; missing
+or failed data remains unavailable/failed. Browser/computer use remains paused.
+Local port binding is denied by this sandbox (Vite5173 `EPERM`, API8000 `Errno1`),
+so no live URL is claimed: start `make preview` in a normal host terminal, then
+open `http://127.0.0.1:5173` when testing resumes. See the
+[preview handoff](wo04-preview-handoff.md). Earlier pause statements below are
+historical; full WO-03/04/05 acceptance and physical/paid/WO-10/flight gates remain.
+
 
 **Current closure plan:** [three bounded deliverables](wo03-closure-plan.md):
 known-answer thermal error isolation → credible actual-geometry temperatures or
