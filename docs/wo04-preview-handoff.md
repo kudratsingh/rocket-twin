@@ -2,9 +2,8 @@
 
 This is an early local WO-04/05 preview while expanded WO-03 remains open. It
 is not engineering acceptance, build approval or flight authorization. The
-latest edits have non-browser checks; the existing visual observations in
-[the earlier preview record](wo04-early-preview.md) predate these edits. Fresh
-browser testing and screenshots remain pending at the owner's direction.
+latest edits have non-browser checks and the current-revision browser checks
+below. These are preview checks, not full work-order or engineering acceptance.
 
 ## Start on this Mac
 
@@ -31,13 +30,11 @@ There is no live agent-launched preview or running launcher session. Start
 wait for both services to start before opening the URL. Restart the API after
 Python source changes.
 
-The designated Chrome window was inspected afterward: its existing host Vite
-server and API responded, but the API's older snapshot returned all four
-configurations as unavailable with `Source specification/CAD changed after
-snapshot; restart API with matching recorded artifacts`. The page remained on
-“Loading resolved configuration.” Stop the old host launcher and restart
-`make preview` in that host terminal before attempting the visual checklist.
-The older browser page seen before reload was stale and is not current proof.
+The designated Chrome window initially reached an older host API snapshot,
+which rejected all configurations after source changes. The owner restarted
+`make preview`; after one transient 502 and a retry, the app loaded current G80
+resolved SHA-256 `c18abfee…` and CAD generator `1193713d…`. Host services were
+reachable for the checks below. The app and its local runs are not hosted remotely.
 
 `build/`, `runs/`, `web/dist/` and `web/node_modules/` contain local generated
 data and are not preview source publication payloads. Although most run files
@@ -71,25 +68,54 @@ Both used CAD generator SHA-256
 `1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b`.
 These are preliminary unguided simulations; configurations differ in more than
 motor, and the data does not establish a real-flight performance difference.
-Saved runs are local artifacts and must be retained on this Mac to load them. Browser playback has not been verified for these runs.
+Saved runs are local artifacts and must be retained on this Mac to load them. Browser replay and comparison checks for these runs are recorded below.
 
-## Visual verification once resumed
+## Current browser observations — 2026-10-31
 
-- Cycle through G80, conditional G54, finned G12 and finless G12; confirm one
-  centered complete rocket, correct part tree, selection/highlight, visibility,
-  isolate, show all, exploded view and reset/fit. Inspect part and vehicle details.
-- Run or load two supported complete flights with matching settings, then with
-  differing wind; exercise progress, replay play/pause, speed, scrub, events,
-  both camera modes, trajectory fit and synchronized metric/feet/mph graphs.
-  Confirm the comparison identifies all recorded differences and continues to
-  the longer flight's end. Finless flight must explain why it is blocked.
-- Check compatible recorded fin fields and historical temperature data if present;
-  confirm legends, selection, missing coverage, time control and the persistent
-  SUPERSEDED warning on the old band-model thermal record. A FAILED numerical
-  field must not color active geometry. If recorded data is absent or mismatched,
-  the viewer should say unavailable/incompatible rather than inventing values.
-- Test normal and narrow desktop layouts; capture actual app screenshots only
-  when the owner resumes browser use. The current visual state has not been checked.
+In the designated Chrome window containing the Atlas Fibre G11 PDF, all four
+configurations rendered a complete centered vehicle with one parts tree and
+42 / 42 / 53 / 51 parts respectively. G80 and G54 masses were 739.46 g and
+817.99 g; finned and finless G12 were 780.15 g and 645.94 g, with the 50 g
+allowance separate. Selecting finless Body upper highlighted the part and opened
+its inspector; isolate, show all and hide outer body gave 1 / 51 / 48 visible
+parts. Explode reached 100%; Fit rocket framed the separated assembly, and
+reassembly/reset restored the normal view. Dragging rotated the G80 view,
+scrolling zoomed it, and Reset view restored its fitted camera. The finless
+experiment button was disabled with the unsupported-unguided explanation.
+
+Both current-revision saved runs loaded and compared in the app. Play/Pause
+advanced and stopped time, apogee jumped to 10.39 s, 4× speed and free/fit
+trajectory camera controls responded, and the comparison scrubber reached
+132.85 s (past G80 landing at 116.03 s). Clicking a plotted graph moved the
+shared cursor to 65.51 s. Teal/gold curves, metre/foot and m/s/mph labels,
+acceleration, tilt from vertical and horizontal-distance graphs were visible;
+matching calm settings and configuration/input differences were shown. Those
+two saved runs were generated and checked through the actual API beforehand.
+
+A further browser-triggered G80 run changed steady wind to 1 m/s toward
+90° with zero gust: `exp-1f2178e749f049f18181e123078679bd`. The app displayed
+preparation progress, saved the complete result, loaded it, played/paused it,
+jumped to apogee and compared it with calm G80
+`exp-c6af2dc4871942dc97632ae44d6613c9`. The displayed differences identified
+wind speed, direction and the two wind-vector case values. Both records have
+identical input, resolved-specification, CAD and simulation-code hashes. The
+wind run's preliminary modeled apogee was 634.91 m and horizontal landing
+displacement was 108.00 m; these are simulated results, not flight evidence.
+
+Analysis displayed an identity mismatch, neutral geometry and “no overlay
+attached” for stale records. The historical thermal export was labeled both
+incompatible and SUPERSEDED, and the Inspect summary explicitly listed the
+replacement-baffle numerical result as FAILED. No current compatible analysis
+field exists, so a compatible stress/temperature overlay was not visually
+verified. The designated Chrome tab emitted actual app screenshots through the
+computer-use tool for Inspect, Replay and Analysis; no screenshot files were
+persisted by that API. After a CSS-only change, CG and CP labels appear on
+opposite sides of the unchanged markers at the fitted view. All four configurations were checked;
+G80 and finless camera reset were exercised. At 150% browser zoom the tree
+wraps names and moves mass to a separate line, and footer text wraps. This
+reduces visible rows but keeps the inspected text readable; the 150% check is
+not a measured window-width or mobile-layout acceptance test. Browser zoom was
+restored to 125%.
 
 The saved preview exercises preliminary unguided simulation only; PID and RL
 are later work. Comparison of complete configurations can change geometry,
