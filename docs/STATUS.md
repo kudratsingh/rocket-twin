@@ -1,8 +1,35 @@
 # Status
 
-Updated: 2026-10-30 (run IDs use UTC)
+Updated: 2026-10-31 (run IDs use UTC)
 
 ## Current work order
+
+**Current closure plan:** [three bounded deliverables](wo03-closure-plan.md):
+known-answer thermal error isolation → credible actual-geometry temperatures or
+justified bounds → one complete-package revalidation. Original full-size mesh
+retries are stopped pending validated method/resource replanning. A read-only
+count proves the old parent/vertex-preserving construction exceeds its120k/240k
+caps before meeting resolution. [Method decision](wo03-thermal-method-decision.md).
+Independent recovery/support and installed-fin audits are now executed:
+[closure table](wo03-package-closure-progress.md). Exact geometry/force accounting
+and common-root equilibrium subitems close, but installed capacities, foundation,
+flutter and the complete G12 package remain open. Known-case isolation reproduces
+local undershoots despite good energy closure; no full-size retry is running.
+No scope, physical acceptance or preview/browser activity is added by this plan.
+The known-case packet and two permitted wall-treatment trials are now complete.
+Both standalone treatments are rejected: one loses source heat accuracy; the
+other retains it but has excessive local temperature/reference-heat error.
+That branch is stopped after two trials. [Decision and next route](wo03-thermal-method-decision.md).
+The numerical question now requires a different geometry/discretization or a
+justified bounding treatment; no actual temperature pass or new full-size run.
+[PR #15](https://github.com/kudratsingh/rocket-twin/pull/15) publishes this bounded
+continuation. Its first check exposed a missing local-only helper dependency;
+the shared pure helper is now included with unchanged-function evidence and
+an import/known-case regression. Exact-head hosted status remains on the PR;
+a software check never overrides the engineering findings above.
+
+
+
 
 **Owner-directed return to WO-03 (2026-10-30):** engineering development is resumed.
 Frontend preview and computer-use work remain paused. Saved preview edits and run
@@ -63,8 +90,10 @@ before its geometry, source mapping, field and refinement checks pass.
 [PR #13](https://github.com/kudratsingh/rocket-twin/pull/13) **merged** at
 `8e71c206839087723bedbef3209e38d2e4662ef4`. Its replacement exact-head hosted run
 `41172768750` passed every required check after the Linux GLU fix. The first
-missing-GLU run remains failed historical evidence. Subsequent numerical
-diagnostics and the completed debug transient are local pending their focused PR.
+missing-GLU run remains failed historical evidence. [PR #14](https://github.com/kudratsingh/rocket-twin/pull/14) subsequently merged
+at `a900b884c89e4c77a1c6f338a8cc2fd4c0549c5d` after all required exact-head
+checks passed in run41178650950. It publishes the numerical diagnostics, stable
+heat-accounting correction and failed-model transient.
 Latest local check passes224tests,Ruff/Black(222files) and strict mypy(77modules).
 These are regression/guard checks, not actual thermal acceptance.
 

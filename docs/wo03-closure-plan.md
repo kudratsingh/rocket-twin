@@ -1,0 +1,59 @@
+# WO-03 closure plan — fixed scope, bounded attempts
+
+Owner direction, 2026-10-31. This plan changes neither expanded WO-03 acceptance
+nor the active vehicle. G80 remains the reference, G54 conditional and G12 the
+PID-to-RL trainer. Frontend/browser work remains paused and its saved preview is
+preserved. Physical, paid-run, WO-10 owner-review and flight-release gates remain.
+
+Computing budgets below are **CPU execution allowances, not delivery dates**.
+No paid compute is authorized. Known-case agreement, actual numerical accuracy,
+design acceptance and owner qualification remain separate.
+
+| Next deliverable | Pass/fail criterion | Computing budget | Decision on failure |
+| --- | --- | --- | --- |
+| 1. Error-isolation packet | Test the actual 935:1 long-gap aspect ratio with independently known steady conduction/finite-wall answers, mixed prescribed boundaries and spatially varying manufactured wall inputs. Check local extrema, reservoir heat and global/local balances at three refinements. Retain existing analytic-case tolerances; approximate cases must show decreasing error and meet the existing method convergence criterion. Identify which mechanisms the tests isolate and which remain unproved. | One CPU; ≤120 s per case; ≤10 CPU min total. Existing captured-field diagnosis and stable-ledger proof are inputs, not repeated full factors. | At most two corrective trials for one identified defect. If either trial repeats the same unexplained failure, stop that implementation family, preserve it and state a different mathematical/geometry treatment to test. A passing simple case cannot qualify the actual baffle. |
+| 2. Actual-baffle thermal credibility packet | Exact candidate/material/opening/contact identity; valid mesh or justified reduced/bounded representation; admissible local temperatures; unchanged field/heat tolerances; important substrate/bond peaks and heat routes stable under spatial and temporal refinement. Apply the unchanged required-case matrix, including300°C/contaminated foil/35°C and45°C substrate screen. Part means and local coverage stay distinct. | Preflight first. Detailed route: ≤300 s per mesh, ≤900 s per complete factor, declared existing node/map/memory guards; no automatic increase. Permit one new actual trial only after deliverable1 and a feasible resource/geometry preflight. Alternative assessment: ≤10 CPU min of fixtures/counts before a detailed alternative run is proposed. | Current invalid/capped attempts already trigger replanning: no blind retry of the original PLC/native/midpoint constructions. Any repeated invalid cell/connectivity defect or cap stops that approach. Assess an alternative retaining actual openings/material paths, with validated accuracy or conservative conductance/radiation/temperature bounds. Bounds must cover property/contact/source uncertainty; if they straddle45°C, acceptance stays open. A trivial ambient-to-case bound is insufficient to choose the design. |
+| 3. One complete-package closure report | Recovery/support and installed fin/root evidence belongs to the same resolved package as the thermal result. Count every part once; reconcile mass, CG and full inertia; pass applicable strength/stiffness/flutter/fit/motion, G54≥1 calibre with growth and G12≥10 m/s on the still-unconfirmed5 m guide with full50 g allowance; repeat affected JAX/RocketPy checks. Issue→correction→criterion→result→evidence→physical-verification table. | Existing regression campaign approximately20–40 CPU min, excluding separately declared targeted analyses. Independent structural audits: ≤120 s per child, ≤10 CPU min each; FEA retains existing known-case/convergence requirements. | Any design failure leaves the package unaccepted. Select a correction addressing the limiting load/heat/mass path; do not compose passes from incompatible prototypes, reduce the growth allowance, relax the departure screen or defer a design failure as a physical-test-only item. |
+
+## Inputs that could change decisions
+
+- Exact motor external case-temperature histories, including ends and post-burn
+  cooling, determine source heat exposure. Certification/thrust data does not
+  supply these temperatures. Instrumented manufacturer information or later
+  owner measurements would resolve them; current explicit bounds stay required.
+- Foil emissivity/contamination and actual seams/openings can change radiation
+  reaching rings and substrates. Preserve degraded-foil cases; measured surface
+  condition/emissivity or calibrated hot-soak data is needed before narrowing them.
+- Adhesive coverage, thickness, conductivity/contact quality and hot shear/peel
+  affect both heat transfer and structural load paths. Sectioned coupons,
+  temperature-dependent bond tests and assembled hot proof tests are needed.
+- Minimum-direction plywood/carbon-sandwich properties, installed root stiffness,
+  damping and body/joint capacity can control fin strength/flutter and recovery.
+  Use source ranges until owner coupon, torsion/modal, joint and recovery tests
+  establish as-built values. No supplier-typical value becomes a measured allowable.
+- Motor mass/CG/envelope and actual guide length remain configuration-specific
+  inputs. Supplier drawings and measured hardware/guide dimensions resolve them;
+  the G54 motor-CG sensitivity and G12 departure budget remain visible.
+
+Parallel audits must rank these by whether their credible interval crosses an
+acceptance boundary. Input uncertainty is not resolved by numerical convergence.
+Gas refinement also cannot conceal unresolved wall quadrature, local radiation
+sampling or mean-temperature/fourth-power projection error. Those existing
+common-surface checks remain part of the actual thermal credibility packet.
+Report closed engineering subitems and complete-package results first; software
+test counts support implementation verification only.
+
+
+## Executed checkpoints
+
+- Known-answer packet is complete: exact affine935:1 case passes; curved cases
+  reveal local undershoots despite energy closure and coarse map convergence.
+  These diagnostics do not qualify the actual solver. [Evidence](wo03-thermal-error-isolation.md).
+- Both permitted fixture correction trials have been used and rejected as
+  standalone treatments. Trial1 loses source accuracy; trial2 preserves source
+  heat but has excessive temperature/reference-heat error. This branch is
+  stopped; no third tweak or actual-geometry run follows. [Decision](wo03-thermal-method-decision.md).
+- Support/recovery and installed-fin audits close exact geometry/force accounting
+  and common-root equilibrium subitems. Actual joint capacities, foundation,
+  flutter and the guide-compatible complete thermal/recovery package stay open.
+  [Closure table](wo03-package-closure-progress.md).

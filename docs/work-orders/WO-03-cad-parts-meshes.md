@@ -86,6 +86,17 @@ part-function/load-path documentation are available. Record evidence in STATUS a
 results before advancing to WO-04. Actual strength, temperature, fit, recovery and
 control qualification remain owner-performed WO-09–11 gates; flight_ready stays false.
 
+## Bounded closure execution
+
+Follow [the three-deliverable closure plan](../wo03-closure-plan.md) and
+[thermal method decision](../wo03-thermal-method-decision.md). This records the
+owner's2026-10-31 direction to isolate impossible temperatures on known cases,
+verify actual geometry and refinements, stop repeated invalid/capped attempts,
+and assess a justified bounded alternative before further expensive retries.
+It adds no physical acceptance requirement or work-order scope. Complete-package,
+recovery/support and installed-fin criteria above remain in force. Frontend and
+browser work remain paused; the saved preview and all release gates are preserved.
+
 ## Thermal numerical evidence: four separate gates
 
 The owner explicitly reinforced these distinctions after the actual gas-mesh

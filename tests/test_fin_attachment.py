@@ -51,6 +51,8 @@ def test_rectangular_panel_loads_and_root_attachment_screens() -> None:
         "nominal_per_side_clearance_mm_if_centered"
     ] == pytest.approx(0.65)
     assert result["structural_frame"]["rail_normal_bending_margin"] < 0
+    assert result["structural_frame"]["span_root_to_rail_bending_moment_routing_verified"] is False
+    assert "surrogate" in result["structural_frame"]["rail_bending_quantity_status"]
     assert result["structural_frame"]["rail_normal_bending_axis"].startswith("radial X")
     assert result["structural_frame"]["rail_normal_section_modulus_mm3"] == pytest.approx(72.0)
     assert result["structural_frame"]["rail_crossload_section_modulus_mm3"] == pytest.approx(18.0)

@@ -1,7 +1,9 @@
 """Preliminary fin-root attachment and installed-flutter sensitivity equations.
 
-These calculations are bounds for a proposed fin/frame interface, not a bond
-qualification. Root reactions use the rectangular-panel resultant and a single
+These calculations contain idealized proposed-interface screens, not a bond
+qualification. The rail bending quantities use an unverified moment-routing
+surrogate and are not established installed-capacity bounds. Root reactions use
+the rectangular-panel resultant and a single
 force couple across the two side gussets. The kraft shell-only bearing case
 intentionally omits backing by G11 rails/rings; actual load sharing requires the
 assembled geometry and joint analysis.
@@ -421,6 +423,9 @@ def analyze_fin_attachment(
             "rails_sharing_one_fin_assumed": rails_sharing_one_fin,
             "rail_cross_section_area_mm2": rail_area_mm2,
             "rail_normal_bending_axis": "radial X; fin-normal pressure is tangential CAD Y",
+            "input_span_root_moment_axis": "axial CAD Z: radial span X crossed with tangential force Y",
+            "span_root_to_rail_bending_moment_routing_verified": False,
+            "rail_bending_quantity_status": "unverified load-routing surrogate; not an installed rail traction or capacity prediction",
             "rail_normal_section_modulus_mm3": rail_normal_section_modulus_mm3,
             "rail_normal_bending_stress_pa_single_support_bound": rail_normal_bending,
             "rail_normal_bending_margin": rail_normal_bending_margin,
@@ -431,7 +436,7 @@ def analyze_fin_attachment(
             "rail_average_shear_stress_pa": rail_shear,
             "rail_shear_margin": rail_shear_margin,
             "ring_bearing_screen": ring_bearing,
-            "status": "main normal-load bending is a one-rail radial-X screen; orthogonal cross-load and ring/shell load sharing remain unresolved",
+            "status": "span-root axial-Z moment has not been transformed into longitudinal-rail radial-X bending; reported rail margins are surrogate screens only; connected ring/shell load routing remains unresolved",
         },
         "body_shell_local_bending": shell_strip,
         "root_rotational_flexibility": rotational,

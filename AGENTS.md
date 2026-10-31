@@ -6,6 +6,12 @@ validation benchmarks. The project is currently in WO-03, expanded by ADR-0007 t
 structural, thermal and tolerance/motion analysis. Expanded WO-03 acceptance
 remains open.
 
+The owner's 2026-10-31 continuation uses `docs/wo03-closure-plan.md`: isolate
+thermal errors on known cases, qualify actual geometry or justified bounds,
+then revalidate one complete package. Follow its declared attempt budgets and
+stop/replan conditions; do not repeat invalid or capped full-size methods blindly.
+Frontend and browser work remain paused and the saved preview must be preserved.
+
 ## Owner-authorized early inspection and experiment preview
 
 On 2026-10-30 the owner explicitly authorized limited WO-04 and WO-05 work in

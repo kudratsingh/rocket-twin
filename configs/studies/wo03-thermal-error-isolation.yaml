@@ -1,0 +1,25 @@
+id: wo03-independent-935-aspect-Robin-error-isolation-v1
+verification_source: configs/studies/wo03-robin-gas.yaml
+dimensions_m: [0.0002, 0.001, 0.187]
+conductivity_w_m_k: 0.04
+divisions_per_axis: [2, 4, 8]
+cases: [A, B, B_strong]
+case_a:
+  hot_prescribed_k: 573.15
+  cold_bulk_k: 308.15
+  h_w_m2_k: 36030.6
+case_b:
+  base_k: 308.15
+  amplitude_k: 100.0
+  h_w_m2_k: 30.0
+  bulk_cold_k: 300.0
+  bulk_hot_k: 420.0
+  quadrature: positive_Gauss_Legendre_Duffy_4x4
+case_b_strong_h_w_m2_k: 36030.6
+budget:
+  threads: 1
+  child_seconds_per_case_all_levels: 120
+  total_cpu_seconds: 600
+  max_divisions_each_axis: 8
+default_output: build/wo03-thermal-error-isolation-v1
+physical_scope: Independent structured boxes only. No actual mesh, rays, rocket temperature acceptance or geometry adoption.

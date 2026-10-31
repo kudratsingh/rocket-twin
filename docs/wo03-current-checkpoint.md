@@ -1,3 +1,32 @@
+# Completed bounded continuation — 2026-10-31
+
+The known-answer thermal packet, two permitted correction trials and independent
+support/recovery and installed-root audits are complete. **Neither wall treatment
+qualifies; that branch is stopped after two trials.** No complete vehicle package
+is accepted. [Three-deliverable closure plan](wo03-closure-plan.md),
+[method decision](wo03-thermal-method-decision.md) and
+[quantitative closure table](wo03-package-closure-progress.md) govern the next step.
+Further actual-size factors require a qualified different discretization or
+justified bounds and a feasible preflight. No raw actual matrix was repaired,
+source/temperature screen weakened or active geometry adopted. Frontend/browser
+pause and saved preview are unchanged. PR #14 is merged; this continuation uses
+its own focused PR and required checks.
+
+---
+
+# Current bounded closure plan — 2026-10-31
+
+PR #14 merged at a900b884… after every required hosted check passed in41178650950.
+Stable gas heat accounting is implemented/verified; failed actual temperature
+fields remain failed. [Three deliverables and stop conditions](wo03-closure-plan.md)
+now govern the continuation. [Read-only strip preflight](wo03-strip-refinement-preflight.md)
+proves the original120k/240k boundary caps cannot fit the unchanged targets while
+retaining all old vertices/parent edges. No blind full-size retry is running.
+Small known-answer error isolation and independent recovery/support and installed-
+fin audits are in progress. No active adoption or frontend/browser work.
+
+---
+
 # Current numerical checkpoint — completed diagnostic, acceptance open
 
 PR #13 merged at8e71c206… after replacement hosted run41172768750 passed all
