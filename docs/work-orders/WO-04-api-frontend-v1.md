@@ -2,6 +2,18 @@
 
 Branch: `wo-04-frontend`. Tier: Mac. Spec: `docs/UI.md` — implement, do not redesign.
 
+## Limited early-preview authorization
+
+The owner explicitly authorized this subset before expanded WO-03 acceptance on
+2026-10-30 (ADR-0009): usable read-only Inspect first, then compatible recorded
+Analysis. All four actual configurations retain the same centered rocket viewport,
+parts list and plain-language inspector/summary. Expose active versus experimental
+design status, actual geometry/specification identity and unresolved findings.
+The exception permits implementation; full WO-04 completion still depends on its
+prerequisites and the benchmark below. Engineering/build/paid-run/WO-10 review and
+flight-release gates remain intact. Limited early WO-05 experiments/replay are also
+authorized separately; PID and RL remain later milestones.
+
 ## Deliverables
 
 1. `src/api/`: FastAPI app with the vehicle, mass, mesh and motor endpoints from `docs/UI.md`;
@@ -31,7 +43,8 @@ A finless negative static margin is explicit, not a green stability approval.
 
 ## Engineering evidence in Inspect
 
-Start only after expanded WO-03 acceptance (ADR-0007). Link each configuration's
+Full completion requires expanded WO-03 acceptance (ADR-0007); the limited early
+preview may start under ADR-0009. Link each configuration's
 structural, thermal and tolerance report and display evidence status/remaining
 physical gates alongside mass provenance. Do not equate a rendered mesh, analysis
 pass or numerical RocketPy agreement with a qualified physical vehicle. No browser

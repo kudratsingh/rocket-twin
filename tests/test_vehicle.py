@@ -15,6 +15,18 @@ from src.vehicle.schema import Vehicle, load_vehicle
 SPEC = Path("configs/vehicle/tvc-ascent-v1.yaml")
 
 
+def test_explicit_nonmetallic_sandwich_material_retains_structural_scope_guard() -> None:
+    vehicle = load_vehicle("configs/vehicle/platform/tvc-finned.yaml")
+    data = vehicle.model_dump(by_alias=True)
+    fin = next(p for p in data["parts"] if p["id"] == "fin_set")
+    fin["material"] = "carbon_epoxy_sandwich"
+    assert Vehicle.model_validate(data).id == vehicle.id
+    for unsupported in ("commercial", "aluminium", "steel"):
+        fin["material"] = unsupported
+        with pytest.raises(ValidationError, match="structural material must be nonmetallic"):
+            Vehicle.model_validate(data)
+
+
 def test_vehicle_cpu_smoke() -> None:
     vehicle = load_vehicle(SPEC)
     start, end = mass_properties(vehicle), mass_properties(vehicle, 1)

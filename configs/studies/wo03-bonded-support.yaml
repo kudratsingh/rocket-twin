@@ -30,3 +30,53 @@ trade_only:
     density_kg_m3: 1400
     film_thickness_mm: 0.5
     initial_joint_model: ideal_front_projection
+bounded_load_transfer:
+  status: reduced_upper_overlap_decision_screen_not_assembly_acceptance
+  design_factor: 3
+  divisions: [120, 240, 480]
+  # These are explicit elastic sensitivities, not hot strength allowables.
+  adhesive_young_mpa: [2, 20]
+  hand_budget_adhesive_young_mpa: 20
+  # Include no hoop restraint as the lower stiffness bound; 250 MPa equal axial
+  # and hoop modulus is an isotropic estimate, not measured wound-paper data.
+  hoop_modulus_fraction: [0, 1]
+  outer_load_fraction: [0, 0.2857142857142857, 1]
+  overlap:
+    upper_length_mm: 150
+    length_mm: 100
+    base_outer_radius_mm: 33
+    base_wall_mm: 0.5
+    paper_wall_mm: 0.2
+    film_mm: 0.1
+    end_load_basis: independent_compression_force_split_no_tied_ends
+  paper_density_kg_m3: 700 # same existing unmeasured density estimate
+  whole_tube_wall_pairs_mm: [[0.5, 0.5], [0.7, 0.7], [0.7, 0.85], [0.85, 0.85]]
+  joint_stiffness_n_mm: [10, 100, 1000] # sensitivity; actual retention/contact unverified
+  minimum_property_requirements:
+    paper_hot_axial_compression: calculate_with_DF3_and_local_bending
+    paper_hot_hoop_modulus: explicit_zero_to_equal_axial_sensitivity
+    paper_hot_interlaminar_normal_and_shear: unavailable
+    adhesive_hot_mixed_mode_envelope: unavailable
+    positive_joint_retention: unqualified_derive_load_floor_only
+  primary_adhesive_source:
+    url: https://industry.sika.com/content/dam/dms/us01/o/sikaflex-252.pdf
+    version: 04.01_2025-04
+    accessed: '2026-10-30'
+    evidence: typical_room_temperature_laboratory_data_not_hot_design_allowables
+    hot_strength_or_peel_envelope_supplied: false
+  next_design_direction:
+    geometry: full_custom_wound_thicker_tubes_with_finite_compression_bearing_shoulder
+    note: bonded_wraps_not_monolithic_wall_no_thermal_pass_or_material_upgrade_credit
+    compression_annulus_mm: {inner_radius: 32.05, outer_radius: 33.5, length: 4}
+    compression_annulus_density_kg_m3: 1850
+    annulus_dependency: positive_retention_and_recovery_fin_moment_paths_still_open
+  source_checked_alternative:
+    adhesive: 3M_Scotch-Weld_DP420_Off-White
+    url: https://multimedia.3m.com/mws/media/2365939O/3m-scotch-weld-epoxy-adhesive-dp420-off-white.pdf
+    version: V7_2025-12
+    accessed: '2026-10-30'
+    bulk_room_modulus_mpa: 1806
+    aluminum_lap_shear_at_49c_mpa: 14.9
+    aluminum_floating_roller_peel_at_23c_n_mm: 12.6
+    thermal_k_at_50c_25psi_w_m_k: 0.22
+    disposition: supplier_typical_data_not_hot_paper_wood_mixed_mode_allowables_not_substituted

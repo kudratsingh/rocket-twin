@@ -1,0 +1,37 @@
+id: wo03-g80-fin-planform-trade
+status: experimental_not_adopted
+base_vehicle: configs/vehicle/platform/performance.yaml
+authority: G80 performance configuration only; no change to active specifications or CAD generator.
+material: plywood
+nominal_thickness_m: 0.00635
+root_chord_m: 0.12
+fin_front_station_m: 1.08
+candidates:
+  - id: g80-rectangular-reference
+    label: Rectangular reference
+    role: experimental
+    span_m: 0.07
+    tip_chord_m: 0.12
+    leading_edge_sweep_m: 0.0
+  - id: g80-swept-tapered
+    label: Swept tapered
+    role: experimental
+    span_m: 0.08
+    tip_chord_m: 0.075
+    leading_edge_sweep_m: 0.035
+  - id: g80-cropped-delta
+    label: Cropped delta
+    role: experimental
+    span_m: 0.088
+    tip_chord_m: 0.045
+    leading_edge_sweep_m: 0.07
+sources:
+  stability: https://ntrs.nasa.gov/citations/20010047838
+  planform_context: https://www.nasa.gov/wp-content/uploads/2016/02/sl_video_instruction_book.pdf
+  drag_limitation: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/rocket-aerodynamics/
+limitations:
+  - Taper and sweep are study geometries informed by general fin-shape guidance, not source-optimized dimensions.
+  - Existing empirical Cd is unchanged and does not resolve differences in planform or edge shape.
+  - Native gussets are rectangular extrusions and may extend outside swept panel footprints.
+  - The fin shell solver rejects swept gusset profiles; structural and flutter adequacy remains unresolved.
+  - No bevel or rounded leading edge is present in the native geometry.
