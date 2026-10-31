@@ -1,0 +1,541 @@
+{
+  "id": "wo03-external-thermal-tools-20261031T083118518450Z",
+  "scope": "offline external-tool assessment; no production heat method or vehicle adoption",
+  "decision": "none qualifies for actual-baffle attempt",
+  "declaration": {
+    "packets": 2,
+    "tools": [
+      "Elmer",
+      "CalculiX 2.23"
+    ],
+    "maximum_cpu_seconds_per_packet": 600,
+    "maximum_cpu_seconds_all_packets": 1200,
+    "setup_wall_seconds_per_tool": 600,
+    "elmer_execution": "unavailable; checked release/network setup stopped without solver",
+    "further_execution": "stopped pending published method decision"
+  },
+  "elmer": {
+    "status": "unavailable",
+    "setup_preflight_elapsed_s": 8,
+    "setup_start_utc": "2026-10-31 08:24:00 UTC",
+    "setup_end_utc": "2026-10-31 08:24:08 UTC",
+    "binary_installed": false,
+    "solver_executed": false,
+    "reason": "No trusted accessible Mac arm64 solver identified in checked official release assets; shell GitHub API DNS failure exit6. Source build not attempted.",
+    "raw_command_transcript": "not separately archived; documented bounded agent inventory/release/network assessment",
+    "source": "docs/wo03-elmer-literature.md"
+  },
+  "calculix": {
+    "source": "configs/studies/wo03-thermal-error-isolation.yaml",
+    "source_sha256": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+    "script_sha256": "64b5c8eee335361d2c01b98aaac90d1a77f3be871a97498adadbd6155fecea62",
+    "binary": "/opt/homebrew/bin/ccx",
+    "binary_realpath": "/opt/homebrew/Cellar/calculix@2.23/2.23_1/bin/ccx",
+    "binary_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "threads_requested": 1,
+    "per_case_wall_limit_s": 120,
+    "total_cpu_limit_s": 600,
+    "case_A": [
+      {
+        "n": 2,
+        "input_sha256": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+        "returncode": 0,
+        "wall_s": 0.026524875007453375,
+        "cpu_s": 0.015507999999999997,
+        "child_peak_rss_bytes_cumulative_max": 6176768,
+        "max_printed_temperature_error_k": 4.8156530681353615e-05,
+        "printed_output_resolution_limitation": "DAT precision must be considered before 1e-7 K claim",
+        "exact_temperature_check": "unavailable at printed precision",
+        "expected_reservoir_heat_w": 9.856289341054246
+      },
+      {
+        "n": 4,
+        "input_sha256": "d5dbcfcbdc881c61f468d379d03a02f77310ce8f91148861a32e37d4eb0d68f9",
+        "returncode": 0,
+        "wall_s": 0.02625458300462924,
+        "cpu_s": 0.016686,
+        "child_peak_rss_bytes_cumulative_max": 6733824,
+        "max_coordinate_rounding_m": 2.7755575615628914e-17,
+        "max_printed_temperature_error_k": 4.8156530681353615e-05,
+        "printed_output_resolution_limitation": "DAT precision must be considered before 1e-7 K claim",
+        "exact_temperature_check": "unavailable at printed precision",
+        "expected_reservoir_heat_w": 9.856289341054246
+      },
+      {
+        "n": 8,
+        "input_sha256": "7338ee4a466ca17f48222e5ee2313db72b9382ad8ff21f42eea53304c07a2162",
+        "returncode": 0,
+        "wall_s": 0.03900783399876673,
+        "cpu_s": 0.034432,
+        "child_peak_rss_bytes_cumulative_max": 9043968,
+        "max_coordinate_rounding_m": 2.7755575615628914e-17,
+        "max_printed_temperature_error_k": 4.8156530681353615e-05,
+        "printed_output_resolution_limitation": "DAT precision must be considered before 1e-7 K claim",
+        "exact_temperature_check": "unavailable at printed precision",
+        "expected_reservoir_heat_w": 9.856289341054246
+      }
+    ],
+    "case_B": "unavailable: exact spatial sink requires linked film.f",
+    "case_B_strong": "unavailable: exact spatial sink requires linked film.f",
+    "surface_heat": "unavailable until output precision and integrated heat are verified",
+    "local_balance": "unavailable",
+    "acceptance": "not established",
+    "prior_attempts": {
+      "source": "configs/studies/wo03-thermal-error-isolation.yaml",
+      "source_sha256": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+      "script_sha256": "627aa09349980673712915d9888f6b99eaf7c2b6942e634382104c6e082b0ae1",
+      "binary": "/opt/homebrew/bin/ccx",
+      "binary_realpath": "/opt/homebrew/Cellar/calculix@2.23/2.23_1/bin/ccx",
+      "binary_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+      "threads_requested": 1,
+      "per_case_wall_limit_s": 120,
+      "total_cpu_limit_s": 600,
+      "case_A": [
+        {
+          "n": 2,
+          "input_sha256": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+          "returncode": 0,
+          "wall_s": 0.026524875007453375,
+          "cpu_s": 0.015507999999999997,
+          "child_peak_rss_bytes_cumulative_max": 6176768,
+          "max_printed_temperature_error_k": 4.8156530681353615e-05,
+          "printed_output_resolution_limitation": "DAT precision must be considered before 1e-7 K claim",
+          "exact_temperature_check": "unavailable at printed precision",
+          "expected_reservoir_heat_w": 9.856289341054246
+        },
+        {
+          "n": 4,
+          "input_sha256": "31a0980c0bfa124365c645d47af7f4b50f60f6065a79fb01f99e8f541b12ea23",
+          "returncode": 201,
+          "wall_s": 0.011909875000128523,
+          "cpu_s": 0.008749,
+          "child_peak_rss_bytes_cumulative_max": 4227072
+        }
+      ],
+      "case_B": "unavailable: exact spatial sink requires linked film.f",
+      "case_B_strong": "unavailable: exact spatial sink requires linked film.f",
+      "surface_heat": "unavailable until output precision and integrated heat are verified",
+      "local_balance": "unavailable",
+      "acceptance": "not established",
+      "first_attempt": {
+        "source": "configs/studies/wo03-thermal-error-isolation.yaml",
+        "source_sha256": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+        "script_sha256": "7641e98772fd3b8850ccec32d5fffcfdabf3139747a85d326ed15cc9851d94dc",
+        "binary": "/opt/homebrew/bin/ccx",
+        "binary_realpath": "/opt/homebrew/Cellar/calculix@2.23/2.23_1/bin/ccx",
+        "binary_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+        "threads_requested": 1,
+        "per_case_wall_limit_s": 120,
+        "total_cpu_limit_s": 600,
+        "case_A": [
+          {
+            "n": 2,
+            "input_sha256": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+            "returncode": 0,
+            "wall_s": 0.026524875007453375,
+            "cpu_s": 0.015507999999999997,
+            "child_peak_rss_bytes_cumulative_max": 6176768,
+            "max_printed_temperature_error_k": 4.8156530681353615e-05,
+            "printed_output_resolution_limitation": "DAT precision must be considered before 1e-7 K claim",
+            "exact_temperature_check": "unavailable at printed precision",
+            "expected_reservoir_heat_w": 9.856289341054246
+          },
+          {
+            "n": 4,
+            "input_sha256": "a333831116f49d706cd440b322cc5da4e10425f3b5c906058f9412285ee593c6",
+            "returncode": 201,
+            "wall_s": 0.011772458004998043,
+            "cpu_s": 0.008090000000000002,
+            "child_peak_rss_bytes_cumulative_max": 6176768
+          }
+        ],
+        "case_B": "unavailable: exact spatial sink requires linked film.f",
+        "case_B_strong": "unavailable: exact spatial sink requires linked film.f",
+        "surface_heat": "unavailable until output precision and integrated heat are verified",
+        "local_balance": "unavailable",
+        "acceptance": "not established",
+        "total_cpu_s": 0.023598,
+        "total_wall_s": 0.04017849999945611
+      },
+      "total_cpu_s": 0.032347,
+      "total_wall_s": 0.013686624995898455
+    },
+    "total_cpu_s": 0.083465,
+    "total_wall_s": 0.07661558300605975,
+    "annular": [
+      {
+        "level": 0,
+        "mesh_sha256": "66a1742f0006b1e05122fee3b8199a4b1a4e7d6b195e2e23f4051d5e63b337f2",
+        "groups_sha256": "4fc72d76ec0b41d59d518d611534258385e0675184a710c34cd57701ce5bf962",
+        "deck_sha256": "7dbcfe9547bad67ec2f103bf5d6d408c674c896ef4eb12d00c8dc67d34d295c6",
+        "nodes": 262,
+        "tetrahedra": 721,
+        "returncode": 0,
+        "wall_s": 0.05094945800374262,
+        "cpu_s": 0.027330999999999998,
+        "child_cumulative_peak_rss_bytes": 6619136,
+        "max_coordinate_rounding_m": 3.3122810050301155e-14,
+        "max_printed_temperature_error_k": 1.566096520290671,
+        "min_printed_k": 290.0,
+        "max_printed_k": 310.0,
+        "analytic_heat_w": 0.05656385457000338,
+        "hot_printed_heat_w": 0.05818231,
+        "cold_printed_heat_w": -0.05818231
+      },
+      {
+        "level": 1,
+        "mesh_sha256": "b84eed9239e198aadabe802a7a595ecb2f9f6d029010258681a9f6a221c34433",
+        "groups_sha256": "9861ca8e7566f5a10981303b76f67868ded5b2f1b7df9c0ca1fd33103e1df8ce",
+        "deck_sha256": "d645a8ba1d65f649fb332b70f7694b8530130b211c53c3c08957f669dd943270",
+        "nodes": 786,
+        "tetrahedra": 2740,
+        "returncode": 0,
+        "wall_s": 0.07163420799770392,
+        "cpu_s": 0.04742299999999999,
+        "child_cumulative_peak_rss_bytes": 8011776,
+        "max_coordinate_rounding_m": 4.867634073590921e-14,
+        "max_printed_temperature_error_k": 0.759680502797039,
+        "min_printed_k": 290.0,
+        "max_printed_k": 310.0,
+        "analytic_heat_w": 0.05656385457000338,
+        "hot_printed_heat_w": 0.05714763,
+        "cold_printed_heat_w": -0.05714763
+      },
+      {
+        "level": 2,
+        "mesh_sha256": "9310683eeab78afeb6b833d8ba05e4015fc72bad255c5f3fb8e404352fd66a23",
+        "groups_sha256": "1d6305fd3397339cb890ed0a8ad0c40f013f219f5b553803b82dcafbeaa4b1de",
+        "deck_sha256": "3b96d03395a4ad34245cb2d55a3269f777a8307a98b5afe346a6712aecccc498",
+        "nodes": 3297,
+        "tetrahedra": 14067,
+        "returncode": 0,
+        "wall_s": 0.18552749999798834,
+        "cpu_s": 0.14748999999999998,
+        "child_cumulative_peak_rss_bytes": 16269312,
+        "max_coordinate_rounding_m": 4.981605405962597e-14,
+        "max_printed_temperature_error_k": 0.2350549235080166,
+        "min_printed_k": 290.0,
+        "max_printed_k": 310.0,
+        "analytic_heat_w": 0.05656385457000338,
+        "hot_printed_heat_w": 0.05677237,
+        "cold_printed_heat_w": -0.05677237
+      }
+    ],
+    "annular_cpu_s": 0.22224399999999997,
+    "annular_wall_s": 0.41929129100753926,
+    "total_cpu_with_annular_s": 0.30570899999999995,
+    "annular_executed_runner_sha256": "94f61ddbfb26e8e9ef23362f3b4a89bf95d9bcc4fd9e2cdd67e47a297cdcf7f5",
+    "annular_source_config": "configs/studies/wo03-gas-conduction.yaml",
+    "annular_source_config_sha256": "530cf669d8ad3a9899763f2e9b09ff97799780d36d06d096258bf5c935c1f028"
+  },
+  "read_only_surface_audit": [
+    {
+      "name": "A-2",
+      "min_printed_k": 309.6129,
+      "max_printed_k": 573.15,
+      "hot_printed_heat_w": 9.856289,
+      "cold_outward_heat_from_printed_uniform_face_w": 9.85661380638032,
+      "cold_rounding_halfwidth_w": 0.00033688611000000005,
+      "hot_rounding_halfwidth_w": 5e-07,
+      "balance_central_w": -0.000324806380319842,
+      "balance_is_verified": false
+    },
+    {
+      "name": "A-4-field-width-fixed",
+      "min_printed_k": 309.6129,
+      "max_printed_k": 573.15,
+      "hot_printed_heat_w": 9.856289,
+      "cold_outward_heat_from_printed_uniform_face_w": 9.85661380638032,
+      "cold_rounding_halfwidth_w": 0.00033688611000000005,
+      "hot_rounding_halfwidth_w": 5e-07,
+      "balance_central_w": -0.000324806380319842,
+      "balance_is_verified": false
+    },
+    {
+      "name": "A-8",
+      "min_printed_k": 309.6129,
+      "max_printed_k": 573.15,
+      "hot_printed_heat_w": 9.856289,
+      "cold_outward_heat_from_printed_uniform_face_w": 9.85661380638032,
+      "cold_rounding_halfwidth_w": 0.00033688611000000005,
+      "hot_rounding_halfwidth_w": 5e-07,
+      "balance_central_w": -0.000324806380319842,
+      "balance_is_verified": false
+    }
+  ],
+  "source_sha256": {
+    "docs/wo03-elmer-literature.md": "457fb12ef0789ba27106714d5de8e66c8f95ea9ff1a757ad988ee5e3c2171d98",
+    "docs/wo03-ccx-thermal-comparison.md": "c6fb2bf987a9d6ccdf53fe010b0f1370d7379d8945443173dbb7f2ff6aaa716e",
+    "docs/wo03-external-thermal-decision.md": "99b1fa90943ba315a74bd4f03cc9e72f44a28f348569ca627963f6d9d7bd65ce",
+    "scripts/wo03_ccx_thermal_comparison.py": "e62594a0e7558fbb3bed9ac482393d5948f792e328e475a91ca3f19e8eb8cc36",
+    "tests/test_ccx_thermal_comparison.py": "05294d616b6790b5659e8980d3739e86ca393b8ddca969516e8084e2e35b4449",
+    "configs/studies/wo03-external-thermal-comparison.yaml": "233b2986c1ee69b8caf812ed50b155a63e16e72a0e67528cd0c9fe788729cce4",
+    "configs/studies/wo03-thermal-error-isolation.yaml": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+    "configs/studies/wo03-robin-gas.yaml": "dcb6d93dd90ff6052f9fb5fcfe6654adc11888f66775c86e675dedf383916ccb",
+    "configs/studies/wo03-gas-conduction.yaml": "530cf669d8ad3a9899763f2e9b09ff97799780d36d06d096258bf5c935c1f028",
+    "configs/engineering/wo03-thermal-acceptance.yaml": "855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d"
+  },
+  "local_artifact_manifest": {
+    "build/wo03-ccx-thermal-comparison-v1/record.json": {
+      "sha256": "92fbd91597650bbeac5eeca811b6bf0c2d0ced9c565b18e31c94cc5f9908e509",
+      "bytes": 9257
+    },
+    "build/wo03-ccx-thermal-comparison-v1/read-only-surface-audit.json": {
+      "sha256": "aba26d8c719848a5acc97fda9594f78cfffe2b25148e75b59183a9c2d5822d39",
+      "bytes": 1137
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-runner-executed.py": {
+      "sha256": "94f61ddbfb26e8e9ef23362f3b4a89bf95d9bcc4fd9e2cdd67e47a297cdcf7f5",
+      "bytes": 3786
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-8/stdout.txt": {
+      "sha256": "2f02b4ea23a2535afccb729ef9d1aca903f97acea379b5ff5a65766bb8cdc9b2",
+      "bytes": 3482
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-8/case.dat": {
+      "sha256": "25f940833f3aab03e31eb176b25a58c20badbe0e43fa9de0bdd5e10306f51cca",
+      "bytes": 20531
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-8/case.inp": {
+      "sha256": "7338ee4a466ca17f48222e5ee2313db72b9382ad8ff21f42eea53304c07a2162",
+      "bytes": 84609
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4-syntax-fixed/stdout.txt": {
+      "sha256": "c09bbadcfeb2d4f304cb0bd9b5e681f6786d13bcb5fbb0c574c2bc3706e7ce14",
+      "bytes": 1968
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4-syntax-fixed/case.dat": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4-syntax-fixed/case.inp": {
+      "sha256": "31a0980c0bfa124365c645d47af7f4b50f60f6065a79fb01f99e8f541b12ea23",
+      "bytes": 12572
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/stdout.txt": {
+      "sha256": "f3d6d07ef1d163fcfc7490cadf47e11397c31139fc1fe178b62aac2cf10fd7ba",
+      "bytes": 3481
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.dat": {
+      "sha256": "5a44eb5e95b3aa3f5cb34bd17fe58fa85d00d3918a867b2b5fd66f0ede811b10",
+      "bytes": 4031
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.inp": {
+      "sha256": "d5dbcfcbdc881c61f468d379d03a02f77310ce8f91148861a32e37d4eb0d68f9",
+      "bytes": 9922
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-2/stdout.txt": {
+      "sha256": "364dd910e5cd53c89a5dd79d17577e9a89e78cab9f54299a71bd7b5cc38a06f2",
+      "bytes": 3487
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-2/case.dat": {
+      "sha256": "a3a2a2f8c6560a3160a5885b62ed55bf3bff63a3e06bd212ba2a351a7599e61e",
+      "bytes": 119595
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-2/case.inp": {
+      "sha256": "3b96d03395a4ad34245cb2d55a3269f777a8307a98b5afe346a6712aecccc498",
+      "bytes": 526838
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4/stdout.txt": {
+      "sha256": "3c7c27d813ac0f79c2c0d6b33db9448cc4f186eec215c0a7be226a03da43607f",
+      "bytes": 552
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4/case.dat": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-4/case.inp": {
+      "sha256": "a333831116f49d706cd440b322cc5da4e10425f3b5c906058f9412285ee593c6",
+      "bytes": 12572
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-2/stdout.txt": {
+      "sha256": "7096b107b815df7547cb0cdfdfa3d38c2976b7ae87367048f192d7471875ab83",
+      "bytes": 3455
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-2/case.dat": {
+      "sha256": "73d5a01fbc776e34d723005129efa5406f85f69005a04d676bc2161fa240bd76",
+      "bytes": 1181
+    },
+    "build/wo03-ccx-thermal-comparison-v1/A-2/case.inp": {
+      "sha256": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+      "bytes": 1923
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-1/stdout.txt": {
+      "sha256": "d796efaca73e8b0ddbc95dae6d9b8a468718b579b5f9065cb311a5f90cfea66e",
+      "bytes": 3481
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-1/case.dat": {
+      "sha256": "1780a74f2bc0aa52accf75386ee9eece001ea04a561df6ee4a4f7969c0cac2ef",
+      "bytes": 32270
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-1/case.inp": {
+      "sha256": "d645a8ba1d65f649fb332b70f7694b8530130b211c53c3c08957f669dd943270",
+      "bytes": 98218
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-0/stdout.txt": {
+      "sha256": "555c6c860d595936adfbc5f50c6d0e8edd3f1339ce0e40ed02b81bd6766706fd",
+      "bytes": 3478
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-0/case.dat": {
+      "sha256": "8a1d3a25e093054c852a8d63c7bf4866b325b8f53691f9002b2fdf0b020da8a6",
+      "bytes": 12220
+    },
+    "build/wo03-ccx-thermal-comparison-v1/annular-0/case.inp": {
+      "sha256": "7dbcfe9547bad67ec2f103bf5d6d408c674c896ef4eb12d00c8dc67d34d295c6",
+      "bytes": 27001
+    }
+  },
+  "preserved_scope_sha256": {
+    "configs/vehicle/orbital-launcher-v1.yaml": "3802950f161562b429f37ceae04eaaf8a78af7d38a9a76d585843260516f258c",
+    "configs/vehicle/tvc-ascent-v1.yaml": "eeb392ee6169629c3bcc0b31c17b7fc8d8bb14230fd8966c7c0d404b80d85d7a",
+    "configs/vehicle/wo02/performance-g54.yaml": "17a6f791eb40a3ba5acc2f4f8d1601c3fccc0ebbd2616e28b6b5ff2c8d727d96",
+    "configs/vehicle/wo02/performance-g33.yaml": "af3948e84003bbcd049635c71c8fcffa6722cfc411e444e13684a7a8bfd5e444",
+    "configs/vehicle/wo02/performance-g12.yaml": "7f912f078dd04592ff407aef16c2e88b36605218d0a876509354500cc0fbaaac",
+    "configs/vehicle/motors/AeroTech_G25_124mm_derived.yaml": "cf7cb4be7d62a8b7e6f323814c52cccaf97898f4cc517a422681d840fd9be460",
+    "configs/vehicle/motors/AeroTech_G25_152mm.yaml": "06f6c6f0430a6aa505ca0e8af5966b325247172408ff4cf26c54898ade3df0c1",
+    "configs/vehicle/motors/AeroTech_F10_historical.eng": "559c57784f0f89424370971283ebc524767828c20c0ed74352ed291a3de1d26a",
+    "configs/vehicle/motors/AeroTech_G25_124mm_derived.eng": "23380952677bcd1aee072f425aecfbcadee0ae3a73474d05cdca5aa0abf8da8a",
+    "configs/vehicle/motors/AeroTech_G25_152mm.eng": "47ddafb0683be2a77bef56314aad7d2d52919582bafceda28f748a50beece9c6",
+    "configs/vehicle/motors/Estes_F15.yaml": "9f81b023049107267f9e516dad7388e347453ecadf7024ae85d3f772c04eb28c",
+    "configs/vehicle/motors/README.md": "787fa3508edaaa013fbb8b84b2eaacef392c66ecde132edfe8cebcd5a8aea130",
+    "configs/vehicle/motors/AeroTech_F10_historical.yaml": "dc81d927bb41984800a4a652cbd40ec65220acd72c9c47d6a41769a602fc6bd8",
+    "configs/vehicle/motors/Estes_F15.eng": "22a1b91e43769c698a089fe86f6ba847aae88e262d27348969a4556ed3f57833",
+    "configs/vehicle/platform/tvc-finless.yaml": "7fc35c6b027726453af296d3a22cf5288541a9cc3f04a89fd76d210b988264a9",
+    "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+    "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+    "configs/vehicle/platform/tvc-finned.yaml": "b9014a2df2b7955171228cb224ec5b71cea3ebdc39d5f4d1f4be5ea600a70705",
+    "configs/vehicle/engines/README.md": "fa1c8bbe950038627a08c1938e95e1eb9bb24759de54157a56144d978061df6b",
+    "src/analysis/fin_design.py": "4b55e283dc8c693410d7fb5736613be7f296821bae3a59ff1430427f71aa825d",
+    "src/analysis/thermal_topology.py": "94490b0b8f956bbe6d88858f81a25ad6a5cc5b9eac6e6a5d739b3b9d36656338",
+    "src/analysis/finite_radiation.py": "ee1bf2ce2b60896eda8cdb221cca8ccb2e32531e06efff7ed33f1098aad88665",
+    "src/analysis/tolerances.py": "e9df2a68a6d452f81550a14b3a1b075cd85325f175d86068a9faa756d3065bdb",
+    "src/analysis/robin_gas.py": "58bf4a9e0376e90ed5d53c7f21cccace03a41e3c9aacea11ac17e56cb6736009",
+    "src/analysis/surface_thermal.py": "ad09d3fd854ad0d3d600901c550c75c7afd32778308a6caafef91aab8153f9b5",
+    "src/analysis/vibration.py": "249d1e39d48e09b1003ff88c53b08371497c5aefea12d60f4d5a8fd94a77a58c",
+    "src/analysis/recovery_loadpath.py": "65a7db1b523dc94ce860b68aee6104488456ce1ca56bf9c7ceba32d0fe7c36d7",
+    "src/analysis/flight_loads.py": "f0520c06e04a3bb43709787f9829be2ece2c8e039f1c87581e90a47af4d9f553",
+    "src/analysis/occupancy.py": "4f1758b49202f01b22a90c7b60027598623a63cb5339470adb871ca024d34a8c",
+    "src/analysis/gas_radiation.py": "ee1830f03964434d033b99427482ed8426efc57063474fc196586ddb2df20b04",
+    "src/analysis/finite_surface_adapter.py": "2aa74944c7c0e4194e6fc2aac4c1e550ff0edcc80656f04f2063382712359686",
+    "src/analysis/motor_support.py": "acb2c5c0e314539444eca40b56636826fc4725174270ded170c2bc3a64b473e4",
+    "src/analysis/fin_fields.py": "af2cd741fb4b199bd27f372620720e8b9fd7aabb37c5b78a6c82f386de60542f",
+    "src/analysis/fin_attachment.py": "6839826227e3aabf81e7c7306bd5f4f15c016bbcfbb7c79a72d2707004021156",
+    "src/analysis/refined_gas_boundary.py": "f4ec7c482d40c396fd95bc565fa7777cc5f6125d5aad468dd1c48701d1d163e1",
+    "src/analysis/__init__.py": "a704bea3fb626cf3886a7e9c13f495a64887feb010bb003efee0be1f1b25d2fd",
+    "src/analysis/fea.py": "36ccfb0c96e7be95b49fd75d6fd700b62d5a9cf0e20b474f14feb8bd05a58fe2",
+    "src/analysis/gas_conduction.py": "e81c6e909b2c24dfa7d3fc62cd58450fa2d0d08401145daf0c347205d9768df3",
+    "src/analysis/cad_radiation.py": "7b7d05dc589c146bb7b8c7969e25007447a198abbf8d233397873d47ed120784",
+    "src/analysis/support_fea.py": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695",
+    "src/analysis/bonded_support.py": "5501b0a1ccf4226a2d4201ad3164b52a92740cca1398077cc491f35a8de857c6",
+    "src/analysis/radiation_sampling.py": "8b6e6c43feed0669f7dd4661f73e106d318a315c52841cfa5b0b76bc48f8eb2c",
+    "src/analysis/cad_gas_mesh.py": "acc1e7358c6f584ad409635dd407053892586077496bf8baa87f2fed322ab119",
+    "src/analysis/engineering.py": "94b95b9cee933951a3cfc6cfe55604eba830f688f00750ecd383d50afe2cea96",
+    "src/analysis/recovery_integration.py": "c816c77581a74d10239a110c2daf67196585da0e7e714edd1455c67043c58ca3",
+    "src/analysis/thermal_radial.py": "9bba95e7903dbbe539cc0834bfd7ba368ae87a8498508fd55149e64c2732834d",
+    "src/analysis/fin_contact.py": "c013873f638aff8b52d994de856fd4c9a3ba57b67e4b92b028ee9fc8491e947a",
+    "src/analysis/traceability.py": "2f18c3adb0e70c71600f21700fcf5371585ab8f52e49ed722a1fdd91a28feb34",
+    "src/analysis/beam_modes.py": "54fa7ebbf26f3da0d93cb59dbbec2d648b9e3667a44ce8ccb2f13827b25b13c0",
+    "src/analysis/native_gas_mesh.py": "6c008fa68af5f475f91ddef894876968578a846649db14ff75060e045685e97e",
+    "src/analysis/cad_gas_surface_adapter.py": "140a0afb5f0edf73f28d65fc5068d3d7a5c70c781e91edc9cd379ad16a47b4aa",
+    "src/analysis/fin_fea.py": "d400d23f868532f6f7e9477b3a6cc0aa1a6327a425b95c558a6d8a8f1ff4a36b",
+    "src/analysis/recorded_gas.py": "9a108a089a1270c3f1671b6f36cd2ce211d11dfdf81a14137fde449858fabdc6",
+    "src/analysis/__pycache__/engineering.cpython-311.pyc": "b4f6454ab14f199e6b4e98f05aba565ae947c6d10d8a1dbe66ddc11653916707",
+    "src/analysis/__pycache__/gas_radiation.cpython-311.pyc": "9742a4cc81f7fc71a680b09083a82df3ce7fcd5d7ebcec6b4210fbd3bd3efac0",
+    "src/analysis/__pycache__/fea.cpython-311.pyc": "6d49a29d9afc5c54b779dca3787701b3c7f61d7ee4a78fd4d48c002e8482d72c",
+    "src/analysis/__pycache__/fin_attachment.cpython-311.pyc": "ba73ee656f2386f878495f1d95c403c1bd7ab77a76ef3db7c6d319185bd81f23",
+    "src/analysis/__pycache__/native_gas_mesh.cpython-311.pyc": "d56941c7b6e0fd28674a54465b39d666612186cbdb347a8e6b5a436abf2af236",
+    "src/analysis/__pycache__/fin_design.cpython-311.pyc": "8694696c8389d2337c541de5ae9ca8c1c009ed502c7bf681abb3d27d8d056630",
+    "src/analysis/__pycache__/radiation_sampling.cpython-311.pyc": "2b2ed7ca15f4b8c8aba685cb6d715facaa0319dbcda86584ddad7ec2ffd0cff3",
+    "src/analysis/__pycache__/cad_gas_surface_adapter.cpython-311.pyc": "8f3830f58a75f13fb8c4ceeae0b50353b0dca9cd4e204f07e543353c2cf35eed",
+    "src/analysis/__pycache__/fin_fea.cpython-311.pyc": "5bcfdfbcf05bc61b2b4dafbb636ed2a53b7df42ed0afde835b8ddb5c71b2b231",
+    "src/analysis/__pycache__/gas_conduction.cpython-311.pyc": "e98f7eea415367b534efe60478f9ec1d70c0d55bf423e2110f2ad8c4a834c1e6",
+    "src/analysis/__pycache__/robin_gas.cpython-311.pyc": "591fce64dc052c8ecadd1a20401af0594e87e78d1e1b94466cf620b57d8d85bb",
+    "src/analysis/__pycache__/traceability.cpython-311.pyc": "2ce8a3a29efc1a16d4d57f28b153c2ddb936519cbc14ea787a87a6086db5de3f",
+    "src/analysis/__pycache__/surface_thermal.cpython-311.pyc": "a497eb0bd723d8a0801305a60d6572ace19a62cce35712e08e2cdb37784430a8",
+    "src/analysis/__pycache__/vibration.cpython-311.pyc": "e8c5f9b8e38fe82918679587767054990a8e4e965e1fa27b363338cabc3c86d9",
+    "src/analysis/__pycache__/finite_radiation.cpython-311.pyc": "fab9c04402076b4afff14df36b6362e2f51eb424ddc73ba31b7dc7e45870d980",
+    "src/analysis/__pycache__/beam_modes.cpython-311.pyc": "9f4c5277936ef0daa86ed707ca2e51a8cfc9ff88515a855564f86eddea7601c5",
+    "src/analysis/__pycache__/bonded_support.cpython-311.pyc": "e79cb5f59d109113d8fd17da2fb6978db1d3b024ba15a7586550d0cef90c1f27",
+    "src/analysis/__pycache__/recorded_gas.cpython-311.pyc": "423419328fe9df855c5d96e96b74fa085eed54c68c1a4b1ee6e223a9f69e223e",
+    "src/analysis/__pycache__/motor_support.cpython-311.pyc": "4c81784f6e9e7594a40a53a1165edd851bfa9675f0d873f0eb8e0b753c7272cc",
+    "src/analysis/__pycache__/cad_gas_mesh.cpython-311.pyc": "6db0d7cb9267afdfcf7277b7b988fd8bf1e3f406436d7e468620e2a323d47d0f",
+    "src/analysis/__pycache__/thermal_radial.cpython-311.pyc": "f1fcf915496c28d5f01af3b9e93dacbd5d35cc59bbc3b0f7e87114413b281033",
+    "src/analysis/__pycache__/flight_loads.cpython-311.pyc": "f5bb03349e14a041dfc70c28d8bf7b3e43fa02f425f7d81f26c8897cf90b2122",
+    "src/analysis/__pycache__/tolerances.cpython-311.pyc": "0e90246a1a8d7c0f505c183e6c237082de99eacbae0d04faacb329046cf2fea9",
+    "src/analysis/__pycache__/fin_fields.cpython-311.pyc": "550aa74901a0f015d91f9065d24a714395c3e742170415eeb631c9db86f61386",
+    "src/analysis/__pycache__/occupancy.cpython-311.pyc": "bcb219349d11e01a970a7dd8761545c74e649aa7229c70c7af1dadb976f4c1fa",
+    "src/analysis/__pycache__/thermal_topology.cpython-311.pyc": "46d699fbc870e2893d2258356aaf739998a60cc3f33a3ba10f8ebc502604c8bd",
+    "src/analysis/__pycache__/support_fea.cpython-311.pyc": "63199c01e3baa7679fe276fdb3e74366a109130235112115f74521099525e5b3",
+    "src/analysis/__pycache__/recovery_integration.cpython-311.pyc": "d6450e8c04aaa40492e48152d6cbb397266fcc26f1f3a2637f3e2cd03a670f8f",
+    "src/analysis/__pycache__/cad_radiation.cpython-311.pyc": "561549005d30e00d757c1ea3f97296563c43dc086e9f9a0af9930bc2a0510fff",
+    "src/analysis/__pycache__/refined_gas_boundary.cpython-311.pyc": "0286f9521cc90c66b1266d25cd9d574760af09ae1201df3de8f3cbc58f56ac57",
+    "src/analysis/__pycache__/recovery_loadpath.cpython-311.pyc": "c2316715b288b09ffd7e8696efad0a107713829c530926e72d0c2ec89464cbd9",
+    "src/analysis/__pycache__/fin_contact.cpython-311.pyc": "9b88ebd265a0482d763718c934ac56fdfe61e21da4679bf62d37177b02e86f40",
+    "src/analysis/__pycache__/finite_surface_adapter.cpython-311.pyc": "df55732603df20a1d7eadabd0f87c01af8bae60e04651e26437921a096ca8d19",
+    "src/analysis/__pycache__/__init__.cpython-311.pyc": "60a2cf3e1ac901b135c46db2fa7b9466564925ee44f4b05d5232e5619b92b9e8",
+    "src/analysis/__pycache__/records.cpython-311.pyc": "7ff3874183428e26cf999f6a9871b213373072ffdc3c53c5ae63637bd9f3534f",
+    "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+    "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/__pycache__/verification.cpython-311.pyc": "8f9a68df44cde9a8d969b8ba34e42bb8a1faaad9320ad8f77ae92e7bb480f24d",
+    "src/cad/__pycache__/assembly.cpython-311.pyc": "60d7ab6c90ccfdcfd5f8492e630702ccbca54402c378e1ae7872c9c7b0aefbf9",
+    "src/cad/__pycache__/parts.cpython-311.pyc": "967c7401e3b87439c9a7e90a4bad65a52e65249a625e4b7525893a1ca307e1b6",
+    "src/cad/__pycache__/retention_parts.cpython-311.pyc": "5d225346e6f7240849c625a29c98cf026e56084780929369779fdeed57a75d85",
+    "src/cad/__pycache__/kinematics.cpython-311.pyc": "19f279728b05535607ad0d1ac9f09e64c21e0a865149ea2ce40a80b3a8b25ca9",
+    "src/cad/__pycache__/__init__.cpython-311.pyc": "cd43691e0cef6a314b6cac2f76d3258bc3a0664acd22b6163dfa97e51e74b978",
+    "src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+    "src/sim/motor.py": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93",
+    "src/sim/sensors.py": "dfee1f3d65e7e279d53855cd7d7fc3c8306631558adc907e5b45735898065a8b",
+    "src/sim/protocol.py": "b3054c9b90648f711bc432a92b7794b543c9d23e4560194bcf6d67c379b9356f",
+    "src/sim/quaternion.py": "95107100250c3b5e097ea2cbabd3ffc8c9f0c0098e67104bd4533c215ed33685",
+    "src/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/sim/telemetry.py": "4b9f9238282d0a44e2b472400dd1742ef81c8c0b89806868b797f6e55fae93ad",
+    "src/sim/actuators.py": "807b1f2f75f80154019bd1c1bb4d1976789c0a286907990fc10f6a7874488793",
+    "src/sim/types.py": "ed788da4450d3064f72ec41c14a82a8d70a8255bf7fc7292eb4583a75b21b3d0",
+    "src/sim/aero.py": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb",
+    "src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+    "src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "src/sim/environment.py": "be3200cbefaaee035dafc51147101de214650cef25ebf82ec180ca250fc887cc",
+    "src/sim/reference.py": "4e531ae5bd13e29e790915fd1af6dd628a9332d7ffa4ceda9149f58839c2adae",
+    "src/sim/tvc.py": "949711fd82d4d22fbf5ee88ea883ed9f32a2867f286a3e3f5d712d9e9cb793d3",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "src/sim/__pycache__/motor.cpython-311.pyc": "27d48a49c2e33f46c2f96ac7c9d88dbce6c7f2ba823f9e297ab4f22c7a25b1bf",
+    "src/sim/__pycache__/actuators.cpython-311.pyc": "74c1c52f34bb2c4610ef7ae3491ec1228f7417f841dc1d44d18a7ad53212b0ad",
+    "src/sim/__pycache__/telemetry.cpython-311.pyc": "56fa188666b0d90e61e3bcc45a57779f2489f6388dd09054b9152676d7876da0",
+    "src/sim/__pycache__/environment.cpython-311.pyc": "9a2886234d7b113489a1cb2e01b32c43fb5c08ae3a887338354ac5f7679a6d5c",
+    "src/sim/__pycache__/aero.cpython-311.pyc": "751061c959cd58da73fd0adeb2be004f85f3044286076bdc47edee9ed8cd1670",
+    "src/sim/__pycache__/sensors.cpython-311.pyc": "1acc01d2ec20fbd30b423e896e900950b4f409503d09c91e5f8d0b18b80fa0cb",
+    "src/sim/__pycache__/dynamics.cpython-311.pyc": "2c1b347045e0e8dd978cb59dd0d7cd8d87db1203cb2d807e357cc2fcac029144",
+    "src/sim/__pycache__/env.cpython-311.pyc": "b33f14b57bf1eb41ddfac3ad373b138e087aaf78aeaa243c586787b8dfb1ea3a",
+    "src/sim/__pycache__/inputs.cpython-311.pyc": "47ce04ea0b69faec5d2b20686e5a05157c04de4eeac5617e1c0ca984089f3854",
+    "src/sim/__pycache__/types.cpython-311.pyc": "325f4ef138595b9c75c5587cc2dcef98c3a995c0742d8b04f00c8fa3dfb0426c",
+    "src/sim/__pycache__/frames.cpython-311.pyc": "162e61331719fa27b2d9948b607fed20d74518da4e511044be3f899c80c61d8e",
+    "src/sim/__pycache__/reference.cpython-311.pyc": "2eb2081c8640b130a35d455e0a5a4915b2ba1fcbf42809c97737da8b139a210c",
+    "src/sim/__pycache__/tvc.cpython-311.pyc": "dbc6b203548484777e8ea72f383a852b3bad0168295195be926918c178a3bf8c",
+    "src/sim/__pycache__/__init__.cpython-311.pyc": "f178e9762c802c5dee2bf99cd3ce2704c2c7e45fc309b56993e2d9b6325eaf29",
+    "src/sim/__pycache__/quaternion.cpython-311.pyc": "c34d1ef6357ea09a12728d2f19f18f1541a96a4b896a6097566517ba5c64844d",
+    "pyproject.toml": "478dee99228048a01b6f89d7ea57df607ed78566aa2733890427a6fc4bcd5207",
+    "requirements-wo03.txt": "ad8dead2c15350d24332fbe221b5fd31da18d2ae22cf51ec4578858392fed2ac",
+    "configs/engineering/wo03-thermal-acceptance.yaml": "855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d"
+  },
+  "preservation_check": {
+    "files": 134,
+    "changed": [],
+    "frontend": "independently resumed code work; not part of thermal evaluation"
+  },
+  "limitations": [
+    "No B/B_strong or narrow finite-wall annulus execution",
+    "No local energy/transient/contact/radiation verification",
+    "CalculiX setup inclusive wall time unmeasured",
+    "Printed output precision prevents strict exact checks",
+    "Input/deck failures retained; original numerical methods remain stopped",
+    "Current script adds budget/overwrite guards after execution; no altered heat calculation or repeat"
+  ],
+  "actual_baffle_attempt": false,
+  "thermal_acceptance": false,
+  "wo03_complete": false,
+  "post_execution_changes": "CLI budget/overwrite guards and result documentation only; preserved input decks and raw numerical results were not changed."
+}

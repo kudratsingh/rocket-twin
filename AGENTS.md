@@ -12,6 +12,15 @@ then revalidate one complete package. Follow its declared attempt budgets and
 stop/replan conditions; do not repeat invalid or capped full-size methods blindly.
 Frontend and browser work remain paused and the saved preview must be preserved.
 
+Later owner direction on2026-10-31 resumes the saved early frontend inspection,
+experiments and replay **code and non-browser checks** through a bounded Terra
+agent. Computer use remains paused until the owner resumes testing. Report when
+the preview is ready to verify; do not claim fresh visual checks or screenshots.
+WO-03 continues with the external-tool decision in
+`docs/wo03-external-thermal-decision.md`; neither solver yet qualifies for an
+actual-baffle attempt. No production heat-method development precedes that
+published evidence decision.
+
 ## Owner-authorized early inspection and experiment preview
 
 On 2026-10-30 the owner explicitly authorized limited WO-04 and WO-05 work in

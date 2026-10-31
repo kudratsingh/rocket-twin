@@ -1,0 +1,26 @@
+id: wo03-external-thermal-comparison-v1
+source: configs/studies/wo03-thermal-error-isolation.yaml
+solver: /opt/homebrew/bin/ccx
+case: A
+annular_source: configs/studies/wo03-gas-conduction.yaml
+annular_meshes: build/wo03-gas-conduction/final/concentric_cylinder
+annular_source_sha256: 530cf669d8ad3a9899763f2e9b09ff97799780d36d06d096258bf5c935c1f028
+unavailable_cases:
+- B
+- B_strong
+budget:
+  threads: 1
+  seconds_per_case_all_levels: 120
+  total_cpu_seconds: 600
+  setup_wall_seconds: 600
+default_output: build/wo03-ccx-thermal-comparison-v1
+comparison_declaration:
+  packets: 2
+  tools:
+  - Elmer
+  - CalculiX 2.23
+  maximum_cpu_seconds_per_packet: 600
+  maximum_cpu_seconds_all_packets: 1200
+  setup_wall_seconds_per_tool: 600
+  elmer_execution: unavailable; checked release/network setup stopped without solver
+  further_execution: stopped pending published method decision
