@@ -14,8 +14,10 @@ Preserve the saved preview; the latest limited resumption is described below.
 
 Later owner direction on2026-10-31 resumes the saved early frontend inspection,
 experiments and replay **code and non-browser checks** through a bounded Terra
-agent. Computer use remains paused until the owner resumes testing. Report when
-the preview is ready to verify; do not claim fresh visual checks or screenshots.
+agent. The owner subsequently authorized that frontend agent to perform browser
+verification in the designated Chrome window. It alone owns computer use for this
+verification; the primary must not use computer tools concurrently. Record actual
+observations and screenshots, with failures or unavailable checks explicit.
 WO-03 continues with the external-tool decision in
 `docs/wo03-external-thermal-decision.md`; neither solver yet qualifies for an
 actual-baffle attempt. No production heat-method development precedes that
@@ -72,8 +74,9 @@ outputs through the same required checks before publishing.
 
 ## Computer use restriction
 
-Only the primary agent may use computer-use tools. Its only permitted browser
-window is the Chrome window containing the Atlas Fibre G11 PDF; other tabs in
-that same window are allowed. Do not use any other browser or application window.
-Agents should complete work through code and shell tools without computer use,
-unless the owner explicitly reassigns this restriction.
+The owner explicitly reassigned frontend browser verification to the bounded
+frontend Terra agent on2026-10-31. Its only permitted browser window is the Chrome
+window containing the Atlas Fibre G11 PDF; other tabs in that same window are
+allowed. Do not use any other browser or application window. The primary and
+other agents must not use computer tools concurrently with that verification.
+Other work uses code and shell tools. Coordinate any later reassignment explicitly.

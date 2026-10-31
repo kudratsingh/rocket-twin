@@ -15,12 +15,23 @@ No new production solver, accepted temperature or vehicle change. The two stoppe
 wall-treatment trials and failed actual fields remain preserved. Evidence:
 `runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json`.
 
+**Preview source published:** [PR #17](https://github.com/kudratsingh/rocket-twin/pull/17)
+is merged after both [exact-head hosted jobs](https://github.com/kudratsingh/rocket-twin/actions/runs/41185864536) passed.
+This does not complete visual acceptance or full WO-04/05.
+
+**Browser verification update:** the owner now authorizes the frontend Terra agent
+alone to test in the designated Chrome window. It confirmed a stale host API
+snapshot (`671116…` versus current `1193713…`); all four configurations are
+correctly unavailable until the host launcher is restarted. Owner restart is
+pending; no fresh design/replay visual pass or screenshot is claimed. The primary
+continues main engineering/publication and does not use computer tools concurrently.
+
 **Latest preview direction:** saved early frontend code is ready for owner-directed
 visual testing. TypeScript/lint/build/format, four frontend boundary tests and12
 API/experiment tests pass. Two current-revision calm G80/G54 runs are retained
 locally for replay. No current Analysis field matches active identities; missing
-or failed data remains unavailable/failed. Browser/computer use remains paused.
-Local port binding is denied by this sandbox (Vite5173 `EPERM`, API8000 `Errno1`),
+or failed data remains unavailable/failed. The owner has since authorized designated-agent browser verification, as recorded
+above; testing is blocked by the stale host service. Local port binding is denied by this sandbox (Vite5173 `EPERM`, API8000 `Errno1`),
 so no live URL is claimed: start `make preview` in a normal host terminal, then
 open `http://127.0.0.1:5173` when testing resumes. See the
 [preview handoff](wo04-preview-handoff.md). Earlier pause statements below are

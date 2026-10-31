@@ -31,6 +31,14 @@ There is no live agent-launched preview or running launcher session. Start
 wait for both services to start before opening the URL. Restart the API after
 Python source changes.
 
+The designated Chrome window was inspected afterward: its existing host Vite
+server and API responded, but the API's older snapshot returned all four
+configurations as unavailable with `Source specification/CAD changed after
+snapshot; restart API with matching recorded artifacts`. The page remained on
+“Loading resolved configuration.” Stop the old host launcher and restart
+`make preview` in that host terminal before attempting the visual checklist.
+The older browser page seen before reload was stale and is not current proof.
+
 `build/`, `runs/`, `web/dist/` and `web/node_modules/` contain local generated
 data and are not preview source publication payloads. Although most run files
 are ignored, `.gitignore` explicitly permits `runs/*/record.json`; do not stage
