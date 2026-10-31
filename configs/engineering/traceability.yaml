@@ -476,10 +476,17 @@ requirements:
   - runs/wo03-thermal-ignition-bound-matrix-20261030T231809584945Z/case-summary.json
   - runs/wo03-secondary-shield-20261031T001841Z/record.json
   - runs/wo03-thermal-layout-20261031T042330617623Z/record.json
+  - runs/wo03-actual-geometry-20261031T052235281133Z/record.json
+  - docs/wo03-cad-radiation.md
+  - docs/wo03-cad-gas-mesh.md
+  - docs/wo03-surface-materials.md
+  - docs/wo03-cad-radiosity.md
+  - docs/wo03-gas-radiation.md
   status: open
   evidence_basis: Unchanged 45°C substrate and required 300°C / degraded foil / 35°C cases. Earlier44.749C
-    onepoint pass is superseded for acceptance. Actual CAD occupancy partitions glue/fin/open;
-    common-surface finite proxy still fails and omits actual slot paths. Notched/seamed baffle
+    onepoint pass is superseded for acceptance. Actual CAD occupancy and first-hit visibility retain glue/fin/open regions;
+    the old common-surface proxy fails and omits actual slot paths. Actual gas refinement
+    and complete physical material connections remain open. Notched/seamed baffle
     fits its declared sampled assembly but required thermal matrix and physical qualification
     remain open.
 - id: RT-FIT-001

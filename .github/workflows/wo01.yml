@@ -22,6 +22,10 @@ jobs:
             requirements-wo01.txt
             requirements-wo02.txt
             requirements-wo03.txt
+      - name: Install Gmsh shared-library runtime
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y libglu1-mesa
       - name: Install WO-01–03 CPU dependencies and independent reference
         run: |
           python -m venv .venv

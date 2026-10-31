@@ -20,8 +20,11 @@ check results are linked from PR #1. Use `make setup` on a network-enabled machi
 use `make check smoke tiny` in the existing local environment. The owner subsequently
 installed RocketPy 1.13.0 (`make setup-reference`), and the static reference comparison
 has passed. SciPy resolved to 1.17.1. JAX is CPU-tested in WO-02; CadQuery/CAD and
-the local FastAPI stack are installed and exercised for WO-03. Web runtime/build
-and firmware toolchain remain unverified; later work orders resolve their pins.
+the local FastAPI stack are installed and exercised for WO-03. The web lockfile
+was installed with `npm ci`; the current browser build rendered and all four
+design configurations were inspected. TypeScript and lint checks pass, as recorded
+in STATUS.md. This is local verification, not yet a fresh clean-machine install or
+hosted CI result. Firmware toolchain remains unverified.
 Matplotlib's cache is kept in ignored
 `.cache/matplotlib/` by Make, avoiding writes outside the workspace.
 
@@ -40,15 +43,23 @@ Matplotlib's cache is kept in ignored
 | cvxpy + Clarabel | not installed/pinned | G-FOLD convex solve (ADR-0004) |
 | FastAPI + uvicorn | 0.162.0 / 0.41.0 (installed) | API |
 | pyarrow | 23.0.1 | Parquet telemetry |
-| Node | 22 LTS | Frontend |
-| Vite / React / TypeScript | see `web/package-lock.json`; not Python packages | Frontend |
-| three / @react-three/fiber / @react-three/drei | record exact | 3D viewer |
-| uPlot | record exact | Telemetry plots (fast at 500 Hz × many channels) |
-| zustand | record exact | Frontend state |
+| Node | 22.12.0 in CI; `web/package.json` requires >=22.12.0 <23 | Frontend |
+| React / React DOM | 19.2.8 / 19.2.8 | UI runtime |
+| Vite / TypeScript / TypeScript ESLint | 8.3.0 / 6.0.3 / 8.70.0 | Build and type checks |
+| three / @react-three/fiber / @react-three/drei | 0.186.1 / 9.8.1 / 10.7.9 | 3D viewer |
+| uPlot | 1.6.32 | Telemetry plots (fast at 500 Hz × many channels) |
+| zustand | 5.0.15 | Frontend state |
+| ESLint / eslint-plugin-react-hooks / Prettier / globals | 9.39.5 / 7.1.1 / 3.9.8 / 17.12.0 | Lint and formatting |
+| @eslint/js / @vitejs/plugin-react | 9.39.5 / 6.1.1 | Lint config and React transform |
+| @types/react / @types/react-dom / @types/three | 19.2.18 / 19.2.4 / 0.186.0 | Type definitions |
 | PlatformIO / Teensyduino / sensor libraries | not installed/pinned in Python env | Firmware build (WO-10) |
 
-Record resolved pins in `uv.lock`, `web/package-lock.json`, `firmware/platformio.ini` and in
-this table.
+These are the initial exact web dependency pins in `web/package.json`, resolved
+and locked by `web/package-lock.json`; no package upgrades were made. `npm ci`
+installs the lockfile on the current local environment. A newly provisioned Mac
+install has not been independently verified; the CI web job performs a clean
+Ubuntu install and runs the listed checks. Record future pin changes in the lockfile
+and this table.
 
 ## GPU tier (RunPod, Oct 2026 list price)
 
@@ -179,3 +190,16 @@ approximate radiation, without resolved interfaces, bond-line conduction or spat
 gradients. Hot-soak results exceed several part screening
 limits; these are open design findings, not qualification. Structural/thermal
 calculations do not authorize physical work.
+
+## Actual-CAD thermal layout correction
+
+The installed VTK 9.6.2 ray locator is now explicitly pinned in
+`requirements-wo03.txt` and the existing CAD extra; no local upgrade/install was
+performed. [Its published wheels](https://pypi.org/project/vtk/9.6.2/) include
+Python3.11 Linux x86-64 and macOS arm64. Gmsh4.15.2 builds actual void tetrahedra
+without removing finite baffle seams, slots or material barriers. The source
+STEP/face/group/mesh identities remain recorded. The older environment paragraph
+about the coaxial model describes historical proxy runs; actual-CAD gas, material
+connections and common-surface coupling are now separate evolving modules.
+Neither tool execution nor simple-case agreement establishes full thermal
+acceptance or physical material qualification.

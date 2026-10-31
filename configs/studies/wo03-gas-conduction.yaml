@@ -1,0 +1,33 @@
+id: wo03-homogeneous-air-laplace-fixtures
+status: source_independent_method_verification_only
+conductivity_w_m_k_estimate: 0.026
+boundary_temperature_k: [310, 290]
+mesh_sizes_m: [0.003, 0.0018, 0.001]
+fixtures: [slab, concentric_cylinder, insulated_divider, longitudinal_obstruction]
+fixture_dimensions_m:
+  length: 0.020
+  width: 0.012
+  height: 0.008
+  cylinder_inner_radius: 0.005
+  cylinder_outer_radius: 0.010
+  cylinder_length: 0.012
+  divider_thickness: 0.001
+  obstruction_width: 0.004
+  obstruction_height: 0.004
+budget:
+  threads: 1
+  max_tetrahedra: 150000
+  seconds_per_fixture_all_refinements: 180
+verification:
+  known_case_relative_tolerance: 0.03
+  zero_heat_absolute_tolerance_w: 0.0000000001
+  successive_conductance_relative_tolerance: 0.05
+  algebra_relative_tolerance: 0.000000001
+  interior_temperature_absolute_tolerance_k: 0.5
+versions: {gmsh: 4.15.2, scipy: 1.17.1, numpy: 2.4.6}
+sources:
+  weak_form: https://mfem.org/bilininteg/
+  mesh_api: https://gmsh.info/doc/texinfo/
+  fourier_known_cases: https://www.energy.gov/documents/doe-hdbk-1012-92vol2
+scope: Homogeneous stationary air only. Explicit insulated/absent-air divider does not model solid conduction; opacity alone is not insulation. No radiation, convection, gas transient, actual1.418percent-slot matrix or rocket temperature/acceptance claim.
+default_output: build/wo03-gas-conduction/final

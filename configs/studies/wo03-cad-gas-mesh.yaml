@@ -1,0 +1,38 @@
+id: wo03-fitting-baffle-labelled-gas-PLC-v1
+source:
+  candidate_identity: 69df790ec9bcba1465be4fa9861a7ad5fbc467091cbf58f44dee069e56e00bac
+  handoff: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/gas-boundary-handoff.json
+  handoff_sha256: f8282389c9ccdff6d68789c01f03fc052c49ebb7c3c2b33a04559bcac644ef26
+  step: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/fluid-void.step
+  inventory: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/face-inventory.json
+  groups: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/surface-groups.json
+  boundary: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/fine-boundary.npz
+  ray_record: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/report.json
+mapping:
+  point_tolerance_mm: 0.00001
+  area_absolute_tolerance_mm2: 0.000001
+  area_relative_tolerance: 0.0000001
+  minimum_normal_alignment: 0.999999
+  facet_projection_tolerance_mm: 0.003
+  relative_CAD_volume_tolerance: 0.0000001
+seeds:
+  PLC_clearance_mm: 0.005
+  definition: deterministic_4percent_jittered_actual_fluid_lattice_no_new_boundaries
+levels:
+  - {id: coarse, bulk_spacing_mm: 4.0}
+  - {id: medium, bulk_spacing_mm: 3.0}
+  - {id: fine, bulk_spacing_mm: 2.0}
+caps:
+  max_tetrahedra: 750000
+  max_nodes: 150000
+  max_worker_seconds: 300
+  relative_PLC_volume_tolerance: 0.000001
+  max_face_area_relative_error: 0.02
+  max_group_area_relative_error: 0.005
+  minimum_scaled_determinant: 0.00000000000001
+acceptance:
+  all_actual_boundary_facets_preserved: true
+  shared_boundary_nodes: retained_no_temperature_priority
+  all_exterior_facets_labelled: true
+  gas_conduction_solved: false
+  thermal_acceptance_passed: false

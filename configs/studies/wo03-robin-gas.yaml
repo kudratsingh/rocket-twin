@@ -1,0 +1,44 @@
+id: wo03-finite-halfwall-Robin-gas-fixtures
+status: source_independent_implementation_verification_not_actual_rocket
+source_fixture_root: build/wo03-robin-gas/gas-regression-current
+legacy_reference_record: build/wo03-gas-conduction/final/record.json
+mesh_levels: [0, 1, 2]
+fixtures: [finite_halfwall_slab, insulated_divider, shared_corner, mixed_prescribed]
+conductivity_w_m_k: 0.026
+slab:
+  dimensions_m: [0.020, 0.012, 0.008]
+  hot_bulk_k: 310
+  cold_bulk_k: 290
+  hot_halfwall_conductivity_w_m_k: 0.040
+  hot_halfwall_length_m: 0.010
+  cold_halfwall_conductivity_w_m_k: 0.020
+  cold_halfwall_length_m: 0.010
+  hot_surface_neumann_w: 0.0002
+shared_corner:
+  bulk_temperature_by_face_k: [310, 290, 305, 295, 302, 298]
+  h_by_face_w_m2_k: [4, 2, 3, 5, 6, 7]
+  exact_surface_k: 300
+mixed_prescribed:
+  ambient_surface_k: 300
+  prescribed_surface_neumann_w: 0.0003
+budget:
+  threads: 1
+  max_tetrahedra: 150000
+  max_nodes: 150000
+  seconds_per_fixture_all_levels: 180
+  factor_memory_limit_mb: 512
+  max_factor_free_nodes: 25000
+  reduced_map_memory_limit_mb: 256
+  rhs_block_size: 16
+  explicit_actual_mesh_cap_available_but_not_executed: {tetrahedra: 750000, nodes: 150000}
+verification:
+  temperature_absolute_tolerance_k: 0.0000001
+  heat_absolute_tolerance_w: 0.0000000001
+  heat_relative_tolerance: 0.000001
+  form_absolute_tolerance_w_times_k: 0.000000001
+  convergence_relative_tolerance: 0.05
+sources:
+  robin_weak_form: https://mfem.org/fem_bc/
+  fourier_series_resistance: https://www.energy.gov/documents/doe-hdbk-1012-92vol2
+physical_scope: Halfwall fixture constants are chosen numerical values, not material qualification. Opening physical gas temperature is independent of black radiative brightness. No actual unavailable-face solve, nonuniform halfwall centroid substitute, nonlinear radiation or ODE/temperature acceptance.
+default_output: build/wo03-robin-gas/final

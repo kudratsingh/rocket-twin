@@ -1,0 +1,52 @@
+id: wo03-fitting69df-actual-surface-material-map
+status: mapping_diagnostic_no_temperature_solve
+handoff: build/wo03-cad-radiation-fitting-baffle-fine-bounded-v1/gas-boundary-handoff.json
+candidate: runs/wo03-baffle-fit-20261031T035358211715Z/resolved-candidate.json
+manifest: runs/wo03-baffle-fit-20261031T035358211715Z/geometry-manifest.json
+engineering: configs/engineering/wo03.yaml
+acceptance: configs/engineering/wo03-thermal-acceptance.yaml
+existing_topology: configs/studies/wo03-thermal-topology.yaml
+expected_sha256:
+  handoff: f8282389c9ccdff6d68789c01f03fc052c49ebb7c3c2b33a04559bcac644ef26
+  candidate: c80a6d4f563c6c99c92ba7acbbc9ad4b6a0fa0655166f71bbf5a618959e32535
+  manifest: 6e0c0b9f421d271d974bf3552721c8756b53cb3ada284c8f946a0e6785a93866
+  engineering: f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678
+  acceptance: 855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d
+  existing_topology: cd5d8ca2553048205ed2b9432740e151c933ddeccb3e44076a7f60ae1d1d882a
+radial_cells: 16
+liner_end_axial_half_length_fractions_of_total_length: [0.125, 0.25, 0.5]
+component_probe_offsets_mm: [0.00001, 0.000001]
+geometry_tolerance_mm: 0.0000001
+normal_chord_max_mm: 500.0
+symmetry_test_part_ids: [fitting_baffle_1_front, fitting_baffle_1_front_mica_pads, fin_set]
+symmetry_test_volume_tolerance_mm3: 0.00001
+opening_gas_temperature_ids:
+  radial_reservoir: ambient_opening_gas_temperature_k
+  fore_reservoir: ambient_opening_gas_temperature_k
+  aft_reservoir: ambient_opening_gas_temperature_k
+opening_brightness_ids:
+  radial_reservoir: radial_opening_radiative_brightness_temperature_k
+  fore_reservoir: fore_opening_radiative_brightness_temperature_k
+  aft_reservoir: aft_opening_radiative_brightness_temperature_k
+motor_temperature_ids:
+  cylinder: prescribed_motor_case_surface_temperature_k
+  fore_end: unresolved_motor_fore_end_surface_temperature_k
+  aft_end: unresolved_motor_aft_end_nozzle_surface_temperature_k
+decisions:
+  same_gas_solid_surface_temperature: true
+  radiation_on_same_surface: true
+  whole_part_bbox_as_halfwall: false
+  disconnected_components_share_bulk_temperature: false
+  threefold_geometry_implies_threefold_temperature: false
+  common_liner_end_surface_approximation_accepted: false
+  liner_end_radial_strip_to_corresponding_cell: true
+  missing_mapping_becomes_insulation: false
+  retain_direct_and_lumped_solid_contacts_separately: true
+  substrate_screen_c: 45.0
+scope:
+  cpu_workers: 1
+  cost_usd: 0
+  temperature_solve: false
+  active_adoption: false
+  thermal_acceptance: false
+  flight_ready: false
