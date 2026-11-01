@@ -1,4 +1,5 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { requestOrder } from './requestOrder';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Line, OrbitControls, useGLTF } from '@react-three/drei';
 import { Matrix4, Quaternion, Vector3 } from 'three';
@@ -473,6 +474,14 @@ export default function Experiment({
     [fitToken, setFitToken] = useState(0),
     [resetPreview, setResetPreview] = useState(0),
     [plotChannels, setPlotChannels] = useState(defaultChannels);
+  const loadOrder = useRef({ primary: requestOrder(), comparison: requestOrder() });
+  useEffect(() => {
+    const order = loadOrder.current;
+    return () => {
+      order.primary.cancel();
+      order.comparison.cancel();
+    };
+  }, [configurationId]);
   const shown = current?.record.vehicle_id === configurationId ? current : null;
   const replayEnd = shown
     ? Math.max(
@@ -492,6 +501,9 @@ export default function Experiment({
   }, [refresh]);
   const load = useCallback(
     async (id: string, compare = false) => {
+      const isCurrent = (
+        compare ? loadOrder.current.comparison : loadOrder.current.primary
+      ).begin();
       try {
         const record = await json<RecordRun>(`/api/runs/${id}`);
         const [telemetry, vehicle] = await Promise.all([
@@ -511,6 +523,7 @@ export default function Experiment({
           throw new Error(
             'Matching CAD meshes unavailable; replay cannot be attached to different geometry.',
           );
+        if (!isCurrent()) return;
         const item = { record, telemetry, vehicle };
         if (compare) setOther(item);
         else {
@@ -521,7 +534,7 @@ export default function Experiment({
         }
         setError('');
       } catch (e) {
-        setError(String(e));
+        if (isCurrent()) setError(String(e));
       }
     },
     [onConfigurationChange],
@@ -608,6 +621,8 @@ export default function Experiment({
           <select
             value={configurationId}
             onChange={(e) => {
+              loadOrder.current.primary.cancel();
+              loadOrder.current.comparison.cancel();
               setPlaying(false);
               onConfigurationChange(e.target.value);
             }}
@@ -813,6 +828,7 @@ export default function Experiment({
                   <RunDetails run={other} label="B · gold" />
                   <button
                     onClick={() => {
+                      loadOrder.current.comparison.cancel();
                       setOther(null);
                       setTime((t) => Math.min(t, shown.telemetry.columns.time_s.at(-1) ?? 0));
                     }}
