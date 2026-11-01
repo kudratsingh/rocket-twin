@@ -55,6 +55,12 @@ benchmark or engineering acceptance.
 
 ## Remaining full milestones
 
+Saved-run selection and comparison now discard responses superseded by a newer
+selection. Clearing a comparison or changing configuration also invalidates an
+in-flight request for that view. This behavior has a frontend unit test; browser
+verification of this later change remains unavailable pending resolution of the
+designated window's runtime ownership.
+
 Full WO-04 requires expanded WO-03 acceptance and compatible real static and
 transient analysis fields, their identity, controls and validation evidence.
 There are currently no compatible recorded fields; failed and superseded
