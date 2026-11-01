@@ -42,6 +42,7 @@ export interface Part {
   cad_mass?: { mass_kg?: number; basis?: string; cg_local_body_m?: Vector3Tuple };
   geometry?: Record<string, JsonValue>;
   dimensions?: Record<string, JsonValue>;
+  cad_bounding_size_mm?: number[];
   electrical?: Record<string, JsonValue> | null;
   learn: string;
   cite?: string | null;
@@ -100,6 +101,7 @@ export interface MassSample {
 }
 
 export interface InspectionDocument {
+  snapshot_only?: boolean;
   id: string;
   name?: string;
   label?: string;

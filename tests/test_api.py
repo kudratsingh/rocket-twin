@@ -60,7 +60,8 @@ def test_readonly_inspection_uses_backend_mass_and_recorded_mesh(
     catalog = client.get("/api/vehicles").json()
     assert len(catalog["vehicles"]) == 4
     assert all(row["available"] for row in catalog["vehicles"])
-    assert catalog["candidates"] == []
+    assert catalog["candidates"][0]["available"] is False
+    assert catalog["candidates"][0]["id"] == "experimental-g80-retention-72"
     assert catalog["vehicles"][1]["role"] == "conditional_upgrade"
     assert catalog["vehicles"][3]["role"] == "eventual_concept"
     for entry in CATALOG:
@@ -262,3 +263,63 @@ def test_superseded_band_model_notice_is_not_a_cad_compatibility_claim() -> None
     )
     assert "SUPERSEDED" in _analysis_notice(historical)
     assert _analysis_notice(SimpleNamespace(run_id="other-analysis")) is None
+
+
+def test_frozen_candidate_is_separate_and_fails_closed(
+    recorded_root: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Synthetic fixture checks routing/provenance, not candidate CAD geometry."""
+    from src.api import candidate_snapshot
+
+    folder = recorded_root / candidate_snapshot.FOLDER
+    (folder / "parts").mkdir(parents=True)
+    ids = [f"test_part_{i}" for i in range(72)]
+    identity = {
+        "resolved_spec_sha256": candidate_snapshot.IDENTITY,
+        "cad_revision_sha256": candidate_snapshot.CAD,
+    }
+    data = {
+        "id": candidate_snapshot.ALIAS,
+        "identity": identity,
+        "parts": [{"id": part_id} for part_id in ids],
+        "snapshot_only": True,
+    }
+    projection = {"data": data, "mass": [{"mass_kg": 0.7}] * 21}
+    projection_bytes = json.dumps(projection).encode()
+    (folder / "projection.json").write_bytes(projection_bytes)
+    mesh_bytes = b"test-only-glb"
+    for part_id in ids:
+        (folder / "parts" / f"{part_id}.glb").write_bytes(mesh_bytes)
+    index = {
+        "candidate_identity": candidate_snapshot.IDENTITY,
+        "cad_revision_sha256": candidate_snapshot.CAD,
+        "projection_sha256": sha256(projection_bytes),
+        "mesh_sha256": dict.fromkeys(ids, sha256(mesh_bytes)),
+    }
+    index_bytes = json.dumps(index).encode()
+    (folder / "index.json").write_bytes(index_bytes)
+    monkeypatch.setattr(candidate_snapshot, "INDEX_SHA256", sha256(index_bytes))
+    client = TestClient(create_app(recorded_root))
+    catalog = client.get("/api/vehicles").json()
+    assert len(catalog["vehicles"]) == 4
+    assert catalog["candidates"][0]["id"] == candidate_snapshot.ALIAS
+    assert catalog["candidates"][0]["available"] is True
+    base = "/api/vehicles/" + candidate_snapshot.ALIAS
+    assert client.get(base).json()["snapshot_only"] is True
+    assert client.get(base + "/mass?burn_fraction=0.05").json()["mass_kg"] == 0.7
+    assert client.get(base + "/mass?burn_fraction=0.03").status_code == 422
+    assert len(client.get(base + "/meshes").json()["parts"]) == 72
+    assert client.get(base + "/meshes/test_part_0.glb").content == mesh_bytes
+    assert client.get(base + "/meshes/not_a_part.glb").status_code == 404
+    assert client.get(base + "/meshes/%2e%2e%2fprojection.json.glb").status_code == 404
+    assert (
+        client.post(
+            "/api/experiments", json={"configuration": candidate_snapshot.ALIAS}
+        ).status_code
+        == 422
+    )
+    (folder / "parts/test_part_0.glb").write_bytes(b"tampered")
+    assert client.get(base + "/meshes/test_part_0.glb").status_code == 503
+    (folder / "projection.json").write_bytes(b"tampered")
+    assert client.get(base).status_code == 503
+    assert client.get("/api/vehicles/modular-performance-v1").status_code == 200
