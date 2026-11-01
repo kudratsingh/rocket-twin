@@ -1434,3 +1434,11 @@ temperature margin, but cannot bound actual-geometry errors or fill missing
 conservation/refinement evidence. No threshold, required thermal case,45°C
 screen, active vehicle, preview asset or release gate changes. No automatic
 new grid, solver run or production heat method follows this closed campaign.
+
+## Integrated G80 retention package — isolated Stage 1/2
+
+The72-part candidate `90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc` now includes modified mount/guides, separate keeper/bridge, explicit M3/M2 hardware and1g estimated locking/materials reserve. The old7g lump is removed once; finish, fin bonds, conservative adhesive budget and the full50g allowance remain. Twenty-one affected solids match pinned STEP sources. Loaded mass772.982g, growth mass822.982g, growthCG829.167mm and full tensors are reconciled at the real staged CAD revision. Active designs and preview assets remain unchanged.
+
+[Static/flight results](wo03-g80-staged-retention-results.md) pass preliminary independent static comparison and growth loaded/burnout margins1.1663/1.5483cal. Four guide departures exceed15m/s (minimum16.848m/s); nominal apogee620.610m vs RocketPy620.650m and time errors meet5%. All four180s trajectories reach modeled ground. Saved vertical speeds6.070/6.280/6.277/5.895m/s mean three fail the unchanged6m/s vertical-descent target. All four total-ground-speed diagnostics exceed6; these are distinct physical quantities. No independent descent/wind validation follows.
+
+This closes changed-part bookkeeping and affected numerical comparisons only. The actual bridge reaction failure, hot load paths, installed fin/root/flutter, thermal qualification, locking/tolerances and three recovery overlaps remain open. The [closure table](wo03-g80-current-closure.md) keeps those design items separate from later owner measurements and proof/deployment/flight gates.

@@ -1,0 +1,13 @@
+--- a/src/cad/parts.py
++++ b/src/cad/parts.py
+@@ -46,6 +46,10 @@
+     g = part.geometry
+     o = part.cad.parameters
+     kind = part.cad.generator
++    if kind == "g80_keeper_service":
++        from src.cad.g80_service_parts import build
++
++        return build(part, _base_shape)
+     if kind in ("thrust_plate", "sector_pads", "motor_cassette", "retainer_plate"):
+         from src.cad.retention_parts import build_retention
+ 

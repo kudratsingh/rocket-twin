@@ -1,0 +1,43 @@
+id: wo03-g80-retention-integration-stage1
+status: isolated_candidate_only
+source_identity: 62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009
+source_yaml_sha256: 2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293
+mount_station_m: 1.01
+part_geometry_length_m: 0.2
+plywood_density_kg_m3: 715
+G11_density_kg_m3: 1850
+locking_materials_reserve_g: 1.0
+recipe_mm:
+  rail_angles_deg: [0, 120, 240]
+  bolt_angles_deg: [60, 180, 300]
+  m2_angles_deg: [30, 150, 270]
+  outer_radius: 32.2
+  inner_radius: 15.8
+  ring_band_z: 167.0
+  ring_band_height: 3.0
+  rail_envelope: [7.0, 12.0, 190.0]
+  rail_radius: 28.5
+  old_block_cutter: [12.02, 12.02, 20.02, 169.99, 25.5]
+  relief: [20.7, 34.5, 9.6, 4.0, 166.1]
+  guide: [12.0, 12.0, 17.8, 172.2, 25.5, 1.7, 172.1, 18.1, 172.0, 19.0]
+  bridge: [170.1, 2.0, 31.9, 14.0, 12.2, 2.2, 170.0, 1.7, 25.5, 7.0, 2.0, 15.0, 172.1, 28.5, 7.1, 172.0, 15.2]
+  keeper: [166.0, 4.0, 31.9, 14.0, 12.2, 4.2, 165.9, 25.5, 4.8, 168.9, 1.2, 5.7, 166.5, 2.41, 1.8, 165.9, 4.2, 0.5]
+  closure: [19.0, 1.1, 165.9, 4.2, 170.0, 2.2, 2.0, 1.1, 170.0, 0.1]
+  m3_washer: [4.5, 1.6, 169.2, 0.9]
+  m3_nut: [5.5, 166.8, 2.4, 1.5, 166.7, 2.6]
+  m3_screw: [1.5, 162.0, 35.0, 2.75, 197.0, 3.0]
+  m2_nut: [4.0, 172.1, 1.6, 1.0, 172.0, 1.8]
+  m2_screw: [1.0, 166.0, 10.0, 1.9, 164.0, 2.0]
+  boolean_extension_mm: 0.1
+  keeper_boolean_extension_mm: 0.01
+mass_g_each: {m3_screw: 2.11, m3_nut: 0.38, m3_washer: 0.35, m2_screw: 0.30, m2_nut: 0.14}
+max_child_cpu_s: 120
+max_child_wall_s: 120
+packet_cpu_cap_s: 600
+acceptance: false
+flight_ready: false
+part_envelope_radius_m: 0.033
+locking_reserve_station_m: 1.18
+locking_reserve_bbox_m: [0.01, 0.01, 0.01]
+full_growth_allowance_kg: 0.05
+full_growth_station_m: 1.212

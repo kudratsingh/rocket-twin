@@ -1,0 +1,1489 @@
+{
+  "status": "compact_staged_candidate_evidence_not_qualified",
+  "candidate_identity": "90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc",
+  "source_52part_identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+  "staged_api_cad_revision_sha256": "344f646f81e15d42ab54e7d996179581d638c6046bf1d006935b028709eca53f",
+  "staged_cad_mass_generator_revision_sha256": "62ecafe71c4fc24036b8bec3f9e76aef6c2b0be7c585014aff768a6f1772a82c",
+  "stage1": {
+    "part_count": 72,
+    "states": [
+      {
+        "burn_fraction": 0.0,
+        "mass_kg": 0.7729817122770564,
+        "cg_station_m": 0.804403217074667,
+        "cg_lateral_m": [
+          -2.051607235869372e-05,
+          0.0007104409228166982
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009126646661107095,
+            0.00019023410947844238,
+            -0.00017513052142401655
+          ],
+          [
+            0.00019023410947844238,
+            0.12983192504982083,
+            -1.1426650814904299e-07
+          ],
+          [
+            -0.00017513052142401655,
+            -1.1426650814904299e-07,
+            0.12983389330024978
+          ]
+        ]
+      },
+      {
+        "burn_fraction": 1.0,
+        "mass_kg": 0.7104817122770564,
+        "cg_station_m": 0.7752331503794786,
+        "cg_lateral_m": [
+          -2.2320840166592317e-05,
+          0.0007729373346296578
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009060600045951349,
+            0.00018977151455397802,
+            -0.00015911155057613669
+          ],
+          [
+            0.00018977151455397802,
+            0.1222664518198259,
+            -1.152576105419178e-07
+          ],
+          [
+            -0.00015911155057613669,
+            -1.152576105419178e-07,
+            0.12226845436202842
+          ]
+        ]
+      }
+    ],
+    "states_with_full_50g_growth": [
+      {
+        "burn_fraction": 0.0,
+        "mass_kg": 0.8229817122770564,
+        "cg_station_m": 0.8291666338581078,
+        "cg_lateral_m": [
+          -1.9269624712735153e-05,
+          0.0006672783037561224
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009126883889682553,
+            0.00019062682133049686,
+            -0.00018872954592036
+          ],
+          [
+            0.00019062682133049686,
+            0.13763403117470707,
+            -1.1358201165088064e-07
+          ],
+          [
+            -0.00018872954592036,
+            -1.1358201165088064e-07,
+            0.1376359757418122
+          ]
+        ],
+        "growth_station_m": 1.212
+      },
+      {
+        "burn_fraction": 1.0,
+        "mass_kg": 0.7604817122770564,
+        "cg_station_m": 0.8039496101292298,
+        "cg_lateral_m": [
+          -2.0853294017470687e-05,
+          0.0007221184048545218
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0009060879354820439,
+            0.00019022691593058907,
+            -0.00017488141961320198
+          ],
+          [
+            0.00019022691593058907,
+            0.13117762389095375,
+            -1.1445169606711219e-07
+          ],
+          [
+            -0.00017488141961320198,
+            -1.1445169606711219e-07,
+            0.13117959854881567
+          ]
+        ],
+        "growth_station_m": 1.212
+      }
+    ],
+    "mass_budget_kg": {
+      "nose_cone": 0.033017273687055475,
+      "body_upper": 0.05603234701199932,
+      "interface_coupler": 0.02106733049353741,
+      "avionics_bay": 0.00904460569417429,
+      "recovery_bulkhead": 0.0302337452203521,
+      "recovery_anchor": 0.004,
+      "parachute": 0.035,
+      "shock_cord": 0.01,
+      "recovery_protection": 0.006,
+      "independent_recovery": 0.003,
+      "micro_sd": 0.003,
+      "adhesive_finish": 0.012,
+      "rail_guides": 0.0006229991634585588,
+      "flight_computer": 0.012,
+      "imu": 0.002,
+      "baro": 0.001,
+      "battery": 0.03,
+      "regulator_5v": 0.008,
+      "pyro_mosfet": 0.003,
+      "arming_switch": 0.003,
+      "harness": 0.012,
+      "joint_stop": 0.0013192554674232185,
+      "high_g_accel": 0.001,
+      "recovery_battery": 0.0036,
+      "recovery_power_switch": 0.0037,
+      "recovery_output_harness": 0.004,
+      "aft_shell": 0.01925374538364414,
+      "aft_interface_hardware": 0.006,
+      "motor_liner": 0.010065964454996504,
+      "retention": 0.04292932739783429,
+      "motor": 0.1282,
+      "fin_set": 0.1316238690174014,
+      "fin_bonds": 0.008,
+      "motor_radiant_shield": 0.0006562178841010795,
+      "thrust_pads": 0.00029932937844339547,
+      "aft_retainer": 0.020256493058707727,
+      "aft_thrust_pads": 0.00029932937844339547,
+      "incremental_mount_gap_epoxy_upper_budget": 0.004620026156369208,
+      "recovery_easymini_components": 0.0035,
+      "recovery_switch_g11_doubler": 0.0020781194772935183,
+      "recovery_mount_carrier": 0.004297337178998893,
+      "recovery_battery_tray": 0.0006636675,
+      "recovery_battery_band": 0.00035,
+      "recovery_standoffs": 0.0001066507874040663,
+      "recovery_fasteners": 0.0006832587030439369,
+      "recovery_nuts": 0.0002451710517871839,
+      "recovery_sled_fasteners": 0.0006357860964555416,
+      "recovery_sled_nuts": 0.0001944762019057032,
+      "recovery_sled_reinforcement": 0.0003713487113213489,
+      "recovery_mount_hardware_allowance": 0.003139321735486285,
+      "motor_mount": 0.035296783665463856,
+      "service_guide_0": 0.0017171369863605355,
+      "service_guide_1": 0.001717136986360536,
+      "service_guide_2": 0.001717136986360536,
+      "service_keeper": 0.015409674768023069,
+      "service_bridge": 0.01017684659284994,
+      "service_m3_screw_0": 0.00211,
+      "service_m3_screw_1": 0.00211,
+      "service_m3_screw_2": 0.00211,
+      "service_m3_nut_0": 0.00038,
+      "service_m3_nut_1": 0.00038,
+      "service_m3_nut_2": 0.00038,
+      "service_m3_washer_0": 0.00035,
+      "service_m3_washer_1": 0.00035,
+      "service_m3_washer_2": 0.00035,
+      "service_m2_screw_0": 0.0003,
+      "service_m2_screw_1": 0.0003,
+      "service_m2_screw_2": 0.0003,
+      "service_m2_nut_0": 0.00014000000000000001,
+      "service_m2_nut_1": 0.00014000000000000001,
+      "service_m2_nut_2": 0.00014000000000000001,
+      "retention_locking_materials_reserve": 0.001
+    },
+    "geometry_comparison": {
+      "motor_mount": {
+        "source_step": "modified_mount.step",
+        "source_step_sha256": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+        "volume_mm3": 49366.13100064874,
+        "reference_volume_mm3": 49366.13100065683,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -2.2127458599786098e-11,
+          1.625603239893058e-11,
+          -1.3130829756846651e-11
+        ],
+        "max_bbox_difference_mm": 1.7053025658242404e-13,
+        "max_inertia_matrix_difference_mm5": 4.002144254288784e-05
+      },
+      "service_guide_0": {
+        "source_step": "guide_0.step",
+        "source_step_sha256": "70c9b4a16fb61bc9e9b26242f654244efaed83493d342288101138fe92580fea",
+        "volume_mm3": 2401.5901907140355,
+        "reference_volume_mm3": 2401.5901907141174,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -9.041656312547275e-13,
+          -1.2185807918285718e-12,
+          -2.842170943040401e-14
+        ],
+        "max_bbox_difference_mm": 2.7817748105007922e-12,
+        "max_inertia_matrix_difference_mm5": 7.450580596923828e-09
+      },
+      "service_guide_1": {
+        "source_step": "guide_1.step",
+        "source_step_sha256": "d5e5665f7e2ad5fc80fbc41fb6093373dc264e5dadc2292a067d447ee329d4f7",
+        "volume_mm3": 2401.590190714036,
+        "reference_volume_mm3": 2401.590190714029,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          7.105427357601002e-15,
+          3.1957211889752906e-15,
+          -5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 2.6645352591003757e-15,
+        "max_inertia_matrix_difference_mm5": 1.4901161193847656e-08
+      },
+      "service_guide_2": {
+        "source_step": "guide_2.step",
+        "source_step_sha256": "ab781677489a1d0ecc1a336329c062b80d1443dd8cbc46a3e23dcbf6b235de1c",
+        "volume_mm3": 2401.590190714036,
+        "reference_volume_mm3": 2401.5901907154125,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -1.3322676295501878e-13,
+          -4.643396778192255e-12,
+          -5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 9.15179043659009e-12,
+        "max_inertia_matrix_difference_mm5": 6.495974957942963e-08
+      },
+      "service_keeper": {
+        "source_step": "keeper.step",
+        "source_step_sha256": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8",
+        "volume_mm3": 8329.553928661118,
+        "reference_volume_mm3": 8329.553928661388,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -1.2364344550531247e-12,
+          4.3385355733248e-13,
+          5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 4.156675004196586e-13,
+        "max_inertia_matrix_difference_mm5": 4.470348358154297e-07
+      },
+      "service_bridge": {
+        "source_step": "bridge.step",
+        "source_step_sha256": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+        "volume_mm3": 5500.998158297265,
+        "reference_volume_mm3": 5500.998158294368,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          1.992936512460181e-11,
+          1.7304407081926573e-12,
+          2.5295321393059567e-12
+        ],
+        "max_bbox_difference_mm": 4.156675004196586e-13,
+        "max_inertia_matrix_difference_mm5": 2.592802047729492e-06
+      },
+      "service_m3_screw_0": {
+        "source_step": "screw_0.step",
+        "source_step_sha256": "b853bb03fdefab9b9413e463bc1bd04accf62c998971b08fd2204813dc037298",
+        "volume_mm3": 318.6753047985146,
+        "reference_volume_mm3": 318.6753047985108,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          1.9539925233402755e-14,
+          1.8118839761882555e-13,
+          -1.1368683772161603e-13
+        ],
+        "max_bbox_difference_mm": 1.8118839761882555e-13,
+        "max_inertia_matrix_difference_mm5": 3.725290298461914e-09
+      },
+      "service_m3_screw_1": {
+        "source_step": "screw_1.step",
+        "source_step_sha256": "0967aeb5dfe48f082afab9a1472a8e5da813af0eb3d8526093cb176645d013df",
+        "volume_mm3": 318.6753047985146,
+        "reference_volume_mm3": 318.67530479851087,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          1.7763568394002505e-14,
+          6.098934928356082e-17,
+          -8.526512829121202e-14
+        ],
+        "max_bbox_difference_mm": 0.0,
+        "max_inertia_matrix_difference_mm5": 3.725290298461914e-09
+      },
+      "service_m3_screw_2": {
+        "source_step": "screw_2.step",
+        "source_step_sha256": "d8c71d1d3a72e6b2ea982fe4211d5710071d48ebd4df669d5b4908253a0a0c04",
+        "volume_mm3": 318.6753047985146,
+        "reference_volume_mm3": 318.67530479851087,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          1.9539925233402755e-14,
+          -3.1867841698840493e-12,
+          -8.526512829121202e-14
+        ],
+        "max_bbox_difference_mm": 3.183231456205249e-12,
+        "max_inertia_matrix_difference_mm5": 3.725290298461914e-09
+      },
+      "service_m3_nut_0": {
+        "source_step": "nut_0.step",
+        "source_step_sha256": "bf58db3b19d3692bc0eb54d9f5276f65688c7f47a3ddb4a326468189034da567",
+        "volume_mm3": 45.908843985365365,
+        "reference_volume_mm3": 45.90884398535796,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          1.5987211554602254e-14,
+          1.9895196601282805e-13,
+          2.842170943040401e-14
+        ],
+        "max_bbox_difference_mm": 2.682298827494378e-13,
+        "max_inertia_matrix_difference_mm5": 4.656612873077393e-10
+      },
+      "service_m3_nut_1": {
+        "source_step": "nut_1.step",
+        "source_step_sha256": "901dddf60835cd04ec44923404ac481fe008a3a14a2d6bdb3be0dac74b6d79dc",
+        "volume_mm3": 45.90884398536536,
+        "reference_volume_mm3": 45.908843985430536,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -6.849631972727366e-12,
+          2.1262156583685252e-13,
+          5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 8.764544645600836e-12,
+        "max_inertia_matrix_difference_mm5": 6.984919309616089e-10
+      },
+      "service_m3_nut_2": {
+        "source_step": "nut_2.step",
+        "source_step_sha256": "ed7b7bf649b5bd1bd276f4757ab0a67dfe335626365d2acae343988575e981a9",
+        "volume_mm3": 45.908843985365365,
+        "reference_volume_mm3": 45.90884398535797,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          1.7763568394002505e-14,
+          -3.169020601490047e-12,
+          5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 3.183231456205249e-12,
+        "max_inertia_matrix_difference_mm5": 6.984919309616089e-10
+      },
+      "service_m3_washer_0": {
+        "source_step": "washer_0.step",
+        "source_step_sha256": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+        "volume_mm3": 50.01729663780317,
+        "reference_volume_mm3": 50.01729663780452,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -7.283063041541027e-14,
+          1.7763568394002505e-13,
+          2.842170943040401e-14
+        ],
+        "max_bbox_difference_mm": 1.8118839761882555e-13,
+        "max_inertia_matrix_difference_mm5": 4.656612873077393e-10
+      },
+      "service_m3_washer_1": {
+        "source_step": "washer_1.step",
+        "source_step_sha256": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+        "volume_mm3": 50.01729663780318,
+        "reference_volume_mm3": 50.01729663780452,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -7.815970093361102e-14,
+          1.9643354906203933e-16,
+          5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 0.0,
+        "max_inertia_matrix_difference_mm5": 9.313225746154785e-10
+      },
+      "service_m3_washer_2": {
+        "source_step": "washer_2.step",
+        "source_step_sha256": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+        "volume_mm3": 50.01729663780318,
+        "reference_volume_mm3": 50.01729663780452,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -7.105427357601002e-14,
+          -3.1796787425264483e-12,
+          5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 3.183231456205249e-12,
+        "max_inertia_matrix_difference_mm5": 1.1641532182693481e-09
+      },
+      "service_m2_screw_0": {
+        "source_step": "m2_screw_0.step",
+        "source_step_sha256": "42762745f30d0395167af8fd8126b6437f6c5428fce76d8bd59ff6a9e9b62367",
+        "volume_mm3": 54.09822549481625,
+        "reference_volume_mm3": 54.09822549481586,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          3.410605131648481e-13,
+          0.0,
+          -2.842170943040401e-14
+        ],
+        "max_bbox_difference_mm": 3.375077994860476e-13,
+        "max_inertia_matrix_difference_mm5": 1.6298145055770874e-09
+      },
+      "service_m2_screw_1": {
+        "source_step": "m2_screw_1.step",
+        "source_step_sha256": "1c45eaa2de5d513f6eb339a1aa82be24c1509cf6ecaad534f59be9b2db540c64",
+        "volume_mm3": 54.09822549481624,
+        "reference_volume_mm3": 54.09822549481586,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -4.334310688136611e-12,
+          0.0,
+          5.684341886080802e-14
+        ],
+        "max_bbox_difference_mm": 4.337863401815412e-12,
+        "max_inertia_matrix_difference_mm5": 6.984919309616089e-10
+      },
+      "service_m2_screw_2": {
+        "source_step": "m2_screw_2.step",
+        "source_step_sha256": "f539f48f59ceccdc58c3d4398e5d4b85c672a9e43854223462ed72729c45ffa6",
+        "volume_mm3": 54.09822549481623,
+        "reference_volume_mm3": 54.09822549481585,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          4.835066995436921e-15,
+          3.552713678800501e-15,
+          0.0
+        ],
+        "max_bbox_difference_mm": 3.552713678800501e-15,
+        "max_inertia_matrix_difference_mm5": 6.984919309616089e-10
+      },
+      "service_m2_nut_0": {
+        "source_step": "m2_nut_0.step",
+        "source_step_sha256": "1f8f3e07cc7e3e77311329b7568a7c3b2e05a94262e9dbaefb67699e018355ed",
+        "volume_mm3": 17.143702091137953,
+        "reference_volume_mm3": 17.143702091137957,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -3.019806626980426e-13,
+          7.283063041541027e-14,
+          0.0
+        ],
+        "max_bbox_difference_mm": 7.887024366937112e-13,
+        "max_inertia_matrix_difference_mm5": 5.820766091346741e-11
+      },
+      "service_m2_nut_1": {
+        "source_step": "m2_nut_1.step",
+        "source_step_sha256": "396ca474db092066cc42e099efed0c3a6f1c8be675a9dffa9b0554a4e45fb155",
+        "volume_mm3": 17.143702091137964,
+        "reference_volume_mm3": 17.14370209115234,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          -4.320099833421409e-12,
+          -1.5987211554602254e-14,
+          0.0
+        ],
+        "max_bbox_difference_mm": 5.831779503751022e-12,
+        "max_inertia_matrix_difference_mm5": 2.9103830456733704e-10
+      },
+      "service_m2_nut_2": {
+        "source_step": "m2_nut_2.step",
+        "source_step_sha256": "b6d533899fa77381e43d7d9e5282391f27bd9d21bf7fcd780a05b3e20c65fbdf",
+        "volume_mm3": 17.143702091137953,
+        "reference_volume_mm3": 17.143702091134543,
+        "symmetric_difference_mm3": 0.0,
+        "centroid_delta_mm": [
+          3.332681888448284e-13,
+          1.8829382497642655e-13,
+          -2.842170943040401e-14
+        ],
+        "max_bbox_difference_mm": 4.933831121434196e-13,
+        "max_inertia_matrix_difference_mm5": 2.3283064365386963e-10
+      }
+    },
+    "schema_revalidated": true,
+    "geometry_and_part_exports_unchanged": true,
+    "source_unchanged": true,
+    "cad_child_cpu_s": 20.736649999999997,
+    "cad_child_wall_s": 22.309443042002385,
+    "worker_peak_rss_bytes": 762839040,
+    "metadata_resource": {
+      "returncode": 0,
+      "stdout": "{\"status\": \"metadata_final_no_new_CAD\", \"identity\": \"90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc\", \"mass_kg\": 0.7729817122770564, \"parts\": 72, \"updated\": 22}\n",
+      "stderr": "",
+      "cpu_s": 0.5900559999999999,
+      "wall_s": 0.6656068330048583,
+      "native_cad_invoked": false
+    },
+    "metadata_failed_guard": {
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/metadata_only.py\", line 24, in <module>\n    raise FileExistsError(dest)\nFileExistsError: /Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final\n",
+      "cpu_s": 0.183259,
+      "wall_s": 0.2227194159931969,
+      "native_cad_invoked": false
+    }
+  },
+  "stage2": {
+    "static": {
+      "candidate_identity": "90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc",
+      "reference": {
+        "vehicle": "modular-performance-v1",
+        "mode": "performance",
+        "checks": {
+          "spec_valid": true,
+          "mass_with_growth_below_1p5kg": true,
+          "single_G_scope_evidence_declared": true,
+          "source_traceable_and_config_consistent": true,
+          "all_parts_have_build_and_cost": true,
+          "rail_departure_screen": true,
+          "mode_static_margin_screen": true,
+          "mode_useful_control_time_screen": true,
+          "independent_static_reference": true
+        },
+        "preliminary_design_benchmark_passed": true,
+        "flight_ready": false,
+        "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+        "nominal_mass_kg": 0.7729817122770564,
+        "burnout_mass_kg": 0.7104817122770564,
+        "cg_liftoff_m": 0.804403217074667,
+        "cg_burnout_m": 0.7752331503794786,
+        "cg_lateral_liftoff_m": [
+          -2.051607235869372e-05,
+          0.0007104409228166982
+        ],
+        "cg_lateral_burnout_m": [
+          -2.2320840166592317e-05,
+          0.0007729373346296578
+        ],
+        "inertia_liftoff_kg_m2": [
+          [
+            0.0009126646661107095,
+            0.00019023410947844238,
+            -0.00017513052142401655
+          ],
+          [
+            0.00019023410947844238,
+            0.12983192504982083,
+            -1.1426650814904299e-07
+          ],
+          [
+            -0.00017513052142401655,
+            -1.1426650814904299e-07,
+            0.12983389330024978
+          ]
+        ],
+        "inertia_burnout_kg_m2": [
+          [
+            0.0009060600045951349,
+            0.00018977151455397802,
+            -0.00015911155057613669
+          ],
+          [
+            0.00018977151455397802,
+            0.1222664518198259,
+            -1.152576105419178e-07
+          ],
+          [
+            -0.00015911155057613669,
+            -1.152576105419178e-07,
+            0.12226845436202842
+          ]
+        ],
+        "cp_m": 0.906139607881506,
+        "static_margins_with_aft_mass_allowance_cal": [
+          1.1662571821727,
+          1.5483332992769123
+        ],
+        "average_TWR_diagnostic_only": 9.722585341985722,
+        "source_terminal_time_s": 1.8079,
+        "launch_screen": {
+          "worst_case_mass_kg": 0.8229817122770564,
+          "rail_exit_time_s": 0.1960247100971561,
+          "rail_exit_speed_mps": 16.327763175122794,
+          "rail_screen_pass": true,
+          "longest_useful_control_interval_s": 1.4840240988658953,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "control_threshold_source_thrust_n": 11.393920388755475,
+          "screening_wind_mps": 2.0,
+          "kinematic_crosswind_angle_rad": 0.12188359276329076,
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+        },
+        "reference_comparison": {
+          "reference": "RocketPy",
+          "version": "1.13.0",
+          "motor_mode": "source curve; static endpoints only",
+          "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+          "rows": [
+            {
+              "state": "liftoff",
+              "rocket_twin": {
+                "mass_kg": 0.7729817122770564,
+                "cg_m": 0.804403217074667,
+                "cp_m": 0.906139607881506,
+                "stability_margin_cal": 1.5414604667702885
+              },
+              "rocketpy": {
+                "mass_kg": 0.7729817122770565,
+                "cg_m": 0.8044032170746664,
+                "cp_m": 0.9061396078815065,
+                "stability_margin_cal": 1.5414604667703038
+              },
+              "absolute_delta": {
+                "mass_kg": 1.1102230246251565e-16,
+                "cg_m": 5.551115123125783e-16,
+                "cp_m": 4.440892098500626e-16,
+                "stability_margin_cal": 1.532107773982716e-14
+              },
+              "passed": true
+            },
+            {
+              "state": "burnout",
+              "rocket_twin": {
+                "mass_kg": 0.7104817122770564,
+                "cg_m": 0.7752331503794786,
+                "cp_m": 0.906139607881506,
+                "stability_margin_cal": 1.9834311742731432
+              },
+              "rocketpy": {
+                "mass_kg": 0.7104817122770565,
+                "cg_m": 0.7752331503794782,
+                "cp_m": 0.9061396078815065,
+                "stability_margin_cal": 1.9834311742731565
+              },
+              "absolute_delta": {
+                "mass_kg": 1.1102230246251565e-16,
+                "cg_m": 4.440892098500626e-16,
+                "cp_m": 4.440892098500626e-16,
+                "stability_margin_cal": 1.3322676295501878e-14
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        "parts_cost_estimate_usd": 377.95,
+        "recovery_area_for_6mps_m2": 0.54348105109103,
+        "source_assumptions": {
+          "sha256": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+          "source_url": "https://www.thrustcurve.org/simfiles/5f4294d20002e9000000044a/",
+          "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+          "review_status": "preliminary_numerical_hypothesis",
+          "diameter_m": 0.029,
+          "length_m": 0.128,
+          "loaded_mass_kg": 0.1282,
+          "propellant_mass_kg": 0.0625,
+          "burn_time_s": 1.8079,
+          "total_impulse_ns": 133.243509636,
+          "average_thrust_n": 73.7007078024227,
+          "physical_configuration_verified": false,
+          "notes": "Historical 2007 G80 dataset labels motor G78; current SKU 78010 summary 136.6 N s, 127.9 g, 124 mm versus source 128.2 g, 128 mm and integrated impulse below 136.6. Keep this conservative preliminary dataset distinct from the conflicting 2013 G80NBT header 69 g propellant."
+        },
+        "later_required_gates": [
+          "exact sold motor/source/envelope and California approval",
+          "WO-02 rail/trajectory/recovery and crosswind validation",
+          "WO-03 CAD, measured masses, proof loads and temperatures",
+          "WO-06/07 realistic PID and RL validation",
+          "WO-09/10 independent recovery, abort and HIL",
+          "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+        ]
+      },
+      "motor_cg_sensitivity": {
+        "motor_cg_shift_m": 0.0128,
+        "basis": "unsourced +10% motor-length sensitivity; not measured or a certification tolerance",
+        "growth_kg": 0.05,
+        "growth_station_m": 1.212,
+        "cg_station_m": 0.8311605542278081,
+        "margin_cal": 1.1360462674802718
+      },
+      "cpu_s": 1.5087229999999998,
+      "wall_s": 14.373860457999399,
+      "peak_rss_bytes_macos": 168689664,
+      "acceptance": false
+    },
+    "cases": [
+      {
+        "case_name": "nominal_calm",
+        "case": {
+          "dt_s": 0.005,
+          "max_time_s": 180.0,
+          "sensor_noise": false,
+          "elevation_m": 850.0,
+          "wind_north_mps": 0.0,
+          "wind_east_mps": 0.0,
+          "gust_amplitude_mps": 0.0,
+          "thrust_scale": 1.0,
+          "time_scale": 1.0,
+          "drag_scale": 1.0,
+          "added_mass_kg": 0.0,
+          "rail_friction_n": 0.0
+        },
+        "metrics": {
+          "effective_loaded_mass_kg": 0.7729817122770564,
+          "effective_depletion_mass_kg": 0.0625,
+          "effective_burnout_mass_kg": 0.7104817122770564,
+          "powered_net_acceleration_peak_g": 12.466833338408927,
+          "finite": true,
+          "apogee_agl_m": 620.6095640392678,
+          "apogee_time_s": 10.390000000000224,
+          "max_speed_mps": 143.6494521898399,
+          "guide_exit_s": 0.17500000000000007,
+          "guide_exit_mps": 18.771893226029185,
+          "powered_specific_force_peak_g": 13.466833338408929,
+          "accel_range_exceeded": false,
+          "powered_max_mach": 0.4268182059049737,
+          "powered_max_alpha_deg": 0.8274568547748264,
+          "powered_max_tilt_deg": 1.5978100659660524,
+          "max_dynamic_pressure_pa": 11506.27753530704,
+          "apogee_downrange_m": 20.012869724345425,
+          "electronic_apogee_trigger_s": 10.395000000000225,
+          "inflation_complete_s": 10.995000000000227,
+          "impact_time_s": 111.49499999997109,
+          "impact_speed_mps": 6.071214190507691,
+          "landing_downrange_m": 7.80526267775489,
+          "recovery_horizon_complete": true,
+          "motor_delay_probes": null,
+          "burnout_s": 1.8079
+        },
+        "rocketpy": {
+          "reference": "RocketPy 1.13.0",
+          "apogee_agl_m": 620.6498927136156,
+          "apogee_time_s": 10.391778082622272,
+          "max_speed_mps": 143.6475844701516,
+          "guide_exit_s": 0.1737078031360281,
+          "guide_exit_mps": 18.613383075228004,
+          "end_time_s": 10.391778082622272,
+          "recovery_full_flight": false,
+          "shared_inertia_input": true,
+          "lateral_cg_reference": "RocketPy constant liftoff eccentricity; twin depletes full 3D first moments",
+          "liftoff_lateral_cg_m": [
+            -2.051607235869372e-05,
+            0.0007104409228166982
+          ],
+          "burnout_lateral_cg_m": [
+            -2.2320840166592317e-05,
+            0.0007729373346296578
+          ],
+          "attitude_or_downrange_agreement_validated": false,
+          "nozzle_pressure_correction": "zero; exit area unknown"
+        },
+        "reference_relative_errors": {
+          "apogee_agl_m": 6.49781379507242e-05,
+          "apogee_time_s": 0.0001711047529990192
+        },
+        "reference_pass": true,
+        "guide_target_mps": 15.0,
+        "guide_pass": true,
+        "powered_telemetry": {
+          "peak_powered_thrust": {
+            "time_s": 0.04,
+            "thrust_N": 101.92884444444445,
+            "axial_drag_magnitude_N": 0.008258289715589088,
+            "dynamic_pressure_Pa": 5.364136842040468
+          },
+          "peak_powered_axial_drag": {
+            "time_s": 1.454999999999991,
+            "thrust_N": 26.036843875000887,
+            "axial_drag_magnitude_N": 18.546324743490672,
+            "dynamic_pressure_Pa": 11506.27753530704
+          },
+          "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+        }
+      },
+      {
+        "case_name": "growth_low_thrust_high_drag",
+        "case": {
+          "dt_s": 0.005,
+          "max_time_s": 180.0,
+          "sensor_noise": false,
+          "elevation_m": 850.0,
+          "wind_north_mps": 0.0,
+          "wind_east_mps": 0.0,
+          "gust_amplitude_mps": 0.0,
+          "thrust_scale": 0.85,
+          "time_scale": 0.95,
+          "drag_scale": 1.2,
+          "added_mass_kg": 0.05,
+          "added_mass_station_m": 1.212,
+          "rail_friction_n": 0.5
+        },
+        "metrics": {
+          "effective_loaded_mass_kg": 0.8229817122770564,
+          "effective_depletion_mass_kg": 0.0625,
+          "effective_burnout_mass_kg": 0.7604817122770564,
+          "powered_net_acceleration_peak_g": 9.659574749320365,
+          "finite": true,
+          "apogee_agl_m": 433.2395544072052,
+          "apogee_time_s": 9.040000000000013,
+          "max_speed_mps": 108.41558647766122,
+          "guide_exit_s": 0.2000000000000001,
+          "guide_exit_mps": 16.847877892406597,
+          "powered_specific_force_peak_g": 10.659574749320365,
+          "accel_range_exceeded": false,
+          "powered_max_mach": 0.32201184020220563,
+          "powered_max_alpha_deg": 0.9261369741754376,
+          "powered_max_tilt_deg": 1.8571594103587272,
+          "max_dynamic_pressure_pa": 6574.396703058486,
+          "apogee_downrange_m": 15.867323427173753,
+          "electronic_apogee_trigger_s": 9.040000000000013,
+          "inflation_complete_s": 9.640000000000015,
+          "impact_time_s": 77.71000000000181,
+          "impact_speed_mps": 6.281125212306582,
+          "landing_downrange_m": 8.84729951424591,
+          "recovery_horizon_complete": true,
+          "motor_delay_probes": null,
+          "burnout_s": 1.717505
+        },
+        "rocketpy": null,
+        "reference_relative_errors": null,
+        "reference_pass": null,
+        "guide_target_mps": 15.0,
+        "guide_pass": true,
+        "powered_telemetry": {
+          "peak_powered_thrust": {
+            "time_s": 0.04,
+            "thrust_N": 86.3969049122807,
+            "axial_drag_magnitude_N": 0.0061717482507384755,
+            "dynamic_pressure_Pa": 3.3406939483174733
+          },
+          "peak_powered_axial_drag": {
+            "time_s": 1.404999999999992,
+            "thrust_N": 20.127367079934903,
+            "axial_drag_magnitude_N": 12.244829981555709,
+            "dynamic_pressure_Pa": 6574.396703058486
+          },
+          "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+        }
+      },
+      {
+        "case_name": "growth_high_thrust",
+        "case": {
+          "dt_s": 0.005,
+          "max_time_s": 180.0,
+          "sensor_noise": false,
+          "elevation_m": 850.0,
+          "wind_north_mps": 0.0,
+          "wind_east_mps": 0.0,
+          "gust_amplitude_mps": 0.0,
+          "thrust_scale": 1.15,
+          "time_scale": 1.05,
+          "drag_scale": 1.0,
+          "added_mass_kg": 0.05,
+          "added_mass_station_m": 1.212,
+          "rail_friction_n": 0.0
+        },
+        "metrics": {
+          "effective_loaded_mass_kg": 0.8229817122770564,
+          "effective_depletion_mass_kg": 0.0625,
+          "effective_burnout_mass_kg": 0.7604817122770564,
+          "powered_net_acceleration_peak_g": 13.579813657293567,
+          "finite": true,
+          "apogee_agl_m": 725.3687825538399,
+          "apogee_time_s": 11.07000000000033,
+          "max_speed_mps": 161.54200251787984,
+          "guide_exit_s": 0.17000000000000007,
+          "guide_exit_mps": 19.69987311174415,
+          "powered_specific_force_peak_g": 14.579813657293569,
+          "accel_range_exceeded": false,
+          "powered_max_mach": 0.4800885653432944,
+          "powered_max_alpha_deg": 0.9156990933793165,
+          "powered_max_tilt_deg": 1.8176243076073273,
+          "max_dynamic_pressure_pa": 14523.951732221216,
+          "apogee_downrange_m": 26.648488194194414,
+          "electronic_apogee_trigger_s": 11.075000000000331,
+          "inflation_complete_s": 11.675000000000333,
+          "impact_time_s": 125.01499999995879,
+          "impact_speed_mps": 6.278566254846508,
+          "landing_downrange_m": 11.372510523786373,
+          "recovery_horizon_complete": true,
+          "motor_delay_probes": null,
+          "burnout_s": 1.898295
+        },
+        "rocketpy": null,
+        "reference_relative_errors": null,
+        "reference_pass": null,
+        "guide_target_mps": 15.0,
+        "guide_pass": true,
+        "powered_telemetry": {
+          "peak_powered_thrust": {
+            "time_s": 0.04,
+            "thrust_N": 117.51515100529099,
+            "axial_drag_magnitude_N": 0.009239001457504047,
+            "dynamic_pressure_Pa": 6.001153968758268
+          },
+          "peak_powered_axial_drag": {
+            "time_s": 1.50499999999999,
+            "thrust_N": 32.3953851437511,
+            "axial_drag_magnitude_N": 23.851335607122596,
+            "dynamic_pressure_Pa": 14523.951732221216
+          },
+          "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+        }
+      },
+      {
+        "case_name": "nominal_steady_east_3mps",
+        "case": {
+          "dt_s": 0.005,
+          "max_time_s": 180.0,
+          "sensor_noise": false,
+          "elevation_m": 850.0,
+          "wind_north_mps": 0.0,
+          "wind_east_mps": 3.0,
+          "gust_amplitude_mps": 0.0,
+          "thrust_scale": 1.0,
+          "time_scale": 1.0,
+          "drag_scale": 1.0,
+          "added_mass_kg": 0.0,
+          "rail_friction_n": 0.0
+        },
+        "metrics": {
+          "effective_loaded_mass_kg": 0.7729817122770564,
+          "effective_depletion_mass_kg": 0.0625,
+          "effective_burnout_mass_kg": 0.7104817122770564,
+          "powered_net_acceleration_peak_g": 12.465800893956846,
+          "finite": true,
+          "apogee_agl_m": 618.3119712811707,
+          "apogee_time_s": 10.390000000000224,
+          "max_speed_mps": 143.52149314247112,
+          "guide_exit_s": 0.17500000000000007,
+          "guide_exit_mps": 18.770221026288887,
+          "powered_specific_force_peak_g": 13.465800893956848,
+          "accel_range_exceeded": false,
+          "powered_max_mach": 0.42703081715170343,
+          "powered_max_alpha_deg": 8.787841373586605,
+          "powered_max_tilt_deg": 5.316352923492004,
+          "max_dynamic_pressure_pa": 11518.04031264339,
+          "apogee_downrange_m": 43.46621610317222,
+          "electronic_apogee_trigger_s": 10.395000000000225,
+          "inflation_complete_s": 10.995000000000227,
+          "impact_time_s": 114.14499999996868,
+          "impact_speed_mps": 6.731090593425305,
+          "landing_downrange_m": 293.79159275769837,
+          "recovery_horizon_complete": true,
+          "motor_delay_probes": null,
+          "burnout_s": 1.8079
+        },
+        "rocketpy": null,
+        "reference_relative_errors": null,
+        "reference_pass": null,
+        "guide_target_mps": 15.0,
+        "guide_pass": true,
+        "powered_telemetry": {
+          "peak_powered_thrust": {
+            "time_s": 0.04,
+            "thrust_N": 101.92884444444445,
+            "axial_drag_magnitude_N": 0.016072104669988766,
+            "dynamic_pressure_Pa": 10.439566999771642
+          },
+          "peak_powered_axial_drag": {
+            "time_s": 1.454999999999991,
+            "thrust_N": 26.036843875000887,
+            "axial_drag_magnitude_N": 18.56668086395204,
+            "dynamic_pressure_Pa": 11518.04031264339
+          },
+          "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+        }
+      }
+    ],
+    "static_properties": {
+      "loaded": {
+        "candidate": {
+          "mass_kg": 0.7729817122770564,
+          "cg_station_m": 0.804403217074667,
+          "cg_lateral_m": [
+            -2.051607235869372e-05,
+            0.0007104409228166982
+          ],
+          "inertia_kg_m2": [
+            [
+              0.0009126646661107095,
+              0.00019023410947844238,
+              -0.00017513052142401655
+            ],
+            [
+              0.00019023410947844238,
+              0.12983192504982083,
+              -1.1426650814904299e-07
+            ],
+            [
+              -0.00017513052142401655,
+              -1.1426650814904299e-07,
+              0.12983389330024978
+            ]
+          ],
+          "static_margin_cal": 1.5414604667702885
+        },
+        "full_growth_at_1_212m": {
+          "mass_kg": 0.8229817122770564,
+          "cg_station_m": 0.8291666338581078,
+          "cg_lateral_body_m": [
+            -1.9269624712735153e-05,
+            0.0006672783037561224
+          ],
+          "inertia_body_kg_m2": [
+            [
+              0.0009126883889682553,
+              0.00019062682133049686,
+              -0.00018872954592036
+            ],
+            [
+              0.00019062682133049686,
+              0.13763403117470707,
+              -1.1358201165088064e-07
+            ],
+            [
+              -0.00018872954592036,
+              -1.1358201165088064e-07,
+              0.1376359757418122
+            ]
+          ],
+          "growth_mass_kg": 0.05,
+          "growth_station_m": 1.212,
+          "growth_inertia_basis": "Point-mass allowance; no invented component shape.",
+          "static_margin_cal": 1.1662571821727
+        }
+      },
+      "burnout": {
+        "candidate": {
+          "mass_kg": 0.7104817122770564,
+          "cg_station_m": 0.7752331503794786,
+          "cg_lateral_m": [
+            -2.2320840166592317e-05,
+            0.0007729373346296578
+          ],
+          "inertia_kg_m2": [
+            [
+              0.0009060600045951349,
+              0.00018977151455397802,
+              -0.00015911155057613669
+            ],
+            [
+              0.00018977151455397802,
+              0.1222664518198259,
+              -1.152576105419178e-07
+            ],
+            [
+              -0.00015911155057613669,
+              -1.152576105419178e-07,
+              0.12226845436202842
+            ]
+          ],
+          "static_margin_cal": 1.9834311742731432
+        },
+        "full_growth_at_1_212m": {
+          "mass_kg": 0.7604817122770564,
+          "cg_station_m": 0.8039496101292298,
+          "cg_lateral_body_m": [
+            -2.0853294017470687e-05,
+            0.0007221184048545218
+          ],
+          "inertia_body_kg_m2": [
+            [
+              0.0009060879354820439,
+              0.00019022691593058907,
+              -0.00017488141961320198
+            ],
+            [
+              0.00019022691593058907,
+              0.13117762389095375,
+              -1.1445169606711219e-07
+            ],
+            [
+              -0.00017488141961320198,
+              -1.1445169606711219e-07,
+              0.13117959854881567
+            ]
+          ],
+          "growth_mass_kg": 0.05,
+          "growth_station_m": 1.212,
+          "growth_inertia_basis": "Point-mass allowance; no invented component shape.",
+          "static_margin_cal": 1.5483332992769123
+        }
+      }
+    },
+    "center_of_pressure_m": 0.906139607881506,
+    "versions": {
+      "jax": "0.4.38",
+      "jaxlib": "0.4.38",
+      "rocketpy": "1.13.0",
+      "numpy": "2.4.6"
+    },
+    "landing_screens": {
+      "nominal_calm": {
+        "horizontal_ground_speed_mps": 0.1343851727413967,
+        "total_ground_speed_mps": 6.071214190507691,
+        "screen_6mps": false,
+        "velocity_sample": "last pre-landed telemetry row; 5 ms grid",
+        "physical_acceptance": false
+      },
+      "growth_low_thrust_high_drag": {
+        "horizontal_ground_speed_mps": 0.12403914252702918,
+        "total_ground_speed_mps": 6.281125212306582,
+        "screen_6mps": false,
+        "velocity_sample": "last pre-landed telemetry row; 5 ms grid",
+        "physical_acceptance": false
+      },
+      "growth_high_thrust": {
+        "horizontal_ground_speed_mps": 0.14840329099326977,
+        "total_ground_speed_mps": 6.278566254846508,
+        "screen_6mps": false,
+        "velocity_sample": "last pre-landed telemetry row; 5 ms grid",
+        "physical_acceptance": false
+      },
+      "nominal_steady_east_3mps": {
+        "horizontal_ground_speed_mps": 3.2482059801216994,
+        "total_ground_speed_mps": 6.731090593425305,
+        "screen_6mps": false,
+        "velocity_sample": "last pre-landed telemetry row; 5 ms grid",
+        "physical_acceptance": false
+      }
+    },
+    "source_before": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/wo03-g80-stage2-flight.yaml": "729ff9d0e8118153b7fc057156a481bbdc63c398555ff380ba27c27c91e91106",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/wo02.yaml": "0a520be993b8c571757f27c3bd911b4d9599e0717f7b4d2db97a376d1968c6b1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/stage2/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/stage2/stage1-manifest.json": "bc29e4a72f25d9931991646153ab659b4ec084cc62bfcd541d86747d91a51d99",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/stage2/stage1-record.json": "8f6097b78da6ed6dfd4209670b02b2913b60bf72e778ef9523e227994ffea066",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo02_sim.py": "b5a3389f961f7398e6e0ccaad694451b5a79c25fc56ad57178480911777eb811",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_candidate_flight.py": "f3cb85ad26ac65a4404970bf4833389d754f55b876af2cc0c47ec1072ec878b1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_stage2_flight.py": "ae498077a4d4aaa104685d7aa9f75da5c07a7ff3e816366a6190436a83f57f92",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_stage2_static.py": "50744974ea53fc6edde471b6c3c926c7b35801e2dbfff6e73e0760a0be9f8d92",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_stage2_supervisor.py": "7e5d1674a8337fbb2173d3898024aee85d194c0f321b2b9f55006a5f3a34b944",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_integrated_report.py": "86a36238fe7cf644fd6e23973f43c1e1c1c88bc1e45381ed53b6d215cf79fc56",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/g80_service_parts.py": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/parts.py": "0f20bed3d174951b0140773bc1fea70229bf1eb7f886446455ee57694882d973",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/actuators.py": "807b1f2f75f80154019bd1c1bb4d1976789c0a286907990fc10f6a7874488793",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/aero.py": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/environment.py": "be3200cbefaaee035dafc51147101de214650cef25ebf82ec180ca250fc887cc",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/motor.py": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/protocol.py": "b3054c9b90648f711bc432a92b7794b543c9d23e4560194bcf6d67c379b9356f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/quaternion.py": "95107100250c3b5e097ea2cbabd3ffc8c9f0c0098e67104bd4533c215ed33685",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/reference.py": "4e531ae5bd13e29e790915fd1af6dd628a9332d7ffa4ceda9149f58839c2adae",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/sensors.py": "dfee1f3d65e7e279d53855cd7d7fc3c8306631558adc907e5b45735898065a8b",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/telemetry.py": "4b9f9238282d0a44e2b472400dd1742ef81c8c0b89806868b797f6e55fae93ad",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/tvc.py": "949711fd82d4d22fbf5ee88ea883ed9f32a2867f286a3e3f5d712d9e9cb793d3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/types.py": "ed788da4450d3064f72ec41c14a82a8d70a8255bf7fc7292eb4583a75b21b3d0",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final-v2/manifest.json": "bc29e4a72f25d9931991646153ab659b4ec084cc62bfcd541d86747d91a51d99",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final-v2/record.json": "8f6097b78da6ed6dfd4209670b02b2913b60bf72e778ef9523e227994ffea066",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final-v2/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a"
+    },
+    "source_after": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final-v2/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final-v2/manifest.json": "bc29e4a72f25d9931991646153ab659b4ec084cc62bfcd541d86747d91a51d99",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_candidate_flight.py": "f3cb85ad26ac65a4404970bf4833389d754f55b876af2cc0c47ec1072ec878b1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/stage1-result-metadata-final-v2/record.json": "8f6097b78da6ed6dfd4209670b02b2913b60bf72e778ef9523e227994ffea066",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/stage2/stage1-record.json": "8f6097b78da6ed6dfd4209670b02b2913b60bf72e778ef9523e227994ffea066",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/tvc.py": "949711fd82d4d22fbf5ee88ea883ed9f32a2867f286a3e3f5d712d9e9cb793d3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_stage2_static.py": "50744974ea53fc6edde471b6c3c926c7b35801e2dbfff6e73e0760a0be9f8d92",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/stage2/stage1-manifest.json": "bc29e4a72f25d9931991646153ab659b4ec084cc62bfcd541d86747d91a51d99",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/protocol.py": "b3054c9b90648f711bc432a92b7794b543c9d23e4560194bcf6d67c379b9356f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/actuators.py": "807b1f2f75f80154019bd1c1bb4d1976789c0a286907990fc10f6a7874488793",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/g80_service_parts.py": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo02_sim.py": "b5a3389f961f7398e6e0ccaad694451b5a79c25fc56ad57178480911777eb811",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/motor.py": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/environment.py": "be3200cbefaaee035dafc51147101de214650cef25ebf82ec180ca250fc887cc",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/wo03-g80-stage2-flight.yaml": "729ff9d0e8118153b7fc057156a481bbdc63c398555ff380ba27c27c91e91106",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_stage2_supervisor.py": "7e5d1674a8337fbb2173d3898024aee85d194c0f321b2b9f55006a5f3a34b944",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/aero.py": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/telemetry.py": "4b9f9238282d0a44e2b472400dd1742ef81c8c0b89806868b797f6e55fae93ad",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/wo02.yaml": "0a520be993b8c571757f27c3bd911b4d9599e0717f7b4d2db97a376d1968c6b1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/sensors.py": "dfee1f3d65e7e279d53855cd7d7fc3c8306631558adc907e5b45735898065a8b",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/types.py": "ed788da4450d3064f72ec41c14a82a8d70a8255bf7fc7292eb4583a75b21b3d0",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/reference.py": "4e531ae5bd13e29e790915fd1af6dd628a9332d7ffa4ceda9149f58839c2adae",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/parts.py": "0f20bed3d174951b0140773bc1fea70229bf1eb7f886446455ee57694882d973",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_g80_stage2_flight.py": "ae498077a4d4aaa104685d7aa9f75da5c07a7ff3e816366a6190436a83f57f92",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/quaternion.py": "95107100250c3b5e097ea2cbabd3ffc8c9f0c0098e67104bd4533c215ed33685",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/stage2/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/scripts/wo03_integrated_report.py": "86a36238fe7cf644fd6e23973f43c1e1c1c88bc1e45381ed53b6d215cf79fc56",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f"
+    },
+    "sources_unchanged": true,
+    "resource_limits": {
+      "setup_reserved_cpu_s": 30,
+      "static_cpu_and_wall_s": 60,
+      "flight_cpu_and_wall_s": 120,
+      "packet_planned_cpu_s": 210,
+      "packet_ceiling_cpu_s": 600,
+      "rss_bytes": 2147483648
+    },
+    "static_process": {
+      "status": "completed",
+      "returncode": 0,
+      "wall_limit_s": 60,
+      "total_wall_s": 14.691125209006714,
+      "cpu_accounting": {
+        "child_system_s_delta": 0.66843,
+        "child_user_s_delta": 13.387838,
+        "children_rusage_sampled_after_reap": true,
+        "supervisor_system_s_delta": 0.028858999999999996,
+        "supervisor_user_s_delta": 0.021712999999999982
+      },
+      "max_sampled_rss_bytes": 168738816,
+      "rss_limit_bytes": 2147483648,
+      "guard_failure": null
+    },
+    "flight_process": {
+      "status": "completed",
+      "returncode": 0,
+      "wall_limit_s": 120,
+      "total_wall_s": 18.521964457992,
+      "cpu_accounting": {
+        "child_system_s_delta": 1.455247,
+        "child_user_s_delta": 18.137746,
+        "children_rusage_sampled_after_reap": true,
+        "supervisor_system_s_delta": 0.035134,
+        "supervisor_user_s_delta": 0.026500999999999997
+      },
+      "max_sampled_rss_bytes": 530235392,
+      "rss_limit_bytes": 2147483648,
+      "guard_failure": null
+    }
+  },
+  "landing_screen_interpretation": "Requested 6 m/s screen compares total ground-relative speed on last pre-landed telemetry row; all four fail. Existing static recovery-area calculation uses a vertical steady-descent target; vertical-only speed is a distinct quantity and is not separately evaluated in this compact record.",
+  "provenance": {
+    "local_source_artifact_sha256": {
+      "stage1_record": "8f6097b78da6ed6dfd4209670b02b2913b60bf72e778ef9523e227994ffea066",
+      "stage1_manifest": "bc29e4a72f25d9931991646153ab659b4ec084cc62bfcd541d86747d91a51d99",
+      "stage1_ledger": "780045bcabe7482f4ad81cad6685ce88a3e2d869a0d583f436db1da0937f7f56",
+      "stage2_static_record": "3dde89b718b9e5c6bd80e196ac6ea76002daa058094c1086e42a38468a9ac14b",
+      "stage2_flight_record": "a6f8fcce007cbcce02c19a610a5d2691b9b150b06628c84d34af9ba8dbd7a35e",
+      "stage2_landing_record": "74d6fc716a1ea20f9acf1789b1948dcb5d083c872476b7a0de665e9496a948e0",
+      "stage2_supervisor_record": "2cca1d0d89ff93b65be32bef653e541c9cad2007a59e90b8ddce4c6f24761a19",
+      "baseline_preservation_audit": "166416707a29e75107aed06454efc5154e3b6d5e6a2819c587c10f5960a4ab45",
+      "metadata_status": "bd11613653b09b60a8fb3a5c20b4649f2d5aa3a0a9ca2709860fda116b4b1a83",
+      "metadata_failed_guard": "8c457b1bd5c179a4da74e1d94dde78319202f99d114f5214c084de67fb448933"
+    },
+    "packaged_file_source_sha256": {
+      "resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+      "staged-g80-service-parts.py": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff",
+      "metadata-only.py": "92b884e7ee9be04e6bcea5b1949ac8f06f531696913db88d80a95d2ff3fec493",
+      "stage2-static.py": "50744974ea53fc6edde471b6c3c926c7b35801e2dbfff6e73e0760a0be9f8d92",
+      "stage2-flight.py": "ae498077a4d4aaa104685d7aa9f75da5c07a7ff3e816366a6190436a83f57f92",
+      "stage2-supervisor.py": "7e5d1674a8337fbb2173d3898024aee85d194c0f321b2b9f55006a5f3a34b944",
+      "stage2-flight-config.yaml": "729ff9d0e8118153b7fc057156a481bbdc63c398555ff380ba27c27c91e91106"
+    },
+    "baseline_source_yaml_sha256": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+    "source_step_dependency_note": "Pinned local study STEP sources and baseline are not bundled; their hashes are in geometry comparisons and stage1 source ledger. No standalone CAD reproducibility is claimed from compact files alone.",
+    "source_ledger_sha256_before": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-retention-integration.yaml": "e12a98231966d3f35cf09544ddd5d22dc9914a111fcb2d58e64102eb793a7648",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_retention_integration.py": "16d43347eff19870a7c796734428cac338d1701103654940f923a0c88a8670cf",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/guide_0.step": "70c9b4a16fb61bc9e9b26242f654244efaed83493d342288101138fe92580fea",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/guide_1.step": "d5e5665f7e2ad5fc80fbc41fb6093373dc264e5dadc2292a067d447ee329d4f7",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/guide_2.step": "ab781677489a1d0ecc1a336329c062b80d1443dd8cbc46a3e23dcbf6b235de1c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/keeper.step": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_nut_0.step": "1f8f3e07cc7e3e77311329b7568a7c3b2e05a94262e9dbaefb67699e018355ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_nut_1.step": "396ca474db092066cc42e099efed0c3a6f1c8be675a9dffa9b0554a4e45fb155",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_nut_2.step": "b6d533899fa77381e43d7d9e5282391f27bd9d21bf7fcd780a05b3e20c65fbdf",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_screw_0.step": "42762745f30d0395167af8fd8126b6437f6c5428fce76d8bd59ff6a9e9b62367",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_screw_1.step": "1c45eaa2de5d513f6eb339a1aa82be24c1509cf6ecaad534f59be9b2db540c64",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_screw_2.step": "f539f48f59ceccdc58c3d4398e5d4b85c672a9e43854223462ed72729c45ffa6",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/modified_mount.step": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/nut_0.step": "bf58db3b19d3692bc0eb54d9f5276f65688c7f47a3ddb4a326468189034da567",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/nut_1.step": "901dddf60835cd04ec44923404ac481fe008a3a14a2d6bdb3be0dac74b6d79dc",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/nut_2.step": "ed7b7bf649b5bd1bd276f4757ab0a67dfe335626365d2acae343988575e981a9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/screw_0.step": "b853bb03fdefab9b9413e463bc1bd04accf62c998971b08fd2204813dc037298",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/screw_1.step": "0967aeb5dfe48f082afab9a1472a8e5da813af0eb3d8526093cb176645d013df",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/screw_2.step": "d8c71d1d3a72e6b2ea982fe4211d5710071d48ebd4df669d5b4908253a0a0c04",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/study-assembly.step": "b995e05c2521038da28901a7e0f3fa0e92978723927be08a4cd74b87045660d1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_0.step": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_1.step": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_2.step": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/g80_service_parts.py": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/parts.py": "0f20bed3d174951b0140773bc1fea70229bf1eb7f886446455ee57694882d973",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/baseline.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/wo03-g80-retention-integration.yaml": "e12a98231966d3f35cf09544ddd5d22dc9914a111fcb2d58e64102eb793a7648",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/guide_0.step": "70c9b4a16fb61bc9e9b26242f654244efaed83493d342288101138fe92580fea",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/guide_1.step": "d5e5665f7e2ad5fc80fbc41fb6093373dc264e5dadc2292a067d447ee329d4f7",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/guide_2.step": "ab781677489a1d0ecc1a336329c062b80d1443dd8cbc46a3e23dcbf6b235de1c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/keeper.step": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_nut_0.step": "1f8f3e07cc7e3e77311329b7568a7c3b2e05a94262e9dbaefb67699e018355ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_nut_1.step": "396ca474db092066cc42e099efed0c3a6f1c8be675a9dffa9b0554a4e45fb155",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_nut_2.step": "b6d533899fa77381e43d7d9e5282391f27bd9d21bf7fcd780a05b3e20c65fbdf",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_screw_0.step": "42762745f30d0395167af8fd8126b6437f6c5428fce76d8bd59ff6a9e9b62367",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_screw_1.step": "1c45eaa2de5d513f6eb339a1aa82be24c1509cf6ecaad534f59be9b2db540c64",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_screw_2.step": "f539f48f59ceccdc58c3d4398e5d4b85c672a9e43854223462ed72729c45ffa6",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/modified_mount.step": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/nut_0.step": "bf58db3b19d3692bc0eb54d9f5276f65688c7f47a3ddb4a326468189034da567",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/nut_1.step": "901dddf60835cd04ec44923404ac481fe008a3a14a2d6bdb3be0dac74b6d79dc",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/nut_2.step": "ed7b7bf649b5bd1bd276f4757ab0a67dfe335626365d2acae343988575e981a9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/screw_0.step": "b853bb03fdefab9b9413e463bc1bd04accf62c998971b08fd2204813dc037298",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/screw_1.step": "0967aeb5dfe48f082afab9a1472a8e5da813af0eb3d8526093cb176645d013df",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/screw_2.step": "d8c71d1d3a72e6b2ea982fe4211d5710071d48ebd4df669d5b4908253a0a0c04",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/study-assembly.step": "b995e05c2521038da28901a7e0f3fa0e92978723927be08a4cd74b87045660d1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/washer_0.step": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/washer_1.step": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/washer_2.step": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47"
+    },
+    "source_ledger_sha256_after": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-retention-integration.yaml": "e12a98231966d3f35cf09544ddd5d22dc9914a111fcb2d58e64102eb793a7648",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_retention_integration.py": "16d43347eff19870a7c796734428cac338d1701103654940f923a0c88a8670cf",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/guide_0.step": "70c9b4a16fb61bc9e9b26242f654244efaed83493d342288101138fe92580fea",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/guide_1.step": "d5e5665f7e2ad5fc80fbc41fb6093373dc264e5dadc2292a067d447ee329d4f7",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/guide_2.step": "ab781677489a1d0ecc1a336329c062b80d1443dd8cbc46a3e23dcbf6b235de1c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/keeper.step": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_nut_0.step": "1f8f3e07cc7e3e77311329b7568a7c3b2e05a94262e9dbaefb67699e018355ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_nut_1.step": "396ca474db092066cc42e099efed0c3a6f1c8be675a9dffa9b0554a4e45fb155",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_nut_2.step": "b6d533899fa77381e43d7d9e5282391f27bd9d21bf7fcd780a05b3e20c65fbdf",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_screw_0.step": "42762745f30d0395167af8fd8126b6437f6c5428fce76d8bd59ff6a9e9b62367",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_screw_1.step": "1c45eaa2de5d513f6eb339a1aa82be24c1509cf6ecaad534f59be9b2db540c64",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/m2_screw_2.step": "f539f48f59ceccdc58c3d4398e5d4b85c672a9e43854223462ed72729c45ffa6",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/modified_mount.step": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/nut_0.step": "bf58db3b19d3692bc0eb54d9f5276f65688c7f47a3ddb4a326468189034da567",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/nut_1.step": "901dddf60835cd04ec44923404ac481fe008a3a14a2d6bdb3be0dac74b6d79dc",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/nut_2.step": "ed7b7bf649b5bd1bd276f4757ab0a67dfe335626365d2acae343988575e981a9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/screw_0.step": "b853bb03fdefab9b9413e463bc1bd04accf62c998971b08fd2204813dc037298",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/screw_1.step": "0967aeb5dfe48f082afab9a1472a8e5da813af0eb3d8526093cb176645d013df",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/screw_2.step": "d8c71d1d3a72e6b2ea982fe4211d5710071d48ebd4df669d5b4908253a0a0c04",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/study-assembly.step": "b995e05c2521038da28901a7e0f3fa0e92978723927be08a4cd74b87045660d1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_0.step": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_1.step": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_2.step": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/g80_service_parts.py": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/parts.py": "0f20bed3d174951b0140773bc1fea70229bf1eb7f886446455ee57694882d973",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/baseline.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/configs/studies/wo03-g80-retention-integration.yaml": "e12a98231966d3f35cf09544ddd5d22dc9914a111fcb2d58e64102eb793a7648",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/guide_0.step": "70c9b4a16fb61bc9e9b26242f654244efaed83493d342288101138fe92580fea",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/guide_1.step": "d5e5665f7e2ad5fc80fbc41fb6093373dc264e5dadc2292a067d447ee329d4f7",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/guide_2.step": "ab781677489a1d0ecc1a336329c062b80d1443dd8cbc46a3e23dcbf6b235de1c",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/keeper.step": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_nut_0.step": "1f8f3e07cc7e3e77311329b7568a7c3b2e05a94262e9dbaefb67699e018355ed",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_nut_1.step": "396ca474db092066cc42e099efed0c3a6f1c8be675a9dffa9b0554a4e45fb155",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_nut_2.step": "b6d533899fa77381e43d7d9e5282391f27bd9d21bf7fcd780a05b3e20c65fbdf",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_screw_0.step": "42762745f30d0395167af8fd8126b6437f6c5428fce76d8bd59ff6a9e9b62367",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_screw_1.step": "1c45eaa2de5d513f6eb339a1aa82be24c1509cf6ecaad534f59be9b2db540c64",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/m2_screw_2.step": "f539f48f59ceccdc58c3d4398e5d4b85c672a9e43854223462ed72729c45ffa6",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/modified_mount.step": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/nut_0.step": "bf58db3b19d3692bc0eb54d9f5276f65688c7f47a3ddb4a326468189034da567",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/nut_1.step": "901dddf60835cd04ec44923404ac481fe008a3a14a2d6bdb3be0dac74b6d79dc",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/nut_2.step": "ed7b7bf649b5bd1bd276f4757ab0a67dfe335626365d2acae343988575e981a9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/screw_0.step": "b853bb03fdefab9b9413e463bc1bd04accf62c998971b08fd2204813dc037298",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/screw_1.step": "0967aeb5dfe48f082afab9a1472a8e5da813af0eb3d8526093cb176645d013df",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/screw_2.step": "d8c71d1d3a72e6b2ea982fe4211d5710071d48ebd4df669d5b4908253a0a0c04",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/study-assembly.step": "b995e05c2521038da28901a7e0f3fa0e92978723927be08a4cd74b87045660d1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/washer_0.step": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/washer_1.step": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/inputs/keeper/washer_2.step": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47"
+    }
+  },
+  "limitations": [
+    "No active vehicle or preview adoption",
+    "No complete structural, fin, recovery, thermal or physical acceptance",
+    "RocketPy ascent does not validate wind, downrange, landing or recovery",
+    "Shared inertia is not independently validated",
+    "Strict thermal and bridge-reaction failures remain open",
+    "Some new hardware cost values are explicitly unpriced zero placeholders"
+  ],
+  "flight_ready": false,
+  "acceptance": false,
+  "stage2_vertical_landing_audit": {
+    "basis": "saved telemetry, signed downward velocity at last pre-landed 5 ms sample; 6 m/s vertical screen",
+    "cases": {
+      "growth_high_thrust": {
+        "signed_down_mps": 6.276812143096181,
+        "vertical_descent_screen_6mps": false,
+        "source_sha256_before": "9761da403b2c076a79587a712518e0d4b1466bcf1dea3ffe5e71b6ce9aa92621",
+        "source_sha256_after": "9761da403b2c076a79587a712518e0d4b1466bcf1dea3ffe5e71b6ce9aa92621",
+        "sample": "last pre-landed row; 5 ms"
+      },
+      "growth_low_thrust_high_drag": {
+        "signed_down_mps": 6.279900335498532,
+        "vertical_descent_screen_6mps": false,
+        "source_sha256_before": "6855483b7d7bf4f4fc8ff427206d39d524f64e9f8a3112cabf04915b1c1da068",
+        "source_sha256_after": "6855483b7d7bf4f4fc8ff427206d39d524f64e9f8a3112cabf04915b1c1da068",
+        "sample": "last pre-landed row; 5 ms"
+      },
+      "nominal_calm": {
+        "signed_down_mps": 6.069726713153503,
+        "vertical_descent_screen_6mps": false,
+        "source_sha256_before": "e58d391640641baa90a8ef35df81c224cbc16c32220f44a29168784e62eb76eb",
+        "source_sha256_after": "e58d391640641baa90a8ef35df81c224cbc16c32220f44a29168784e62eb76eb",
+        "sample": "last pre-landed row; 5 ms"
+      },
+      "nominal_steady_east_3mps": {
+        "signed_down_mps": 5.895484584629177,
+        "vertical_descent_screen_6mps": true,
+        "source_sha256_before": "4fae691330c521a4bf8272c9b6b7ea75753b69cf97e7facd5e5fd379f5d063ce",
+        "source_sha256_after": "4fae691330c521a4bf8272c9b6b7ea75753b69cf97e7facd5e5fd379f5d063ce",
+        "sample": "last pre-landed row; 5 ms"
+      }
+    },
+    "no_new_flight": true
+  }
+}

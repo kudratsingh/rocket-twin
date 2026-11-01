@@ -15,6 +15,19 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
+**Latest integrated G80 candidate, still unadopted:** the 72-part keeper/bridge
+package now has a complete component ledger, actual CAD-derived CG/full tensor
+and same-identity static/flight results. Loaded mass772.982g plus separate50g
+gives822.982g; growth CG829.167mm, loaded/burnout margin1.1663/1.5483cal.
+All four guide screens pass, minimum16.848m/s versus15 on the assumed1.5m
+guide. Nominal apogee620.610m versus RocketPy620.650m passes the5% comparison.
+All trajectories reach modeled ground; recovery sizing remains open, along
+with actual bridge equilibrium, hot joints, installed fin/root/flutter,
+thermal acceptance and the three recovery overlaps. The
+[staged report](wo03-g80-staged-retention-results.md) and
+[closure table](wo03-g80-current-closure.md) keep these design failures separate
+from later physical qualification. Active vehicle/preview assets are unchanged.
+
 **Controlled thermal-tool decision, complete:** the three classic Elmer A
 cases agree with the preserved vectorized fields within 5.4e-12 K. Both fail
 the unchanged exact-field check; switching implementations is rejected as a
@@ -25,6 +38,10 @@ read-only reference/coordinate audit does not identify the cause. The
 [decision](wo03-elmer-campaign-decision.md) leave actual geometry unqualified;
 no further solve, new custom heat method, changed limit or baffle acceptance
 follows. The launch-cap stop and its one declared replan remain preserved.
+
+[PR #32](https://github.com/kudratsingh/rocket-twin/pull/32) publishes that
+closed comparison and audit. Both required jobs passed in run41293406423
+before merge. Actual-baffle qualification remains open.
 
 **Latest bridge outcome — numerical acceptance failed:** a geometry-derived
 48/24 edge resolution meets the unchanged washer-area and mesh ceilings:
@@ -76,9 +93,11 @@ with no sampled blockers. [Results](wo03-g80-keeper-service.md) and
 and observed. This is not torque, tolerance, all-path capture or strength
 qualification. Separate STEP parts and component masses are available: keeper
 15.410 g, bridge10.177 g, modified plywood/guides40.448 g. The [mass audit](wo03-g80-retention-mass-audit.md) distinguishes the old 7 g
-hardware lump, supplier fasteners and integral keeper pads. Complete replacement
-hardware/adhesive ledger and full mass/CG/inertia remain unresolved; the frozen
-52-part flight predictions are not assigned to these changed parts.
+hardware lump, supplier fasteners and integral keeper pads. The subsequent
+72-part staged integration above resolves that bookkeeping into a full
+mass/CG/inertia model and its own flight results; actual hardware qualification,
+locking and bond properties remain unresolved. Frozen52-part flight predictions
+are not assigned to the changed parts.
 
 **Published native bridge evidence:** [PR #30](https://github.com/kudratsingh/rocket-twin/pull/30)
 is merged after both required jobs passed (run41287248347). Those jobs preserve
