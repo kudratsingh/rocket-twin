@@ -15,6 +15,17 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
+**Controlled thermal-tool decision, complete:** the three classic Elmer A
+cases agree with the preserved vectorized fields within 5.4e-12 K. Both fail
+the unchanged exact-field check; switching implementations is rejected as a
+correction. Conductive-heat reference errors pass separately, while local,
+Robin and algebraic heat accounting remain unavailable. The independent
+read-only reference/coordinate audit does not identify the cause. The
+[completed comparison](wo03-elmer-classic-comparison.md) and
+[decision](wo03-elmer-campaign-decision.md) leave actual geometry unqualified;
+no further solve, new custom heat method, changed limit or baffle acceptance
+follows. The launch-cap stop and its one declared replan remain preserved.
+
 **Latest bridge outcome — numerical acceptance failed:** a geometry-derived
 48/24 edge resolution meets the unchanged washer-area and mesh ceilings:
 42,850 nodes/22,495 tets, area error+0.000049781mm² versus0.0002mm².
@@ -39,6 +50,11 @@ with no actual bridge retry or fourth fixture selected. These cases do not
 reproduce or explain the bridge's104.7N deficit. The one-MPC line is explicitly
 an estimated upper bound; matrix equation counts match unique SPC arithmetic,
 so it does not establish an undocumented constraint.
+
+[PR #31](https://github.com/kudratsingh/rocket-twin/pull/31) publishes those
+known-case diagnostics and input-evidence priorities. It merged after both
+required jobs passed in run41292058740; successful repository checks do not
+turn the unavailable strict certificates or failed actual bridge into passes.
 
 **Method evidence remains scoped:** the [geometry-only stage](wo03-g80-bridge-boundary-case.md)
 passes source Circle identification;96/32 then exceeds the node cap. The

@@ -1,0 +1,732 @@
+{
+  "status": "completed_diagnostic_no_acceptance",
+  "levels": [
+    {
+      "level": 2,
+      "launch_attempted": true,
+      "elmer_execution_observed": true,
+      "owned_status": {
+        "status": "completed",
+        "success": true,
+        "argv": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+          "-c",
+          "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(60,60));os.execv('/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver',['/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver','case.sif'])"
+        ],
+        "pid": 45641,
+        "started_utc": "2026-11-01T08:22:38.849982+00:00",
+        "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/2/solver.log",
+        "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/2/owned-status.json",
+        "wall_limit_s": 120,
+        "rss_limit_bytes": null,
+        "returncode": 0,
+        "timed_out": false,
+        "guard_failure": null,
+        "error": null,
+        "wall_samples": [
+          0.0022247920278459787,
+          0.05865608400199562,
+          0.10990025001228787,
+          0.16637045901734382,
+          0.2197421670134645,
+          0.27216679201228544,
+          0.32644216701737605,
+          0.38108450002619065,
+          0.44013654201989993,
+          0.4993956250254996
+        ],
+        "cpu_samples": [
+          {
+            "elapsed_wall_s": 0.0022247920278459787,
+            "supervisor_cpu_user_s": 0.00022300000000000098,
+            "supervisor_cpu_system_s": 0.0013649999999999982
+          },
+          {
+            "elapsed_wall_s": 0.05865608400199562,
+            "supervisor_cpu_user_s": 0.0003389999999999921,
+            "supervisor_cpu_system_s": 0.0015309999999999976
+          },
+          {
+            "elapsed_wall_s": 0.10990025001228787,
+            "supervisor_cpu_user_s": 0.0005040000000000044,
+            "supervisor_cpu_system_s": 0.001576000000000001
+          },
+          {
+            "elapsed_wall_s": 0.16637045901734382,
+            "supervisor_cpu_user_s": 0.0006110000000000004,
+            "supervisor_cpu_system_s": 0.0017000000000000001
+          },
+          {
+            "elapsed_wall_s": 0.2197421670134645,
+            "supervisor_cpu_user_s": 0.0007139999999999924,
+            "supervisor_cpu_system_s": 0.0018110000000000001
+          },
+          {
+            "elapsed_wall_s": 0.27216679201228544,
+            "supervisor_cpu_user_s": 0.0008279999999999954,
+            "supervisor_cpu_system_s": 0.0019619999999999985
+          },
+          {
+            "elapsed_wall_s": 0.32644216701737605,
+            "supervisor_cpu_user_s": 0.0009549999999999975,
+            "supervisor_cpu_system_s": 0.0020850000000000035
+          },
+          {
+            "elapsed_wall_s": 0.38108450002619065,
+            "supervisor_cpu_user_s": 0.0011049999999999949,
+            "supervisor_cpu_system_s": 0.0022119999999999987
+          },
+          {
+            "elapsed_wall_s": 0.44013654201989993,
+            "supervisor_cpu_user_s": 0.0013090000000000046,
+            "supervisor_cpu_system_s": 0.0023950000000000013
+          },
+          {
+            "elapsed_wall_s": 0.4993956250254996,
+            "supervisor_cpu_user_s": 0.0015369999999999967,
+            "supervisor_cpu_system_s": 0.0025439999999999977
+          }
+        ],
+        "rss_samples_bytes": [
+          {
+            "elapsed_wall_s": 0.0022247920278459787,
+            "bytes": 114688
+          },
+          {
+            "elapsed_wall_s": 0.05865608400199562,
+            "bytes": 6291456
+          },
+          {
+            "elapsed_wall_s": 0.10990025001228787,
+            "bytes": 8945664
+          },
+          {
+            "elapsed_wall_s": 0.16637045901734382,
+            "bytes": 9846784
+          },
+          {
+            "elapsed_wall_s": 0.2197421670134645,
+            "bytes": 9846784
+          },
+          {
+            "elapsed_wall_s": 0.27216679201228544,
+            "bytes": 9846784
+          },
+          {
+            "elapsed_wall_s": 0.32644216701737605,
+            "bytes": 9846784
+          },
+          {
+            "elapsed_wall_s": 0.38108450002619065,
+            "bytes": 9846784
+          },
+          {
+            "elapsed_wall_s": 0.44013654201989993,
+            "bytes": 9846784
+          },
+          {
+            "elapsed_wall_s": 0.4993956250254996,
+            "bytes": 9846784
+          }
+        ],
+        "descendant_pid_samples": [
+          {
+            "elapsed_wall_s": 0.0022247920278459787,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.05865608400199562,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.10990025001228787,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.16637045901734382,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.2197421670134645,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.27216679201228544,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.32644216701737605,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.38108450002619065,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.44013654201989993,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.4993956250254996,
+            "pids": []
+          }
+        ],
+        "known_descendant_pids": [],
+        "historical_descendant_checks": [],
+        "cleanup_outcomes": [],
+        "cleanup_errors": [],
+        "status_write_error": null,
+        "launch_wall_s": 0.0021712500019930303,
+        "cpu_accounting": {
+          "child_user_s_delta": 0.114103,
+          "child_system_s_delta": 0.025981999999999998,
+          "supervisor_user_s_delta": 0.0016649999999999998,
+          "supervisor_system_s_delta": 0.0027770000000000017,
+          "children_rusage_sampled_after_reap": true
+        },
+        "total_wall_s": 0.5584933750214987,
+        "finished_utc": "2026-11-01T08:22:39.408580+00:00"
+      },
+      "field": {
+        "VTK_version": "9.6.2",
+        "VTK_SMP_estimated_threads": 1,
+        "VTK_global_max_threads": 1,
+        "field_type": "float64",
+        "VTU_sha256": "9b9ed9e6b445280f551de1c9160d0bd2d0c0264413e047247086ab1119cb6b4c",
+        "max_nodal_error_k": 1.9335763511207915e-05,
+        "temperature_min_k": 309.6128512047822,
+        "temperature_max_k": 573.1500000000001,
+        "native_surface_heat_w": null,
+        "global_balance_w": null,
+        "local_balance_w": null,
+        "acceptance": false,
+        "max_abs_classic_minus_vec_k": 7.389644451905042e-13,
+        "continuous_error_bound_k": 3.867152702241583e-05,
+        "exact_reference_min_k": 309.61285184346934,
+        "exact_reference_max_k": 573.15,
+        "continuous_min_lower_bound_k": 309.6128131719423,
+        "continuous_max_upper_bound_k": 573.150038671527,
+        "effective_boundary_envelope_k": [
+          308.15,
+          573.15
+        ],
+        "continuous_envelope_status": "unavailable_bound_straddles",
+        "scope": "affine straight P2 tetrahedra and exactly representable analytic A/B fields only; not an actual-baffle bound",
+        "exact_nodal_temperature_pass": false,
+        "native_diffusive_flux": {
+          "outward_conductive_heat_w": {
+            "1": -9.856290351731,
+            "2": 9.85628840459,
+            "3": -4.270229380647e-08,
+            "4": -4.226972204266e-08,
+            "5": -2.793590075072e-12,
+            "6": 2.457857499961e-13
+          },
+          "sign": "source reports n dot k grad(T); negated for outward Fourier heat",
+          "file_sha256": "1f67f74186e15f34a7935a9a314ae5620f84cace928a0ea7f77a1cf7629588c1",
+          "names_sha256": "c507ce2949fa73c56cde9983c39b18043f0e65238766abceb8417484997482fe",
+          "status": "native output; field/flux accuracy requires known-case comparison, not Robin wall heat",
+          "reference_outward_conduction_w": {
+            "1": -9.856289341054246,
+            "2": 9.856289341054246,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0
+          },
+          "max_reference_error_w": 1.0106767529549643e-06,
+          "A_reference_tolerance_w": 9.856389341054246e-06,
+          "A_reference_comparison_pass": true,
+          "sum_outward_conduction_w": -2.0321155632009694e-06,
+          "sum_is_not_robin_or_algebra_balance": true
+        }
+      }
+    },
+    {
+      "level": 4,
+      "launch_attempted": true,
+      "elmer_execution_observed": true,
+      "owned_status": {
+        "status": "completed",
+        "success": true,
+        "argv": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+          "-c",
+          "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(60,60));os.execv('/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver',['/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver','case.sif'])"
+        ],
+        "pid": 45659,
+        "started_utc": "2026-11-01T08:22:40.867899+00:00",
+        "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/4/solver.log",
+        "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/4/owned-status.json",
+        "wall_limit_s": 120,
+        "rss_limit_bytes": null,
+        "returncode": 0,
+        "timed_out": false,
+        "guard_failure": null,
+        "error": null,
+        "wall_samples": [
+          0.0035292920074425638,
+          0.058264958002837375,
+          0.10926699999254197
+        ],
+        "cpu_samples": [
+          {
+            "elapsed_wall_s": 0.0035292920074425638,
+            "supervisor_cpu_user_s": 0.00020799999999998597,
+            "supervisor_cpu_system_s": 0.0024660000000000237
+          },
+          {
+            "elapsed_wall_s": 0.058264958002837375,
+            "supervisor_cpu_user_s": 0.00030200000000002447,
+            "supervisor_cpu_system_s": 0.002605999999999997
+          },
+          {
+            "elapsed_wall_s": 0.10926699999254197,
+            "supervisor_cpu_user_s": 0.00036599999999997745,
+            "supervisor_cpu_system_s": 0.0026760000000000117
+          }
+        ],
+        "rss_samples_bytes": [
+          {
+            "elapsed_wall_s": 0.0035292920074425638,
+            "bytes": 114688
+          },
+          {
+            "elapsed_wall_s": 0.058264958002837375,
+            "bytes": 8765440
+          },
+          {
+            "elapsed_wall_s": 0.10926699999254197,
+            "bytes": 9781248
+          }
+        ],
+        "descendant_pid_samples": [
+          {
+            "elapsed_wall_s": 0.0035292920074425638,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.058264958002837375,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.10926699999254197,
+            "pids": []
+          }
+        ],
+        "known_descendant_pids": [],
+        "historical_descendant_checks": [],
+        "cleanup_outcomes": [],
+        "cleanup_errors": [],
+        "status_write_error": null,
+        "launch_wall_s": 0.0035225829924456775,
+        "cpu_accounting": {
+          "child_user_s_delta": 0.134834,
+          "child_system_s_delta": 0.016055,
+          "supervisor_user_s_delta": 0.0004610000000000447,
+          "supervisor_system_s_delta": 0.002846000000000015,
+          "children_rusage_sampled_after_reap": true
+        },
+        "total_wall_s": 0.16278541699284688,
+        "finished_utc": "2026-11-01T08:22:41.030703+00:00"
+      },
+      "field": {
+        "VTK_version": "9.6.2",
+        "VTK_SMP_estimated_threads": 1,
+        "VTK_global_max_threads": 1,
+        "field_type": "float64",
+        "VTU_sha256": "4375fe89c5ec2e3244ecf315542b0471ed884904c55cdee63be3d1fda857f510",
+        "max_nodal_error_k": 0.000112223360133612,
+        "temperature_min_k": 309.6128477765485,
+        "temperature_max_k": 573.1500000000002,
+        "native_surface_heat_w": null,
+        "global_balance_w": null,
+        "local_balance_w": null,
+        "acceptance": false,
+        "max_abs_classic_minus_vec_k": 2.5011104298755527e-12,
+        "continuous_error_bound_k": 0.000224446720267224,
+        "exact_reference_min_k": 309.61285184346934,
+        "exact_reference_max_k": 573.15,
+        "continuous_min_lower_bound_k": 309.6126273967491,
+        "continuous_max_upper_bound_k": 573.1502244467202,
+        "effective_boundary_envelope_k": [
+          308.15,
+          573.15
+        ],
+        "continuous_envelope_status": "unavailable_bound_straddles",
+        "scope": "affine straight P2 tetrahedra and exactly representable analytic A/B fields only; not an actual-baffle bound",
+        "exact_nodal_temperature_pass": false,
+        "native_diffusive_flux": {
+          "outward_conductive_heat_w": {
+            "1": -9.856292187994,
+            "2": 9.856288836587,
+            "3": -2.38662011405e-08,
+            "4": -1.184514793219e-08,
+            "5": -2.887017843888e-12,
+            "6": 3.01834694532e-12
+          },
+          "sign": "source reports n dot k grad(T); negated for outward Fourier heat",
+          "file_sha256": "f01c4206c721f14f1ce8ad3a94ab1c2e653171239fa915eaa04f70f0437dbd95",
+          "names_sha256": "c57160b049c0bd81e02673421008e43e273694401bc3ec5c4061d1f2d737c5dc",
+          "status": "native output; field/flux accuracy requires known-case comparison, not Robin wall heat",
+          "reference_outward_conduction_w": {
+            "1": -9.856289341054246,
+            "2": 9.856289341054246,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0
+          },
+          "max_reference_error_w": 2.8469397541641683e-06,
+          "A_reference_tolerance_w": 9.856389341054246e-06,
+          "A_reference_comparison_pass": true,
+          "sum_outward_conduction_w": -3.387118218550305e-06,
+          "sum_is_not_robin_or_algebra_balance": true
+        }
+      }
+    },
+    {
+      "level": 8,
+      "launch_attempted": true,
+      "elmer_execution_observed": true,
+      "owned_status": {
+        "status": "completed",
+        "success": true,
+        "argv": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+          "-c",
+          "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(60,60));os.execv('/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver',['/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver','case.sif'])"
+        ],
+        "pid": 45660,
+        "started_utc": "2026-11-01T08:22:41.045463+00:00",
+        "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/8/solver.log",
+        "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/8/owned-status.json",
+        "wall_limit_s": 120,
+        "rss_limit_bytes": null,
+        "returncode": 0,
+        "timed_out": false,
+        "guard_failure": null,
+        "error": null,
+        "wall_samples": [
+          0.0030965839978307486,
+          0.06332291700528003,
+          0.12268033399595879,
+          0.17821474999072962,
+          0.23648337498889305,
+          0.2939245839952491,
+          0.34938633398269303,
+          0.4030613749928307,
+          0.45674791699275374
+        ],
+        "cpu_samples": [
+          {
+            "elapsed_wall_s": 0.0030965839978307486,
+            "supervisor_cpu_user_s": 0.00021300000000001873,
+            "supervisor_cpu_system_s": 0.0019750000000000045
+          },
+          {
+            "elapsed_wall_s": 0.06332291700528003,
+            "supervisor_cpu_user_s": 0.000296000000000074,
+            "supervisor_cpu_system_s": 0.002112999999999976
+          },
+          {
+            "elapsed_wall_s": 0.12268033399595879,
+            "supervisor_cpu_user_s": 0.00035200000000001896,
+            "supervisor_cpu_system_s": 0.0021979999999999777
+          },
+          {
+            "elapsed_wall_s": 0.17821474999072962,
+            "supervisor_cpu_user_s": 0.00041400000000002546,
+            "supervisor_cpu_system_s": 0.002269000000000021
+          },
+          {
+            "elapsed_wall_s": 0.23648337498889305,
+            "supervisor_cpu_user_s": 0.0004979999999999984,
+            "supervisor_cpu_system_s": 0.0023889999999999745
+          },
+          {
+            "elapsed_wall_s": 0.2939245839952491,
+            "supervisor_cpu_user_s": 0.0005549999999999722,
+            "supervisor_cpu_system_s": 0.002462999999999993
+          },
+          {
+            "elapsed_wall_s": 0.34938633398269303,
+            "supervisor_cpu_user_s": 0.0006099999999999994,
+            "supervisor_cpu_system_s": 0.0025270000000000015
+          },
+          {
+            "elapsed_wall_s": 0.4030613749928307,
+            "supervisor_cpu_user_s": 0.0006850000000000467,
+            "supervisor_cpu_system_s": 0.0026049999999999685
+          },
+          {
+            "elapsed_wall_s": 0.45674791699275374,
+            "supervisor_cpu_user_s": 0.0007789999999999742,
+            "supervisor_cpu_system_s": 0.002703000000000011
+          }
+        ],
+        "rss_samples_bytes": [
+          {
+            "elapsed_wall_s": 0.0030965839978307486,
+            "bytes": 114688
+          },
+          {
+            "elapsed_wall_s": 0.06332291700528003,
+            "bytes": 8617984
+          },
+          {
+            "elapsed_wall_s": 0.12268033399595879,
+            "bytes": 17874944
+          },
+          {
+            "elapsed_wall_s": 0.17821474999072962,
+            "bytes": 19628032
+          },
+          {
+            "elapsed_wall_s": 0.23648337498889305,
+            "bytes": 19628032
+          },
+          {
+            "elapsed_wall_s": 0.2939245839952491,
+            "bytes": 19628032
+          },
+          {
+            "elapsed_wall_s": 0.34938633398269303,
+            "bytes": 36880384
+          },
+          {
+            "elapsed_wall_s": 0.4030613749928307,
+            "bytes": 46333952
+          }
+        ],
+        "descendant_pid_samples": [
+          {
+            "elapsed_wall_s": 0.0030965839978307486,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.06332291700528003,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.12268033399595879,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.17821474999072962,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.23648337498889305,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.2939245839952491,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.34938633398269303,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.4030613749928307,
+            "pids": []
+          },
+          {
+            "elapsed_wall_s": 0.45674791699275374,
+            "pids": []
+          }
+        ],
+        "known_descendant_pids": [],
+        "historical_descendant_checks": [],
+        "cleanup_outcomes": [],
+        "cleanup_errors": [],
+        "status_write_error": null,
+        "launch_wall_s": 0.003086833981797099,
+        "cpu_accounting": {
+          "child_user_s_delta": 0.41155600000000003,
+          "child_system_s_delta": 0.037326000000000005,
+          "supervisor_user_s_delta": 0.0008670000000000622,
+          "supervisor_system_s_delta": 0.0030569999999999764,
+          "children_rusage_sampled_after_reap": true
+        },
+        "total_wall_s": 0.4576810839935206,
+        "finished_utc": "2026-11-01T08:22:41.503169+00:00"
+      },
+      "field": {
+        "VTK_version": "9.6.2",
+        "VTK_SMP_estimated_threads": 1,
+        "VTK_global_max_threads": 1,
+        "field_type": "float64",
+        "VTU_sha256": "39c83754de1f29cb69393b71d7b13f08427afde9bfad44eace9d331ba0c4578f",
+        "max_nodal_error_k": 3.735985796993191e-05,
+        "temperature_min_k": 309.61284551791925,
+        "temperature_max_k": 573.1500000000002,
+        "native_surface_heat_w": null,
+        "global_balance_w": null,
+        "local_balance_w": null,
+        "acceptance": false,
+        "max_abs_classic_minus_vec_k": 5.343281372915953e-12,
+        "continuous_error_bound_k": 7.471971593986382e-05,
+        "exact_reference_min_k": 309.61285184346934,
+        "exact_reference_max_k": 573.15,
+        "continuous_min_lower_bound_k": 309.6127771237534,
+        "continuous_max_upper_bound_k": 573.1500747197159,
+        "effective_boundary_envelope_k": [
+          308.15,
+          573.15
+        ],
+        "continuous_envelope_status": "unavailable_bound_straddles",
+        "scope": "affine straight P2 tetrahedra and exactly representable analytic A/B fields only; not an actual-baffle bound",
+        "exact_nodal_temperature_pass": false,
+        "native_diffusive_flux": {
+          "outward_conductive_heat_w": {
+            "1": -9.856292297825,
+            "2": 9.856288091501,
+            "3": -1.231371382093e-08,
+            "4": -6.941901511276e-09,
+            "5": -3.046935321416e-12,
+            "6": 4.404954439417e-12
+          },
+          "sign": "source reports n dot k grad(T); negated for outward Fourier heat",
+          "file_sha256": "c29004d6cf6684f6c3b7a39bf57fa337a75732bb80c763f72f1a8901e91c7963",
+          "names_sha256": "c57160b049c0bd81e02673421008e43e273694401bc3ec5c4061d1f2d737c5dc",
+          "status": "native output; field/flux accuracy requires known-case comparison, not Robin wall heat",
+          "reference_outward_conduction_w": {
+            "1": -9.856289341054246,
+            "2": 9.856289341054246,
+            "3": 0.0,
+            "4": 0.0,
+            "5": 0.0,
+            "6": 0.0
+          },
+          "max_reference_error_w": 2.9567707535704812e-06,
+          "A_reference_tolerance_w": 9.856389341054246e-06,
+          "A_reference_comparison_pass": true,
+          "sum_outward_conduction_w": -4.225578257535227e-06,
+          "sum_is_not_robin_or_algebra_balance": true
+        }
+      }
+    }
+  ],
+  "source_sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libmpi_stubs.dylib": "c975ec15c53b33c43f855232749dbbb629f0b5936bfbb8756f05952e25afb6fb",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.elements": "91998af5d4d7ee3854ca716e9effdf0392d6497b66ee0da2a83e826662efef7a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.header": "f665520e085fdb66dcdca66ffbaa9ab1a1a101d41965a2a893a9ad84b4038008",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.nodes": "55f0aeaff3863ad434cca91a36508aaa1fc27c88799e3fd197206a9b2071cc34",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-classic-comparison.yaml": "14f177f3085aaaebf499caec957668cb8cae10b62a5575926c5568f308644f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_thermal_comparison.py": "00a24c69fdfdfaa3401aebacd383265561ecf21284f13cbe1b386566f4188cfd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/field_t0001.vtu": "96b087e7c2d5aad49db6ef5b0dc977e3197fcf76128d2c353a96251bd4613a52",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.boundary": "41f7c0863b6577164b15ccaf0b19af01b8459775911e13d5caf58c600232c9c1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/case.sif": "f8ad391758a3787257a658fdd81a9e7d247a98f87f2e6d354a7661485fcd57f8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libmatc.dylib": "f71f2223ca836bd115ed254becb87211a5cae8a8b709e8e02effd9c93379cda9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerGrid": "d82c0be874bb4506c09d8a63339e129ea11e5b3124426a4bcbc856bacead2cc4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.elements": "bf3fc37992efa95c92ccc09f4aa6871e53c2ee4d61d46bbdcd763a26fa5c44ba",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libfhuti.dylib": "35cf8071f84daa66a1dc78af693f73c8fb767feaa97cc97386892c4d62d0dc10",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.header": "dc5df7527503dd1d72b330d9a9c971129b8e869425a7ccccd31cfc048f973eda",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.nodes": "95f111812c8164a39a22abe1ff38fca993dcb915c88fb5a43543c1e39ae6d376",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.boundary": "ba7e7e525c4c4a270ff0b1309eb939efc9a42ba4320e08c2e85b504672ce27d5",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-thermal-comparison.yaml": "49fa95a885b2490f08f4a02e8629146cac77178dad83432caff7aac9c4bf844e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/case.sif": "f8ad391758a3787257a658fdd81a9e7d247a98f87f2e6d354a7661485fcd57f8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolve.dylib": "4c3089732c61dbc684ba5be8232539a4196155b2253e1d216fa7986812f3b812",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/case.sif": "f8ad391758a3787257a658fdd81a9e7d247a98f87f2e6d354a7661485fcd57f8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/runtime-record.json": "28c9a44d90508511f5fbb6923ffd06d257f0dbb67fd57bd64765c6850e6ef335",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/record.json": "752366ff32bb495d2e0bf00598dc444fb515d97727dbdf2acfd682a5b04ea8be",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/field_t0001.vtu": "102d6bd28ecc6990a0937faa0da00fd084ad9647fa597503292d3def828e0339",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/FluxSolver.dylib": "eb0b12ab2ef505e7e251d87df3084e151c05751aef98b82541e4f3bb176ee5a8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/SaveData.dylib": "4008d7e6e6edead6fa358ea6ce7df57e4fa3196d518c9e4d57a7dd0f073dcc8c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libelmersolver.dylib": "99abe5a998a6768c066a31554e95b37837025caa557c466e215abcf0fa668ea1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.nodes": "9daf2bc6041b3ceb217527b935d4454236a3c1e622b339371c5e4772d72c6d3e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.header": "e0d4f386b0e82a16482349796068152b0d2d7a729c9852f4962f1c8b343538ed",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.elements": "70b3f7e8b8a87bd4a6174b00cd896514a693ed560f9f68e23324a57a5d28758b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/elements.def": "fd7797060c26856026a246dc986c3a8e1e0b56e9de0843b99c81f1176609edbd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/ResultOutputSolve.dylib": "6105e177a2815aeff382b27fb767b3e6c9418943597df3e121b83d0694010164",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libarpack.dylib": "577752405add0bacd568666de012115290ad2fddea9e8dfa3d7614fed4f3d58f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/preflight.json": "8a3de542e9bd27f4ebefad3c38132deccf7573beae0fd7db5859dd76051d71e1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/field_t0001.vtu": "5c5d7b0a7450127cea42e49e3ce19ec59d707a3a8639fbc14ab5368e8f3f9271",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.boundary": "fef9ef8dbde468f2d6eb6fac839ce7fbe896757bec62984b7d4c86634d76f53c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolveVec.dylib": "61ae7dfbf04f1aa3b8cdec328c7a69f7df99fc9d5ccaf71800673c254c8eba42",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_classic_comparison.py": "f0644a66a4fc263e7f187d4516522b3c0ce134ba2ec37814b1db987b45c415ad"
+  },
+  "launch_attempted": true,
+  "elmer_execution_observed": true,
+  "acceptance": false,
+  "setup_cpu_reservation_s": 30,
+  "parent_cpu_limit_s": 60,
+  "native_cpu_limit_s": 180,
+  "total_planned_cpu_reservation_s": 270,
+  "global_robin_or_algebra_balance": null,
+  "local_balance": null,
+  "raw_C_convergence": null,
+  "actual_baffle": false,
+  "source_sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libmpi_stubs.dylib": "c975ec15c53b33c43f855232749dbbb629f0b5936bfbb8756f05952e25afb6fb",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.elements": "91998af5d4d7ee3854ca716e9effdf0392d6497b66ee0da2a83e826662efef7a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.header": "f665520e085fdb66dcdca66ffbaa9ab1a1a101d41965a2a893a9ad84b4038008",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.nodes": "55f0aeaff3863ad434cca91a36508aaa1fc27c88799e3fd197206a9b2071cc34",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-classic-comparison.yaml": "14f177f3085aaaebf499caec957668cb8cae10b62a5575926c5568f308644f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_thermal_comparison.py": "00a24c69fdfdfaa3401aebacd383265561ecf21284f13cbe1b386566f4188cfd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/field_t0001.vtu": "96b087e7c2d5aad49db6ef5b0dc977e3197fcf76128d2c353a96251bd4613a52",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.boundary": "41f7c0863b6577164b15ccaf0b19af01b8459775911e13d5caf58c600232c9c1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/case.sif": "f8ad391758a3787257a658fdd81a9e7d247a98f87f2e6d354a7661485fcd57f8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libmatc.dylib": "f71f2223ca836bd115ed254becb87211a5cae8a8b709e8e02effd9c93379cda9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerGrid": "d82c0be874bb4506c09d8a63339e129ea11e5b3124426a4bcbc856bacead2cc4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.elements": "bf3fc37992efa95c92ccc09f4aa6871e53c2ee4d61d46bbdcd763a26fa5c44ba",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libfhuti.dylib": "35cf8071f84daa66a1dc78af693f73c8fb767feaa97cc97386892c4d62d0dc10",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.header": "dc5df7527503dd1d72b330d9a9c971129b8e869425a7ccccd31cfc048f973eda",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/mesh.nodes": "95f111812c8164a39a22abe1ff38fca993dcb915c88fb5a43543c1e39ae6d376",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.boundary": "ba7e7e525c4c4a270ff0b1309eb939efc9a42ba4320e08c2e85b504672ce27d5",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-thermal-comparison.yaml": "49fa95a885b2490f08f4a02e8629146cac77178dad83432caff7aac9c4bf844e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/case.sif": "f8ad391758a3787257a658fdd81a9e7d247a98f87f2e6d354a7661485fcd57f8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolve.dylib": "4c3089732c61dbc684ba5be8232539a4196155b2253e1d216fa7986812f3b812",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/case.sif": "f8ad391758a3787257a658fdd81a9e7d247a98f87f2e6d354a7661485fcd57f8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/runtime-record.json": "28c9a44d90508511f5fbb6923ffd06d257f0dbb67fd57bd64765c6850e6ef335",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/record.json": "752366ff32bb495d2e0bf00598dc444fb515d97727dbdf2acfd682a5b04ea8be",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/field_t0001.vtu": "102d6bd28ecc6990a0937faa0da00fd084ad9647fa597503292d3def828e0339",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/FluxSolver.dylib": "eb0b12ab2ef505e7e251d87df3084e151c05751aef98b82541e4f3bb176ee5a8",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/SaveData.dylib": "4008d7e6e6edead6fa358ea6ce7df57e4fa3196d518c9e4d57a7dd0f073dcc8c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libelmersolver.dylib": "99abe5a998a6768c066a31554e95b37837025caa557c466e215abcf0fa668ea1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/4/mesh/mesh.nodes": "9daf2bc6041b3ceb217527b935d4454236a3c1e622b339371c5e4772d72c6d3e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.header": "e0d4f386b0e82a16482349796068152b0d2d7a729c9852f4962f1c8b343538ed",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.elements": "70b3f7e8b8a87bd4a6174b00cd896514a693ed560f9f68e23324a57a5d28758b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/elements.def": "fd7797060c26856026a246dc986c3a8e1e0b56e9de0843b99c81f1176609edbd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/ResultOutputSolve.dylib": "6105e177a2815aeff382b27fb767b3e6c9418943597df3e121b83d0694010164",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libarpack.dylib": "577752405add0bacd568666de012115290ad2fddea9e8dfa3d7614fed4f3d58f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/preflight.json": "8a3de542e9bd27f4ebefad3c38132deccf7573beae0fd7db5859dd76051d71e1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/2/mesh/field_t0001.vtu": "5c5d7b0a7450127cea42e49e3ce19ec59d707a3a8639fbc14ab5368e8f3f9271",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-thermal-comparison-io-replan/A/8/mesh/mesh.boundary": "fef9ef8dbde468f2d6eb6fac839ce7fbe896757bec62984b7d4c86634d76f53c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolveVec.dylib": "61ae7dfbf04f1aa3b8cdec328c7a69f7df99fc9d5ccaf71800673c254c8eba42",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_classic_comparison.py": "f0644a66a4fc263e7f187d4516522b3c0ce134ba2ec37814b1db987b45c415ad"
+  },
+  "source_unchanged": true,
+  "parent_cpu_s": 1.2126679999999999,
+  "parent_peak_rss_bytes_macos": 208846848,
+  "child_cpu_s": 0.7398560000000001,
+  "memory_note": "Parent and child RSS peaks are separate, not simultaneous.",
+  "_archive_projection": {
+    "source_path": "build/wo03-elmer-classic-comparison-prepare-v5/record.json",
+    "source_sha256": "035bf9e2028d7581f2e2d2b0ffb4413c4705c55ee548377ca78217c21951503a",
+    "omitted_fields": [
+      {
+        "path": "$.levels[0].field.temperatures_k",
+        "length": 125,
+        "sha256_of_canonical_json": "91d4147a6371d521a6753b232135dfb66d2652020d6119f341dd9904060a8c3e"
+      },
+      {
+        "path": "$.levels[1].field.temperatures_k",
+        "length": 729,
+        "sha256_of_canonical_json": "c591e2d19ebf580047e48caaa06ba080c8f5cfdb5b1f92be52bb0b49536caaed"
+      },
+      {
+        "path": "$.levels[2].field.temperatures_k",
+        "length": 4913,
+        "sha256_of_canonical_json": "6ab7b1fd898a2dc86d47b4c41af07c5c4e39f826e906a5c305051e8573b2a152"
+      }
+    ],
+    "note": "Only temperatures_k arrays omitted; their individual canonical JSON SHA-256 and lengths are recorded. Raw VTU files are not included; original VTU SHA-256 values remain in field records."
+  }
+}

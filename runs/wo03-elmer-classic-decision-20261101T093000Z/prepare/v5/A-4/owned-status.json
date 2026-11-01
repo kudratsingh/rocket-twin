@@ -1,0 +1,84 @@
+{
+  "argv": [
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+    "-c",
+    "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(60,60));os.execv('/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver',['/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver','case.sif'])"
+  ],
+  "cleanup_errors": [],
+  "cleanup_outcomes": [],
+  "cpu_accounting": {
+    "child_system_s_delta": 0.016055,
+    "child_user_s_delta": 0.134834,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.002846000000000015,
+    "supervisor_user_s_delta": 0.0004610000000000447
+  },
+  "cpu_samples": [
+    {
+      "elapsed_wall_s": 0.0035292920074425638,
+      "supervisor_cpu_system_s": 0.0024660000000000237,
+      "supervisor_cpu_user_s": 0.00020799999999998597
+    },
+    {
+      "elapsed_wall_s": 0.058264958002837375,
+      "supervisor_cpu_system_s": 0.002605999999999997,
+      "supervisor_cpu_user_s": 0.00030200000000002447
+    },
+    {
+      "elapsed_wall_s": 0.10926699999254197,
+      "supervisor_cpu_system_s": 0.0026760000000000117,
+      "supervisor_cpu_user_s": 0.00036599999999997745
+    }
+  ],
+  "descendant_pid_samples": [
+    {
+      "elapsed_wall_s": 0.0035292920074425638,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.058264958002837375,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.10926699999254197,
+      "pids": []
+    }
+  ],
+  "error": null,
+  "finished_utc": "2026-11-01T08:22:41.030703+00:00",
+  "guard_failure": null,
+  "historical_descendant_checks": [],
+  "known_descendant_pids": [],
+  "launch_wall_s": 0.0035225829924456775,
+  "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/4/solver.log",
+  "pid": 45659,
+  "returncode": 0,
+  "rss_limit_bytes": null,
+  "rss_samples_bytes": [
+    {
+      "bytes": 114688,
+      "elapsed_wall_s": 0.0035292920074425638
+    },
+    {
+      "bytes": 8765440,
+      "elapsed_wall_s": 0.058264958002837375
+    },
+    {
+      "bytes": 9781248,
+      "elapsed_wall_s": 0.10926699999254197
+    }
+  ],
+  "started_utc": "2026-11-01T08:22:40.867899+00:00",
+  "status": "completed",
+  "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-classic-comparison-prepare-v5/A/4/owned-status.json",
+  "status_write_error": null,
+  "success": true,
+  "timed_out": false,
+  "total_wall_s": 0.16278541699284688,
+  "wall_limit_s": 120,
+  "wall_samples": [
+    0.0035292920074425638,
+    0.058264958002837375,
+    0.10926699999254197
+  ]
+}

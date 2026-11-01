@@ -44,17 +44,44 @@ relaxed by this decision. A future engineering numerical-error budget must
 have a documented physical-margin rationale and independent verification; it
 cannot be chosen merely to turn this campaign green.
 
-## Best justified alternative and stop boundary
+## Controlled implementation comparison: complete
 
-Keep an **existing-solver route**, rather than starting another custom heat
-solver. The source-supported classic `HeatSolve` implementation is the best
-bounded alternative for discriminating the mixed-wall A discrepancy: one
-otherwise identical A comparison against `HeatSolveVec`, with the same mesh,
-material, boundary conditions, direct solver and output precision. It is an
-unexecuted diagnostic proposal, not a qualified replacement. If later selected,
-declare its case count and one-CPU/120 s per-case/600 CPU s packet limit first;
-stop on invalid inputs, parser/solver failure or cap, and do not tune multiple
-settings blindly. Preserve failed results. This campaign itself is closed.
+The subsequently selected [classic HeatSolve comparison](wo03-elmer-classic-comparison.md)
+is now complete on the same A2/A4/A8 meshes, SIF physics, UMFPACK solver and
+Float64 outputs. Only the procedure-library name changed. Classic and Vec
+fields differ by at most 5.4e-12 K. Both fail the existing exact-field criterion;
+classic errors are 1.93e-5 / 1.12e-4 / 3.74e-5 K and do not decrease
+monotonically. Switching implementations is therefore rejected as a correction.
+Classic conductive-heat reference errors pass their separate tolerance, but
+local/Robin/algebraic heat accounting remains unavailable. Density warnings in
+classic logs remain an explicit additional interpretation limit.
+
+One inherited-CPU-cap launcher stop occurred before Elmer executed. Its raw
+record and interpretation are preserved separately from the three completed
+cases. The one resource-only replan reserved 270 CPU s under the unchanged
+600 s ceiling; native children used 0.740 CPU s and their parent 1.213 CPU s.
+These are not three repeated thermal retries or evidence of actual-baffle cost.
+
+A [read-only independent audit](wo03-elmer-local-error-audit.md) reproduces the
+reference directly from the SIF and native mesh dimensions. Native-to-VTU
+coordinates match exactly at saved precision; temperature and coordinate arrays
+are Float64. The maximum errors persist away from the prescribed hot boundary,
+including side-face and volume-interior nodes. They cannot be removed by one
+global affine offset/slope correction. The cause is still unidentified; the
+audit does not validate the assembly, mesh conditioning or boundary integration.
+
+## Selected route and stop boundary
+
+**Neither external method qualifies for actual geometry. The small-test decision
+is closed.** Do not begin an actual-baffle solve, switch to another solver,
+relax a threshold, or repeat the same grids under a new label. Retain the
+existing-solver route as a possible later offline method, with geometry-aware
+grid-quality preparation as the next prerequisite if it is selected. That
+would be a new bounded decision, not unused allowance from this campaign.
+In particular, a grid must resolve the narrow normal direction and avoid
+carrying the full 935:1 domain aspect ratio into individual cells, while
+retaining the same physical wall conditions. No such new grid or native case
+is selected or claimed to pass here.
 
 Meanwhile, use the already verified closed-form solid-wall/radial results only
 for the G80 component screens they actually cover. A conservative network or
@@ -62,7 +89,12 @@ enclosure is eligible only if its bounds retain real openings, end paths and
 material contacts and are narrow enough to decide the required limits. A trivial
 ambient-to-case bound is not useful acceptance evidence. Bounds straddling
 45°C leave the design open. No new numerical heat-method implementation is
-authorized by this decision.
+authorized by this decision. For an alternative bound to qualify, explicitly
+bound every admitted opening/contact/radiation route, demonstrate directional
+conservatism over the required uncertainty ranges, and include local hot-spot
+coverage. A convenient network or an average temperature cannot supply those
+properties merely by being simpler. If bounds straddle the limit or cannot
+retain the actual routes, report that the thermal design remains undecided.
 
 Actual-baffle work still requires a qualified applicable method, exact compatible
 CAD/material/opening/contact/radiation identity, feasible valid analysis mesh,

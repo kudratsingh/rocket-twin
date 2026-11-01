@@ -1,0 +1,98 @@
+Header
+  CHECK KEYWORDS Warn
+  Mesh DB "." "mesh"
+End
+Simulation
+  Coordinate System = Cartesian
+  Coordinate Mapping(3) = 1 2 3
+  Simulation Type = Steady State
+  Steady State Max Iterations = 1
+  Output Intervals = 1
+End
+Body 1
+  Equation = 1
+  Material = 1
+End
+Equation 1
+  Active Solvers(3) = 1 2 3
+End
+Material 1
+  Heat Conductivity = Real 0.040000000000000001
+End
+Solver 1
+  Equation = Heat Equation
+  Variable = Temperature
+  Procedure = File "HeatSolve" "HeatSolver"
+  Linear System Solver = Direct
+  Linear System Direct Method = UMFPACK
+  Linear System Max Iterations = 2000
+  Linear System Convergence Tolerance = 1.0e-12
+  Linear System Abort Not Converged = Logical True
+  Steady State Convergence Tolerance = 1.0e-12
+End
+Solver 2
+  Equation = Result Output
+  Procedure = File "ResultOutputSolve" "ResultOutputSolver"
+  Output File Name = "field"
+  Vtu Format = Logical True
+  Binary Output = Logical True
+  Single Precision = Logical False
+End
+Solver 3
+  Exec Solver = After All
+  Equation = SaveScalars
+  Procedure = File "SaveData" "SaveScalars"
+  Filename = "diffusive-flux.dat"
+  Save Flux Range = Logical False
+  Variable 1 = String "Temperature"
+  Operator 1 = String "diffusive flux"
+  Coefficient 1 = String "Heat Conductivity"
+  Mask Name 1 = String "side_1"
+  Variable 2 = String "Temperature"
+  Operator 2 = String "diffusive flux"
+  Coefficient 2 = String "Heat Conductivity"
+  Mask Name 2 = String "side_2"
+  Variable 3 = String "Temperature"
+  Operator 3 = String "diffusive flux"
+  Coefficient 3 = String "Heat Conductivity"
+  Mask Name 3 = String "side_3"
+  Variable 4 = String "Temperature"
+  Operator 4 = String "diffusive flux"
+  Coefficient 4 = String "Heat Conductivity"
+  Mask Name 4 = String "side_4"
+  Variable 5 = String "Temperature"
+  Operator 5 = String "diffusive flux"
+  Coefficient 5 = String "Heat Conductivity"
+  Mask Name 5 = String "side_5"
+  Variable 6 = String "Temperature"
+  Operator 6 = String "diffusive flux"
+  Coefficient 6 = String "Heat Conductivity"
+  Mask Name 6 = String "side_6"
+End
+Boundary Condition 1
+  Target Boundaries(1) = 1
+  side_1 = Logical True
+  Temperature = Real 573.14999999999998
+End
+Boundary Condition 2
+  Target Boundaries(1) = 2
+  side_2 = Logical True
+  External Temperature = Real 308.14999999999998
+  Heat Transfer Coefficient = Real 36030.599999999999
+End
+Boundary Condition 3
+  Target Boundaries(1) = 3
+  side_3 = Logical True
+End
+Boundary Condition 4
+  Target Boundaries(1) = 4
+  side_4 = Logical True
+End
+Boundary Condition 5
+  Target Boundaries(1) = 5
+  side_5 = Logical True
+End
+Boundary Condition 6
+  Target Boundaries(1) = 6
+  side_6 = Logical True
+End
