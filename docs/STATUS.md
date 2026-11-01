@@ -29,6 +29,17 @@ packet. Next is a bounded multi-material/multi-support known-case output check,
 not another actual bridge retry; conditional hand estimates cannot close peel,
 keeper load sharing or material qualification.
 
+**Known mechanical outputs:** [A/B flat-bar diagnostics](wo03-ccx-reaction-fixture.md)
+and the [Poisson-coupled D case](wo03-ccx-poisson-diagnostic.md) complete with
+printed displacement agreement and near-zero observed global force residuals.
+The strict1e-5N force certificates remain unavailable because conservative
+native print-rounding bounds are larger; none is a strict pass. C is unrun
+following input-moment failure. The original three native slots are exhausted,
+with no actual bridge retry or fourth fixture selected. These cases do not
+reproduce or explain the bridge's104.7N deficit. The one-MPC line is explicitly
+an estimated upper bound; matrix equation counts match unique SPC arithmetic,
+so it does not establish an undocumented constraint.
+
 **Method evidence remains scoped:** the [geometry-only stage](wo03-g80-bridge-boundary-case.md)
 passes source Circle identification;96/32 then exceeds the node cap. The
 [noncancelling arc-area budget](wo03-g80-washer-area-budget.md) justifies48/24
@@ -52,6 +63,11 @@ qualification. Separate STEP parts and component masses are available: keeper
 hardware lump, supplier fasteners and integral keeper pads. Complete replacement
 hardware/adhesive ledger and full mass/CG/inertia remain unresolved; the frozen
 52-part flight predictions are not assigned to these changed parts.
+
+**Published native bridge evidence:** [PR #30](https://github.com/kudratsingh/rocket-twin/pull/30)
+is merged after both required jobs passed (run41287248347). Those jobs preserve
+the engineering equilibrium failure. Subsequent small-fixture evidence is a
+separate increment and does not retroactively accept the bridge.
 
 **Published preparation:** [PR #29](https://github.com/kudratsingh/rocket-twin/pull/29)
 is merged after both required jobs passed (run41285473769). It contains the

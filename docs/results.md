@@ -1393,3 +1393,17 @@ Mesh/solverCPU9.513/7.130s and19.644wall remainwithin45+45CPU/120wall
 limits. Nativefields staylocal; compactsource/failure/audits are archived.
 No furtherfull3D attempt, thresholdrelaxation, activevehiclechange oraccepted
 Analysisoverlay follows. Next is smallknown-answer output verification.
+
+## Mechanical known-case output diagnosis — strict certificates unavailable
+
+The [flat A/B cases](wo03-ccx-reaction-fixture.md) and [Poisson D diagnostic](wo03-ccx-poisson-diagnostic.md)
+complete as the three declared native fixture slots. Printed displacements meet
+their analytical references and observed force residuals are near numerical
+zero, but1e-5N certification remains unavailable due to conservative native
+rounding bounds; no threshold is relaxed. OriginalAB stops afterA; B is a
+separate authorized diagnostic, D the finalslot. C remains unrun after its
+input moment failure. Cases support only their stated printed-resolution
+comparisons, not actualbridge validation. The estimated-upper-bound MPC row
+is not evidence of a hiddenMPC; equation counts match uniqueSPC arithmetic.
+Source/input/binary hashes and all stopped histories are archived, with no
+additional fixture, actualbridge or accepted Analysis field selected.

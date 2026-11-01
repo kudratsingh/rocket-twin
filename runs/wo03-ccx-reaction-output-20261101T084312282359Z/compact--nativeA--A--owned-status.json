@@ -1,0 +1,38 @@
+{
+  "projection": "resource samples omitted; exact raw hash retained",
+  "original_sha256": "b9d7997473fb5c7c69657180815fc989cf50cf093f96b88ee5918d323fc878e1",
+  "record": {
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "-c",
+      "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(10,10));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx','-i','case'])"
+    ],
+    "cleanup_errors": [],
+    "cleanup_outcomes": [],
+    "cpu_accounting": {
+      "child_system_s_delta": 0.030462999999999997,
+      "child_user_s_delta": 0.052711999999999995,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.0015249999999999986,
+      "supervisor_user_s_delta": 0.0003949999999999926
+    },
+    "error": null,
+    "finished_utc": "2026-11-01T08:07:46.354241+00:00",
+    "guard_failure": null,
+    "historical_descendant_checks": [],
+    "known_descendant_pids": [],
+    "launch_wall_s": 0.0019672909984365106,
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-ab-v1/A/solver.log",
+    "pid": 40664,
+    "returncode": 0,
+    "rss_limit_bytes": 2147483648,
+    "started_utc": "2026-11-01T08:07:46.247870+00:00",
+    "status": "completed",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-ab-v1/A/owned-status.json",
+    "status_write_error": null,
+    "success": true,
+    "timed_out": false,
+    "total_wall_s": 0.10626929099089466,
+    "wall_limit_s": 30
+  }
+}

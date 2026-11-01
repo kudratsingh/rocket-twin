@@ -1,0 +1,38 @@
+{
+  "projection": "resource samples omitted; exact raw hash retained",
+  "original_sha256": "34e044501b64e519ca50c57254482f1077978a0678b2f8b46a7eacfcb0b47462",
+  "record": {
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "-c",
+      "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(10,10));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx','-i','case'])"
+    ],
+    "cleanup_errors": [],
+    "cleanup_outcomes": [],
+    "cpu_accounting": {
+      "child_system_s_delta": 0.032119999999999996,
+      "child_user_s_delta": 0.034126,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.001679,
+      "supervisor_user_s_delta": 0.0004220000000000057
+    },
+    "error": null,
+    "finished_utc": "2026-11-01T08:32:37.216461+00:00",
+    "guard_failure": null,
+    "historical_descendant_checks": [],
+    "known_descendant_pids": [],
+    "launch_wall_s": 0.0022637090005446225,
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-native-d-v1/D/solver.log",
+    "pid": 48891,
+    "returncode": 0,
+    "rss_limit_bytes": 2147483648,
+    "started_utc": "2026-11-01T08:32:37.098197+00:00",
+    "status": "completed",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-native-d-v1/D/owned-status.json",
+    "status_write_error": null,
+    "success": true,
+    "timed_out": false,
+    "total_wall_s": 0.11818087499705143,
+    "wall_limit_s": 30
+  }
+}

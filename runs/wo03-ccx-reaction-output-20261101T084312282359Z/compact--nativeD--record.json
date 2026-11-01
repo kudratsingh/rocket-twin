@@ -1,0 +1,267 @@
+{
+  "projection": "resource samples omitted; exact raw hash retained",
+  "original_sha256": "004be0e7270a97748d52d3c653fce3810c6b9c08342e8f15fce953a50800976b",
+  "record": {
+    "status": "diagnostic_complete_strict_force_unavailable",
+    "case": "D",
+    "native_authorization": "primary explicitly authorized D only; overrides prepare-only proposal for one case",
+    "source_before": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_poisson_native.py": "f76cd20befe9e1e09d733fbcc78df22f9bc05ae861f32b0290262cc23ea47bb1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-poisson-diagnostic.yaml": "eb43298dc3718c809f68fd11f64addb0afa3810cb489785d34672e74316b459d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_poisson_diagnostic.py": "6202a3d77645aad3737150e5ea676301bf163cfc80e3cfdca79c5e459ac036a8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-diagnostic-v1/preflight.json": "618fd18ad23536aefe490ac6262ea8c34e3337af97b25defc621792f4c156b6e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-diagnostic-v1/case.inp": "c6f8c6d365b11e557c213954cc64b6f62c752f661fc516ac92e13951b5e22fc9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-diagnostic-v1/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/preflight.json": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-ab-v1/record.json": "993dce803cd04ea2df30326acc4aaad207d009dc7fdb45706e05149d3b751114",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-b-diagnostic-v1/record.json": "9e3609f22a3f8ccd5d153867130de72b4d2fed598e13f1ac3d547840ba2adbca",
+      "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+    },
+    "prior_cases": "A and B executed; C never executed",
+    "native_fixture_slot": 3,
+    "node_count": 593,
+    "tetrahedron_count": 254,
+    "case_cpu_limit_s": 10,
+    "case_wall_limit_s": 30,
+    "threads_requested": 1,
+    "strict_force_limit_N": 1e-05,
+    "earlier_setup_cpu": "some earlier setup unavailable, not zero",
+    "actual_bridge": false,
+    "acceptance": false,
+    "launch_attempted": true,
+    "elmer_or_ccx_banner_observed": true,
+    "owned_status": {
+      "argv": [
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+        "-c",
+        "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(10,10));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx','-i','case'])"
+      ],
+      "cleanup_errors": [],
+      "cleanup_outcomes": [],
+      "cpu_accounting": {
+        "child_system_s_delta": 0.032119999999999996,
+        "child_user_s_delta": 0.034126,
+        "children_rusage_sampled_after_reap": true,
+        "supervisor_system_s_delta": 0.001679,
+        "supervisor_user_s_delta": 0.0004220000000000057
+      },
+      "error": null,
+      "finished_utc": "2026-11-01T08:32:37.216461+00:00",
+      "guard_failure": null,
+      "historical_descendant_checks": [],
+      "known_descendant_pids": [],
+      "launch_wall_s": 0.0022637090005446225,
+      "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-native-d-v1/D/solver.log",
+      "pid": 48891,
+      "returncode": 0,
+      "rss_limit_bytes": 2147483648,
+      "started_utc": "2026-11-01T08:32:37.098197+00:00",
+      "status": "completed",
+      "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-native-d-v1/D/owned-status.json",
+      "status_write_error": null,
+      "success": true,
+      "timed_out": false,
+      "total_wall_s": 0.11818087499705143,
+      "wall_limit_s": 30
+    },
+    "native_warning_lines": [],
+    "solver_summary_constraint_lines": [
+      "single point constraints:         1303",
+      "multiple point constraints:            1",
+      "terms in all multiple point constraints:            1",
+      "tie constraints:            0",
+      "dependent nodes tied by cyclic constraints:            0",
+      "dependent nodes in pre-tension constraints:            0"
+    ],
+    "result": {
+      "status": "failed_or_unavailable",
+      "steps": [
+        {
+          "step": 1,
+          "total_reaction_plus_applied_from_all_RF": {
+            "applied_force_N": [
+              0.0,
+              0.0,
+              150.0
+            ],
+            "reaction_force_N": [
+              -6.161951493368725e-12,
+              8.84445885780391e-12,
+              -149.99999999999034
+            ],
+            "force_residual_N": [
+              -6.161951493368725e-12,
+              8.84445885780391e-12,
+              9.663381206337363e-12
+            ],
+            "force_residual_norm_N": 1.447670663628331e-11,
+            "reaction_print_rounding_bound_N": [
+              8.700000000003132e-05,
+              8.700000000003276e-05,
+              2.4000000000090813e-05
+            ],
+            "force_balance_status": "unavailable_print_precision",
+            "applied_moment_Nmm": [
+              -1.7763568394002505e-15,
+              -1.9895196601282805e-13,
+              0.0
+            ],
+            "reaction_moment_Nmm": [
+              -1.4580392583499746e-10,
+              3.4179320323678824e-10,
+              1.0065994718336832e-11
+            ],
+            "moment_residual_Nmm": [
+              -1.4580570219183686e-10,
+              3.415942512707754e-10,
+              1.0065994718336832e-11
+            ],
+            "reaction_moment_print_rounding_bound_Nmm": [
+              0.0008940000000006103,
+              0.0010380000000010565,
+              0.0007080000000002605
+            ],
+            "moment_balance_status": "reported_not_thresholded"
+          },
+          "bars": [
+            {
+              "bar": 0,
+              "expected_top_z_mm": 0.23446428571428574,
+              "max_axial_error_mm": 4.999999994592663e-08,
+              "relative_to_top_error": 2.1325209420958807e-07,
+              "axial_limit_mm": 0.002344642857142857,
+              "max_transverse_abs_mm": 0.0,
+              "displacement_pass": true
+            },
+            {
+              "bar": 1,
+              "expected_top_z_mm": 0.23446428571428574,
+              "max_axial_error_mm": 5.0000000056948934e-08,
+              "relative_to_top_error": 2.1325209468310283e-07,
+              "axial_limit_mm": 0.002344642857142857,
+              "max_transverse_abs_mm": 0.0,
+              "displacement_pass": true
+            },
+            {
+              "bar": 2,
+              "expected_top_z_mm": 0.23446428571428574,
+              "max_axial_error_mm": 5.0000000056948934e-08,
+              "relative_to_top_error": 2.1325209468310283e-07,
+              "axial_limit_mm": 0.002344642857142857,
+              "max_transverse_abs_mm": 0.0,
+              "displacement_pass": true
+            }
+          ],
+          "bottom_support_rf_z_sum_N": -150.0,
+          "bottom_support_rf_z_rounding_bound_N": 1.2000000000000009e-05,
+          "bottom_support_rf_z_status": "unavailable_print_precision"
+        },
+        {
+          "step": 2,
+          "total_reaction_plus_applied_from_all_RF": {
+            "applied_force_N": [
+              0.0,
+              0.0,
+              150.0000000000001
+            ],
+            "reaction_force_N": [
+              -1.7954290841827837e-11,
+              9.401463052844063e-12,
+              -149.99999999988583
+            ],
+            "force_residual_N": [
+              -1.7954290841827837e-11,
+              9.401463052844063e-12,
+              1.1428369361965451e-10
+            ],
+            "force_residual_norm_N": 1.1606681995522233e-10,
+            "reaction_print_rounding_bound_N": [
+              0.00039800000000003537,
+              0.0003980000000000295,
+              0.0002780000000001041
+            ],
+            "force_balance_status": "unavailable_print_precision",
+            "applied_moment_Nmm": [
+              -3.552713678800501e-15,
+              1500.000000000001,
+              0.0
+            ],
+            "reaction_moment_Nmm": [
+              -1.3948164060359244e-10,
+              -1499.9999999991346,
+              -8.9379606960977e-11
+            ],
+            "moment_residual_Nmm": [
+              -1.3948519331727124e-10,
+              8.662937034387141e-10,
+              -8.9379606960977e-11
+            ],
+            "reaction_moment_print_rounding_bound_Nmm": [
+              0.004309000000000517,
+              0.005895000000001505,
+              0.0035300000000003115
+            ],
+            "moment_balance_status": "reported_not_thresholded"
+          },
+          "bars": [
+            {
+              "bar": 0,
+              "expected_top_z_mm": 0.7033928571428573,
+              "max_axial_error_mm": 4.9999999918171056e-08,
+              "relative_to_top_error": 7.108403136373644e-08,
+              "axial_limit_mm": 0.007033928571428573,
+              "max_transverse_abs_mm": 0.0,
+              "displacement_pass": true
+            },
+            {
+              "bar": 1,
+              "expected_top_z_mm": 0.0,
+              "max_axial_error_mm": 0.0,
+              "relative_to_top_error": null,
+              "axial_limit_mm": 1e-08,
+              "max_transverse_abs_mm": 0.0,
+              "displacement_pass": true
+            },
+            {
+              "bar": 2,
+              "expected_top_z_mm": 0.0,
+              "max_axial_error_mm": 0.0,
+              "relative_to_top_error": null,
+              "axial_limit_mm": 1e-08,
+              "max_transverse_abs_mm": 0.0,
+              "displacement_pass": true
+            }
+          ],
+          "bottom_support_rf_z_sum_N": -149.99999999999997,
+          "bottom_support_rf_z_rounding_bound_N": 5.299999999999999e-05,
+          "bottom_support_rf_z_status": "unavailable_print_precision"
+        }
+      ],
+      "solver_invoked_by_reader": false,
+      "moment_balance": "reported with propagated print rounding, not separately thresholded"
+    },
+    "source_after": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_poisson_native.py": "f76cd20befe9e1e09d733fbcc78df22f9bc05ae861f32b0290262cc23ea47bb1",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-poisson-diagnostic.yaml": "eb43298dc3718c809f68fd11f64addb0afa3810cb489785d34672e74316b459d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_poisson_diagnostic.py": "6202a3d77645aad3737150e5ea676301bf163cfc80e3cfdca79c5e459ac036a8",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-diagnostic-v1/preflight.json": "618fd18ad23536aefe490ac6262ea8c34e3337af97b25defc621792f4c156b6e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-diagnostic-v1/case.inp": "c6f8c6d365b11e557c213954cc64b6f62c752f661fc516ac92e13951b5e22fc9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-poisson-diagnostic-v1/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/preflight.json": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-ab-v1/record.json": "993dce803cd04ea2df30326acc4aaad207d009dc7fdb45706e05149d3b751114",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-b-diagnostic-v1/record.json": "9e3609f22a3f8ccd5d153867130de72b4d2fed598e13f1ac3d547840ba2adbca",
+      "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+    },
+    "source_unchanged": true
+  }
+}

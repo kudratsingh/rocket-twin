@@ -1,0 +1,38 @@
+[
+  {
+    "case": "A",
+    "output": "build/wo03-ccx-reaction-fixture-preflight-v6-a",
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"pass\",\n  \"native_solver_invoked\": false,\n  \"steps\": 2,\n  \"op_new_count\": 2,\n  \"integrated_force_N\": [\n    [\n      0.0,\n      0.0,\n      149.99999999999997\n    ],\n    [\n      0.0,\n      0.0,\n      150.0\n    ]\n  ],\n  \"integrated_moment_about_global_origin_Nmm\": [\n    [\n      -8.030613211455295e-15,\n      -1.8474111129762605e-13,\n      0.0\n    ],\n    [\n      4.32986979603812e-15,\n      1500.0,\n      0.0\n    ]\n  ],\n  \"checks\": [\n    \"global support\",\n    \"all-node U/support RF output\",\n    \"force resultant\",\n    \"no MPC/transform/equation constraints\"\n  ]\n}\n",
+    "stderr": "",
+    "child_cpu_s": 0.172101,
+    "wall_s": 0.2709552909946069,
+    "children_cumulative_maxrss_bytes_macos": 63078400,
+    "native_solver_invoked": false,
+    "earlier_attempt_cpu": "unavailable"
+  },
+  {
+    "case": "B",
+    "output": "build/wo03-ccx-reaction-fixture-preflight-v6-b",
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"pass\",\n  \"native_solver_invoked\": false,\n  \"steps\": 2,\n  \"op_new_count\": 2,\n  \"integrated_force_N\": [\n    [\n      0.0,\n      0.0,\n      149.99999999999997\n    ],\n    [\n      0.0,\n      0.0,\n      150.0\n    ]\n  ],\n  \"integrated_moment_about_global_origin_Nmm\": [\n    [\n      -8.030613211455295e-15,\n      -1.8474111129762605e-13,\n      0.0\n    ],\n    [\n      4.32986979603812e-15,\n      1500.0,\n      0.0\n    ]\n  ],\n  \"checks\": [\n    \"global support\",\n    \"all-node U/support RF output\",\n    \"force resultant\",\n    \"no MPC/transform/equation constraints\"\n  ]\n}\n",
+    "stderr": "",
+    "child_cpu_s": 0.154408,
+    "wall_s": 0.1668050409934949,
+    "children_cumulative_maxrss_bytes_macos": 64536576,
+    "native_solver_invoked": false,
+    "earlier_attempt_cpu": "unavailable"
+  },
+  {
+    "case": "C",
+    "output": "build/wo03-ccx-reaction-fixture-preflight-v6-c",
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py\", line 465, in <module>\n    main()\n  File \"/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py\", line 459, in main\n    result = nonnative_preflight(meta, (args.output / \"case.inp\").read_text())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py\", line 368, in nonnative_preflight\n    raise ValueError(f\"Applied moment does not match independent known case: {moments}\")\nValueError: Applied moment does not match independent known case: [[ 1.83053858e-02 -4.18241695e-02  0.00000000e+00]\n [ 1.94609248e-02  1.49994126e+03  0.00000000e+00]]\n",
+    "child_cpu_s": 0.44866800000000007,
+    "wall_s": 0.46377062500687316,
+    "children_cumulative_maxrss_bytes_macos": 77053952,
+    "native_solver_invoked": false,
+    "earlier_attempt_cpu": "unavailable"
+  }
+]
