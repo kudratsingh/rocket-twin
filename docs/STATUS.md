@@ -78,7 +78,7 @@ gives822.982g; growth CG829.167mm, loaded/burnout margin1.1663/1.5483cal.
 All four guide screens pass, minimum16.848m/s versus15 on the assumed1.5m
 guide. Nominal apogee620.610m versus RocketPy620.650m passes the5% comparison.
 All trajectories reach modeled ground; recovery sizing remains open, along
-with actual bridge equilibrium, hot joints, installed fin/root/flutter,
+with installed bridge supports, hot joints, installed fin/root/flutter,
 thermal acceptance and the three recovery overlaps. The
 [staged report](wo03-g80-staged-retention-results.md) and
 [closure table](wo03-g80-current-closure.md) keep these design failures separate
