@@ -29,10 +29,14 @@ evidence separately; no G80 pass closes the other modes or aggregate WO-03.
 The existing work-order sequence and full completion criteria remain unchanged.
 Deliver the saved early frontend under ADR-0009 in parallel; missing analysis
 overlays do not delay usable inspection, real experiments and replay.
-The current G80 retention replan follows adverse modeled bond loads; prioritize
-a positive load path and complete-package revalidation over more automatic
-refinement of the same unaccepted geometry. See the
-[current closure](wo03-g80-current-closure.md). No completion gate is removed.
+The bounded G80 comparison now stops both specified capture envelopes before
+CAD/FEA: rail bearing/pin engagement rejects B, while coupler fit/net section
+rejects C under current provisional screens. The single next direction is a
+short captured G11 aft subframe connected to the aramid backbone, with separately
+verified body/fin/motor restraints. It is not an adopted design or a third
+executed study. See [decision](wo03-g80-capture-decision.md) and
+[current closure](wo03-g80-current-closure.md). Complete-package revalidation
+remains mandatory; no completion gate is removed.
 
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
 assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case

@@ -1,0 +1,196 @@
+{
+  "status": "illustrative_stock_only_not_installed",
+  "source_identity_note": "73 as-run source differs metadata-only from 6b corrected identity",
+  "source_asrun_mass_kg": 0.7945817122770563,
+  "results": {
+    "B": {
+      "stock_inventory": {
+        "lug": {
+          "count": 6,
+          "mass_kg": 0.002331
+        },
+        "pin": {
+          "count": 3,
+          "mass_kg": 0.0004707676591404306
+        },
+        "washer": {
+          "count": 6,
+          "mass_kg": 0.0002245736092492128
+        }
+      },
+      "stock_only_no_credits": {
+        "mass_kg": 0.8476080535454462,
+        "cg_station_m": 0.8138512412969746,
+        "cg_lateral_body_m": [
+          -1.870976647129365e-05,
+          0.0006478912496093917
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0009210610610407527,
+            0.00019038394143107835,
+            -0.0001803189780075653
+          ],
+          [
+            0.00019038394143107835,
+            0.14701364122623162,
+            -1.1327456110775006e-07
+          ],
+          [
+            -0.0001803189780075653,
+            -1.1327456110775006e-07,
+            0.14701557515566221
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": []
+      },
+      "stock_only_with_explicit_credits": {
+        "mass_kg": 0.8207015321845733,
+        "cg_station_m": 0.8018497007633241,
+        "cg_lateral_body_m": [
+          -1.9323162098662145e-05,
+          0.0006691322234147349
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0009041809793256856,
+            0.00019019361441555816,
+            -0.00017372823791954545
+          ],
+          [
+            0.00019019361441555816,
+            0.14328095543299446,
+            -1.1361141212615403e-07
+          ],
+          [
+            -0.00017372823791954545,
+            -1.1361141212615403e-07,
+            0.14328290101734464
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": [
+          "service_keeper",
+          "service_bridge",
+          "service_m2_screw_0",
+          "service_m2_screw_1",
+          "service_m2_screw_2",
+          "service_m2_nut_0",
+          "service_m2_nut_1",
+          "service_m2_nut_2"
+        ]
+      }
+    },
+    "C": {
+      "stock_inventory": {
+        "strip": {
+          "count": 6,
+          "mass_kg": 0.151515
+        },
+        "lap_plate": {
+          "count": 12,
+          "mass_kg": 0.006216000000000002
+        },
+        "pin": {
+          "count": 24,
+          "mass_kg": 0.0025107608487489616
+        },
+        "washer": {
+          "count": 48,
+          "mass_kg": 0.0017965888739937034
+        },
+        "ring": {
+          "count": 2,
+          "mass_kg": 0.036601313706207124
+        }
+      },
+      "stock_only_no_credits": {
+        "mass_kg": 1.0432213757060076,
+        "cg_station_m": 0.7955524596056882,
+        "cg_lateral_body_m": [
+          -1.5201518211118879e-05,
+          0.0005264058557263531
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0010779417385592942,
+            0.00019009374930972615,
+            -0.00017027005856122193
+          ],
+          [
+            0.00019009374930972615,
+            0.169093732389492,
+            -1.1134797906749028e-07
+          ],
+          [
+            -0.00017027005856122193,
+            -1.113479790675411e-07,
+            0.16909559965990284
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": []
+      },
+      "stock_only_with_explicit_credits": {
+        "mass_kg": 1.0163148543451348,
+        "cg_station_m": 0.7853764406084447,
+        "cg_lateral_body_m": [
+          -1.5603972207256445e-05,
+          0.0005403422361118544
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0010610656715641527,
+            0.000189932372416469,
+            -0.0001646818179388168
+          ],
+          [
+            0.000189932372416469,
+            0.16500453727352915,
+            -1.1156898983511057e-07
+          ],
+          [
+            -0.0001646818179388168,
+            -1.1156898983516478e-07,
+            0.16500641219083023
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": [
+          "service_keeper",
+          "service_bridge",
+          "service_m2_screw_0",
+          "service_m2_screw_1",
+          "service_m2_screw_2",
+          "service_m2_nut_0",
+          "service_m2_nut_1",
+          "service_m2_nut_2"
+        ]
+      }
+    }
+  },
+  "inputs_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-capture-comparison-v1/stock_mass_worker.py": "8b349ca6897ee6a41023563e2b974fa28545835005c7496e67676c0828f46e93",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-capture-comparison.yaml": "4a49044e17066d2d63889cfa56a0664a504ef9144039f7c9e1030d0a0e56bb71",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e"
+  },
+  "inputs_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-capture-comparison-v1/stock_mass_worker.py": "8b349ca6897ee6a41023563e2b974fa28545835005c7496e67676c0828f46e93",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-capture-comparison.yaml": "4a49044e17066d2d63889cfa56a0664a504ef9144039f7c9e1030d0a0e56bb71",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e"
+  },
+  "inputs_unchanged": true,
+  "cpu_s": 0.39707899999999996,
+  "wall_s": 0.2223025840066839,
+  "peak_rss_bytes": 55738368,
+  "limitations": "unclipped intersecting stock; cap/guide/body/fin anchors/shields/adhesive and actual removals undefined; not installed mass, CG, inertia or bounds"
+}

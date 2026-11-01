@@ -1,0 +1,84 @@
+status: preliminary_hand_screen_no_cad_authorized
+source_72_identity: 90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc
+source_73_metadata_corrected_identity: 6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4
+source_asrun_73_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+source_72_keeper_record: build/wo03-g80-keeper-service-v1/record.json
+source_mount_geometry: configs/studies/wo03-g80-mount-fabrication.yaml
+source_materials: configs/engineering/wo03.yaml
+service_retention_N: 150.0
+design_factor: 3.0
+recovery_already_factored_N: 1782.253
+option_B:
+  rail_axes_deg: [0, 120, 240]
+  new_cap_bolt_axis_radius_mm: 25.5
+  cross_pin_shaft_mm: 3.0
+  cross_pin_hole_mm: 3.2
+  cross_pin_nominal_station_mm: 185.0
+  rail_radial_mm: 7.0
+  rail_tangential_mm: 12.0
+  three_seats_six_lugs_mm: [7.0, 2.0, 15.0]
+option_C:
+  strip_count: 6
+  strip_radial_mm: 7.0
+  strip_tangential_mm: 2.0
+  strip_station_start_mm: 225.0
+  strip_station_end_mm: 1200.0
+  strip_side_offsets_mm: [-4.65, 4.65]
+  strips_per_rail_axis: 2
+  g11_density_kg_m3: 1850
+  nominal_ring_and_joint_dimensions: null
+  interface_and_service_geometry: unresolved
+budgets:
+  cpu_per_cad_child_s: 120
+  wall_per_cad_child_s: 120
+  rss_root_bytes: 2147483648
+  setup_reserve_cpu_s: 60
+  parent_cpu_s: 120
+  total_planned_cpu_s: 420
+  cad_execution_authorized: false
+stock_inventory:
+  note: illustrative_unclipped_nominal_stock_not_installed_or_qualified
+  material_density_kg_m3: 1850
+  rotation_axes_deg: [0, 120, 240]
+  radial_center_mm: 28.5
+  source_removal_ids:
+    - service_keeper
+    - service_bridge
+    - service_m2_screw_0
+    - service_m2_screw_1
+    - service_m2_screw_2
+    - service_m2_nut_0
+    - service_m2_nut_1
+    - service_m2_nut_2
+  B:
+    lug_count: 6
+    lug_axial_radial_tangential_mm: [15, 7, 2]
+    lug_station_center_mm: 1189.6
+    lug_tangential_centers_mm: [-7.1, 7.1]
+    pin_count: 3
+    pin_diameter_length_mm: [3, 12]
+    pin_station_mm: 1195
+    pin_tangential_center_mm: 0
+    washer_count: 6
+    washer_od_id_thickness_mm: [6, 3.2, 1]
+    washer_station_mm: 1195
+    washer_tangential_centers_mm: [-6.5, 6.5]
+  C:
+    strip_count: 6
+    strip_axial_radial_tangential_mm: [975, 7, 2]
+    strip_station_center_mm: 712.5
+    strip_tangential_centers_mm: [-4.65, 4.65]
+    ring_count: 2
+    ring_outer_inner_thickness_mm: [32.2, 15.8, 4]
+    ring_station_centers_mm: [225, 1200]
+    lap_plate_count: 12
+    lap_axial_radial_tangential_mm: [20, 7, 2]
+    lap_station_centers_mm: [868, 972]
+    lap_tangential_centers_mm: [-4.65, 4.65]
+    pin_count: 24
+    pin_diameter_length_mm: [3, 8]
+    pin_station_centers_mm: [863, 873, 967, 977]
+    pin_tangential_centers_mm: [-4.65, 4.65]
+    washer_count: 48
+    washer_od_id_thickness_mm: [6, 3.2, 1]
+    washer_pin_axis_offsets_mm: [-4.5, 4.5]

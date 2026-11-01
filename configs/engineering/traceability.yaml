@@ -3,6 +3,12 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-g80-capture-decision.md
+  scope: Bounded G80 rail-capture versus continuous G11 frame comparison and stop decision.
+  limitation: Both specified envelopes fail early credibility screens; stock-only mass/tensors are not installed bounds. No CAD/FEA, adoption or G54/G12 acceptance.
+- path: runs/wo03-g80-capture-bounds-20261101-v1/record.json
+  scope: Source-pinned hand support-flexibility, pin-engagement and isolated conductance screens.
+  limitation: Generic estimated properties, conditional ideal supports; no installed strength, transient temperature or conservative temperature bound.
 - path: docs/wo03-g80-bridge-support-traction.md
   scope: Isolated G80 fixed-support face-resultant lower bounds, using recovered Elmer fields.
   limitation: DF3 average shear exceeds the estimated hot screen; no physical capacity, mixed-mode allowable, convergence or active adoption.
@@ -563,6 +569,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-staged-retention-20261101-v1/record.json
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
   - runs/wo03-20261030T180113490389Z/record.json
@@ -589,6 +596,7 @@ requirements:
   - 09
   - '12'
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-staged-retention-20261101-v1/record.json
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
   - runs/wo03-20261030T180113490389Z/record.json
@@ -617,6 +625,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-bridge-elmer-results.md
   - docs/wo03-g80-bridge-support-traction.md
   - docs/wo03-bridge-gauss-stress.md
@@ -720,6 +729,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - runs/wo03-elmer-classic-decision-20261101T093000Z/record.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-thermal-20261030T182422090687Z/record.json
@@ -779,6 +789,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - runs/wo03-20261030T180113490389Z/record.json
   - runs/wo03-tolerances-20261030T182928948369Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
@@ -850,6 +861,7 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-recovery-branch-loads.md
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
   - runs/wo03-g80-recovery-path-20261101-v1/record.json
@@ -1233,6 +1245,7 @@ interfaces:
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
   - docs/wo03-package-closure-progress.md
@@ -1268,6 +1281,7 @@ interfaces:
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-bridge-support-traction.md
   - docs/wo03-bridge-gauss-stress.md
   - runs/wo03-20261030T205235088123Z/record.json
@@ -1383,6 +1397,7 @@ interfaces:
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-recovery-path-20261101-v1/record.json
   - runs/wo03-g80-backbone-route-20261101-v1/record.json
   - runs/wo03-20261030T205235088123Z/record.json
@@ -1605,6 +1620,9 @@ fmea:
   residual_risk: Estimated properties and assembly workmanship remain unqualified.
     The isolated G80 fixed-support mean shear exceeds its provisional hot screen;
     a positive load-path correction is required before acceptance.
+    The bounded B/C proposals remain rejected at preflight; B moves force into
+    unverified rail/pin joints; C conflicts with the coupler and hot-section screen.
+    Short captured aft subframe plus aramid backbone is only the next direction.
     G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness
     is not zero physical reaction. Installed load paths and later owner proof remain open.
   verification_test: Coupons, pull/bending/bearing, buckling and recovery opening

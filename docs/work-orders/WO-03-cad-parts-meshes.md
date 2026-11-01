@@ -32,6 +32,13 @@ The finite0.1 mm shear-layer verification, actual backing/contact, regional
 convergence, hot directional/bond properties and all other criteria remain
 applicable; the axial known case alone does not replace them.
 
+The [bounded B/C comparison](../wo03-g80-capture-decision.md) now rejects both
+specified envelopes at early screens; no CAD/FEA was admitted and no installed
+requirement closes. The next finite direction is a short captured G11 aft
+subframe linked to the protected aramid backbone. Endpoint/body/fin/motor
+restraints, hot properties and complete mass/fit/load ledger must pass admission
+before detailed work. This does not revise the work-order sequence or criteria.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete
