@@ -51,6 +51,20 @@ A local forward spreader alone does not bypass that serial path. Lightweight
 continuous-tether versus body-reinforcement alternatives are being assessed;
 no connection capacity, physical failure prediction or adoption is claimed.
 
+[PR #34](https://github.com/kudratsingh/rocket-twin/pull/34) publishes those
+canopy and recovery-path findings. Both required jobs passed in run41294969753
+before merge; the physical recovery system remains unqualified.
+
+**Backbone layout prerequisite:** the source-pinned straight-route study clears
+both nominal manufactured-solid envelopes but leaves only0.45mm inflated
+coupler clearance. The selected60° reference avoids the other route's unresolved
+adhesive-budget envelope. Forward/nose/payload and independent aft attachments,
+bends, slack, pressure isolation, deployment and service remain open; no
+installable tether or complete recovery result is claimed. See
+[route evidence](wo03-g80-backbone-route.md). Requirements/interfaces/FMEA
+retain their stable IDs and open statuses, with the new isolated G80 evidence
+linked separately from active/G54/G12 acceptance.
+
 **Controlled thermal-tool decision, complete:** the three classic Elmer A
 cases agree with the preserved vectorized fields within 5.4e-12 K. Both fail
 the unchanged exact-field check; switching implementations is rejected as a
@@ -76,9 +90,18 @@ as **unvalidated**, with no strength, stiffness or installed-load-path pass.
 Read-only checks confirm complete reaction rows, matched quadratic interface
 faces, zero support displacement and positive sampled Jacobians; cause remains
 unidentified. No more actual3D mesh/solver/edge variants are selected for this
-packet. Next is a bounded multi-material/multi-support known-case output check,
-not another actual bridge retry; conditional hand estimates cannot close peel,
-keeper load sharing or material qualification.
+packet. The proposed multi-material/multi-support known-case checks are now
+recorded below with their print-precision limits. Conditional hand estimates
+cannot close peel, keeper load sharing or material qualification.
+
+The subsequent [read-only reciprocal-work audit](wo03-g80-bridge-reciprocity-audit.md)
+also finds32.229N·mm disagreement versus a3.253e-6N·mm print bound, using
+complete native steps at times1/2. This strengthens the response-validation
+stop without identifying its cause. The
+[backend/output assessment](wo03-ccx-backend-output-assessment.md) distinguishes
+documented alternatives from verified installed behavior. A separate small
+known-case binary/backend diagnostic is preparation only; no new native case
+or actual-bridge retry is authorized by the research.
 
 **Known mechanical outputs:** [A/B flat-bar diagnostics](wo03-ccx-reaction-fixture.md)
 and the [Poisson-coupled D case](wo03-ccx-poisson-diagnostic.md) complete with

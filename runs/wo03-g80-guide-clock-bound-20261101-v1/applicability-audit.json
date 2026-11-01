@@ -1,0 +1,28 @@
+{
+  "status": "conditional_clock_bound_not_admitted",
+  "raw_record_sha256": "68492c5b9d7ccb0959815b95dade60d80ea57b89a1f980e2da6ab473f84dc10b",
+  "original_record_unchanged": true,
+  "source_pairs": {
+    "src/sim/env.py": {
+      "root_sha256": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+      "staged_sha256": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9"
+    },
+    "src/sim/dynamics.py": {
+      "root_sha256": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+      "staged_sha256": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54"
+    },
+    "src/sim/aero.py": {
+      "root_sha256": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb",
+      "staged_sha256": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb"
+    },
+    "src/sim/motor.py": {
+      "root_sha256": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93",
+      "staged_sha256": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93"
+    }
+  },
+  "reason": "The actual RK4 derivative checks position against guide length at each intermediate stage, even before persistent released is set. The final recorded step can therefore include free-flight derivative stages. The trial proof only bounds the constrained zero-wind axial path and does not bound rotational/aerodynamic coupling after an intermediate-stage release. Its applicability to the actual recorded departure event was not established.",
+  "effect": "The numerical lower-speed values and conditional_screen_pass flags are hypothetical diagnostic arithmetic only. No conservative crossing-speed certificate or new acceptance closure is admitted. Existing sampled guide results retain their original limited scope.",
+  "next_action": "No new simulation or altered physics; retain missing trajectory/time-refinement coverage as unavailable. Any future guide-error bound must cover actual internal-stage release or use saved/bracketed events with an applicable validated method.",
+  "solver_or_mesh_or_flight_invoked": false,
+  "acceptance": false
+}

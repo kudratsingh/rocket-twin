@@ -2,6 +2,27 @@
 
 **Recommend a continuous aramid recovery backbone for the next geometry study**, with separate positive branch attachments to the nose, forward-body/payload carrier and aft structural mass. It must cross the 0.500 m paper-tube cut and the removable module joint without making the tube or the motor-retention bridge the only load path. This is a layout direction, not an accepted joint or proof of strength. The existing late-deployment 20.4 m/s probe is not an approved deployment limit, and the actual opening shock remains unknown.
 
+The primary selects architecture A for the bounded layout study. The diagram
+shows its **proposed force paths**, with every junction and attachment still
+unqualified. A separate branch must retain the nose; a continuous line past the
+paper-tube cut does not automatically capture the body, electronics or motor.
+
+```mermaid
+flowchart TD
+    Canopy[Parachute] --> Shock[Opening link: force and extension unverified]
+    Shock --> Junction[Forward junction: unverified]
+    Junction --> Nose[Nose branch and positive attachment: unverified]
+    Junction --> Forward[Forward body and payload capture: unverified]
+    Junction --> Backbone[Protected continuous tether across body cut and module joint]
+    Backbone --> Aft[Dedicated aft structural attachment: unverified]
+    Aft --> Retained[Separate retention of shell, fins, mount and motor: unverified]
+```
+
+The subsequent [straight-route study](wo03-g80-backbone-route.md) selects the
+60° reference because it avoids the other route's unresolved adhesive-budget
+envelope. Its 0.45 mm inflated coupler clearance covers only the stated static
+geometry. The diagram is not a wiring netlist or proof of an installed tether.
+
 The existing [recovery intake](wo03-g80-recovery-path-intake.md) gives **1,782.253 N** for its full-loaded, 0.3 m stopping-distance probe, including gravity and DF3 once. Use this entire already-factored demand as an intentionally severe screening load for each proposed primary backbone segment and its terminations; it is not a measured transient, a requirement to multiply by three again, or a guarantee that all branches see that load simultaneously. The [axial-cut screen](wo03-g80-recovery-axial-screen.md) finds only the cardboard `body_upper` crossing 0.500 m; its off-nominal gross stress lower bounds of 4.631–10.416 MPa exceed the estimated 2 MPa paper screen. A local forward spreader alone does not bypass this cut.
 
 | Architecture | Sizing and mass indication | Key unresolved physical path |

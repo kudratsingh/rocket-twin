@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+    "-c",
+    "import os,resource,sys;resource.setrlimit(resource.RLIMIT_CPU,(60,60));os.execv(sys.executable,[sys.executable,'/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_backbone_route.py',\"--worker\"])"
+  ],
+  "cleanup_errors": [],
+  "cleanup_outcomes": [],
+  "cpu_accounting": {
+    "child_system_s_delta": 1.60811,
+    "child_user_s_delta": 3.135961,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.010847000000000002,
+    "supervisor_user_s_delta": 0.008613000000000003
+  },
+  "error": null,
+  "finished_utc": "2026-11-01T09:51:27.575035+00:00",
+  "guard_failure": null,
+  "historical_descendant_checks": [],
+  "known_descendant_pids": [],
+  "launch_wall_s": 0.0016795840056147426,
+  "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-backbone-route-v1/worker.log",
+  "pid": 74729,
+  "returncode": 0,
+  "rss_limit_bytes": 2147483648,
+  "started_utc": "2026-11-01T09:51:21.478714+00:00",
+  "status": "completed",
+  "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-backbone-route-v1/status.json",
+  "status_write_error": null,
+  "success": true,
+  "timed_out": false,
+  "total_wall_s": 6.096177875006106,
+  "wall_limit_s": 120,
+  "peak_sampled_tree_rss_bytes": 767492096,
+  "full_status_source_sha256": "a39af2b6cb8be8d7455871c2760e1455883401879e19a86c543d49a163afa349"
+}
