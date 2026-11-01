@@ -116,7 +116,9 @@ export default function App() {
     return () => window.removeEventListener('keydown', keydown);
   }, [mode]);
 
-  const selectedEntry = catalog?.vehicles.find((entry) => entry.id === vehicleId);
+  const selectedEntry = [...(catalog?.vehicles ?? []), ...(catalog?.candidates ?? [])].find(
+    (entry) => entry.id === vehicleId,
+  );
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -255,6 +257,15 @@ export default function App() {
           <button className="primary-button" onClick={() => setRetry((count) => count + 1)}>
             Retry connection
           </button>
+        </main>
+      ) : (vehicle?.snapshot_only || selectedEntry?.group === 'candidate') && mode !== 'inspect' ? (
+        <main className="center-state">
+          <h1>Snapshot inspection only</h1>
+          <p>
+            This experimental, unadopted candidate cannot run or replay experiments. Select the
+            active G80 reference to run or load saved flights.
+          </p>
+          <p>No accepted compatible stress or temperature overlay is attached to this snapshot.</p>
         </main>
       ) : mode === 'experiment' ? (
         <Suspense

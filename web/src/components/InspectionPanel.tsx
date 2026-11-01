@@ -216,7 +216,9 @@ function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
             <strong>{grams(part.mass_kg)}</strong>
           </div>
           <div>
-            <span>CAD-derived mass</span>
+            <span>
+              {part.mass_basis === 'volume_density' ? 'CAD-derived mass' : 'Recorded model mass'}
+            </span>
             <strong>{grams(part.cad_mass_kg ?? part.cad_mass?.mass_kg)}</strong>
           </div>
         </div>
@@ -224,6 +226,13 @@ function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
           {part.mass_basis || part.cad?.mass_basis || 'Mass provenance unavailable.'} · CAD means
           computer-aided design. These are model values, not measured hardware.
         </p>
+        {part.cad_bounding_size_mm && (
+          <p className="small muted">
+            Recorded CAD bounding size:{' '}
+            {part.cad_bounding_size_mm.map((value) => number(value, 2)).join(' × ')} mm. Bounds
+            describe the displayed geometry; they are not purchased hardware dimensions.
+          </p>
+        )}
         <DataList
           data={part.dimensions || part.geometry || {}}
           labels={
@@ -235,9 +244,9 @@ function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
       </section>
       {(/fin/.test(part.type) || /fin.*bond|gusset/.test(part.id)) && (
         <div className="notice small">
-          A gusset is a reinforcing block at the fin-to-body joint. The active design’s dimensions
-          and mass above come from this resolved specification. Installed joint strength, root
-          attachment and flutter acceptance remain open.
+          A gusset is a reinforcing block at the fin-to-body joint. The dimensions and mass above
+          come from this resolved specification. Installed joint strength, root attachment and
+          flutter acceptance remain open.
         </div>
       )}
       <section className="detail-section">

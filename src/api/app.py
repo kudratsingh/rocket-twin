@@ -13,12 +13,13 @@ import json
 from dataclasses import dataclass
 from itertools import islice
 from pathlib import Path
-from typing import Annotated, Any
+from typing import Annotated, Any, cast
 
 from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.analysis.records import AnalysisRecord, Identity, asset_path, load_compatible
+from src.api import candidate_snapshot
 from src.vehicle.aero import center_of_pressure
 from src.vehicle.cad_contract import digest
 from src.vehicle.mass import mass_properties
@@ -639,15 +640,36 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
                     "identity": snapshot.identity.model_dump(),
                 }
             )
+        try:
+            candidate_snapshot.load(root)
+            candidate_available = True
+            reason = None
+        except HTTPException as error:
+            candidate_available = False
+            reason = error.detail
         return {
             "vehicles": rows,
             "status": STATUS,
-            "candidates": [],
-            "candidate_message": "Isolated correction studies are not adopted configurations; no candidate geometry is exposed in this catalog.",
+            "candidates": [
+                {
+                    "id": candidate_snapshot.ALIAS,
+                    "label": "Experimental G80 retention candidate · 72 parts",
+                    "role": "candidate",
+                    "group": "candidate",
+                    "design_status": "Experimental/unadopted — engineering acceptance open",
+                    "description": "Archived retention candidate; snapshot inspection only. Active baseline unchanged.",
+                    "available": candidate_available,
+                    "unavailable_reason": reason,
+                }
+            ],
+            "candidate_message": "Experimental candidate is separate and unadopted; snapshot inspection only.",
         }
 
     @app.get("/api/vehicles/{vehicle_id}")
     def vehicle_detail(vehicle_id: str) -> dict[str, Any]:
+        if vehicle_id == candidate_snapshot.ALIAS:
+            _, projection = candidate_snapshot.load(root)
+            return cast(dict[str, Any], projection["data"])
         snapshot = get_snapshot(vehicle_id)
         return {
             **snapshot.data,
@@ -663,6 +685,12 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
     def vehicle_mass(
         vehicle_id: str, burn_fraction: Annotated[float, Query(ge=0, le=1)] = 0
     ) -> dict[str, Any]:
+        if vehicle_id == candidate_snapshot.ALIAS:
+            _, projection = candidate_snapshot.load(root)
+            index = round(burn_fraction * 20)
+            if abs(index / 20 - burn_fraction) > 1e-8:
+                raise HTTPException(422, "Snapshot provides recorded 5% burn increments only")
+            return cast(dict[str, Any], projection["mass"][index])
         snapshot = get_snapshot(vehicle_id, meshes=False)
         props = mass_properties(snapshot.vehicle, burn_fraction)
         cp = snapshot.data["summary"]["cp_m"]
@@ -684,6 +712,22 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
 
     @app.get("/api/vehicles/{vehicle_id}/meshes")
     def vehicle_meshes(vehicle_id: str) -> dict[str, Any]:
+        if vehicle_id == candidate_snapshot.ALIAS:
+            index, projection = candidate_snapshot.load(root)
+            return {
+                "identity": projection["data"]["identity"],
+                "units": "m",
+                "viewer_frame": "X=body+y, Y=length-station, Z=body-z",
+                "world_placed": True,
+                "parts": [
+                    {
+                        "id": part["id"],
+                        "mesh_url": f"/api/vehicles/{candidate_snapshot.ALIAS}/meshes/{part['id']}.glb",
+                        "sha256": index["mesh_sha256"][part["id"]],
+                    }
+                    for part in projection["data"]["parts"]
+                ],
+            }
         snapshot = get_snapshot(vehicle_id)
         return {
             "identity": snapshot.identity.model_dump(),
@@ -702,6 +746,9 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
 
     @app.get("/api/vehicles/{vehicle_id}/meshes/{part_id}.glb")
     def vehicle_mesh(vehicle_id: str, part_id: str, request: Request) -> Response:
+        if vehicle_id == candidate_snapshot.ALIAS:
+            path, expected = candidate_snapshot.mesh(root, part_id)
+            return _asset_response(path, expected, request, "model/gltf-binary")
         snapshot = get_snapshot(vehicle_id)
         if part_id not in snapshot.mesh_hashes:
             raise HTTPException(404, "Unknown part mesh")
