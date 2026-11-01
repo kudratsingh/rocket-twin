@@ -1,0 +1,1757 @@
+{
+  "area_mm2": 102.88715940506573,
+  "axial_demand_model": {
+    "20_4_mps_status": "archived off-nominal delay probe; not approved",
+    "design_factor": 3.0,
+    "formula": "F_DF3 = 3*m_aft*(v^2/(2*s)+9.80665)",
+    "opening_shock_included": false,
+    "stopping_distances_m": [
+      0.3,
+      0.6
+    ],
+    "velocities_mps": [
+      5.0,
+      20.4
+    ]
+  },
+  "candidate_identity": {
+    "stage3_corrected_plus5g_sensitivity": "6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4",
+    "stage3_nominal": "f7b8af96f50ce96d6091f1da177198eb82a0797e42cb6874d98d5b5d7e6a8899",
+    "staged72": "90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc",
+    "staged_base52": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009"
+  },
+  "cut": {
+    "body_upper": {
+      "inner_diameter_mm": 65.0,
+      "length_m": 0.778,
+      "only_modeled_solid_crossing_plane": "body_upper cardboard tube annulus",
+      "other_geometry_inventory": "avionics_bay and rail_guides end at 0.45 m; recovery_switch_g11_doubler ends at 0.485 m; interface_coupler begins at 0.868 m; upper-body side hole is at local 330 mm (global 0.47 m), 30 mm forward of cut.",
+      "outer_diameter_mm": 66.0,
+      "station_end_m": 0.918,
+      "station_start_m": 0.14,
+      "wall_mm": 0.5
+    },
+    "coordinate_axis": "nose-to-aft station coordinate from candidate parts",
+    "plain_wall_interval_m": [
+      0.485,
+      0.868
+    ],
+    "station_m": 0.5
+  },
+  "decision": {
+    "caveat": "This is a lower-bound inertial mass sum and gross-area force screen. If an alternate continuous structural path exists physically but is not represented in CAD/spec, actual tube stress is not inferable from this cut alone.",
+    "serial_path_implication": "For the modeled serial path, the 0.5 mm body_upper wall is the only modeled solid crossing the 0.50 m cut; no continuous recovery backbone or other modeled solid spans the cut. A local bulkhead/spreader near 0.225 m cannot by itself bypass the upper tube segment. A continuous lightweight recovery tether/backbone into an aft structural attachment is a candidate direction only if a future explicit design shows a continuous load path; no adoption or strength credit."
+  },
+  "execution": {
+    "browser": false,
+    "cad": false,
+    "physical_work": false,
+    "solver": false,
+    "tests": false
+  },
+  "loads": [
+    {
+      "combined_force_unfactored_N": 26.140496249010525,
+      "design_factor": 3.0,
+      "factored_resultant_N": 78.42148874703157,
+      "force_N": 78.42148874703157,
+      "gravity_force_unfactored_N": 4.980263836512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 0.7622087070971311,
+      "inertial_force_unfactored_N": 21.16023241249797,
+      "mass_aft_cut_kg": 0.5078455778999512,
+      "mass_basis": "corrected6b_full_loaded_lower_bound",
+      "stopping_deceleration_mps2": 41.66666666666667,
+      "stopping_distance_m": 0.3,
+      "velocity_mps": 5.0
+    },
+    {
+      "combined_force_unfactored_N": 15.56038004276154,
+      "design_factor": 3.0,
+      "factored_resultant_N": 46.681140128284625,
+      "force_N": 46.681140128284625,
+      "gravity_force_unfactored_N": 4.980263836512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 0.4537120122492782,
+      "inertial_force_unfactored_N": 10.580116206248984,
+      "mass_aft_cut_kg": 0.5078455778999512,
+      "mass_basis": "corrected6b_full_loaded_lower_bound",
+      "stopping_deceleration_mps2": 20.833333333333336,
+      "stopping_distance_m": 0.6,
+      "velocity_mps": 5.0
+    },
+    {
+      "combined_force_unfactored_N": 357.22195666791873,
+      "design_factor": 3.0,
+      "factored_resultant_N": 1071.6658700037563,
+      "force_N": 1071.6658700037563,
+      "gravity_force_unfactored_N": 4.980263836512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 10.41593407963202,
+      "inertial_force_unfactored_N": 352.24169283140617,
+      "mass_aft_cut_kg": 0.5078455778999512,
+      "mass_basis": "corrected6b_full_loaded_lower_bound",
+      "stopping_deceleration_mps2": 693.6,
+      "stopping_distance_m": 0.3,
+      "velocity_mps": 20.4
+    },
+    {
+      "combined_force_unfactored_N": 181.10111025221565,
+      "design_factor": 3.0,
+      "factored_resultant_N": 543.3033307566469,
+      "force_N": 543.3033307566469,
+      "gravity_force_unfactored_N": 4.980263836512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 5.280574698516722,
+      "inertial_force_unfactored_N": 176.12084641570308,
+      "mass_aft_cut_kg": 0.5078455778999512,
+      "mass_basis": "corrected6b_full_loaded_lower_bound",
+      "stopping_deceleration_mps2": 346.8,
+      "stopping_distance_m": 0.6,
+      "velocity_mps": 20.4
+    },
+    {
+      "combined_force_unfactored_N": 22.923413957343854,
+      "design_factor": 3.0,
+      "factored_resultant_N": 68.77024187203158,
+      "force_N": 68.77024187203158,
+      "gravity_force_unfactored_N": 4.367348211512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 0.6684045149043703,
+      "inertial_force_unfactored_N": 18.5560657458313,
+      "mass_aft_cut_kg": 0.44534557789995116,
+      "mass_basis": "corrected6b_burnout_lower_bound",
+      "stopping_deceleration_mps2": 41.66666666666667,
+      "stopping_distance_m": 0.3,
+      "velocity_mps": 5.0
+    },
+    {
+      "combined_force_unfactored_N": 13.645381084428205,
+      "design_factor": 3.0,
+      "factored_resultant_N": 40.93614325328462,
+      "force_N": 40.93614325328462,
+      "gravity_force_unfactored_N": 4.367348211512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 0.39787417098492756,
+      "inertial_force_unfactored_N": 9.27803287291565,
+      "mass_aft_cut_kg": 0.44534557789995116,
+      "mass_basis": "corrected6b_burnout_lower_bound",
+      "stopping_deceleration_mps2": 20.833333333333336,
+      "stopping_distance_m": 0.6,
+      "velocity_mps": 5.0
+    },
+    {
+      "combined_force_unfactored_N": 313.2590410429187,
+      "design_factor": 3.0,
+      "factored_resultant_N": 939.7771231287561,
+      "force_N": 939.7771231287561,
+      "gravity_force_unfactored_N": 4.367348211512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 9.134056461106704,
+      "inertial_force_unfactored_N": 308.89169283140615,
+      "mass_aft_cut_kg": 0.44534557789995116,
+      "mass_basis": "corrected6b_burnout_lower_bound",
+      "stopping_deceleration_mps2": 693.6,
+      "stopping_distance_m": 0.3,
+      "velocity_mps": 20.4
+    },
+    {
+      "combined_force_unfactored_N": 158.8131946272156,
+      "design_factor": 3.0,
+      "factored_resultant_N": 476.43958388164685,
+      "force_N": 476.43958388164685,
+      "gravity_force_unfactored_N": 4.367348211512556,
+      "gravity_mps2": 9.80665,
+      "gross_paper_stress_MPa": 4.630700144086094,
+      "inertial_force_unfactored_N": 154.44584641570307,
+      "mass_aft_cut_kg": 0.44534557789995116,
+      "mass_basis": "corrected6b_burnout_lower_bound",
+      "stopping_deceleration_mps2": 346.8,
+      "stopping_distance_m": 0.6,
+      "velocity_mps": 20.4
+    }
+  ],
+  "mass_accounting": {
+    "aft_budget_parts_excluded": [
+      "fin_bonds",
+      "incremental_mount_gap_epoxy_upper_budget",
+      "retention_locking_materials_reserve"
+    ],
+    "burnout_lower_bound_aft_mass_kg": 0.44534557789995116,
+    "eligible_wholly_aft_part_mass_before_growth_kg": 0.4578455778999512,
+    "excluded_body_upper_whole_part_mass_kg": 0.05603234701199932,
+    "full_growth_allowance_kg": 0.05,
+    "full_loaded_lower_bound_aft_mass_kg": 0.5078455778999512,
+    "growth_location_m": 1.212,
+    "loaded_motor_part_mass_kg": 0.1282,
+    "mass_rule": "Include only parts whose saved station start is at/after 0.50 m and whose saved CAD role is not distributed_budget; use geometry.length_m or bbox_m[0] as extent; no straddling component is counted wholly aft. Add the explicit 50 g growth allowance at 1.212 m. Burnout subtracts the recorded 62.5 g propellant depletion from the aft motor mass.",
+    "motor_propellant_depletion_kg": 0.0625,
+    "straddling_parts_excluded": [
+      "body_upper"
+    ]
+  },
+  "part_ledger": [
+    {
+      "axial_extent_basis_m": 0.14,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "length_m": 0.14,
+        "radius_m": 0.033,
+        "shape": "ogive",
+        "shoulder_length_m": 0.03,
+        "wall_m": 0.0012
+      },
+      "id": "nose_cone",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.033017273687055475,
+      "material": "ASA",
+      "parent_reference_not_attachment_proof": null,
+      "station_end_m": 0.14,
+      "station_start_m": 0.0
+    },
+    {
+      "axial_extent_basis_m": 0.778,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "straddles_cut_excluded",
+      "geometry": {
+        "inner_radius_m": 0.0325,
+        "length_m": 0.778,
+        "radius_m": 0.033,
+        "wall_m": 0.0005
+      },
+      "id": "body_upper",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.05603234701199932,
+      "material": "cardboard",
+      "parent_reference_not_attachment_proof": "nose_cone",
+      "station_end_m": 0.918,
+      "station_start_m": 0.14
+    },
+    {
+      "axial_extent_basis_m": 0.104,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0305,
+        "length_m": 0.104,
+        "radius_m": 0.032,
+        "wall_m": 0.0015
+      },
+      "id": "interface_coupler",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.02106733049353741,
+      "material": "cardboard",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.9720000000000001,
+      "station_start_m": 0.8680000000000001
+    },
+    {
+      "axial_extent_basis_m": 0.21,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "length_m": 0.21,
+        "radius_m": 0.026
+      },
+      "id": "avionics_bay",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.00904460569417429,
+      "material": "ASA",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.44999999999999996,
+      "station_start_m": 0.24
+    },
+    {
+      "axial_extent_basis_m": 0.005,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "length_m": 0.005,
+        "radius_m": 0.0323
+      },
+      "id": "recovery_bulkhead",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.0302337452203521,
+      "material": "G11",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.23,
+      "station_start_m": 0.225
+    },
+    {
+      "axial_extent_basis_m": 0.015,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "length_m": 0.015,
+        "radius_m": 0.004
+      },
+      "id": "recovery_anchor",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.004,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.22999999999999998,
+      "station_start_m": 0.215
+    },
+    {
+      "axial_extent_basis_m": 0.055,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "soft_stowage",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.055,
+          0.04,
+          0.04
+        ]
+      },
+      "id": "parachute",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0516,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.205,
+      "station_start_m": 0.15
+    },
+    {
+      "axial_extent_basis_m": 0.014,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "soft_stowage",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.014,
+          0.04,
+          0.015
+        ]
+      },
+      "id": "shock_cord",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.01,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.219,
+      "station_start_m": 0.205
+    },
+    {
+      "axial_extent_basis_m": 0.01,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "soft_stowage",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.01,
+          0.04,
+          0.012
+        ]
+      },
+      "id": "recovery_protection",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.006,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.215,
+      "station_start_m": 0.205
+    },
+    {
+      "axial_extent_basis_m": 0.0381,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0381,
+          0.02032,
+          0.0016
+        ]
+      },
+      "id": "independent_recovery",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.003,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.4181,
+      "station_start_m": 0.38
+    },
+    {
+      "axial_extent_basis_m": 0.02,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.02,
+          0.02,
+          0.01
+        ]
+      },
+      "id": "micro_sd",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.003,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.42500000000000004,
+      "station_start_m": 0.405
+    },
+    {
+      "axial_extent_basis_m": 0.12,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "distributed_budget",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.12,
+          0.01,
+          0.004
+        ]
+      },
+      "id": "adhesive_finish",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.012,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.42,
+      "station_start_m": 0.3
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.039
+      },
+      "id": "rail_guides",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.0006229991634585588,
+      "material": "ASA",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.45,
+      "station_start_m": 0.25
+    },
+    {
+      "axial_extent_basis_m": 0.061,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.061,
+          0.018,
+          0.006
+        ]
+      },
+      "id": "flight_computer",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.012,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.306,
+      "station_start_m": 0.245
+    },
+    {
+      "axial_extent_basis_m": 0.02,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.02,
+          0.015,
+          0.004
+        ]
+      },
+      "id": "imu",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.002,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.335,
+      "station_start_m": 0.315
+    },
+    {
+      "axial_extent_basis_m": 0.015,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.015,
+          0.012,
+          0.003
+        ]
+      },
+      "id": "baro",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.001,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.333,
+      "station_start_m": 0.318
+    },
+    {
+      "axial_extent_basis_m": 0.055,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.055,
+          0.03,
+          0.015
+        ]
+      },
+      "id": "battery",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.03,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.3,
+      "station_start_m": 0.245
+    },
+    {
+      "axial_extent_basis_m": 0.025,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.025,
+          0.018,
+          0.008
+        ]
+      },
+      "id": "regulator_5v",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.008,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.43000000000000005,
+      "station_start_m": 0.405
+    },
+    {
+      "axial_extent_basis_m": 0.02,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.02,
+          0.015,
+          0.005
+        ]
+      },
+      "id": "pyro_mosfet",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.003,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.45,
+      "station_start_m": 0.43
+    },
+    {
+      "axial_extent_basis_m": 0.012,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.012,
+          0.008,
+          0.01
+        ]
+      },
+      "id": "arming_switch",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.003,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.447,
+      "station_start_m": 0.435
+    },
+    {
+      "axial_extent_basis_m": 0.1,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "distributed_budget",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.1,
+          0.01,
+          0.005
+        ]
+      },
+      "id": "harness",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.012,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.43500000000000005,
+      "station_start_m": 0.335
+    },
+    {
+      "axial_extent_basis_m": 0.029,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.03205,
+        "length_m": 0.029,
+        "radius_m": 0.0332
+      },
+      "id": "joint_stop",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.0013192554674232185,
+      "material": "ASA",
+      "parent_reference_not_attachment_proof": "interface_coupler",
+      "station_end_m": 0.9470000000000001,
+      "station_start_m": 0.918
+    },
+    {
+      "axial_extent_basis_m": 0.0256,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0256,
+          0.0177,
+          0.0046
+        ]
+      },
+      "id": "high_g_accel",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.001,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.3706,
+      "station_start_m": 0.345
+    },
+    {
+      "axial_extent_basis_m": 0.03,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.03,
+          0.015,
+          0.004
+        ]
+      },
+      "id": "recovery_battery",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0036,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.363,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.028575,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.028575,
+          0.015875,
+          0.0127
+        ]
+      },
+      "id": "recovery_power_switch",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0037,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.48428750000000004,
+      "station_start_m": 0.4557125
+    },
+    {
+      "axial_extent_basis_m": 0.08,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "distributed_budget",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.08,
+          0.004,
+          0.003
+        ]
+      },
+      "id": "recovery_output_harness",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.004,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.46,
+      "station_start_m": 0.38
+    },
+    {
+      "axial_extent_basis_m": 0.278,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0325,
+        "length_m": 0.278,
+        "radius_m": 0.033,
+        "wall_m": 0.0005
+      },
+      "id": "aft_shell",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.01925374538364414,
+      "material": "cardboard",
+      "parent_reference_not_attachment_proof": "interface_coupler",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 0.922
+    },
+    {
+      "axial_extent_basis_m": 0.012,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "bbox_m": [
+          0.012,
+          0.01,
+          0.006
+        ]
+      },
+      "id": "aft_interface_hardware",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.006,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 0.9470000000000001,
+      "station_start_m": 0.935
+    },
+    {
+      "axial_extent_basis_m": 0.128,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0147,
+        "length_m": 0.128,
+        "radius_m": 0.0151
+      },
+      "id": "motor_liner",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.010065964454996504,
+      "material": "mica",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 1.072
+    },
+    {
+      "axial_extent_basis_m": 0.018,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.012,
+        "length_m": 0.018,
+        "radius_m": 0.032
+      },
+      "id": "retention",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.04292932739783429,
+      "material": "G11",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.078,
+      "station_start_m": 1.06
+    },
+    {
+      "axial_extent_basis_m": 0.128,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "diameter_m": 0.029,
+        "length_m": 0.128,
+        "radius_m": 0.0145
+      },
+      "id": "motor",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.1282,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 1.072
+    },
+    {
+      "axial_extent_basis_m": 0.12,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "count": 3,
+        "length_m": 0.12,
+        "radius_m": 0.033,
+        "root_chord_m": 0.12,
+        "span_m": 0.07,
+        "sweep_m": 0.0,
+        "thickness_m": 0.00635,
+        "tip_chord_m": 0.12
+      },
+      "id": "fin_set",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.1316238690174014,
+      "material": "plywood",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 1.08
+    },
+    {
+      "axial_extent_basis_m": 0.08,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "distributed_budget",
+      "cut_classification": "aft_budget_excluded_no_itemized_solid",
+      "geometry": {
+        "bbox_m": [
+          0.08,
+          0.006,
+          0.004
+        ]
+      },
+      "id": "fin_bonds",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.008,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.1500000000000001,
+      "station_start_m": 1.07
+    },
+    {
+      "axial_extent_basis_m": 0.128,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0151,
+        "length_m": 0.128,
+        "radius_m": 0.01512
+      },
+      "id": "motor_radiant_shield",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.0006562178841010795,
+      "material": "aluminum",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 1.072
+    },
+    {
+      "axial_extent_basis_m": 0.003,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0125,
+        "length_m": 0.003,
+        "radius_m": 0.0142
+      },
+      "id": "thrust_pads",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.00029932937844339547,
+      "material": "mica",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.072,
+      "station_start_m": 1.0690000000000002
+    },
+    {
+      "axial_extent_basis_m": 0.004,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.012,
+        "length_m": 0.004,
+        "radius_m": 0.032
+      },
+      "id": "aft_retainer",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.020256493058707727,
+      "material": "G11",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.207,
+      "station_start_m": 1.203
+    },
+    {
+      "axial_extent_basis_m": 0.003,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0125,
+        "length_m": 0.003,
+        "radius_m": 0.0142
+      },
+      "id": "aft_thrust_pads",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.00029932937844339547,
+      "material": "mica",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.203,
+      "station_start_m": 1.2000000000000002
+    },
+    {
+      "axial_extent_basis_m": 0.19000000000000017,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "distributed_budget",
+      "cut_classification": "aft_budget_excluded_no_itemized_solid",
+      "geometry": {
+        "inner_radius_m": 0.0322,
+        "length_m": 0.19000000000000017,
+        "radius_m": 0.0323
+      },
+      "id": "incremental_mount_gap_epoxy_upper_budget",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.004620026156369208,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.0381,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0381,
+          0.02032,
+          0.0044
+        ]
+      },
+      "id": "recovery_easymini_components",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0035,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "independent_recovery",
+      "station_end_m": 0.4181,
+      "station_start_m": 0.38
+    },
+    {
+      "axial_extent_basis_m": 0.03,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.03,
+          0.03,
+          0.0016
+        ]
+      },
+      "id": "recovery_switch_g11_doubler",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0020781194772935183,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.485,
+      "station_start_m": 0.455
+    },
+    {
+      "axial_extent_basis_m": 0.092,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.092,
+          0.026,
+          0.001
+        ]
+      },
+      "id": "recovery_mount_carrier",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.004297337178998893,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.42500000000000004,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.0315,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0315,
+          0.0175,
+          0.0048
+        ]
+      },
+      "id": "recovery_battery_tray",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0006636675,
+      "material": "ASA",
+      "parent_reference_not_attachment_proof": "recovery_mount_carrier",
+      "station_end_m": 0.36450000000000005,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.008,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "soft_stowage",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.008,
+          0.0003,
+          0.0008
+        ]
+      },
+      "id": "recovery_battery_band",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00035,
+      "material": "nylon",
+      "parent_reference_not_attachment_proof": "recovery_battery_tray",
+      "station_end_m": 0.341,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.0381,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0381,
+          0.01397,
+          0.0064
+        ]
+      },
+      "id": "recovery_standoffs",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0001066507874040663,
+      "material": "nylon",
+      "parent_reference_not_attachment_proof": "recovery_mount_carrier",
+      "station_end_m": 0.4181,
+      "station_start_m": 0.38
+    },
+    {
+      "axial_extent_basis_m": 0.0381,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0381,
+          0.0055,
+          0.015
+        ]
+      },
+      "id": "recovery_fasteners",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0006832587030439369,
+      "material": "nylon",
+      "parent_reference_not_attachment_proof": "independent_recovery",
+      "station_end_m": 0.4181,
+      "station_start_m": 0.38
+    },
+    {
+      "axial_extent_basis_m": 0.0381,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.0381,
+          0.01397,
+          0.0024
+        ]
+      },
+      "id": "recovery_nuts",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0002451710517871839,
+      "material": "nylon",
+      "parent_reference_not_attachment_proof": "recovery_mount_carrier",
+      "station_end_m": 0.4181,
+      "station_start_m": 0.38
+    },
+    {
+      "axial_extent_basis_m": 0.092,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.092,
+          0.0046,
+          0.014
+        ]
+      },
+      "id": "recovery_sled_fasteners",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0006357860964555416,
+      "material": "nylon",
+      "parent_reference_not_attachment_proof": "recovery_mount_carrier",
+      "station_end_m": 0.42500000000000004,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.092,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.092,
+          0.0045,
+          0.002
+        ]
+      },
+      "id": "recovery_sled_nuts",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0001944762019057032,
+      "material": "nylon",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.42500000000000004,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.069,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "manufactured",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.069,
+          0.029,
+          0.001
+        ]
+      },
+      "id": "recovery_sled_reinforcement",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0003713487113213489,
+      "material": "ASA",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.425,
+      "station_start_m": 0.356
+    },
+    {
+      "axial_extent_basis_m": 0.086,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "distributed_budget",
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.086,
+          0.002,
+          0.002
+        ]
+      },
+      "id": "recovery_mount_hardware_allowance",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.003139321735486285,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "avionics_bay",
+      "station_end_m": 0.41900000000000004,
+      "station_start_m": 0.333
+    },
+    {
+      "axial_extent_basis_m": 0.19000000000000017,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "inner_radius_m": 0.0158,
+        "length_m": 0.19000000000000017,
+        "radius_m": 0.0322
+      },
+      "id": "motor_mount",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.035296783665463856,
+      "material": "plywood",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.2000000000000002,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_guide_0",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.0017171369863605355,
+      "material": "plywood",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_guide_1",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.001717136986360536,
+      "material": "plywood",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_guide_2",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.001717136986360536,
+      "material": "plywood",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_keeper",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.015409674768023069,
+      "material": "G11",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "manufactured",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_bridge",
+      "mass_basis": "volume_density",
+      "mass_kg": 0.01017684659284994,
+      "material": "G11",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_screw_0",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00211,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_screw_1",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00211,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_screw_2",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00211,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_nut_0",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00038,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_nut_1",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00038,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_nut_2",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00038,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_washer_0",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00035,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_washer_1",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00035,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m3_washer_2",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00035,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m2_screw_0",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0003,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m2_screw_1",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0003,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m2_screw_2",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.0003,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m2_nut_0",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00014000000000000001,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m2_nut_1",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00014000000000000001,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.2,
+      "axial_extent_source": "geometry.length_m",
+      "cad_role": "purchased_envelope",
+      "cut_classification": "included_wholly_aft",
+      "geometry": {
+        "length_m": 0.2,
+        "radius_m": 0.033
+      },
+      "id": "service_m2_nut_2",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.00014000000000000001,
+      "material": "stainless_steel_A2",
+      "parent_reference_not_attachment_proof": "motor_mount",
+      "station_end_m": 1.21,
+      "station_start_m": 1.01
+    },
+    {
+      "axial_extent_basis_m": 0.01,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": "distributed_budget",
+      "cut_classification": "aft_budget_excluded_no_itemized_solid",
+      "geometry": {
+        "bbox_m": [
+          0.01,
+          0.01,
+          0.01
+        ]
+      },
+      "id": "retention_locking_materials_reserve",
+      "mass_basis": "supplied_or_estimated",
+      "mass_kg": 0.001,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "aft_shell",
+      "station_end_m": 1.19,
+      "station_start_m": 1.18
+    },
+    {
+      "axial_extent_basis_m": 0.055,
+      "axial_extent_source": "geometry.bbox_m[0]",
+      "cad_role": null,
+      "cut_classification": "wholly_forward",
+      "geometry": {
+        "bbox_m": [
+          0.055,
+          0.04,
+          0.04
+        ]
+      },
+      "id": "canopy_line_connector_sensitivity",
+      "mass_basis": "estimated_no_CAD_role",
+      "mass_kg": 0.005,
+      "material": "commercial",
+      "parent_reference_not_attachment_proof": "body_upper",
+      "station_end_m": 0.205,
+      "station_start_m": 0.15
+    }
+  ],
+  "prior_load_path_intake": {
+    "candidate_correction_direction": "Review a small radiused G11 or plywood loop integrated with a local annular spreader bonded to the body tube, plus an explicitly specified sewn cord loop; custom candidate only, no capacity/adoption.",
+    "candidate_identities": {
+      "flight_ready": false,
+      "stage3_corrected_plus5g_sensitivity": "6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4",
+      "stage3_corrected_yaml_sha256": "8dfac23cf7fb41d7a24736b264fcc6203896e0cf6526bcee33a2f71165c0e231",
+      "stage3_nominal": "f7b8af96f50ce96d6091f1da177198eb82a0797e42cb6874d98d5b5d7e6a8899",
+      "staged72_candidate": "90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc",
+      "staged_acceptance": false,
+      "staged_base52": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009"
+    },
+    "first_unclosed_structural_connection": "G11 recovery bulkhead to 0.5 mm cardboard body_upper tube: hierarchy/placement only, with no specified adhesive bond line or demonstrated load transfer.",
+    "formula": "F_DF3 = 3*m*(v^2/(2*s)+9.80665)",
+    "limitations": [
+      "No opening-shock multiplier or dynamic transient modeled.",
+      "20.4 m/s is archived off-nominal delay probe, not approved.",
+      "No connection capacity or proof-load claim.",
+      "Aft motor-retention STEP/FEA is not recovery anchor evidence.",
+      "No G12 or prior motor/fin evidence credited.",
+      "No CAD, solver, test, browser, or physical work performed."
+    ],
+    "load_demands_N": [
+      {
+        "force_N": 120.769019,
+        "mass_basis": "corrected6b_burnout",
+        "mass_kg": 0.7820817122770564,
+        "stopping_distance_m": 0.3,
+        "velocity_mps": 5.0
+      },
+      {
+        "force_N": 71.888912,
+        "mass_basis": "corrected6b_burnout",
+        "mass_kg": 0.7820817122770564,
+        "stopping_distance_m": 0.6,
+        "velocity_mps": 5.0
+      },
+      {
+        "force_N": 1650.364432,
+        "mass_basis": "corrected6b_burnout",
+        "mass_kg": 0.7820817122770564,
+        "stopping_distance_m": 0.3,
+        "velocity_mps": 20.4
+      },
+      {
+        "force_N": 836.686618,
+        "mass_basis": "corrected6b_burnout",
+        "mass_kg": 0.7820817122770564,
+        "stopping_distance_m": 0.6,
+        "velocity_mps": 20.4
+      },
+      {
+        "force_N": 130.420266,
+        "mass_basis": "corrected6b_full_loaded",
+        "mass_kg": 0.8445817122770564,
+        "stopping_distance_m": 0.3,
+        "velocity_mps": 5.0
+      },
+      {
+        "force_N": 77.633909,
+        "mass_basis": "corrected6b_full_loaded",
+        "mass_kg": 0.8445817122770564,
+        "stopping_distance_m": 0.6,
+        "velocity_mps": 5.0
+      },
+      {
+        "force_N": 1782.253179,
+        "mass_basis": "corrected6b_full_loaded",
+        "mass_kg": 0.8445817122770564,
+        "stopping_distance_m": 0.3,
+        "velocity_mps": 20.4
+      },
+      {
+        "force_N": 903.550365,
+        "mass_basis": "corrected6b_full_loaded",
+        "mass_kg": 0.8445817122770564,
+        "stopping_distance_m": 0.6,
+        "velocity_mps": 20.4
+      }
+    ],
+    "mass_basis_kg": {
+      "corrected6b_burnout_including_50g_growth_and_plus5g_sensitivity": 0.7820817122770564,
+      "corrected6b_full_loaded_including_50g_growth_and_plus5g_sensitivity": 0.8445817122770564,
+      "stage3_nominal_burnout_before_50g": 0.7270817122770563,
+      "stage3_nominal_loaded_before_50g": 0.7895817122770563
+    },
+    "source_hashes": {
+      "aft_motor_bridge_step": {
+        "path": "build/wo03-g80-keeper-service-v1/bridge.step",
+        "relevance": "aft motor retention only; not recovery anchor/bulkhead/tube assembly",
+        "sha256": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed"
+      },
+      "aft_motor_mount_step": {
+        "path": "build/wo03-g80-keeper-service-v1/modified_mount.step",
+        "relevance": "aft motor retention only; not recovery anchor/bulkhead/tube assembly",
+        "sha256": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14"
+      },
+      "cad_parts_source": {
+        "path": "src/cad/parts.py",
+        "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+      },
+      "engineering_load_config": {
+        "path": "configs/engineering/wo03.yaml",
+        "sha256": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678"
+      },
+      "recovery_integration_driver": {
+        "path": "scripts/wo03_recovery_integration.py",
+        "sha256": "041d53aee7bae97f757d8d18fd3cc1bf02f54a93ec052a474b6ab8babcc84820"
+      },
+      "recovery_integration_screen": {
+        "path": "docs/wo03-recovery-integration.md",
+        "sha256": "f0ff1f36dbd6f40b42a5047a909fe8f6df2a5d096d1726cc5856556d4206a304"
+      },
+      "retention_integration_config": {
+        "path": "configs/studies/wo03-g80-retention-integration.yaml",
+        "sha256": "e12a98231966d3f35cf09544ddd5d22dc9914a111fcb2d58e64102eb793a7648"
+      },
+      "run_staged_record": {
+        "path": "runs/wo03-g80-staged-retention-20261101-v1/record.json",
+        "sha256": "3d676c894f7200efb8147212a3ee3e3edbcfbcf01c209b51d7086c9151e38c40"
+      },
+      "stage3_equivalence": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/equivalence.json",
+        "sha256": "eba53aa8fdf37ab1a6211ed2a72436d907e9f6d5f33b8cad66ed7d941d49fe4f"
+      },
+      "stage3_flight_result": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/flight-result.json",
+        "sha256": "35f0e1ed47516b5f7c5dc4f9426f3aec88b65c7173cc5ffbcc535bda87bd08b7"
+      },
+      "stage3_identities": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/identities.json",
+        "sha256": "6ad83079061aa1c250c8b924cc725f133a92f3f8c6d8f0312fb7cba315bf3054"
+      },
+      "stage3_nominal_yaml": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/nominal.yaml",
+        "sha256": "a9b7abebe355cacbefc5579f053ffe022c5b3138a4e033634c58446d7176df8f"
+      },
+      "stage3_results_report": {
+        "path": "docs/wo03-g80-canopy-stage3-results.md",
+        "sha256": "9b6eb379c966d0ab0c9bfb3e2db20b100df20277ca2a16b4ebcbd6d60c8990d5"
+      },
+      "stage3_sensitivity_yaml": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml",
+        "sha256": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967"
+      },
+      "stage3_static_result": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/static-result.json",
+        "sha256": "44eafb0fab71e454aa1d08a99a710262009971efb90e095207956ea1ea6f842d"
+      },
+      "staged_candidate_yaml": {
+        "path": "runs/wo03-g80-staged-retention-20261101-v1/resolved-candidate.yaml",
+        "sha256": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a"
+      },
+      "staged_g80_generator": {
+        "path": "runs/wo03-g80-staged-retention-20261101-v1/staged-g80-service-parts.py",
+        "sha256": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff"
+      },
+      "staged_results_report": {
+        "path": "docs/wo03-g80-staged-retention-results.md",
+        "sha256": "b75b2561b6963655284d6dc2233397969e3337eaf29e8b46a7519c27382b4c98"
+      }
+    },
+    "status": "read_only_load_path_intake_not_qualified",
+    "upstream_unclosed_interfaces": [
+      "parachute-to-shock-cord endpoint and cord length/termination",
+      "shock-cord-to-eye attachment",
+      "eye/hardware make, capture/locking, and installation"
+    ]
+  },
+  "source_hashes": {
+    ".cache/wo03-g80-recovery-path-intake.json": "f5020e6148df2193d975a8433e8e83bc25c99214929570e8d24e636293c43f80",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-g80-retention-integration.yaml": "e12a98231966d3f35cf09544ddd5d22dc9914a111fcb2d58e64102eb793a7648",
+    "docs/wo03-g80-recovery-path-intake.md": "46b310cfdd8fbb62135dcbcf02500e42b9d6d470cd2c6877bcec762e849f9bc1",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/equivalence.json": "eba53aa8fdf37ab1a6211ed2a72436d907e9f6d5f33b8cad66ed7d941d49fe4f",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/flight-result.json": "35f0e1ed47516b5f7c5dc4f9426f3aec88b65c7173cc5ffbcc535bda87bd08b7",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/identities.json": "6ad83079061aa1c250c8b924cc725f133a92f3f8c6d8f0312fb7cba315bf3054",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/static-result.json": "44eafb0fab71e454aa1d08a99a710262009971efb90e095207956ea1ea6f842d",
+    "runs/wo03-g80-staged-retention-20261101-v1/record.json": "3d676c894f7200efb8147212a3ee3e3edbcfbcf01c209b51d7086c9151e38c40",
+    "runs/wo03-g80-staged-retention-20261101-v1/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e"
+  },
+  "source_spec": "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml; sensitivity arrays unchanged by 6b correction per equivalence.json; 5 g line/connector sensitivity at station 0.15 m remains forward of cut.",
+  "status": "read_only_lower_bound_serial_tube_screen_not_qualified",
+  "strength_screen": {
+    "basis": "Estimated kraft strength/stiffness; humidity, local bearing and adhesive dominate; not a supplier allowable; provisional substrate screen only",
+    "comparison": "If the serial body wall alone carries the cut demand, factored gross annular stress is below 2 MPa for 5 m/s cases and above 2 MPa for 20.4 m/s cases. This is a screening comparison, not a capacity or failure claim.",
+    "configured_strength_pa": 2000000.0,
+    "material": "cardboard/kraft",
+    "source": "configs/engineering/wo03.yaml materials.cardboard.strength_pa",
+    "temperature_limit_C": 45.0
+  }
+}

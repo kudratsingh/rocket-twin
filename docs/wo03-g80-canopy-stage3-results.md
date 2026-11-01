@@ -1,0 +1,26 @@
+# G80 canopy Stage 3 screening — 2026-11-01
+
+The five isolated canopy simulations meet the existing **6 m/s vertical descent screen**, with 5.049–5.849 m/s sampled downward speeds. This is model evidence under an unmeasured canopy drag assumption, not recovery qualification or design adoption. Two windy cases exceed 6 m/s **total ground speed**, an additional impact diagnostic, not the vertical requirement. The baseline 72-part source and prior Stage 2 results remain unchanged.
+
+| Case | Downward m/s | Total ground m/s | Guide exit m/s |
+| --- | ---: | ---: | ---: |
+| Nominal calm | 5.049 | 5.050 | 18.906 |
+| Full growth, low thrust/high drag | 5.237 | 5.237 | 16.366 |
+| Full growth, 3 m/s east wind | 5.138 | 6.027 | 18.086 |
+| Full growth, low canopy CdA | 5.849 | 5.850 | 18.088 |
+| Full growth, wind and low canopy CdA | 5.713 | 6.553 | 18.086 |
+
+Values are last pre-landed 5 ms samples. All guide speeds exceed the 15 m/s screen on the assumed 1.5 m guide. Nominal JAX/RocketPy apogee and time differ by 0.00352% and 0.00792%, respectively, within 5%; this does not independently validate recovery or wind. Independent static RocketPy comparison passes for both specimens; the full-growth loaded/burnout margins are 1.361/1.751 calibres for nominal and 1.419/1.810 for the 5 g sensitivity. The sensitivity's existing general `all_parts_have_build_and_cost` check is **false** because its extra allowance has no assigned build/cost; preserve that finding rather than treating the whole package as passed.
+
+The nominal schema identity is `f7b8af96f50ce96d6091f1da177198eb82a0797e42cb6874d98d5b5d7e6a8899`; the 73-part sensitivity identity is `2fb4790f107b20fa51af8f0f8af897b2a2e348262ce69dd820691976ee35975b`. The 5 g line/connector allowance is a separate estimated part, not a supplier bound or locking reserve. Its mathematical mass distribution reuses the old canopy envelope; neither packed shape nor CAD mass was established. Full 50 g growth at 1212 mm remains independent and is added once. Low CdA is an illustrative 0.8 factor, not a confidence bound. The product's Cd, mass inclusion, packed fit, lines, attachment, opening loads and recovery anchor remain unverified; existing structural, thermal and three recovery-overlap findings remain open.
+
+[Compact record, source, configurations and full tensors](../runs/wo03-g80-canopy-stage3-20261101-v1/) retain the before/after hashes and read-only Stage 2 vertical audit. Static and flight workers completed in 14.38 and 17.91 s measured worker wall, with 1.81 and 7.85 s worker CPU and peak worker RSS 172 and 436 MB. Guarded wall caps were 60/120 s and RSS cap 2 GiB; hard per-process CPU caps were 60/120 s, with 30 s setup reserved and one worker requested. The nominal 210 CPU-second planning total is a reservation, **not a measured aggregate**: cumulative descendant CPU was not independently measured. No OS affinity is claimed. Source hashes were unchanged. The recorded static/flight logs and raw guard samples remain local in the isolated build output. No CAD, FEA, thermal calculation, physical work or purchase occurred.
+
+## Metadata-only sensitivity correction
+
+The historical sensitivity run above remains identity `2fb4790f…ee35975b`, and its build-and-cost check remains false. A separate schema-validated copy adds only the 5 g allowance's `build` and `learn` metadata; identity `6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4` is **not** an independently flown or statically benchmarked case. Its zero cost is an unpriced schema placeholder, not a free part; it is a mass allocation, not a defined physical component. The corrected copy has build metadata for every part, but that fact does not certify cost or construction.
+
+With the original staged CAD revision and all pinned Stage 3 sources unchanged, the existing `prepare` builder produced bitwise-identical 64-bit arrays in all four sensitivity cases, including motor, mass, inertia, aerodynamic and recovery inputs. Loaded and burnout mass, CG, full tensor and part budgets are identical. The fifth, nominal case used the unchanged nominal spec. The original input diff consists only of those two metadata fields; case settings are unchanged. This establishes scoped numerical-input equivalence, not new performance evidence. First an initial comparison accidentally used JAX's default 32-bit mode; it is preserved as a separate preliminary record and not used as proof of the as-run 64-bit equivalence. The corrected 64-bit comparison used 0.452 CPU seconds (initial 32-bit comparison 0.515 seconds); no flight, static benchmark, CAD or native analysis was rerun. One CPU was requested; aggregate CPU and affinity were not established.
+
+
+The Stage 3 worker held trajectory telemetry in memory but did not save it. The retained evidence contains metrics, exact inputs and the last pre-landed velocity sample; full trajectories are unavailable for replay or a guide-row audit. Earlier Stage 2 telemetry belongs to a different candidate and cannot substitute. A future engineering driver should retain its telemetry. Source inspection shows the worker imports `src.sim.env` before calling `prepare`; that module enables JAX 64-bit mode. This is source-supported evidence, not a recorded runtime configuration probe. No run was repeated for this clarification.

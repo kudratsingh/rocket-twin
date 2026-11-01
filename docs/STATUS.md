@@ -28,6 +28,29 @@ thermal acceptance and the three recovery overlaps. The
 [closure table](wo03-g80-current-closure.md) keep these design failures separate
 from later physical qualification. Active vehicle/preview assets are unchanged.
 
+[PR #33](https://github.com/kudratsingh/rocket-twin/pull/33) publishes the
+isolated72-part package. Both required jobs passed in run41294021497 before
+merge; those repository checks do not close the recorded engineering findings.
+
+**Recovery correction study, not adopted:** one larger commercial canopy
+candidate now passes all five modeled6m/s vertical-descent screens, including
+an illustrative20% lower drag-area sensitivity. The complete package retains
+full50g growth and a separate5g line/connector allocation:844.582g, growth
+loaded margin1.419cal; minimum guide16.366m/s. Supplier drag and packed size
+are unverified, and wind impact diagnostics remain adverse. A metadata-only
+copy corrects the allocation's missing build entry with bitwise identical
+simulator inputs; the original failed check remains preserved. Stage3 retained
+metrics/landing samples but not full replay telemetry. See
+[results](wo03-g80-canopy-stage3-results.md).
+
+The [recovery-path audit](wo03-g80-recovery-path-intake.md) and
+[plain-body axial screen](wo03-g80-recovery-axial-screen.md) identify a further
+design blocker: the paper upper tube alone crosses the selected cut, and the
+existing off-nominal opening demands exceed its estimated strength screen.
+A local forward spreader alone does not bypass that serial path. Lightweight
+continuous-tether versus body-reinforcement alternatives are being assessed;
+no connection capacity, physical failure prediction or adoption is claimed.
+
 **Controlled thermal-tool decision, complete:** the three classic Elmer A
 cases agree with the preserved vectorized fields within 5.4e-12 K. Both fail
 the unchanged exact-field check; switching implementations is rejected as a

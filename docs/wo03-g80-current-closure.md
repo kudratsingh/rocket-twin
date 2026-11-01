@@ -15,6 +15,24 @@ must not supply strength, fit or recovery acceptance for changed parts.
 | Installed fin/root/flutter and thermal design unclosed | Preserve exact geometry/source identities and failed/unavailable states | No new installed-root/flutter or thermal pass; Elmer implementation switching does not resolve exact-field failures | [Fin intake](wo03-g80-installed-fin-intake.md), [thermal decision](wo03-elmer-campaign-decision.md) | Applicable installed analysis, qualified heat method/useful bounds, unchanged required cases/45°C screen, and owner coupon/hot-load/modal/temperature measurements. |
 | Recovery packaging had excluded positive overlaps | Retain the complete package rather than silently deleting contact-envelope conflicts | Three earlier overlaps remain unresolved; supplier canopy/switch updates are studies only | [Integration report](wo03-g80-staged-retention-results.md) | Actual hardware envelopes, load path, arming/tool access, routing/strain relief and extraction must close before adoption. |
 
+## Subsequent canopy screening, not adopted
+
+The [five-case canopy study](wo03-g80-canopy-stage3-results.md) replaces the
+35 g placeholder once with the supplier-listed 51.6 g Apogee 29095. It retains
+the full 50 g allowance and separately evaluates another estimated 5 g of
+line/connector allocation. Full-growth mass is 839.582 g, or 844.582 g with
+that allocation; growth loaded margins are 1.361/1.419 calibres. Nominal
+modeled apogee is 613.213 m. The 0.75 drag coefficient and old packed envelope
+are explicitly unverified inputs, not supplier performance or packing evidence.
+
+| Issue | Correction or disposition | Criterion / result | Evidence / remaining verification |
+| --- | --- | --- | --- |
+| Previous canopy misses vertical descent target in three cases | Screen larger supplier canopy and illustrative 20% lower drag-area sensitivity | All five sampled vertical speeds 5.049–5.849 m/s ≤6; all guide speeds ≥16.366 m/s vs15 | [Same-package results](wo03-g80-canopy-stage3-results.md); drag-area range is not a validated uncertainty bound. Actual drag, mass inclusion, packing/extraction and opening loads remain open. |
+| Horizontal wind adds impact energy | Keep vertical target separate from total ground-speed diagnostic | Windy total speeds 6.027/6.553 m/s exceed6 while vertical speeds pass | No criterion is silently changed. Site wind, drift/landing loads and recovery dynamics remain unvalidated. |
+| Extra 5 g part lacks build/cost metadata | Preserve failed as-run check, create explicitly unpriced metadata-only copy | All20 shared simulator-input arrays bitwise equal in four sensitivity cases, plus mass/CG/full-tensor equality | This is scoped input equivalence, not a rerun or retroactive claim that the original build/cost check passed; actual supplier cost and hardware remain unresolved. |
+| Recovery force could pull the long body apart | Trace complete path and evaluate a plain upper-tube cut | Current off-nominal load cases exceed the estimated paper strength screen; a local spreader cannot bypass the serial tube cut | [Load-path intake](wo03-g80-recovery-path-intake.md), [axial screen](wo03-g80-recovery-axial-screen.md). Cord endpoints, continuous load path, nose/aft retention and component restraint need a correction, followed by analysis and owner proof/deployment tests. |
+| Stage3 full trajectories not retained | Preserve metrics and source inputs; report coverage honestly | Last-prelanding samples available, complete trajectory replay and guide-row audit unavailable | No automatic repeat to fill missing output. Earlier Stage2 telemetry belongs to its different candidate. Future execution must retain required outputs. |
+
 ## Historical frozen 52-part proposal
 
 The earlier selected mount and recovery packaging formed **one 52-part proposal**,
