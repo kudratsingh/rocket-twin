@@ -132,13 +132,14 @@ def _fresh_descendants(
 
 
 def _root_reaped_after_rss_esrch(
-    process: subprocess.Popen[bytes], wall_deadline: float, max_wait_s: float = 0.02
+    process: subprocess.Popen[bytes], wall_deadline: float, max_wait_s: float = 0.05
 ) -> bool:
     """Resolve only the root's ESRCH/Popen.waitpid observation race.
 
     A kernel RSS query can report ESRCH after the child has exited but before
     ``Popen.poll`` has observed and reaped its status. Wait briefly on that
-    launched root only, bounded by both 20 ms and the existing case deadline.
+    launched root only, bounded by both one normal 50 ms sampling interval and
+    the existing case deadline.
     This does not retry RSS, inspect or signal descendants, or forgive a live
     process whose RSS query continues to fail.
     """

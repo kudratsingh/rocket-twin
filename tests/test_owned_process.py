@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import errno
 import os
+import subprocess
 import sys
 import time
 
@@ -11,9 +12,38 @@ import pytest
 
 from scripts.wo03_owned_process import (
     OwnedProcessError,
+    _root_reaped_after_rss_esrch,
     darwin_process_callbacks,
     run_owned,
 )
+
+
+def test_terminal_wait_covers_one_sampling_interval_without_forgiving_live_root():
+    """An ESRCH-to-waitable gap may exceed the former 20 ms terminal grace."""
+
+    class DeferredRoot:
+        def __init__(self, waitable_after_s):
+            self.waitable_after_s = waitable_after_s
+            self.waits = []
+
+        def poll(self):
+            return None
+
+        def wait(self, timeout):
+            self.waits.append(timeout)
+            if timeout < self.waitable_after_s:
+                raise subprocess.TimeoutExpired("owned-root", timeout)
+            return 0
+
+    terminal = DeferredRoot(0.03)
+    assert _root_reaped_after_rss_esrch(terminal, time.monotonic() + 1.0)
+    assert terminal.waits == [0.05]
+    live = DeferredRoot(1.0)
+    assert not _root_reaped_after_rss_esrch(live, time.monotonic() + 1.0)
+    assert live.waits == [0.05]
+    near_deadline = DeferredRoot(1.0)
+    assert not _root_reaped_after_rss_esrch(near_deadline, time.monotonic() + 0.005)
+    assert 0 < near_deadline.waits[0] <= 0.005
 
 
 def _run_failure(argv, tmp_path, **kwargs):
