@@ -1,0 +1,17 @@
+version: wo03-g80-stage2-flight-v1
+candidate_spec: inputs/stage2/resolved-candidate.yaml
+candidate_record: inputs/stage2/stage1-record.json
+candidate_identity_field: identity
+candidate_part_count: 72
+expected_identity: 90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc
+benchmark_config: configs/wo02.yaml
+step_s: 0.005
+horizon_s: 180.0
+reference_relative_tolerance: 0.05
+growth_kg: 0.05
+growth_station_m: 1.212
+cases:
+  nominal_calm: {thrust_scale: 1.0, time_scale: 1.0, drag_scale: 1.0, added_mass_kg: 0.0, rail_friction_n: 0.0}
+  growth_low_thrust_high_drag: {thrust_scale: 0.85, time_scale: 0.95, drag_scale: 1.2, added_mass_kg: 0.05, added_mass_station_m: 1.212, rail_friction_n: 0.5}
+  growth_high_thrust: {thrust_scale: 1.15, time_scale: 1.05, drag_scale: 1.0, added_mass_kg: 0.05, added_mass_station_m: 1.212, rail_friction_n: 0.0}
+  nominal_steady_east_3mps: {thrust_scale: 1.0, time_scale: 1.0, drag_scale: 1.0, added_mass_kg: 0.0, rail_friction_n: 0.0, wind_east_mps: 3.0, gust_amplitude_mps: 0.0}
