@@ -1,0 +1,91 @@
+{
+  "status": "single_known_answer_pass_not_qualified",
+  "case": "single",
+  "original_packet_reclassified": false,
+  "equal_rerun": false,
+  "rss_scope": "supervised root process only",
+  "one_cpu_requested": true,
+  "native_status": {
+    "status": "completed",
+    "success": true,
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "-c",
+      "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(120,120));os.execv('/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver',['/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver',\"case.sif\"])"
+    ],
+    "pid": 4888,
+    "started_utc": "2026-11-01T11:20:25.958745+00:00",
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-structural-fixture-v3/single-continuation/single/solver.log",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-structural-fixture-v3/single-continuation/single/status.json",
+    "wall_limit_s": 120,
+    "rss_limit_bytes": 2147483648,
+    "returncode": 0,
+    "timed_out": false,
+    "guard_failure": null,
+    "error": null,
+    "known_descendant_pids": [],
+    "historical_descendant_checks": [],
+    "cleanup_outcomes": [],
+    "cleanup_errors": [],
+    "status_write_error": null,
+    "launch_wall_s": 0.003002749988809228,
+    "cpu_accounting": {
+      "child_user_s_delta": 0.153697,
+      "child_system_s_delta": 0.015627,
+      "supervisor_user_s_delta": 0.0005300000000000027,
+      "supervisor_system_s_delta": 0.0023940000000000003,
+      "children_rusage_sampled_after_reap": true
+    },
+    "total_wall_s": 0.1752225410018582,
+    "finished_utc": "2026-11-01T11:20:26.134072+00:00",
+    "max_sampled_root_rss_bytes": 12320768
+  },
+  "ignored_exact_unused_keyword_count": 1,
+  "unused_iterative_settings": "reported unused by direct UMFPACK; no iterative convergence claim",
+  "result": {
+    "field_names": [
+      "displacement",
+      "displacement loads"
+    ],
+    "displacement_dtype": "float64",
+    "load_dtype": "float64",
+    "VTU_sha256": "806bdbcf8674563823dd9fd3194f1da831040a92d87d44279fdbf70fa1a36e1a",
+    "max_nodal_displacement_error_m": 6.224079411587535e-15,
+    "support_reaction_N": [
+      9.320642649816218e-13,
+      2.5638666274143508e-11,
+      -149.99999999990453
+    ],
+    "force_residual_N": [
+      9.320642649816218e-13,
+      2.5638666274143508e-11,
+      9.546852197672706e-11
+    ],
+    "rounding_bound_N": [
+      8.969348492362904e-28,
+      2.2971629560035864e-27,
+      1.0658141036406351e-14
+    ],
+    "force_status": "pass",
+    "moment_residual_Nm": [
+      -5.600207797495926e-13,
+      1.1253220577600587e-12,
+      -2.2552940275596497e-13
+    ],
+    "moment_encoding_bound_Nm": [
+      1.0658141036411197e-17,
+      1.0658141036406351e-16,
+      2.3325039245574875e-29
+    ],
+    "support_node_count": 39,
+    "reaction_semantics": "native Ax-b load field hypothesis; checked by known-case equilibrium without sign flip",
+    "vtk_version": "9.6.2"
+  },
+  "source_unchanged": true,
+  "prefix_unchanged": true,
+  "generated_unchanged": true,
+  "runtime_unchanged": true,
+  "source_ledger_unchanged": true,
+  "parent_cpu_s": 1.161514,
+  "parent_peak_rss_bytes": 226770944
+}

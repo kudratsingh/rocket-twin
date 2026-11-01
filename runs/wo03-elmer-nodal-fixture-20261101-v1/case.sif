@@ -1,0 +1,112 @@
+Header
+  CHECK KEYWORDS Warn
+  Mesh DB "." "mesh"
+End
+Simulation
+  Coordinate System = Cartesian
+  Coordinate Mapping(3) = 1 2 3
+  Simulation Type = Steady State
+  Steady State Max Iterations = 1
+  Output Intervals = 1
+End
+Body 1
+  Equation = 1
+  Material = 1
+End
+Material 1
+  Youngs Modulus = Real 100000000
+  Poisson Ratio = Real 0.0
+End
+Body 2
+  Equation = 1
+  Material = 2
+End
+Material 2
+  Youngs Modulus = Real 10000000000
+  Poisson Ratio = Real 0.0
+End
+Equation 1
+  Active Solvers(2) = 1 2
+End
+Solver 1
+  Equation = Elasticity
+  Variable = String "Displacement"
+  Variable DOFs = Integer 3
+  Procedure = File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib" "StressSolver"
+  Displace Mesh = Logical False
+  Calculate Loads = Logical True
+  Calculate Boundary Fluxes = Logical True
+  Linear System Solver = Direct
+  Linear System Direct Method = UMFPACK
+  Linear System Max Iterations = 2000
+  Linear System Convergence Tolerance = 1.0e-12
+  Linear System Abort Not Converged = Logical True
+  Nonlinear System Max Iterations = Integer 1
+  Steady State Convergence Tolerance = 1.0e-12
+End
+Solver 2
+  Equation = Result Output
+  Procedure = File "ResultOutputSolve" "ResultOutputSolver"
+  Output File Name = "field"
+  Vtu Format = Logical True
+  Binary Output = Logical True
+  Single Precision = Logical False
+End
+Boundary Condition 4
+  Target Boundaries(1) = 4
+  Displacement 1 = Real 0
+  Displacement 2 = Real 0
+  Displacement 3 = Real 0
+End
+Boundary Condition 10
+  Target Nodes(1) = 9
+  Displacement 3 Load = Real 1.09801057135428e-13
+End
+Boundary Condition 11
+  Target Nodes(1) = 10
+  Displacement 3 Load = Real 1.07136521876327e-13
+End
+Boundary Condition 12
+  Target Nodes(1) = 11
+  Displacement 3 Load = Real 9.35918009759005e-14
+End
+Boundary Condition 13
+  Target Nodes(1) = 12
+  Displacement 3 Load = Real 9.7366559259626e-14
+End
+Boundary Condition 14
+  Target Nodes(1) = 60
+  Displacement 3 Load = Real 12.4999999999999
+End
+Boundary Condition 15
+  Target Nodes(1) = 67
+  Displacement 3 Load = Real 12.5
+End
+Boundary Condition 16
+  Target Nodes(1) = 71
+  Displacement 3 Load = Real 12.5
+End
+Boundary Condition 17
+  Target Nodes(1) = 72
+  Displacement 3 Load = Real 12.5
+End
+Boundary Condition 18
+  Target Nodes(1) = 243
+  Displacement 3 Load = Real 1.91818783079611e-13
+End
+Boundary Condition 19
+  Target Nodes(1) = 244
+  Displacement 3 Load = Real 24.9999999999999
+End
+Boundary Condition 20
+  Target Nodes(1) = 245
+  Displacement 3 Load = Real 24.9999999999999
+End
+Boundary Condition 21
+  Target Nodes(1) = 246
+  Displacement 3 Load = Real 24.9999999999999
+End
+Boundary Condition 22
+  Target Nodes(1) = 247
+  Displacement 3 Load = Real 24.9999999999999
+End

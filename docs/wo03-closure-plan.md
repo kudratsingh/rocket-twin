@@ -11,6 +11,24 @@ Computing budgets below are **CPU execution allowances, not delivery dates**.
 No paid compute is authorized. Known-case agreement, actual numerical accuracy,
 design acceptance and owner qualification remain separate.
 
+## Current three deliverables — 2026-11-01
+
+The original thermal campaign below is historical and closed as unqualified;
+its failed/stopped records and required acceptance cases remain in force.
+Current delivery priority follows ADR-0011, without changing WO-03 completion.
+
+| Concrete deliverable | Pass/fail criterion | Computing effort and stop decision |
+| --- | --- | --- |
+| G80 bridge input and result credibility | Preserve actual mesh/materials/connections and equilibrated load vectors; verify any new nodal-RHS path on the matching known-answer problem. Actual outputs need force/moment interpretation and reciprocity before strength credit; installed acceptance still needs three-grid convergence. | Input preparation only until primary admission. Proposed actual diagnostic: two serial120 CPU/120 wall-second cases,60 CPU setup+120 parent reserve=420 CPU seconds; one CPU requested,2 GiB per root process. Stop first invalid mapping, numerical failure or cap; diagnose once from saved data before a new declared attempt. No automatic backend switching or rerun. |
+| Complete recovery backbone/attachments and installed fin load paths | Same candidate geometry; branches positively retain nose, payload and aft mass. Show finite joints, heat/contact assumptions, packing/extraction/service and itemized mass; retain existing recovery loads, design factors,1 mm fin-tip motion and flutter/convergence criteria. A straight tether route or isolated fin panel is insufficient. | Start with source/CAD hand calculations and one bounded layout. Any native targeted analysis requires its own declared≤10 CPU-minute packet,≤120 seconds per child and applicable known-case checks. If a joint, route or mass trade fails, preserve it and choose one correction addressing the actual failure; do not claim later proof tests close a current design failure. |
+| Integrated G80 closure and usable preview handoff | One identity for all adopted parts/mass/CG/full inertia and applicable static/flight/engineering evidence; full50 g growth. Preview preserves active designs and labels the separate72-part snapshot, incompatible analysis and unsupported simulation honestly. Thermal remains open until a justified applicable method/bound passes required cases and45 °C screen. | Reuse current valid records. Run affected checks after an integrated change, not every documentation edit. Existing simulator comparison effort is separately recorded; no new thermal compute is admitted here. Stop acceptance at any design failure or missing compatible result. Host restart/browser check is distinct from automated API/build checks. |
+
+See the [structural decision](wo03-structural-solver-decision.md),
+[G80 closure table](wo03-g80-current-closure.md) and
+[decision-driving inputs](wo03-g80-decision-inputs.md).
+
+## Historical thermal-first deliverables
+
 | Next deliverable | Pass/fail criterion | Computing budget | Decision on failure |
 | --- | --- | --- | --- |
 | 1. Error-isolation packet | Test the actual 935:1 long-gap aspect ratio with independently known steady conduction/finite-wall answers, mixed prescribed boundaries and spatially varying manufactured wall inputs. Check local extrema, reservoir heat and global/local balances at three refinements. Retain existing analytic-case tolerances; approximate cases must show decreasing error and meet the existing method convergence criterion. Identify which mechanisms the tests isolate and which remain unproved. | One CPU; ≤120 s per case; ≤10 CPU min total. Existing captured-field diagnosis and stable-ledger proof are inputs, not repeated full factors. | At most two corrective trials for one identified defect. If either trial repeats the same unexplained failure, stop that implementation family, preserve it and state a different mathematical/geometry treatment to test. A passing simple case cannot qualify the actual baffle. |

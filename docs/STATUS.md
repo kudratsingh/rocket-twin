@@ -15,6 +15,17 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
+**Structural-method decision:** the two small layered-bar Elmer cases now
+individually pass all-node displacement and the unchanged strict force gate.
+The original log-classification stop remains preserved; the EQUAL result was
+assessed from saved output, and only the remaining SINGLE case was run. B1
+output precision remained insufficient and B2 failed its known displacement.
+The source-identical bridge conversion now passes its input checks after
+separating mesh-volume preservation from CAD approximation; direct nodal-RHS
+semantics also pass the separately admitted matching known-answer case. Use this bounded path; no real
+bridge strength or stiffness acceptance follows. Thermal qualification remains
+separately unresolved. See [decision](wo03-structural-solver-decision.md).
+
 **Latest integrated G80 candidate, still unadopted:** the 72-part keeper/bridge
 package now has a complete component ledger, actual CAD-derived CG/full tensor
 and same-identity static/flight results. Loaded mass772.982g plus separate50g

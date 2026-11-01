@@ -1,0 +1,18 @@
+status: prepare_only_native_disabled
+native_execution_authorized: true
+solver: .cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver
+solver_sha256: 006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e
+module: .cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib
+module_sha256: 792f1fd46d06d8b0cf05865a0492237221200fe2d20e96a5698cbf219fc14e1f
+fixture_deck: build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp
+fixture_metadata: build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json
+fixture_mesh: build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh.msh
+cases: [equal, single]
+force_tolerance_N: 0.00001
+zero_displacement_tolerance_m: 0.00000000001
+relative_axial_tolerance: 0.01
+setup_cpu_reserve_s: 60
+native_case_cpu_wall_s: 120
+parent_cpu_reserve_s: 120
+packet_cpu_ceiling_s: 600
+rss_per_process_bytes: 2147483648

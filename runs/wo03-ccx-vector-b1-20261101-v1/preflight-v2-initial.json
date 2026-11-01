@@ -1,0 +1,51 @@
+{
+  "status": "prepared_no_native_run",
+  "source_sha256_before": {
+    "fixture_deck": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "fixture_meta": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "fixture_saved_dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "actual_deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "actual_meta": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "actual_saved_dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b"
+  },
+  "source_sha256_after": {
+    "fixture_deck": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "fixture_meta": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "fixture_saved_dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "actual_deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "actual_meta": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "actual_saved_dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b"
+  },
+  "solver_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+  "outputs": {
+    "B_spooles_binary": {
+      "sha256": "945759d3f40bd36b8fb4f3ad5fa2d64a2fd62ab29639d6a8c6feb3ee14bf7ead",
+      "source_key": "fixture_deck",
+      "node_output_blocks": 2,
+      "iterative_cholesky": false
+    },
+    "B_iterative_cholesky_binary": {
+      "sha256": "94a2783e535ff7476637fbee0bc72e14322b7e2835d11e68d87733e7ad715369",
+      "source_key": "fixture_deck",
+      "node_output_blocks": 2,
+      "iterative_cholesky": true
+    },
+    "actual_iterative_cholesky_binary": {
+      "sha256": "f03d3a3b5fae33dad4db51974cedc9e6030197ccac17707aad6c82f18732501e",
+      "source_key": "actual_deck",
+      "node_output_blocks": 2,
+      "iterative_cholesky": true
+    }
+  },
+  "reader_status": "B1 reader/gates prepared, conditional on unverified installed vector format",
+  "native_execution_authorized": false,
+  "source_ledger": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_backend_diagnostic.py": "60106e9ca7c4b24fa82039a4425884e37f2bcc272f160a158607dda11468759d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-backend-diagnostic.yaml": "387c9b0a21fde7fbbee49aaa06b67eb64f3bcae61ace4e7acc910c7dd7642553",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_ccx_backend_diagnostic.py": "df4971321ced92337cb24c6cce3b36ed2f304b235a1b0044c23857ee2916f955",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v1/executed-config.yaml": "387c9b0a21fde7fbbee49aaa06b67eb64f3bcae61ace4e7acc910c7dd7642553"
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "status": "input_mapping_proposal_no_native",
+  "source_sha256_before": {
+    "source_deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "source_metadata": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "elmer_solver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    "stress_module": "792f1fd46d06d8b0cf05865a0492237221200fe2d20e96a5698cbf219fc14e1f"
+  },
+  "source_sha256_after": {
+    "source_deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "source_metadata": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "elmer_solver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    "stress_module": "792f1fd46d06d8b0cf05865a0492237221200fe2d20e96a5698cbf219fc14e1f"
+  },
+  "nodes_declared": 42850,
+  "nodes_used": 42715,
+  "unused_nodes_excluded": 135,
+  "support_count": 1574,
+  "boundary_faces": 12400,
+  "support_faces": 694,
+  "materials": [
+    "G11",
+    "EPOXY_0",
+    "EPOXY_1",
+    "EPOXY_2",
+    "EPOXY_3",
+    "EPOXY_4",
+    "EPOXY_5"
+  ],
+  "source_jacobian": {
+    "type": "Gmsh element type 11 / Gauss4",
+    "sample_count": 247445,
+    "minimum_determinant": 0.0008639240722345676,
+    "positive_all_samples": true
+  },
+  "serialized_deck_min_gauss11_determinant_mm3": 0.0008639239494469705,
+  "serialized_deck_material_volumes_mm3": {
+    "G11": 5501.0231699333835,
+    "EPOXY_0": 9.939776890071613,
+    "EPOXY_1": 9.939776890071625,
+    "EPOXY_2": 9.939776890163904,
+    "EPOXY_3": 9.939776889124294,
+    "EPOXY_4": 9.93977688998894,
+    "EPOXY_5": 9.93977689007666
+  },
+  "volume_guard_checks": {
+    "G11": {
+      "serialized_mesh_mm3": 5501.0231699333835,
+      "saved_mesh_mm3": 5501.023169931971,
+      "CAD_mm3": 5500.998158294296,
+      "serialization_abs_delta_mm3": 1.4124452718533576e-09,
+      "mesh_CAD_relative_delta": 4.54674558459633e-06,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    },
+    "EPOXY_0": {
+      "serialized_mesh_mm3": 9.939776890071613,
+      "saved_mesh_mm3": 9.93977689010016,
+      "CAD_mm3": 9.939776890153977,
+      "serialization_abs_delta_mm3": -2.8547830766001425e-11,
+      "mesh_CAD_relative_delta": -8.286336653497612e-12,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    },
+    "EPOXY_1": {
+      "serialized_mesh_mm3": 9.939776890071625,
+      "saved_mesh_mm3": 9.939776890100125,
+      "CAD_mm3": 9.939776890154864,
+      "serialization_abs_delta_mm3": -2.849986913133762e-11,
+      "mesh_CAD_relative_delta": -8.374262929372398e-12,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    },
+    "EPOXY_2": {
+      "serialized_mesh_mm3": 9.939776890163904,
+      "saved_mesh_mm3": 9.939776890068918,
+      "CAD_mm3": 9.939776890145605,
+      "serialization_abs_delta_mm3": 9.498535291641019e-11,
+      "mesh_CAD_relative_delta": 1.8409117231598077e-12,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    },
+    "EPOXY_3": {
+      "serialized_mesh_mm3": 9.939776889124294,
+      "saved_mesh_mm3": 9.939776889705724,
+      "CAD_mm3": 9.939776890014107,
+      "serialization_abs_delta_mm3": -5.814300152451324e-10,
+      "mesh_CAD_relative_delta": -8.952038640689355e-11,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    },
+    "EPOXY_4": {
+      "serialized_mesh_mm3": 9.93977688998894,
+      "saved_mesh_mm3": 9.939776889842479,
+      "CAD_mm3": 9.939776890062387,
+      "serialization_abs_delta_mm3": 1.4646062140855065e-10,
+      "mesh_CAD_relative_delta": -7.389202700526728e-12,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    },
+    "EPOXY_5": {
+      "serialized_mesh_mm3": 9.93977689007666,
+      "saved_mesh_mm3": 9.939776889933105,
+      "CAD_mm3": 9.939776890097775,
+      "serialization_abs_delta_mm3": 1.4355450161929184e-10,
+      "mesh_CAD_relative_delta": -2.124348864508876e-12,
+      "strict_1e-8_mesh_guard": true,
+      "existing_1pct_CAD_guard": true
+    }
+  },
+  "used_node_graph_components": 1,
+  "source_material_volumes_mm3": {
+    "G11": 5500.998158294296,
+    "EPOXY_0": 9.939776890153977,
+    "EPOXY_1": 9.939776890154864,
+    "EPOXY_2": 9.939776890145605,
+    "EPOXY_3": 9.939776890014107,
+    "EPOXY_4": 9.939776890062387,
+    "EPOXY_5": 9.939776890097775
+  },
+  "source_washer_areas_mm2": [
+    54.53809824749179,
+    54.53809824749184,
+    54.53809824749178
+  ],
+  "serialized_washer_area_checks": [
+    {
+      "source_index": 0,
+      "triangles": 500,
+      "serialized_area_mm2": 54.53809824769729,
+      "saved_mesh_area_mm2": 54.53809824749179,
+      "cad_area_mm2": 54.53804846631881,
+      "serialization_delta_mm2": 2.0550317003653618e-10,
+      "cad_delta_mm2": 4.9781378478996885e-05
+    },
+    {
+      "source_index": 1,
+      "triangles": 488,
+      "serialized_area_mm2": 54.53809824763724,
+      "saved_mesh_area_mm2": 54.53809824749184,
+      "cad_area_mm2": 54.53804846631885,
+      "serialization_delta_mm2": 1.453983600185893e-10,
+      "cad_delta_mm2": 4.978131838839772e-05
+    },
+    {
+      "source_index": 2,
+      "triangles": 496,
+      "serialized_area_mm2": 54.53809824774905,
+      "saved_mesh_area_mm2": 54.53809824749178,
+      "cad_area_mm2": 54.53804846631881,
+      "serialization_delta_mm2": 2.572662083366595e-10,
+      "cad_delta_mm2": 4.978143023492976e-05
+    }
+  ],
+  "load_resultants": [
+    {
+      "case": "equal",
+      "node_count": 3184,
+      "force_N": [
+        0.0,
+        0.0,
+        150.0000000000004
+      ],
+      "moment_Nmm": [
+        5.459610541436177e-11,
+        -2.349214156538437e-10,
+        0.0
+      ],
+      "serialized_nodal_loads_exact": true,
+      "source_force_N": [
+        0.0,
+        0.0,
+        150.0
+      ],
+      "source_moment_Nmm": [
+        5.459610541436177e-11,
+        -2.349214156538437e-10,
+        0.0
+      ],
+      "force_delta_N": [
+        0.0,
+        0.0,
+        3.979039320256561e-13
+      ],
+      "moment_delta_Nmm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "single",
+      "node_count": 1072,
+      "force_N": [
+        0.0,
+        0.0,
+        150.00000000000043
+      ],
+      "moment_Nmm": [
+        3312.547169475481,
+        -1912.5000000003197,
+        0.0
+      ],
+      "serialized_nodal_loads_exact": true,
+      "source_force_N": [
+        0.0,
+        0.0,
+        150.00000000000054
+      ],
+      "source_moment_Nmm": [
+        3312.547169475481,
+        -1912.5000000003197,
+        0.0
+      ],
+      "force_delta_N": [
+        0.0,
+        0.0,
+        -1.1368683772161603e-13
+      ],
+      "moment_delta_Nmm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "output_hashes": {
+    "build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.elements": "2d48be6c6da8475140177ad314202acd987dc3c03893c9e0030351388dea781d",
+    "build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.header": "cce0978ce2669a2f61d14c8bdd0b9e9389c5c2a06dfccabaae8f867810945d09",
+    "build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.boundary": "20e466b754a6d45a778d5f8571c3c19ed85b63ef341be611e47c1215d7dda859",
+    "build/wo03-elmer-bridge-input-v2/prepared/single/case.sif": "902464717f6e904e1285197150685e9a2bc4e48409e9a2958dbb25972e3019ea",
+    "build/wo03-elmer-bridge-input-v2/prepared/single/nodal-loads.sif.fragment": "84c4a70c40c145de460a077d965e6035c32ee39148d4bde5434ddf8f013da32f",
+    "build/wo03-elmer-bridge-input-v2/prepared/equal/case.sif": "ef435b88e23dbf47bd1303c96113cc6b0a7262fbcc18eb6fbafb2cb64c6803ad",
+    "build/wo03-elmer-bridge-input-v2/prepared/equal/nodal-loads.sif.fragment": "55b30a89fba755a7f63834547e5b3d07059c80f4cf1a9737fa0eef1829c4a752"
+  },
+  "native_executed": false,
+  "critical_dependency": "Target Nodes / Displacement 3 Load is source-supported but not covered by prior uniform-traction B; a separate matching-B nodal-RHS known-answer gate is required before actual solve."
+}

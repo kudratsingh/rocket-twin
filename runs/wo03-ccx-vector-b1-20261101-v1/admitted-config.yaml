@@ -1,0 +1,19 @@
+status: preparation_only_no_native_authorized
+solver: /opt/homebrew/bin/ccx
+solver_sha256: 2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf
+fixture_deck: build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp
+fixture_meta: build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json
+fixture_saved_dat: build/wo03-ccx-reaction-native-b-diagnostic-v1/B/case.dat
+actual_deck: build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp
+actual_meta: build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json
+actual_saved_dat: build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.dat
+cases: [B_spooles_binary, B_iterative_cholesky_binary, actual_iterative_cholesky_binary]
+case_cpu_s: 120
+case_wall_s: 120
+setup_reserved_cpu_s: 60
+parent_reserved_cpu_s: 120
+packet_ceiling_cpu_s: 600
+rss_tree_limit_bytes: 2147483648
+strict_reaction_force_N: 0.00001
+fixture_displacement_relative_tolerance: 0.01
+native_execution_authorized: true

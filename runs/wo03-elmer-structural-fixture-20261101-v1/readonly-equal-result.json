@@ -1,0 +1,59 @@
+{
+  "status": "completed_readonly_not_retroactive_pass",
+  "scope": "read-only EQUAL saved output; original stopped packet unchanged; no sign, tolerance, reader or solver changes",
+  "source_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-structural-fixture-v3/native/equal/mesh/field_t0001.vtu": "91698a19f31d2fc198c217e0485c8b93bc25a8d30b398d0b1d3d6df4a3efd80e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-structural-fixture-v3/native/equal/solver.log": "f7d8833180ae7a15a018e9002306cc201e5285defc5c735ece3d22733d937785",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_structural_fixture.py": "a9250f9a50588816949c7e2a291811c49172943928483e84ea820a7c9d599720",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d"
+  },
+  "result": {
+    "field_names": [
+      "displacement",
+      "displacement loads"
+    ],
+    "displacement_dtype": "float64",
+    "load_dtype": "float64",
+    "VTU_sha256": "91698a19f31d2fc198c217e0485c8b93bc25a8d30b398d0b1d3d6df4a3efd80e",
+    "max_nodal_displacement_error_m": 2.0751087480286312e-15,
+    "support_reaction_N": [
+      5.08234617960688e-12,
+      8.9449709626457e-12,
+      -150.00000000001793
+    ],
+    "force_residual_N": [
+      5.08234617960688e-12,
+      8.9449709626457e-12,
+      -1.793409865058493e-11
+    ],
+    "rounding_bound_N": [
+      1.0734424767794918e-27,
+      1.6305754910918314e-27,
+      1.598721155460488e-14
+    ],
+    "force_status": "pass",
+    "moment_residual_Nm": [
+      -1.7084250680809987e-13,
+      1.4625384237021422e-12,
+      -8.864758837964831e-14
+    ],
+    "moment_encoding_bound_Nm": [
+      1.5987211554607513e-17,
+      1.119104808822372e-16,
+      1.479114197289397e-29
+    ],
+    "support_node_count": 39,
+    "reaction_semantics": "native Ax-b load field hypothesis; checked by known-case equilibrium without sign flip",
+    "vtk_version": "9.6.2"
+  },
+  "source_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-structural-fixture-v3/native/equal/mesh/field_t0001.vtu": "91698a19f31d2fc198c217e0485c8b93bc25a8d30b398d0b1d3d6df4a3efd80e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-structural-fixture-v3/native/equal/solver.log": "f7d8833180ae7a15a018e9002306cc201e5285defc5c735ece3d22733d937785",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_structural_fixture.py": "a9250f9a50588816949c7e2a291811c49172943928483e84ea820a7c9d599720",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d"
+  },
+  "source_unchanged": true,
+  "process_cpu_s": 1.205054,
+  "wall_s": 1.4233613749966025,
+  "peak_process_rss_bytes": 210960384
+}
