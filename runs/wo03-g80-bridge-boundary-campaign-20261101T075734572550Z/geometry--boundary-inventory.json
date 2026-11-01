@@ -1,0 +1,162 @@
+{
+  "status": "controls_applied_no_mesh",
+  "patches": [
+    {
+      "patch_index": 0,
+      "face_tags": [
+        76
+      ],
+      "step_center_xyz_mm": [
+        12.750000000000002,
+        22.083647796503,
+        170.1
+      ],
+      "face_area_mm2": 54.53804846631882,
+      "boundary_curves": [
+        {
+          "tag": 172,
+          "type": "Circle",
+          "arc_length_mm": 28.274333882308138
+        },
+        {
+          "tag": 173,
+          "type": "Circle",
+          "arc_length_mm": 10.681415022205297
+        }
+      ]
+    },
+    {
+      "patch_index": 1,
+      "face_tags": [
+        78
+      ],
+      "step_center_xyz_mm": [
+        -25.5,
+        2.6362684676888155e-15,
+        170.1
+      ],
+      "face_area_mm2": 54.53804846631885,
+      "boundary_curves": [
+        {
+          "tag": 175,
+          "type": "Circle",
+          "arc_length_mm": 28.274333882308138
+        },
+        {
+          "tag": 176,
+          "type": "Circle",
+          "arc_length_mm": 10.681415022205297
+        }
+      ]
+    },
+    {
+      "patch_index": 2,
+      "face_tags": [
+        80
+      ],
+      "step_center_xyz_mm": [
+        12.750000000000002,
+        -22.0836477965,
+        170.1
+      ],
+      "face_area_mm2": 54.53804846631882,
+      "boundary_curves": [
+        {
+          "tag": 178,
+          "type": "Circle",
+          "arc_length_mm": 28.274333882308138
+        },
+        {
+          "tag": 179,
+          "type": "Circle",
+          "arc_length_mm": 10.681415022205297
+        }
+      ]
+    }
+  ],
+  "assignment": {
+    "patches": [
+      {
+        "patch_index": 0,
+        "center_xyz_mm": [
+          12.750000000000002,
+          22.083647796503,
+          170.1
+        ],
+        "curves": [
+          {
+            "curve_tag": 172,
+            "ring": "outer",
+            "arc_length_mm": 28.274333882308138,
+            "segments": 96,
+            "full_circle_equivalent": 96
+          },
+          {
+            "curve_tag": 173,
+            "ring": "inner",
+            "arc_length_mm": 10.681415022205297,
+            "segments": 32,
+            "full_circle_equivalent": 32
+          }
+        ]
+      },
+      {
+        "patch_index": 1,
+        "center_xyz_mm": [
+          -25.5,
+          2.6362684676888155e-15,
+          170.1
+        ],
+        "curves": [
+          {
+            "curve_tag": 175,
+            "ring": "outer",
+            "arc_length_mm": 28.274333882308138,
+            "segments": 96,
+            "full_circle_equivalent": 96
+          },
+          {
+            "curve_tag": 176,
+            "ring": "inner",
+            "arc_length_mm": 10.681415022205297,
+            "segments": 32,
+            "full_circle_equivalent": 32
+          }
+        ]
+      },
+      {
+        "patch_index": 2,
+        "center_xyz_mm": [
+          12.750000000000002,
+          -22.0836477965,
+          170.1
+        ],
+        "curves": [
+          {
+            "curve_tag": 178,
+            "ring": "outer",
+            "arc_length_mm": 28.274333882308138,
+            "segments": 96,
+            "full_circle_equivalent": 96
+          },
+          {
+            "curve_tag": 179,
+            "ring": "inner",
+            "arc_length_mm": 10.681415022205297,
+            "segments": 32,
+            "full_circle_equivalent": 32
+          }
+        ]
+      }
+    ],
+    "sized_curve_tags": [
+      172,
+      173,
+      175,
+      176,
+      178,
+      179
+    ],
+    "untouched_other_curves": true
+  }
+}

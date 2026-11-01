@@ -15,32 +15,31 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
-**Bridge structural analysis remains open:** known mechanical fixtures and the
-geometry-only reconstruction pass their limited checks. The single mapping
-replan now diagnoses/corrects the curved-mesh centroid shift and preserves
-serialized applied forces/moments, with at most0.00363323% affine pressure
-perturbation against its declared0.5% ceiling. It produces31,435 nodes/15,819
-tetrahedra but stops before CCX at the unchanged washer-area guard:
-+0.000522514mm² versus0.0002mm². [Evidence](wo03-g80-bridge-fea.md) retains all
-stops. No actual stress, displacement, reaction or convergence exists. No
-further actual bridge attempt or relaxed criterion is selected this increment.
-The [installed-fin intake](wo03-g80-installed-fin-intake.md) also confirms that
-historical G80/G12 evidence cannot close the new candidate's root/flutter gates.
+**Latest bridge outcome — numerical acceptance failed:** a geometry-derived
+48/24 edge resolution meets the unchanged washer-area and mesh ceilings:
+42,850 nodes/22,495 tets, area error+0.000049781mm² versus0.0002mm².
+CalculiX completes both static steps, but support force balance fails by
+104.697N and22.093N; these are far beyond print precision. The
+[final diagnostic](wo03-g80-final-coarse-diagnostic.md) preserves raw output
+as **unvalidated**, with no strength, stiffness or installed-load-path pass.
+Read-only checks confirm complete reaction rows, matched quadratic interface
+faces, zero support displacement and positive sampled Jacobians; cause remains
+unidentified. No more actual3D mesh/solver/edge variants are selected for this
+packet. Next is a bounded multi-material/multi-support known-case output check,
+not another actual bridge retry; conditional hand estimates cannot close peel,
+keeper load sharing or material qualification.
 
-**Next method is qualified only on small washer cases:** three predeclared
-quadratic annuli isolate curved-boundary area error;96/32 outer/inner segments
-meet the existing0.0002mm² guard, independently matched by the analytic arc
-area. The [source-pinned boundary helper](wo03-g80-washer-area-method.md) passes
-five small checks and preserves shared curve identity; actual fragmented
-bridge-hole edges, node count and structural solve remain unverified. No new
-actual bridge attempt is authorized by these small-case results alone.
+**Method evidence remains scoped:** the [geometry-only stage](wo03-g80-bridge-boundary-case.md)
+passes source Circle identification;96/32 then exceeds the node cap. The
+[noncancelling arc-area budget](wo03-g80-washer-area-budget.md) justifies48/24
+without relaxing criteria and fits the existing ceilings. That closes input
+preparation and bounded calculation completion, not output accuracy.
 
 **G80 recovery/fin decisions:** the [same-candidate fin-load intake](wo03-g80-fin-loads.md)
-now separates powered, coast and recovery phases from the saved180s telemetry,
-with large-angle estimates explicitly unsupported. It does not close installed
-root strength/flutter. [Three canopy sources](wo03-g80-recovery-canopy-sources.md)
-identify alternatives to the unsourced35g estimate; a51.6g36-inch nylon option
-is a plausible sizing study, not selected hardware or verified packing.
+separates powered, coast and recovery phases from saved180s telemetry; large
+angles remain unsupported and installed strength/flutter open. The
+[canopy source screen](wo03-g80-recovery-canopy-sources.md) identifies a modest
+mass-increase sizing candidate but adopts no hardware or packing assumptions.
 
 **Keeper/service continuation:** the unchanged proposed parts now have completed
 nominal 5 mm-spaced pre-shell support insertion and aft cap/motor removal samples,
@@ -53,6 +52,12 @@ qualification. Separate STEP parts and component masses are available: keeper
 hardware lump, supplier fasteners and integral keeper pads. Complete replacement
 hardware/adhesive ledger and full mass/CG/inertia remain unresolved; the frozen
 52-part flight predictions are not assigned to these changed parts.
+
+**Published preparation:** [PR #29](https://github.com/kudratsingh/rocket-twin/pull/29)
+is merged after both required jobs passed (run41285473769). It contains the
+known-boundary helper, fin-load/source intake and process-exit race correction.
+The actual-boundary/native-output failure above is a subsequent separate
+increment, with all expanded acceptance and release gates retained.
 
 **Published guarded evidence:** [PR #28](https://github.com/kudratsingh/rocket-twin/pull/28)
 is merged after both required jobs passed (run41284107292). It publishes the

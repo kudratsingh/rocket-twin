@@ -1,0 +1,97 @@
+{
+  "publication_form": "compact_projection_resource_sample_arrays_omitted",
+  "original_sha256": "4070533c5a4819a20877c3271f9b0ca6e8806cb8d6cd28b0a02e9a46318b6075",
+  "record": {
+    "status": "stopped",
+    "geometry_stage_record_sha256": "a4e0a2641defbb0458cb3b498106c029ba10a8c8297451fc578ebfb96c410be7",
+    "geometry_stage_previous_case_script_sha256": "7fdd90e758a771a397b444f597a7027854b48db150a4ae985260d2403bb6eb8e",
+    "case_script_change_reason": "Add separately authorized 45+45 CPU coarse branch; geometry-stage snapshot preserved.",
+    "physical_source_sha256": {
+      "bridge": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+      "modified_mount_reference": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+      "washer_0": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+      "washer_1": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+      "washer_2": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+      "geometry_preflight": "52abfc4af9c47017ef0caa628f5517a8a41c2042daba483ab787ce996e387dcd",
+      "film_recipe_source": "f4124ec5932bd648306f16426d19a28118a8d4d4d0419dc0da5fc89960e68a05",
+      "tet_order_source": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695"
+    },
+    "source_before": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_boundary_case.py": "04ba1751c9125eb30969e2527478eafc3ea37a0be17ee6092a5d6db3291bc710",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-boundary-case.yaml": "2eeea1208b1ff501d673866a1abcaf43c2bb356da865774b61ccd6ab86a6a987",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-washer-boundary.yaml": "8eb98435d65070f13cf8ce341ca720205e37ebde55f591e44afc77aa60ba45b5",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_washer_boundary.py": "df163d8e70655abbbb9d1a7d2ad8253195d5e92b5efc7f85dd5d4fe79251b071",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_g80_bridge_boundary_case.py": "1864111f12c39c2db79e4ca2f32a19ba5a708a79e788a6e1e10f0f5a0c44d891",
+      "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+    },
+    "prior_conservative_cpu_charge_s": 272.122851,
+    "case_cpu_cap_s": 90,
+    "case_wall_cap_s": 120,
+    "mesh_cpu_cap_s": 45,
+    "solver_cpu_cap_s": 45,
+    "rss_cap_bytes": 2147483648,
+    "node_cap": 50000,
+    "tet_cap": 75000,
+    "solver_invoked": false,
+    "actual_acceptance": false,
+    "error": "OwnedProcessError: {'kind': 'child_exit', 'message': 'owned child exited with return code 1'}",
+    "case_wall_s": 1.2371539169980679,
+    "source_after": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_boundary_case.py": "04ba1751c9125eb30969e2527478eafc3ea37a0be17ee6092a5d6db3291bc710",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-boundary-case.yaml": "2eeea1208b1ff501d673866a1abcaf43c2bb356da865774b61ccd6ab86a6a987",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-washer-boundary.yaml": "8eb98435d65070f13cf8ce341ca720205e37ebde55f591e44afc77aa60ba45b5",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_washer_boundary.py": "df163d8e70655abbbb9d1a7d2ad8253195d5e92b5efc7f85dd5d4fe79251b071",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_g80_bridge_boundary_case.py": "1864111f12c39c2db79e4ca2f32a19ba5a708a79e788a6e1e10f0f5a0c44d891",
+      "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+    },
+    "source_unchanged": true,
+    "mesh_status": {
+      "argv": [
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_boundary_case.py",
+        "--mesh-worker",
+        "--output",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-boundary-coarse-v1"
+      ],
+      "cleanup_errors": [],
+      "cleanup_outcomes": [],
+      "cpu_accounting": {
+        "child_system_s_delta": 0.073771,
+        "child_user_s_delta": 1.107248,
+        "children_rusage_sampled_after_reap": true,
+        "supervisor_system_s_delta": 0.0038790000000000005,
+        "supervisor_user_s_delta": 0.0023259999999999947
+      },
+      "error": {
+        "kind": "child_exit",
+        "message": "owned child exited with return code 1"
+      },
+      "finished_utc": "2026-11-01T07:40:45.993163+00:00",
+      "guard_failure": null,
+      "historical_descendant_checks": [],
+      "known_descendant_pids": [],
+      "launch_wall_s": 0.002069874986773357,
+      "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-boundary-coarse-v1/mesh.log",
+      "pid": 31932,
+      "returncode": 1,
+      "rss_limit_bytes": 2147483648,
+      "started_utc": "2026-11-01T07:40:44.757335+00:00",
+      "status": "failed",
+      "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-boundary-coarse-v1/mesh-status.json",
+      "status_write_error": null,
+      "success": false,
+      "timed_out": false,
+      "total_wall_s": 1.2357384999922942,
+      "wall_limit_s": 120,
+      "largest_sampled_rss_bytes": 180518912
+    }
+  }
+}

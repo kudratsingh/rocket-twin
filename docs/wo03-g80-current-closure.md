@@ -61,3 +61,13 @@ The growth cases predict approximately 6.18 m/s against the preliminary 6 m/s
 descent screen, leaving a recovery sizing/allowable-impact decision open.
 This does not validate actual deployment, independent hardware, opening loads,
 installed anchor strength or the later unintegrated keeper/bridge design.
+
+## Actual bridge input gates pass; output validation fails
+
+The [latest component campaign](wo03-g80-final-coarse-diagnostic.md) now fits
+the unchanged mesh/resource/area guards and completes the two CCX load steps.
+Its reaction imbalance fails decisively, so all raw displacement/stress/work
+remains unvalidated; component and full-vehicle strength acceptance stay open.
+The full3D route is stopped for this packet. A smaller known-case output
+verification is required before any further numerical reliance; no criterion
+or physical requirement is relaxed and no new vehicle geometry is adopted.

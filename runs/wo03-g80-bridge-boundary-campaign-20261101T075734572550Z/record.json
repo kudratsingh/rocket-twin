@@ -1,0 +1,452 @@
+{
+  "status": "input_preparation_passed_native_equilibrium_failed",
+  "acceptance": false,
+  "flight_ready": false,
+  "source_working_vehicle_changed": false,
+  "case_outcomes": {
+    "geometry": "all3exactCirclepatchesverified",
+    "96_32_coarse": "nodecap63788>50000, noCCX",
+    "48_24_known": "sumofabsolutediskdeficits.000127566<.00015 andareaerror.000049781<.0002",
+    "48_24_coarse": "42850nodes22495tets inputguardsPASS CCXbothstepscomplete; nativeRFresidual104.6968/22.09265Nfails; fieldsUNVALIDATED"
+  },
+  "next_full_3d_attempt_selected": false,
+  "files": [
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/boundary-inventory.json",
+      "source_sha256": "125c920192da013a7c2dce832600a92d2aba8e40214ab2e5b74d51abac2f2f0f",
+      "source_bytes": 3470,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--boundary-inventory.json",
+      "archive_sha256": "125c920192da013a7c2dce832600a92d2aba8e40214ab2e5b74d51abac2f2f0f"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-test_g80_bridge_boundary_case.py",
+      "source_sha256": "8bf5379e9e8b16bffe128c2977d46694321867686ce4895fc535764aa2181663",
+      "source_bytes": 2495,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-test_g80_bridge_boundary_case.py",
+      "archive_sha256": "8bf5379e9e8b16bffe128c2977d46694321867686ce4895fc535764aa2181663"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-wo03-g80-bridge-boundary-case.yaml",
+      "source_sha256": "2eeea1208b1ff501d673866a1abcaf43c2bb356da865774b61ccd6ab86a6a987",
+      "source_bytes": 484,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03-g80-bridge-boundary-case.yaml",
+      "archive_sha256": "2eeea1208b1ff501d673866a1abcaf43c2bb356da865774b61ccd6ab86a6a987"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-wo03-g80-washer-boundary.yaml",
+      "source_sha256": "8eb98435d65070f13cf8ce341ca720205e37ebde55f591e44afc77aa60ba45b5",
+      "source_bytes": 1064,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03-g80-washer-boundary.yaml",
+      "archive_sha256": "8eb98435d65070f13cf8ce341ca720205e37ebde55f591e44afc77aa60ba45b5"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-wo03_g80_bridge_adapter.py",
+      "source_sha256": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+      "source_bytes": 50889,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_bridge_adapter.py",
+      "archive_sha256": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-wo03_g80_bridge_boundary_case.py",
+      "source_sha256": "7fdd90e758a771a397b444f597a7027854b48db150a4ae985260d2403bb6eb8e",
+      "source_bytes": 8455,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_bridge_boundary_case.py",
+      "archive_sha256": "7fdd90e758a771a397b444f597a7027854b48db150a4ae985260d2403bb6eb8e"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-wo03_g80_washer_boundary.py",
+      "source_sha256": "df163d8e70655abbbb9d1a7d2ad8253195d5e92b5efc7f85dd5d4fe79251b071",
+      "source_bytes": 5638,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_washer_boundary.py",
+      "archive_sha256": "df163d8e70655abbbb9d1a7d2ad8253195d5e92b5efc7f85dd5d4fe79251b071"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/executed-wo03_owned_process.py",
+      "source_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "source_bytes": 24573,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_owned_process.py",
+      "archive_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/owned-status.json",
+      "source_sha256": "9118866fd00d4cdf0966f7eb943acdfc19100589defee695018a3a71e6080c9b",
+      "source_bytes": 3243,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--compact--owned-status.json",
+      "archive_sha256": "0c147a461fdf4f45ca45a9462f40383fb7d59566968e0b0e5588e0b598898998"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/record.json",
+      "source_sha256": "a4e0a2641defbb0458cb3b498106c029ba10a8c8297451fc578ebfb96c410be7",
+      "source_bytes": 7188,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--compact--record.json",
+      "archive_sha256": "8ef8a389b7db99e1e7d33a788c3a4e9f0b7853dfc4e2b74561abfb4222c787f6"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/worker-resources.json",
+      "source_sha256": "45014940b13082927598d4c2be4ac02bcb77ce864e79c72e87e1c9cc3344218d",
+      "source_bytes": 96,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--worker-resources.json",
+      "archive_sha256": "45014940b13082927598d4c2be4ac02bcb77ce864e79c72e87e1c9cc3344218d"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/worker.log",
+      "source_sha256": "42f90fb66e05234bc16c0e42c7e03b659b8fd2447c3f863132f5df3be1962037",
+      "source_bytes": 2130,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--worker.log",
+      "archive_sha256": "42f90fb66e05234bc16c0e42c7e03b659b8fd2447c3f863132f5df3be1962037"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-case-v1/geometry/geometry-only.json",
+      "source_sha256": "da3e85f8a9e99a66e15f99682c95bb108021718402c3d523b415aef5d78dd65c",
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--geometry--geometry-only.json",
+      "archive_sha256": "da3e85f8a9e99a66e15f99682c95bb108021718402c3d523b415aef5d78dd65c"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/boundary-inventory.json",
+      "source_sha256": "125c920192da013a7c2dce832600a92d2aba8e40214ab2e5b74d51abac2f2f0f",
+      "source_bytes": 3470,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--boundary-inventory.json",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-test_g80_bridge_boundary_case.py",
+      "source_sha256": "1864111f12c39c2db79e4ca2f32a19ba5a708a79e788a6e1e10f0f5a0c44d891",
+      "source_bytes": 3644,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--executed-test_g80_bridge_boundary_case.py",
+      "archive_sha256": "1864111f12c39c2db79e4ca2f32a19ba5a708a79e788a6e1e10f0f5a0c44d891"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03-g80-bridge-boundary-case.yaml",
+      "source_sha256": "2eeea1208b1ff501d673866a1abcaf43c2bb356da865774b61ccd6ab86a6a987",
+      "source_bytes": 484,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03-g80-bridge-boundary-case.yaml",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03-g80-bridge-fea.yaml",
+      "source_sha256": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3",
+      "source_bytes": 947,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--executed-wo03-g80-bridge-fea.yaml",
+      "archive_sha256": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03-g80-washer-boundary.yaml",
+      "source_sha256": "8eb98435d65070f13cf8ce341ca720205e37ebde55f591e44afc77aa60ba45b5",
+      "source_bytes": 1064,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03-g80-washer-boundary.yaml",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03_g80_bridge_adapter.py",
+      "source_sha256": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+      "source_bytes": 50889,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_bridge_adapter.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03_g80_bridge_boundary_case.py",
+      "source_sha256": "04ba1751c9125eb30969e2527478eafc3ea37a0be17ee6092a5d6db3291bc710",
+      "source_bytes": 17265,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--executed-wo03_g80_bridge_boundary_case.py",
+      "archive_sha256": "04ba1751c9125eb30969e2527478eafc3ea37a0be17ee6092a5d6db3291bc710"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03_g80_bridge_fea.py",
+      "source_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "source_bytes": 66698,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--executed-wo03_g80_bridge_fea.py",
+      "archive_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03_g80_washer_boundary.py",
+      "source_sha256": "df163d8e70655abbbb9d1a7d2ad8253195d5e92b5efc7f85dd5d4fe79251b071",
+      "source_bytes": 5638,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_washer_boundary.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/executed-wo03_owned_process.py",
+      "source_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "source_bytes": 24573,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_owned_process.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/mesh-status.json",
+      "source_sha256": "ee73ff04442a3e13ff22c608716a849aff51532852b61eac80b9e19da0970b7d",
+      "source_bytes": 9541,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--compact--mesh-status.json",
+      "archive_sha256": "ad10c92f1ab33cadd323d544ed0bcf1e8c47a8e8de5bda5b4bbc07bcc74d40fc"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/mesh-worker-resources.json",
+      "source_sha256": "5b2254c919cc2a72e92c929567afd78f4e88176404dfd1dbc1d7d4543d7a9da1",
+      "source_bytes": 90,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--mesh-worker-resources.json",
+      "archive_sha256": "5b2254c919cc2a72e92c929567afd78f4e88176404dfd1dbc1d7d4543d7a9da1"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/mesh.log",
+      "source_sha256": "74834942e63bb3a0629370a8ca6c545a936a017d87cadeb2a89a79d45b7d766c",
+      "source_bytes": 715,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--mesh.log",
+      "archive_sha256": "74834942e63bb3a0629370a8ca6c545a936a017d87cadeb2a89a79d45b7d766c"
+    },
+    {
+      "source": "build/wo03-g80-bridge-boundary-coarse-v1/record.json",
+      "source_sha256": "4070533c5a4819a20877c3271f9b0ca6e8806cb8d6cd28b0a02e9a46318b6075",
+      "source_bytes": 15177,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--compact--record.json",
+      "archive_sha256": "6f4c07defa7837e08b79c52833d8babe219ebd25b78d652186c69a7b3c836c96"
+    },
+    {
+      "source": "build/wo03-g80-washer-area-budget-v1/case.log",
+      "source_sha256": "fed56a93a6488e6cb843c5dcdc79d848f1ba13cc249b8ee81ecbc7ce770b771b",
+      "source_bytes": 1992,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/knownarea--case.log",
+      "archive_sha256": "fed56a93a6488e6cb843c5dcdc79d848f1ba13cc249b8ee81ecbc7ce770b771b"
+    },
+    {
+      "source": "build/wo03-g80-washer-area-budget-v1/case.py",
+      "source_sha256": "00a1a43df8adecb41081371694395033bb7bf5f9c7981721e014134a5783c63e",
+      "source_bytes": 3614,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/knownarea--case.py",
+      "archive_sha256": "00a1a43df8adecb41081371694395033bb7bf5f9c7981721e014134a5783c63e"
+    },
+    {
+      "source": "build/wo03-g80-washer-area-budget-v1/plan.json",
+      "source_sha256": "e02736f3b35c0fd3b40b664ba9dd2869cdde252fc24c4b41a97048257f8b22ac",
+      "source_bytes": 653,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/knownarea--plan.json",
+      "archive_sha256": "e02736f3b35c0fd3b40b664ba9dd2869cdde252fc24c4b41a97048257f8b22ac"
+    },
+    {
+      "source": "build/wo03-g80-washer-area-budget-v1/result.json",
+      "source_sha256": "ea6abfbb77988ecbf5bac5383b51118031809283d0b2d2d88cfed51d963a4534",
+      "source_bytes": 2032,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/knownarea--result.json",
+      "archive_sha256": "ea6abfbb77988ecbf5bac5383b51118031809283d0b2d2d88cfed51d963a4534"
+    },
+    {
+      "source": "build/wo03-g80-washer-area-budget-v1/run.py",
+      "source_sha256": "e99ebd6dd8fde51873bb18f57f4f44a9d41ddd2ffff2134fefaf67c8baf4a018",
+      "source_bytes": 1002,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/knownarea--run.py",
+      "archive_sha256": "e99ebd6dd8fde51873bb18f57f4f44a9d41ddd2ffff2134fefaf67c8baf4a018"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/boundary-inventory.json",
+      "source_sha256": "704100483312f695b7f25e77f318910a6011de9bf160352f24845f3e77875dad",
+      "source_bytes": 3470,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--boundary-inventory.json",
+      "archive_sha256": "704100483312f695b7f25e77f318910a6011de9bf160352f24845f3e77875dad"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-result.json",
+      "source_sha256": "ea6abfbb77988ecbf5bac5383b51118031809283d0b2d2d88cfed51d963a4534",
+      "source_bytes": 2032,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/knownarea--result.json",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-test_g80_bridge_boundary_case.py",
+      "source_sha256": "95c8f6d03c4619edf4a6fa88587742ef0b5c368dd53a8fb45bd286eb40021520",
+      "source_bytes": 4736,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--executed-test_g80_bridge_boundary_case.py",
+      "archive_sha256": "95c8f6d03c4619edf4a6fa88587742ef0b5c368dd53a8fb45bd286eb40021520"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-bridge-boundary-case.yaml",
+      "source_sha256": "2eeea1208b1ff501d673866a1abcaf43c2bb356da865774b61ccd6ab86a6a987",
+      "source_bytes": 484,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03-g80-bridge-boundary-case.yaml",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-bridge-fea.yaml",
+      "source_sha256": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3",
+      "source_bytes": 947,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--executed-wo03-g80-bridge-fea.yaml",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-washer-boundary-area-budget.yaml",
+      "source_sha256": "a50148a3220705abdf75b1113cb3365d2c7ffdbe488824f4a705023675e9ab75",
+      "source_bytes": 1277,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--executed-wo03-g80-washer-boundary-area-budget.yaml",
+      "archive_sha256": "a50148a3220705abdf75b1113cb3365d2c7ffdbe488824f4a705023675e9ab75"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-washer-boundary.yaml",
+      "source_sha256": "8eb98435d65070f13cf8ce341ca720205e37ebde55f591e44afc77aa60ba45b5",
+      "source_bytes": 1064,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03-g80-washer-boundary.yaml",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_bridge_adapter.py",
+      "source_sha256": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+      "source_bytes": 50889,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_bridge_adapter.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_bridge_boundary_case.py",
+      "source_sha256": "e9a5213be2db6b09f57ee2ad0c601cc779ef56d87146891aaeae340c33abb1c7",
+      "source_bytes": 20593,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--executed-wo03_g80_bridge_boundary_case.py",
+      "archive_sha256": "e9a5213be2db6b09f57ee2ad0c601cc779ef56d87146891aaeae340c33abb1c7"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_bridge_fea.py",
+      "source_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "source_bytes": 66698,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/nodecap--executed-wo03_g80_bridge_fea.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_washer_boundary.py",
+      "source_sha256": "df163d8e70655abbbb9d1a7d2ad8253195d5e92b5efc7f85dd5d4fe79251b071",
+      "source_bytes": 5638,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_g80_washer_boundary.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_owned_process.py",
+      "source_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "source_bytes": 24573,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/geometry--executed-wo03_owned_process.py",
+      "same_bytes_as_prior_archive": true
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/failed-equilibrium-diagnostic.json",
+      "source_sha256": "a610d5c924fb0317b10bd36d556de66c748fedd472d5086c80c881ade538f0c4",
+      "source_bytes": 9077,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--failed-equilibrium-diagnostic.json",
+      "archive_sha256": "a610d5c924fb0317b10bd36d556de66c748fedd472d5086c80c881ade538f0c4"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/mesh-status.json",
+      "source_sha256": "925edd6855d5a9a021a553536f6235a9089d9f0b6e4013f024c81529581997d9",
+      "source_bytes": 59957,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--compact--mesh-status.json",
+      "archive_sha256": "e7f8c45bed2f0df40ad8d5e49d77ecf5cc1beb072cd7ed60f0a586dfa02834f9"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/mesh-worker-resources.json",
+      "source_sha256": "c6f2768244edaa36dfd7cf64198fbaae057e59e12dd647b48798623901942b53",
+      "source_bytes": 90,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--mesh-worker-resources.json",
+      "archive_sha256": "c6f2768244edaa36dfd7cf64198fbaae057e59e12dd647b48798623901942b53"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/mesh.log",
+      "source_sha256": "99bf5673ad5373c228b6cf08791ee4384819a7a715de93f0aeadbd0f9cbdc446",
+      "source_bytes": 422,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--mesh.log",
+      "archive_sha256": "99bf5673ad5373c228b6cf08791ee4384819a7a715de93f0aeadbd0f9cbdc446"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/readonly-final-audit.json",
+      "source_sha256": "49a3c80d835485be0c99e219751c6e07b0d765fc245eb7caf4f77b81c3ca65a3",
+      "source_bytes": 2207,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--readonly-final-audit.json",
+      "archive_sha256": "49a3c80d835485be0c99e219751c6e07b0d765fc245eb7caf4f77b81c3ca65a3"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/readonly-final-audit.py",
+      "source_sha256": "14dbc1a2230cd3efe1b3d2ab8e71a40ee6bcc8a7366402c2bada7cf6fc72ed55",
+      "source_bytes": 3965,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--readonly-final-audit.py",
+      "archive_sha256": "14dbc1a2230cd3efe1b3d2ab8e71a40ee6bcc8a7366402c2bada7cf6fc72ed55"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/readonly-mesh-audit.json",
+      "source_sha256": "7b7f8f22f80db4ae66b6eb16b34f070c350731d8e0a97ce994320e408cac8221",
+      "source_bytes": 4813,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--readonly-mesh-audit.json",
+      "archive_sha256": "7b7f8f22f80db4ae66b6eb16b34f070c350731d8e0a97ce994320e408cac8221"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/readonly-mesh-audit.py",
+      "source_sha256": "417152076487d94fee74c5968f5d3d0b80f8bcfa62d9219c6973140e7fd89f23",
+      "source_bytes": 4487,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--readonly-mesh-audit.py",
+      "archive_sha256": "417152076487d94fee74c5968f5d3d0b80f8bcfa62d9219c6973140e7fd89f23"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/record.json",
+      "source_sha256": "1447009207bcc61c05559a3a477a23b25948e89ee8504a40ec5c3ec44e5312bc",
+      "source_bytes": 122209,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--compact--record.json",
+      "archive_sha256": "8f7e999c7db345765dddd639c64ef12a846595cabb6cc84465b0228045d46baf"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/root-midside-check.json",
+      "source_sha256": "8b777acabb3b3d28764eaeeb4beb165a68de6731384d51a41506a0ab063e45d1",
+      "source_bytes": 1314,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--root-midside-check.json",
+      "archive_sha256": "8b777acabb3b3d28764eaeeb4beb165a68de6731384d51a41506a0ab063e45d1"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/solver-status.json",
+      "source_sha256": "6383556582d15ecc238cf5c8101a0c5953df004540fcd00bae51a668a08a87e0",
+      "source_bytes": 46208,
+      "projection": true,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--compact--solver-status.json",
+      "archive_sha256": "0dbea5912100bd258a4e6223032b916b727384ea3c0c484cb71106157cf5ca93"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/solver.log",
+      "source_sha256": "f2532af7cde2cedc23f7fe0279fcd8ee5e4ae9a455b903ab3e836eb4aede0757",
+      "source_bytes": 2780,
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--solver.log",
+      "archive_sha256": "f2532af7cde2cedc23f7fe0279fcd8ee5e4ae9a455b903ab3e836eb4aede0757"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/input-check.json",
+      "source_sha256": "b0290970236c3fff6adc8b3f5239d77712828589e94d2957e3b46d36257ba625",
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--bridge_1p5mm--input-check.json",
+      "archive_sha256": "b0290970236c3fff6adc8b3f5239d77712828589e94d2957e3b46d36257ba625"
+    },
+    {
+      "source": "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/patch-diagnostics.json",
+      "source_sha256": "4b1b6e95913a08b5257d50c0e59e7bfa36fac2642b49b8824d9455f182c17c03",
+      "archive": "runs/wo03-g80-bridge-boundary-campaign-20261101T075734572550Z/final--bridge_1p5mm--patch-diagnostics.json",
+      "archive_sha256": "4b1b6e95913a08b5257d50c0e59e7bfa36fac2642b49b8824d9455f182c17c03"
+    }
+  ],
+  "excluded_bulk": [
+    {
+      "path": "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json",
+      "sha256": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+      "bytes": 60743607,
+      "disposition": "native mesh/deck/field bulk stays local"
+    },
+    {
+      "path": "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp",
+      "sha256": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+      "bytes": 3923639,
+      "disposition": "native mesh/deck/field bulk stays local"
+    },
+    {
+      "path": "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.dat",
+      "sha256": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b",
+      "bytes": 27745010,
+      "disposition": "native mesh/deck/field bulk stays local"
+    },
+    {
+      "path": "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.frd",
+      "sha256": "e87b5b855d86bf4ed4676b9665fa539b4c41c065c6b39315da0018a4b15baa78",
+      "bytes": 5128991,
+      "disposition": "native mesh/deck/field bulk stays local"
+    }
+  ],
+  "scope": "component diagnostic only; no full-vehicle mass/CG/inertia or fin/recovery/thermal acceptance"
+}

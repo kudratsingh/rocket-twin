@@ -1,0 +1,14 @@
+version: wo03-g80-bridge-boundary-case-v1
+boundary_spec: configs/studies/wo03-g80-washer-boundary.yaml
+stage: geometry_only_no_mesh_no_ccx
+bulk_mesh_target_mm: 1.5
+maximum_nodes: 50000
+maximum_tetrahedra: 75000
+maximum_process_rss_bytes: 2147483648
+worker_cpu_limit_s: 10
+worker_wall_limit_s: 30
+packet_cpu_limit_s: 600
+prior_conservative_cpu_charge_s: 251.882279
+additional_setup_and_control_cpu_reservation_s: 20
+actual_bridge_mesh_authorized: false
+actual_solver_authorized: false
