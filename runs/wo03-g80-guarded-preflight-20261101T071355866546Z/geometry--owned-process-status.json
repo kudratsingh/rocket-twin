@@ -1,0 +1,99 @@
+{
+  "argv": [
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py",
+    "--geometry-only-worker",
+    "--output",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-geometry-only-v1"
+  ],
+  "cleanup_errors": [],
+  "cleanup_outcomes": [],
+  "cpu_accounting": {
+    "child_system_s_delta": 0.033811,
+    "child_user_s_delta": 0.18226599999999998,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.0016920000000000025,
+    "supervisor_user_s_delta": 0.0004939999999999944
+  },
+  "cpu_samples": [
+    {
+      "elapsed_wall_s": 0.002010583004448563,
+      "supervisor_cpu_system_s": 0.0012780000000000014,
+      "supervisor_cpu_user_s": 0.00021399999999999197
+    },
+    {
+      "elapsed_wall_s": 0.05690779100405052,
+      "supervisor_cpu_system_s": 0.0013909999999999999,
+      "supervisor_cpu_user_s": 0.0002809999999999896
+    },
+    {
+      "elapsed_wall_s": 0.11540720800985582,
+      "supervisor_cpu_system_s": 0.001457,
+      "supervisor_cpu_user_s": 0.0003339999999999871
+    },
+    {
+      "elapsed_wall_s": 0.17236225001397543,
+      "supervisor_cpu_system_s": 0.001523,
+      "supervisor_cpu_user_s": 0.0004249999999999948
+    }
+  ],
+  "descendant_pid_samples": [
+    {
+      "elapsed_wall_s": 0.002010583004448563,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.05690779100405052,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.11540720800985582,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.17236225001397543,
+      "pids": []
+    }
+  ],
+  "error": null,
+  "finished_utc": "2026-11-01T06:57:26.531895+00:00",
+  "guard_failure": null,
+  "known_descendant_pids": [],
+  "launch_wall_s": 0.001992833014810458,
+  "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-geometry-only-v1/worker.log",
+  "pid": 17117,
+  "returncode": 0,
+  "rss_limit_bytes": 2147483648,
+  "rss_samples_bytes": [
+    {
+      "bytes": 688128,
+      "elapsed_wall_s": 0.002010583004448563
+    },
+    {
+      "bytes": 32292864,
+      "elapsed_wall_s": 0.05690779100405052
+    },
+    {
+      "bytes": 66207744,
+      "elapsed_wall_s": 0.11540720800985582
+    },
+    {
+      "bytes": 72728576,
+      "elapsed_wall_s": 0.17236225001397543
+    }
+  ],
+  "started_utc": "2026-11-01T06:57:26.303513+00:00",
+  "status": "completed",
+  "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-geometry-only-v1/owned-process-status.json",
+  "status_write_error": null,
+  "success": true,
+  "timed_out": false,
+  "total_wall_s": 0.22829904101672582,
+  "wall_limit_s": 120.0,
+  "wall_samples": [
+    0.002010583004448563,
+    0.05690779100405052,
+    0.11540720800985582,
+    0.17236225001397543
+  ]
+}

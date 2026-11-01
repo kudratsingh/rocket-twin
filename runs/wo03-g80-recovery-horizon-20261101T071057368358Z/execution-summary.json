@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "success": true,
+  "argv": [
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+    "-c",
+    "import resource,runpy,sys; resource.setrlimit(resource.RLIMIT_CPU,(120,120)); sys.argv=['scripts/wo03_g80_candidate_flight.py','--config','configs/studies/wo03-g80-integrated-recovery-horizon.yaml','--output','build/wo03-g80-integrated-recovery-horizon-v1']; runpy.run_path(sys.argv[0],run_name='__main__')"
+  ],
+  "started_utc": "2026-11-01T07:09:11.689036+00:00",
+  "finished_utc": "2026-11-01T07:09:28.419489+00:00",
+  "returncode": 0,
+  "total_wall_s": 16.730306500016013,
+  "cpu_accounting": {
+    "child_system_s_delta": 1.264962,
+    "child_user_s_delta": 15.739052,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.021759,
+    "supervisor_user_s_delta": 0.015650000000000004
+  },
+  "rss_limit_bytes": 2147483648,
+  "wall_limit_s": 120,
+  "cleanup_errors": [],
+  "cleanup_outcomes": [],
+  "guard_failure": null,
+  "error": null,
+  "projection": "compact execution status; time-series resource samples remain local",
+  "original_status_sha256": "7c9ea4465ab703561b88c535de4458e534ab273d9a7d66c7d326d112b25495d3",
+  "maximum_observed_tree_rss_bytes": 515112960
+}

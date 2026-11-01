@@ -1,0 +1,456 @@
+{
+  "status": "stopped",
+  "prior_conservative_cpu_charge_s": 188.016626,
+  "prior_charge_note": "Prior recorded 127.016626 s plus conservative 60 s guard-work and 1 s geometry/supervisor allowance.",
+  "limits": {
+    "mesh_cpu_s": 60,
+    "solver_cpu_s": 60,
+    "case_wall_s": 120,
+    "packet_cpu_s": 600,
+    "nodes": 50000,
+    "tetrahedra": 75000,
+    "rss_bytes": 2147483648
+  },
+  "source_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "5fbfce15a971e9279f21270918193857bba7404c6a8cb0ccdbd0ec85b461cccc",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "03a93b6324e47422f37f2f30776b805782312ba81f376685fbadc006b6a080af",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py": "51cf68424c1a4ce541e99d6e6e419192fa3d9e2b89dc2f8bc47c482bae6e29ac",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "e0959e2293814805cb19aea27ff010ce51c798fa8c04b2bba4acab342eb4870b",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+  },
+  "physical_source_sha256": {
+    "bridge": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "modified_mount_reference": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+    "washer_0": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+    "washer_1": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+    "washer_2": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+    "geometry_preflight": "52abfc4af9c47017ef0caa628f5517a8a41c2042daba483ab787ce996e387dcd",
+    "film_recipe_source": "f4124ec5932bd648306f16426d19a28118a8d4d4d0419dc0da5fc89960e68a05",
+    "tet_order_source": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695"
+  },
+  "earlier_lost_exception": "unidentified",
+  "supervisor_update": "Success-path descendant handling updated after geometry diagnostic; as-run helper pinned above.",
+  "acceptance": false,
+  "solver_invoked": false,
+  "error": "OwnedProcessError: {'kind': 'child_exit', 'message': 'owned child exited with return code 1'}",
+  "case_wall_s": 1.4539464999979828,
+  "source_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "5fbfce15a971e9279f21270918193857bba7404c6a8cb0ccdbd0ec85b461cccc",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "03a93b6324e47422f37f2f30776b805782312ba81f376685fbadc006b6a080af",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py": "51cf68424c1a4ce541e99d6e6e419192fa3d9e2b89dc2f8bc47c482bae6e29ac",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "e0959e2293814805cb19aea27ff010ce51c798fa8c04b2bba4acab342eb4870b",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+  },
+  "source_unchanged": true,
+  "mesh_status": {
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py",
+      "--coarse-mesh-worker",
+      "--output",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-coarse-owned-v1"
+    ],
+    "cleanup_errors": [],
+    "cleanup_outcomes": [],
+    "cpu_accounting": {
+      "child_system_s_delta": 0.076224,
+      "child_user_s_delta": 1.19067,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.0032949999999999993,
+      "supervisor_user_s_delta": 0.0017240000000000033
+    },
+    "cpu_samples": [
+      {
+        "elapsed_wall_s": 0.002064375003101304,
+        "supervisor_cpu_system_s": 0.0012439999999999986,
+        "supervisor_cpu_user_s": 0.00017600000000000948
+      },
+      {
+        "elapsed_wall_s": 0.05229345799307339,
+        "supervisor_cpu_system_s": 0.0013650000000000016,
+        "supervisor_cpu_user_s": 0.0002390000000000031
+      },
+      {
+        "elapsed_wall_s": 0.10731916700024158,
+        "supervisor_cpu_system_s": 0.0014370000000000008,
+        "supervisor_cpu_user_s": 0.00027900000000000147
+      },
+      {
+        "elapsed_wall_s": 0.1674172499915585,
+        "supervisor_cpu_system_s": 0.0014890000000000007,
+        "supervisor_cpu_user_s": 0.00032500000000000584
+      },
+      {
+        "elapsed_wall_s": 0.22399904200574383,
+        "supervisor_cpu_system_s": 0.0015800000000000015,
+        "supervisor_cpu_user_s": 0.00038000000000000533
+      },
+      {
+        "elapsed_wall_s": 0.2765865419933107,
+        "supervisor_cpu_system_s": 0.0016590000000000008,
+        "supervisor_cpu_user_s": 0.00044000000000000983
+      },
+      {
+        "elapsed_wall_s": 0.329843208019156,
+        "supervisor_cpu_system_s": 0.0017420000000000005,
+        "supervisor_cpu_user_s": 0.0004890000000000033
+      },
+      {
+        "elapsed_wall_s": 0.3833013330004178,
+        "supervisor_cpu_system_s": 0.0018129999999999986,
+        "supervisor_cpu_user_s": 0.0005400000000000127
+      },
+      {
+        "elapsed_wall_s": 0.4366444170009345,
+        "supervisor_cpu_system_s": 0.0018750000000000017,
+        "supervisor_cpu_user_s": 0.0005950000000000122
+      },
+      {
+        "elapsed_wall_s": 0.49211708299117163,
+        "supervisor_cpu_system_s": 0.001965999999999999,
+        "supervisor_cpu_user_s": 0.0006700000000000039
+      },
+      {
+        "elapsed_wall_s": 0.5456706669938285,
+        "supervisor_cpu_system_s": 0.0020599999999999993,
+        "supervisor_cpu_user_s": 0.0007600000000000107
+      },
+      {
+        "elapsed_wall_s": 0.5964165420155041,
+        "supervisor_cpu_system_s": 0.0021259999999999994,
+        "supervisor_cpu_user_s": 0.0008120000000000072
+      },
+      {
+        "elapsed_wall_s": 0.6560560830112081,
+        "supervisor_cpu_system_s": 0.0022150000000000017,
+        "supervisor_cpu_user_s": 0.0008790000000000048
+      },
+      {
+        "elapsed_wall_s": 0.7161715000111144,
+        "supervisor_cpu_system_s": 0.0022830000000000003,
+        "supervisor_cpu_user_s": 0.0009240000000000081
+      },
+      {
+        "elapsed_wall_s": 0.7740116250060964,
+        "supervisor_cpu_system_s": 0.002350999999999999,
+        "supervisor_cpu_user_s": 0.0009720000000000006
+      },
+      {
+        "elapsed_wall_s": 0.831900916993618,
+        "supervisor_cpu_system_s": 0.002409999999999999,
+        "supervisor_cpu_user_s": 0.0010360000000000091
+      },
+      {
+        "elapsed_wall_s": 0.8920575419906527,
+        "supervisor_cpu_system_s": 0.002491,
+        "supervisor_cpu_user_s": 0.0011070000000000108
+      },
+      {
+        "elapsed_wall_s": 0.9434460829943419,
+        "supervisor_cpu_system_s": 0.0025249999999999995,
+        "supervisor_cpu_user_s": 0.0012000000000000066
+      },
+      {
+        "elapsed_wall_s": 1.0036473330110312,
+        "supervisor_cpu_system_s": 0.002620000000000001,
+        "supervisor_cpu_user_s": 0.0012790000000000024
+      },
+      {
+        "elapsed_wall_s": 1.0538715420116205,
+        "supervisor_cpu_system_s": 0.002686000000000001,
+        "supervisor_cpu_user_s": 0.0013230000000000047
+      },
+      {
+        "elapsed_wall_s": 1.1140087500098161,
+        "supervisor_cpu_system_s": 0.002756999999999999,
+        "supervisor_cpu_user_s": 0.0013729999999999992
+      },
+      {
+        "elapsed_wall_s": 1.170160833018599,
+        "supervisor_cpu_system_s": 0.002825000000000001,
+        "supervisor_cpu_user_s": 0.0014220000000000066
+      },
+      {
+        "elapsed_wall_s": 1.2235989170148969,
+        "supervisor_cpu_system_s": 0.002901000000000001,
+        "supervisor_cpu_user_s": 0.00148100000000001
+      },
+      {
+        "elapsed_wall_s": 1.2754214169981424,
+        "supervisor_cpu_system_s": 0.0029700000000000004,
+        "supervisor_cpu_user_s": 0.0015259999999999996
+      },
+      {
+        "elapsed_wall_s": 1.3340859579911921,
+        "supervisor_cpu_system_s": 0.0030370000000000015,
+        "supervisor_cpu_user_s": 0.001570000000000002
+      },
+      {
+        "elapsed_wall_s": 1.3942047500167973,
+        "supervisor_cpu_system_s": 0.0031100000000000017,
+        "supervisor_cpu_user_s": 0.0016130000000000033
+      }
+    ],
+    "descendant_pid_samples": [
+      {
+        "elapsed_wall_s": 0.002064375003101304,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.05229345799307339,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.10731916700024158,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.1674172499915585,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.22399904200574383,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.2765865419933107,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.329843208019156,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.3833013330004178,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.4366444170009345,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.49211708299117163,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.5456706669938285,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.5964165420155041,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.6560560830112081,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.7161715000111144,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.7740116250060964,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.831900916993618,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.8920575419906527,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.9434460829943419,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.0036473330110312,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.0538715420116205,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.1140087500098161,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.170160833018599,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.2235989170148969,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.2754214169981424,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.3340859579911921,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 1.3942047500167973,
+        "pids": []
+      }
+    ],
+    "error": {
+      "kind": "child_exit",
+      "message": "owned child exited with return code 1"
+    },
+    "finished_utc": "2026-11-01T07:03:19.645428+00:00",
+    "guard_failure": null,
+    "historical_descendant_checks": [],
+    "known_descendant_pids": [],
+    "launch_wall_s": 0.0020551249908749014,
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-coarse-owned-v1/mesh.log",
+    "pid": 19052,
+    "returncode": 1,
+    "rss_limit_bytes": 2147483648,
+    "rss_samples_bytes": [
+      {
+        "bytes": 671744,
+        "elapsed_wall_s": 0.002064375003101304
+      },
+      {
+        "bytes": 32800768,
+        "elapsed_wall_s": 0.05229345799307339
+      },
+      {
+        "bytes": 42074112,
+        "elapsed_wall_s": 0.10731916700024158
+      },
+      {
+        "bytes": 57851904,
+        "elapsed_wall_s": 0.1674172499915585
+      },
+      {
+        "bytes": 67403776,
+        "elapsed_wall_s": 0.22399904200574383
+      },
+      {
+        "bytes": 72531968,
+        "elapsed_wall_s": 0.2765865419933107
+      },
+      {
+        "bytes": 73957376,
+        "elapsed_wall_s": 0.329843208019156
+      },
+      {
+        "bytes": 76382208,
+        "elapsed_wall_s": 0.3833013330004178
+      },
+      {
+        "bytes": 83181568,
+        "elapsed_wall_s": 0.4366444170009345
+      },
+      {
+        "bytes": 106250240,
+        "elapsed_wall_s": 0.49211708299117163
+      },
+      {
+        "bytes": 111804416,
+        "elapsed_wall_s": 0.5456706669938285
+      },
+      {
+        "bytes": 117751808,
+        "elapsed_wall_s": 0.5964165420155041
+      },
+      {
+        "bytes": 121225216,
+        "elapsed_wall_s": 0.6560560830112081
+      },
+      {
+        "bytes": 122814464,
+        "elapsed_wall_s": 0.7161715000111144
+      },
+      {
+        "bytes": 122912768,
+        "elapsed_wall_s": 0.7740116250060964
+      },
+      {
+        "bytes": 153960448,
+        "elapsed_wall_s": 0.831900916993618
+      },
+      {
+        "bytes": 172425216,
+        "elapsed_wall_s": 0.8920575419906527
+      },
+      {
+        "bytes": 186613760,
+        "elapsed_wall_s": 0.9434460829943419
+      },
+      {
+        "bytes": 202145792,
+        "elapsed_wall_s": 1.0036473330110312
+      },
+      {
+        "bytes": 210010112,
+        "elapsed_wall_s": 1.0538715420116205
+      },
+      {
+        "bytes": 224215040,
+        "elapsed_wall_s": 1.1140087500098161
+      },
+      {
+        "bytes": 237256704,
+        "elapsed_wall_s": 1.170160833018599
+      },
+      {
+        "bytes": 250789888,
+        "elapsed_wall_s": 1.2235989170148969
+      },
+      {
+        "bytes": 261373952,
+        "elapsed_wall_s": 1.2754214169981424
+      },
+      {
+        "bytes": 262897664,
+        "elapsed_wall_s": 1.3340859579911921
+      },
+      {
+        "bytes": 219070464,
+        "elapsed_wall_s": 1.3942047500167973
+      }
+    ],
+    "started_utc": "2026-11-01T07:03:18.192518+00:00",
+    "status": "failed",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-coarse-owned-v1/mesh-status.json",
+    "status_write_error": null,
+    "success": false,
+    "timed_out": false,
+    "total_wall_s": 1.452810207993025,
+    "wall_limit_s": 120,
+    "wall_samples": [
+      0.002064375003101304,
+      0.05229345799307339,
+      0.10731916700024158,
+      0.1674172499915585,
+      0.22399904200574383,
+      0.2765865419933107,
+      0.329843208019156,
+      0.3833013330004178,
+      0.4366444170009345,
+      0.49211708299117163,
+      0.5456706669938285,
+      0.5964165420155041,
+      0.6560560830112081,
+      0.7161715000111144,
+      0.7740116250060964,
+      0.831900916993618,
+      0.8920575419906527,
+      0.9434460829943419,
+      1.0036473330110312,
+      1.0538715420116205,
+      1.1140087500098161,
+      1.170160833018599,
+      1.2235989170148969,
+      1.2754214169981424,
+      1.3340859579911921,
+      1.3942047500167973
+    ]
+  }
+}

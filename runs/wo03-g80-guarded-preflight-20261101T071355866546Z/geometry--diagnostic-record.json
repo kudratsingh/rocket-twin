@@ -1,0 +1,219 @@
+{
+  "status": "diagnostic_complete_no_mesh",
+  "prior_fixture_evidence": {
+    "known_prior_cpu_s": 5.208219000000001,
+    "fixtures_and_geometry_reused_without_rerun": true
+  },
+  "prior_failed_case": {
+    "prior_failed_worker_hard_cpu_limit_s": 60,
+    "prior_failed_case_conservative_charge_cpu_s": 120.0,
+    "prior_failed_measured_cpu_s": null,
+    "prior_known_before_failed_case_cpu_s": 5.4633970000000005
+  },
+  "prior_known_plus_conservative_charge_cpu_s": 127.016626,
+  "this_worker_cpu_limit_s": 60,
+  "packet_cpu_limit_s": 600,
+  "worker_resource": {
+    "worker_cpu_s": 0.20652,
+    "child_cpu_s": 0.0,
+    "worker_peak_rss_bytes_macos": 73662464,
+    "child_peak_rss_bytes_macos": 0,
+    "note": "Separate maxima; abrupt hard termination may prevent finally output."
+  },
+  "owned_process": {
+    "status": "completed",
+    "success": true,
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py",
+      "--geometry-only-worker",
+      "--output",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-geometry-only-v1"
+    ],
+    "pid": 17117,
+    "started_utc": "2026-11-01T06:57:26.303513+00:00",
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-geometry-only-v1/worker.log",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-geometry-only-v1/owned-process-status.json",
+    "wall_limit_s": 120.0,
+    "rss_limit_bytes": 2147483648,
+    "returncode": 0,
+    "timed_out": false,
+    "guard_failure": null,
+    "error": null,
+    "wall_samples": [
+      0.002010583004448563,
+      0.05690779100405052,
+      0.11540720800985582,
+      0.17236225001397543
+    ],
+    "cpu_samples": [
+      {
+        "elapsed_wall_s": 0.002010583004448563,
+        "supervisor_cpu_user_s": 0.00021399999999999197,
+        "supervisor_cpu_system_s": 0.0012780000000000014
+      },
+      {
+        "elapsed_wall_s": 0.05690779100405052,
+        "supervisor_cpu_user_s": 0.0002809999999999896,
+        "supervisor_cpu_system_s": 0.0013909999999999999
+      },
+      {
+        "elapsed_wall_s": 0.11540720800985582,
+        "supervisor_cpu_user_s": 0.0003339999999999871,
+        "supervisor_cpu_system_s": 0.001457
+      },
+      {
+        "elapsed_wall_s": 0.17236225001397543,
+        "supervisor_cpu_user_s": 0.0004249999999999948,
+        "supervisor_cpu_system_s": 0.001523
+      }
+    ],
+    "rss_samples_bytes": [
+      {
+        "elapsed_wall_s": 0.002010583004448563,
+        "bytes": 688128
+      },
+      {
+        "elapsed_wall_s": 0.05690779100405052,
+        "bytes": 32292864
+      },
+      {
+        "elapsed_wall_s": 0.11540720800985582,
+        "bytes": 66207744
+      },
+      {
+        "elapsed_wall_s": 0.17236225001397543,
+        "bytes": 72728576
+      }
+    ],
+    "descendant_pid_samples": [
+      {
+        "elapsed_wall_s": 0.002010583004448563,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.05690779100405052,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.11540720800985582,
+        "pids": []
+      },
+      {
+        "elapsed_wall_s": 0.17236225001397543,
+        "pids": []
+      }
+    ],
+    "known_descendant_pids": [],
+    "cleanup_outcomes": [],
+    "cleanup_errors": [],
+    "status_write_error": null,
+    "launch_wall_s": 0.001992833014810458,
+    "cpu_accounting": {
+      "child_user_s_delta": 0.18226599999999998,
+      "child_system_s_delta": 0.033811,
+      "supervisor_user_s_delta": 0.0004939999999999944,
+      "supervisor_system_s_delta": 0.0016920000000000025,
+      "children_rusage_sampled_after_reap": true
+    },
+    "total_wall_s": 0.22829904101672582,
+    "finished_utc": "2026-11-01T06:57:26.531895+00:00"
+  },
+  "error": null,
+  "source_geometry_sha256": {
+    "bridge": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "modified_mount_reference": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+    "washer_0": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+    "washer_1": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+    "washer_2": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+    "geometry_preflight": "52abfc4af9c47017ef0caa628f5517a8a41c2042daba483ab787ce996e387dcd",
+    "film_recipe_source": "f4124ec5932bd648306f16426d19a28118a8d4d4d0419dc0da5fc89960e68a05",
+    "tet_order_source": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695"
+  },
+  "source_sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "03a93b6324e47422f37f2f30776b805782312ba81f376685fbadc006b6a080af",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py": "51cf68424c1a4ce541e99d6e6e419192fa3d9e2b89dc2f8bc47c482bae6e29ac",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "f8ae0dfaac8d068cd55cec4113b24e17d92257aaa8eeb2f21954da13be28e48a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "43e2c4442d0f3b87781e7dd4c24af544fb9261ef018b550061b6c18d87a7fbe5",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_g80_bridge_adapter.py": "8adaa618b9313191d6032e9e1372eed97f81d14568e35d677278cceefdf05c0c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_g80_bridge_fea.py": "4aaedd890ba781657525d07ec848428cdd2e4c4774e42d19f535144427c98adc",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_owned_process.py": "bcb75cbb7c672ade74a07e826826ed4053617e82b9ab99a6cb05b86035abc177"
+  },
+  "source_sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "03a93b6324e47422f37f2f30776b805782312ba81f376685fbadc006b6a080af",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py": "51cf68424c1a4ce541e99d6e6e419192fa3d9e2b89dc2f8bc47c482bae6e29ac",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "f8ae0dfaac8d068cd55cec4113b24e17d92257aaa8eeb2f21954da13be28e48a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "43e2c4442d0f3b87781e7dd4c24af544fb9261ef018b550061b6c18d87a7fbe5",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_g80_bridge_adapter.py": "8adaa618b9313191d6032e9e1372eed97f81d14568e35d677278cceefdf05c0c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_g80_bridge_fea.py": "4aaedd890ba781657525d07ec848428cdd2e4c4774e42d19f535144427c98adc",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_owned_process.py": "bcb75cbb7c672ade74a07e826826ed4053617e82b9ab99a6cb05b86035abc177"
+  },
+  "source_unchanged": true,
+  "geometry": {
+    "status": "geometry_only_complete_no_mesh_or_solver",
+    "source_sha256": {
+      "bridge": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+      "modified_mount_reference": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+      "washer_0": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+      "washer_1": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+      "washer_2": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47",
+      "geometry_preflight": "52abfc4af9c47017ef0caa628f5517a8a41c2042daba483ab787ce996e387dcd",
+      "film_recipe_source": "f4124ec5932bd648306f16426d19a28118a8d4d4d0419dc0da5fc89960e68a05",
+      "tet_order_source": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695"
+    },
+    "gmsh_version": "4.15.2",
+    "volume_owner_by_tag": {
+      "1": "G11",
+      "2": "EPOXY_0",
+      "3": "EPOXY_1",
+      "4": "EPOXY_2",
+      "5": "EPOXY_3",
+      "6": "EPOXY_4",
+      "7": "EPOXY_5"
+    },
+    "volume_by_material_mm3": {
+      "G11": 5500.998158294296,
+      "EPOXY_0": 9.939776890153977,
+      "EPOXY_1": 9.939776890154864,
+      "EPOXY_2": 9.939776890145605,
+      "EPOXY_3": 9.939776890014107,
+      "EPOXY_4": 9.939776890062387,
+      "EPOXY_5": 9.939776890097775
+    },
+    "washer_surface_tags": [
+      [
+        76
+      ],
+      [
+        78
+      ],
+      [
+        80
+      ]
+    ],
+    "washer_surface_areas_mm2": [
+      54.53804846631882,
+      54.53804846631885,
+      54.53804846631882
+    ],
+    "washer_centers_mm": [
+      [
+        12.750000000000004,
+        22.083647796503183
+      ],
+      [
+        -25.5,
+        3.1228493378257506e-15
+      ],
+      [
+        12.750000000000004,
+        -22.083647796503183
+      ]
+    ],
+    "mesh_generated": false,
+    "solver_invoked": false,
+    "meaning": "Exact OCC import, two fragment mappings and washer identification only; no mesh-node/interface ownership or force distribution was checked."
+  },
+  "mesh_or_ccx_invoked": false,
+  "acceptance": false
+}

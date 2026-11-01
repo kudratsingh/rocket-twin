@@ -1156,6 +1156,377 @@ def actual_packet(cfg):
     (OUT / "actual-record.json").write_text(json.dumps(progress, indent=2) + "\n")
 
 
+def geometry_only_worker(cfg):
+    """Run only adapter OCC stages; an independent trap forbids meshing."""
+    resource.setrlimit(resource.RLIMIT_CPU, (60, 60))
+    import gmsh
+
+    from scripts.wo03_g80_bridge_adapter import build_case
+
+    old_generate = gmsh.model.mesh.generate
+
+    def forbidden_generate(*_args, **_kwargs):
+        raise RuntimeError("Geometry-only guard: mesh generation is forbidden")
+
+    gmsh.model.mesh.generate = forbidden_generate
+    try:
+        result = build_case(
+            OUT / "geometry",
+            1.5,
+            cfg["maximum_nodes"],
+            cfg["maximum_tetrahedra"],
+            geometry_only=True,
+        )
+        if result.get("mesh_generated") is not False or result.get("solver_invoked") is not False:
+            raise ValueError("Geometry-only result does not prove no mesh/solver")
+        print(json.dumps(result), flush=True)
+    finally:
+        gmsh.model.mesh.generate = old_generate
+        own = resource.getrusage(resource.RUSAGE_SELF)
+        child = resource.getrusage(resource.RUSAGE_CHILDREN)
+        info = {
+            "worker_cpu_s": own.ru_utime + own.ru_stime,
+            "child_cpu_s": child.ru_utime + child.ru_stime,
+            "worker_peak_rss_bytes_macos": own.ru_maxrss,
+            "child_peak_rss_bytes_macos": child.ru_maxrss,
+            "note": "Separate maxima; abrupt hard termination may prevent finally output.",
+        }
+        (OUT / "geometry-worker-resources.json").write_text(json.dumps(info, indent=2) + "\n")
+
+
+def geometry_only_packet(cfg):
+    """Run exactly one bounded OCC-only diagnostic with owned-child controls."""
+    from scripts.wo03_g80_bridge_adapter import source_hashes
+    from scripts.wo03_owned_process import OwnedProcessError, darwin_process_callbacks, run_owned
+
+    preserved = check_preserved_preflight(cfg)
+    prior = validate_prior_failed_case(cfg)
+    second = json.loads(
+        (ROOT / "build/wo03-g80-bridge-fea-api-replan-v1/supervisor-stop.json").read_text()
+    )
+    previous_progress = json.loads(
+        (ROOT / "build/wo03-g80-bridge-fea-api-replan-v1/actual-progress.json").read_text()
+    )
+    if (
+        second["status"] != "supervisor_stopped_guard_error"
+        or second["source_sha256_before"] != second["source_sha256_after"]
+    ):
+        raise ValueError("Prior replan stop or source hashes not verified")
+    resources = second["worker_final_resources"]
+    if resources["reaped_children_user_s"] != 0 or resources["reaped_children_system_s"] != 0:
+        raise ValueError("Prior no-solver resource record differs")
+    charge = (
+        prior["prior_known_before_failed_case_cpu_s"]
+        + prior["prior_failed_case_conservative_charge_cpu_s"]
+        + previous_progress["preflight"]["adapter_no_solve_preflight"]["cpu_s"]
+        + resources["worker_user_s"]
+        + resources["worker_system_s"]
+    )
+    if charge + 60 > cfg["packet_cpu_limit_s"]:
+        raise ValueError("Insufficient remaining packet CPU for diagnostic bound")
+    pinned = source_hashes()
+    paths = {
+        Path(__file__).resolve(),
+        CONFIG,
+        ROOT / "scripts/wo03_g80_bridge_adapter.py",
+        ROOT / "scripts/wo03_owned_process.py",
+        ROOT / "tests/test_owned_process.py",
+        ROOT / "tests/test_g80_bridge_fea.py",
+        ROOT / "tests/test_g80_bridge_adapter.py",
+    }
+    before = {str(p): sha(p) for p in sorted(paths)}
+    for p in (
+        Path(__file__).resolve(),
+        CONFIG,
+        ROOT / "scripts/wo03_g80_bridge_adapter.py",
+        ROOT / "scripts/wo03_owned_process.py",
+    ):
+        (OUT / f"snapshot-{p.name}").write_bytes(p.read_bytes())
+    rss_cb, descendants_cb = darwin_process_callbacks()
+    argv = [
+        sys.executable,
+        str(Path(__file__).resolve()),
+        "--geometry-only-worker",
+        "--output",
+        str(OUT),
+    ]
+    status = None
+    failure = None
+    try:
+        status = run_owned(
+            argv,
+            log_path=OUT / "worker.log",
+            status_path=OUT / "owned-process-status.json",
+            wall_limit_s=120.0,
+            rss_callback=rss_cb,
+            descendants_callback=descendants_cb,
+            rss_limit_bytes=cfg["maximum_process_rss_bytes"],
+            cwd=ROOT,
+            env=dict(os.environ),
+        )
+    except OwnedProcessError as exc:
+        status = exc.result
+        failure = str(exc)
+    finally:
+        after = {str(p): sha(p) for p in sorted(paths)}
+        worker_path = OUT / "geometry-worker-resources.json"
+        geometry_path = OUT / "geometry" / "geometry-only.json"
+        worker = json.loads(worker_path.read_text()) if worker_path.exists() else None
+        geometry = json.loads(geometry_path.read_text()) if geometry_path.exists() else None
+        manifest = {
+            "status": (
+                "diagnostic_complete_no_mesh"
+                if failure is None and geometry
+                else "diagnostic_stopped"
+            ),
+            "prior_fixture_evidence": preserved,
+            "prior_failed_case": prior,
+            "prior_known_plus_conservative_charge_cpu_s": charge,
+            "this_worker_cpu_limit_s": 60,
+            "packet_cpu_limit_s": cfg["packet_cpu_limit_s"],
+            "worker_resource": worker,
+            "owned_process": status,
+            "error": failure,
+            "source_geometry_sha256": pinned,
+            "source_sha256_before": before,
+            "source_sha256_after": after,
+            "source_unchanged": before == after,
+            "geometry": geometry,
+            "mesh_or_ccx_invoked": False,
+            "acceptance": False,
+        }
+        (OUT / "diagnostic-record.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    if failure is not None:
+        raise RuntimeError(f"Geometry-only diagnostic stopped: {failure}")
+    if not geometry or before != after:
+        raise ValueError("Geometry-only output missing or source changed")
+    print(
+        json.dumps({"status": manifest["status"], "worker_resource": worker, "geometry": geometry}),
+        flush=True,
+    )
+
+
+def coarse_mesh_worker(cfg):
+    """Build and validate only; the supervisor runs CCX as a separate owned child."""
+    resource.setrlimit(resource.RLIMIT_CPU, (60, 60))
+    try:
+        if (
+            cfg.get("washer_load_assumption") != "equilibrated_axial_resultant_at_exact_cad_center"
+            or cfg.get("maximum_relative_affine_pressure_correction") != 0.005
+        ):
+            raise ValueError("Washer load assumption or correction ceiling is not declared")
+        from scripts.wo03_g80_bridge_adapter import build_case
+
+        folder = OUT / "bridge_1p5mm"
+        build_case(folder, 1.5, cfg["maximum_nodes"], cfg["maximum_tetrahedra"])
+        meta = json.loads((folder / "mesh-meta.json").read_text())
+        checks = validate_adapter_loads(meta, cfg)
+        deck = (folder / "case.inp").read_text().upper()
+        if deck.count("*STEP") != 2 or deck.count("*CLOAD,OP=NEW") != 2:
+            raise ValueError("Expected two independent load steps")
+        (folder / "input-check.json").write_text(json.dumps(checks, indent=2) + "\n")
+        print(json.dumps(checks), flush=True)
+    finally:
+        own = resource.getrusage(resource.RUSAGE_SELF)
+        child = resource.getrusage(resource.RUSAGE_CHILDREN)
+        (OUT / "mesh-worker-resources.json").write_text(
+            json.dumps(
+                {
+                    "worker_cpu_s": own.ru_utime + own.ru_stime,
+                    "child_cpu_s": child.ru_utime + child.ru_stime,
+                    "worker_peak_rss_bytes_macos": own.ru_maxrss,
+                },
+                indent=2,
+            )
+            + "\n"
+        )
+
+
+def coarse_owned_packet(cfg, mapping_replan=False):
+    """Single coarse case, direct-child supervision, no retries or refinements."""
+    from scripts.wo03_g80_bridge_adapter import source_hashes
+    from scripts.wo03_owned_process import darwin_process_callbacks, run_owned
+
+    diagdir = ROOT / "build/wo03-g80-bridge-geometry-only-v1"
+    diag = json.loads((diagdir / "diagnostic-record.json").read_text())
+    if diag["status"] != "diagnostic_complete_no_mesh" or not diag["source_unchanged"]:
+        raise ValueError("Prior geometry-only diagnostic incomplete")
+    previous_dir = ROOT / "build/wo03-g80-bridge-coarse-owned-v1"
+    previous = json.loads((previous_dir / "record.json").read_text()) if mapping_replan else None
+    if mapping_replan:
+        if previous["status"] != "stopped" or previous["solver_invoked"]:
+            raise ValueError("Prior traction stop evidence invalid")
+        for name in ("wo03_g80_bridge_adapter.py", "wo03-g80-bridge-fea.yaml"):
+            if sha(previous_dir / ("executed-" + name)) != sha(diagdir / ("snapshot-" + name)):
+                raise ValueError(f"Prior unchanged source snapshot mismatch: {name}")
+        if sha(ROOT / "scripts/wo03_owned_process.py") != sha(
+            previous_dir / "executed-wo03_owned_process.py"
+        ):
+            raise ValueError("Owned process helper changed since prior actual attempt")
+    else:
+        for name in ("wo03_g80_bridge_adapter.py", "wo03-g80-bridge-fea.yaml"):
+            current = CONFIG if name.endswith(".yaml") else ROOT / "scripts" / name
+            if sha(current) != sha(diagdir / ("snapshot-" + name)):
+                raise ValueError(f"Source changed since geometry diagnostic: {name}")
+    if source_hashes() != diag["source_geometry_sha256"]:
+        raise ValueError("Pinned physical source changed")
+    if sha(Path(cfg["ccx"])) != cfg["ccx_sha256"]:
+        raise ValueError("Pinned CCX binary changed")
+    charge = (
+        188.016626 + 1.266894 + 60.0
+        if mapping_replan
+        else float(diag["prior_known_plus_conservative_charge_cpu_s"]) + 60.0 + 1.0
+    )
+    if charge + 120.0 > cfg["packet_cpu_limit_s"]:
+        raise ValueError("Insufficient CPU packet budget")
+    source_paths = [
+        Path(__file__).resolve(),
+        CONFIG,
+        ROOT / "scripts/wo03_g80_bridge_adapter.py",
+        ROOT / "scripts/wo03_owned_process.py",
+        ROOT / "tests/test_g80_equilibrated_washer.py",
+        ROOT / "tests/test_g80_bridge_adapter.py",
+        ROOT / "tests/test_g80_bridge_fea.py",
+        ROOT / "tests/test_owned_process.py",
+        Path(cfg["ccx"]),
+    ]
+    before = {str(p): sha(p) for p in source_paths}
+    for p in source_paths[:-1]:
+        (OUT / ("executed-" + p.name)).write_bytes(p.read_bytes())
+    record = {
+        "status": "started",
+        "prior_conservative_cpu_charge_s": charge,
+        "prior_charge_note": (
+            "188.016626 s earlier charge + 1.266894 s prior coarse child + conservative 60 s fixtures and new guard work"
+            if mapping_replan
+            else "Prior recorded 127.016626 s plus conservative 60 s guard-work and 1 s geometry/supervisor allowance."
+        ),
+        "mapping_replan": mapping_replan,
+        "previous_source_sha256": previous["source_before"] if previous else None,
+        "reviewed_fixture_status": (
+            "24 focused tests passed before launch; sources pinned in this ledger"
+            if mapping_replan
+            else None
+        ),
+        "source_change_reason": (
+            "Adapter uses equilibrated axial resultants and durable patch diagnostics; config declares approximation; driver pins the new ledger. Physical STEP inputs unchanged."
+            if mapping_replan
+            else None
+        ),
+        "limits": {
+            "mesh_cpu_s": 60,
+            "solver_cpu_s": 60,
+            "case_wall_s": 120,
+            "packet_cpu_s": 600,
+            "nodes": cfg["maximum_nodes"],
+            "tetrahedra": cfg["maximum_tetrahedra"],
+            "rss_bytes": cfg["maximum_process_rss_bytes"],
+        },
+        "source_before": before,
+        "physical_source_sha256": source_hashes(),
+        "earlier_lost_exception": "unidentified",
+        "supervisor_update": "Success-path descendant handling updated after geometry diagnostic; as-run helper pinned above.",
+        "acceptance": False,
+        "solver_invoked": False,
+    }
+
+    def persist():
+        (OUT / "record.json").write_text(json.dumps(record, indent=2) + "\n")
+
+    persist()
+    rss_cb, descendants_cb = darwin_process_callbacks()
+    env = dict(os.environ)
+    for key in (
+        "OMP_NUM_THREADS",
+        "OPENBLAS_NUM_THREADS",
+        "MKL_NUM_THREADS",
+        "VECLIB_MAXIMUM_THREADS",
+        "NUMEXPR_NUM_THREADS",
+    ):
+        env[key] = "1"
+    started = time.monotonic()
+    try:
+        record["mesh_status"] = run_owned(
+            [
+                sys.executable,
+                str(Path(__file__).resolve()),
+                "--coarse-mesh-worker",
+                "--output",
+                str(OUT),
+            ],
+            log_path=OUT / "mesh.log",
+            status_path=OUT / "mesh-status.json",
+            wall_limit_s=120,
+            rss_callback=rss_cb,
+            descendants_callback=descendants_cb,
+            rss_limit_bytes=cfg["maximum_process_rss_bytes"],
+            cwd=ROOT,
+            env=env,
+        )
+        folder = OUT / "bridge_1p5mm"
+        record["input_check"] = json.loads((folder / "input-check.json").read_text())
+        if (
+            before != {str(p): sha(p) for p in source_paths}
+            or source_hashes() != diag["source_geometry_sha256"]
+        ):
+            raise ValueError("Source changed before solver")
+        remaining = 120 - (time.monotonic() - started)
+        if remaining <= 0:
+            raise TimeoutError("Case wall budget exhausted before solver")
+        launch = (
+            "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(60,60));os.execv("
+            + repr(cfg["ccx"])
+            + ",["
+            + repr(cfg["ccx"])
+            + ",'-i','case'])"
+        )
+        record["solver_invoked"] = True
+        persist()
+        record["solver_status"] = run_owned(
+            [sys.executable, "-c", launch],
+            log_path=OUT / "solver.log",
+            status_path=OUT / "solver-status.json",
+            wall_limit_s=remaining,
+            rss_callback=rss_cb,
+            descendants_callback=descendants_cb,
+            rss_limit_bytes=cfg["maximum_process_rss_bytes"],
+            cwd=folder,
+            env=env,
+        )
+        if (
+            "*ERROR" in (OUT / "solver.log").read_text(errors="replace").upper()
+            or not (folder / "case.dat").exists()
+        ):
+            raise ValueError("CCX reported an error or native output is missing")
+        record["result"] = assess_adapter_output(folder)
+        record["status"] = "coarse_case_complete_diagnostic_only"
+    except Exception as exc:
+        record["status"] = "stopped"
+        record["error"] = f"{type(exc).__name__}: {exc}"
+        raise
+    finally:
+        record["case_wall_s"] = time.monotonic() - started
+        record["source_after"] = {str(p): sha(p) for p in source_paths}
+        record["source_unchanged"] = before == record["source_after"]
+        for name in ("mesh", "solver"):
+            p = OUT / (name + "-status.json")
+            if p.exists():
+                record[name + "_status"] = json.loads(p.read_text())
+        persist()
+    if not record["source_unchanged"]:
+        raise ValueError("Source changed during case")
+    print(
+        json.dumps(
+            {
+                "status": record["status"],
+                "input_check": record["input_check"],
+                "result": record["result"],
+            }
+        ),
+        flush=True,
+    )
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument(
@@ -1171,13 +1542,32 @@ def main():
     )
     p.add_argument("--map-geometry", action="store_true")
     p.add_argument("--actual-packet", action="store_true")
+    p.add_argument("--coarse-mesh-worker", action="store_true")
+    p.add_argument("--coarse-owned-packet", action="store_true")
+    p.add_argument("--coarse-mapping-replan", action="store_true")
+    p.add_argument("--geometry-only-worker", action="store_true")
+    p.add_argument("--geometry-only-packet", action="store_true")
     p.add_argument("--output", type=Path, default=EVIDENCE_OUT)
     a = p.parse_args()
     global OUT
     OUT = a.output.resolve()
     cfg = yaml.safe_load(CONFIG.read_text())
     OUT.mkdir(parents=True, exist_ok=True)
-    if a.worker and a.worker.startswith("bridge_"):
+    if a.coarse_mesh_worker:
+        coarse_mesh_worker(cfg)
+    elif a.coarse_mapping_replan:
+        coarse_owned_packet(cfg, mapping_replan=True)
+    elif a.coarse_owned_packet:
+        coarse_owned_packet(cfg)
+    elif a.geometry_only_packet:
+        if a.worker or a.actual_packet or a.map_geometry or a.geometry_only_worker:
+            raise ValueError("Geometry-only packet cannot be combined with another mode")
+        geometry_only_packet(cfg)
+    elif a.geometry_only_worker:
+        if a.worker or a.actual_packet or a.map_geometry:
+            raise ValueError("Geometry-only cannot be combined with another mode")
+        geometry_only_worker(cfg)
+    elif a.worker and a.worker.startswith("bridge_"):
         actual_worker(a.worker, cfg)
     elif a.worker:
         worker(a.worker, cfg)

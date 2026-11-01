@@ -36,7 +36,28 @@ initial 9 mm washer/ring conflict and a single input correction. The corrected
 nominal screen has no positive-volume screened overlaps and has 54.538 mm²
 washer/bridge probes, but washer OD tolerance, keeper/capture, rail-tab load
 transfer and assembly remain open. Radial removal hits the installed shell;
-[this unexecuted keeper plan](wo03-g80-captive-retention-plan.md) distinguishes
+[the keeper plan](wo03-g80-captive-retention-plan.md) distinguishes
 pre-shell nut installation from routine aft cap/motor service. Its new G11 ring,
 closure hardware, mass and thermal/structural effects still require evaluation.
 No result is transferred to the active design or treated as a retention pass.
+
+## Subsequent source-identical service and accounting
+
+The [keeper service continuation](wo03-g80-keeper-service.md) now completes
+nominal sampled pre-shell insertion, aft cap removal and motor removal. This
+supersedes only the earlier unavailable service result, not tolerance, torque,
+strength or full-path access conclusions. The [mass audit](wo03-g80-retention-mass-audit.md)
+keeps all removed/replacement solids and the ambiguous old hardware lump
+separate; no complete revised mass/CG/inertia or flight result is claimed.
+The [bridge FEA record](wo03-g80-bridge-fea.md) preserves the coarse load-moment
+stop before CCX. Structural acceptance remains open; known fixtures and a
+geometry-only reconstruction do not establish installed strength.
+
+## Frozen-package recovery horizon follow-up
+
+The [180 s follow-up](wo03-g80-recovery-horizon.md) closes only the three
+45 s trajectories' unavailable landing outputs: all now reach modeled ground.
+The growth cases predict approximately 6.18 m/s against the preliminary 6 m/s
+descent screen, leaving a recovery sizing/allowable-impact decision open.
+This does not validate actual deployment, independent hardware, opening loads,
+installed anchor strength or the later unintegrated keeper/bridge design.

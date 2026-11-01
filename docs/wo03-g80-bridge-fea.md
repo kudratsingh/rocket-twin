@@ -1,8 +1,22 @@
 # G80 bridge diagnostic: fixtures and source-face mapping, actual solve not run
 
-**The actual bridge analysis remains incomplete.** Both known cases passed, the six proposed adhesive films and three washer seats were mapped against the saved BReps, and the new adapter passed six no-solver tests. The first 1.5 mm geometry preflight then stopped because Gmsh did not identify a unique source washer face. No actual bridge mesh, equal-load solve, single-bolt solve, refinement result or installed-strength conclusion was produced. The stopped input/topology failure is preserved without a retry.
+**Current outcome: structural acceptance remains open.** The final recorded
+coarse input preparation produces31,435 nodes/15,819 quadratic tetrahedra and
+preserves the declared applied washer forces and moments. It stops before
+CalculiX because each meshed washer area differs from CAD by0.000522514mm²,
+above the unchanged0.0002mm² guard. No reactions, displacement, stress, energy
+or actual-assembly convergence result exists. The actual bridge packet is
+stopped for this increment: no automatic refinement, tolerance relaxation or
+further mapping/mesher retry is selected. See the final section for the exact
+outcome and preserved diagnostics. Earlier failures below remain historical.
 
-The five planned solver cases were the two fixtures and three bridge meshes. The requested initial guards were **50,000 nodes, 75,000 tetrahedra, 2 GiB per-process RSS, 120 s per child and 600 CPU s for the packet**, with one CPU requested. The bridge's actual mesh counts and memory demand remain **unavailable**; no proposed 1.5/1.0/0.7 mm level has been generated. An order-of-magnitude count from tab-face area alone is not a reliable bound for the perforated web and 0.1 mm layers. Before any future heavy mesh, the adapter must enforce the node/element limit before invoking CalculiX, retain the live RSS guard, and stop on invalid surface ownership, Jacobian, traction, parser, solver or resource results. No cap increase or numerical retry was performed.
+The declared guards remain50,000 nodes/75,000 tetrahedra,2GiB sampled process
+RSS,120s case wall and600CPU s packet. Known cases and geometry-only checks
+pass only their stated scope; solver exit and input validation are distinct
+from installed strength. The actual pressure distribution, finite rail/body
+support, keeper participation and hot material/bond capacities remain open.
+
+## Original preparation and stopped attempts (historical)
 
 ## Executed known cases
 
@@ -52,3 +66,42 @@ The seven-test adapter suite used during the replan was subsequently extended wi
 ## Published evidence and current stop
 
 [Compact preparation record](../runs/wo03-g80-bridge-preparation-20261101T064904961981Z/record.json) preserves fixture/face outputs, both actual pre-execution stops and as-run snapshots. A later primary existence check found known worker PID12130 no longer present; this does not retroactively prove the failing guard terminated it. No new bridge attempt follows until process control/logging and adapter preflight are validated. The permission error from group signaling is not an owner-access request or proof that all own-child signaling is blocked.
+
+## Single coarse attempt and traction diagnosis
+
+One explicitly authorized, separately supervised 1.5 mm actual-mesh attempt used the same source geometry, load and material assumptions. The equal-load input guard stopped it **before CCX**: its resultant moment was `[1.498e-10, -0.00691142129, 0] N·mm`, instead of zero. The adapter's literal absolute moment guard is **2e-5 N·mm** at this zero target; the separate driver's pre-solver load check requires **1e-4 N·mm**. The observed discrepancy exceeds both. Neither criterion was relaxed. [Record](../build/wo03-g80-bridge-coarse-owned-v1/record.json), [mesh log](../build/wo03-g80-bridge-coarse-owned-v1/mesh.log) and as-run sources preserve this attempt. Direct-child supervision recorded 1.266894 s child CPU, 1.453946 s wall, and 264,945,664 bytes worker peak RSS; the solver was not invoked. No completed mesh metadata or deck survived the raised guard, so neither actual patch centroids nor element counts are available. The earlier lost exception remains unidentified. The prior 127.017 CPU s conservative charge and a further 61 s allowance were reserved before this attempt, not represented as measured work.
+
+The as-run OCC selector separately checked each actual imprinted patch center against its 25.5 mm bolt-circle location to within 1e-5 mm per coordinate. On the equal 50 N loads, those exact BRep centers therefore imply at most **0.0015 N·mm** moment discrepancy per component; they cannot alone explain the observed **0.0069114 N·mm**. Assuming correct nodal load assembly, the discrepancy corresponds to a sum of mesh-centroid X deviations of **0.000138228 mm**, with at least one absolute deviation at least **0.0000461 mm**. The per-patch force and moment checks in the failed adapter compare the assembled load with the *same mesh-integrated centroid used to create it*; they verify internal arithmetic, not exact-CAD centroid equivalence. Because the actual mesh and per-patch values were not retained, the relative contributions of curved-mesh approximation, quadrature/element mapping and assembly cannot be measured from this attempt. A physical CAD asymmetry within the already checked centroid bounds cannot by itself account for the observed total.
+
+A separate, tiny **known full-annulus** diagnostic (not the clipped bridge patch) used three quadratic triangular meshes at 1.5 mm. Each exact area was 55.574774042 mm² and each mesh-integrated area was 55.583812572 mm², a +0.0163% geometric integration difference. The mesh-integrated centers agreed with the symmetric analytic centers within 1.1e-14 mm, and the total equal-force moment was approximately `[4.55e-13, -3.41e-13, 0] N·mm`. It used 0.138 CPU s and 0.055 s wall, with one worker requested. Its symmetry does **not** prove the clipped actual mesh has exact centers or locate the actual discrepancy. [Known-answer script](../build/wo03-g80-traction-diagnosis-v1/annulus.py) and [result](../build/wo03-g80-traction-diagnosis-v1/annulus.json) preserve the calculation.
+
+The proposed next correction is to preserve the exact BRep patch force **and first moment** when mapping the declared uniform pressure to the finite-element nodes, with an explicitly recorded, bounded nodal-load correction and independent force/moment/known-annulus checks. This is a proposed equivalent-load mapping, not evidence that the existing deck passes, a tolerance change, or a claim that a particular correction has been validated. Before any new actual run, the correction needs tests for exact force and moment, finite-load perturbation, supported patch ownership and known curved cases; the interrupted case's source and records remain immutable. Primary engineering must decide whether that mapping is physically acceptable and authorize any follow-up. No bridge solver, later mesh level, structural convergence or installed-strength pass exists.
+
+## Equilibrated washer-resultant input preparation (no actual rerun)
+
+The selected input model now declares each washer load to be an **assumed axial resultant at the exact source STEP annulus center**: three 50 N resultants in the equal step, and one 150 N resultant in the single step. Actual washer pressure distribution is unverified. This model does not claim that pressure is exactly uniform or represent measured bolt preload/contact. For each discrete patch, the adapter integrates an affine pressure field and solves the three independent force and in-plane first-moment equations. These constraints uniquely determine its affine correction relative to mean pressure. The exact source STEP face center is read before imprinting; source, geometry and material remain otherwise unchanged.
+
+The adapter records the uncorrected mesh centroid and moment, exact source center, CAD and mesh areas, corrected force and moment for 50 N and 150 N, and the pressure correction relative to its mean. A Bernstein-coefficient enclosure bounds that affine physical pressure on every complete quadratic triangle. An ill-conditioned system or a correction exceeding **0.5% of mean pressure** stops input generation. That ceiling is a newly declared discretization-approximation limit, not a structural strength tolerance. Six-degree surface quadrature is used to integrate the affine pressure consistently over quadratic geometry. Finally, a separate parser calculates both resultants from the actual serialized node coordinates and load numbers; the existing force and moment guards remain unchanged.
+
+Nineteen focused no-solver checks passed, including independent analytic annulus and intentionally asymmetric quadratic patch resultants, excessive-correction and ill-conditioning rejection, a sixth-degree quadrature moment, serialized-deck tampering, and the previous constant/affine traction checks. A single-thread-requested capped test invocation used 0.320 CPU s, 0.241 s wall and 87,425,024 bytes peak RSS; this is fixture evidence, not a resource prediction for the bridge. The actual correction magnitude and its acceptability for the clipped bridge patch are **not yet known**. No actual bridge remesh or CCX solve followed this input change; all prior failed source snapshots remain unchanged. Stress, strength, keeper load-sharing and installed acceptance remain open.
+
+## Explicit mapping replan: stopped at independent area guard
+
+One primary-authorized, fresh 1.5 mm attempt used the revised equilibrated-resultant mapping. The old adapter/config snapshots were checked against the earlier geometry-diagnostic snapshots, the owned-process helper matched the prior case, and all physical STEP/recipe/order hashes matched. The [new record](../build/wo03-g80-bridge-mapping-replan-v1/record.json) pins before/after source hashes and the reason for the adapter, config and driver changes. Twenty-four focused no-solver/process checks passed before launch. The prior packet charge plus 60 CPU s conservative allowance for fixture and guard work was **249.28352 CPU s**, with a further maximum 120 CPU s reserved for the one case under the unchanged 600 CPU s ceiling.
+
+The adapter produced **31,435 nodes and 15,819 C3D10 tetrahedra**, with positive sampled Jacobians, and its generated-deck checks passed. Its three equal-source patches each integrated to **54.538570980760 mm²** on the quadratic mesh, while the exact CAD area was **54.538048466319 mm²**. The **+0.000522514441 mm²** mesh approximation exceeds the independent driver's unchanged **0.0002 mm²** absolute area guard, despite being approximately +0.000958% relative. The driver stopped on the first such patch, before completing its remaining input checks and **before CCX**. The previously preserved BRep area locator is distinct from this numerical mesh-area comparison. No area tolerance was changed and no solver, later mesh level or second attempt was run.
+
+[Patch diagnostics](../build/wo03-g80-bridge-mapping-replan-v1/bridge_1p5mm/patch-diagnostics.json) now expose the earlier moment discrepancy: each uncorrected mesh centroid's X coordinate was displaced approximately **+0.00004607614 mm** from its STEP washer center, consistent with the previously observed equal-load first-moment mismatch. All three affine equilibrations passed the declared 0.5% pressure-correction ceiling; their largest bounded correction was **0.00363323%** of mean pressure. The serialized equal step applied 150.00000000000009 N with moment `[2.24e-10, 5.37e-11, 0] N·mm`; the single step applied 150.00000000000009 N with moment `[3312.547169476, -1912.500000000, 0] N·mm`. These are **applied deck loads**, not measured reactions or evidence of structural equilibrium. True washer pressure is still unknown.
+
+The direct supervisor measured **2.598759 CPU s** for the child and **2.727575 s** case wall; the worker recorded **493,092,864 bytes** peak RSS. The source ledger remained unchanged through the attempt. No displacements, stresses, strain energies, support reactions, convergence or installed-strength result exists. A future engineering decision could investigate a surface representation or integration approach that meets the existing absolute CAD-area criterion, with an independent curved-patch known case and an explicit new execution authorization; this record does not approve a tolerance change, extra mesh variant or automatic retry.
+
+## Compact publication and next decision
+
+The [guarded-preflight packet](../runs/wo03-g80-guarded-preflight-20261101T071355866546Z/record.json)
+retains exact stopped records, logs, small diagnostic fields and as-run sources.
+Native41MB mesh metadata and2.6MB solver input remain local with hashes in the
+index; no bulk mesh or solver field is published. The next decision is a
+source-preserving surface-accuracy method comparison on known curved patches,
+with no actual bridge retry in this increment. A representation that cannot
+meet the unchanged area, volume, load and resource checks remains unqualified.
+Known numerical fixtures do not provide hot adhesive/plywood/G11 allowables.

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1581, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1557, in main
+    coarse_mesh_worker(cfg)
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1323, in coarse_mesh_worker
+    checks = validate_adapter_loads(meta, cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 820, in validate_adapter_loads
+    raise ValueError("Washer patch area differs from source geometry")
+ValueError: Washer patch area differs from source geometry

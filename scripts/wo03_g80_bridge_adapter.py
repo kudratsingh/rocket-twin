@@ -152,6 +152,105 @@ def quadratic_surface_loads(
     return nodal, area
 
 
+def equilibrated_washer_loads(
+    triangles,
+    coords,
+    local_points,
+    quadrature_weights,
+    jacobian_determinants,
+    exact_center,
+    max_relative_correction=0.005,
+    diagnostic=None,
+):
+    """Unit axial resultant with affine pressure and exact prescribed first moment.
+
+    A quadratic-triangle Bernstein enclosure bounds pressure across the complete
+    discrete patch, rather than merely sampling quadrature or nodal points.
+    """
+    triangles = [tuple(map(int, tri)) for tri in triangles]
+    center = np.asarray(exact_center, dtype=float)
+    if center.shape != (3,) or not np.isfinite(center).all():
+        raise ValueError("Invalid exact washer center")
+    baseline, area = quadratic_surface_weights(
+        triangles, coords, local_points, quadrature_weights, jacobian_determinants
+    )
+    mesh_center = sum((coords[n] * w for n, w in baseline.items()), np.zeros(3)) / area
+    scale = math.sqrt(area)
+    basis = lambda x: np.array([1.0, (x[0] - center[0]) / scale, (x[1] - center[1]) / scale])
+    columns = []
+    for j in range(3):
+        nodal, integrated_area = quadratic_surface_loads(
+            triangles,
+            coords,
+            local_points,
+            quadrature_weights,
+            jacobian_determinants,
+            lambda x, j=j: np.array([0.0, 0.0, basis(x)[j]]),
+        )
+        if abs(integrated_area - area) > 1e-9:
+            raise ValueError("Patch integration area mismatch")
+        columns.append({n: float(v[2]) for n, v in nodal.items()})
+    matrix = np.array(
+        [
+            [sum(basis(coords[n])[i] * v for n, v in col.items()) for col in columns]
+            for i in range(3)
+        ]
+    )
+    condition = float(np.linalg.cond(matrix))
+    if diagnostic is not None:
+        diagnostic["affine_system_condition"] = condition
+    if not math.isfinite(condition) or condition > 1e8:
+        raise ValueError("Washer pressure system is ill-conditioned")
+    coeff = np.linalg.solve(matrix, [1.0, 0.0, 0.0])
+    nodal_loads = {n: float(sum(coeff[j] * columns[j][n] for j in range(3))) for n in baseline}
+    force, moment = _force_resultant(nodal_loads, coords)
+    expected = np.cross(center, [0.0, 0.0, 1.0])
+    if np.linalg.norm(force - [0.0, 0.0, 1.0]) > 1e-10 or np.linalg.norm(moment - expected) > 1e-8:
+        raise ValueError("Equilibrated washer force or moment mismatch")
+    pressure = {n: float(np.dot(coeff, basis(coords[n]))) for n in baseline}
+    bernstein = []
+    for a, b, c, ab, bc, ca in triangles:
+        bernstein.extend(
+            [
+                pressure[a],
+                pressure[b],
+                pressure[c],
+                2 * pressure[ab] - 0.5 * (pressure[a] + pressure[b]),
+                2 * pressure[bc] - 0.5 * (pressure[b] + pressure[c]),
+                2 * pressure[ca] - 0.5 * (pressure[c] + pressure[a]),
+            ]
+        )
+    relative = np.asarray(bernstein) * area - 1.0
+    low, high = float(np.min(relative)), float(np.max(relative))
+    if diagnostic is not None:
+        diagnostic["pressure_relative_to_mean_bernstein_bounds"] = [low, high]
+        diagnostic["maximum_absolute_relative_pressure_correction"] = max(abs(low), abs(high))
+        diagnostic["pressure_correction_limit"] = max_relative_correction
+    if not np.isfinite(relative).all() or max(abs(low), abs(high)) > max_relative_correction:
+        raise ValueError("Washer affine pressure correction exceeds declared ceiling")
+    return nodal_loads, {
+        "exact_center_xyz_mm": center.tolist(),
+        "uncorrected_mesh_center_xyz_mm": mesh_center.tolist(),
+        "discrete_area_mm2": area,
+        "pressure_relative_to_mean_bernstein_bounds": [low, high],
+        "maximum_absolute_relative_pressure_correction": max(abs(low), abs(high)),
+        "pressure_correction_limit": max_relative_correction,
+        "affine_system_condition": condition,
+        "uncorrected_unit_force_moment_Nmm": np.cross(mesh_center, [0.0, 0.0, 1.0]).tolist(),
+        "corrected_unit_force_N": force.tolist(),
+        "corrected_unit_moment_Nmm": moment.tolist(),
+        "assumption": "equilibrated resultant; actual washer pressure distribution unverified",
+        "applied_load_reports": {
+            str(f): {
+                "uncorrected_moment_Nmm": (np.cross(mesh_center, [0.0, 0.0, f])).tolist(),
+                "corrected_force_N": (force * f).tolist(),
+                "corrected_moment_Nmm": (moment * f).tolist(),
+            }
+            for f in (50.0, 150.0)
+        },
+    }
+
+
 def tetrahedral_gauss_volume(
     jacobian_determinants: Iterable[float], quadrature_weights: Iterable[float]
 ) -> float:
@@ -247,6 +346,49 @@ def _force_resultant(
     return resultant, moment
 
 
+def verify_serialized_loads(deck):
+    """Independently recompute force and moments using only emitted decimal text."""
+    coords = {}
+    loads = []
+    section = None
+    for line in deck.splitlines():
+        if line.startswith("*"):
+            section = line.upper().split(",", 1)[0]
+            if section == "*CLOAD":
+                loads.append({})
+            continue
+        fields = line.split(",")
+        if section == "*NODE":
+            coords[int(fields[0])] = np.array([float(v) for v in fields[1:4]])
+        elif section == "*CLOAD":
+            if int(fields[1]) != 3:
+                raise ValueError("Unexpected load direction in serialized deck")
+            node = int(fields[0])
+            loads[-1][node] = loads[-1].get(node, 0.0) + float(fields[2])
+    if len(loads) != 2:
+        raise ValueError("Expected two serialized load steps")
+    targets = [
+        np.zeros(3),
+        np.array(
+            [
+                150 * WASHER_RADIUS_MM * math.sin(math.radians(WASHER_ANGLES_DEG[0])),
+                -150 * WASHER_RADIUS_MM * math.cos(math.radians(WASHER_ANGLES_DEG[0])),
+                0.0,
+            ]
+        ),
+    ]
+    result = []
+    for load, target in zip(loads, targets, strict=True):
+        force, moment = _force_resultant(load, coords)
+        if (
+            np.linalg.norm(force - [0.0, 0.0, 150.0]) > 2e-7
+            or np.linalg.norm(moment - target) > 2e-5
+        ):
+            raise ValueError("Serialized deck resultant or moment failed unchanged guard")
+        result.append({"force_N": force.tolist(), "moment_Nmm": moment.tolist()})
+    return result
+
+
 def _verify_preflight(
     coords: dict[int, np.ndarray],
     elements: dict[int, list[int]],
@@ -274,11 +416,10 @@ def _verify_preflight(
         raise ValueError("Expected three washer patches")
     for name, expected_forces in (("EQUAL", (50.0, 50.0, 50.0)), ("SINGLE", (150.0, 0.0, 0.0))):
         for patch, target in zip(patch_data, expected_forces, strict=True):
-            weights = patch["unit_pressure_weights"]
-            patch_area = patch["area_mm2"]
-            if abs(sum(weights.values()) - patch_area) > 1e-9:
+            weights = patch["unit_force_weights"]
+            if abs(sum(weights.values()) - 1.0) > 1e-9:
                 raise ValueError(f"Patch nodal weights fail area conservation: {name}")
-            patch_loads = {node: target * value / patch_area for node, value in weights.items()}
+            patch_loads = {node: target * value for node, value in weights.items()}
             patch_force, patch_moment = _force_resultant(patch_loads, coords)
             expected_force = np.array([0.0, 0.0, target])
             expected_moment = np.cross(np.asarray(patch["center_xyz_mm"]), expected_force)
@@ -406,7 +547,9 @@ def _volume_entities_from_map(mapping: list[list[tuple[int, int]]]) -> list[int]
     return sorted({int(tag) for group in mapping for dim, tag in group if dim == 3})
 
 
-def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -> dict[str, Any]:
+def build_case(
+    folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int, *, geometry_only: bool = False
+) -> dict[str, Any]:
     """Create one exact-source bridge mesh/deck for the comparison packet.
 
     This adapter does not call CalculiX. ``folder`` must be new. The caller owns
@@ -484,6 +627,9 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
             _import_washer_patch(gmsh, path, center)
             for path, center in zip(WASHERS, washer_centers, strict=True)
         ]
+        washer_exact_centers = [
+            list(map(float, gmsh.model.occ.getCenterOfMass(2, face))) for face in washer_faces
+        ]
         all_volumes = [(3, tag) for tag in volume_tags]
         patch_surfaces = [(2, tag) for tag in washer_faces]
         _second_output, second_mapping = gmsh.model.occ.fragment(
@@ -545,6 +691,43 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
             ):
                 raise ValueError(f"Imprinted washer patch {i} center mismatch: {center}")
             washer_candidates.append([face for face, _face_area, _face_center in keep])
+
+        if geometry_only:
+            # Diagnostic boundary only: preserve the exact source OCC construction
+            # and stop before ANY mesh generation or solver invocation.
+            actual_volumes = {
+                name: sum(
+                    float(gmsh.model.occ.getMass(3, tag))
+                    for tag, owner in final_material.items()
+                    if owner == name
+                )
+                for name in sums
+            }
+            if any(
+                abs(actual_volumes[name] - sums[name]) > max(2e-5, abs(sums[name]) * 1e-8)
+                for name in sums
+            ):
+                raise ValueError("Washer imprint did not conserve a material volume")
+            if len(gmsh.model.mesh.getNodes()[0]) or len(gmsh.model.mesh.getElements(3)[0]):
+                raise ValueError("Geometry-only stage unexpectedly contains mesh data")
+            info = {
+                "status": "geometry_only_complete_no_mesh_or_solver",
+                "source_sha256": hashes,
+                "gmsh_version": gmsh.__version__,
+                "volume_owner_by_tag": final_material,
+                "volume_by_material_mm3": actual_volumes,
+                "washer_surface_tags": washer_candidates,
+                "washer_surface_areas_mm2": [
+                    sum(float(gmsh.model.occ.getMass(2, face)) for face in group)
+                    for group in washer_candidates
+                ],
+                "washer_centers_mm": washer_centers,
+                "mesh_generated": False,
+                "solver_invoked": False,
+                "meaning": "Exact OCC import, two fragment mappings and washer identification only; no mesh-node/interface ownership or force distribution was checked.",
+            }
+            (folder / "geometry-only.json").write_text(json.dumps(info, indent=2) + "\n")
+            return info
 
         gmsh.option.setNumber("Mesh.MeshSizeMin", mesh_size_mm)
         gmsh.option.setNumber("Mesh.MeshSizeMax", mesh_size_mm)
@@ -652,9 +835,12 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
         ):
             raise ValueError("Did not identify six distinct rigid-back faces")
 
-        ips_surf, qweights_surf = gmsh.model.mesh.getIntegrationPoints(9, "Gauss4")
+        ips_surf, qweights_surf = gmsh.model.mesh.getIntegrationPoints(9, "Gauss6")
         local_points = np.asarray(ips_surf, dtype=float).reshape(-1, 3)[:, :2]
         patch_data = []
+        patch_diagnostics = []
+        diagnostic_path = folder / "patch-diagnostics.json"
+        diagnostic_path.write_text(json.dumps(patch_diagnostics, indent=2) + "\n")
         load_sets: dict[str, dict[int, float]] = {"EQUAL": {}, "SINGLE": {}}
         for i, surfaces in enumerate(washer_candidates):
             tri_ids = []
@@ -668,7 +854,7 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
                         )
                     tris = np.asarray(conn, dtype=int).reshape(-1, 6)
                     tri_ids.extend([tuple(int(n) for n in tri) for tri in tris])
-                    ips_raw, _ = gmsh.model.mesh.getIntegrationPoints(9, "Gauss4")
+                    ips_raw, _ = gmsh.model.mesh.getIntegrationPoints(9, "Gauss6")
                     _, dets, _ = gmsh.model.mesh.getJacobians(9, ips_raw, int(surface))
                     jacobians.extend(float(x) for x in dets)
             if not tri_ids:
@@ -676,16 +862,50 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
             weights, area = quadratic_surface_weights(
                 tri_ids, coords, local_points, qweights_surf, jacobians
             )
-            if abs(area - PATCH_AREAS_MM2[i]) > PATCH_AREAS_MM2[i] * 0.002:
-                raise ValueError(f"Integrated washer patch area mismatch at {i}: {area}")
             center = sum((coords[node] * w for node, w in weights.items()), np.zeros(3)) / area
-            if abs(center[2] - 170.1) > 2e-7:
-                raise ValueError(f"Washer patch {i} center is not on z=170.1: {center}")
+            exact_center = washer_exact_centers[i]
+            diagnostic = {
+                "source_index": i,
+                "status": "in_progress",
+                "exact_center_xyz_mm": exact_center,
+                "uncorrected_mesh_center_xyz_mm": center.tolist(),
+                "discrete_area_mm2": area,
+                "exact_cad_area_mm2": PATCH_AREAS_MM2[i],
+                "uncorrected_50N_moment_Nmm": np.cross(center, [0.0, 0.0, 50.0]).tolist(),
+                "quadratic_triangle_count": len(tri_ids),
+            }
+            patch_diagnostics.append(diagnostic)
+            diagnostic_path.write_text(json.dumps(patch_diagnostics, indent=2) + "\n")
+            try:
+                if abs(area - PATCH_AREAS_MM2[i]) > PATCH_AREAS_MM2[i] * 0.002:
+                    raise ValueError(f"Integrated washer patch area mismatch at {i}: {area}")
+                if abs(center[2] - 170.1) > 2e-7:
+                    raise ValueError(f"Washer patch {i} center is not on z=170.1: {center}")
+                unit_loads, pressure_report = equilibrated_washer_loads(
+                    tri_ids,
+                    coords,
+                    local_points,
+                    qweights_surf,
+                    jacobians,
+                    exact_center,
+                    diagnostic=diagnostic,
+                )
+                diagnostic.update(pressure_report)
+                diagnostic["status"] = "passed"
+            except Exception as exc:
+                diagnostic["status"] = "failed"
+                diagnostic["error"] = f"{type(exc).__name__}: {exc}"
+                raise
+            finally:
+                diagnostic_path.write_text(json.dumps(patch_diagnostics, indent=2) + "\n")
             patch_data.append(
                 {
                     "source_index": i,
                     "angle_deg": WASHER_ANGLES_DEG[i],
-                    "center_xyz_mm": center.tolist(),
+                    "center_xyz_mm": exact_center,
+                    "uncorrected_mesh_center_xyz_mm": center.tolist(),
+                    "pressure_report": pressure_report,
+                    "unit_force_weights": unit_loads,
                     "area_mm2": area,
                     "integrated_nodal_weight_sum_mm2": float(sum(weights.values())),
                     "unit_pressure_weights": weights,
@@ -699,9 +919,8 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
             ):
                 if force == 0:
                     continue
-                pressure = force / area
-                for node, w in weights.items():
-                    load_sets[step_name][node] = load_sets[step_name].get(node, 0.0) + pressure * w
+                for node, w in unit_loads.items():
+                    load_sets[step_name][node] = load_sets[step_name].get(node, 0.0) + force * w
 
         # Gmsh's tetrahedral rule named Gauss4 has 11 points and includes a
         # negative reference weight. Preserve signed contributions and validate
@@ -777,6 +996,7 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
         }
         element_records = {name: sorted(ids) for name, ids in material_elements.items()}
         deck = _emit_deck(coords, elements, material_elements, sorted(support_nodes), load_sets)
+        serialized_resultants = verify_serialized_loads(deck)
         preflight = _verify_preflight(
             coords,
             elements,
@@ -821,6 +1041,9 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
                     "source_index": p["source_index"],
                     "angle_deg": p["angle_deg"],
                     "center_xyz_mm": p["center_xyz_mm"],
+                    "uncorrected_mesh_center_xyz_mm": p["uncorrected_mesh_center_xyz_mm"],
+                    "pressure_report": p["pressure_report"],
+                    "exact_cad_area_mm2": PATCH_AREAS_MM2[p["source_index"]],
                     "area_mm2": p["area_mm2"],
                     "quadratic_triangle_count": p["quadratic_triangle_count"],
                     "unit_pressure_nodal_weights_mm2": {
@@ -832,6 +1055,7 @@ def build_case(folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int) -
             ],
             "step_nodal_forces_N": load_records,
             "preflight": preflight,
+            "serialized_deck_load_resultants": serialized_resultants,
             "solver_invoked": False,
         }
         (folder / "case.inp").write_text(deck)

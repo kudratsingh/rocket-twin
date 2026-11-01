@@ -1,0 +1,22 @@
+version: wo03-g80-bridge-fea-v1
+source_preflight: configs/studies/wo03-g80-bridge-structural-preflight.yaml
+bridge_step: build/wo03-g80-keeper-service-v1/bridge.step
+bridge_sha256: f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed
+ccx: /opt/homebrew/bin/ccx
+ccx_sha256: 2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf
+gmsh_version: 4.15.2
+planned_serial_cases: [axial_fixture, shear_fixture, bridge_1p5mm, bridge_1p0mm, bridge_0p7mm]
+maximum_nodes: 50000
+maximum_tetrahedra: 75000
+maximum_relative_material_mesh_volume_error: 0.01
+maximum_process_rss_bytes: 2147483648
+child_wall_limit_s: 120
+worker_cpu_limit_s: 60
+solver_cpu_limit_s: 60
+packet_cpu_limit_s: 600
+acceptance: false
+
+washer_load_assumption: equilibrated_axial_resultant_at_exact_cad_center
+washer_pressure_distribution: unverified_affine_discretization
+maximum_relative_affine_pressure_correction: 0.005
+washer_surface_integration: gmsh_type9_Gauss6
