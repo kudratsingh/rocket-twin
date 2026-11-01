@@ -1512,3 +1512,23 @@ Child usage0.172743 CPU/0.216612 wall seconds, sampled root RSS13,778,944 bytes;
 parent1.292624 CPU seconds. All source/prefix/generated hashes match after.
 No actual bridge solve, retry, sign change, threshold change or vehicle adoption.
 This supersedes only the preceding statement that this source path was untested.
+
+
+## G80 actual bridge: recovered coarse Elmer fields — 2026-11-01
+
+On the preserved22495-tetrahedron/7-material model, EQUAL and SINGLE saved
+Float64 fields pass the unchanged1e-5 N force criterion; axial residuals are
+−7.884e-10 and−1.115e-9 N. Reciprocal-work difference2.637e-16 N·m is within
+4.840e-16 N·m encoding bound. Maximum displacement magnitude0.380782 and
+1.157007 mm respectively. These are coarse numerical consistency observations,
+not stress, convergence, contact, hot-material or installed-strength acceptance.
+See [quantitative report](wo03-g80-bridge-elmer-results.md).
+
+Both native processes returned0/loggedALLDONE, but EQUAL workflow missed its
+output directory and SINGLE supervisor failed its terminalRSSquery. Separate
+read-only recoveries used the saved fields; no native case was rerun. An import-
+path-only continuation stop occurred before any SINGLE native process. All
+stops/admissions/outputhashes and restored disabledconfigs remain preserved;
+SINGLE resourcecompliance remains unverified. NativeCPU15.172/14.745 seconds,
+well below120/case; tree/truepeakRSS are unavailable. Current mass/CG/tensor,
+activevehicleCAD and flight predictions are unchanged. WO-03 remains open.

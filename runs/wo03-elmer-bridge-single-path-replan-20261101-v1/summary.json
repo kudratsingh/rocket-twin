@@ -1,0 +1,41 @@
+{
+  "status": "stopped",
+  "error": "OwnedProcessError(\"{'kind': 'rss_reader', 'message': 'RSS reader reported ESRCH while process remained live after a bounded root wait: [Errno 3] No such process: 15300'}\")",
+  "single_native_invoked": true,
+  "native_log_all_done": true,
+  "supervisor_status": "failed",
+  "returncode": 0,
+  "cleanup_outcomes": [
+    {
+      "pid": 15300,
+      "result": "popen_terminate",
+      "signal": 15
+    },
+    {
+      "pid": 15300,
+      "result": "root_reaped"
+    }
+  ],
+  "cleanup_errors": [],
+  "native_wall_s": 15.078021916997386,
+  "native_cpu_accounting": {
+    "child_system_s_delta": 0.353945,
+    "child_user_s_delta": 14.391384,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.026608999999999994,
+    "supervisor_user_s_delta": 0.023341000000000056
+  },
+  "parent_cpu_s": 1.885838,
+  "parent_peak_rss_bytes": 510656512,
+  "sources_unchanged": true,
+  "runtime_unchanged": true,
+  "prefix_unchanged": true,
+  "disabled_config_unchanged": true,
+  "field_and_reciprocity": "not evaluated",
+  "vtu_sha256": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+  "solver_log_sha256": "2512a0d3ac5ca22df4ed630aac84c610bfbcc1bffdfef09ee1b9fe4737a2bc51",
+  "native_status_sha256": "2264d155351e6c5fe66dab0c32e14a3f893dc4270db5e870d1a3c040dbeb0d21",
+  "full_record_sha256": "350ba43a7071832493713324e4616fba92de7339c5f78098d6f33be89b0a4eed",
+  "retry": false,
+  "qualification": false
+}

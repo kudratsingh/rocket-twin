@@ -15,6 +15,25 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
+**Actual bridge numerical result:** two saved Elmer coarse fields pass the
+unchanged strict force and reciprocal-work comparisons. Maximum displacement
+is0.381 mm distributed /1.157 mm single-washer; no stress, fit or convergence
+acceptance is claimed. Original output-discovery and terminal RSS-supervisor
+stops are preserved separately from read-only field recovery; no native case
+was repeated. See [results and next gate](wo03-g80-bridge-elmer-results.md).
+The complete G80 package, installed fins, recovery and thermal acceptance remain
+open; working vehicle and prior flight predictions are unchanged.
+
+**Early preview publication:** [PR #36](https://github.com/kudratsingh/rocket-twin/pull/36)
+is merged after both required jobs passed in run41301490761. It adds the
+separate72-part archived G80 retention inspector without attaching its geometry
+to active-design experiments. The prepared snapshot is local and hash checked.
+The host API needs to load the updated code; the owner restart question remains
+pending. New-candidate browser verification/screenshot is unavailable because
+automatic approval review rejected the designated frontend agent's computer-use
+call for an agent-ownership prerequisite. No bypass was attempted. See
+[preview scope and commands](wo04-g80-retention-snapshot-preview.md).
+
 **Structural-method decision:** the two small layered-bar Elmer cases now
 individually pass all-node displacement and the unchanged strict force gate.
 The original log-classification stop remains preserved; the EQUAL result was

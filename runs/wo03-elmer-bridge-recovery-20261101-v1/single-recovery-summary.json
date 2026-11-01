@@ -1,0 +1,92 @@
+{
+  "status": "read_only_numerical_evidence_recovered",
+  "single_result": {
+    "applied_force_N": [
+      0.0,
+      0.0,
+      150.00000000000043
+    ],
+    "support_reaction_N": [
+      2.8275854278649363e-11,
+      -3.9279683496500095e-10,
+      -150.00000000111496
+    ],
+    "force_residual_N": [
+      2.8275854278649363e-11,
+      -3.9279683496500095e-10,
+      -1.1145289136038627e-09
+    ],
+    "force_encoding_bound_N": [
+      2.6811870374588006e-14,
+      2.575049076371244e-14,
+      5.025450086537704e-14
+    ],
+    "strict_force_status": "pass",
+    "moment_residual_Nm": [
+      3.5577762957927916e-11,
+      1.5863754754263937e-11,
+      -4.9435415613516276e-12
+    ],
+    "moment_encoding_bound_Nm": [
+      5.183075348761892e-15,
+      5.328149596678941e-15,
+      1.112351212682934e-15
+    ],
+    "moment_status": "reported_no_original_threshold",
+    "max_displacement_norm_m": 0.0011570072953093148
+  },
+  "reciprocity": {
+    "equal_half_F_dot_U_Nm": 0.020035536142880433,
+    "single_half_F_dot_U_Nm": 0.060827837851735136,
+    "equal_half_work_encoding_bound_Nm": 6.801756004761408e-17,
+    "single_half_work_encoding_bound_Nm": 4.0154610218873797e-16,
+    "F_equal_dot_U_single_Nm": 0.04008097325330081,
+    "F_single_dot_U_equal_Nm": 0.04008097325330107,
+    "absolute_difference_Nm": 2.636779683484747e-16,
+    "combined_encoding_bound_Nm": 4.840276521449354e-16,
+    "status": "consistent_with_output_encoding",
+    "criterion_basis": "prior audit compares reciprocal difference with propagated output/token precision; no added engineering tolerance"
+  },
+  "solver_invoked": false,
+  "supervision_failure_remains": true,
+  "files_unchanged": true,
+  "prefix_unchanged": true,
+  "runtime_unchanged": true,
+  "process_cpu_s": 3.058389,
+  "wall_s": 3.423353541002143,
+  "peak_process_rss_bytes": 694583296,
+  "sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/case/solver.log": "2512a0d3ac5ca22df4ed630aac84c610bfbcc1bffdfef09ee1b9fe4737a2bc51",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/case/status.json": "2264d155351e6c5fe66dab0c32e14a3f893dc4270db5e870d1a3c040dbeb0d21",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-bridge-diagnostic.yaml": "df9b6b333677381b9d28b79da7b051b672ad84fc132ba3abf9f26cea99d94a3c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/reviewed-preflight.json": "ff1e1e11cfb2c0112b511d359a49f265d26aceeb5c8e5dadb7bc09bb0d661a69",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/record.json": "350ba43a7071832493713324e4616fba92de7339c5f78098d6f33be89b0a4eed",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib": "792f1fd46d06d8b0cf05865a0492237221200fe2d20e96a5698cbf219fc14e1f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/launcher.py": "303caf24c2244e1370630b322a4e3e218a43448cb1470eab0e2f35e707665a3e"
+  },
+  "sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/case/solver.log": "2512a0d3ac5ca22df4ed630aac84c610bfbcc1bffdfef09ee1b9fe4737a2bc51",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/case/status.json": "2264d155351e6c5fe66dab0c32e14a3f893dc4270db5e870d1a3c040dbeb0d21",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-bridge-diagnostic.yaml": "df9b6b333677381b9d28b79da7b051b672ad84fc132ba3abf9f26cea99d94a3c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/reviewed-preflight.json": "ff1e1e11cfb2c0112b511d359a49f265d26aceeb5c8e5dadb7bc09bb0d661a69",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/record.json": "350ba43a7071832493713324e4616fba92de7339c5f78098d6f33be89b0a4eed",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib": "792f1fd46d06d8b0cf05865a0492237221200fe2d20e96a5698cbf219fc14e1f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/launcher.py": "303caf24c2244e1370630b322a4e3e218a43448cb1470eab0e2f35e707665a3e"
+  }
+}

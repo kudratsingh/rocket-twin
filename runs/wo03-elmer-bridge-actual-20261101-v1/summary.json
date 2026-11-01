@@ -1,0 +1,47 @@
+{
+  "status": "stopped_output_discovery",
+  "reason": "ValueError('VTU missing or ambiguous')",
+  "native_equal": {
+    "status": "completed",
+    "returncode": 0,
+    "wall_s": 15.565927749994444,
+    "cpu_accounting": {
+      "child_system_s_delta": 0.324217,
+      "child_user_s_delta": 14.848242,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.028388999999999998,
+      "supervisor_user_s_delta": 0.02413899999999991
+    },
+    "output_found_outside_driver_search": "build/wo03-elmer-bridge-diagnostic-v1/native/equal/field_t0001.vtu",
+    "field_evaluation": "not reached",
+    "strict_force": "not evaluated"
+  },
+  "single": "not run",
+  "source_unchanged": true,
+  "inputs_unchanged": true,
+  "parent_cpu_s": 1.8759460000000001,
+  "parent_peak_rss_bytes": 496107520,
+  "artifacts": {
+    "build/wo03-elmer-bridge-diagnostic-v1/native/equal/field_t0001.vtu": {
+      "sha256": "caa4974c113912e85456e6571b9eb732183a5d235b57a41c0d5e9d21bc6155b4",
+      "bytes": 4553197
+    },
+    "build/wo03-elmer-bridge-diagnostic-v1/native/equal/case/solver.log": {
+      "sha256": "2d68dc1aaedb47a55fb21cbb1da1aa934e57933a09f72a031896cc5b67a6b555",
+      "bytes": 519170
+    },
+    "build/wo03-elmer-bridge-diagnostic-v1/native/equal/case/status.json": {
+      "sha256": "20bdbea495e7c2434aa31e115fef3e1b3b0c1ca3b1cab7d372f47fc19dfd9fa1",
+      "bytes": 95859
+    },
+    "build/wo03-elmer-bridge-diagnostic-v1/native/record.json": {
+      "sha256": "16e869cf8ef245d3c13bf7385feebd4cc6ff7b582164f72d995c7ac4052a6b29",
+      "bytes": 3408
+    },
+    "build/wo03-elmer-bridge-diagnostic-v1/native/equal/case/case.sif": {
+      "sha256": "ef435b88e23dbf47bd1303c96113cc6b0a7262fbcc18eb6fbafb2cb64c6803ad",
+      "bytes": 323731
+    }
+  },
+  "qualification": false
+}
