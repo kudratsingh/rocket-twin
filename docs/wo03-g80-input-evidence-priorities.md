@@ -1,5 +1,31 @@
 # G80 input evidence priorities
 
+## Current decision updates
+
+The [72-part integration](wo03-g80-staged-retention-results.md) now closes the
+old/new retention ledger and full candidate mass/CG/inertia reconciliation;
+supplier tolerances, locking and capacity remain open. Its own static/ascent
+comparisons pass. The [larger-canopy study](wo03-g80-canopy-stage3-results.md)
+passes five modeled vertical-descent screens under explicitly unmeasured drag
+assumptions; exact effective drag, packed dimensions, mass inclusion, opening
+history and independent electrical/physical recovery evidence still matter.
+
+The [recovery cut screen](wo03-g80-recovery-axial-screen.md) identifies the
+plain paper-body path as inadequate against the current estimated screen in
+the existing off-nominal probes. A local forward spreader cannot bypass that
+serial section. The [backbone trade](wo03-g80-recovery-backbone-trade.md)
+selects a continuous aramid-tether layout for a bounded geometry study only;
+finished termination, bend/abrasion/heat capacity, branch restraints and the
+aft structural attachment are the next decision-critical inputs. Published
+straight-cord test strength does not qualify those connections. No purchase
+or owner physical measurement is currently requested.
+
+Thermal and actual bridge numerical-validation stops remain separate from
+these uncertain physical inputs. Their closed small-tool campaigns do not
+qualify actual geometry. G54/G12 findings and gates remain independent.
+
+## Historical 52-part input ranking
+
 **Scope:** read-only ranking of open G80 inputs that can change a package or
 engineering decision. The primary reference is the proposed 52-part candidate
 `62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009`; it is not

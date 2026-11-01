@@ -1,0 +1,597 @@
+{
+  "result": [
+    {
+      "name": "nominal_calm",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.0,
+        "time_scale": 1.0,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.0,
+        "rail_friction_n": 0.0
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.7895817122770563,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7270817122770563,
+        "powered_net_acceleration_peak_g": 12.183315331607764,
+        "finite": true,
+        "apogee_agl_m": 613.2129256632768,
+        "apogee_time_s": 10.385000000000224,
+        "max_speed_mps": 140.85496721416777,
+        "guide_exit_s": 0.18000000000000008,
+        "guide_exit_mps": 18.90641273696407,
+        "powered_specific_force_peak_g": 13.183315331607764,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.41850722265871926,
+        "powered_max_alpha_deg": 0.7725018199866502,
+        "powered_max_tilt_deg": 1.4738324179376145,
+        "max_dynamic_pressure_pa": 11064.792427628248,
+        "apogee_downrange_m": 18.202932341783818,
+        "electronic_apogee_trigger_s": 10.385000000000224,
+        "inflation_complete_s": 10.985000000000225,
+        "impact_time_s": 130.32999999995397,
+        "impact_speed_mps": 5.049661768122942,
+        "landing_downrange_m": 10.476139042974548,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": [
+          {
+            "delay_s": 3,
+            "time_s": 4.8079,
+            "relative_to_apogee_s": -5.5771000000002235,
+            "height_agl_m": 448.192984946569,
+            "vertical_velocity_down_mps": -64.36678196256939,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 5,
+            "time_s": 6.8079,
+            "relative_to_apogee_s": -3.5771000000002235,
+            "height_agl_m": 548.5610253462175,
+            "vertical_velocity_down_mps": -37.31866707148202,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 6,
+            "time_s": 7.8079,
+            "relative_to_apogee_s": -2.5771000000002235,
+            "height_agl_m": 580.1685023694755,
+            "vertical_velocity_down_mps": -26.06687591432638,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 7,
+            "time_s": 8.8079,
+            "relative_to_apogee_s": -1.5771000000002235,
+            "height_agl_m": 600.9654865801986,
+            "vertical_velocity_down_mps": -15.630988483839507,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 9,
+            "time_s": 10.8079,
+            "relative_to_apogee_s": 0.42289999999977645,
+            "height_agl_m": 612.3396360255712,
+            "vertical_velocity_down_mps": 4.011416231043783,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 10,
+            "time_s": 11.8079,
+            "relative_to_apogee_s": 1.4228999999997765,
+            "height_agl_m": 607.3821003891612,
+            "vertical_velocity_down_mps": 5.1764367055415015,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 12,
+            "time_s": 13.8079,
+            "relative_to_apogee_s": 3.4228999999997765,
+            "height_agl_m": 596.9871122590429,
+            "vertical_velocity_down_mps": 5.1998686183553575,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          }
+        ],
+        "burnout_s": 1.8079
+      },
+      "landing": {
+        "signed_down_mps": 5.049124374752505,
+        "total_ground_speed_mps": 5.049661768122942,
+        "vertical_screen_6mps": true,
+        "total_6mps_diagnostic": true,
+        "sample": "last pre-landed, 5ms"
+      },
+      "guide_pass": true,
+      "rocketpy": {
+        "reference": "RocketPy 1.13.0",
+        "apogee_agl_m": 613.2344889958079,
+        "apogee_time_s": 10.38417790551261,
+        "max_speed_mps": 140.85251513995166,
+        "guide_exit_s": 0.1755899909815892,
+        "guide_exit_mps": 18.39920009433376,
+        "end_time_s": 10.38417790551261,
+        "recovery_full_flight": false,
+        "shared_inertia_input": true,
+        "lateral_cg_reference": "RocketPy constant liftoff eccentricity; twin depletes full 3D first moments",
+        "liftoff_lateral_cg_m": [
+          -2.008474676457356e-05,
+          0.000695504762144047
+        ],
+        "burnout_lateral_cg_m": [
+          -2.1811233143737858e-05,
+          0.0007552904050779995
+        ],
+        "attitude_or_downrange_agreement_validated": false,
+        "nozzle_pressure_correction": "zero; exit area unknown"
+      },
+      "reference_errors": {
+        "apogee_agl_m": 3.516327427436414e-05,
+        "apogee_time_s": 7.916798952155753e-05
+      },
+      "reference_5pct_pass": true
+    },
+    {
+      "name": "growth_low_thrust",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 0.85,
+        "time_scale": 0.95,
+        "drag_scale": 1.2,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.5
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.8445817122770564,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7820817122770564,
+        "powered_net_acceleration_peak_g": 9.386569485259383,
+        "finite": true,
+        "apogee_agl_m": 424.0703571581642,
+        "apogee_time_s": 9.000000000000007,
+        "max_speed_mps": 105.66479633268418,
+        "guide_exit_s": 0.2000000000000001,
+        "guide_exit_mps": 16.365810657574883,
+        "powered_specific_force_peak_g": 10.386569485259384,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.3138350382984809,
+        "powered_max_alpha_deg": 0.8361952729290099,
+        "powered_max_tilt_deg": 1.6430545723594343,
+        "max_dynamic_pressure_pa": 6246.108427284102,
+        "apogee_downrange_m": 13.705815177704046,
+        "electronic_apogee_trigger_s": 9.000000000000007,
+        "inflation_complete_s": 9.600000000000009,
+        "impact_time_s": 89.45499999999113,
+        "impact_speed_mps": 5.237366721973315,
+        "landing_downrange_m": 9.500925915277113,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": [
+          {
+            "delay_s": 3,
+            "time_s": 4.717505,
+            "relative_to_apogee_s": -4.282495000000007,
+            "height_agl_m": 329.5129393884509,
+            "vertical_velocity_down_mps": -46.602789935889355,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 5,
+            "time_s": 6.717505,
+            "relative_to_apogee_s": -2.282495000000007,
+            "height_agl_m": 398.2217998261204,
+            "vertical_velocity_down_mps": -22.99304537672834,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 6,
+            "time_s": 7.717505,
+            "relative_to_apogee_s": -1.282495000000007,
+            "height_agl_m": 415.99898849922386,
+            "vertical_velocity_down_mps": -12.661291542606406,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 7,
+            "time_s": 8.717505,
+            "relative_to_apogee_s": -0.28249500000000793,
+            "height_agl_m": 423.6844531260301,
+            "vertical_velocity_down_mps": -2.751314706057561,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 9,
+            "time_s": 10.717505,
+            "relative_to_apogee_s": 1.717504999999992,
+            "height_agl_m": 416.5658020653034,
+            "vertical_velocity_down_mps": 5.333671623913071,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 10,
+            "time_s": 11.717505,
+            "relative_to_apogee_s": 2.717504999999992,
+            "height_agl_m": 411.2244365892009,
+            "vertical_velocity_down_mps": 5.343560767984272,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 12,
+            "time_s": 13.717505,
+            "relative_to_apogee_s": 4.717504999999992,
+            "height_agl_m": 400.5395044478482,
+            "vertical_velocity_down_mps": 5.341110697308034,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          }
+        ],
+        "burnout_s": 1.717505
+      },
+      "landing": {
+        "signed_down_mps": 5.236944399572818,
+        "total_ground_speed_mps": 5.237366721973315,
+        "vertical_screen_6mps": true,
+        "total_6mps_diagnostic": true,
+        "sample": "last pre-landed, 5ms"
+      },
+      "guide_pass": true,
+      "rocketpy": null,
+      "reference_errors": null,
+      "reference_5pct_pass": null
+    },
+    {
+      "name": "growth_wind",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 3.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.0,
+        "time_scale": 1.0,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.0
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.8445817122770564,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7820817122770564,
+        "powered_net_acceleration_peak_g": 11.322736220088451,
+        "finite": true,
+        "apogee_agl_m": 585.2090607377434,
+        "apogee_time_s": 10.330000000000215,
+        "max_speed_mps": 132.06117114957587,
+        "guide_exit_s": 0.18500000000000008,
+        "guide_exit_mps": 18.086133997826902,
+        "powered_specific_force_peak_g": 12.322736220088453,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.3929467229188433,
+        "powered_max_alpha_deg": 9.119272366247628,
+        "powered_max_tilt_deg": 5.38197146618337,
+        "max_dynamic_pressure_pa": 9761.073932005474,
+        "apogee_downrange_m": 42.03302464154719,
+        "electronic_apogee_trigger_s": 10.335000000000216,
+        "inflation_complete_s": 10.935000000000217,
+        "impact_time_s": 122.98499999996064,
+        "impact_speed_mps": 6.027491759109578,
+        "landing_downrange_m": 313.6215126103167,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": [
+          {
+            "delay_s": 3,
+            "time_s": 4.8079,
+            "relative_to_apogee_s": -5.522100000000215,
+            "height_agl_m": 425.49957850947783,
+            "vertical_velocity_down_mps": -62.539670025398806,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 5,
+            "time_s": 6.8079,
+            "relative_to_apogee_s": -3.522100000000215,
+            "height_agl_m": 523.201765824552,
+            "vertical_velocity_down_mps": -36.325477757796236,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 6,
+            "time_s": 7.8079,
+            "relative_to_apogee_s": -2.522100000000215,
+            "height_agl_m": 553.9087926317319,
+            "vertical_velocity_down_mps": -25.243110651055567,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 7,
+            "time_s": 8.8079,
+            "relative_to_apogee_s": -1.522100000000215,
+            "height_agl_m": 573.9370518142258,
+            "vertical_velocity_down_mps": -14.911929406427367,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 9,
+            "time_s": 10.8079,
+            "relative_to_apogee_s": 0.47789999999978505,
+            "height_agl_m": 584.1611059995453,
+            "vertical_velocity_down_mps": 4.089890967333401,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 10,
+            "time_s": 11.8079,
+            "relative_to_apogee_s": 1.477899999999785,
+            "height_agl_m": 579.3763036008739,
+            "vertical_velocity_down_mps": 5.162043511204179,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 12,
+            "time_s": 13.8079,
+            "relative_to_apogee_s": 3.477899999999785,
+            "height_agl_m": 568.8471153545506,
+            "vertical_velocity_down_mps": 5.2840121616795255,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          }
+        ],
+        "burnout_s": 1.8079
+      },
+      "landing": {
+        "signed_down_mps": 5.138227092363094,
+        "total_ground_speed_mps": 6.027491759109578,
+        "vertical_screen_6mps": true,
+        "total_6mps_diagnostic": false,
+        "sample": "last pre-landed, 5ms"
+      },
+      "guide_pass": true,
+      "rocketpy": null,
+      "reference_errors": null,
+      "reference_5pct_pass": null
+    },
+    {
+      "name": "growth_low_cda",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.0,
+        "time_scale": 1.0,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.0,
+        "canopy_cd": 0.6
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.8445817122770564,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7820817122770564,
+        "powered_net_acceleration_peak_g": 11.323681044141914,
+        "finite": true,
+        "apogee_agl_m": 587.4038417188913,
+        "apogee_time_s": 10.330000000000215,
+        "max_speed_mps": 132.185281232913,
+        "guide_exit_s": 0.18500000000000008,
+        "guide_exit_mps": 18.08775638483323,
+        "powered_specific_force_peak_g": 12.323681044141914,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.3927238847832087,
+        "powered_max_alpha_deg": 0.8341872374916026,
+        "powered_max_tilt_deg": 1.6323875051641041,
+        "max_dynamic_pressure_pa": 9749.784439524077,
+        "apogee_downrange_m": 19.45990786707036,
+        "electronic_apogee_trigger_s": 10.335000000000216,
+        "inflation_complete_s": 10.935000000000217,
+        "impact_time_s": 109.70499999997271,
+        "impact_speed_mps": 5.849806497893721,
+        "landing_downrange_m": 10.25630234205784,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": [
+          {
+            "delay_s": 3,
+            "time_s": 4.8079,
+            "relative_to_apogee_s": -5.522100000000215,
+            "height_agl_m": 426.64405914926374,
+            "vertical_velocity_down_mps": -62.78572720843051,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 5,
+            "time_s": 6.8079,
+            "relative_to_apogee_s": -3.522100000000215,
+            "height_agl_m": 524.812742164581,
+            "vertical_velocity_down_mps": -36.54753508492185,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 6,
+            "time_s": 7.8079,
+            "relative_to_apogee_s": -2.522100000000215,
+            "height_agl_m": 555.7357336725584,
+            "vertical_velocity_down_mps": -25.451859591176586,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 7,
+            "time_s": 8.8079,
+            "relative_to_apogee_s": -1.522100000000215,
+            "height_agl_m": 575.9603603364544,
+            "vertical_velocity_down_mps": -15.09103490015295,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 9,
+            "time_s": 10.8079,
+            "relative_to_apogee_s": 0.47789999999978505,
+            "height_agl_m": 586.3091930101912,
+            "vertical_velocity_down_mps": 4.421455946945133,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 10,
+            "time_s": 11.8079,
+            "relative_to_apogee_s": 1.477899999999785,
+            "height_agl_m": 580.76442904791,
+            "vertical_velocity_down_mps": 5.94528410515784,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 12,
+            "time_s": 13.8079,
+            "relative_to_apogee_s": 3.477899999999785,
+            "height_agl_m": 568.7543808428898,
+            "vertical_velocity_down_mps": 6.0148990752529405,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          }
+        ],
+        "burnout_s": 1.8079
+      },
+      "landing": {
+        "signed_down_mps": 5.848831467279787,
+        "total_ground_speed_mps": 5.849806497893721,
+        "vertical_screen_6mps": true,
+        "total_6mps_diagnostic": true,
+        "sample": "last pre-landed, 5ms"
+      },
+      "guide_pass": true,
+      "rocketpy": null,
+      "reference_errors": null,
+      "reference_5pct_pass": null
+    },
+    {
+      "name": "growth_wind_low_cda",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 3.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.0,
+        "time_scale": 1.0,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.0,
+        "canopy_cd": 0.6
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.8445817122770564,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7820817122770564,
+        "powered_net_acceleration_peak_g": 11.322736220088451,
+        "finite": true,
+        "apogee_agl_m": 585.2090607377434,
+        "apogee_time_s": 10.330000000000215,
+        "max_speed_mps": 132.06117114957587,
+        "guide_exit_s": 0.18500000000000008,
+        "guide_exit_mps": 18.086133997826902,
+        "powered_specific_force_peak_g": 12.322736220088453,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.3929467229188433,
+        "powered_max_alpha_deg": 9.119272366247628,
+        "powered_max_tilt_deg": 5.38197146618337,
+        "max_dynamic_pressure_pa": 9761.073932005474,
+        "apogee_downrange_m": 42.03302464154719,
+        "electronic_apogee_trigger_s": 10.335000000000216,
+        "inflation_complete_s": 10.935000000000217,
+        "impact_time_s": 111.73499999997087,
+        "impact_speed_mps": 6.5528507517262655,
+        "landing_downrange_m": 283.55707739053054,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": [
+          {
+            "delay_s": 3,
+            "time_s": 4.8079,
+            "relative_to_apogee_s": -5.522100000000215,
+            "height_agl_m": 425.49957850947783,
+            "vertical_velocity_down_mps": -62.539670025398806,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 5,
+            "time_s": 6.8079,
+            "relative_to_apogee_s": -3.522100000000215,
+            "height_agl_m": 523.201765824552,
+            "vertical_velocity_down_mps": -36.325477757796236,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 6,
+            "time_s": 7.8079,
+            "relative_to_apogee_s": -2.522100000000215,
+            "height_agl_m": 553.9087926317319,
+            "vertical_velocity_down_mps": -25.243110651055567,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 7,
+            "time_s": 8.8079,
+            "relative_to_apogee_s": -1.522100000000215,
+            "height_agl_m": 573.9370518142258,
+            "vertical_velocity_down_mps": -14.911929406427367,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 9,
+            "time_s": 10.8079,
+            "relative_to_apogee_s": 0.47789999999978505,
+            "height_agl_m": 584.1573187460674,
+            "vertical_velocity_down_mps": 4.157180753198149,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 10,
+            "time_s": 11.8079,
+            "relative_to_apogee_s": 1.477899999999785,
+            "height_agl_m": 579.003837825183,
+            "vertical_velocity_down_mps": 5.682557805502047,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 12,
+            "time_s": 13.8079,
+            "relative_to_apogee_s": 3.477899999999785,
+            "height_agl_m": 567.322847247433,
+            "vertical_velocity_down_mps": 5.874650367144547,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          }
+        ],
+        "burnout_s": 1.8079
+      },
+      "landing": {
+        "signed_down_mps": 5.713452553795914,
+        "total_ground_speed_mps": 6.5528507517262655,
+        "vertical_screen_6mps": true,
+        "total_6mps_diagnostic": false,
+        "sample": "last pre-landed, 5ms"
+      },
+      "guide_pass": true,
+      "rocketpy": null,
+      "reference_errors": null,
+      "reference_5pct_pass": null
+    }
+  ],
+  "cpu_s": 7.852691,
+  "wall_s": 17.913021915999707,
+  "peak_rss_bytes": 435666944
+}

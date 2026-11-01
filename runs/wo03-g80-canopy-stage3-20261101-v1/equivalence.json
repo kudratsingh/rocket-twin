@@ -1,0 +1,580 @@
+{
+  "original_identity": "2fb4790f107b20fa51af8f0f8af897b2a2e348262ce69dd820691976ee35975b",
+  "corrected_identity": "6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4",
+  "cad_revision_sha256": "344f646f81e15d42ab54e7d996179581d638c6046bf1d006935b028709eca53f",
+  "corrected_sha256": "8dfac23cf7fb41d7a24736b264fcc6203896e0cf6526bcee33a2f71165c0e231",
+  "original_sha256": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+  "scope": "Only allowance learn/build fields changed; all sensitivity case prepare arrays bitwise identical in current pinned source; loaded/burnout mass CG tensor budget identical. Nominal case uses unchanged original nominal spec.",
+  "builder_array_checks": {
+    "growth_low_thrust": {
+      "times": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "bb9c18c9e76d3e4e4ab80c3d82f1d7863b111ed5e131d5827b82c9912b9de067"
+      },
+      "thrust": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "601763399853f6792a0987156f01ba304c7b76553f7b361abd3b8a947191fa1f"
+      },
+      "impulse": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "e95e613d8e66ac26243b0e6498672dcebfb817a7330b606ede5c19e4322d96e0"
+      },
+      "motor": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "d18073d82d317f60b300d96a2ef7cb6e836bc7887cd001c02ad1063af2bc0126"
+      },
+      "mass0": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "8853c0d31b66754fdb6269ea00af044009ba4b901085b021d4b39b72a0e0e20f"
+      },
+      "moment0": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "12d220353d3d158fdef918143e30a1083c2257a91bdbea4de0bceabeb200fda0"
+      },
+      "inertia_origin": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "792c3946aba3fecc3232f64d6291b21218606e1a42d4315458bc1712894660ec"
+      },
+      "prop_origin_inertia": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "bff8bde1663a8bb576568a62e6bdc0c33bf6b6078fcd7a2e3010c992d75aacb7"
+      },
+      "prop_position": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "e1626e6a0f4706472746230e0e5ff7ce6b21f60db32f74145327b8550d779d4b"
+      },
+      "aero": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "34f3c8f4e511fc559571dbf251561c22e12292f66a927d5182b0be5cd489529a"
+      },
+      "mach": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "a46873cffbc1f865dbd5a6a3140a85bf3a6d8ed7b777ca67a9f56b38b096c368"
+      },
+      "cd": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "2763c220f8418a295818063a110b14c800341714a3b63584b5148db33d2b5102"
+      },
+      "surfaces": {
+        "shape": [
+          8,
+          2
+        ],
+        "dtype": "float64",
+        "sha256": "01603ffcfc377d5a5b80f3504150b7424ed41ada86aa592a443729e7da2a54db"
+      },
+      "launch": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "1785780dd6e6ebea5884e472a6a95687107f9b9c35e797ec5263559cbe49a793"
+      },
+      "rail_direction": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "cf639d4868a9dbde979b7c29a0fcf077ac8aabf5daf99e48dcfbcc1faae0cd9e"
+      },
+      "wind": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "6ccb758df6600f5ff0f0ea0733f8ba2ae17333a2635192a6929c76f2be8b843d"
+      },
+      "recovery": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "7b73503944ee38385fda90a047e00f6b48f5fac013b1192c51baf507261e875b"
+      },
+      "servo": {
+        "shape": [
+          7
+        ],
+        "dtype": "float64",
+        "sha256": "4d1e799d858ec53b3505e906a6cfd395e287dda780ee40d2baa0967100b7aa07"
+      },
+      "sensors": {
+        "shape": [
+          14
+        ],
+        "dtype": "float64",
+        "sha256": "ab0bcd522ac9452c728313d931561ccf011386b86bbcd9b49d4abbda071d9d2a"
+      },
+      "pivot_station": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "4f6584d4e83ad3871bb18155ebeea1c9be62723beeff510701f7e4dea9cb62cd"
+      }
+    },
+    "growth_wind": {
+      "times": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "bb9c18c9e76d3e4e4ab80c3d82f1d7863b111ed5e131d5827b82c9912b9de067"
+      },
+      "thrust": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "601763399853f6792a0987156f01ba304c7b76553f7b361abd3b8a947191fa1f"
+      },
+      "impulse": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "e95e613d8e66ac26243b0e6498672dcebfb817a7330b606ede5c19e4322d96e0"
+      },
+      "motor": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "e5be2ac3a3636535f1302a93527c3288fbc4f3274a3042f4f2fc12f77d13e02e"
+      },
+      "mass0": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "8853c0d31b66754fdb6269ea00af044009ba4b901085b021d4b39b72a0e0e20f"
+      },
+      "moment0": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "12d220353d3d158fdef918143e30a1083c2257a91bdbea4de0bceabeb200fda0"
+      },
+      "inertia_origin": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "792c3946aba3fecc3232f64d6291b21218606e1a42d4315458bc1712894660ec"
+      },
+      "prop_origin_inertia": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "bff8bde1663a8bb576568a62e6bdc0c33bf6b6078fcd7a2e3010c992d75aacb7"
+      },
+      "prop_position": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "e1626e6a0f4706472746230e0e5ff7ce6b21f60db32f74145327b8550d779d4b"
+      },
+      "aero": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "9d9502aacc0aefb0142fb7e0a3e48d09dd2f05bd2bf900df66f5250c75c66e21"
+      },
+      "mach": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "a46873cffbc1f865dbd5a6a3140a85bf3a6d8ed7b777ca67a9f56b38b096c368"
+      },
+      "cd": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "2763c220f8418a295818063a110b14c800341714a3b63584b5148db33d2b5102"
+      },
+      "surfaces": {
+        "shape": [
+          8,
+          2
+        ],
+        "dtype": "float64",
+        "sha256": "01603ffcfc377d5a5b80f3504150b7424ed41ada86aa592a443729e7da2a54db"
+      },
+      "launch": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "42750ddc34797663e15ade0ece3df058463e2ab5a2170b3aec997ad1cd1bc2e2"
+      },
+      "rail_direction": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "cf639d4868a9dbde979b7c29a0fcf077ac8aabf5daf99e48dcfbcc1faae0cd9e"
+      },
+      "wind": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "68808cda4fc9a3cef1d53c681ce8dd1690add4b665d28f880bd6ce31db8c1593"
+      },
+      "recovery": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "7b73503944ee38385fda90a047e00f6b48f5fac013b1192c51baf507261e875b"
+      },
+      "servo": {
+        "shape": [
+          7
+        ],
+        "dtype": "float64",
+        "sha256": "4d1e799d858ec53b3505e906a6cfd395e287dda780ee40d2baa0967100b7aa07"
+      },
+      "sensors": {
+        "shape": [
+          14
+        ],
+        "dtype": "float64",
+        "sha256": "ab0bcd522ac9452c728313d931561ccf011386b86bbcd9b49d4abbda071d9d2a"
+      },
+      "pivot_station": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "4f6584d4e83ad3871bb18155ebeea1c9be62723beeff510701f7e4dea9cb62cd"
+      }
+    },
+    "growth_low_cda": {
+      "times": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "bb9c18c9e76d3e4e4ab80c3d82f1d7863b111ed5e131d5827b82c9912b9de067"
+      },
+      "thrust": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "601763399853f6792a0987156f01ba304c7b76553f7b361abd3b8a947191fa1f"
+      },
+      "impulse": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "e95e613d8e66ac26243b0e6498672dcebfb817a7330b606ede5c19e4322d96e0"
+      },
+      "motor": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "e5be2ac3a3636535f1302a93527c3288fbc4f3274a3042f4f2fc12f77d13e02e"
+      },
+      "mass0": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "8853c0d31b66754fdb6269ea00af044009ba4b901085b021d4b39b72a0e0e20f"
+      },
+      "moment0": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "12d220353d3d158fdef918143e30a1083c2257a91bdbea4de0bceabeb200fda0"
+      },
+      "inertia_origin": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "792c3946aba3fecc3232f64d6291b21218606e1a42d4315458bc1712894660ec"
+      },
+      "prop_origin_inertia": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "bff8bde1663a8bb576568a62e6bdc0c33bf6b6078fcd7a2e3010c992d75aacb7"
+      },
+      "prop_position": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "e1626e6a0f4706472746230e0e5ff7ce6b21f60db32f74145327b8550d779d4b"
+      },
+      "aero": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "9d9502aacc0aefb0142fb7e0a3e48d09dd2f05bd2bf900df66f5250c75c66e21"
+      },
+      "mach": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "a46873cffbc1f865dbd5a6a3140a85bf3a6d8ed7b777ca67a9f56b38b096c368"
+      },
+      "cd": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "2763c220f8418a295818063a110b14c800341714a3b63584b5148db33d2b5102"
+      },
+      "surfaces": {
+        "shape": [
+          8,
+          2
+        ],
+        "dtype": "float64",
+        "sha256": "01603ffcfc377d5a5b80f3504150b7424ed41ada86aa592a443729e7da2a54db"
+      },
+      "launch": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "42750ddc34797663e15ade0ece3df058463e2ab5a2170b3aec997ad1cd1bc2e2"
+      },
+      "rail_direction": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "cf639d4868a9dbde979b7c29a0fcf077ac8aabf5daf99e48dcfbcc1faae0cd9e"
+      },
+      "wind": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "6ccb758df6600f5ff0f0ea0733f8ba2ae17333a2635192a6929c76f2be8b843d"
+      },
+      "recovery": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "ba3a68ca893562a0540580c515004b30e90250e11f94c82e349f906857b4d515"
+      },
+      "servo": {
+        "shape": [
+          7
+        ],
+        "dtype": "float64",
+        "sha256": "4d1e799d858ec53b3505e906a6cfd395e287dda780ee40d2baa0967100b7aa07"
+      },
+      "sensors": {
+        "shape": [
+          14
+        ],
+        "dtype": "float64",
+        "sha256": "ab0bcd522ac9452c728313d931561ccf011386b86bbcd9b49d4abbda071d9d2a"
+      },
+      "pivot_station": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "4f6584d4e83ad3871bb18155ebeea1c9be62723beeff510701f7e4dea9cb62cd"
+      }
+    },
+    "growth_wind_low_cda": {
+      "times": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "bb9c18c9e76d3e4e4ab80c3d82f1d7863b111ed5e131d5827b82c9912b9de067"
+      },
+      "thrust": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "601763399853f6792a0987156f01ba304c7b76553f7b361abd3b8a947191fa1f"
+      },
+      "impulse": {
+        "shape": [
+          128
+        ],
+        "dtype": "float64",
+        "sha256": "e95e613d8e66ac26243b0e6498672dcebfb817a7330b606ede5c19e4322d96e0"
+      },
+      "motor": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "e5be2ac3a3636535f1302a93527c3288fbc4f3274a3042f4f2fc12f77d13e02e"
+      },
+      "mass0": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "8853c0d31b66754fdb6269ea00af044009ba4b901085b021d4b39b72a0e0e20f"
+      },
+      "moment0": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "12d220353d3d158fdef918143e30a1083c2257a91bdbea4de0bceabeb200fda0"
+      },
+      "inertia_origin": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "792c3946aba3fecc3232f64d6291b21218606e1a42d4315458bc1712894660ec"
+      },
+      "prop_origin_inertia": {
+        "shape": [
+          3,
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "bff8bde1663a8bb576568a62e6bdc0c33bf6b6078fcd7a2e3010c992d75aacb7"
+      },
+      "prop_position": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "e1626e6a0f4706472746230e0e5ff7ce6b21f60db32f74145327b8550d779d4b"
+      },
+      "aero": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "9d9502aacc0aefb0142fb7e0a3e48d09dd2f05bd2bf900df66f5250c75c66e21"
+      },
+      "mach": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "a46873cffbc1f865dbd5a6a3140a85bf3a6d8ed7b777ca67a9f56b38b096c368"
+      },
+      "cd": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "2763c220f8418a295818063a110b14c800341714a3b63584b5148db33d2b5102"
+      },
+      "surfaces": {
+        "shape": [
+          8,
+          2
+        ],
+        "dtype": "float64",
+        "sha256": "01603ffcfc377d5a5b80f3504150b7424ed41ada86aa592a443729e7da2a54db"
+      },
+      "launch": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "42750ddc34797663e15ade0ece3df058463e2ab5a2170b3aec997ad1cd1bc2e2"
+      },
+      "rail_direction": {
+        "shape": [
+          3
+        ],
+        "dtype": "float64",
+        "sha256": "cf639d4868a9dbde979b7c29a0fcf077ac8aabf5daf99e48dcfbcc1faae0cd9e"
+      },
+      "wind": {
+        "shape": [
+          5
+        ],
+        "dtype": "float64",
+        "sha256": "68808cda4fc9a3cef1d53c681ce8dd1690add4b665d28f880bd6ce31db8c1593"
+      },
+      "recovery": {
+        "shape": [
+          4
+        ],
+        "dtype": "float64",
+        "sha256": "ba3a68ca893562a0540580c515004b30e90250e11f94c82e349f906857b4d515"
+      },
+      "servo": {
+        "shape": [
+          7
+        ],
+        "dtype": "float64",
+        "sha256": "4d1e799d858ec53b3505e906a6cfd395e287dda780ee40d2baa0967100b7aa07"
+      },
+      "sensors": {
+        "shape": [
+          14
+        ],
+        "dtype": "float64",
+        "sha256": "ab0bcd522ac9452c728313d931561ccf011386b86bbcd9b49d4abbda071d9d2a"
+      },
+      "pivot_station": {
+        "shape": [],
+        "dtype": "float64",
+        "sha256": "4f6584d4e83ad3871bb18155ebeea1c9be62723beeff510701f7e4dea9cb62cd"
+      }
+    }
+  },
+  "original_build_check_historical": false,
+  "corrected_has_all_build_metadata": true,
+  "cost_zero_is_unpriced_placeholder": true,
+  "acceptance": false,
+  "cpu_s": 0.451571,
+  "source_before_after_match": true
+}
