@@ -1,0 +1,31 @@
+{
+  "status": "exit-observation-software-race-corrected",
+  "files": [
+    {
+      "path": "runs/wo03-owned-process-exit-race-20261101T073354288267Z/old--orphan.json",
+      "source": "build/wo03-owned-process-esrch-race-v1/orphan.json",
+      "sha256": "d86200ce816a65b1295e80ae4d8f2147ce8d5570bb9966e61efce106584898be"
+    },
+    {
+      "path": "runs/wo03-owned-process-exit-race-20261101T073354288267Z/old--preserved-inputs.json",
+      "source": "build/wo03-owned-process-esrch-race-v1/preserved-inputs.json",
+      "sha256": "6e1e3c95bdd3cd5615dbc18c85695c875ff1e49382ccf31b2d6291ce397243a9"
+    },
+    {
+      "path": "runs/wo03-owned-process-exit-race-20261101T073354288267Z/old--scripts--wo03_owned_process.py",
+      "source": "build/wo03-owned-process-esrch-race-v1/scripts/wo03_owned_process.py",
+      "sha256": "e0959e2293814805cb19aea27ff010ce51c798fa8c04b2bba4acab342eb4870b"
+    },
+    {
+      "path": "runs/wo03-owned-process-exit-race-20261101T073354288267Z/old--tests--test_owned_process.py",
+      "source": "build/wo03-owned-process-esrch-race-v1/tests/test_owned_process.py",
+      "sha256": "fa0fe8f347a34c9e6036ff95ffff5d76dab889584fafae467c959d264318b251"
+    }
+  ],
+  "previous_result": "Full local suite283passed/1failed; originalmacOSorphanfixture hit rootESRCH while pollstillNone. Failure/artifacts preserved.",
+  "correction": "Only rootRSS ProcessLookupError: bounded rootwait<=20ms andremainingwall;timeoutstillfailclosed; livepermission/othererrorsunchanged; nohistoricalPIDsignals.",
+  "focused_check": "6 process tests passed once afterfix; subsequentcurrentcanonicalfullsuite recordedseparately",
+  "physical_acceptance": false,
+  "solver_invoked": false,
+  "flight_ready": false
+}

@@ -1,0 +1,40 @@
+version: wo03-g80-fin-loads-v1
+purpose: >-
+  Read-only diagnostic extraction of a capped small-angle scalar fin-load estimate
+  from the exact saved 52-part G80 candidate flight telemetry. This is not a
+  recovered simulator fin force, a validated aero model or a load bound.
+candidate_spec: build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml
+candidate_record: build/wo03-g80-integrated-candidate-v1/record.json
+candidate_identity_field: integrated_identity
+candidate_part_count: 52
+expected_candidate_identity: 62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009
+flight_record: build/wo03-g80-integrated-flight-v1/record.json
+flight_record_identity_field: candidate_identity
+telemetry_dir: build/wo03-g80-integrated-flight-v1
+cases:
+  nominal_calm: nominal_calm.parquet
+  growth_low_thrust_high_drag: growth_low_thrust_high_drag.parquet
+  growth_high_thrust: growth_high_thrust.parquet
+deployment_event:
+  source: >-
+    Infer apogee from the minimum saved down coordinate, then add the resolved
+    recovery trigger lag. The Parquet has no explicit recovery-time or canopy
+    deployment column; this event is a telemetry-derived diagnostic.
+small_angle_diagnostic:
+  cutoff_deg: 10.0
+  status: reporting cutoff only; not a validated method domain or requirement change
+load_model:
+  coefficient: min(CNa_per_rad * abs(alpha_rad), 2.0)
+  resultant: dynamic_pressure_pa * coefficient * planform_area_per_fin_m2
+  root_moment: resultant * span_m / 2
+  distribution: uniform normal pressure per fin; resultant at half span
+  design_factor: 1.0
+  df3_applied: false
+  scope: unvalidated scalar panel-load estimate; not recovered actual simulator per-fin forces
+historical_panel_case:
+  dynamic_pressure_pa: 40000.0
+  alpha_deg: 5.0
+limits:
+  max_cpu_s: 10.0
+  max_wall_s: 20.0
+output_dir: build/wo03-g80-fin-loads-v2

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import errno
+import os
 import sys
 import time
 
@@ -62,7 +64,9 @@ def test_rapid_exit_logs_stderr_and_ignores_only_disappeared_pid_race(tmp_path):
 
 def test_live_rss_callback_failure_is_persisted_and_child_terminated(tmp_path):
     def broken_rss(_pid: int) -> int:
-        raise RuntimeError("deliberate RSS reader failure")
+        raise ProcessLookupError(
+            errno.ESRCH, os.strerror(errno.ESRCH), "deliberate live RSS reader ESRCH"
+        )
 
     result, _log, status_path = _run_failure(
         [sys.executable, "-c", "import time; time.sleep(30)"],
@@ -72,10 +76,46 @@ def test_live_rss_callback_failure_is_persisted_and_child_terminated(tmp_path):
         terminate_grace_s=0.3,
     )
     assert result["error"]["kind"] == "rss_reader"
-    assert "deliberate RSS reader failure" in result["error"]["message"]
+    assert "deliberate live RSS reader ESRCH" in result["error"]["message"]
     assert result["returncode"] is not None and result["returncode"] < 0
     assert any(item["result"] == "popen_terminate" for item in result["cleanup_outcomes"])
     assert __import__("json").loads(status_path.read_text())["returncode"] == result["returncode"]
+
+
+@pytest.mark.skipif(sys.platform != "darwin", reason="macOS waitable-child RSS race control")
+def test_rss_esrch_for_waitable_root_is_resolved_as_normal_exit(tmp_path):
+    observed = []
+    real_rss, _descendants = darwin_process_callbacks()
+
+    def esrch_after_waitable_exit(pid: int) -> int:
+        # The supervisor's preceding poll has returned None. While this callback
+        # holds that loop turn, no Popen.poll/wait runs. Wait for the actual
+        # libproc RSS query to observe root ESRCH, then return that exact race.
+        deadline = time.monotonic() + 1.0
+        while time.monotonic() < deadline:
+            try:
+                real_rss(pid)
+            except ProcessLookupError:
+                observed.append(pid)
+                raise
+            time.sleep(0.001)
+        raise AssertionError("libproc did not observe root ESRCH during the race-control window")
+
+    result = run_owned(
+        [sys.executable, "-c", "import time; time.sleep(0.2); print('exit-after-rss-race')"],
+        log_path=tmp_path / "race.log",
+        status_path=tmp_path / "race.json",
+        wall_limit_s=1.0,
+        sample_period_s=0.005,
+        rss_callback=esrch_after_waitable_exit,
+        descendants_callback=lambda _pid: [],
+    )
+    assert observed == [result["pid"]]
+    assert result["success"] is True
+    assert result["returncode"] == 0
+    assert result["error"] is None
+    assert "exit-after-rss-race" in (tmp_path / "race.log").read_text()
+    assert __import__("json").loads((tmp_path / "race.json").read_text())["success"] is True
 
 
 @pytest.mark.skipif(sys.platform != "darwin", reason="macOS libproc process-ownership probe")

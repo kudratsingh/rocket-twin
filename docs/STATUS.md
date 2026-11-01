@@ -27,6 +27,21 @@ further actual bridge attempt or relaxed criterion is selected this increment.
 The [installed-fin intake](wo03-g80-installed-fin-intake.md) also confirms that
 historical G80/G12 evidence cannot close the new candidate's root/flutter gates.
 
+**Next method is qualified only on small washer cases:** three predeclared
+quadratic annuli isolate curved-boundary area error;96/32 outer/inner segments
+meet the existing0.0002mm² guard, independently matched by the analytic arc
+area. The [source-pinned boundary helper](wo03-g80-washer-area-method.md) passes
+five small checks and preserves shared curve identity; actual fragmented
+bridge-hole edges, node count and structural solve remain unverified. No new
+actual bridge attempt is authorized by these small-case results alone.
+
+**G80 recovery/fin decisions:** the [same-candidate fin-load intake](wo03-g80-fin-loads.md)
+now separates powered, coast and recovery phases from the saved180s telemetry,
+with large-angle estimates explicitly unsupported. It does not close installed
+root strength/flutter. [Three canopy sources](wo03-g80-recovery-canopy-sources.md)
+identify alternatives to the unsourced35g estimate; a51.6g36-inch nylon option
+is a plausible sizing study, not selected hardware or verified packing.
+
 **Keeper/service continuation:** the unchanged proposed parts now have completed
 nominal 5 mm-spaced pre-shell support insertion and aft cap/motor removal samples,
 with no sampled blockers. [Results](wo03-g80-keeper-service.md) and
@@ -38,6 +53,12 @@ qualification. Separate STEP parts and component masses are available: keeper
 hardware lump, supplier fasteners and integral keeper pads. Complete replacement
 hardware/adhesive ledger and full mass/CG/inertia remain unresolved; the frozen
 52-part flight predictions are not assigned to these changed parts.
+
+**Published guarded evidence:** [PR #28](https://github.com/kudratsingh/rocket-twin/pull/28)
+is merged after both required jobs passed (run41284107292). It publishes the
+completed frozen-package recovery horizon and stopped structural inputs.
+Subsequent independent area/fin-source studies and a narrow process-exit
+[race correction](wo03-owned-process-guard.md) are separately recorded.
 
 **Published retention/service milestone:** [PR #27](https://github.com/kudratsingh/rocket-twin/pull/27)
 is merged after both required jobs passed (replacement run41282972324). Its
@@ -126,6 +147,13 @@ verified fixture envelopes but complete conservation and method evidence are
 missing. [Comparison](wo03-elmer-thermal-comparison.md),
 [closed-campaign decision](wo03-elmer-campaign-decision.md).
 No more open-ended custom heat solver or actual geometry run is selected.
+
+**Current preview check (2026-11-01):** the designated Chrome agent refreshed
+the existing tab and confirmed the42-part G80 inspector,739.46g mass and real
+3D rocket at http://127.0.0.1:5173. The shell could not connect/rebind local
+ports, but browser-to-host access worked. The requested owner restart is
+unnecessary; no owner action is pending for this check. No full visual campaign
+was repeated; earlier four-configuration verification retains its date.
 
 **Usable preview:** the owner restarted `make preview`; the designated Chrome
 agent verified all four configurations, real 3D inspection, saved G80 replay

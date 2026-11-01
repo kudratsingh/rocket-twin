@@ -1,0 +1,13 @@
+{
+  "case": "independent full annulus, outer radius 4.5 mm, inner radius 1.7 mm",
+  "levels": [{"outer_segments":24,"inner_segments":8},{"outer_segments":48,"inner_segments":16},{"outer_segments":96,"inner_segments":32}],
+  "mesh_interior_maximum_size_mm": 1.5,
+  "surface_element": "quadratic triangle Gmsh type 9",
+  "quadrature": "Gmsh Gauss6",
+  "requested_threads": 1,
+  "per_case_wall_limit_s": 10,
+  "per_case_cpu_limit_s": 10,
+  "entire_packet_cpu_limit_s": 20,
+  "stop_on_first_invalid": true,
+  "actual_bridge_or_ccx": false
+}
