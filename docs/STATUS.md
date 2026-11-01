@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 17839)
-Total output lines: 1047
-
 # Status
 
 Updated: 2026-11-01 (run IDs use UTC)
@@ -362,7 +359,337 @@ an actual-baffle attempt; the required matrix and 45°C screen remain unchanged.
 
 The [solid map](wo03-fin-material-map.md) now uniquely matches all 60 historical
 G12 fin solids to the AST-preserved material recipe. Contact-face mapping and
-installed strength/stiffness/flutter remain ope…5839 tokens truncated…#1.
+installed strength/stiffness/flutter remain open. One-worker settings were
+requested, but CAD CPU/wall observations do not demonstrate single-core execution.
+Evidence: `runs/wo03-output-solid-map-20261101T011408613691Z/record.json`.
+
+**Latest frontend increment:** [PR #21](https://github.com/kudratsingh/rocket-twin/pull/21)
+publishes the recorded telemetry picker and metadata-aware comparison. Local
+checks and designated-window observations pass for the exercised paths. Both
+[required hosted jobs](https://github.com/kudratsingh/rocket-twin/actions/runs/41259442719)
+passed and PR #21 is merged. Raw mass, derived speed, two-run tilt, event/playback,
+actual 3D visibility and finless warning were observed. No WebGL failure was
+established: fallback text in the accessibility tree appeared alongside a working
+canvas. [Checks and limits](wo05-telemetry-picker-preview.md). No compatible
+current engineering overlays or full WO-04/05 acceptance is claimed.
+
+**Latest structural accounting:** the [G12 fin routing audit](wo03-fin-load-routing.md)
+keeps axial-Z root torque separate from the old radial-X rail-bending surrogate;
+full installed reactions and three physical wrench components remain unknown.
+The [G54 support cut ledger](wo03-support-cutloads.md) now checks all170 actual
+STEP shapes and repeats all nine cut bounds with BRep extents, matching the
+nominal case within1.5e-14N. These are conditional combined-path demands, not
+shell stresses or installed capacity. The source remains the69df thermal copy,
+not a completed recovery package. Both analyses preserve their separate identities,
+all failed screens and physical verification requirements. Compact evidence:
+`runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json`.
+
+[PR #18](https://github.com/kudratsingh/rocket-twin/pull/18) and
+[PR #19](https://github.com/kudratsingh/rocket-twin/pull/19) are merged after
+required checks passed. The early preview is running and browser-verified;
+compatible current Analysis fields remain unavailable. The isolated Elmer setup
+preflight still establishes no usable/qualified solver or accepted baffle result.
+
+**Latest thermal-tool decision:** [bounded Elmer/CalculiX comparison](wo03-external-thermal-decision.md)
+qualifies neither tool for an actual-baffle attempt. Elmer was unavailable in the
+checked isolated setup; CalculiX completed straight finite-wall and cylinder
+three-grid cases. The cylinder's individual field/heat/refinement criteria pass,
+but precise energy/local checks and difficult spatial-wall cases remain unavailable.
+[PR #16](https://github.com/kudratsingh/rocket-twin/pull/16) is merged after
+all [exact-head hosted checks](https://github.com/kudratsingh/rocket-twin/actions/runs/41185073845) passed.
+No new production solver, accepted temperature or vehicle change. The two stopped
+wall-treatment trials and failed actual fields remain preserved. Evidence:
+`runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json`.
+
+**Preview source published:** [PR #17](https://github.com/kudratsingh/rocket-twin/pull/17)
+is merged after both [exact-head hosted jobs](https://github.com/kudratsingh/rocket-twin/actions/runs/41185864536) passed.
+This does not complete visual acceptance or full WO-04/05.
+
+**Current preview verified locally:** after the owner restarted the host services,
+the designated frontend Terra agent checked all four current-CAD configurations
+in Chrome (42 / 42 / 53 / 51 parts). Selection, visibility/isolation, exploded
+view, fit/reset/orbit/zoom, current G80/G54 replay, event/time/speed/camera controls,
+graph scrubbing, feet/mph labels and two-run comparison responded. Finless
+unguided simulation is disabled with an explanation. A CSS-only fix separates
+balance-point/aerodynamic-force labels and wraps narrow tree/footer text; actual
+marker positions and backend values are unchanged. See
+[verification follow-up PR #18](https://github.com/kudratsingh/rocket-twin/pull/18)
+and [the current handoff](wo04-preview-handoff.md).
+
+A fresh browser-triggered G80 experiment at1m/s toward90°, zero gust, completed
+as `exp-1f2178e749f049f18181e123078679bd`; progress, save, replay and comparison
+with calm G80 were observed. Input/specification/CAD/model hashes match between
+those two runs; wind is the only case change. These are preliminary, locked,
+unguided simulations. Current compatible Analysis fields remain unavailable;
+stale fields attach no overlay, old thermal fields stay SUPERSEDED, and the
+failed baffle finding stays FAILED. Actual app screenshots were emitted through
+the computer-use tool; no screenshot files were saved by that API.
+
+The working host URL is `http://127.0.0.1:5173`, launched with `make preview`.
+The earlier sandbox bind errors and stale host snapshot are resolved for current
+browser use after the owner's restart. The primary does not use computer tools
+concurrently with the frontend agent. Full WO-03/04/05 completion and all
+physical/paid/WO-10/flight gates remain open/intact. Earlier preview pause and
+startup-blocker statements below are historical.
+
+**Current closure plan:** [three bounded deliverables](wo03-closure-plan.md):
+known-answer thermal error isolation → credible actual-geometry temperatures or
+justified bounds → one complete-package revalidation. Original full-size mesh
+retries are stopped pending validated method/resource replanning. A read-only
+count proves the old parent/vertex-preserving construction exceeds its120k/240k
+caps before meeting resolution. [Method decision](wo03-thermal-method-decision.md).
+Independent recovery/support and installed-fin audits are now executed:
+[closure table](wo03-package-closure-progress.md). Exact geometry/force accounting
+and common-root equilibrium subitems close, but installed capacities, foundation,
+flutter and the complete G12 package remain open. Known-case isolation reproduces
+local undershoots despite good energy closure; no full-size retry is running.
+No scope, physical acceptance or preview/browser activity is added by this plan.
+The known-case packet and two permitted wall-treatment trials are now complete.
+Both standalone treatments are rejected: one loses source heat accuracy; the
+other retains it but has excessive local temperature/reference-heat error.
+That branch is stopped after two trials. [Decision and next route](wo03-thermal-method-decision.md).
+The numerical question now requires a different geometry/discretization or a
+justified bounding treatment; no actual temperature pass or new full-size run.
+[PR #15](https://github.com/kudratsingh/rocket-twin/pull/15) publishes this bounded
+continuation. Its first check exposed a missing local-only helper dependency;
+the shared pure helper is now included with unchanged-function evidence and
+an import/known-case regression. Exact-head hosted status remains on the PR;
+a software check never overrides the engineering findings above.
+
+
+
+
+**Historical return-to-WO-03 checkpoint (2026-10-30; preview pause superseded above):** engineering development resumed.
+Frontend preview and computer-use work remain paused. Saved preview edits and run
+records remain local; its focused PR has not yet been opened. The current work is
+the complete brace-ring/bond/body load path, required thermal cases and recovery
+within the unchanged G12 guide/mass screen, including installed fin/root behavior.
+Candidate corrections remain isolated until one complete package is revalidated.
+
+**WO-03 remains active and open; the early preview is separately authorized as recorded above.**
+Custom construction, maximum practical conventional performance and committed
+PID-to-RL remain core. [ADR-0009](adr/0009-early-inspection-experiments.md) records the
+owner's explicit sequence exception for read-only inspection, recorded Analysis,
+real backend experiments and replay/comparison. Full WO-04/05 prerequisites and
+completion criteria remain; no engineering, physical-build or flight release.
+
+The current thermal correction has an executed actual-CAD material partition,
+verified common-surface radiation/conduction coupling and a 30-case **diagnostic**
+G54 grid. The former 44.749°C one-point pass is superseded as acceptance evidence:
+finite ring/end heating raises the required-case support result to 46.059°C with
+ambient end reservoirs, or 51.975°C with hot end assumptions. The current coaxial
+proxy still omits actual slot gas/radiation, so it cannot close the required matrix.
+The separate G12 0.753 g forefoil still fails at 45.913°C. [Thermal report](wo03-thermal-model-corrections.md).
+
+The selected G54 baffle candidate clears nominal hardware and its declared staged
+assembly path; actual notches/seams/supports and mass are exported. It remains
+unaccepted thermally/structurally. Its 846.010 g / 1.197510-cal full-growth minimum
+belongs to that candidate, not the active 817.991 g G54. Actual three-level CAD radiation is recorded; local optical convergence and
+common-surface gas/conduction/transient coupling remain open. [Fit/assembly](wo03-baffle-fit.md)
+and [occupancy](wo03-interface-occupancy.md). The new circular-pad candidate removes
+source material overlaps; it is not adopted into active geometry.
+
+**A first actual replacement-baffle burn/soak calculation is complete, but its
+numerical model failed.** Candidate `69df790…`, generator `1193713…`, run
+`wo03-actual-transient-20261031T061319026057Z` covers 3.026 s burn plus 300 s soak.
+Debug part means are 50.672°C motor support and 42.585°C aft substrate; these
+are **not credible design temperatures or a pass against 45°C**. The complete
+source gas factor produces 181.615–602.731 K under 308.15–573.15 K boundaries,
+including 194 below-ambient surface means. [Diagnostic report](wo03-actual-debug-transient.md).
+
+**Four thermal gates remain separate:** coarse mesh geometry passes its recorded
+guards; calculation completion now has both a returned operator and a completed
+transient; actual numerical accuracy fails its field checks and lacks relevant
+refinement; temperature acceptance remains unavailable. The global ODE energy
+residual is 0.001700 J, but the local connection-energy audit has up to470.811 J
+imbalance and is unverified. Diagnostic Analysis exports have `validation: failed`
+and are not registered on an active vehicle. No physical design is adopted.
+
+The captured middle-mesh replay diagnoses five exact coplanar tetrahedra.
+One volume-only optimization removes them but fails connectivity; exact duplicate
+coalescing also fails the unchanged guards. The native analysis-mesh pilot stops
+at its surface resource cap and shows thin-wall fidelity defects. The targeted,
+geometry-preserving boundary pilot retained the original material surfaces but
+reached its120k-node/240k-triangle cap before its resolution targets. It is
+incomplete, with no volume mesh or new heat result. No new mesh is called accurate
+before its geometry, source mapping, field and refinement checks pass.
+[Mesh diagnosis](wo03-medium-mesh-diagnostic.md), [field diagnosis](wo03-gas-field-diagnostic.md).
+
+[PR #13](https://github.com/kudratsingh/rocket-twin/pull/13) **merged** at
+`8e71c206839087723bedbef3209e38d2e4662ef4`. Its replacement exact-head hosted run
+`41172768750` passed every required check after the Linux GLU fix. The first
+missing-GLU run remains failed historical evidence. [PR #14](https://github.com/kudratsingh/rocket-twin/pull/14) subsequently merged
+at `a900b884c89e4c77a1c6f338a8cc2fd4c0549c5d` after all required exact-head
+checks passed in run41178650950. It publishes the numerical diagnostics, stable
+heat-accounting correction and failed-model transient.
+Latest local check passes224tests,Ruff/Black(222files) and strict mypy(77modules).
+These are regression/guard checks, not actual thermal acceptance.
+
+Published geometry/method evidence remains
+[`wo03-actual-geometry-20261031T052235281133Z`](../runs/wo03-actual-geometry-20261031T052235281133Z/record.json):
+1,785 face owners, three optical levels and known-case common-surface calorimetry.
+Those method checks do not establish actual local convergence. The new candidate
+uses the full screened material mapping at nominal properties; remaining source,
+material/contact and local optical uncertainties still block the required matrix.
+The separate G12 0.753 g shield remains failed at45.913°C; no G54 credit transfers.
+
+Active source-cache regeneration after the opt-in CAD primitive change preserves
+**exactly the same geometry, materials, masses, centroids and full inertia** in all
+six active variants. Fresh CAD `wo03-20261031T034832494277Z` passes all variants and
+both 25-pose sweeps with unchanged inputs at generator `1193713d…`.
+`make benchmark` passes static/actual G80/finned-G12 RocketPy and 4,096-env CPU:
+`wo01-platform-20261031T034519135584Z`, `wo02-20261031T034519948032Z`.
+An earlier whole local check passed **187 tests**, Ruff/Black and strict typing
+(69 source modules); it includes local preview and other unpublished method tests.
+The focused PR receives its own required exact-head hosted checks.
+These are regression/method checks, not expanded engineering or flight acceptance.
+
+At that earlier checkpoint, the local preview at `http://127.0.0.1:5173` was
+unmerged and held for a separate PR. It was subsequently published in PR #17
+and current verification is recorded above.
+The owner started the host servers because this session cannot bind ports or reach
+npm. The configuration-switching bug (duplicate sibling component keys retaining
+earlier parts panels) is corrected. The post-fix Chrome cycle verified one parts
+list and one centered viewer for all four designs, selection, isolation, body
+hiding and explosion. Two browser-triggered full CPU JAX runs completed, replayed
+and loaded as a comparison: G80 calm `exp-173525a242be493e8e3268471b8e16aa` and
+conditional G54 with 3 m/s eastward wind `exp-da02d58e35af404faf2802bea54c942b`.
+Preview evidence is saved locally in `docs/wo04-early-preview.md`. TypeScript, lint, three
+frontend boundary tests and the production build pass. The API serves actual
+hash-checked CAD/specification data, and a real tiny JAX experiment test passes. These are
+implementation checks, not full work-order acceptance. Experiment runs are
+preliminary and unguided; finless unguided execution is unsupported.
+
+The active specs now combine the recovery package, stiffer fins/gussets, hot G11
+supports, mica/foil and serial end-pad isolation, improved fits and motor retention.
+The mode-level recovery power override was found and corrected in all six variants;
+the resolved-network regression passes. [ADR-0008](adr/0008-integrated-wo03-corrections.md)
+and [closure table](wo03-correction-closure.md) identify adopted parts and open items.
+
+G54's defined full-growth/depletion minimum is **1.045596 calibre**, with **867.991 g**
+including the full 50 g allowance. It remains conditional: an additional exploratory
+motor-CG sensitivity fails, along with high-case/degraded-foil shell temperature.
+[Mass, CG and full inertia](wo03-integrated-vehicle.md) use the complete package.
+
+The preserved PR #9 CAD export `wo03-20261030T205235088123Z` passes all six variants,
+neutral rigid intersections and both 25-pose TVC sweeps at that CAD revision.
+Local source-owned bore/machining support changed the CAD code identity. Fresh
+`wo03-20261031T000244802098Z` passes all six CAD mass/solid/interface cases and both
+25-pose TVC sweeps with unchanged inputs; active geometry remains the PR #9 design.
+This export benchmark does not close expanded engineering acceptance. The preserved
+27-case flight campaign `wo02-20261030T204849990760Z` passes the five nominal RocketPy
+comparisons and 4,096-env CPU step with unchanged code/inputs. G12 reference errors
+are now 2.064% altitude / 0.917% time, not the historical 0.004% claim.
+
+**Historical band-model statement, superseded for acceptance:** its standard
+upper cases passed; G54 300 C and contaminated-foil sensitivities failed. The
+corrected actual-geometry required matrix has no accepted pass yet; retain the
+45 C substrate screen and earlier failures.
+Dominant fin stress/displacement and body modes converge; small fin components,
+installed-root peel/stiffness and full flutter remain open. Minimum frame/liner
+fits, service/arming/routing and recovery-anchor capacity remain design items.
+Physical qualification is separately retained in the owner-performed stages.
+
+PRs #4–10 are merged after required hosted checks. Geometry remains the
+[PR #9](https://github.com/kudratsingh/rocket-twin/pull/9) integrated baseline.
+[PR #10](https://github.com/kudratsingh/rocket-twin/pull/10) publishes the subsequent
+analysis/budget tools at `e41c6c0693da02afa27b1c208cbd97eb16c73261`; exact-head
+workflow `41149095128` passed before merge.
+[PR #11](https://github.com/kudratsingh/rocket-twin/pull/11) merged at
+`cf0bdef92439403e053d8604f449e72e990ab762` after exact-head workflow
+`41159867221` passed for `a5ca0fb00619221a5af8502f9173b5947047fa02`.
+The first failed check exposed two missing evidence records; the corrected final
+head includes them and the fixed-shaft linkage model. Frontend implementation
+remains held for its separate preview PR.
+[PR #12](https://github.com/kudratsingh/rocket-twin/pull/12) merged at
+`e39ef7140482903be855ca21d8ea07d2ccefd0a3` after exact-head workflow
+`41169031880` passed for `81269e1853361b71e0e060179a55fad73291f2f0`.
+It publishes occupancy, finite common-surface proxy evidence and the fitting
+baffle. PR #13 subsequently published the actual-CAD optical/gas/material mapping after
+required checks. Newer diagnostic work remains local; method success does not
+close thermal acceptance.
+
+Fresh active CAD export `wo03-20261031T022318571108Z` passes all six variants,
+neutral intersections and both 25-pose sweeps with unchanged inputs at generator
+revision `b3440d2b97dcaf525fc1f40c5cf224dda6d9e02fa7bedcb43d58f822a0793108`.
+The earlier source-changing run is rejected. Active geometry remains PR #9.
+The new original-arm/windowed-cap candidate separately clears its 25 nominal
+poses; installed load capacity, wiring and continuous/tolerance motion remain open.
+[Clearance](wo03-recovery-clearance.md), [fore-bay shield](wo03-tvc-fore-shield.md),
+[finite-radiation diagnostic](wo03-finite-radiation.md) and
+[free-flight load audit](wo03-flight-loads.md) retain their own source identities.
+
+The next correction package remains isolated: no braced-mount, recovery-anchor or
+trainer-fin candidate is adopted merely because an individual screen passes.
+Earlier closure-foundation test run: 123 tests passed; the latest local check is recorded above. See the [three-priority closure progress](wo03-package-closure-progress.md),
+[checkpoint](wo03-current-checkpoint.md) and [results](results.md). No purchase, physical work or paid compute.
+
+### Completed WO-02 milestone
+
+**WO-02 numerical benchmark met on the owner's Mac CPU.** [Core PR #2](https://github.com/kudratsingh/rocket-twin/pull/2)
+merged; [validation/study PR #3](https://github.com/kudratsingh/rocket-twin/pull/3)
+merged with the final evidence and hosted checks. WO-03 is now active; the
+following numbers are the preserved pre-CAD WO-02 baseline.
+
+The completed WO-02 revision passed 65 tests, formatting/lint and strict typing. `make benchmark`
+passes both the preserved static platform and actual G80/finned-G12 flight checks.
+Full study `wo02-20261030T044930127544Z` compares all five nominal models within 0.004% of RocketPy,
+checks a 4,096-env CPU step, and closes recovery in all 27 cases by 360 s. Tiny
+`wo02-20261030T045326632046Z` takes 10.10 s (<120 s). Source/input hashes stay unchanged
+through each final run. [Results](results.md) and [report](wo02-flight-study.md).
+
+Conditional direction: keep G80 as reference; G54 leads the practical near-160 N s
+upgrade trade (+20.7% nominal altitude, +80 g installed integration mass in the
+preserved study). Its prior 1.023 cal aft-growth estimate was before latest CAD
+reconciliation; the pre-integration all-growth-aft checkpoint failed 1 cal; ADR-0008 now records the combined correction and its remaining sensitivities. Fixed
+G12 leads calm altitude but fails the conservative
+3 m guide screen and weathercocks substantially. G33 has a departure shortfall.
+No hardware/motor/delay choice is frozen. G25W remains quarantined.
+
+Remaining gates: exact motor/source/hardware/lot/California/stock/club evidence;
+actual site/altitude/footprint and guide; high-g sensor calibration and packaging for G80/G54;
+CAD/measured mass, structural/thermal/recovery tests; PID authority then committed
+RL, HIL and finless burnout transition. Custom mechanical work, maximum practical
+conventional performance and serious PID-to-RL are all retained. No purchases,
+physical work, paid run or controller implementation; WO-10 owner review remains.
+
+### Completed prior milestone
+
+**WO-01 rebaseline complete at preliminary numerical-model scope.** The revised
+benchmark passes for performance, finned TVC and finless TVC; `make check smoke tiny
+benchmark` passes with 53 tests. Evidence: `runs/wo01-platform-20261030T022439939715Z/record.json`.
+WO-02 is now authorized and active; this evidence remains the completed WO-01 baseline.
+
+Core objectives: meaningful custom fabrication/integration, maximum practical
+no-HPR performance, and committed PID-to-RL training/embedded/real-flight comparison.
+See [ADR-0006](adr/0006-modular-platform-rebaseline.md), [active WO-01](work-orders/WO-01-vehicle-spec-mass-cp.md)
+and [bounded trade](wo01-rebaseline.md). Original fixed assumptions below are historical.
+
+The historical WO-01 66 mm × 800 mm hybrid platform has shared upper equipment and distinct
+fixed G80 performance / G12 finned TVC / G12 finless TVC aft models. Mass including
+50 g growth: 522.0 / 625.8 / 582.2 g. Physical fins and offset servos enter mass,
+inertia and aero; independent RocketPy endpoint comparisons pass for every mode.
+Inventory previews include every part's build/cost/learn metadata. CAD and full BOM
+remain WO-03/09. Every passing record explicitly retains `flight_ready: false`.
+
+## Current open verification and access items
+
+- Numerical motor hypotheses are source-consistent, but exact offered hardware,
+  certificate/curve/envelope/CG correspondence, delay, lot and stock are not frozen.
+  G80 direct checked pages are out of stock; G12 advertised length conflicts with
+  report/curve. G25W remains quarantined. F25/G54/G50 threshold-only exclusions are
+  reopened for their appropriate new modes; old rejection records are preserved.
+- Confirm the actual California club/site/date. ROC/Lucerne remains an assumption.
+  Exact California motor classification and club/RSO acceptance are independent
+  prerequisites; a general motor threshold or passing model is not launch approval.
+- WO-02 numerical flight/guide/wind/recovery checks are complete; actual flight
+  qualification remains open. Later gates: CAD/load/heat/fit
+  plans in WO-03; realistic PID/RL in WO-06/07; owner fabrication/measurement and
+  independent recovery in WO-09; firmware/abort/HIL in WO-10; staged flights in WO-11.
+  Finless negative margin and loss of TVC at burnout require a qualified recovery
+  transition. RL is committed, with honest negative comparisons retained.
+- Full dependency lock and fresh Mac/full-stack install evidence remain pending.
+  Hosted CPU CI installs WO-01/reference pins on clean Linux; results are on PR #1.
   No dependency versions were upgraded in this rebaseline.
 - Private GitHub repository `kudratsingh/rocket-twin` confirmed. Connector write access
   works; the full project is published on `wo-01-modular-platform` in
