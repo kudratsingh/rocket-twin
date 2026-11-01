@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1536, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1514, in main
+    coarse_mesh_worker(cfg)
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1316, in coarse_mesh_worker
+    build_case(folder, 1.5, cfg["maximum_nodes"], cfg["maximum_tetrahedra"])
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py", line 819, in build_case
+    preflight = _verify_preflight(
+                ^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py", line 310, in _verify_preflight
+    raise ValueError(
+ValueError: Unexpected EQUAL applied moment resultant [ 1.49833923e-10 -6.91142129e-03  0.00000000e+00]; expected [0. 0. 0.]

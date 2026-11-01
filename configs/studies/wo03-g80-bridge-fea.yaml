@@ -15,3 +15,8 @@ worker_cpu_limit_s: 60
 solver_cpu_limit_s: 60
 packet_cpu_limit_s: 600
 acceptance: false
+
+washer_load_assumption: equilibrated_axial_resultant_at_exact_cad_center
+washer_pressure_distribution: unverified_affine_discretization
+maximum_relative_affine_pressure_correction: 0.005
+washer_surface_integration: gmsh_type9_Gauss6

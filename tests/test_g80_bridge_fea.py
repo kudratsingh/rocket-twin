@@ -84,3 +84,21 @@ def test_failed_actual_worker_persists_resource_accounting(tmp_path, monkeypatch
     assert record["name"] == "bridge_1p5mm"
     assert record["worker_user_s"] >= 0
     assert record["worker_peak_rss_bytes_macos"] > 0
+
+
+def test_geometry_only_worker_blocks_mesh_generation(tmp_path, monkeypatch):
+    import gmsh
+
+    import scripts.wo03_g80_bridge_adapter as adapter
+    import scripts.wo03_g80_bridge_fea as driver
+
+    def fake_builder(_folder, _mesh_size, _node_cap, _tet_cap, *, geometry_only):
+        assert geometry_only is True
+        gmsh.model.mesh.generate(3)
+
+    monkeypatch.setattr(driver, "OUT", tmp_path)
+    monkeypatch.setattr(driver.resource, "setrlimit", lambda *_args: None)
+    monkeypatch.setattr(adapter, "build_case", fake_builder)
+    with pytest.raises(RuntimeError, match="mesh generation is forbidden"):
+        driver.geometry_only_worker({"maximum_nodes": 50000, "maximum_tetrahedra": 75000})
+    assert (tmp_path / "geometry-worker-resources.json").is_file()

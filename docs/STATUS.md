@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-10-31 (run IDs use UTC)
+Updated: 2026-11-01 (run IDs use UTC)
 
 ## Current work order
 
@@ -15,14 +15,17 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
-**Bridge structural analysis remains open:** two known mechanical fixtures pass
-and six finite bond pairs/three washer seats map on the actual BReps. The first
-actual Gmsh preflight stopped on a washer bbox-index defect. One controlled API
-repair then stopped in process supervision; no completed actual mesh/deck/CCX
-result exists. [Evidence](wo03-g80-bridge-fea.md) preserves all failures and
-accounting limits. The guard and immediate error-log persistence must be
-validated before another actual attempt. No owner permission or tool upgrade
-is requested from these software failures; no strength/convergence pass follows.
+**Bridge structural analysis remains open:** known mechanical fixtures and the
+geometry-only reconstruction pass their limited checks. The single mapping
+replan now diagnoses/corrects the curved-mesh centroid shift and preserves
+serialized applied forces/moments, with at most0.00363323% affine pressure
+perturbation against its declared0.5% ceiling. It produces31,435 nodes/15,819
+tetrahedra but stops before CCX at the unchanged washer-area guard:
++0.000522514mm² versus0.0002mm². [Evidence](wo03-g80-bridge-fea.md) retains all
+stops. No actual stress, displacement, reaction or convergence exists. No
+further actual bridge attempt or relaxed criterion is selected this increment.
+The [installed-fin intake](wo03-g80-installed-fin-intake.md) also confirms that
+historical G80/G12 evidence cannot close the new candidate's root/flutter gates.
 
 **Keeper/service continuation:** the unchanged proposed parts now have completed
 nominal 5 mm-spaced pre-shell support insertion and aft cap/motor removal samples,
@@ -31,9 +34,16 @@ with no sampled blockers. [Results](wo03-g80-keeper-service.md) and
 5° diagnostic; a source-specific fixed-axis ±15° barrier is separately calculated
 and observed. This is not torque, tolerance, all-path capture or strength
 qualification. Separate STEP parts and component masses are available: keeper
-15.410 g, bridge10.177 g, modified plywood/guides40.448 g. Complete replacement
+15.410 g, bridge10.177 g, modified plywood/guides40.448 g. The [mass audit](wo03-g80-retention-mass-audit.md) distinguishes the old 7 g
+hardware lump, supplier fasteners and integral keeper pads. Complete replacement
 hardware/adhesive ledger and full mass/CG/inertia remain unresolved; the frozen
 52-part flight predictions are not assigned to these changed parts.
+
+**Published retention/service milestone:** [PR #27](https://github.com/kudratsingh/rocket-twin/pull/27)
+is merged after both required jobs passed (replacement run41282972324). Its
+nominal keeper/service and structural prerequisites preserve open acceptance.
+The subsequent guarded bridge attempts and recovery-horizon follow-up are
+separate evidence, not retroactive results of that PR.
 
 **Published G80 milestone:** [PR #26](https://github.com/kudratsingh/rocket-twin/pull/26)
 is merged after both required jobs passed (run 41278070445). The same-package
@@ -48,10 +58,19 @@ Three washer/bridge probes are 54.538 mm². No tolerance minimum or capture pass
 washer OD tolerance is missing, all three sampled radial nut/washer removal
 paths meet the installed shell, and no keeper was modeled. Actual replacement
 hardware mass increment is unresolved. [Executed evidence](wo03-g80-retention-geometry.md).
-A [4 mm G11 captive keeper plan](wo03-g80-captive-retention-plan.md) uses
-pre-shell assembly and aft cap/motor service; it has not been executed.
+The [4 mm G11 captive keeper](wo03-g80-captive-retention-plan.md) now has the
+separately recorded nominal service samples above; tolerance, strength and
+complete mass reconciliation remain open.
 The earlier two-attempt packet is stopped; a different keeper function needs
 its own declared geometry/assembly check, not a blind third layout retry.
+
+**Completed recovery horizon, frozen G80 proposal:** all three 52-part cases now
+reach modeled ground by 128.370 s in the bounded 180 s run. The [report](wo03-g80-recovery-horizon.md)
+closes only the old 45 s incompleteness: predicted ground speeds are 5.966,
+6.180 and 6.178 m/s, so growth cases exceed the preliminary 6 m/s screen.
+There is no independent recovery-flight comparison or physical qualification.
+The new retention/keeper geometry is absent from these results; its complete
+replacement ledger and revalidation remain open.
 
 **Latest integrated G80 proposal (52 parts, not active):** the selected mount
 and recovery packaging now share one normally validated resolved identity

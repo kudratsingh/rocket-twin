@@ -1315,3 +1315,37 @@ Tracked child CPU is 13.979 s for continuation, 18.428 s including the earlier
 keeper child; caps were not reached. Hardware/adhesive ledger, installed force
 sharing, torque/strength, tolerance, thermal and complete mass/flight acceptance
 remain open. G54/G12 findings, active designs and the preview remain unchanged.
+
+## Frozen G80 candidate: recovery horizon completed — 2026-11-01
+
+The [bounded recovery follow-up](wo03-g80-recovery-horizon.md) retains the
+52-part identity and all existing physics/settings, extending only the horizon
+from45 to180s. All three cases reach modeled ground at114.980/80.500/128.370s;
+pre-ground speeds are5.966/6.180/6.178m/s and calm-air horizontal distances
+6.786/8.065/9.939m. Growth cases exceed the preliminary6m/s screen; no target
+is relaxed. Nominal ascent remains within0.01% of RocketPy apogee/time, which
+does not validate recovery. The packet completed in16.730s wall/17.004s
+reaped-child CPU under120s/120CPU limits. Exact sources match before/after.
+This closes simulation-horizon incompleteness only; deployment, installed load
+paths, canopy uncertainty and the later keeper/bridge package remain open.
+Active designs, preview, other modes and release gates remain unchanged.
+
+## G80 bridge inputs: moment corrected, area gate still open — 2026-11-01
+
+The [guarded bridge packet](wo03-g80-bridge-fea.md) records a geometry-only
+pass, the first coarse load-moment stop, and one explicitly declared equivalent
+washer-resultant mapping replan. The latter produces31,435nodes/15,819C3D10
+tetrahedra, with maximum bounded pressure perturbation0.00363323% (<0.5%).
+Independent serialized applied load/moment checks pass. Its mesh washer area
+is54.538570981mm² versus54.538048466mm² CAD; +0.000522514mm² exceeds the
+unchanged0.0002mm² guard. It stops beforeCCX; no stress, reaction, displacement,
+energy or installed-strength result exists. The one mapping attempt used
+2.599childCPU s/2.728wall s; no second retry or laterlevel follows. Existing
+limits and all failed/stopped source snapshots remain preserved.
+
+The [retention ledger](wo03-g80-retention-mass-audit.md) leaves the complete
+new package mass/CG/inertia unresolved, while the [fin intake](wo03-g80-installed-fin-intake.md)
+identifies the exact unclosed G80 root/flutter evidence. Full local checks pass
+(Ruff, Black, mypy;279tests plus3subtests), supporting software consistency only.
+The macOS process-control tests run locally; only their platform-specific
+libproc probes skip on Linux. No acceptance or physical-release gate closes.

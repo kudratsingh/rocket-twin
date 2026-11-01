@@ -1,0 +1,448 @@
+{
+  "status": "completed_not_qualified",
+  "candidate_identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+  "source_sha256_before": {
+    "build/wo03-g80-integrated-candidate-v1/record.json": "4dbdf17c901e38d42c741d8cf739ead7d1b6b38bdc833538eccf76185fb0d614",
+    "build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+    "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+    "configs/studies/wo03-g80-integrated-recovery-horizon.yaml": "7de15fd96e80daf3df94a81fe4b506fe3b65b9980c00173cac41692f05c7fe7d",
+    "configs/wo02.yaml": "0a520be993b8c571757f27c3bd911b4d9599e0717f7b4d2db97a376d1968c6b1",
+    "scripts/wo02_sim.py": "b5a3389f961f7398e6e0ccaad694451b5a79c25fc56ad57178480911777eb811",
+    "scripts/wo03_g80_candidate_flight.py": "f3cb85ad26ac65a4404970bf4833389d754f55b876af2cc0c47ec1072ec878b1",
+    "scripts/wo03_integrated_report.py": "86a36238fe7cf644fd6e23973f43c1e1c1c88bc1e45381ed53b6d215cf79fc56",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+    "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+    "src/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/sim/actuators.py": "807b1f2f75f80154019bd1c1bb4d1976789c0a286907990fc10f6a7874488793",
+    "src/sim/aero.py": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+    "src/sim/environment.py": "be3200cbefaaee035dafc51147101de214650cef25ebf82ec180ca250fc887cc",
+    "src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+    "src/sim/motor.py": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93",
+    "src/sim/protocol.py": "b3054c9b90648f711bc432a92b7794b543c9d23e4560194bcf6d67c379b9356f",
+    "src/sim/quaternion.py": "95107100250c3b5e097ea2cbabd3ffc8c9f0c0098e67104bd4533c215ed33685",
+    "src/sim/reference.py": "4e531ae5bd13e29e790915fd1af6dd628a9332d7ffa4ceda9149f58839c2adae",
+    "src/sim/sensors.py": "dfee1f3d65e7e279d53855cd7d7fc3c8306631558adc907e5b45735898065a8b",
+    "src/sim/telemetry.py": "4b9f9238282d0a44e2b472400dd1742ef81c8c0b89806868b797f6e55fae93ad",
+    "src/sim/tvc.py": "949711fd82d4d22fbf5ee88ea883ed9f32a2867f286a3e3f5d712d9e9cb793d3",
+    "src/sim/types.py": "ed788da4450d3064f72ec41c14a82a8d70a8255bf7fc7292eb4583a75b21b3d0",
+    "src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+    "src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+    "src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d"
+  },
+  "source_sha256_after": {
+    "build/wo03-g80-integrated-candidate-v1/record.json": "4dbdf17c901e38d42c741d8cf739ead7d1b6b38bdc833538eccf76185fb0d614",
+    "build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+    "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+    "configs/studies/wo03-g80-integrated-recovery-horizon.yaml": "7de15fd96e80daf3df94a81fe4b506fe3b65b9980c00173cac41692f05c7fe7d",
+    "configs/wo02.yaml": "0a520be993b8c571757f27c3bd911b4d9599e0717f7b4d2db97a376d1968c6b1",
+    "scripts/wo02_sim.py": "b5a3389f961f7398e6e0ccaad694451b5a79c25fc56ad57178480911777eb811",
+    "scripts/wo03_g80_candidate_flight.py": "f3cb85ad26ac65a4404970bf4833389d754f55b876af2cc0c47ec1072ec878b1",
+    "scripts/wo03_integrated_report.py": "86a36238fe7cf644fd6e23973f43c1e1c1c88bc1e45381ed53b6d215cf79fc56",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+    "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+    "src/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/sim/actuators.py": "807b1f2f75f80154019bd1c1bb4d1976789c0a286907990fc10f6a7874488793",
+    "src/sim/aero.py": "dd32c24f08f781aeeae533aa9c50e4deb7fae8c2ed5d8497b38301a4bdb5fadb",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+    "src/sim/environment.py": "be3200cbefaaee035dafc51147101de214650cef25ebf82ec180ca250fc887cc",
+    "src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+    "src/sim/motor.py": "72023559df90673c0ddcbc4e08f788b91bc5e0c828c300257d6cc068401b7c93",
+    "src/sim/protocol.py": "b3054c9b90648f711bc432a92b7794b543c9d23e4560194bcf6d67c379b9356f",
+    "src/sim/quaternion.py": "95107100250c3b5e097ea2cbabd3ffc8c9f0c0098e67104bd4533c215ed33685",
+    "src/sim/reference.py": "4e531ae5bd13e29e790915fd1af6dd628a9332d7ffa4ceda9149f58839c2adae",
+    "src/sim/sensors.py": "dfee1f3d65e7e279d53855cd7d7fc3c8306631558adc907e5b45735898065a8b",
+    "src/sim/telemetry.py": "4b9f9238282d0a44e2b472400dd1742ef81c8c0b89806868b797f6e55fae93ad",
+    "src/sim/tvc.py": "949711fd82d4d22fbf5ee88ea883ed9f32a2867f286a3e3f5d712d9e9cb793d3",
+    "src/sim/types.py": "ed788da4450d3064f72ec41c14a82a8d70a8255bf7fc7292eb4583a75b21b3d0",
+    "src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+    "src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+    "src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d"
+  },
+  "versions": {
+    "jax": "0.4.38",
+    "jaxlib": "0.4.38",
+    "rocketpy": "1.13.0",
+    "numpy": "2.4.6"
+  },
+  "cases": [
+    {
+      "case_name": "nominal_calm",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180.0,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.0,
+        "time_scale": 1.0,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.0,
+        "rail_friction_n": 0.0
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.7485693200678835,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.6860693200678835,
+        "powered_net_acceleration_peak_g": 12.906657144413936,
+        "finite": true,
+        "apogee_agl_m": 631.2155119749966,
+        "apogee_time_s": 10.395000000000225,
+        "max_speed_mps": 147.92514261729218,
+        "guide_exit_s": 0.17500000000000007,
+        "guide_exit_mps": 19.43880658086222,
+        "powered_specific_force_peak_g": 13.906657144413936,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.43953454819787807,
+        "powered_max_alpha_deg": 0.7914033695924407,
+        "powered_max_tilt_deg": 1.509867142535368,
+        "max_dynamic_pressure_pa": 12198.553397960935,
+        "apogee_downrange_m": 19.148541495212402,
+        "electronic_apogee_trigger_s": 10.400000000000226,
+        "inflation_complete_s": 11.000000000000227,
+        "impact_time_s": 114.97999999996792,
+        "impact_speed_mps": 5.966452311424163,
+        "landing_downrange_m": 6.785511679239516,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": null,
+        "burnout_s": 1.8079
+      },
+      "rocketpy": {
+        "reference": "RocketPy 1.13.0",
+        "apogee_agl_m": 631.2486010247928,
+        "apogee_time_s": 10.395628437338349,
+        "max_speed_mps": 147.92317771689676,
+        "guide_exit_s": 0.17091148963579122,
+        "guide_exit_mps": 18.94090449700849,
+        "end_time_s": 10.395628437338349,
+        "recovery_full_flight": false,
+        "shared_inertia_input": true,
+        "lateral_cg_reference": "RocketPy constant liftoff eccentricity; twin depletes full 3D first moments",
+        "liftoff_lateral_cg_m": [
+          -2.1185143868142085e-05,
+          0.0007336098692112358
+        ],
+        "burnout_lateral_cg_m": [
+          -2.311508221843563e-05,
+          0.0008004407498300711
+        ],
+        "attitude_or_downrange_agreement_validated": false,
+        "nozzle_pressure_correction": "zero; exit area unknown"
+      },
+      "reference_relative_errors": {
+        "apogee_agl_m": 5.241841287647891e-05,
+        "apogee_time_s": 6.045207770860756e-05
+      },
+      "reference_pass": true,
+      "guide_target_mps": 15.0,
+      "guide_pass": true,
+      "powered_telemetry": {
+        "peak_powered_thrust": {
+          "time_s": 0.04,
+          "thrust_N": 101.92884444444445,
+          "axial_drag_magnitude_N": 0.008860801700799942,
+          "dynamic_pressure_Pa": 5.75549593078006
+        },
+        "peak_powered_axial_drag": {
+          "time_s": 1.4449999999999912,
+          "thrust_N": 27.021331375000866,
+          "axial_drag_magnitude_N": 19.750609768682732,
+          "dynamic_pressure_Pa": 12198.553397960935
+        },
+        "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+      }
+    },
+    {
+      "case_name": "growth_low_thrust_high_drag",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180.0,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 0.85,
+        "time_scale": 0.95,
+        "drag_scale": 1.2,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.5
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.7985693200678835,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7360693200678835,
+        "powered_net_acceleration_peak_g": 9.98592960433165,
+        "finite": true,
+        "apogee_agl_m": 443.577522719794,
+        "apogee_time_s": 9.08000000000002,
+        "max_speed_mps": 111.66711251869614,
+        "guide_exit_s": 0.1950000000000001,
+        "guide_exit_mps": 16.95535488432773,
+        "powered_specific_force_peak_g": 10.98592960433165,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.3316778862636414,
+        "powered_max_alpha_deg": 0.8839905224375104,
+        "powered_max_tilt_deg": 1.7503956693539073,
+        "max_dynamic_pressure_pa": 6973.244420345813,
+        "apogee_downrange_m": 15.333480466137194,
+        "electronic_apogee_trigger_s": 9.08000000000002,
+        "inflation_complete_s": 9.680000000000021,
+        "impact_time_s": 80.49999999999928,
+        "impact_speed_mps": 6.179625954065365,
+        "landing_downrange_m": 8.064817088396207,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": null,
+        "burnout_s": 1.717505
+      },
+      "rocketpy": null,
+      "reference_relative_errors": null,
+      "reference_pass": null,
+      "guide_target_mps": 15.0,
+      "guide_pass": true,
+      "powered_telemetry": {
+        "peak_powered_thrust": {
+          "time_s": 0.04,
+          "thrust_N": 86.3969049122807,
+          "axial_drag_magnitude_N": 0.006603610724534262,
+          "dynamic_pressure_Pa": 3.5744559706978203
+        },
+        "peak_powered_axial_drag": {
+          "time_s": 1.3999999999999921,
+          "thrust_N": 20.567795698355955,
+          "axial_drag_magnitude_N": 13.03381444580497,
+          "dynamic_pressure_Pa": 6973.244420345813
+        },
+        "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+      }
+    },
+    {
+      "case_name": "growth_high_thrust",
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 180.0,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.15,
+        "time_scale": 1.05,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.0
+      },
+      "metrics": {
+        "effective_loaded_mass_kg": 0.7985693200678835,
+        "effective_depletion_mass_kg": 0.0625,
+        "effective_burnout_mass_kg": 0.7360693200678835,
+        "powered_net_acceleration_peak_g": 14.026078955324689,
+        "finite": true,
+        "apogee_agl_m": 735.1154220674126,
+        "apogee_time_s": 11.06000000000033,
+        "max_speed_mps": 165.90316922163987,
+        "guide_exit_s": 0.17000000000000007,
+        "guide_exit_mps": 20.351600157860847,
+        "powered_specific_force_peak_g": 15.02607895532469,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.4930638286816968,
+        "powered_max_alpha_deg": 0.8714499681396084,
+        "powered_max_tilt_deg": 1.7062958231737941,
+        "max_dynamic_pressure_pa": 15315.27245683975,
+        "apogee_downrange_m": 25.227773403595684,
+        "electronic_apogee_trigger_s": 11.06000000000033,
+        "inflation_complete_s": 11.66000000000033,
+        "impact_time_s": 128.36999999995575,
+        "impact_speed_mps": 6.177836311669636,
+        "landing_downrange_m": 9.939467173395533,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": null,
+        "burnout_s": 1.898295
+      },
+      "rocketpy": null,
+      "reference_relative_errors": null,
+      "reference_pass": null,
+      "guide_target_mps": 15.0,
+      "guide_pass": true,
+      "powered_telemetry": {
+        "peak_powered_thrust": {
+          "time_s": 0.04,
+          "thrust_N": 117.51515100529099,
+          "axial_drag_magnitude_N": 0.009866967013415892,
+          "dynamic_pressure_Pa": 6.409046315722129
+        },
+        "peak_powered_axial_drag": {
+          "time_s": 1.4949999999999901,
+          "thrust_N": 33.48863764248775,
+          "axial_drag_magnitude_N": 25.26418115929425,
+          "dynamic_pressure_Pa": 15315.27245683975
+        },
+        "basis": "Recorded dynamic pressure/mach and existing aero.forces Cd expression; no spatial drag partition."
+      }
+    }
+  ],
+  "center_of_pressure_m": 0.906139607881506,
+  "static_properties": {
+    "loaded": {
+      "candidate": {
+        "mass_kg": 0.7485693200678835,
+        "cg_station_m": 0.792219697446965,
+        "cg_lateral_m": [
+          -2.1185143868142085e-05,
+          0.0007336098692112358
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0008978794616617679,
+            0.00019004089653862328,
+            -0.00016843984608960196
+          ],
+          [
+            0.00019004089653862328,
+            0.12630720347797117,
+            -1.1463393401468271e-07
+          ],
+          [
+            -0.00016843984608960196,
+            -1.1463393401468271e-07,
+            0.12630918444119824
+          ]
+        ],
+        "static_margin_cal": 1.726059249008198
+      },
+      "full_growth_at_1_212m": {
+        "mass_kg": 0.7985693200678835,
+        "cg_station_m": 0.8185029700448497,
+        "cg_lateral_body_m": [
+          -1.9858700231017306e-05,
+          0.0006876771085368792
+        ],
+        "inertia_body_kg_m2": [
+          [
+            0.0008979047070329214,
+            0.0001904577110981876,
+            -0.00018287351132362234
+          ],
+          [
+            0.0001904577110981876,
+            0.13456634381672156,
+            -1.1390550709072362e-07
+          ],
+          [
+            -0.00018287351132362234,
+            -1.1390550709072362e-07,
+            0.13456829957664837
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "growth_inertia_basis": "Point-mass allowance; no invented component shape.",
+        "static_margin_cal": 1.3278278460099442
+      }
+    },
+    "burnout": {
+      "candidate": {
+        "mass_kg": 0.6860693200678835,
+        "cg_station_m": 0.7609017704079906,
+        "cg_lateral_m": [
+          -2.311508221843563e-05,
+          0.0008004407498300711
+        ],
+        "inertia_kg_m2": [
+          [
+            0.0008912724178536316,
+            0.00018954423966621132,
+            -0.00015124136089257934
+          ],
+          [
+            0.00018954423966621132,
+            0.11815908685917023,
+            -1.1569377479237464e-07
+          ],
+          [
+            -0.00015124136089257934,
+            -1.1569377479237464e-07,
+            0.1181611044924934
+          ]
+        ],
+        "static_margin_cal": 2.200573295053265
+      },
+      "full_growth_at_1_212m": {
+        "mass_kg": 0.7360693200678835,
+        "cg_station_m": 0.7915441445223202,
+        "cg_lateral_body_m": [
+          -2.1544912019227774e-05,
+          0.0007460681025801999
+        ],
+        "inertia_body_kg_m2": [
+          [
+            0.0008913023019198259,
+            0.00019003018324964077,
+            -0.00016806886090402922
+          ],
+          [
+            0.00019003018324964077,
+            0.12764246131971455,
+            -1.1483150351578996e-07
+          ],
+          [
+            -0.00016806886090402922,
+            -1.1483150351578996e-07,
+            0.12764444911877276
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "growth_inertia_basis": "Point-mass allowance; no invented component shape.",
+        "static_margin_cal": 1.736294899381603
+      }
+    }
+  },
+  "elapsed_s": 16.098540874983883,
+  "resource_self": {
+    "user_s": 4.701993,
+    "system_s": 0.9179379999999999,
+    "peak_rss_bytes_macos": 515227648
+  },
+  "threading": "one CPU and one library thread requested; no OS affinity claimed",
+  "flight_ready": false,
+  "acceptance": false
+}
