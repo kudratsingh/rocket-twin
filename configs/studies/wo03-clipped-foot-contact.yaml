@@ -1,0 +1,19 @@
+id: wo03-g12-clipped-foot-contact-v1
+candidate: build/wo03-refreeze-g12-root-v1/resolved-candidate.json
+fin_record: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json
+prior_contact: build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json
+prior_root: runs/wo03-installed-root-20261031T041923712847Z/record.json
+face_audit: build/wo03-root-contact-faces-v1/actual.json
+quadrature_levels: [16, 32, 64]
+area_tolerance_mm2: 0.000001
+history_reproduction_relative_tolerance: 0.0000000001
+quadrature_relative_tolerance: 0.0000000001
+balance_absolute_tolerance: 0.00000001
+budget: {workers: 1, child_wall_seconds: 120, child_cpu_seconds: 120, packet_cpu_seconds: 600}
+default_output: build/wo03-clipped-foot-contact-v1
+expected_sha256:
+  candidate: 8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af
+  fin_record: 59d4877ecda8aca354608093231a34f5dcf6eae8dacc06d1f237f6c85b147f97
+  prior_contact: 7ed721e84ffb60b753c67eb0a6d579e071b4a42c68e76d06f2fe1444555ebebb
+  prior_root: 9877c057f6d99bd52a802779ce3548d57be5d7b10b5897d7a05ed66f78906751
+  face_audit: db020d643c6321f0e92d433c377c92af67e02642265119936728717ce0db1f06

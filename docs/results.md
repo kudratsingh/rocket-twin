@@ -1205,3 +1205,34 @@ AST and no CAD-source revision; the saved preview remains compatible.
 Evidence: [compact record](../runs/wo03-output-solid-map-20261101T011408613691Z/record.json),
 [thermal output](wo03-ccx-output-probe.md), [material map](wo03-fin-material-map.md).
 No active vehicle, gate or full work-order acceptance changed.
+
+
+## WO-03 actual root contact and clipped sensitivity (2026-10-31 Pacific)
+
+The original layered G12 fin and G11 frame plus the explicitly current-generated
+shell give 281.731344 mm² shell-backed area per foot, versus 355.097301 mm²
+on each inner foot face. The shell slots remove 20.6608% of nominal support.
+Known planar full/half/gap and cylindrical fixtures pass; independent slot/arc
+integration matches BRep common area within 2e-9 mm². Nominal geometric
+coincidence does not prove wet bonding, manufacturing fit or material capacity.
+
+After reproducing the archived full-foot matrices/root motion, the masked
+rigid-foundation spring sensitivity gives 2.648 MPa smooth DF3 normal demand
+versus 2.357 MPa for a 0.1 mm bond. Foot force is 50.404 N and tab force
+7.225 N; root-added tip motion 1.197 µm. The old paired planar tab-column
+approximation is retained; its boundary differs from the total tab/potting
+BRep area because the cylindrical corner has no full opposing planar column.
+No full 3D load split, edge-peel or conservative joint bound is inferred.
+
+The contact fixture/actual children used about 7.361 CPU s total. Their actual
+child CPU exceeded wall time despite one-worker/thread settings, so single-core
+execution is unproved. The clipped arithmetic child used 0.271 CPU s / 0.303 s
+wall, 49,643,520 bytes RSS. Three quadrature levels converge, equilibrium
+residual is at most 3.56e-14 in the recorded force/moment components, and source
+hashes are unchanged. Active vehicle, mass/CG/inertia, CAD and flight model are
+unchanged; no rerun is presented as a new physical performance prediction.
+
+Evidence: [compact record](../runs/wo03-root-contact-correction-20261101T012547878277Z/record.json),
+[actual contact areas](wo03-root-contact-faces.md),
+[corrected sensitivity](wo03-clipped-foot-contact.md). Installed capacity,
+foundation, recovery/thermal integration and flutter remain open WO-03 items.

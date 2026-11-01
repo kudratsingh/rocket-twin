@@ -1,11 +1,13 @@
 # G12 installed-root source ownership preflight
 
-**Solid ownership is now mapped; contact-face ownership remains open.** The
+**Solid ownership is mapped and selected nominal contact patches are audited.** The
 [subsequent material map](wo03-fin-material-map.md) uniquely matches all 60
 historical fin solids using the preserved construction recipe and geometry
 comparisons. The installed-root case still stops before meshing because its
-tab, foot, pad, frame and shell contact faces and relevant hot properties are
-unverified. The initial preflight below is retained as historical evidence;
+complete load path and relevant hot properties remain unverified. The later
+[face audit](wo03-root-contact-faces.md) establishes selected first-fin common
+patches, including partial shell coverage; it does not establish physical bonds,
+the complete interface mapping or installed strength. The initial preflight below is retained as historical evidence;
 its solid-identity warning is superseded by the subsequent result.
 
 ## Initial preflight (historical)

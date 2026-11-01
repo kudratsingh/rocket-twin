@@ -9,6 +9,23 @@ saved and stopped. The owner subsequently resumed WO-03 and the limited early
 frontend work; the old deadline no longer pauses this session. WO-03 remains
 open, with no new acceptance or release authorization.
 
+**Latest installed-root correction:** [actual face common areas](wo03-root-contact-faces.md)
+show that the nominal body slots leave only 281.731 of 355.097 mm² shell-backed
+area per historical G12 foot. Analytic clipping independently matches that area.
+The [corrected spring sensitivity](wo03-clipped-foot-contact.md), with unchanged
+rigid supports and tab-column proxy, raises smooth DF3 foot-normal demand from
+2.357 to 2.648 MPa for the 0.1 mm bond. Foot/tab service force becomes
+50.404/7.225 N. This supersedes the full-foot assumption for this sensitivity;
+it establishes no installed strength or conservative full-joint bound. Hot
+normal/peel capacity, actual support compliance, edge stresses and flutter remain
+open. Earlier numerical/physical results keep their original source identities.
+
+[PR #22](https://github.com/kudratsingh/rocket-twin/pull/22) is merged after
+both [required hosted jobs](https://github.com/kudratsingh/rocket-twin/actions/runs/41260368011)
+passed. It publishes the previous source and thermal-output prerequisites.
+The new root-contact packets are separately recorded in
+`runs/wo03-root-contact-correction-20261101T012547878277Z/record.json`.
+
 **Latest bounded work:** the [G12 source refreeze](wo03-refreeze-g12-root.md)
 validates the historical 77-part reconciled identity and preserves the original
 layered-fin and rounded-frame STEP files. This closes a source-loading

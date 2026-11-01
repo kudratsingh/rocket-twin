@@ -1,0 +1,2341 @@
+{
+  "scope": "historical G12 nominal contact patches and slot-clipped rigid-foundation sensitivity",
+  "accepted": false,
+  "active_vehicle_changed": false,
+  "flight_ready": false,
+  "contact_fixture": {
+    "expected": {
+      "planar_full_mm2": 100.0,
+      "planar_half_mm2": 50.0,
+      "physical_gap_mm2": 0.0,
+      "curved_45deg_common_mm2": 78.53981633974483
+    },
+    "actual": {
+      "planar_full_mm2": 99.99999999999999,
+      "planar_half_mm2": 49.99999999999999,
+      "physical_gap_mm2": 0,
+      "curved_45deg_common_mm2": 78.53981633974483
+    },
+    "passed": true,
+    "meaning": "one planar full, half and positive gap, and one truly curved cylindrical clipped face",
+    "input_sha256_before": {
+      "configs/studies/wo03-root-contact-faces.yaml": "b36a3cd753b0b0a612cf7a07f02cf8c5905b07cb5fc50ca209a68ce897efc917",
+      "scripts/wo03_root_contact_faces.py": "e914155e8c6907dfe6f860667b267fb530a6a27a744930a5fce03ddbe676e7d4",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-fin-material-map-v1/record.json": "4fe958a8b54d57277d0f730330fbb28c3a21cf2d355fd2d47347610c592a8e76",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "build/wo03-recovery-clearance/hoop/recovery-cap-frame.step": "d012f27912f1c1c28c4d63bf9ef03c78c31c6abab61029d04e5e66c511221b54"
+    },
+    "input_sha256_after": {
+      "configs/studies/wo03-root-contact-faces.yaml": "b36a3cd753b0b0a612cf7a07f02cf8c5905b07cb5fc50ca209a68ce897efc917",
+      "scripts/wo03_root_contact_faces.py": "e914155e8c6907dfe6f860667b267fb530a6a27a744930a5fce03ddbe676e7d4",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-fin-material-map-v1/record.json": "4fe958a8b54d57277d0f730330fbb28c3a21cf2d355fd2d47347610c592a8e76",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "build/wo03-recovery-clearance/hoop/recovery-cap-frame.step": "d012f27912f1c1c28c4d63bf9ef03c78c31c6abab61029d04e5e66c511221b54"
+    },
+    "wall_s": 2.7138330829911865,
+    "cpu_s": 2.283591,
+    "max_rss_bytes_macos": 478789632,
+    "inputs_unchanged": true
+  },
+  "contact_actual": {
+    "candidate_identity": "4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287",
+    "interfaces": [
+      {
+        "a": "foot_bond_-1",
+        "b": "gusset_-1",
+        "source_a_faces": 6,
+        "source_b_faces": 5,
+        "patches": [
+          {
+            "face_a_index": 4,
+            "face_b_index": 2,
+            "face_a": {
+              "area_mm2": 353.2610785783916,
+              "bbox_mm": [
+                32.58128144137657,
+                32.970950850711,
+                -5.836959794089,
+                -2.92,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.79773800394389,
+                -4.381368307310327,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.9911948641065735,
+                -0.13241125846676047,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 353.2610785783916,
+              "bbox_mm": [
+                32.58128144137657,
+                32.970950850711,
+                -5.836959794089,
+                -2.92,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.79773800394389,
+                -4.381368307310327,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9911948641065735,
+                0.13241125846676047,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 353.2610785783916,
+              "bbox_mm": [
+                32.58128144137657,
+                32.970950850711,
+                -5.836959794089,
+                -2.92,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.79773800394389,
+                -4.381368307310327,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.9911948641065735,
+                -0.13241125846676047,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              32.808550001927586,
+              -4.382812655249771,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              0.9911948641065735,
+              -0.13241125846676047,
+              0.0
+            ],
+            "normal_b_xyz": [
+              -0.9911948641065735,
+              0.13241125846676047,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 353.2610785783916,
+        "opposed_at_sample_area_mm2": 353.2610785783916,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "foot_bond_-1",
+        "b": "shell",
+        "source_a_faces": 6,
+        "source_b_faces": 16,
+        "patches": [
+          {
+            "face_a_index": 2,
+            "face_b_index": 0,
+            "face_a": {
+              "area_mm2": 355.09730059979955,
+              "bbox_mm": [
+                32.47700377642,
+                32.870558255071,
+                -5.85185660336902,
+                -2.9199999999999924,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.6956925038452,
+                -4.3888695656800945,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9911105863389592,
+                0.13304061653060906,
+                -0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 50263.82406617837,
+              "bbox_mm": [
+                -33.0,
+                33.0,
+                -33.0,
+                33.0,
+                922.0,
+                1175.0
+              ],
+              "centroid_mm": [
+                -7.105427357601002e-15,
+                -5.465505770642526e-16,
+                1045.5966476997808
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -1.0,
+                1.2246467991473532e-16,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 281.73134449187006,
+              "bbox_mm": [
+                32.47700377642,
+                32.870558255071,
+                -5.85185660336902,
+                -2.9199999999999924,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.65931295623713,
+                -4.676294164968564,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9911105863389592,
+                0.13304061653060906,
+                -0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              32.70664934918565,
+              -4.390340345510099,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -0.9911105863389592,
+              0.13304061653060906,
+              -0.0
+            ],
+            "normal_b_xyz": [
+              0.9911105863389592,
+              -0.13304061653060906,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 281.73134449187006,
+        "opposed_at_sample_area_mm2": 281.73134449187006,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "foot_bond_1",
+        "b": "gusset_1",
+        "source_a_faces": 6,
+        "source_b_faces": 5,
+        "patches": [
+          {
+            "face_a_index": 4,
+            "face_b_index": 2,
+            "face_a": {
+              "area_mm2": 353.2610785754925,
+              "bbox_mm": [
+                32.581281441376575,
+                32.970950850711,
+                2.919999999999999,
+                5.836959794089,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.79773800394504,
+                4.381368307303076,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.9911948641065976,
+                0.13241125846658014,
+                -0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 353.2610785754925,
+              "bbox_mm": [
+                32.581281441376575,
+                32.970950850711,
+                2.919999999999999,
+                5.836959794089,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.79773800394504,
+                4.381368307303076,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9911948641065976,
+                -0.13241125846658014,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 353.2610785754925,
+              "bbox_mm": [
+                32.581281441376575,
+                32.970950850711,
+                2.919999999999999,
+                5.836959794089,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.79773800394504,
+                4.381368307303076,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.9911948641065976,
+                0.13241125846658014,
+                -0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              32.80855000192838,
+              4.382812655243803,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              0.9911948641065976,
+              0.13241125846658014,
+              -0.0
+            ],
+            "normal_b_xyz": [
+              -0.9911948641065976,
+              -0.13241125846658014,
+              0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 353.2610785754925,
+        "opposed_at_sample_area_mm2": 353.2610785754925,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "foot_bond_1",
+        "b": "shell",
+        "source_a_faces": 6,
+        "source_b_faces": 16,
+        "patches": [
+          {
+            "face_a_index": 2,
+            "face_b_index": 0,
+            "face_a": {
+              "area_mm2": 355.09730060086906,
+              "bbox_mm": [
+                32.47700377642,
+                32.870558255071,
+                2.919999999999978,
+                5.85185660336902,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.695692503843915,
+                4.3888695656891805,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9911105863389241,
+                -0.13304061653087126,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 50263.82406617837,
+              "bbox_mm": [
+                -33.0,
+                33.0,
+                -33.0,
+                33.0,
+                922.0,
+                1175.0
+              ],
+              "centroid_mm": [
+                -7.105427357601002e-15,
+                -5.465505770642526e-16,
+                1045.5966476997808
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -1.0,
+                1.2246467991473532e-16,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 281.7313444934131,
+              "bbox_mm": [
+                32.47700377642,
+                32.870558255071,
+                2.9199999999991455,
+                5.85185660336902,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.659312956236,
+                4.6762941649759755,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9911105863389256,
+                -0.1330406165308586,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              32.706649349184545,
+              4.390340345518334,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -0.9911105863389256,
+              -0.13304061653085864,
+              0.0
+            ],
+            "normal_b_xyz": [
+              0.9911105863389256,
+              0.13304061653085864,
+              -0.0
+            ],
+            "normal_dot": -0.9999999999999998,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 281.7313444934131,
+        "opposed_at_sample_area_mm2": 281.7313444934131,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "root_insert_and_tab",
+        "b": "tab_potting",
+        "source_a_faces": 12,
+        "source_b_faces": 10,
+        "patches": [
+          {
+            "face_a_index": 7,
+            "face_b_index": 9,
+            "face_a": {
+              "area_mm2": 250.0,
+              "bbox_mm": [
+                30.5,
+                33.0,
+                -2.5,
+                -2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.75,
+                -2.5,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -0.0,
+                -1.0,
+                -0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 140.2194281899,
+              "bbox_mm": [
+                30.5,
+                31.902194281899,
+                -2.5,
+                -2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.201097140949503,
+                -2.5,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 140.2194281899,
+              "bbox_mm": [
+                30.5,
+                31.902194281899,
+                -2.5,
+                -2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.201097140949503,
+                -2.5,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -0.0,
+                -1.0,
+                -0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              31.2010971409495,
+              -2.5,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -0.0,
+              -1.0,
+              -0.0
+            ],
+            "normal_b_xyz": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          },
+          {
+            "face_a_index": 9,
+            "face_b_index": 8,
+            "face_a": {
+              "area_mm2": 500.0,
+              "bbox_mm": [
+                30.5,
+                30.5,
+                -2.5,
+                2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                30.5,
+                0.0,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -1.0,
+                -0.0,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 500.0,
+              "bbox_mm": [
+                30.5,
+                30.5,
+                -2.5,
+                2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                30.5,
+                0.0,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                1.0,
+                0.0,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 500.0,
+              "bbox_mm": [
+                30.5,
+                30.5,
+                -2.5,
+                2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                30.5,
+                0.0,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -1.0,
+                -0.0,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              30.5,
+              0.0,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -1.0,
+              -0.0,
+              0.0
+            ],
+            "normal_b_xyz": [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          },
+          {
+            "face_a_index": 10,
+            "face_b_index": 7,
+            "face_a": {
+              "area_mm2": 250.0,
+              "bbox_mm": [
+                30.5,
+                33.0,
+                2.5,
+                2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.75,
+                2.5,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 140.2194281899,
+              "bbox_mm": [
+                30.5,
+                31.902194281899,
+                2.5,
+                2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.201097140949503,
+                2.5,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -0.0,
+                -1.0,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 140.2194281899,
+              "bbox_mm": [
+                30.5,
+                31.902194281899,
+                2.5,
+                2.5,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.201097140949503,
+                2.5,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              31.2010971409495,
+              2.5,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "normal_b_xyz": [
+              -0.0,
+              -1.0,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 780.4388563798,
+        "opposed_at_sample_area_mm2": 780.4388563798,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "tab_potting",
+        "b": "frame",
+        "source_a_faces": 10,
+        "source_b_faces": 82,
+        "patches": [
+          {
+            "face_a_index": 0,
+            "face_b_index": 72,
+            "face_a": {
+              "area_mm2": 730.0,
+              "bbox_mm": [
+                30.3,
+                30.3,
+                -3.65,
+                3.65,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                30.3,
+                -2.4424906541753446e-16,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -1.0,
+                -0.0,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 730.0,
+              "bbox_mm": [
+                30.3,
+                30.3,
+                -3.65,
+                3.65,
+                1065.0,
+                1165.0
+              ],
+              "centroid_mm": [
+                30.3,
+                -2.4424906541753446e-16,
+                1115.0
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                1.0,
+                0.0,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 730.0,
+              "bbox_mm": [
+                30.3,
+                30.3,
+                -3.65,
+                3.65,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                30.3,
+                -2.4424906541753446e-16,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -1.0,
+                -0.0,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              30.3,
+              0.0,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -1.0,
+              -0.0,
+              0.0
+            ],
+            "normal_b_xyz": [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          },
+          {
+            "face_a_index": 1,
+            "face_b_index": 71,
+            "face_a": {
+              "area_mm2": 149.11544301239985,
+              "bbox_mm": [
+                30.3,
+                31.791154430124,
+                -3.65,
+                -3.65,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.045577215062,
+                -3.65,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -0.0,
+                -1.0,
+                -0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 149.11544301239985,
+              "bbox_mm": [
+                30.3,
+                31.791154430124,
+                -3.65,
+                -3.65,
+                1065.0,
+                1165.0
+              ],
+              "centroid_mm": [
+                31.045577215062,
+                -3.65,
+                1115.0
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 149.11544301239985,
+              "bbox_mm": [
+                30.3,
+                31.791154430124,
+                -3.65,
+                -3.65,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.045577215062,
+                -3.65,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -0.0,
+                -1.0,
+                -0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              31.045577215062,
+              -3.65,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -0.0,
+              -1.0,
+              -0.0
+            ],
+            "normal_b_xyz": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          },
+          {
+            "face_a_index": 3,
+            "face_b_index": 74,
+            "face_a": {
+              "area_mm2": 149.11544301239985,
+              "bbox_mm": [
+                30.3,
+                31.791154430124,
+                3.65,
+                3.65,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.045577215062,
+                3.65,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 149.11544301239985,
+              "bbox_mm": [
+                30.3,
+                31.791154430124,
+                3.65,
+                3.65,
+                1065.0,
+                1165.0
+              ],
+              "centroid_mm": [
+                31.045577215062,
+                3.65,
+                1115.0
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                -0.0,
+                -1.0,
+                -0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 149.11544301239985,
+              "bbox_mm": [
+                30.3,
+                31.791154430124,
+                3.65,
+                3.65,
+                1065.0000000000002,
+                1165.0000000000002
+              ],
+              "centroid_mm": [
+                31.045577215062,
+                3.65,
+                1115.0000000000002
+              ],
+              "surface": "PLANE",
+              "sample_normal_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              31.045577215062,
+              3.65,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "normal_b_xyz": [
+              -0.0,
+              -1.0,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 1028.2308860247997,
+        "opposed_at_sample_area_mm2": 1028.2308860247997,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "frame_shell_gap_bond",
+        "b": "frame",
+        "source_a_faces": 12,
+        "source_b_faces": 82,
+        "patches": [
+          {
+            "face_a_index": 9,
+            "face_b_index": 60,
+            "face_a": {
+              "area_mm2": 358.4907959206397,
+              "bbox_mm": [
+                31.43246729100337,
+                32.000000000000156,
+                -6.000000000001069,
+                2.341424095596e-15,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                31.6884007324351,
+                -4.214947206850562,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9955562773755938,
+                0.09416845850947021,
+                -0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 7827.425344434494,
+              "bbox_mm": [
+                -32.000000100001806,
+                32.0000001000002,
+                -32.00000011898424,
+                32.00000011898629,
+                1011.9999999,
+                1180.0000001
+              ],
+              "centroid_mm": [
+                -3.7643875748116784e-05,
+                -1.048988486716829e-12,
+                1075.3313361743826
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -1.0,
+                -2.0682310711021444e-13,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 358.4907959206397,
+              "bbox_mm": [
+                31.43246729100337,
+                32.000000000000156,
+                -6.000000000001069,
+                2.341424095596e-15,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                31.6884007324351,
+                -4.214947206850563,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9955562773755938,
+                0.09416845850947021,
+                -0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              31.85780087601915,
+              -3.013390672303044,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -0.9955562773755938,
+              0.09416845850947023,
+              -0.0
+            ],
+            "normal_b_xyz": [
+              0.9955562773755938,
+              -0.09416845850947,
+              0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          },
+          {
+            "face_a_index": 10,
+            "face_b_index": 60,
+            "face_a": {
+              "area_mm2": 358.49079591679924,
+              "bbox_mm": [
+                31.43246729100337,
+                32.000000000000156,
+                2.341424095596e-15,
+                6.000000000001071,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                31.688400732436094,
+                4.2149472068445695,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9955562773755813,
+                -0.09416845850960263,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 7827.425344434494,
+              "bbox_mm": [
+                -32.000000100001806,
+                32.0000001000002,
+                -32.00000011898424,
+                32.00000011898629,
+                1011.9999999,
+                1180.0000001
+              ],
+              "centroid_mm": [
+                -3.7643875748116784e-05,
+                -1.048988486716829e-12,
+                1075.3313361743826
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -1.0,
+                -2.0682310711021444e-13,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 358.49079591679924,
+              "bbox_mm": [
+                31.43246729100337,
+                32.000000000000156,
+                2.341424095596e-15,
+                6.000000000001071,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                31.688400732436094,
+                4.214947206844569,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                -0.9955562773755813,
+                -0.09416845850960263,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              31.857800876018754,
+              3.0133906723072865,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              -0.9955562773755813,
+              -0.09416845850960263,
+              0.0
+            ],
+            "normal_b_xyz": [
+              0.9955562773755813,
+              0.09416845850960226,
+              -0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 716.9815918374389,
+        "opposed_at_sample_area_mm2": 716.9815918374389,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      },
+      {
+        "a": "frame_shell_gap_bond",
+        "b": "shell",
+        "source_a_faces": 12,
+        "source_b_faces": 16,
+        "patches": [
+          {
+            "face_a_index": 0,
+            "face_b_index": 15,
+            "face_a": {
+              "area_mm2": 358.3822923362493,
+              "bbox_mm": [
+                31.941352507368663,
+                32.5,
+                0.0,
+                6.000000000001126,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.19327585872395,
+                4.214735046975425,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.9956934383585391,
+                0.09270694046159848,
+                -0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 49468.86110868621,
+              "bbox_mm": [
+                -32.499999999999844,
+                32.500000000000156,
+                -32.5,
+                32.5,
+                922.0,
+                1175.0
+              ],
+              "centroid_mm": [
+                1.6164847238542282e-13,
+                -2.8748340910305587e-15,
+                1045.5498027037127
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                1.0,
+                -1.2246467991473532e-16,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 358.3822923362493,
+              "bbox_mm": [
+                31.941352507368663,
+                32.5,
+                0.0,
+                6.000000000001126,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.19327585872395,
+                4.214735046975425,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.9956934383585391,
+                0.09270694046159848,
+                -0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              32.36003674665252,
+              3.0129755650019505,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              0.9956934383585391,
+              0.09270694046159848,
+              -0.0
+            ],
+            "normal_b_xyz": [
+              -0.9956934383585391,
+              -0.09270694046159898,
+              0.0
+            ],
+            "normal_dot": -1.0000000000000002,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          },
+          {
+            "face_a_index": 4,
+            "face_b_index": 15,
+            "face_a": {
+              "area_mm2": 358.38229233624935,
+              "bbox_mm": [
+                31.941352507368663,
+                32.5,
+                -6.000000000001135,
+                0.0,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.1932758587257,
+                -4.214735046962091,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.995693438358577,
+                -0.0927069404611901,
+                0.0
+              ]
+            },
+            "face_b": {
+              "area_mm2": 49468.86110868621,
+              "bbox_mm": [
+                -32.499999999999844,
+                32.500000000000156,
+                -32.5,
+                32.5,
+                922.0,
+                1175.0
+              ],
+              "centroid_mm": [
+                1.6164847238542282e-13,
+                -2.8748340910305587e-15,
+                1045.5498027037127
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                1.0,
+                -1.2246467991473532e-16,
+                0.0
+              ]
+            },
+            "common_face": {
+              "area_mm2": 358.38229233624935,
+              "bbox_mm": [
+                31.941352507368663,
+                32.5,
+                -6.000000000001135,
+                0.0,
+                1055.0000000000002,
+                1175.0000000000002
+              ],
+              "centroid_mm": [
+                32.1932758587257,
+                -4.214735046962091,
+                1115.0000000000002
+              ],
+              "surface": "CYLINDER",
+              "sample_normal_xyz": [
+                0.995693438358577,
+                -0.0927069404611901,
+                0.0
+              ]
+            },
+            "sample_xyz_mm": [
+              32.360036746653755,
+              -3.0129755649886785,
+              1115.0000000000002
+            ],
+            "normal_a_xyz": [
+              0.995693438358577,
+              -0.0927069404611901,
+              0.0
+            ],
+            "normal_b_xyz": [
+              -0.9956934383585768,
+              0.0927069404611908,
+              0.0
+            ],
+            "normal_dot": -1.0,
+            "scope": "one surface sample; not a proof for every point",
+            "normals_opposed_at_sample": true
+          }
+        ],
+        "coincident_area_mm2": 716.7645846724986,
+        "opposed_at_sample_area_mm2": 716.7645846724986,
+        "all_sample_normals_opposed": true,
+        "scope": "nominal coincident areas; one normal sample per patch, not actual wet bond"
+      }
+    ],
+    "shell_basis": "current source local_shape; historical shell BRep equivalence unproved",
+    "face_index_basis": "zero-based Faces() index after stated source placement; descriptors and input hashes make locator inspectable; not a cross-version stable face ID",
+    "accepted": false,
+    "flight_ready": false,
+    "wet_bond_or_allowable_established": false,
+    "input_sha256_before": {
+      "configs/studies/wo03-root-contact-faces.yaml": "b36a3cd753b0b0a612cf7a07f02cf8c5905b07cb5fc50ca209a68ce897efc917",
+      "scripts/wo03_root_contact_faces.py": "e914155e8c6907dfe6f860667b267fb530a6a27a744930a5fce03ddbe676e7d4",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-fin-material-map-v1/record.json": "4fe958a8b54d57277d0f730330fbb28c3a21cf2d355fd2d47347610c592a8e76",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "build/wo03-recovery-clearance/hoop/recovery-cap-frame.step": "d012f27912f1c1c28c4d63bf9ef03c78c31c6abab61029d04e5e66c511221b54"
+    },
+    "input_sha256_after": {
+      "configs/studies/wo03-root-contact-faces.yaml": "b36a3cd753b0b0a612cf7a07f02cf8c5905b07cb5fc50ca209a68ce897efc917",
+      "scripts/wo03_root_contact_faces.py": "e914155e8c6907dfe6f860667b267fb530a6a27a744930a5fce03ddbe676e7d4",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-fin-material-map-v1/record.json": "4fe958a8b54d57277d0f730330fbb28c3a21cf2d355fd2d47347610c592a8e76",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "build/wo03-recovery-clearance/hoop/recovery-cap-frame.step": "d012f27912f1c1c28c4d63bf9ef03c78c31c6abab61029d04e5e66c511221b54"
+    },
+    "wall_s": 4.44750558299711,
+    "cpu_s": 4.567614,
+    "max_rss_bytes_macos": 512851968,
+    "inputs_unchanged": true
+  },
+  "contact_completion": {
+    "stages": [
+      {
+        "phase": "fixtures",
+        "returncode": 0,
+        "timed_out": false,
+        "wall_s": 2.9863928749982733,
+        "cpu_s": 2.544495,
+        "child_cumulative_maxrss_bytes": 478937088
+      },
+      {
+        "phase": "actual",
+        "returncode": 0,
+        "timed_out": false,
+        "wall_s": 4.707734708004864,
+        "cpu_s": 4.816253,
+        "child_cumulative_maxrss_bytes": 512868352
+      }
+    ],
+    "total_child_cpu_s": 7.360747999999999,
+    "complete": true
+  },
+  "clipped_contact": {
+    "status": "clipped_ideal_sensitivity_completed_not_installed_acceptance",
+    "accepted": false,
+    "flight_ready": false,
+    "input_sha256_before": {
+      "configs/studies/wo03-clipped-foot-contact.yaml": "e3aa20b848c4e66ce8d69f6c4e94a07d97307ca7c529953ab9b806e3aa2d313c",
+      "scripts/wo03_clipped_foot_contact.py": "02132d46ef6cfe6ed5121f12c2e952aa7a6b6102c97f5aeddf5f7798d3d4b736",
+      "src/analysis/fin_contact.py": "c013873f638aff8b52d994de856fd4c9a3ba57b67e4b92b028ee9fc8491e947a",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json": "59d4877ecda8aca354608093231a34f5dcf6eae8dacc06d1f237f6c85b147f97",
+      "build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json": "7ed721e84ffb60b753c67eb0a6d579e071b4a42c68e76d06f2fe1444555ebebb",
+      "runs/wo03-installed-root-20261031T041923712847Z/record.json": "9877c057f6d99bd52a802779ce3548d57be5d7b10b5897d7a05ed66f78906751",
+      "build/wo03-root-contact-faces-v1/actual.json": "db020d643c6321f0e92d433c377c92af67e02642265119936728717ce0db1f06"
+    },
+    "input_sha256_after": {
+      "configs/studies/wo03-clipped-foot-contact.yaml": "e3aa20b848c4e66ce8d69f6c4e94a07d97307ca7c529953ab9b806e3aa2d313c",
+      "scripts/wo03_clipped_foot_contact.py": "02132d46ef6cfe6ed5121f12c2e952aa7a6b6102c97f5aeddf5f7798d3d4b736",
+      "src/analysis/fin_contact.py": "c013873f638aff8b52d994de856fd4c9a3ba57b67e4b92b028ee9fc8491e947a",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json": "59d4877ecda8aca354608093231a34f5dcf6eae8dacc06d1f237f6c85b147f97",
+      "build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json": "7ed721e84ffb60b753c67eb0a6d579e071b4a42c68e76d06f2fe1444555ebebb",
+      "runs/wo03-installed-root-20261031T041923712847Z/record.json": "9877c057f6d99bd52a802779ce3548d57be5d7b10b5897d7a05ed66f78906751",
+      "build/wo03-root-contact-faces-v1/actual.json": "db020d643c6321f0e92d433c377c92af67e02642265119936728717ce0db1f06"
+    },
+    "candidate_identity": "4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287",
+    "geometry": {
+      "radius_m": 0.033,
+      "foot_y_interval_m": [
+        0.00292,
+        0.005851856603368543
+      ],
+      "root_interval_m": [
+        1.0550000000000002,
+        1.1750000000000003
+      ],
+      "slot_interval_m": [
+        1.065,
+        1.165
+      ],
+      "slot_half_width_m": 0.00365,
+      "two_uncut_end_lengths_m": [
+        0.009999999999999787,
+        0.010000000000000231
+      ],
+      "analytic_supported_area_each_mm2": 281.7313444918093,
+      "brep_common_area_each_mm2": {
+        "foot_bond_-1": 281.73134449187006,
+        "foot_bond_1": 281.7313444934131
+      },
+      "source_shell_is_current_generated_historical_brep_unproved": true
+    },
+    "known_planar_matrix_relative_error": 1.9073486328125e-16,
+    "force_Fx_Fy_Mz": [
+      0.0,
+      57.629072982498094,
+      2.0170175543874334
+    ],
+    "young_pa": 1000000000,
+    "poisson": 0.3,
+    "DF_strength_only": 3,
+    "levels": [
+      {
+        "bondline_m": 0.0001,
+        "quadrature_points": 16,
+        "full_foot_matrix": [
+          [
+            7021766571.136614,
+            6.984919309616089e-08,
+            -3.14321368932724e-09
+          ],
+          [
+            6.984919309616089e-08,
+            2811697137.7665167,
+            -3477142.859068668
+          ],
+          [
+            -3.14321368932724e-09,
+            -3477142.859068668,
+            142176.01761399175
+          ]
+        ],
+        "clipped_foot_matrix": [
+          [
+            5563432763.697716,
+            2.0489096641540527e-08,
+            1.7462298274040222e-10
+          ],
+          [
+            2.0489096641540527e-08,
+            2238358314.5370054,
+            -3087730.923264027
+          ],
+          [
+            1.7462298274040222e-10,
+            -3087730.923264027,
+            126259.83757062971
+          ]
+        ],
+        "tab_matrix": [
+          [
+            2586364844.8243275,
+            0.0,
+            -8.731149137020111e-11
+          ],
+          [
+            0.0,
+            1186087058.081774,
+            -2820254.1876019016
+          ],
+          [
+            -8.731149137020111e-11,
+            -2820254.1876019016,
+            12561.120578810329
+          ]
+        ],
+        "full_motion": [
+          4.622283398407631e-24,
+          3.734238730348471e-08,
+          1.4554860069221514e-05
+        ],
+        "clipped_motion": [
+          -2.899515579076289e-25,
+          4.5215697000245565e-08,
+          1.645393641919279e-05
+        ],
+        "full_foot_resultant": [
+          -1.0684104745128304e-14,
+          54.386155744139394,
+          1.9395072262179347
+        ],
+        "full_tab_resultant": [
+          1.06841047451283e-14,
+          3.242917238358693,
+          0.07751032816949825
+        ],
+        "clipped_foot_resultant": [
+          2.1865382437445256e-15,
+          50.403603037123844,
+          1.9378574338401555
+        ],
+        "clipped_tab_resultant": [
+          -2.1865382437445256e-15,
+          7.22546994537425,
+          0.079160120547278
+        ],
+        "clipped_force_moment_residual": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "full_reproduction": {
+          "foot_matrix_relative_error": 0.0,
+          "tab_matrix_relative_error": 0.0,
+          "motion_relative_error": 0.0
+        },
+        "full_integrated_area_each_mm2": 355.0973005992796,
+        "clipped_integrated_area_each_mm2": 281.7313444918095,
+        "clipped_smooth_foot_traction": {
+          "peak_normal_pa": 882680.226961565,
+          "peak_shear_pa": 204247.87883088875,
+          "required_normal_DF3_pa": 2648040.6808846947,
+          "required_shear_DF3_pa": 612743.6364926662,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_smooth_tab_traction": {
+          "peak_normal_pa": 181935.7508652669,
+          "peak_shear_pa": 12169.615442492905,
+          "required_normal_DF3_pa": 545807.2525958007,
+          "required_shear_DF3_pa": 36508.846327478714
+        },
+        "clipped_smooth_tab_traction": {
+          "peak_normal_pa": 205674.20523990758,
+          "peak_shear_pa": 13757.471922401997,
+          "required_normal_DF3_pa": 617022.6157197227,
+          "required_shear_DF3_pa": 41272.415767205996
+        },
+        "full_smooth_foot_traction": {
+          "peak_normal_pa": 785510.662578626,
+          "peak_shear_pa": 170625.80064763202,
+          "required_normal_DF3_pa": 2356531.9877358777,
+          "required_shear_DF3_pa": 511877.4019428961,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_added_tip_m": 1.0561825921489907e-06,
+        "clipped_added_tip_m": 1.196991246343741e-06
+      },
+      {
+        "bondline_m": 0.0001,
+        "quadrature_points": 32,
+        "full_foot_matrix": [
+          [
+            7021766571.136611,
+            3.5390257835388184e-08,
+            -9.74978320300579e-10
+          ],
+          [
+            3.5390257835388184e-08,
+            2811697137.766517,
+            -3477142.859068668
+          ],
+          [
+            -9.74978320300579e-10,
+            -3477142.859068668,
+            142176.01761399177
+          ]
+        ],
+        "clipped_foot_matrix": [
+          [
+            5563432763.697718,
+            -3.771856427192688e-08,
+            -1.2005330063402653e-09
+          ],
+          [
+            -3.771856427192688e-08,
+            2238358314.5370064,
+            -3087730.9232640313
+          ],
+          [
+            -1.2005330063402653e-09,
+            -3087730.9232640313,
+            126259.83757062977
+          ]
+        ],
+        "tab_matrix": [
+          [
+            2586364844.8243265,
+            0.0,
+            -1.8917489796876907e-10
+          ],
+          [
+            0.0,
+            1186087058.081774,
+            -2820254.1876019025
+          ],
+          [
+            -1.8917489796876907e-10,
+            -2820254.1876019025,
+            12561.12057881035
+          ]
+        ],
+        "full_motion": [
+          1.625969691696036e-24,
+          3.734238730348471e-08,
+          1.4554860069221514e-05
+        ],
+        "clipped_motion": [
+          3.0149996174702883e-24,
+          4.521569700024556e-08,
+          1.645393641919278e-05
+        ],
+        "full_foot_resultant": [
+          -1.4519366808077852e-15,
+          54.38615574413941,
+          1.9395072262179351
+        ],
+        "full_tab_resultant": [
+          1.4519366808077852e-15,
+          3.242917238358679,
+          0.07751032816949853
+        ],
+        "clipped_foot_resultant": [
+          -4.685217274498531e-15,
+          50.40360303712383,
+          1.9378574338401553
+        ],
+        "clipped_tab_resultant": [
+          4.685217274498539e-15,
+          7.2254699453742575,
+          0.0791601205472782
+        ],
+        "clipped_force_moment_residual": [
+          7.888609052210118e-30,
+          -7.105427357601002e-15,
+          0.0
+        ],
+        "full_reproduction": {
+          "foot_matrix_relative_error": 0.0,
+          "tab_matrix_relative_error": 0.0,
+          "motion_relative_error": 0.0
+        },
+        "full_integrated_area_each_mm2": 355.09730059927966,
+        "clipped_integrated_area_each_mm2": 281.73134449180947,
+        "clipped_smooth_foot_traction": {
+          "peak_normal_pa": 882680.2269615645,
+          "peak_shear_pa": 204247.87883088872,
+          "required_normal_DF3_pa": 2648040.6808846937,
+          "required_shear_DF3_pa": 612743.6364926661,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_smooth_tab_traction": {
+          "peak_normal_pa": 181935.75086526686,
+          "peak_shear_pa": 12169.615442492903,
+          "required_normal_DF3_pa": 545807.2525958006,
+          "required_shear_DF3_pa": 36508.84632747871
+        },
+        "clipped_smooth_tab_traction": {
+          "peak_normal_pa": 205674.20523990746,
+          "peak_shear_pa": 13757.47192240199,
+          "required_normal_DF3_pa": 617022.6157197224,
+          "required_shear_DF3_pa": 41272.41576720597
+        },
+        "full_smooth_foot_traction": {
+          "peak_normal_pa": 785510.662578626,
+          "peak_shear_pa": 170625.80064763202,
+          "required_normal_DF3_pa": 2356531.9877358777,
+          "required_shear_DF3_pa": 511877.4019428961,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_added_tip_m": 1.0561825921489907e-06,
+        "clipped_added_tip_m": 1.1969912463437403e-06
+      },
+      {
+        "bondline_m": 0.0001,
+        "quadrature_points": 64,
+        "full_foot_matrix": [
+          [
+            7021766571.136615,
+            -1.0174699127674103e-07,
+            -1.382431946694851e-09
+          ],
+          [
+            -1.0174699127674103e-07,
+            2811697137.766516,
+            -3477142.85906867
+          ],
+          [
+            -1.382431946694851e-09,
+            -3477142.85906867,
+            142176.01761399175
+          ]
+        ],
+        "clipped_foot_matrix": [
+          [
+            5563432763.697717,
+            -1.7025740817189217e-08,
+            -2.02817318495363e-09
+          ],
+          [
+            -1.7025740817189217e-08,
+            2238358314.5370064,
+            -3087730.923264031
+          ],
+          [
+            -2.02817318495363e-09,
+            -3087730.923264031,
+            126259.8375706298
+          ]
+        ],
+        "tab_matrix": [
+          [
+            2586364844.824327,
+            0.0,
+            6.821210263296962e-11
+          ],
+          [
+            0.0,
+            1186087058.081774,
+            -2820254.187601902
+          ],
+          [
+            6.821210263296962e-11,
+            -2820254.187601902,
+            12561.120578810327
+          ]
+        ],
+        "full_motion": [
+          2.386287249115656e-24,
+          3.7342387303484724e-08,
+          1.4554860069221515e-05
+        ],
+        "clipped_motion": [
+          4.0515000932126335e-24,
+          4.521569700024556e-08,
+          1.645393641919278e-05
+        ],
+        "full_foot_resultant": [
+          -7.164627059615536e-15,
+          54.38615574413937,
+          1.9395072262179347
+        ],
+        "full_tab_resultant": [
+          7.164627059615532e-15,
+          3.2429172383587,
+          0.07751032816949817
+        ],
+        "clipped_foot_resultant": [
+          -1.1601015009629968e-14,
+          50.40360303712384,
+          1.9378574338401557
+        ],
+        "clipped_tab_resultant": [
+          1.1601015009629975e-14,
+          7.225469945374265,
+          0.07916012054727783
+        ],
+        "clipped_force_moment_residual": [
+          6.310887241768095e-30,
+          7.105427357601002e-15,
+          4.440892098500626e-16
+        ],
+        "full_reproduction": {
+          "foot_matrix_relative_error": 0.0,
+          "tab_matrix_relative_error": 0.0,
+          "motion_relative_error": 0.0
+        },
+        "full_integrated_area_each_mm2": 355.09730059927966,
+        "clipped_integrated_area_each_mm2": 281.73134449180935,
+        "clipped_smooth_foot_traction": {
+          "peak_normal_pa": 882680.2269615645,
+          "peak_shear_pa": 204247.87883088872,
+          "required_normal_DF3_pa": 2648040.6808846937,
+          "required_shear_DF3_pa": 612743.6364926661,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_smooth_tab_traction": {
+          "peak_normal_pa": 181935.7508652669,
+          "peak_shear_pa": 12169.615442492905,
+          "required_normal_DF3_pa": 545807.2525958007,
+          "required_shear_DF3_pa": 36508.846327478714
+        },
+        "clipped_smooth_tab_traction": {
+          "peak_normal_pa": 205674.20523990746,
+          "peak_shear_pa": 13757.47192240199,
+          "required_normal_DF3_pa": 617022.6157197224,
+          "required_shear_DF3_pa": 41272.41576720597
+        },
+        "full_smooth_foot_traction": {
+          "peak_normal_pa": 785510.6625786261,
+          "peak_shear_pa": 170625.8006476321,
+          "required_normal_DF3_pa": 2356531.987735878,
+          "required_shear_DF3_pa": 511877.4019428963,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_added_tip_m": 1.0561825921489909e-06,
+        "clipped_added_tip_m": 1.1969912463437403e-06,
+        "final_two_motion_relative_change": 6.29940732318203e-20
+      },
+      {
+        "bondline_m": 0.0003,
+        "quadrature_points": 16,
+        "full_foot_matrix": [
+          [
+            2340588857.0455375,
+            1.6298145055770874e-08,
+            9.167706593871117e-10
+          ],
+          [
+            1.6298145055770874e-08,
+            937232379.2555056,
+            -1159047.619689556
+          ],
+          [
+            9.167706593871117e-10,
+            -1159047.619689556,
+            47392.00587133059
+          ]
+        ],
+        "clipped_foot_matrix": [
+          [
+            1854477587.8992393,
+            1.1641532182693481e-09,
+            -1.8917489796876907e-10
+          ],
+          [
+            1.1641532182693481e-09,
+            746119438.179002,
+            -1029243.6410880097
+          ],
+          [
+            -1.8917489796876907e-10,
+            -1029243.6410880097,
+            42086.61252354326
+          ]
+        ],
+        "tab_matrix": [
+          [
+            2586364844.8243275,
+            0.0,
+            -8.731149137020111e-11
+          ],
+          [
+            0.0,
+            1186087058.081774,
+            -2820254.1876019016
+          ],
+          [
+            -8.731149137020111e-11,
+            -2820254.1876019016,
+            12561.120578810329
+          ]
+        ],
+        "full_motion": [
+          -7.15559720284524e-24,
+          1.0300440252879988e-07,
+          4.04800100216218e-05
+        ],
+        "clipped_motion": [
+          2.793767338248832e-24,
+          1.2023304889073178e-07,
+          4.537890730772636e-05
+        ],
+        "full_foot_resultant": [
+          2.2041355094830713e-14,
+          49.6208019952888,
+          1.7990418650476714
+        ],
+        "full_tab_resultant": [
+          -2.2041355094830707e-14,
+          8.008270987209258,
+          0.2179756893397622
+        ],
+        "clipped_foot_resultant": [
+          -3.26360155447751e-15,
+          43.002263102901715,
+          1.7860953875826555
+        ],
+        "clipped_tab_resultant": [
+          3.2636015544775084e-15,
+          14.62680987959638,
+          0.2309221668047775
+        ],
+        "clipped_force_moment_residual": [
+          -1.5777218104420236e-30,
+          0.0,
+          -4.440892098500626e-16
+        ],
+        "full_reproduction": {
+          "foot_matrix_relative_error": 0.0,
+          "tab_matrix_relative_error": 0.0,
+          "motion_relative_error": 0.0
+        },
+        "full_integrated_area_each_mm2": 355.0973005992796,
+        "clipped_integrated_area_each_mm2": 281.7313444918095,
+        "clipped_smooth_foot_traction": {
+          "peak_normal_pa": 814100.178335734,
+          "peak_shear_pa": 182128.90788246796,
+          "required_normal_DF3_pa": 2442300.535007202,
+          "required_shear_DF3_pa": 546386.7236474039,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_smooth_tab_traction": {
+          "peak_normal_pa": 506000.1252702669,
+          "peak_shear_pa": 33846.16222543629,
+          "required_normal_DF3_pa": 1518000.3758108006,
+          "required_shear_DF3_pa": 101538.48667630886
+        },
+        "clipped_smooth_tab_traction": {
+          "peak_normal_pa": 567236.3413465731,
+          "peak_shear_pa": 37942.23019040665,
+          "required_normal_DF3_pa": 1701709.0240397193,
+          "required_shear_DF3_pa": 113826.69057121995
+        },
+        "full_smooth_foot_traction": {
+          "peak_normal_pa": 728725.1583048219,
+          "peak_shear_pa": 157106.2089426768,
+          "required_normal_DF3_pa": 2186175.474914466,
+          "required_shear_DF3_pa": 471318.62682803045,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_added_tip_m": 2.9366051040423265e-06,
+        "clipped_added_tip_m": 3.296756560431577e-06
+      },
+      {
+        "bondline_m": 0.0003,
+        "quadrature_points": 32,
+        "full_foot_matrix": [
+          [
+            2340588857.045537,
+            -2.2526364773511887e-08,
+            -3.92901711165905e-10
+          ],
+          [
+            -2.2526364773511887e-08,
+            937232379.2555056,
+            -1159047.6196895568
+          ],
+          [
+            -3.92901711165905e-10,
+            -1159047.6196895568,
+            47392.00587133059
+          ]
+        ],
+        "clipped_foot_matrix": [
+          [
+            1854477587.8992383,
+            8.731149137020111e-09,
+            -7.839844329282641e-10
+          ],
+          [
+            8.731149137020111e-09,
+            746119438.1790019,
+            -1029243.6410880102
+          ],
+          [
+            -7.839844329282641e-10,
+            -1029243.6410880102,
+            42086.61252354327
+          ]
+        ],
+        "tab_matrix": [
+          [
+            2586364844.8243265,
+            0.0,
+            -1.8917489796876907e-10
+          ],
+          [
+            0.0,
+            1186087058.081774,
+            -2820254.1876019025
+          ],
+          [
+            -1.8917489796876907e-10,
+            -2820254.1876019025,
+            12561.12057881035
+          ]
+        ],
+        "full_motion": [
+          5.2533032136960544e-24,
+          1.0300440252879988e-07,
+          4.048001002162178e-05
+        ],
+        "clipped_motion": [
+          9.707873009338416e-24,
+          1.2023304889073178e-07,
+          4.5378907307726344e-05
+        ],
+        "full_foot_resultant": [
+          -5.929156985491081e-15,
+          49.620801995288794,
+          1.7990418650476703
+        ],
+        "full_tab_resultant": [
+          5.929156985491081e-15,
+          8.008270987209286,
+          0.2179756893397628
+        ],
+        "clipped_foot_resultant": [
+          -1.652355130949846e-14,
+          43.00226310290169,
+          1.786095387582655
+        ],
+        "clipped_tab_resultant": [
+          1.652355130949846e-14,
+          14.626809879596365,
+          0.23092216680477817
+        ],
+        "clipped_force_moment_residual": [
+          0.0,
+          -3.552713678800501e-14,
+          0.0
+        ],
+        "full_reproduction": {
+          "foot_matrix_relative_error": 0.0,
+          "tab_matrix_relative_error": 0.0,
+          "motion_relative_error": 0.0
+        },
+        "full_integrated_area_each_mm2": 355.09730059927966,
+        "clipped_integrated_area_each_mm2": 281.73134449180947,
+        "clipped_smooth_foot_traction": {
+          "peak_normal_pa": 814100.1783357337,
+          "peak_shear_pa": 182128.907882468,
+          "required_normal_DF3_pa": 2442300.535007201,
+          "required_shear_DF3_pa": 546386.723647404,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_smooth_tab_traction": {
+          "peak_normal_pa": 506000.12527026655,
+          "peak_shear_pa": 33846.16222543627,
+          "required_normal_DF3_pa": 1518000.3758107997,
+          "required_shear_DF3_pa": 101538.48667630879
+        },
+        "clipped_smooth_tab_traction": {
+          "peak_normal_pa": 567236.3413465729,
+          "peak_shear_pa": 37942.23019040663,
+          "required_normal_DF3_pa": 1701709.0240397186,
+          "required_shear_DF3_pa": 113826.6905712199
+        },
+        "full_smooth_foot_traction": {
+          "peak_normal_pa": 728725.1583048216,
+          "peak_shear_pa": 157106.2089426768,
+          "required_normal_DF3_pa": 2186175.4749144646,
+          "required_shear_DF3_pa": 471318.62682803045,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_added_tip_m": 2.936605104042325e-06,
+        "clipped_added_tip_m": 3.2967565604315763e-06
+      },
+      {
+        "bondline_m": 0.0003,
+        "quadrature_points": 64,
+        "full_foot_matrix": [
+          [
+            2340588857.0455365,
+            7.4214767664670944e-09,
+            -5.229594535194337e-10
+          ],
+          [
+            7.4214767664670944e-09,
+            937232379.2555053,
+            -1159047.6196895568
+          ],
+          [
+            -5.229594535194337e-10,
+            -1159047.6196895568,
+            47392.00587133061
+          ]
+        ],
+        "clipped_foot_matrix": [
+          [
+            1854477587.8992383,
+            3.4633558243513107e-09,
+            1.127773430198431e-09
+          ],
+          [
+            3.4633558243513107e-09,
+            746119438.1790024,
+            -1029243.6410880111
+          ],
+          [
+            1.127773430198431e-09,
+            -1029243.6410880111,
+            42086.61252354321
+          ]
+        ],
+        "tab_matrix": [
+          [
+            2586364844.824327,
+            0.0,
+            6.821210263296962e-11
+          ],
+          [
+            0.0,
+            1186087058.081774,
+            -2820254.187601902
+          ],
+          [
+            6.821210263296962e-11,
+            -2820254.187601902,
+            12561.120578810327
+          ]
+        ],
+        "full_motion": [
+          3.5810631900767844e-24,
+          1.030044025287999e-07,
+          4.048001002162179e-05
+        ],
+        "clipped_motion": [
+          -1.2314989170276075e-23,
+          1.2023304889073194e-07,
+          4.5378907307726425e-05
+        ],
+        "full_foot_resultant": [
+          -1.2023162540087555e-14,
+          49.62080199528879,
+          1.7990418650476714
+        ],
+        "full_tab_resultant": [
+          1.2023162540087555e-14,
+          8.008270987209315,
+          0.21797568933976186
+        ],
+        "clipped_foot_resultant": [
+          2.875566437174769e-14,
+          43.002263102901736,
+          1.7860953875826557
+        ],
+        "clipped_tab_resultant": [
+          -2.87556643717477e-14,
+          14.626809879596337,
+          0.23092216680477778
+        ],
+        "clipped_force_moment_residual": [
+          -6.310887241768095e-30,
+          -2.1316282072803006e-14,
+          0.0
+        ],
+        "full_reproduction": {
+          "foot_matrix_relative_error": 0.0,
+          "tab_matrix_relative_error": 0.0,
+          "motion_relative_error": 0.0
+        },
+        "full_integrated_area_each_mm2": 355.09730059927966,
+        "clipped_integrated_area_each_mm2": 281.73134449180935,
+        "clipped_smooth_foot_traction": {
+          "peak_normal_pa": 814100.1783357352,
+          "peak_shear_pa": 182128.90788246822,
+          "required_normal_DF3_pa": 2442300.535007206,
+          "required_shear_DF3_pa": 546386.7236474047,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_smooth_tab_traction": {
+          "peak_normal_pa": 506000.12527026667,
+          "peak_shear_pa": 33846.162225436274,
+          "required_normal_DF3_pa": 1518000.3758108001,
+          "required_shear_DF3_pa": 101538.48667630882
+        },
+        "clipped_smooth_tab_traction": {
+          "peak_normal_pa": 567236.341346574,
+          "peak_shear_pa": 37942.23019040671,
+          "required_normal_DF3_pa": 1701709.024039722,
+          "required_shear_DF3_pa": 113826.69057122014
+        },
+        "full_smooth_foot_traction": {
+          "peak_normal_pa": 728725.1583048217,
+          "peak_shear_pa": 157106.20894267684,
+          "required_normal_DF3_pa": 2186175.474914465,
+          "required_shear_DF3_pa": 471318.6268280305,
+          "scope": "smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity"
+        },
+        "full_added_tip_m": 2.9366051040423252e-06,
+        "clipped_added_tip_m": 3.2967565604315822e-06,
+        "final_two_motion_relative_change": 1.7919154021270966e-15
+      }
+    ],
+    "base_panel_tip_m": 0.0006063808710938494,
+    "actual_body_frame_compliance": null,
+    "edge_peel_allowable": null,
+    "adhesive_bridging": null,
+    "conservative_full_3d_bound": false,
+    "face_bond_actual_wetting": null,
+    "wall_s": 0.23211845802143216,
+    "cpu_s": 0.203111,
+    "peak_rss_bytes_macos": 49430528,
+    "inputs_unchanged": true
+  },
+  "clipped_completion": {
+    "returncode": 0,
+    "timed_out": false,
+    "wall_s": 0.3028701250150334,
+    "child_cpu_s": 0.270806,
+    "child_max_rss_bytes_macos": 49643520,
+    "complete": true
+  },
+  "post_source_comparison": {
+    "method": "read-only post-run comparison of current source hashes with the preceding face-audit before hashes; sources not captured before/after this worker are not asserted immutable during it",
+    "face_audit_and_current_all_match": true,
+    "compared_paths": {
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088"
+    },
+    "current_sha256": {
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088"
+    },
+    "clipped_record_sha256": "d721926c7a0740916772ea7cde2e5f8acea9da8589d85751dd521944cf695c6e"
+  },
+  "as_run_sources": {
+    "build/wo03-clipped-foot-contact-v1/executed-source-snapshot/manifest.json": "{\n  \"scope\": \"exact copies of executed driver, study config and finite-contact helper, verified against before/after hashes\",\n  \"sha256\": {\n    \"scripts/wo03_clipped_foot_contact.py\": \"02132d46ef6cfe6ed5121f12c2e952aa7a6b6102c97f5aeddf5f7798d3d4b736\",\n    \"configs/studies/wo03-clipped-foot-contact.yaml\": \"e3aa20b848c4e66ce8d69f6c4e94a07d97307ca7c529953ab9b806e3aa2d313c\",\n    \"src/analysis/fin_contact.py\": \"c013873f638aff8b52d994de856fd4c9a3ba57b67e4b92b028ee9fc8491e947a\"\n  }\n}\n",
+    "build/wo03-clipped-foot-contact-v1/executed-source-snapshot/configs/studies/wo03-clipped-foot-contact.yaml": "id: wo03-g12-clipped-foot-contact-v1\ncandidate: build/wo03-refreeze-g12-root-v1/resolved-candidate.json\nfin_record: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json\nprior_contact: build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json\nprior_root: runs/wo03-installed-root-20261031T041923712847Z/record.json\nface_audit: build/wo03-root-contact-faces-v1/actual.json\nquadrature_levels: [16, 32, 64]\narea_tolerance_mm2: 0.000001\nhistory_reproduction_relative_tolerance: 0.0000000001\nquadrature_relative_tolerance: 0.0000000001\nbalance_absolute_tolerance: 0.00000001\nbudget: {workers: 1, child_wall_seconds: 120, child_cpu_seconds: 120, packet_cpu_seconds: 600}\ndefault_output: build/wo03-clipped-foot-contact-v1\nexpected_sha256:\n  candidate: 8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af\n  fin_record: 59d4877ecda8aca354608093231a34f5dcf6eae8dacc06d1f237f6c85b147f97\n  prior_contact: 7ed721e84ffb60b753c67eb0a6d579e071b4a42c68e76d06f2fe1444555ebebb\n  prior_root: 9877c057f6d99bd52a802779ce3548d57be5d7b10b5897d7a05ed66f78906751\n  face_audit: db020d643c6321f0e92d433c377c92af67e02642265119936728717ce0db1f06\n",
+    "build/wo03-clipped-foot-contact-v1/executed-source-snapshot/scripts/wo03_clipped_foot_contact.py": "\"\"\"Existing finite Robin-like elastic springs with the actual shell-slot mask.\n\nRigid root 2-D DOFs [u_x,u_y,theta_z]; a 0.5 mm frame/body foundation,\nadhesive bridging and edge failure are not solved. Face area is checked against\nindependently recorded BRep before the clipped sensitivity is run.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport hashlib\nimport json\nimport math\nimport os\nimport resource\nimport subprocess\nimport sys\nimport time\nfrom pathlib import Path\nfrom typing import Any\n\nimport yaml\n\nROOT = Path(__file__).resolve().parents[1]\nfor key in (\n    \"OMP_NUM_THREADS\",\n    \"OPENBLAS_NUM_THREADS\",\n    \"MKL_NUM_THREADS\",\n    \"VECLIB_MAXIMUM_THREADS\",\n    \"BLIS_NUM_THREADS\",\n    \"NUMEXPR_NUM_THREADS\",\n):\n    os.environ[key] = \"1\"\n\n\ndef sha(path: Path) -> str:\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\n\ndef write(path: Path, value: Any) -> None:\n    path.write_text(json.dumps(value, indent=2, allow_nan=False) + \"\\n\")\n\n\ndef supported_area(\n    radius: float, y0: float, y1: float, slot_half: float, full: float, slot: float\n) -> float:\n    \"\"\"Analytic area for two uncut end strips and the truncated slot strip.\"\"\"\n    if not 0 < y0 < slot_half < y1 < radius or not 0 < slot < full:\n        raise ValueError(\"Unexpected slot/foot geometry; no inferred clipping\")\n    return radius * (\n        (full - slot) * (math.asin(y1 / radius) - math.asin(y0 / radius))\n        + slot * (math.asin(y1 / radius) - math.asin(slot_half / radius))\n    )\n\n\ndef operator(x: float, y: float) -> Any:\n    import numpy as np\n\n    return np.array([[1.0, 0.0, -y], [0.0, 1.0, x]])\n\n\ndef foot_matrix(\n    radius: float,\n    y0: float,\n    y1: float,\n    pieces: list[tuple[float, float]],\n    young: float,\n    poisson: float,\n    thickness: float,\n    n: int,\n) -> tuple[Any, list[Any]]:\n    \"\"\"Circumferential Gauss quadrature over explicit (start-y, axial length) regions.\"\"\"\n    import numpy as np\n\n    matrix = np.zeros((3, 3))\n    patches = []\n    shear = young / (2 * (1 + poisson))\n    points, weights = np.polynomial.legendre.leggauss(n)\n    for ymin, length in pieces:\n        lo, hi = math.asin(ymin / radius), math.asin(y1 / radius)\n        for side in (-1, 1):\n            for point, weight in zip(points, weights, strict=True):\n                angle = side * ((lo + hi) / 2 + point * (hi - lo) / 2)\n                normal = np.array([math.cos(angle), math.sin(angle)])\n                tangent = np.array([-normal[1], normal[0]])\n                x, y = radius * normal - np.array([radius, 0.0])\n                basis = operator(float(x), float(y))\n                constitutive = (\n                    young * np.outer(normal, normal) + shear * np.outer(tangent, tangent)\n                ) / thickness\n                area = weight * (hi - lo) / 2 * radius * length\n                matrix += basis.T @ constitutive @ basis * area\n                patches.append((basis, constitutive, normal, tangent, float(area)))\n    return matrix, patches\n\n\ndef traction_extrema(\n    radius: float,\n    intervals: list[tuple[float, float]],\n    young: float,\n    poisson: float,\n    thickness: float,\n    motion: Any,\n) -> dict[str, float]:\n    import numpy as np\n\n    peak_n = peak_s = 0.0\n    shear = young / (2 * (1 + poisson))\n    for lo, hi in intervals:\n        a, b = math.asin(lo / radius), math.asin(hi / radius)\n        for side in (-1, 1):\n            for angle in side * np.linspace(a, b, 257):\n                normal = np.array([math.cos(angle), math.sin(angle)])\n                tangent = np.array([-normal[1], normal[0]])\n                x, y = radius * normal - np.array([radius, 0.0])\n                d = (\n                    young * np.outer(normal, normal) + shear * np.outer(tangent, tangent)\n                ) / thickness\n                stress = d @ operator(float(x), float(y)) @ motion\n                peak_n = max(peak_n, abs(float(normal @ stress)))\n                peak_s = max(peak_s, abs(float(tangent @ stress)))\n    return {\n        \"peak_normal_pa\": peak_n,\n        \"peak_shear_pa\": peak_s,\n        \"required_normal_DF3_pa\": 3 * peak_n,\n        \"required_shear_DF3_pa\": 3 * peak_s,\n        \"scope\": \"smooth spring traction, includes supported patch endpoints; not adhesive-edge singularity\",\n    }\n\n\ndef tab_traction_extrema(\n    faces: list[dict[str, Any]], young: float, shear: float, motion: Any\n) -> dict[str, float]:\n    import numpy as np\n\n    normal_max = shear_max = 0.0\n    for face in faces:\n        normal = np.asarray(face[\"normal\"])\n        tangent = np.array([-normal[1], normal[0]])\n        stiffness = (young * np.outer(normal, normal) + shear * np.outer(tangent, tangent)) / face[\n            \"gap_m\"\n        ]\n        for coordinate in face[\"interval_m\"]:\n            x, y = (\n                (coordinate, face[\"fixed_coordinate_m\"])\n                if face[\"varying_axis\"] == \"x\"\n                else (face[\"fixed_coordinate_m\"], coordinate)\n            )\n            stress = stiffness @ operator(x, y) @ motion\n            normal_max = max(normal_max, abs(float(normal @ stress)))\n            shear_max = max(shear_max, abs(float(tangent @ stress)))\n    return {\n        \"peak_normal_pa\": normal_max,\n        \"peak_shear_pa\": shear_max,\n        \"required_normal_DF3_pa\": 3 * normal_max,\n        \"required_shear_DF3_pa\": 3 * shear_max,\n    }\n\n\ndef worker(cfg: dict[str, Any], out: Path, hashes: dict[str, str]) -> None:\n    begin = time.monotonic()\n    cpu = time.process_time()\n    import numpy as np\n\n    sys.path.insert(0, str(ROOT))\n    from src.analysis.fin_contact import finite_contact_matrix\n    from src.vehicle.schema import Vehicle\n\n    v = Vehicle.model_validate_json((ROOT / cfg[\"candidate\"]).read_text())\n    ident = hashlib.sha256(v.model_dump_json(by_alias=True).encode()).hexdigest()\n    if ident != \"4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287\":\n        raise ValueError(\"Candidate identity mismatch\")\n    prior = json.loads((ROOT / cfg[\"prior_contact\"]).read_text())\n    old = json.loads((ROOT / cfg[\"prior_root\"]).read_text())\n    fin_rec = json.loads((ROOT / cfg[\"fin_record\"]).read_text())\n    brep = json.loads((ROOT / cfg[\"face_audit\"]).read_text())\n    if not brep[\"inputs_unchanged\"] or brep[\"candidate_identity\"] != ident:\n        raise ValueError(\"BRep identity mismatch\")\n    parts = {p.id: p for p in v.parts}\n    fin, shell = (parts[x] for x in (\"fin_set\", \"aft_shell\"))\n    geometry = fin.geometry\n    params = fin.cad.parameters\n    mat = params[\"layered_study\"]\n    s = shell.cad.parameters\n    radius = geometry[\"radius_m\"]\n    chord = geometry[\"root_chord_m\"]\n    span = geometry[\"span_m\"]\n    start = fin.position_m\n    slot0 = shell.position_m + s[\"fin_slot_start_mm\"] / 1000\n    slotlen = s[\"fin_slot_length_mm\"] / 1000\n    slotend = slot0 + slotlen\n    half = s[\"fin_slot_width_mm\"] / 2000\n    foot = fin_rec[\"curved_foot_bond_upper_stiffness_sensitivity\"][0]\n    y0, y1 = foot[\"foot_tangential_y_interval_m\"]\n    if not (\n        math.isclose(shell.geometry[\"radius_m\"], radius, abs_tol=1e-12)\n        and start < slot0 < slotend < start + chord\n    ):\n        raise ValueError(\"Unexpected shell/slot geometry\")\n    lengths = [slot0 - start, start + chord - slotend]\n    measured = supported_area(radius, y0, y1, half, chord, slotlen) * 1e6\n    expected = {\n        x[\"a\"]: x[\"coincident_area_mm2\"]\n        for x in brep[\"interfaces\"]\n        if x[\"b\"] == \"shell\" and x[\"a\"].startswith(\"foot_bond_\")\n    }\n    if (\n        set(expected) != {\"foot_bond_-1\", \"foot_bond_1\"}\n        or max(abs(measured - v) for v in expected.values()) > cfg[\"area_tolerance_mm2\"]\n    ):\n        raise ValueError(\"Analytic clipped area disagrees with BRep\")\n    faces = old[\"source_tab_potting_rigid_frame_proxy\"][\"actual_tab_faces\"]\n    force = fin_rec[\"selected_force_n\"]\n    load = np.array([0.0, force, force * span / 2])\n    young = mat[\"hot_adhesive_youngs_pa_estimate\"]\n    poisson = mat[\"adhesive_poisson_estimate\"]\n    shear = young / (2 * (1 + poisson))\n    df = mat[\"design_factor\"]\n    if df != 3 or not np.allclose(\n        load, prior[\"load_coordinates\"][\"resultants_Fx_Fy_Mz\"], rtol=0, atol=1e-10\n    ):\n        raise ValueError(\"Historical load or factor mismatch\")\n    # Independently known rectangle: axial width W, in-plane depth D.\n    W, D, gap = 0.1, 0.005, 0.0002\n    matrix, _ = finite_contact_matrix(\n        [\n            {\n                \"varying_axis\": \"y\",\n                \"interval_m\": [-D / 2, D / 2],\n                \"fixed_coordinate_m\": 0.0,\n                \"normal\": [1, 0],\n                \"gap_m\": gap,\n                \"axial_width_m\": W,\n            }\n        ],\n        young,\n        shear,\n        16,\n    )\n    exact = np.diag([young * W * D / gap, shear * W * D / gap, young * W * D**3 / (12 * gap)])\n    fixture = float(np.max(np.abs(matrix - exact)) / np.max(np.abs(exact)))\n    if fixture > 1e-12:\n        raise ValueError(\"Known planar patch failed\")\n    rows = []\n    for foot in fin_rec[\"curved_foot_bond_upper_stiffness_sensitivity\"]:\n        thickness = foot[\"bondline_m\"]\n        for n in cfg[\"quadrature_levels\"]:\n            tab, _ = finite_contact_matrix(faces, young, shear, n)\n            full, full_patches = foot_matrix(\n                radius, y0, y1, [(y0, chord)], young, poisson, thickness, n\n            )\n            clipped, patches = foot_matrix(\n                radius, y0, y1, [(y0, sum(lengths)), (half, slotlen)], young, poisson, thickness, n\n            )\n            archival = next(\n                x\n                for x in prior[\"contact_matrix_levels\"]\n                if math.isclose(x[\"bondline_m\"], thickness, abs_tol=1e-12)\n                and x[\"quadrature_per_patch\"] == n\n            )\n            matrix_error = float(\n                np.max(np.abs(full - np.array(archival[\"foot_K\"])))\n                / np.max(np.abs(archival[\"foot_K\"]))\n            )\n            tab_error = float(\n                np.max(np.abs(tab - np.array(archival[\"tab_K\"])))\n                / np.max(np.abs(archival[\"tab_K\"]))\n            )\n            full_u = np.linalg.solve(full + tab, load)\n            clip_u = np.linalg.solve(clipped + tab, load)\n            prior_u = np.array(archival[\"root_motion\"])\n            motion_error = float(np.max(np.abs(full_u - prior_u)) / np.max(np.abs(prior_u)))\n            if (\n                max(matrix_error, tab_error, motion_error)\n                > cfg[\"history_reproduction_relative_tolerance\"]\n            ):\n                raise ValueError(\"Original matrix or motion did not reproduce\")\n            branch_f = clipped @ clip_u\n            branch_t = tab @ clip_u\n            res = branch_f + branch_t - load\n            if max(abs(res)) > cfg[\"balance_absolute_tolerance\"]:\n                raise ValueError(\"Clipped force/moment balance failed\")\n            rows.append(\n                {\n                    \"bondline_m\": thickness,\n                    \"quadrature_points\": n,\n                    \"full_foot_matrix\": full.tolist(),\n                    \"clipped_foot_matrix\": clipped.tolist(),\n                    \"tab_matrix\": tab.tolist(),\n                    \"full_motion\": full_u.tolist(),\n                    \"clipped_motion\": clip_u.tolist(),\n                    \"full_foot_resultant\": (full @ full_u).tolist(),\n                    \"full_tab_resultant\": (tab @ full_u).tolist(),\n                    \"clipped_foot_resultant\": branch_f.tolist(),\n                    \"clipped_tab_resultant\": branch_t.tolist(),\n                    \"clipped_force_moment_residual\": res.tolist(),\n                    \"full_reproduction\": {\n                        \"foot_matrix_relative_error\": matrix_error,\n                        \"tab_matrix_relative_error\": tab_error,\n                        \"motion_relative_error\": motion_error,\n                    },\n                    \"full_integrated_area_each_mm2\": sum(p[-1] for p in full_patches) / 2 * 1e6,\n                    \"clipped_integrated_area_each_mm2\": sum(p[-1] for p in patches) / 2 * 1e6,\n                    \"clipped_smooth_foot_traction\": traction_extrema(\n                        radius, [(y0, y1), (half, y1)], young, poisson, thickness, clip_u\n                    ),\n                    \"full_smooth_tab_traction\": tab_traction_extrema(faces, young, shear, full_u),\n                    \"clipped_smooth_tab_traction\": tab_traction_extrema(\n                        faces, young, shear, clip_u\n                    ),\n                    \"full_smooth_foot_traction\": traction_extrema(\n                        radius, [(y0, y1)], young, poisson, thickness, full_u\n                    ),\n                    \"full_added_tip_m\": float(full_u[1] + span * full_u[2]),\n                    \"clipped_added_tip_m\": float(clip_u[1] + span * clip_u[2]),\n                }\n            )\n    for foot in fin_rec[\"curved_foot_bond_upper_stiffness_sensitivity\"]:\n        levels = [\n            r for r in rows if math.isclose(r[\"bondline_m\"], foot[\"bondline_m\"], abs_tol=1e-12)\n        ]\n        u64, u32 = (np.array(levels[-i][\"clipped_motion\"]) for i in (1, 2))\n        rel = float(np.max(np.abs(u64 - u32)) / np.max(np.abs(u64)))\n        if rel > cfg[\"quadrature_relative_tolerance\"]:\n            raise ValueError(\"Clipped quadrature did not converge\")\n        levels[-1][\"final_two_motion_relative_change\"] = rel\n    result = {\n        \"status\": \"clipped_ideal_sensitivity_completed_not_installed_acceptance\",\n        \"accepted\": False,\n        \"flight_ready\": False,\n        \"input_sha256_before\": hashes,\n        \"input_sha256_after\": {p: sha(ROOT / p) for p in hashes},\n        \"candidate_identity\": ident,\n        \"geometry\": {\n            \"radius_m\": radius,\n            \"foot_y_interval_m\": [y0, y1],\n            \"root_interval_m\": [start, start + chord],\n            \"slot_interval_m\": [slot0, slotend],\n            \"slot_half_width_m\": half,\n            \"two_uncut_end_lengths_m\": lengths,\n            \"analytic_supported_area_each_mm2\": measured,\n            \"brep_common_area_each_mm2\": expected,\n            \"source_shell_is_current_generated_historical_brep_unproved\": True,\n        },\n        \"known_planar_matrix_relative_error\": fixture,\n        \"force_Fx_Fy_Mz\": load.tolist(),\n        \"young_pa\": young,\n        \"poisson\": poisson,\n        \"DF_strength_only\": df,\n        \"levels\": rows,\n        \"base_panel_tip_m\": fin_rec[\"layered_panel_quadrature_levels\"][-1][\n            \"panel_only_tip_deflection_m\"\n        ],\n        \"actual_body_frame_compliance\": None,\n        \"edge_peel_allowable\": None,\n        \"adhesive_bridging\": None,\n        \"conservative_full_3d_bound\": False,\n        \"face_bond_actual_wetting\": None,\n        \"wall_s\": time.monotonic() - begin,\n        \"cpu_s\": time.process_time() - cpu,\n        \"peak_rss_bytes_macos\": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,\n    }\n    result[\"inputs_unchanged\"] = result[\"input_sha256_before\"] == result[\"input_sha256_after\"]\n    if not result[\"inputs_unchanged\"]:\n        raise ValueError(\"Inputs changed\")\n    write(out / \"record.json\", result)\n\n\ndef main() -> None:\n    parser = argparse.ArgumentParser()\n    parser.add_argument(\n        \"--config\", type=Path, default=ROOT / \"configs/studies/wo03-clipped-foot-contact.yaml\"\n    )\n    parser.add_argument(\"--preset\", choices=[\"tiny\"], default=\"tiny\")\n    parser.add_argument(\"--worker\", action=\"store_true\")\n    parser.add_argument(\"--output\", type=Path)\n    args = parser.parse_args()\n    cfg = yaml.safe_load(args.config.read_text())\n    out = args.output or ROOT / cfg[\"default_output\"]\n    paths = [\n        args.config,\n        Path(__file__),\n        ROOT / \"src/analysis/fin_contact.py\",\n        ROOT / \"src/vehicle/schema.py\",\n        ROOT / \"src/vehicle/cad_contract.py\",\n        ROOT / \"src/vehicle/geometry.py\",\n        *sorted((ROOT / \"src/cad\").glob(\"*_parts.py\")),\n        ROOT / \"src/cad/parts.py\",\n    ] + [\n        ROOT / cfg[k]\n        for k in (\"candidate\", \"fin_record\", \"prior_contact\", \"prior_root\", \"face_audit\")\n    ]\n    hashes = {str(p.relative_to(ROOT)): sha(p) for p in paths}\n    for key, expected in cfg[\"expected_sha256\"].items():\n        if sha(ROOT / cfg[key]) != expected:\n            raise ValueError(f\"Source hash mismatch: {key}\")\n    if args.worker:\n        resource.setrlimit(\n            resource.RLIMIT_CPU,\n            (cfg[\"budget\"][\"child_cpu_seconds\"], cfg[\"budget\"][\"child_cpu_seconds\"]),\n        )\n        worker(cfg, out, hashes)\n        return\n    out.mkdir(parents=True, exist_ok=False)\n    before = resource.getrusage(resource.RUSAGE_CHILDREN)\n    start = time.monotonic()\n    try:\n        proc = subprocess.run(\n            [\n                sys.executable,\n                str(Path(__file__).resolve()),\n                \"--worker\",\n                \"--config\",\n                str(args.config),\n                \"--output\",\n                str(out),\n            ],\n            cwd=ROOT,\n            stdout=subprocess.PIPE,\n            stderr=subprocess.STDOUT,\n            text=True,\n            timeout=cfg[\"budget\"][\"child_wall_seconds\"],\n            check=False,\n        )\n        (out / \"worker.log\").write_text(proc.stdout)\n        code = proc.returncode\n        timed_out = False\n    except subprocess.TimeoutExpired as e:\n        (out / \"worker.log\").write_bytes(e.stdout or b\"\")\n        code = None\n        timed_out = True\n    after = resource.getrusage(resource.RUSAGE_CHILDREN)\n    used = after.ru_utime + after.ru_stime - before.ru_utime - before.ru_stime\n    write(\n        out / \"completion.json\",\n        {\n            \"returncode\": code,\n            \"timed_out\": timed_out,\n            \"wall_s\": time.monotonic() - start,\n            \"child_cpu_s\": used,\n            \"child_max_rss_bytes_macos\": after.ru_maxrss,\n            \"complete\": code == 0 and not timed_out,\n        },\n    )\n    if code != 0 or timed_out or used > cfg[\"budget\"][\"packet_cpu_seconds\"]:\n        raise SystemExit(\"Stopped; preserve evidence, no automatic retry\")\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "build/wo03-clipped-foot-contact-v1/executed-source-snapshot/src/analysis/fin_contact.py": "\"\"\"Finite planar adhesive contact matrix with explicit rigid adherends.\n\nK = integral B.T D B dA, using translation X/Y and rotation Z. Extracted\nunchanged from the historical installed-root study so reusable analysis does\nnot import that study's unpublished CAD/recovery driver. This verifies ideal\ncontact integration; actual backing stiffness and peel capacity remain inputs.\nReference: linear elastic contact-spring energy; Gere and Goodno, Mechanics of\nMaterials, elastic strain energy. No installed assembly qualification.\n\"\"\"\n\nfrom __future__ import annotations\n\nfrom typing import Any\n\nimport numpy as np\n\n\ndef finite_contact_matrix(\n    faces: list[dict[str, Any]], young: float, shear: float, n: int\n) -> tuple[Any, list[tuple[Any, Any, Any, Any, float]]]:\n    \"\"\"Finite planar adhesive contact patches; rigid adherends are explicit.\"\"\"\n    points, weights = np.polynomial.legendre.leggauss(n)\n    matrix = np.zeros((3, 3))\n    quadrature = []\n    for face in faces:\n        lo, hi = face[\"interval_m\"]\n        normal = np.asarray(face[\"normal\"])\n        tangent = np.array([-normal[1], normal[0]])\n        d = (young * np.outer(normal, normal) + shear * np.outer(tangent, tangent)) / face[\"gap_m\"]\n        for p, w in zip(points, weights, strict=True):\n            coordinate = (lo + hi) / 2 + p * (hi - lo) / 2\n            x, y = (\n                (coordinate, face[\"fixed_coordinate_m\"])\n                if face[\"varying_axis\"] == \"x\"\n                else (face[\"fixed_coordinate_m\"], coordinate)\n            )\n            b = np.array([[1, 0, -y], [0, 1, x]], dtype=float)\n            area = w * (hi - lo) / 2 * face[\"axial_width_m\"]\n            matrix += b.T @ d @ b * area\n            quadrature.append((b, d, normal, tangent, float(area)))\n    return matrix, quadrature\n"
+  },
+  "limits": [
+    "nominal coincidence is not wet-bond proof",
+    "current-source shell is not proved identical to historical BRep",
+    "rigid supports and planar tab-column proxy; no 3D or edge-peel bound",
+    "hot normal/peel allowable unavailable",
+    "no installed strength, foundation, flutter or complete-package acceptance"
+  ]
+}
