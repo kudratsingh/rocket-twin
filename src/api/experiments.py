@@ -278,6 +278,71 @@ def run_record(run_id: str) -> dict[str, Any]:
     return _record(run_id)
 
 
+# Explicit meanings for the present telemetry schema. Unknown future columns remain
+# selectable, but carry no assumed unit or comparison semantics.
+_RAW_UNITS = {
+    **dict.fromkeys(("time_s", "sensor_time_s"), "s"),
+    **dict.fromkeys(("north_m", "east_m", "down_m", "cg_station_m", "baro_agl_m"), "m"),
+    **dict.fromkeys(("vn_mps", "ve_mps", "vd_mps"), "m/s"),
+    **dict.fromkeys(("qw", "qx", "qy", "qz", "mach", "landed"), "dimensionless"),
+    **dict.fromkeys(
+        ("wx_rad_s", "wy_rad_s", "wz_rad_s", "gyro_x_rad_s", "gyro_y_rad_s", "gyro_z_rad_s"),
+        "rad/s",
+    ),
+    "mass_kg": "kg",
+    "thrust_n": "N",
+    "dynamic_pressure_pa": "Pa",
+    **dict.fromkeys(
+        ("alpha_rad", "gimbal_pitch_rad", "gimbal_yaw_rad", "encoder_pitch_rad", "encoder_yaw_rad"),
+        "rad",
+    ),
+    **dict.fromkeys(
+        (
+            "specific_x_mps2",
+            "specific_y_mps2",
+            "specific_z_mps2",
+            "imu_ax_mps2",
+            "imu_ay_mps2",
+            "imu_az_mps2",
+            "high_g_ax_mps2",
+            "high_g_ay_mps2",
+            "high_g_az_mps2",
+        ),
+        "m/s²",
+    ),
+}
+_DERIVED = {
+    "height_m": ("m", "Height above launch"),
+    "height_ft": ("ft", "Height above launch"),
+    "speed_mps": ("m/s", "Speed magnitude"),
+    "speed_mph": ("mph", "Speed magnitude"),
+    "specific_force_mps2": ("m/s²", "Specific-force magnitude, excluding gravity"),
+    "net_acceleration_mps2": ("m/s²", "Net acceleration magnitude, including gravity"),
+    "tilt_deg": ("°", "Tilt from vertical"),
+    "downrange_m": ("m", "Horizontal distance from launch"),
+    "downrange_ft": ("ft", "Horizontal distance from launch"),
+}
+
+
+def _channel_metadata(raw_names: set[str], names: Any) -> dict[str, dict[str, Any]]:
+    result = {}
+    for name in names:
+        derived = name in _DERIVED and name not in raw_names
+        unit, description = (
+            _DERIVED[name] if derived else (_RAW_UNITS.get(name), name.replace("_", " "))
+        )
+        known = derived or (name in raw_names and name in _RAW_UNITS)
+        result[name] = {
+            "source": "backend-derived" if derived else "recorded-parquet",
+            "unit": unit,
+            "description": (
+                description if known else "Unknown channel; meaning and units unavailable"
+            ),
+            "semantic_id": f"wo05-v1:{name}" if known else None,
+        }
+    return result
+
+
 @router.get("/api/runs/{run_id}/telemetry")
 def telemetry(run_id: str) -> dict[str, Any]:
     record = _record(run_id)
@@ -289,6 +354,9 @@ def telemetry(run_id: str) -> dict[str, Any]:
     from src.sim.frames import STANDARD_GRAVITY_M_S2
 
     table = pq.read_table(RUNS / run_id / "telemetry.parquet")
+    # Derived display columns must never overwrite a recorded field of the same name.
+    if set(table.column_names) & set(_DERIVED):
+        raise HTTPException(409, "Recorded telemetry conflicts with derived display channels")
     # Keep endpoints and event-adjacent samples in addition to uniform decimation.
     times = table["time_s"].to_numpy()
     indices = set(np.linspace(0, len(times) - 1, min(len(times), 3000), dtype=int).tolist())
@@ -339,5 +407,6 @@ def telemetry(run_id: str) -> dict[str, Any]:
         "run_id": run_id,
         "frame": "NED; body x forward; quaternion scalar first",
         "full_sample_count": len(times),
+        "channel_metadata": _channel_metadata(set(table.column_names), selected),
         "columns": selected,
     }

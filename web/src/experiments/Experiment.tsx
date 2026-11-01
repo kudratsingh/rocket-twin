@@ -4,6 +4,8 @@ import { Line, OrbitControls, useGLTF } from '@react-three/drei';
 import { Matrix4, Quaternion, Vector3 } from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
 import type { InspectionDocument, Part } from '../types';
+import { channelOptions, comparisonReason, defaultChannels, label, series } from './channels';
+import type { ChannelMeta } from './channels';
 import './experiment.css';
 
 type RecordRun = {
@@ -25,7 +27,10 @@ type RecordRun = {
   validity?: string[];
   limitations: string[];
 };
-type Telemetry = { columns: Record<string, number[]> };
+type Telemetry = {
+  columns: Record<string, number[]>;
+  channel_metadata?: Record<string, ChannelMeta>;
+};
 type Loaded = { record: RecordRun; telemetry: Telemetry; vehicle: InspectionDocument };
 const choices = [
   ['modular-performance-v1', 'Performance · G80 reference'],
@@ -235,34 +240,6 @@ function StaticPreview({ vehicle, reset }: { vehicle: InspectionDocument; reset:
     </Canvas>
   );
 }
-const channels = [
-  ['height', 'Height above launch (m)'],
-  ['height_ft', 'Height above launch (ft)'],
-  ['speed', 'Speed (m/s)'],
-  ['speed_mph', 'Speed (mph)'],
-  ['acceleration', 'Net acceleration (m/s²)'],
-  ['specific', 'Specific force (m/s²)'],
-  ['tilt', 'Tilt from vertical (°)'],
-  ['downrange', 'Horizontal distance from launch (m)'],
-  ['downrange_ft', 'Horizontal distance from launch (ft)'],
-];
-function series(c: Record<string, number[]>, name: string): number[] | null {
-  const names: Record<string, string> = {
-    height: 'height_m',
-    height_ft: 'height_ft',
-    speed: 'speed_mps',
-    speed_mph: 'speed_mph',
-    acceleration: 'net_acceleration_mps2',
-    specific: 'specific_force_mps2',
-    tilt: 'tilt_deg',
-    downrange: 'downrange_m',
-    downrange_ft: 'downrange_ft',
-  };
-  const values = c[names[name]];
-  return Array.isArray(values) && values.length > 0 && values.every(Number.isFinite)
-    ? values
-    : null;
-}
 function headline(n: number | boolean | null | undefined, unit: string) {
   return typeof n === 'number' && Number.isFinite(n) && n >= 0
     ? `${n.toFixed(1)} ${unit}`
@@ -363,25 +340,50 @@ function Plot({
   name,
   time,
   setTime,
+  setName,
 }: {
   run: Loaded;
   other: Loaded | null;
   name: string;
   time: number;
   setTime: (v: number) => void;
+  setName: (v: string) => void;
 }) {
   const a = series(run.telemetry.columns, name),
-    comparison = other ? series(other.telemetry.columns, name) : null;
-  if (!a)
+    candidate = other ? series(other.telemetry.columns, name) : null;
+  const mismatch =
+    other && a && candidate
+      ? comparisonReason(
+          run.telemetry.channel_metadata?.[name],
+          other.telemetry.channel_metadata?.[name],
+          run.record.code_sha256,
+          other.record.code_sha256,
+        )
+      : null;
+  const comparison = mismatch ? null : candidate;
+  const meta = run.telemetry.channel_metadata?.[name] ?? other?.telemetry.channel_metadata?.[name];
+  const available = [...(a ?? []), ...(comparison ?? [])];
+  const selector = (
+    <select aria-label="Telemetry channel" value={name} onChange={(e) => setName(e.target.value)}>
+      {!channelOptions(run.telemetry.columns, other?.telemetry.columns).includes(name) && (
+        <option value={name}>{label(name)} (unavailable)</option>
+      )}
+      {channelOptions(run.telemetry.columns, other?.telemetry.columns).map((option) => (
+        <option key={option} value={option}>
+          {label(option)}
+        </option>
+      ))}
+    </select>
+  );
+  if (!available.length)
     return (
       <div className="exp-plot">
-        <strong>{channels.find((x) => x[0] === name)?.[1]}</strong>
-        <p>Unavailable in this recorded telemetry. Missing data is not zero.</p>
+        {selector}
+        <p>Channel unavailable in both runs. Missing data is not zero.</p>
       </div>
     );
-  const b = comparison ?? [];
-  const max = Math.max(...a, ...b, 0.001),
-    min = Math.min(...a, ...b, 0);
+  const max = Math.max(...available, 0.001),
+    min = Math.min(...available, 0);
   const end = Math.max(
     run.telemetry.columns.time_s.at(-1)!,
     other?.telemetry.columns.time_s.at(-1) ?? 0,
@@ -395,7 +397,7 @@ function Plot({
       .join(' ');
   return (
     <div className="exp-plot">
-      <strong>{channels.find((x) => x[0] === name)?.[1]}</strong>
+      {selector}
       <span>
         {min.toFixed(1)} – {max.toFixed(1)}
       </span>
@@ -410,15 +412,17 @@ function Plot({
           )
         }
       >
-        <polyline
-          points={points(run, a)}
-          fill="none"
-          stroke="#54d8d2"
-          vectorEffect="non-scaling-stroke"
-        />
+        {a && (
+          <polyline
+            points={points(run, a)}
+            fill="none"
+            stroke="#54d8d2"
+            vectorEffect="non-scaling-stroke"
+          />
+        )}
         {other && comparison && (
           <polyline
-            points={points(other, b)}
+            points={points(other, comparison)}
             fill="none"
             stroke="#f5b960"
             vectorEffect="non-scaling-stroke"
@@ -433,7 +437,14 @@ function Plot({
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-      {other && !comparison && <p>Comparison channel unavailable.</p>}
+      {!a && <p>Run A channel unavailable; missing data is not zero.</p>}
+      {mismatch && <p>{mismatch}</p>}
+      {other && !candidate && <p>Run B channel unavailable; missing data is not zero.</p>}
+      <p>
+        {meta
+          ? `${meta.description} · ${meta.source} · ${meta.unit ?? 'units unknown'}`
+          : 'Channel metadata unavailable; units and source unknown.'}
+      </p>
     </div>
   );
 }
@@ -460,7 +471,8 @@ export default function Experiment({
     [speed, setSpeed] = useState(1),
     [mode, setMode] = useState<'follow' | 'free'>('follow'),
     [fitToken, setFitToken] = useState(0),
-    [resetPreview, setResetPreview] = useState(0);
+    [resetPreview, setResetPreview] = useState(0),
+    [plotChannels, setPlotChannels] = useState(defaultChannels);
   const shown = current?.record.vehicle_id === configurationId ? current : null;
   const replayEnd = shown
     ? Math.max(
@@ -741,15 +753,25 @@ export default function Experiment({
                 </button>
               ))}
             </div>
+            <p>
+              Choose recorded or backend-derived channels. Unrecognized names are shown exactly as
+              recorded; their units and meaning are not inferred. Plots use decimated playback
+              samples.
+            </p>
             <div className="exp-plots">
-              {channels.map(([name]) => (
+              {plotChannels.map((name, index) => (
                 <Plot
-                  key={name}
+                  key={index}
                   run={shown}
                   other={other}
                   name={name}
                   time={time}
                   setTime={setTime}
+                  setName={(next) =>
+                    setPlotChannels((previous) =>
+                      previous.map((value, i) => (i === index ? next : value)),
+                    )
+                  }
                 />
               ))}
             </div>

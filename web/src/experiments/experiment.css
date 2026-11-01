@@ -122,11 +122,15 @@
   margin-top: 15px;
 }
 .exp-plot {
-  height: 130px;
+  min-height: 150px;
+  min-width: 0;
   background: #14242c;
   padding: 8px;
   font-size: 11px;
   position: relative;
+}
+.exp-plot select {
+  max-width: 100%;
 }
 .exp-plot span {
   float: right;
