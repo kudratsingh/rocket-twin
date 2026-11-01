@@ -17,6 +17,19 @@ design acceptance and owner qualification remain separate.
 | 2. Actual-baffle thermal credibility packet | Exact candidate/material/opening/contact identity; valid mesh or justified reduced/bounded representation; admissible local temperatures; unchanged field/heat tolerances; important substrate/bond peaks and heat routes stable under spatial and temporal refinement. Apply the unchanged required-case matrix, including300°C/contaminated foil/35°C and45°C substrate screen. Part means and local coverage stay distinct. | Preflight first. Detailed route: ≤300 s per mesh, ≤900 s per complete factor, declared existing node/map/memory guards; no automatic increase. Permit one new actual trial only after deliverable1 and a feasible resource/geometry preflight. Alternative assessment: ≤10 CPU min of fixtures/counts before a detailed alternative run is proposed. | Current invalid/capped attempts already trigger replanning: no blind retry of the original PLC/native/midpoint constructions. Any repeated invalid cell/connectivity defect or cap stops that approach. Assess an alternative retaining actual openings/material paths, with validated accuracy or conservative conductance/radiation/temperature bounds. Bounds must cover property/contact/source uncertainty; if they straddle45°C, acceptance stays open. A trivial ambient-to-case bound is insufficient to choose the design. |
 | 3. One complete-package closure report | Recovery/support and installed fin/root evidence belongs to the same resolved package as the thermal result. Count every part once; reconcile mass, CG and full inertia; pass applicable strength/stiffness/flutter/fit/motion, G54≥1 calibre with growth and G12≥10 m/s on the still-unconfirmed5 m guide with full50 g allowance; repeat affected JAX/RocketPy checks. Issue→correction→criterion→result→evidence→physical-verification table. | Existing regression campaign approximately20–40 CPU min, excluding separately declared targeted analyses. Independent structural audits: ≤120 s per child, ≤10 CPU min each; FEA retains existing known-case/convergence requirements. | Any design failure leaves the package unaccepted. Select a correction addressing the limiting load/heat/mass path; do not compose passes from incompatible prototypes, reduce the growth allowance, relax the departure screen or defer a design failure as a physical-test-only item. |
 
+## G80-first execution priority (ADR-0011)
+
+The declared external-tool campaign is closed with a scoped decision in
+[wo03-elmer-campaign-decision.md](wo03-elmer-campaign-decision.md); do not restart
+stopped custom methods or automatically add new verification packets. The first
+complete mechanical/thermal/recovery package is now G80. Follow the dependency
+order in [G80 intake](wo03-g80-package-intake.md): exact current fit and one
+correction → actual joints/retention/installed fins and recovery → qualified heat
+and same-candidate mass/CG/full-inertia/stability/guide/flight revalidation. Keep
+all 50 g growth allowance. G54 and G12 remain independent committed tracks.
+This priority does not change the completion thresholds or full work-order
+sequence. The saved preview is delivered under its existing early exception.
+
 ## Inputs that could change decisions
 
 - Exact motor external case-temperature histories, including ends and post-burn

@@ -1,0 +1,1062 @@
+{
+  "status": "candidate_evaluated_unaccepted",
+  "source_sha256_before": {
+    "build/modular-performance-v1/manifest.json": "05caeae43ab74b154a063f68e5744feabe52a4e9ce0dd2774c2b17a72432e83e",
+    "build/modular-performance-v1/parts/aft_shell.step": "d2c500d1ab79117a7c775e14f0087a03f6dab1504b64e2dea7d55b6160e2b99d",
+    "build/modular-performance-v1/parts/fin_set.step": "54d2e574dc82867fc69e8fd9c689da95aa6685f25c17c18e125953ebab3a8b73",
+    "build/modular-performance-v1/parts/motor_mount.step": "32f9f68771a68b9106b9b5afe48bbf043a9a059bb9d60b58a8f025b3a29dcd4e",
+    "build/modular-performance-v1/parts/retention.step": "8977f24eb07b9bf150fba5a865d6a6143a793cf27620e12f16a21027bafefe29",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/wo03-g80-fit-candidate.yaml": "6bee20b4f820f52b415b3cdc0daa6a7227e44b42fbeef7aba2fa536d9153a2c8",
+    "configs/studies/wo03-pressure-seal.yaml": "6cd11c7254c78e13f28c11cdb30df8bb1c56da9344771a1c8ecca7f7b84aa85f",
+    "configs/studies/wo03-tolerances.yaml": "5fe81b91bfbe1cf5f4fa1eb33c98745cd61fe0d52e4b591decd6100a779f47eb",
+    "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+    "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+    "scripts/wo03_g80_fit_candidate.py": "89e9dc716026c873a39f53f0077460a56d2d42733e1353d72b023b46dd55f225",
+    "src/analysis/engineering.py": "94b95b9cee933951a3cfc6cfe55604eba830f688f00750ecd383d50afe2cea96",
+    "src/analysis/motor_support.py": "acb2c5c0e314539444eca40b56636826fc4725174270ded170c2bc3a64b473e4",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+    "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+    "src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+    "src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+    "src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d"
+  },
+  "source_sha256_after": {
+    "build/modular-performance-v1/manifest.json": "05caeae43ab74b154a063f68e5744feabe52a4e9ce0dd2774c2b17a72432e83e",
+    "build/modular-performance-v1/parts/aft_shell.step": "d2c500d1ab79117a7c775e14f0087a03f6dab1504b64e2dea7d55b6160e2b99d",
+    "build/modular-performance-v1/parts/fin_set.step": "54d2e574dc82867fc69e8fd9c689da95aa6685f25c17c18e125953ebab3a8b73",
+    "build/modular-performance-v1/parts/motor_mount.step": "32f9f68771a68b9106b9b5afe48bbf043a9a059bb9d60b58a8f025b3a29dcd4e",
+    "build/modular-performance-v1/parts/retention.step": "8977f24eb07b9bf150fba5a865d6a6143a793cf27620e12f16a21027bafefe29",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/wo03-g80-fit-candidate.yaml": "6bee20b4f820f52b415b3cdc0daa6a7227e44b42fbeef7aba2fa536d9153a2c8",
+    "configs/studies/wo03-pressure-seal.yaml": "6cd11c7254c78e13f28c11cdb30df8bb1c56da9344771a1c8ecca7f7b84aa85f",
+    "configs/studies/wo03-tolerances.yaml": "5fe81b91bfbe1cf5f4fa1eb33c98745cd61fe0d52e4b591decd6100a779f47eb",
+    "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+    "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+    "scripts/wo03_g80_fit_candidate.py": "89e9dc716026c873a39f53f0077460a56d2d42733e1353d72b023b46dd55f225",
+    "src/analysis/engineering.py": "94b95b9cee933951a3cfc6cfe55604eba830f688f00750ecd383d50afe2cea96",
+    "src/analysis/motor_support.py": "acb2c5c0e314539444eca40b56636826fc4725174270ded170c2bc3a64b473e4",
+    "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+    "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+    "src/vehicle/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+    "src/vehicle/catalog.py": "1e71434dab0891d821b5eed676afdf655a43eec3d5810826ba35752fe878bb74",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+    "src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "src/vehicle/selection.py": "62a5bff60c806a174840874f82a0e9af15c985e4940eb194bcba625ff8b2156d"
+  },
+  "original_failed_attempt": "candidate-failure.json",
+  "reconstruction": "One authorized input-only replan; no valid prior STEP saved",
+  "source_identity": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+  "candidate_identity": "0a1ad4c196e7bbd046704199e99bad1f6649bc237c3c07b0e4f26118d4572c4b",
+  "original_mount_volume_mm3": 63972.492179879395,
+  "candidate_mount_volume_mm3": 63583.669617126376,
+  "candidate_outside_original_mm3": 0.0,
+  "candidate_mount_properties": {
+    "shape_sha256": "76e7ab761e3e3af41387f1ca3002544c72c1a7b1571b28cdaf326a755761cdec",
+    "volume_m3": 6.358366961712637e-05,
+    "cg_local_body_m": [
+      -0.09637069749695219,
+      -3.933394782178761e-16,
+      -1.1417376117587479e-16
+    ],
+    "inertia_per_kg_m2": [
+      [
+        0.0007358434030605112,
+        2.4824163765039456e-17,
+        -4.7537178449056305e-18
+      ],
+      [
+        2.4824163765039456e-17,
+        0.00459072283639433,
+        -1.5453937806866893e-18
+      ],
+      [
+        -4.7537178449056305e-18,
+        -1.5453937806866893e-18,
+        0.004590722836394337
+      ]
+    ],
+    "basis": "bulk-density manufactured solid"
+  },
+  "candidate_mount_mass_kg": 0.04546232377624536,
+  "original_mount_mass_kg": 0.04574033190860166,
+  "incremental_bond_allowance_kg": 0.004620026156369208,
+  "bond_basis": "43rd part: full 0.1 mm annular increment over 190 mm, 1200 kg/m3; upper budget, not actual occupancy or bond stiffness.",
+  "tolerance_result": {
+    "configuration_id": "G80_candidate",
+    "vehicle_id": "modular-performance-v1",
+    "resolved_spec_sha256": "fb8b51bb5bf0b08925685de38f18f6fb1548ff2b5e922d1225d48bcdaf1e0a1c",
+    "stacks": [
+      {
+        "interface": "body_upper_inner_radius_to_coupler_outer_radius",
+        "host_part": "body_upper",
+        "insert_part": "interface_coupler",
+        "dimensions_source": "resolved Vehicle part geometry/CAD parameters",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "host-minus-insert dimensional clearance",
+        "clearance_factor": 1.0,
+        "host_tolerance_allowance_mm": 0.05,
+        "insert_tolerance_allowance_mm": 0.1,
+        "host_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "insert_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": 0.2732,
+          "nominal_mm": 0.5,
+          "maximum_mm": 0.728,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.35,
+          "nominal_mm": 0.5,
+          "maximum_mm": 0.65,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": -0.37960000000000005,
+          "nominal_mm": 0.5,
+          "maximum_mm": 1.391,
+          "required_minimum_mm": 0.1,
+          "status": "fail"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": [
+          -0.07680000000000001,
+          0.07800000000000001
+        ],
+        "minimum_mm": 0.2732,
+        "nominal_mm": 0.5,
+        "maximum_mm": 0.728,
+        "required_minimum_mm": 0.1,
+        "status": "pass"
+      },
+      {
+        "interface": "aft_shell_inner_radius_to_coupler_outer_radius",
+        "host_part": "aft_shell",
+        "insert_part": "interface_coupler",
+        "dimensions_source": "resolved Vehicle part geometry/CAD parameters",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "host-minus-insert dimensional clearance",
+        "clearance_factor": 1.0,
+        "host_tolerance_allowance_mm": 0.05,
+        "insert_tolerance_allowance_mm": 0.1,
+        "host_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "insert_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": 0.2732,
+          "nominal_mm": 0.5,
+          "maximum_mm": 0.728,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.35,
+          "nominal_mm": 0.5,
+          "maximum_mm": 0.65,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": -0.37960000000000005,
+          "nominal_mm": 0.5,
+          "maximum_mm": 1.391,
+          "required_minimum_mm": 0.1,
+          "status": "fail"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": [
+          -0.07680000000000001,
+          0.07800000000000001
+        ],
+        "minimum_mm": 0.2732,
+        "nominal_mm": 0.5,
+        "maximum_mm": 0.728,
+        "required_minimum_mm": 0.1,
+        "status": "pass"
+      },
+      {
+        "interface": "key_1_slot_width_to_key_width",
+        "host_part": "interface_coupler",
+        "insert_part": "joint_stop",
+        "dimensions_source": "resolved Vehicle part geometry/CAD parameters",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "centered per-flank clearance = (slot width - key width)/2; key centering is unverified",
+        "clearance_factor": 2.0,
+        "host_tolerance_allowance_mm": 0.1,
+        "insert_tolerance_allowance_mm": 0.15,
+        "host_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "insert_cte_per_k": [
+          9e-05,
+          9e-05
+        ],
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 60.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 45.0,
+          "declared_material_limit_c": 60.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": 0.2644699999999999,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5321999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.2749999999999999,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5249999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": 0.20830999999999988,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5933999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": [
+          -0.021060000000000002,
+          0.014400000000000001
+        ],
+        "minimum_mm": 0.2644699999999999,
+        "nominal_mm": 0.3999999999999999,
+        "maximum_mm": 0.5321999999999999,
+        "required_minimum_mm": 0.1,
+        "status": "pass",
+        "unilateral_clearance_bounds_mm": [
+          0.0,
+          1.0643999999999998
+        ],
+        "key_centering_verified": false,
+        "unilateral_status": "unavailable"
+      },
+      {
+        "interface": "key_2_slot_width_to_key_width",
+        "host_part": "interface_coupler",
+        "insert_part": "joint_stop",
+        "dimensions_source": "resolved Vehicle part geometry/CAD parameters",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "centered per-flank clearance = (slot width - key width)/2; key centering is unverified",
+        "clearance_factor": 2.0,
+        "host_tolerance_allowance_mm": 0.1,
+        "insert_tolerance_allowance_mm": 0.15,
+        "host_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "insert_cte_per_k": [
+          9e-05,
+          9e-05
+        ],
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 60.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 45.0,
+          "declared_material_limit_c": 60.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": 0.2685199999999999,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5297999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.2749999999999999,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5249999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": 0.23395999999999992,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5705999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": [
+          -0.012960000000000001,
+          0.009600000000000001
+        ],
+        "minimum_mm": 0.2685199999999999,
+        "nominal_mm": 0.3999999999999999,
+        "maximum_mm": 0.5297999999999999,
+        "required_minimum_mm": 0.1,
+        "status": "pass",
+        "unilateral_clearance_bounds_mm": [
+          0.0,
+          1.0595999999999999
+        ],
+        "key_centering_verified": false,
+        "unilateral_status": "unavailable"
+      },
+      {
+        "interface": "key_3_slot_width_to_key_width",
+        "host_part": "interface_coupler",
+        "insert_part": "joint_stop",
+        "dimensions_source": "resolved Vehicle part geometry/CAD parameters",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "centered per-flank clearance = (slot width - key width)/2; key centering is unverified",
+        "clearance_factor": 2.0,
+        "host_tolerance_allowance_mm": 0.1,
+        "insert_tolerance_allowance_mm": 0.15,
+        "host_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "insert_cte_per_k": [
+          9e-05,
+          9e-05
+        ],
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 60.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 45.0,
+          "declared_material_limit_c": 60.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": 0.2685199999999999,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5297999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.2749999999999999,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5249999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": 0.23395999999999992,
+          "nominal_mm": 0.3999999999999999,
+          "maximum_mm": 0.5705999999999999,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": [
+          -0.012960000000000001,
+          0.009600000000000001
+        ],
+        "minimum_mm": 0.2685199999999999,
+        "nominal_mm": 0.3999999999999999,
+        "maximum_mm": 0.5297999999999999,
+        "required_minimum_mm": 0.1,
+        "status": "pass",
+        "unilateral_clearance_bounds_mm": [
+          0.0,
+          1.0595999999999999
+        ],
+        "key_centering_verified": false,
+        "unilateral_status": "unavailable"
+      },
+      {
+        "interface": "motor_mount_inner_radius_to_liner_outer_radius",
+        "host_part": "motor_mount",
+        "insert_part": "motor_radiant_shield",
+        "dimensions_source": "Smallest rail/grip installation radius and outermost liner/foil surface from resolved CAD parameters; installed concentricity remains separate.",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "host-minus-insert dimensional clearance",
+        "clearance_factor": 1.0,
+        "host_tolerance_allowance_mm": 0.05,
+        "insert_tolerance_allowance_mm": 0.25,
+        "host_cte_per_k": [
+          3e-05,
+          3e-05
+        ],
+        "insert_cte_per_k": null,
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 300.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 285.0,
+          "declared_material_limit_c": 300.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": null,
+          "nominal_mm": 0.6800000000000015,
+          "maximum_mm": null,
+          "required_minimum_mm": 0.1,
+          "status": "unavailable"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.3800000000000015,
+          "nominal_mm": 0.6800000000000015,
+          "maximum_mm": 0.9800000000000015,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": null,
+          "nominal_mm": 0.6800000000000015,
+          "maximum_mm": null,
+          "required_minimum_mm": 0.1,
+          "status": "unavailable"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": null,
+        "minimum_mm": null,
+        "nominal_mm": 0.6800000000000015,
+        "maximum_mm": null,
+        "required_minimum_mm": 0.1,
+        "status": "unavailable"
+      },
+      {
+        "interface": "liner_inner_radius_to_motor_case_radius",
+        "host_part": "motor_liner",
+        "insert_part": "motor",
+        "minimum_mm": null,
+        "nominal_mm": 0.1999999999999988,
+        "maximum_mm": null,
+        "required_minimum_mm": 0.1,
+        "status": "unavailable",
+        "reason": "Nominal resolved-source-hypothesis dimensions exist, but exact purchased motor-case OD tolerance and lot identity are unavailable."
+      },
+      {
+        "interface": "aft_shell_inner_radius_to_motor_mount_outer_radius",
+        "host_part": "aft_shell",
+        "insert_part": "motor_mount",
+        "dimensions_source": "Carrier-plane grip/rail-corner radius; remote cassette end-block envelope is excluded from this local fit and remains in the motion checks.",
+        "tolerance_source": "PartEngineering.tolerances_mm interpreted by study assumption",
+        "clearance_definition": "host-minus-insert dimensional clearance",
+        "clearance_factor": 1.0,
+        "host_tolerance_allowance_mm": 0.05,
+        "insert_tolerance_allowance_mm": 0.1,
+        "host_cte_per_k": [
+          8e-05,
+          8e-05
+        ],
+        "insert_cte_per_k": [
+          3e-05,
+          3e-05
+        ],
+        "host_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "insert_material_screen_domain": {
+          "minimum_c": 15.0,
+          "maximum_c": 45.0,
+          "delta_t_k_minimum": 0.0,
+          "delta_t_k_maximum": 30.0,
+          "declared_material_limit_c": 45.0
+        },
+        "design_operating_fit": {
+          "minimum_mm": 0.12101999999999713,
+          "nominal_mm": 0.29999999999999716,
+          "maximum_mm": 0.5279999999999971,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "manufacturing_nominal": {
+          "minimum_mm": 0.14999999999999714,
+          "nominal_mm": 0.29999999999999716,
+          "maximum_mm": 0.4499999999999972,
+          "required_minimum_mm": 0.1,
+          "status": "pass"
+        },
+        "out_of_range_hot_sensitivity": {
+          "minimum_mm": -0.12531000000000286,
+          "nominal_mm": 0.29999999999999716,
+          "maximum_mm": 1.1909999999999972,
+          "required_minimum_mm": 0.1,
+          "status": "fail"
+        },
+        "thermal_delta_t_k": {
+          "host_independent_range": [
+            0.0,
+            285.0
+          ],
+          "insert_independent_range": [
+            0.0,
+            285.0
+          ]
+        },
+        "thermal_gap_shift_bounds_mm": [
+          -0.028980000000000002,
+          0.07800000000000001
+        ],
+        "minimum_mm": 0.12101999999999713,
+        "nominal_mm": 0.29999999999999716,
+        "maximum_mm": 0.5279999999999971,
+        "required_minimum_mm": 0.1,
+        "status": "pass"
+      },
+      {
+        "interface": "pivot_pin_bearing",
+        "minimum_mm": null,
+        "nominal_mm": null,
+        "maximum_mm": null,
+        "required_minimum_mm": 0.05,
+        "status": "not_applicable"
+      },
+      {
+        "interface": "linkage_rod_bore",
+        "minimum_mm": null,
+        "nominal_mm": null,
+        "maximum_mm": null,
+        "required_minimum_mm": 0.05,
+        "status": "not_applicable"
+      },
+      {
+        "interface": "combined_pitch_yaw_motion",
+        "minimum_mm": null,
+        "nominal_mm": null,
+        "maximum_mm": null,
+        "required_minimum_mm": 0.5,
+        "status": "not_applicable"
+      }
+    ],
+    "combined_motion_bound": {
+      "status": "not_applicable"
+    },
+    "critical_unknowns": [
+      "Exact purchased motor-case OD tolerance unavailable.",
+      "Actual assembled concentricity and thermal component histories are unmeasured."
+    ],
+    "other_study_unknowns": [
+      "Exact purchased motor-case OD/length tolerance and lot-specific installed envelope.",
+      "Pivot bearing-hole definitions are implementation constants in CAD generator, not dimensions in the resolved spec; no spec-owned bore size to stack.",
+      "Servo spline, rod-end articulation, harness bend/slack and continuous combined motion remain unavailable.",
+      "Actual temperatures of paired components, manufacturing tolerances and assembled eccentricity are unmeasured.",
+      "Key centering/capture inside the slot is unverified; independent unilateral flank clearance is unavailable."
+    ],
+    "tolerance_interpretation": "Treat PartEngineering.tolerances_mm.linear as symmetric plus/minus on the named linear feature; hole_diameter as symmetric plus/minus on diameter, divided by two for a radial bound. These are design tolerances, not measured process capability.",
+    "thermal_delta_basis": "Fit design basis uses independent component temperatures from 15 C ambient to each part's declared material.limit_c, capped at 250 C. Full hot sensitivity separately uses independent 0..235 K changes from the 250 C external scenario. Neither is a measured paired history; physical and thermal gates remain open. The latest 300 C external sensitivity is deliberately outside the substrate/structural service domains; paired in-domain expansion still uses each declared material limit.",
+    "acceptance": "open",
+    "acceptance_passed": false,
+    "physical_fit_verified": false,
+    "continuous_full_mechanism_verified": false
+  },
+  "thrust_n": 117.53,
+  "baseline_support": {
+    "configuration_id": "modular-performance-v1",
+    "mode": "performance",
+    "thrust_n": 117.53,
+    "reverse_load_n": 150.0,
+    "design_factor": 3.0,
+    "acceptance_closed": false,
+    "flight_ready": false,
+    "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+    "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+    "screens": {
+      "rails": {
+        "mount_id": "motor_mount",
+        "generator": "mount",
+        "rail_count": 3,
+        "rail_cross_section_mm": [
+          7.0,
+          12.0
+        ],
+        "net_single_rail_section_area_mm2": 45.64076198837048,
+        "channel_net_section": {
+          "cut_center_radius_mm": 30.0,
+          "cut_radial_depth_mm": 6.4,
+          "cut_tangential_width_mm": 7.3,
+          "net_single_rail_section_area_mm2": 45.64076198837048,
+          "net_single_rail_inertias_mm4": {
+            "axis_x": 827.3852705539185,
+            "axis_y": 194.40393213253265
+          },
+          "outer_cylinder_trim_radius_mm": 32.300000000000004,
+          "method": "Net rail section includes the actual fin channel and optional cylindrical OD trim, integrated by section moments. Omits notch concentration and uncertain local plate/ring restraint."
+        },
+        "rail_total_area_m2": 0.00013692228596511144,
+        "rail_axial_stress_pa": 858370.1270511018,
+        "rail_axial_margin_cold": 2.8833286810491354,
+        "rail_axial_margin_hot_half_strength": 0.9416643405245677,
+        "support_stations_m": [
+          0.0,
+          0.09000000000000007,
+          0.16700000000000018,
+          0.19000000000000017
+        ],
+        "maximum_assumed_unsupported_span_m": 0.09000000000000007,
+        "weak_axis_inertia_m4": 1.9440393213253265e-10,
+        "single_rail_pinned_euler_load_n": 473.7505936208193,
+        "forward_rail_euler_margin_cold": 3.0308907821051587,
+        "forward_rail_euler_margin_hot_E_half": 1.0154453910525794,
+        "youngs_modulus_pa": 2000000000.0,
+        "strength_screen_pa": 10000000.0,
+        "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+      },
+      "thrust_plate_and_pads": {
+        "plate_id": "retention",
+        "plate_station_m": 1.06,
+        "plate_thickness_m": 0.009000000000000001,
+        "outer_radius_m": 0.032,
+        "inner_radius_m": 0.012,
+        "rail_slot_count_assumed": 3,
+        "rail_slot_footprint_area_m2": 0.00027528,
+        "nominal_slot_footprint_average_pressure_pa": 426947.1083987213,
+        "pad_total_area_m2": 4.753229684881356e-05,
+        "pad_active_area_m2": 4.7532296848813554e-05,
+        "active_pad_count_assumption": 3,
+        "pad_average_compression_pa": 2472634.562007993,
+        "pad_compression_provisional_capacity_pa": 20000000.0,
+        "pad_margin_design_factor_3": 1.6961795200552232,
+        "plate_sector_cantilever_bending_pa": 5542364.581211986,
+        "plate_bending_margin_cold_material_screen": 2.007140079374218,
+        "plate_bending_margin_hot_half_strength": 0.503570039687109,
+        "plate_bending_strength_estimate_pa": 50000000.0,
+        "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+      },
+      "reverse_retainer": {
+        "cap_id": "aft_retainer",
+        "reverse_case_load_n": 150.0,
+        "fastener_count_assumed": 3,
+        "hardware_envelope_id": "retention_hardware",
+        "hardware_estimated_mass_kg": 0.007,
+        "M3_screw_shank_lengths_mm": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "individual_fastener_load_n": 50.0,
+        "hole_or_shank_diameter_m": 0.0034,
+        "M3_nominal_diameter_m": 0.003,
+        "nominal_M3_tensile_area_m2": 5.03e-06,
+        "nominal_M3_tensile_stress_pa": 9940357.852882704,
+        "thread_engagement_m_assumed": null,
+        "captive_nut_pocket_present": true,
+        "G11_thread_cylinder_area_m2": null,
+        "G11_thread_shear_stress_pa": null,
+        "G11_thread_cylinder_margin_DF3": null,
+        "G11_thread_cylinder_margin_DF3_hot": null,
+        "block_cross_section_area_m2": 0.000144,
+        "block_cross_section_average_stress_pa": 347222.2222222222,
+        "block_cross_section_margin_DF3_cold": 8.600000000000001,
+        "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+        "plywood_strength_screen_pa": 10000000.0,
+        "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+      },
+      "fixed_mount_bond_proxy": {
+        "assumed_bond_area_m2": 0.000608840656265702,
+        "average_shear_pa": 193039.01405150112,
+        "strength_screens_pa": {
+          "cold": 2000000.0,
+          "hot": 1000000.0
+        },
+        "margin_DF3_cold": 2.453533317823546,
+        "margin_DF3_hot": 0.726766658911773,
+        "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+      },
+      "fixed_thrust_plate_bond_sensitivities": {
+        "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+        "bond_finger_count": 6,
+        "bond_finger_clipped_radial_contact_width_mm": 6.2,
+        "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+        "bond_finger_length_mm": 18.0,
+        "slot_sidewall_average_shear_pa": 175522.70011947432,
+        "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+        "outer_plate_to_shell_average_shear_pa": 64949.58493607797,
+        "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+        "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+        "slot_margin_DF3_cold": 2.798179188292351,
+        "slot_margin_DF3_hot": 0.8990895941461754,
+        "outer_bond_margin_DF3_cold": 9.264371470930664,
+        "outer_bond_margin_DF3_hot": 4.132185735465332,
+        "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+      }
+    },
+    "unresolved": [
+      "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+      "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+      "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+    ]
+  },
+  "candidate_support": {
+    "configuration_id": "modular-performance-v1",
+    "mode": "performance",
+    "thrust_n": 117.53,
+    "reverse_load_n": 150.0,
+    "design_factor": 3.0,
+    "acceptance_closed": false,
+    "flight_ready": false,
+    "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+    "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+    "screens": {
+      "rails": {
+        "mount_id": "motor_mount",
+        "generator": "mount",
+        "rail_count": 3,
+        "rail_cross_section_mm": [
+          7.0,
+          12.0
+        ],
+        "net_single_rail_section_area_mm2": 45.236543826501766,
+        "channel_net_section": {
+          "cut_center_radius_mm": 30.0,
+          "cut_radial_depth_mm": 6.4,
+          "cut_tangential_width_mm": 7.3,
+          "net_single_rail_section_area_mm2": 45.236543826501766,
+          "net_single_rail_inertias_mm4": {
+            "axis_x": 817.173738701097,
+            "axis_y": 187.44117966304475
+          },
+          "outer_cylinder_trim_radius_mm": 32.2,
+          "method": "Net rail section includes the actual fin channel and optional cylindrical OD trim, integrated by section moments. Omits notch concentration and uncertain local plate/ring restraint."
+        },
+        "rail_total_area_m2": 0.0001357096314795053,
+        "rail_axial_stress_pa": 866040.226612429,
+        "rail_axial_margin_cold": 2.8489359164895576,
+        "rail_axial_margin_hot_half_strength": 0.9244679582447788,
+        "support_stations_m": [
+          0.0,
+          0.09000000000000007,
+          0.16700000000000018,
+          0.19000000000000017
+        ],
+        "maximum_assumed_unsupported_span_m": 0.09000000000000007,
+        "weak_axis_inertia_m4": 1.8744117966304476e-10,
+        "single_rail_pinned_euler_load_n": 456.7827880858678,
+        "forward_rail_euler_margin_cold": 2.8865207869128544,
+        "forward_rail_euler_margin_hot_E_half": 0.9432603934564272,
+        "youngs_modulus_pa": 2000000000.0,
+        "strength_screen_pa": 10000000.0,
+        "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+      },
+      "thrust_plate_and_pads": {
+        "plate_id": "retention",
+        "plate_station_m": 1.06,
+        "plate_thickness_m": 0.009000000000000001,
+        "outer_radius_m": 0.032,
+        "inner_radius_m": 0.012,
+        "rail_slot_count_assumed": 3,
+        "rail_slot_footprint_area_m2": 0.00027528,
+        "nominal_slot_footprint_average_pressure_pa": 426947.1083987213,
+        "pad_total_area_m2": 4.753229684881356e-05,
+        "pad_active_area_m2": 4.7532296848813554e-05,
+        "active_pad_count_assumption": 3,
+        "pad_average_compression_pa": 2472634.562007993,
+        "pad_compression_provisional_capacity_pa": 20000000.0,
+        "pad_margin_design_factor_3": 1.6961795200552232,
+        "plate_sector_cantilever_bending_pa": 5542364.581211986,
+        "plate_bending_margin_cold_material_screen": 2.007140079374218,
+        "plate_bending_margin_hot_half_strength": 0.503570039687109,
+        "plate_bending_strength_estimate_pa": 50000000.0,
+        "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+      },
+      "reverse_retainer": {
+        "cap_id": "aft_retainer",
+        "reverse_case_load_n": 150.0,
+        "fastener_count_assumed": 3,
+        "hardware_envelope_id": "retention_hardware",
+        "hardware_estimated_mass_kg": 0.007,
+        "M3_screw_shank_lengths_mm": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "individual_fastener_load_n": 50.0,
+        "hole_or_shank_diameter_m": 0.0034,
+        "M3_nominal_diameter_m": 0.003,
+        "nominal_M3_tensile_area_m2": 5.03e-06,
+        "nominal_M3_tensile_stress_pa": 9940357.852882704,
+        "thread_engagement_m_assumed": null,
+        "captive_nut_pocket_present": true,
+        "G11_thread_cylinder_area_m2": null,
+        "G11_thread_shear_stress_pa": null,
+        "G11_thread_cylinder_margin_DF3": null,
+        "G11_thread_cylinder_margin_DF3_hot": null,
+        "block_cross_section_area_m2": 0.000144,
+        "block_cross_section_average_stress_pa": 347222.2222222222,
+        "block_cross_section_margin_DF3_cold": 8.600000000000001,
+        "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+        "plywood_strength_screen_pa": 10000000.0,
+        "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+      },
+      "fixed_mount_bond_proxy": {
+        "assumed_bond_area_m2": 0.000606955700673548,
+        "average_shear_pa": 193638.51409513934,
+        "strength_screens_pa": {
+          "cold": 2000000.0,
+          "hot": 1000000.0
+        },
+        "margin_DF3_cold": 2.4428412642079924,
+        "margin_DF3_hot": 0.7214206321039962,
+        "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+      },
+      "fixed_thrust_plate_bond_sensitivities": {
+        "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+        "bond_finger_count": 6,
+        "bond_finger_clipped_radial_contact_width_mm": 6.2,
+        "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+        "bond_finger_length_mm": 18.0,
+        "slot_sidewall_average_shear_pa": 175522.70011947432,
+        "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+        "outer_plate_to_shell_average_shear_pa": 64949.58493607797,
+        "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+        "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+        "slot_margin_DF3_cold": 2.798179188292351,
+        "slot_margin_DF3_hot": 0.8990895941461754,
+        "outer_bond_margin_DF3_cold": 9.264371470930664,
+        "outer_bond_margin_DF3_hot": 4.132185735465332,
+        "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+      }
+    },
+    "unresolved": [
+      "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+      "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+      "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+    ]
+  },
+  "baseline_mass": {
+    "mass_kg": 0.739462164600174,
+    "cg_station_m": 0.7928144429856833,
+    "cg_lateral_m": [
+      -2.144605550568645e-05,
+      0.00021378824489121068
+    ],
+    "inertia_kg_m2": [
+      [
+        0.0008890800457199279,
+        0.00019005032767725142,
+        -3.007265701206595e-05
+      ],
+      [
+        0.00019005032767725142,
+        0.12517526173939691,
+        -1.063903708495872e-07
+      ],
+      [
+        -3.007265701206595e-05,
+        -1.063903708495872e-07,
+        0.125180260247728
+      ]
+    ],
+    "with_50g_kg": 0.789462164600174
+  },
+  "candidate_zero_added_bond_mass": {
+    "mass_kg": 0.7391841564678177,
+    "cg_station_m": 0.792698779207219,
+    "cg_lateral_m": [
+      -2.1454121395338892e-05,
+      0.00021386865093096793
+    ],
+    "inertia_kg_m2": [
+      [
+        0.0008887909202428467,
+        0.0001900484934178283,
+        -3.005437191983957e-05
+      ],
+      [
+        0.0001900484934178283,
+        0.12514777110589226,
+        -1.063916459726403e-07
+      ],
+      [
+        -3.005437191983957e-05,
+        -1.063916459726403e-07,
+        0.12515276962680666
+      ]
+    ],
+    "with_50g_kg": 0.7891841564678177
+  },
+  "candidate_upper_bond_budget_mass": {
+    "mass_kg": 0.7438041826241869,
+    "cg_station_m": 0.7946385905748269,
+    "cg_lateral_m": [
+      -2.132086239475262e-05,
+      0.00021254023844766826
+    ],
+    "inertia_kg_m2": [
+      [
+        0.0008935962598669614,
+        0.00019007925600684786,
+        -3.036103343682857e-05
+      ],
+      [
+        0.00019007925600684786,
+        0.12561187425494985,
+        -1.063705792813347e-07
+      ],
+      [
+        -3.036103343682857e-05,
+        -1.063705792813347e-07,
+        0.12561687256797094
+      ]
+    ],
+    "with_50g_kg": 0.793804182624187
+  },
+  "intersections_mm3": {
+    "aft_shell": 0.0,
+    "fin_set": 0.0,
+    "retention": 0.0
+  },
+  "step_sha256": "eba71395ec1823c3f0fa579eea7a52898673cbd975c22f3769b3785851c35cde",
+  "elapsed_s": 1.844476875005057,
+  "resource_self": {
+    "user_s": 3.526833,
+    "system_s": 0.7487469999999999,
+    "peak_rss_bytes_macos": 552550400
+  },
+  "threads": "OCCT pool 1; environment requests one thread; no OS affinity claimed",
+  "acceptance": false,
+  "flight_ready": false
+}

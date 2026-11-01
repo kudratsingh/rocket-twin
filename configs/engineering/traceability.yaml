@@ -234,25 +234,25 @@ evidence_sources:
 - path: docs/wo03-external-thermal-decision.md
   scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
     comparisons.
-  limitation: Neither tool qualifies actual-baffle temperatures; Elmer unavailable;
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
     precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
     No adoption.
 - path: docs/wo03-elmer-literature.md
   scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
     comparisons.
-  limitation: Neither tool qualifies actual-baffle temperatures; Elmer unavailable;
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
     precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
     No adoption.
 - path: docs/wo03-ccx-thermal-comparison.md
   scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
     comparisons.
-  limitation: Neither tool qualifies actual-baffle temperatures; Elmer unavailable;
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
     precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
     No adoption.
 - path: runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json
   scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
     comparisons.
-  limitation: Neither tool qualifies actual-baffle temperatures; Elmer unavailable;
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
     precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
     No adoption.
 - path: docs/wo03-fin-load-routing.md
@@ -297,6 +297,30 @@ evidence_sources:
 - path: runs/wo03-root-contact-correction-20261101T012547878277Z/record.json
   scope: Executed contact-area and reduced-contact correction evidence.
   limitation: No hot normal/peel allowable, physical wet bond, installed strength or flutter acceptance.
+- path: docs/wo03-elmer-campaign-decision.md
+  scope: Closed isolated Elmer setup and nine-result known-answer campaign decision.
+  limitation: Tool runs; A exact-field checks fail and complete conservation/refinement are unavailable. No actual-baffle qualification or active-design acceptance.
+- path: runs/wo03-elmer-campaign-20261101T054800Z/record.json
+  scope: Compact hashed-source projection of the completed P2 A/B/B_strong comparison.
+  limitation: Straight fixture evidence only; generated nodal arrays omitted, failed and unavailable results preserved.
+- path: docs/wo03-g80-fit-candidate.md
+  scope: Separate 32.2 mm fixed-mount candidate on exact current G80 source.
+  limitation: Cold and in-domain fit screens pass conditionally; hot out-of-domain sensitivity fails. No assembled load-path, thermal, recovery, flutter or flight acceptance.
+- path: docs/wo03-g80-current-closure.md
+  scope: Current52partG80 integrated proposal and issue-by-issue closure states.
+  limitation: Preliminary static/nominal-flight/guide checks pass; actual joint, fit/service, recovery, fin-root/flutter and thermal acceptance remain open. G54/G12 are independent.
+- path: runs/wo03-g80-integrated-package-20261101T053840103311Z/record.json
+  scope: Exact52partcandidate CAD/mass/static/flight compact evidence and source hashes.
+  limitation: Unadopted proposal; no physical or full engineering acceptance. Three excluded nominal interface overlaps require resolution;45secondrecoveries incomplete.
+delivery_priority:
+  decision: docs/adr/0011-g80-first-engineering-delivery.md
+  first_integrated_package: G80
+  committed_tracks: [G80, G54, G12-F, G12-L]
+  core_goals: [substantial_custom_build, maximum_practical_conventional_performance, PID_to_RL]
+  aggregate_wo03_acceptance: open
+  configuration_acceptance: {G80: open, G54: open, G12-F: open, G12-L: open}
+  preview_authorization: ADR-0009
+  physical_and_flight_release: false
 configurations:
   G80: configs/vehicle/platform/performance.yaml
   G54: configs/vehicle/wo02/performance-g54.yaml

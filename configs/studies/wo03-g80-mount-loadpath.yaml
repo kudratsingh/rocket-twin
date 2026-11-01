@@ -1,0 +1,10 @@
+version: wo03-g80-mount-loadpath-v1
+candidate_record: build/wo03-g80-fit-candidate-v1/candidate-record-io-replan.json
+candidate_spec: build/wo03-g80-fit-candidate-v1/resolved-candidate-io-replan.yaml
+candidate_step: build/wo03-g80-fit-candidate-v1/motor-mount-candidate-io-replan.step
+baseline_manifest: build/modular-performance-v1/manifest.json
+parts_directory: build/modular-performance-v1/parts
+engineering: configs/engineering/wo03.yaml
+max_common_area_error_mm2: 0.000001
+expected_candidate_identity: 0a1ad4c196e7bbd046704199e99bad1f6649bc237c3c07b0e4f26118d4572c4b
+budget: one worker requested, 120 seconds per child, 600 CPU seconds total

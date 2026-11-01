@@ -1,0 +1,225 @@
+{
+  "scope": "Separate independent static check after CAD candidate freeze",
+  "resolved_identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+  "input_yaml_sha256": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+  "input_unchanged": true,
+  "result": {
+    "vehicle": "modular-performance-v1",
+    "mode": "performance",
+    "checks": {
+      "spec_valid": true,
+      "mass_with_growth_below_1p5kg": true,
+      "single_G_scope_evidence_declared": true,
+      "source_traceable_and_config_consistent": true,
+      "all_parts_have_build_and_cost": true,
+      "rail_departure_screen": true,
+      "mode_static_margin_screen": true,
+      "mode_useful_control_time_screen": true,
+      "independent_static_reference": true
+    },
+    "preliminary_design_benchmark_passed": true,
+    "flight_ready": false,
+    "validation_scope": "WO-01 source-consistent preliminary numerical model only; not structural, thermal, flight, control or launch approval",
+    "nominal_mass_kg": 0.7485693200678835,
+    "burnout_mass_kg": 0.6860693200678835,
+    "cg_liftoff_m": 0.792219697446965,
+    "cg_burnout_m": 0.7609017704079906,
+    "cg_lateral_liftoff_m": [
+      -2.1185143868142085e-05,
+      0.0007336098692112358
+    ],
+    "cg_lateral_burnout_m": [
+      -2.311508221843563e-05,
+      0.0008004407498300711
+    ],
+    "inertia_liftoff_kg_m2": [
+      [
+        0.0008978794616617679,
+        0.00019004089653862328,
+        -0.00016843984608960196
+      ],
+      [
+        0.00019004089653862328,
+        0.12630720347797117,
+        -1.1463393401468271e-07
+      ],
+      [
+        -0.00016843984608960196,
+        -1.1463393401468271e-07,
+        0.12630918444119824
+      ]
+    ],
+    "inertia_burnout_kg_m2": [
+      [
+        0.0008912724178536316,
+        0.00018954423966621132,
+        -0.00015124136089257934
+      ],
+      [
+        0.00018954423966621132,
+        0.11815908685917023,
+        -1.1569377479237464e-07
+      ],
+      [
+        -0.00015124136089257934,
+        -1.1569377479237464e-07,
+        0.1181611044924934
+      ]
+    ],
+    "cp_m": 0.906139607881506,
+    "static_margins_with_aft_mass_allowance_cal": [
+      1.3278278460099442,
+      1.736294899381603
+    ],
+    "average_TWR_diagnostic_only": 10.039658938635645,
+    "source_terminal_time_s": 1.8079,
+    "launch_screen": {
+      "worst_case_mass_kg": 0.7985693200678835,
+      "rail_exit_time_s": 0.1929755424378429,
+      "rail_exit_speed_mps": 16.60125506423761,
+      "rail_screen_pass": true,
+      "longest_useful_control_interval_s": 1.488889277379175,
+      "control_time_screen_pass": true,
+      "control_time_target_met": true,
+      "control_threshold_source_thrust_n": 11.05593857314406,
+      "screening_wind_mps": 2.0,
+      "kinematic_crosswind_angle_rad": 0.11989500717993645,
+      "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+    },
+    "reference_comparison": {
+      "reference": "RocketPy",
+      "version": "1.13.0",
+      "motor_mode": "source curve; static endpoints only",
+      "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+      "rows": [
+        {
+          "state": "liftoff",
+          "rocket_twin": {
+            "mass_kg": 0.7485693200678835,
+            "cg_m": 0.792219697446965,
+            "cp_m": 0.906139607881506,
+            "stability_margin_cal": 1.726059249008198
+          },
+          "rocketpy": {
+            "mass_kg": 0.7485693200678833,
+            "cg_m": 0.7922196974469651,
+            "cp_m": 0.9061396078815065,
+            "stability_margin_cal": 1.7260592490082032
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 1.1102230246251565e-16,
+            "cp_m": 4.440892098500626e-16,
+            "stability_margin_cal": 5.10702591327572e-15
+          },
+          "passed": true
+        },
+        {
+          "state": "burnout",
+          "rocket_twin": {
+            "mass_kg": 0.6860693200678835,
+            "cg_m": 0.7609017704079906,
+            "cp_m": 0.906139607881506,
+            "stability_margin_cal": 2.200573295053265
+          },
+          "rocketpy": {
+            "mass_kg": 0.6860693200678833,
+            "cg_m": 0.7609017704079908,
+            "cp_m": 0.9061396078815065,
+            "stability_margin_cal": 2.2005732950532684
+          },
+          "absolute_delta": {
+            "mass_kg": 1.1102230246251565e-16,
+            "cg_m": 2.220446049250313e-16,
+            "cp_m": 4.440892098500626e-16,
+            "stability_margin_cal": 3.552713678800501e-15
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "parts_budget_kg": {
+      "nose_cone": 0.033017273687055475,
+      "body_upper": 0.05603234701199932,
+      "interface_coupler": 0.02106733049353741,
+      "avionics_bay": 0.00904460569417429,
+      "recovery_bulkhead": 0.0302337452203521,
+      "recovery_anchor": 0.004,
+      "parachute": 0.035,
+      "shock_cord": 0.01,
+      "recovery_protection": 0.006,
+      "independent_recovery": 0.003,
+      "micro_sd": 0.003,
+      "adhesive_finish": 0.012,
+      "rail_guides": 0.0006229991634585588,
+      "flight_computer": 0.012,
+      "imu": 0.002,
+      "baro": 0.001,
+      "battery": 0.03,
+      "regulator_5v": 0.008,
+      "pyro_mosfet": 0.003,
+      "arming_switch": 0.003,
+      "harness": 0.012,
+      "joint_stop": 0.0013192554674232185,
+      "high_g_accel": 0.001,
+      "recovery_battery": 0.0036,
+      "recovery_power_switch": 0.0037,
+      "recovery_output_harness": 0.004,
+      "aft_shell": 0.01925374538364414,
+      "aft_interface_hardware": 0.006,
+      "motor_mount": 0.04546232377624536,
+      "motor_liner": 0.010065964454996504,
+      "retention": 0.04292932739783429,
+      "motor": 0.1282,
+      "fin_set": 0.1316238690174014,
+      "fin_bonds": 0.008,
+      "motor_radiant_shield": 0.0006562178841010795,
+      "thrust_pads": 0.00029932937844339547,
+      "aft_retainer": 0.020256493058707727,
+      "retention_hardware": 0.007,
+      "aft_thrust_pads": 0.00029932937844339547,
+      "incremental_mount_gap_epoxy_upper_budget": 0.004620026156369208,
+      "recovery_easymini_components": 0.0035,
+      "recovery_switch_g11_doubler": 0.0020781194772935183,
+      "recovery_mount_carrier": 0.004297337178998893,
+      "recovery_battery_tray": 0.0006636675,
+      "recovery_battery_band": 0.00035,
+      "recovery_standoffs": 0.0001066507874040663,
+      "recovery_fasteners": 0.0006832587030439369,
+      "recovery_nuts": 0.0002451710517871839,
+      "recovery_sled_fasteners": 0.0006357860964555416,
+      "recovery_sled_nuts": 0.0001944762019057032,
+      "recovery_sled_reinforcement": 0.0003713487113213489,
+      "recovery_mount_hardware_allowance": 0.003139321735486285
+    },
+    "parts_cost_estimate_usd": 389.95,
+    "recovery_area_for_6mps_m2": 0.5273595840164114,
+    "source_assumptions": {
+      "sha256": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "source_url": "https://www.thrustcurve.org/simfiles/5f4294d20002e9000000044a/",
+      "representation": "Transcription of published web RASP block; numeric points and header preserved, whitespace normalized. Not a byte-verified HTTP download.",
+      "review_status": "preliminary_numerical_hypothesis",
+      "diameter_m": 0.029,
+      "length_m": 0.128,
+      "loaded_mass_kg": 0.1282,
+      "propellant_mass_kg": 0.0625,
+      "burn_time_s": 1.8079,
+      "total_impulse_ns": 133.243509636,
+      "average_thrust_n": 73.7007078024227,
+      "physical_configuration_verified": false,
+      "notes": "Historical 2007 G80 dataset labels motor G78; current SKU 78010 summary 136.6 N s, 127.9 g, 124 mm versus source 128.2 g, 128 mm and integrated impulse below 136.6. Keep this conservative preliminary dataset distinct from the conflicting 2013 G80NBT header 69 g propellant."
+    },
+    "later_required_gates": [
+      "exact sold motor/source/envelope and California approval",
+      "WO-02 rail/trajectory/recovery and crosswind validation",
+      "WO-03 CAD, measured masses, proof loads and temperatures",
+      "WO-06/07 realistic PID and RL validation",
+      "WO-09/10 independent recovery, abort and HIL",
+      "WO-11 club approval and staged flight evidence; finless burnout-to-recovery qualification"
+    ]
+  },
+  "elapsed_s": 14.415028249990428,
+  "acceptance_closed": false,
+  "flight_ready": false
+}

@@ -1,0 +1,142 @@
+{
+  "status": "completed_conditional_sampled_bound_not_qualified",
+  "identity": "0a1ad4c196e7bbd046704199e99bad1f6649bc237c3c07b0e4f26118d4572c4b",
+  "input_sha256_before": {
+    "build/wo03-g80-axial-cuts-v1/record.json": "58261365d56750d529ec26d2bc9a802e7ab4dc687738a94df51be3c6df77a3a2",
+    "build/wo03-g80-candidate-flight-v1/growth_high_thrust.parquet": "2cc4cefb7f140ed7d467436583c2ce749164e092b4e4027a4013114d133818e0",
+    "build/wo03-g80-candidate-flight-v1/growth_low_thrust_high_drag.parquet": "e67e7fc3956e87639fd03491667f7f91c96f9470ea05613451941bb2c65c4382",
+    "build/wo03-g80-candidate-flight-v1/nominal_calm.parquet": "6b35da4dc8f5abc0a182219570cc86a57b680de31704b6b0b40b730e5af012a5",
+    "build/wo03-g80-candidate-flight-v1/record.json": "5e1199682a4289a2b0a42f9aafecb038579634766c7949d057ca4f5eef3e43f1",
+    "build/wo03-g80-fit-candidate-v1/resolved-candidate-io-replan.yaml": "d1eff464e1f3dcfedebeaa0fa31ca78a2a002d51f666768232da97a2e767b450",
+    "scripts/wo03_g80_axial_flight_bounds.py": "ba7b24e9eece1f625a116d1ef16d45e9c946220cbefc7fc70cf9e6de7aaedbbd"
+  },
+  "input_sha256_after": {
+    "build/wo03-g80-axial-cuts-v1/record.json": "58261365d56750d529ec26d2bc9a802e7ab4dc687738a94df51be3c6df77a3a2",
+    "build/wo03-g80-candidate-flight-v1/growth_high_thrust.parquet": "2cc4cefb7f140ed7d467436583c2ce749164e092b4e4027a4013114d133818e0",
+    "build/wo03-g80-candidate-flight-v1/growth_low_thrust_high_drag.parquet": "e67e7fc3956e87639fd03491667f7f91c96f9470ea05613451941bb2c65c4382",
+    "build/wo03-g80-candidate-flight-v1/nominal_calm.parquet": "6b35da4dc8f5abc0a182219570cc86a57b680de31704b6b0b40b730e5af012a5",
+    "build/wo03-g80-candidate-flight-v1/record.json": "5e1199682a4289a2b0a42f9aafecb038579634766c7949d057ca4f5eef3e43f1",
+    "build/wo03-g80-fit-candidate-v1/resolved-candidate-io-replan.yaml": "d1eff464e1f3dcfedebeaa0fa31ca78a2a002d51f666768232da97a2e767b450",
+    "scripts/wo03_g80_axial_flight_bounds.py": "ba7b24e9eece1f625a116d1ef16d45e9c946220cbefc7fc70cf9e6de7aaedbbd"
+  },
+  "cut_station_m": 1.009,
+  "area_mm2": 102.88715940506573,
+  "forward_mass_bounds_kg": [
+    0.32513755673800043,
+    0.3394671388291862
+  ],
+  "growth_interpretation": "50 g at 1.212 m is aft; not included forward; remains in telemetry total mass",
+  "criterion_MPa": 2.0,
+  "design_factor": 3.0,
+  "source_drag_model": "existing powered aero force: q * reference area * interpolated source Cd * drag scale",
+  "force_sign": "compression positive; one-dimensional near-vertical idealization",
+  "results": [
+    {
+      "case_name": "nominal_calm",
+      "powered_samples": 361,
+      "drag_only_worst": {
+        "time_s": 0.9950000000000008,
+        "mass_kg": 0.6989262247732314,
+        "thrust_N": 91.62755144898767,
+        "drag_N": 12.090070145990957,
+        "force_bounds_N": [
+          37.00050366308876,
+          50.721273627257574
+        ],
+        "DF3_max_abs_stress_MPa": 1.4789388856845125
+      },
+      "including_unallocated_guide_friction_worst": {
+        "time_s": 0.9950000000000008,
+        "mass_kg": 0.6989262247732314,
+        "thrust_N": 91.62755144898767,
+        "drag_N": 12.090070145990957,
+        "force_bounds_N": [
+          37.00050366308876,
+          50.721273627257574
+        ],
+        "DF3_max_abs_stress_MPa": 1.4789388856845125
+      },
+      "small_angle_scope": {
+        "powered_max_tilt_deg": 0.4417611529163397,
+        "powered_max_alpha_deg": 0.23096027770491298
+      },
+      "criterion_2MPa_pass_drag_only": true,
+      "criterion_2MPa_pass_with_friction": true,
+      "negative_thrust_minus_drag_samples": 46
+    },
+    {
+      "case_name": "growth_low_thrust_high_drag",
+      "powered_samples": 343,
+      "drag_only_worst": {
+        "time_s": 0.6500000000000005,
+        "mass_kg": 0.7628453599121388,
+        "thrust_N": 84.42427627891384,
+        "drag_N": 3.8685938295574935,
+        "force_bounds_N": [
+          34.334190321302586,
+          39.71597322590735
+        ],
+        "DF3_max_abs_stress_MPa": 1.1580446031038514
+      },
+      "including_unallocated_guide_friction_worst": {
+        "time_s": 0.6500000000000005,
+        "mass_kg": 0.7628453599121388,
+        "thrust_N": 84.42427627891384,
+        "drag_N": 3.8685938295574935,
+        "force_bounds_N": [
+          34.334190321302586,
+          39.71597322590735
+        ],
+        "DF3_max_abs_stress_MPa": 1.1580446031038514
+      },
+      "small_angle_scope": {
+        "powered_max_tilt_deg": 0.5136360620621534,
+        "powered_max_alpha_deg": 0.25856032372642096
+      },
+      "criterion_2MPa_pass_drag_only": true,
+      "criterion_2MPa_pass_with_friction": true,
+      "negative_thrust_minus_drag_samples": 27
+    },
+    {
+      "case_name": "growth_high_thrust",
+      "powered_samples": 379,
+      "drag_only_worst": {
+        "time_s": 1.169999999999997,
+        "mass_kg": 0.743914027657648,
+        "thrust_N": 100.65979900782634,
+        "drag_N": 19.139189268726767,
+        "force_bounds_N": [
+          35.629670753514496,
+          56.33914398779318
+        ],
+        "DF3_max_abs_stress_MPa": 1.6427456345447302
+      },
+      "including_unallocated_guide_friction_worst": {
+        "time_s": 1.169999999999997,
+        "mass_kg": 0.743914027657648,
+        "thrust_N": 100.65979900782634,
+        "drag_N": 19.139189268726767,
+        "force_bounds_N": [
+          35.629670753514496,
+          56.33914398779318
+        ],
+        "DF3_max_abs_stress_MPa": 1.6427456345447302
+      },
+      "small_angle_scope": {
+        "powered_max_tilt_deg": 0.5037495882445804,
+        "powered_max_alpha_deg": 0.2560220976943708
+      },
+      "criterion_2MPa_pass_drag_only": true,
+      "criterion_2MPa_pass_with_friction": true,
+      "negative_thrust_minus_drag_samples": 66
+    }
+  ],
+  "elapsed_s": 0.18831270901137032,
+  "resource_self": {
+    "user_s": 0.32839599999999997,
+    "system_s": 0.049590999999999996,
+    "peak_rss_bytes_macos": 95567872
+  },
+  "threads": "one worker requested; no OS affinity claim",
+  "acceptance": false
+}

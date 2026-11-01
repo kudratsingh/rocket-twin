@@ -1,0 +1,43 @@
+{
+  "scope": "Frozen proposed52partG80 integration, static and affected flight; active vehicle unchanged",
+  "resolved_identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+  "artifacts": [
+    {
+      "published": "cad-record.json",
+      "original": "build/wo03-g80-integrated-candidate-v1/record.json",
+      "sha256": "4dbdf17c901e38d42c741d8cf739ead7d1b6b38bdc833538eccf76185fb0d614",
+      "bytes": 29882
+    },
+    {
+      "published": "mass-reconciliation.json",
+      "original": "build/wo03-g80-integrated-candidate-v1/mass-reconciliation.json",
+      "sha256": "96632d101ecff89ac6683ed8a3ce6f439d5acdde8061145ef6baeec23125db09",
+      "bytes": 31879
+    },
+    {
+      "published": "static-reference.json",
+      "original": "build/wo03-g80-integrated-candidate-v1/static-reference.json",
+      "sha256": "deab8820b644e3e66f33fcf59b55823e79e43141ef21a80a8adfd09f014b5ed0",
+      "bytes": 8517
+    },
+    {
+      "published": "flight.json",
+      "original": "build/wo03-g80-integrated-flight-v1/record.json",
+      "sha256": "7ac231bf8ecca3d3ac2494bd91832017803a4fdb5c2a9606a55f4ab97817c7bb",
+      "bytes": 20866
+    },
+    {
+      "published": "flight-source.py",
+      "original": "scripts/wo03_g80_candidate_flight.py",
+      "sha256": "f3cb85ad26ac65a4404970bf4833389d754f55b876af2cc0c47ec1072ec878b1",
+      "bytes": 8942
+    }
+  ],
+  "engineering_acceptance": false,
+  "flight_ready": false,
+  "excluded_bulk": [
+    "generated CAD exports",
+    "full telemetry",
+    "derived resolved YAML"
+  ]
+}

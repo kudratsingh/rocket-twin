@@ -1,0 +1,14 @@
+version: wo03-g80-candidate-flight-v1
+candidate_spec: build/wo03-g80-fit-candidate-v1/resolved-candidate-io-replan.yaml
+candidate_record: build/wo03-g80-fit-candidate-v1/candidate-record-io-replan.json
+expected_identity: 0a1ad4c196e7bbd046704199e99bad1f6649bc237c3c07b0e4f26118d4572c4b
+benchmark_config: configs/wo02.yaml
+step_s: 0.005
+horizon_s: 45.0
+reference_relative_tolerance: 0.05
+growth_kg: 0.05
+growth_station_m: 1.212
+cases:
+  nominal_calm: {thrust_scale: 1.0, time_scale: 1.0, drag_scale: 1.0, added_mass_kg: 0.0, rail_friction_n: 0.0}
+  growth_low_thrust_high_drag: {thrust_scale: 0.85, time_scale: 0.95, drag_scale: 1.2, added_mass_kg: 0.05, added_mass_station_m: 1.212, rail_friction_n: 0.5}
+  growth_high_thrust: {thrust_scale: 1.15, time_scale: 1.05, drag_scale: 1.0, added_mass_kg: 0.05, added_mass_station_m: 1.212, rail_friction_n: 0.0}

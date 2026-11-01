@@ -4,6 +4,80 @@ Updated: 2026-10-31 (run IDs use UTC)
 
 ## Current work order
 
+**Delivery priority — ADR-0011:** one complete conventional fixed-motor G80
+engineering package first. Substantial custom construction, maximum practical
+performance within the no-HPR scope and committed PID-to-RL development remain
+core. G54 upgrade and G12 controls/finless evidence stay separate and committed.
+G80-specific readiness does not complete aggregate WO-03 or clear other modes.
+See [G80 intake](wo03-g80-package-intake.md) and
+[fit candidate](wo03-g80-fit-candidate.md). The exact current G80 reproduces the
+0.02093 mm mount/shell minimum against 0.1 mm; one 32.2 mm mount-radius proposal
+passes the in-domain stack at 0.12102 mm and remains a separate engineering
+candidate pending its complete load/heat/recovery/flutter integration.
+
+**Latest integrated G80 proposal (52 parts, not active):** the selected mount
+and recovery packaging now share one normally validated resolved identity
+`62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009`.
+[CAD and mass reconciliation](wo03-g80-integrated-candidate.md) give 748.569 g
+nominal / 798.569 g with full 50 g aft allowance, growth-case CG 818.503 mm and
+1.3278-calibre margin. Independent preliminary static comparison passes.
+[Affected same-package flight](wo03-g80-integrated-flight.md) gives nominal
+631.216 m versus RocketPy 631.249 m; conservative full-growth guide departure
+16.955 m/s versus 15 m/s. All three 45 s recoveries remain incomplete.
+Separate STEP/GLB exports are available; active design/preview assets stay
+unchanged. Three explicit positive contact-envelope overlaps still require
+resolution; no nominal screen is presented as physical fit approval. The
+[closure table](wo03-g80-current-closure.md) distinguishes these open design
+items from later physical qualification. G80 recovery switch research now
+proposes a DC-rated C&K candidate; it has not replaced the SWA1 envelope in
+this 52-part package.
+
+**Earlier mount-only G80 checks (43 parts):** the same 43-part proposal, with its conservative
+4.620 g incremental adhesive budget, is 743.804 g nominal / 793.804 g including
+full 50 g aft growth. Loaded growth-case CG is 820.927 mm and passive margin
+1.2911 calibres; this has not replaced the active 739.462 g design. The
+[nominal flight comparison](wo03-g80-candidate-flight.md) gives 633.432 m JAX
+versus 633.392 m RocketPy, within the 5% apogee/time gates. The conservative
+low-thrust/high-drag/full-growth case leaves the configured 1.5 m guide at
+17.068 m/s versus 15 m/s. All three 45 s trajectories have incomplete recovery.
+[Actual mount areas](wo03-g80-mount-loadpath.md) correct the last-ring bond
+proxy by -10.85%. [Accelerating cuts](wo03-g80-axial-cuts.md) and
+[saved-flight load bounds](wo03-g80-axial-flight-bounds.md) give a maximum
+sampled uniform DF3 stress of 1.643 MPa at the forward shell-only cut against
+the estimated 2 MPa screen. This scoped result excludes local shell/joint,
+buckling, hot-material qualification and other winds; aft parallel-path loads
+remain unresolved. The [hardware proposal](wo03-g80-recovery-hardware.md)
+retains separate independent recovery and unresolved switch/connector details.
+Complete recovery integration, installed fin/root/flutter, actual bonds and
+thermal acceptance remain design blockers, not physical-test-only deferrals.
+
+**Next G80 mechanical correction:** the [manufacturing definition](wo03-g80-mount-fabrication.md)
+identifies a real unclosed retainer-block butt joint hidden by fused plywood CAD.
+One proposed G11 bridge with rail tabs and through-bolt nut/washer capture is
+selected for the next bounded geometry/load check. It is not in the 52-part
+proposal; longer hardware, ring relief, bridge stiffness, nut access and added
+mass remain unverified. No butt-joint tensile-glue strength is credited.
+
+**Thermal-tool campaign is complete, not qualified for actual-baffle acceptance.**
+[PR #25](https://github.com/kudratsingh/rocket-twin/pull/25) is merged after both
+required hosted jobs passed (run 41276622684).
+The isolated Elmer setup succeeded within the 600 s limit (489.423 s including
+107.013 s owner download). The declared nine A/B/B_strong results completed;
+A-2 was reused after a documented output-location-only replan, not rerun.
+All A refinements miss the unchanged 1e-7 K criterion; B/B_strong stay within
+verified fixture envelopes but complete conservation and method evidence are
+missing. [Comparison](wo03-elmer-thermal-comparison.md),
+[closed-campaign decision](wo03-elmer-campaign-decision.md).
+No more open-ended custom heat solver or actual geometry run is selected.
+
+**Usable preview:** the owner restarted `make preview`; the designated Chrome
+agent verified all four configurations, real 3D inspection, saved G80 replay
+and comparison with differing winds visible. The earlier API outage recovered;
+its cause remains unknown. The [delivery walkthrough](wo04-preview-delivery.md)
+gives startup and limits. URL: http://127.0.0.1:5173. Incompatible/failed/missing
+Analysis remains unavailable and does not block the basic preview. Full
+WO-04/05 and physical/paid/WO-10/flight gates remain unchanged.
+
 **Owner-resumed session (2026-10-31 Pacific):** the previous timed session was
 saved and stopped. The owner subsequently resumed WO-03 and the limited early
 frontend work; the old deadline no longer pauses this session. WO-03 remains

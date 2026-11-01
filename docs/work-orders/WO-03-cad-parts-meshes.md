@@ -18,6 +18,12 @@ root evidence and later physical qualification are distinct evidence levels.
 
 ## Deliverables
 
+**Delivery priority, ADR-0011:** execute these requirements first for one complete
+conventional fixed-motor G80 candidate. Preserve G54's upgrade requirements and
+G12's controls/finless track and evidence. Per-configuration progress is not
+aggregate WO-03 completion; no formal completion criterion is removed or relaxed.
+The owner-authorized saved frontend preview proceeds independently under ADR-0009.
+
 1. Spec-driven CadQuery solids for every part in all three actual configurations;
    shared upper and distinct afts; separate G54 fit study and credible motor
    comparisons. Custom nose, reinforced/keyed modular joint, cut/printed structures,

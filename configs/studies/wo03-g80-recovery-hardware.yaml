@@ -1,0 +1,193 @@
+id: wo03-g80-recovery-hardware-interface
+status: bounded-component-interface-proposal-not-hardware-qualified
+scope: >-
+  Document a candidate independent G80 recovery power/controller interface using
+  the already-completed recovery packaging geometry and the separately selected
+  32.2 mm G80 mount-radius proposal. This file does not alter active vehicle
+  specifications, CAD, wiring, loads, or the completed packaging result.
+
+vehicle_identity:
+  active_g80_source_identity: c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e
+  separate_mount_candidate_identity: 0a1ad4c196e7bbd046704199e99bad1f6649bc237c3c07b0e4f26118d4572c4b
+  separate_mount_proposal:
+    outer_radius_mm: 32.2
+    source_radius_mm: 32.3
+    source: docs/wo03-g80-fit-candidate.md
+    integrated_with_recovery_copy: false
+  recovery_packaging_candidate:
+    record: runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
+    mass_delta_g: 4.765
+    geometry_rebuilt_here: false
+    acceptance_passed: false
+    flight_ready: false
+
+configuration_decision:
+  controller: Altus Metrum EasyMini v3.0
+  battery: Altus Metrum / Garbee and Garbee 1S 120 mAh LiPo
+  historical_package_switch: Schurter SWA1 0033.4518, 0/1 legend variant
+  proposed_switch_for_primary_review: C&K T102SHZQE
+  switch_alternate_reviewed: E-Switch 200MSP3T1B1M2QEH
+  status: component proposal for primary review; no hardware/design adoption
+  blocking_item: >-
+    The C&K candidate has a documented 2 A / 28 VDC Q-contact series rating, which
+    covers the 1 A at 1S screening assumption only. Actual load/pulse current and
+    selected hardware duty are not frozen, the existing SWA1 hole stack is not a
+    designed C&K mount, and the C&K mass is not published. No design change before
+    primary review.
+
+components:
+  controller:
+    model: EasyMini v3.0
+    nominal_outline_mm: [38.1, 20.32]
+    published_mass_g: 6.5
+    published_supply_v: [3.7, 12.0]
+    mounting_pattern_mm: [13.97, 31.75]
+    screw_compatibility: 4-40_or_M3
+    board_thickness_mm: null
+    thickness_envelope_mm_estimate: 6.0
+    sources:
+      product: https://altusmetrum.org/EasyMini/
+      outline: https://altusmetrum.org/AltOS/doc/easymini-outline.pdf
+      manual: https://altusmetrum.org/AltOS/doc/easymini.html
+    mechanical_unknowns:
+      - Exact v3.0 component, terminal, USB and pressure-aperture keepouts from the PCB artwork.
+      - Installed board orientation and access to the screw terminals and programming port.
+      - Unobstructed static pressure exposure through a properly located airframe port.
+  cell:
+    model: Altus Metrum 1S LiPo 120 mAh
+    nominal_voltage_v: 3.7
+    nominal_capacity_mah: 120
+    seller_dimensions_mm_approx: [30, 15, 4]
+    seller_mass_g: 3.6
+    connector: 2-pin_JST_PH_2mm_pitch
+    overcurrent_protection: absent_per_seller
+    sources:
+      seller: https://shop.gag.com/product/120mah-lipo-battery/
+      controller_manual: https://altusmetrum.org/AltOS/doc/easymini.html
+    required_checks:
+      - Inspect the actual lead/connector polarity and board-revision mating orientation before connection.
+      - Verify retention, lead exit, bend, strain relief, pulse sag and cell condition under the authorized ground-test procedure.
+  switch:
+    historical_package_variant: 0033.4518
+    series: SWA1_Frontpl_voltage_selector
+    legend: "0 / 1"
+    contact_form_seller_description_of_sibling_0033_4501: DPST_with_four_terminals; seller says it may be wired as SPST
+    manufacturer_family_rating: 6.3_A_at_250_VAC_only
+    manufacturer_lifetime: 300_unloaded_operating_cycles
+    dc_rating: null
+    seller_dimensions_reference_sibling_mm: [28.575, 15.875, 12.7]
+    seller_body_panel_hole_mm: 12.7
+    seller_bezel_clearance_mm: 15.875
+    estimate_cad_mass_g: 3.7
+    sources:
+      manufacturer_family: https://www.schurter.com/en/datasheet/SWA1__Frontpl_
+      seller_sibling_0033_4501: https://shop.gag.com/product/rotary-switch/
+      seller_manufacturer_drawing: https://www.schurter.com/en/pdf/english/typ_swa1__frontpl_.pdf
+    interface_check_for_future_integration:
+      current_wall_hole_mm: 15.875
+      inner_doubler_opening_mm: 12.7
+      note: >-
+        This two-layer opening pair may match the seller's flush-mount method for
+        a 5/8-inch airframe opening and 1/2-inch coupler opening. Verify the exact
+        0033.4518 drawing and actual wall/doubler stack; this source check does not
+        establish the installed fit.
+  recommended_for_primary_review:
+    manufacturer: C&K / Littelfuse
+    exact_variant: T102SHZQE
+    series_data: https://www.ckswitches.com/media/1391/ttoggle.pdf
+    function: two_position_OFF_ON_SPST_operating_function_family_prose_inconsistent
+    proposed_wiring: terminal_2_common_to_cell_positive; terminal_1_switched_output; terminal_3_isolated_unused
+    contact_material: Q_silver
+    rating_current_a: 2
+    rating_voltage_vdc: 28
+    applicability: documented_series_rating_for_non_TX01_models; covers_1A_3.7V_screen_only
+    electrical_life_cycles_at_full_load: 30000
+    panel_cutout_mm: 4.95
+    bushing_thread: 10-48UNS-2A
+    bushing_height_mm: 5.59
+    actuator_height_mm: 9.40
+    series_envelope_body_mm_estimated_from_drawing: [8.13, 5.08]
+    solder_lug_span_mm_estimated_from_drawing: 4.06
+    lug_clearance_required: true
+    mass_g_published: null
+    mass_g_study_placeholder_estimate: 2.0
+    panel_thickness_limit_published_in_reviewed_sheet: null
+    caution: >-
+      Candidate needs a new 4.95 mm panel feature and physical access review. This
+      does not fit the existing 12.7/15.875 mm SWA1 interface as-designed. A 1 A
+      screening rating is not qualification of a selected output/charge pulse.
+    accidental_actuation_risk: >-
+      Small toggle could be snagged or bumped. Later design should recess or guard
+      it without obstructing deliberate access, distinguish it from the existing
+      flight-computer switch, and verify OFF/ON position during handling.
+  alternate_reviewed:
+    manufacturer: E-Switch
+    exact_variant: 200MSP3T1B1M2QEH
+    product_page: https://www.e-switch.com/product/200-series-subminiature-toggle-switch/
+    exact_drawing: https://configured-product-images.s3.amazonaws.com/2D/specs/200MSP3T1B1M2QEH.pdf
+    function: SPDT_on_off_on
+    rating_current_a: 3
+    rating_voltage_vdc: 28
+    panel_cutout_mm: 4.95
+    actuator_height_mm: 9.40
+    termination: PC_pin
+    mass_g_published: null
+    disposition: not_preferred; extra_unused_throw_and_PC_pin_wiring_interface
+
+layout_interface:
+  reuse_recovery_packaging_copy:
+    carrier_material: G11
+    carrier_size_mm_axial_width_thickness: [92, 26, 1]
+    carrier_front_station_m: 0.333
+    carrier_body_lateral_yz_m: [0.0, 0.010]
+    three_crossbar_rows_m: [0.360, 0.390, 0.421]
+    fasteners: 6_x_M2.5_nylon_envelopes
+    carrier_aft_end_station_m: 0.425
+    carrier_to_sled_clearance_mm: 8.5
+    board_front_station_m: 0.380
+    board_axial_end_station_m: 0.4181
+    board_mount_hole_stations_m: [0.383175, 0.414925]
+    battery_front_station_m: 0.333
+    battery_axial_end_station_m: 0.363
+    nominal_board_to_cell_axial_gap_mm: 17
+    cell_service_loop_mm_estimate: 30
+    lead_bend_radius_mm_placeholder: 15
+    switch_center_station_m: 0.470
+    switch_body_lateral_yz_m: [0.0, 0.02875]
+    switch_existing_wall_hole_mm: 15.875
+    note: >-
+      These are the completed study's geometric envelopes and stations, not a
+      measured parts fit. Connector and flexible-wire geometry is absent.
+
+electrical_intent:
+  topology:
+    - {net: RECOVERY_BAT_POS, from: recovery_battery, to: recovery_power_switch}
+    - {net: RECOVERY_ARMED_POS, from: recovery_power_switch, to: independent_recovery}
+    - {net: RECOVERY_RETURN, from: recovery_battery, to: independent_recovery}
+    - {net: RECOVERY_OUTPUT_BUNDLE, from: independent_recovery, to: recovery_output_harness}
+  isolation_requirement: >-
+    Keep recovery positive and return local to its dedicated cell and EasyMini;
+    do not join to main battery, flight-computer/servo ground, shared GPIO,
+    USB/data, sensors or conductive chassis paths. Check physical continuity and
+    fault isolation separately; this is only netlist intent.
+  switch_role: positive_battery_disconnect_only
+  energetic_device_or_output_load: unspecified
+  output_current_requirement_a: null
+  physical_electrical_test: not_performed
+
+interfaces_not_closed:
+  - Exact output-load/pulse current and whether the selected 1A screening basis represents the use case.
+  - Primary review of the C&K switch recommendation before any design change.
+  - New C&K panel hole, body/lug clearance, panel thickness/retention and independent arming access.
+  - EasyMini pressure aperture/port layout, ambient reference quality and avoidance of wake/stagnation pressure.
+  - Connector polarity/orientation, flexible cable bend, strain relief and service extraction.
+  - Battery current delivery under the approved representative load; no pulse result is implied by capacity.
+  - Common-cause electrical isolation, carrier attachment strength, vibration retention and deployment load path.
+
+evidence_boundary:
+  candidate_only: true
+  supplier_values_are_qualification: false
+  package_geometry_completed_but_not_rebuilt: true
+  combined_recovery_and_32_2_mount_copy_executed: false
+  no_purchase_or_physical_work_authorized: true
+  rejected_anchor_alternatives: lifting_eye_and_steel_boss_recovery_anchor_studies_remain_rejected

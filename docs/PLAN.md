@@ -7,9 +7,10 @@ body assumptions. Earlier results remain historical evidence, not active require
 ## Core objectives
 
 1. Build a substantial custom rocket that teaches mechanical design, materials,
-   fabrication, assembly, propulsion integration, recovery and avionics, and delivers
-   the highest practical performance within the current no-HPR-certification scope.
-2. Build a serious digital twin and controls platform: independent physics validation,
+   fabrication, assembly, propulsion integration, recovery and avionics.
+2. Deliver the highest practical conventional performance within the current
+   no-HPR-certification scope, with verified launch, structure and recovery limits.
+3. Build a serious digital twin and controls platform: independent physics validation,
    traditional controllers, committed RL training, embedded deployment and eventual
    real-flight comparison. Fabrication and justified mechanical complexity are welcome.
 
@@ -20,6 +21,14 @@ flight performance within verified launch, structural and recovery limits, not s
 maximum nominal motor designation or a heavier rocket approaching the mass cap.
 
 ## Preliminary physical platform
+
+**Current delivery priority (ADR-0011):** bring one complete fixed-motor G80
+package toward engineering acceptance first. G54 remains the committed upgrade
+track and G12 the committed steering/PID/RL track. Record each configuration's
+evidence separately; no G80 pass closes the other modes or aggregate WO-03.
+The existing work-order sequence and full completion criteria remain unchanged.
+Deliver the saved early frontend under ADR-0009 in parallel; missing analysis
+overlays do not delay usable inspection, real experiments and replay.
 
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
 assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case
@@ -42,8 +51,9 @@ See [adopted corrections and closure](wo03-correction-closure.md), the generated
 These are preliminary engineering recommendations, not flight-qualified hardware
 or purchase authorization. Full trade, estimated masses/costs, curve differences,
 fabrication plan and remaining evidence are in [WO-01 rebaseline](wo01-rebaseline.md).
-A higher-impulse CTI G54/G33 configuration remains an upgrade trade if stock, exact
-hardware and California classification can be established. G25W's source quarantine
+The CTI G54 is the committed conditional performance-upgrade track; G33 remains
+a comparison option. Exact hardware, stock and California classification still
+need to be established. G25W's source quarantine
 remains; shorter burn alone no longer excludes F25/G40/G54 from performance mode.
 
 Each mode has its own actual geometry, fin mass and inertia, motor, aerodynamic
