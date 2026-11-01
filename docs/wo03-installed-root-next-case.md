@@ -46,7 +46,10 @@ tab z=1.065–1.165 m, and the frame z=1.012–1.180 m. Shell starts at z=0.922 
 and ends at 1.175 m; the shell slot and frame channel start at z=1.065 m. The
 root is at nominal radius 33 mm. The tab is 2.5 mm deep; its channel has roughly
 0.2 mm end and 1.15 mm side potting, with cylindrical clipping of its sidewalls.
-Both curved feet have actual area 355.097 mm² each. The actual finite
+Both curved feet have shell-facing area 355.097 mm² each, but the subsequent
+[contact audit](wo03-root-contact-faces.md) finds only 281.731 mm² per foot
+coincident with the actual slotted shell. Use those clipped contact patches;
+the full-face foundation cannot bridge the slot by assumption. The actual finite
 frame/shell radial gap is 0.5 mm, with explicitly charged epoxy backing pads and
 tab-channel cutouts. Preserve their actual extents and overlaps; do not replace
 these contacts with a full circumferential tie or infer bonding from minimum

@@ -288,6 +288,15 @@ evidence_sources:
 - path: runs/wo03-output-solid-map-20261101T011408613691Z/record.json
   scope: Bounded thermal output and G12 solid-mapping evidence and source snapshots.
   limitation: No qualified baffle temperature or installed mechanical acceptance; no active adoption.
+- path: docs/wo03-root-contact-faces.md
+  scope: Nominal first-fin face contact with finite shell slots and known-area fixtures.
+  limitation: No hot normal/peel allowable, physical wet bond, installed strength or flutter acceptance.
+- path: docs/wo03-clipped-foot-contact.md
+  scope: Slot-masked historical G12 rigid-foundation sensitivity, no installed pass.
+  limitation: No hot normal/peel allowable, physical wet bond, installed strength or flutter acceptance.
+- path: runs/wo03-root-contact-correction-20261101T012547878277Z/record.json
+  scope: Executed contact-area and reduced-contact correction evidence.
+  limitation: No hot normal/peel allowable, physical wet bond, installed strength or flutter acceptance.
 configurations:
   G80: configs/vehicle/platform/performance.yaml
   G54: configs/vehicle/wo02/performance-g54.yaml
@@ -595,9 +604,14 @@ requirements:
   - docs/wo03-thermal-error-isolation.md
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
+  - docs/wo03-root-contact-faces.md
+  - docs/wo03-clipped-foot-contact.md
+  - runs/wo03-root-contact-correction-20261101T012547878277Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: The historical G12 slotted-shell foot has only 79.34 percent nominal
+    support coverage. The corrected rigid-foundation sensitivity raises smooth DF3
+    foot normal demand to 2.648 MPa; hot normal/peel allowable and actual foundation
+    stiffness remain unknown. No installed or flutter acceptance.
 - id: RT-THERM-001
   applies_to: *id001
   purpose_source: Long G12 exposure, G80/G54 and heat soak

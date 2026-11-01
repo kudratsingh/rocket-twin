@@ -1,3 +1,17 @@
+# Actual nominal contact correction — 2026-10-31 Pacific
+
+| Issue / previous finding | Executed correction | Criterion / result | Remaining verification |
+| --- | --- | --- | --- |
+| Ideal full-foot body support used 355.097 mm² per foot across real shell slots | Common-face BRep audit with planar, positive-gap and cylindrical known cases; independently derive slot-clipped analytical area | 281.731 mm² per foot; analytic/BRep agreement <2e-9 mm² against 1e-6 mm² criterion | Current-generated shell identity is explicit; nominal coincidence is not wetting or fit qualification. [Contact evidence](wo03-root-contact-faces.md) |
+| Old rigid-foundation foot demand 2.357 MPa did not remove the slot footprint | Reproduce old full matrices, then mask unsupported foot springs; keep the old paired planar tab proxy explicitly | At 0.1 mm: 2.648 MPa smooth DF3 foot normal, 50.404/7.225 N foot/tab service force, 1.197 µm root-added motion. Three quadratures converge and equilibrium closes | Actual support compliance, curved potting/adhesive bridging, edge peel and hot allowables unknown. No installed strength or flutter pass. [Corrected sensitivity](wo03-clipped-foot-contact.md) |
+
+No geometry correction is adopted and no G12 mass/departure or G54 stability
+claim changes. The calculation corrects a contact assumption; owner proof tests
+cannot replace the remaining numerical/design acceptance. Historical full-foot
+results below remain source records, not current shell-backed evidence.
+
+---
+
 # Resumed-session source prerequisite — 2026-10-31 Pacific
 
 | Issue / previous finding | Executed correction or clarification | Criterion / new result | Remaining verification |

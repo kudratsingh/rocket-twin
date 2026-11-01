@@ -1,5 +1,12 @@
 # WO-03 installed fin/root closure audit
 
+**Historical full-foot foundation:** the later
+[actual contact audit](wo03-root-contact-faces.md) finds only 281.731 of
+355.097 mm² per foot coincident with the slotted shell. The
+[slot-clipped sensitivity](wo03-clipped-foot-contact.md) supersedes this report's
+full-foot support assumption for that geometry. Original matrices and results
+below remain historical evidence; they are not an installed strength pass.
+
 The existing layered fin remains a development candidate. This audit closes a
 bounded calculation item: the potted tab and both curved gusset feet now share
 one root displacement and balance the same applied force and moment. It does
