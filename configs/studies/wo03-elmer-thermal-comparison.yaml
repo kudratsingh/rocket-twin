@@ -1,0 +1,14 @@
+id: wo03-elmer-thermal-comparison-v1
+reference: configs/studies/wo03-thermal-error-isolation.yaml
+reference_sha256: 04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589
+criteria: configs/studies/wo03-robin-gas.yaml
+criteria_sha256: dcb6d93dd90ff6052f9fb5fcfe6654adc11888f66775c86e675dedf383916ccb
+solver: .cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver
+elmer_home: .cache/elmer-evaluation/setup-v1/prefix
+meshes:
+  2: {path: build/wo03-ccx-thermal-comparison-v1/A-2/case.inp, sha256: 863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31}
+  4: {path: build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.inp, sha256: d5dbcfcbdc881c61f468d379d03a02f77310ce8f91148861a32e37d4eb0d68f9}
+  8: {path: build/wo03-ccx-thermal-comparison-v1/A-8/case.inp, sha256: 7338ee4a466ca17f48222e5ee2313db72b9382ad8ff21f42eea53304c07a2162}
+linear_solver: {kind: Direct, method: UMFPACK}
+budget: {threads: 1, seconds_per_case_all_levels: 120, total_cpu_seconds: 600}
+output: build/wo03-elmer-thermal-comparison-v1

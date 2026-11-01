@@ -1,0 +1,56 @@
+{
+  "status": "incomplete",
+  "tool_sha256": {
+    ".cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolveVec.dylib": "61ae7dfbf04f1aa3b8cdec328c7a69f7df99fc9d5ccaf71800673c254c8eba42",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/ResultOutputSolve.dylib": "6105e177a2815aeff382b27fb767b3e6c9418943597df3e121b83d0694010164",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/SaveData.dylib": "4008d7e6e6edead6fa358ea6ce7df57e4fa3196d518c9e4d57a7dd0f073dcc8c",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/elements.def": "fd7797060c26856026a246dc986c3a8e1e0b56e9de0843b99c81f1176609edbd"
+  },
+  "cases": {
+    "A": [
+      {
+        "level": 2,
+        "returncode": 0,
+        "wall_s": 0.7214483329735231,
+        "cpu_s": 0.127942,
+        "child_cumulative_peak_rss": 13418496
+      }
+    ]
+  },
+  "cpu_s": 0.127942,
+  "criteria": {
+    "temperature_absolute_tolerance_k": 1e-07,
+    "heat_absolute_tolerance_w": 1e-10,
+    "heat_relative_tolerance": 1e-06,
+    "form_absolute_tolerance_w_times_k": 1e-09,
+    "convergence_relative_tolerance": 0.05
+  },
+  "accepted": false,
+  "native_surface_heat_w": null,
+  "global_balance_w": null,
+  "local_balance_w": null,
+  "curved_geometry": "not_executed",
+  "parent_cpu_s": 0.24150100000000002,
+  "parent_peak_rss_bytes_macos": 43483136,
+  "memory_note": "parent and cumulative child peak RSS are separate maxima, not a measured simultaneous sum",
+  "total_cpu_s": 0.369443,
+  "tool_sha256_after": {
+    ".cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolveVec.dylib": "61ae7dfbf04f1aa3b8cdec328c7a69f7df99fc9d5ccaf71800673c254c8eba42",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/ResultOutputSolve.dylib": "6105e177a2815aeff382b27fb767b3e6c9418943597df3e121b83d0694010164",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/SaveData.dylib": "4008d7e6e6edead6fa358ea6ce7df57e4fa3196d518c9e4d57a7dd0f073dcc8c",
+    ".cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/elements.def": "fd7797060c26856026a246dc986c3a8e1e0b56e9de0843b99c81f1176609edbd"
+  },
+  "tool_unchanged": true,
+  "input_sha256_after": {
+    "configs/studies/wo03-thermal-error-isolation.yaml": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+    "configs/studies/wo03-robin-gas.yaml": "dcb6d93dd90ff6052f9fb5fcfe6654adc11888f66775c86e675dedf383916ccb",
+    "scripts/wo03_elmer_thermal_comparison.py": "f48021eb33d4020dc70c2e6e706babbb7a185816fcb8bced8b3b8918e0f7c3f8",
+    "configs/studies/wo03-elmer-thermal-comparison.yaml": "49fa95a885b2490f08f4a02e8629146cac77178dad83432caff7aac9c4bf844e",
+    "build/wo03-ccx-thermal-comparison-v1/A-2/case.inp": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+    "build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.inp": "d5dbcfcbdc881c61f468d379d03a02f77310ce8f91148861a32e37d4eb0d68f9",
+    "build/wo03-ccx-thermal-comparison-v1/A-8/case.inp": "7338ee4a466ca17f48222e5ee2313db72b9382ad8ff21f42eea53304c07a2162"
+  },
+  "inputs_unchanged": true
+}

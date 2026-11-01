@@ -17,7 +17,7 @@ def test_checksum_failure_preserves_partial_and_cannot_mark_download_verified(
     def response(_url, timeout):
         assert timeout == 15
         stream = io.BytesIO(payload)
-        stream.url = "https://example.invalid/fixture"
+        stream.url = "https://example.invalid/fixture?temporary_token=private#fragment"
         return stream
 
     monkeypatch.setattr(fetch, "urlopen", response)
@@ -30,5 +30,6 @@ def test_checksum_failure_preserves_partial_and_cannot_mark_download_verified(
     record = json.loads((tmp_path / "acquisition.json").read_text())
     assert record["status"] == "failed_preserved"
     assert record["files"][0]["sha256"] == hashlib.sha256(payload).hexdigest()
+    assert record["files"][0]["resolved_url"] == "https://example.invalid/fixture"
     with pytest.raises(SystemExit, match="No automatic retry"):
         fetch.main()

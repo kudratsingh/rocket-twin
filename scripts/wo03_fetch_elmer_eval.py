@@ -15,6 +15,7 @@ import time
 from datetime import UTC, datetime
 from pathlib import Path
 from types import FrameType
+from urllib.parse import urlsplit, urlunsplit
 from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -78,7 +79,12 @@ def main() -> None:
             print(f"Downloading {name}", flush=True)
             signal.setitimer(signal.ITIMER_REAL, min(120.0, 300.0 - (attempt_start - start)))
             with urlopen(url, timeout=15) as response, partial.open("xb") as output:
-                item["resolved_url"] = response.url
+                # Release redirects can carry temporary credentials. Preserve
+                # the public origin/path without persisting its signed query.
+                resolved = urlsplit(response.url)
+                item["resolved_url"] = urlunsplit(
+                    (resolved.scheme, resolved.netloc, resolved.path, "", "")
+                )
                 while chunk := response.read(1024 * 1024):
                     elapsed = time.monotonic()
                     if elapsed - attempt_start > 120 or elapsed - start > 300:
