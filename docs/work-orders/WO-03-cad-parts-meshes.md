@@ -16,6 +16,22 @@ inputs; acceptance applies to the complete resolved vehicle, wiring and allowanc
 Known-case verification, nominal CAD motion, minimum-thickness analysis, installed
 root evidence and later physical qualification are distinct evidence levels.
 
+## Current executed checkpoint — G80 retention remains open
+
+The source-pinned coarse fields now pass force/reciprocal-work checks and the
+stress recovery method passed known cases, but face-resultant bounds exceed the
+estimated hot bond screen. The physical bridge is2 mm thick;1.5 mm names the
+coarse mesh target. The two mesh-only pilots do not establish uniform regional
+refinement, and no convergence pass follows. Evaluate a positive mechanical
+reverse-load path with its complete mass/CG/fit/thermal/recovery consequences
+before further automatic analysis of the unchanged bond-only candidate.
+See [closure](../wo03-g80-current-closure.md),
+[traction bounds](../wo03-g80-bridge-support-traction.md) and
+[correction trade](../wo03-g80-retention-correction-trade.md).
+The finite0.1 mm shear-layer verification, actual backing/contact, regional
+convergence, hot directional/bond properties and all other criteria remain
+applicable; the axial known case alone does not replace them.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete

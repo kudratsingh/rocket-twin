@@ -1,0 +1,103 @@
+{
+  "status": "known_case_pass_not_qualified",
+  "qualification": false,
+  "displacement_force": {
+    "field_names": [
+      "stress_xx",
+      "stress_yy",
+      "stress_zz",
+      "stress_xy",
+      "stress_yz",
+      "stress_xz",
+      "vonmises",
+      "displacement",
+      "displacement loads"
+    ],
+    "displacement_dtype": "float64",
+    "load_dtype": "float64",
+    "VTU_sha256": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "max_nodal_displacement_error_m": 6.224621512673778e-15,
+    "support_reaction_N": [
+      9.187249246927076e-13,
+      2.5652210225827722e-11,
+      -149.99999999990467
+    ],
+    "force_residual_N": [
+      9.187249246927076e-13,
+      2.5652210225827722e-11,
+      9.532641342957504e-11
+    ],
+    "rounding_bound_N": [
+      8.969348492362904e-28,
+      2.2971629560035864e-27,
+      1.0658141036406351e-14
+    ],
+    "force_status": "pass",
+    "moment_residual_Nm": [
+      -5.60142210392911e-13,
+      1.1237677455255835e-12,
+      -2.2563130392515993e-13
+    ],
+    "moment_encoding_bound_Nm": [
+      1.0658141036411197e-17,
+      1.0658141036406351e-16,
+      2.3325039245574875e-29
+    ],
+    "support_node_count": 39,
+    "reaction_semantics": "native Ax-b load field hypothesis; checked by known-case equilibrium without sign flip",
+    "vtk_version": "9.6.2"
+  },
+  "stress": {
+    "component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "xy",
+      "yz",
+      "xz"
+    ],
+    "max_abs_error_pa": [
+      6.207813700690146e-06,
+      3.164587812688242e-06,
+      7.333792746067047e-05,
+      2.7114716615700924e-06,
+      1.1114984856517992e-05,
+      1.2429274583898666e-05
+    ],
+    "max_error_normalized_by_loaded_axial": 7.822712262471517e-12,
+    "original_axial_criterion_pass": true,
+    "all_components_primary_2pct_scale_pass": true,
+    "association": "PointData",
+    "dtype": "float64",
+    "node_count": 593
+  },
+  "stress_units": "Pa, source SI",
+  "stress_method": "source-declared nodal projection",
+  "native_status": {
+    "status": "completed",
+    "returncode": 0,
+    "success": true,
+    "total_wall_s": 0.22277304099407047,
+    "cpu_accounting": {
+      "child_system_s_delta": 0.016156999999999998,
+      "child_user_s_delta": 0.164067,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.0023279999999999967,
+      "supervisor_user_s_delta": 0.0005910000000000082
+    },
+    "timed_out": false,
+    "error": null
+  },
+  "parent_cpu_s": 1.254062,
+  "parent_peak_rss_bytes": 226541568,
+  "sources_prefix_unchanged": true,
+  "raw_hashes": {
+    "build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "build/wo03-elmer-stress-fixture-v2/native/case/solver.log": "23648584af868bda9026bcf9ba8c45828e50bec0120430f51685c6ba29c379a2",
+    "build/wo03-elmer-stress-fixture-v2/native/case/status.json": "3250ee10fb27045758cf3162e9b3b15fc4e9fba29cb9026238815b0c929bf672",
+    "build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f"
+  },
+  "earlier_setup_accounting": "unavailable, not zero",
+  "prior_bridge_rss_guard_failure": "unchanged",
+  "native_root_sampled_peak_rss_bytes": 19972096
+}

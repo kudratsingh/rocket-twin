@@ -1,0 +1,479 @@
+{
+  "status": "read_only_support_traction_bounds_complete",
+  "solver_invoked": false,
+  "before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_support_traction.py": "d99e00662a8d2a535346fff3a792d1ab2a092c3664dcf681f35a927d721fa182",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-bridge-diagnostic.yaml": "df9b6b333677381b9d28b79da7b051b672ad84fc132ba3abf9f26cea99d94a3c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/native/equal/field_t0001.vtu": "caa4974c113912e85456e6571b9eb732183a5d235b57a41c0d5e9d21bc6155b4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/reviewed-preflight.json": "ff1e1e11cfb2c0112b511d359a49f265d26aceeb5c8e5dadb7bc09bb0d661a69",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115"
+  },
+  "qualification": false,
+  "service_force_N": 150,
+  "design_factor": 3,
+  "screen_MPa_estimated": 1.0,
+  "partition": {
+    "face_count": 6,
+    "support_count": 1574,
+    "disjoint_complete": true
+  },
+  "cases": {
+    "equal": {
+      "faces": [
+        {
+          "material": "EPOXY_0",
+          "film_angle_deg": 0.0,
+          "side": -1,
+          "node_count": 259,
+          "source_cad_area_mm2": 99.54083069847795,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            -0.0,
+            0.9999999999999999,
+            -2.220446049250313e-16
+          ],
+          "planarity_residual_mm": 1.6697081912198673e-15,
+          "reaction_N": [
+            -24.643697945226737,
+            -46.4744331214967,
+            -25.208597980247287
+          ],
+          "reaction_moment_Nm": [
+            8.285858666865069,
+            -3.660407663222186,
+            -1.4259134807669558
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.5860138790842911,
+          "mean_normal_traction_signed_MPa": -0.4668881382181123,
+          "mean_tangential_traction_norm_MPa": 0.35415777962744666,
+          "mean_axial_shear_signed_MPa": -0.2532488206433337,
+          "df3_traction_norm_lower_bound_MPa": 1.7580416372528735,
+          "df3_tangential_lower_bound_MPa": 1.06247333888234,
+          "df3_axial_shear_MPa": -0.7597464619300011
+        },
+        {
+          "material": "EPOXY_1",
+          "film_angle_deg": 0.0,
+          "side": 1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847799,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "planarity_residual_mm": 0.0,
+          "reaction_N": [
+            -24.26832813491296,
+            46.562999780851875,
+            -24.755463843816532
+          ],
+          "reaction_moment_Nm": [
+            -8.297566922859543,
+            -3.6063496631370913,
+            1.4262166441112822
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.5831860099662378,
+          "mean_normal_traction_signed_MPa": 0.4677778902799918,
+          "mean_tangential_traction_norm_MPa": 0.3482668051731902,
+          "mean_axial_shear_signed_MPa": -0.2486965767726414,
+          "df3_traction_norm_lower_bound_MPa": 1.7495580298987137,
+          "df3_tangential_lower_bound_MPa": 1.0448004155195707,
+          "df3_axial_shear_MPa": -0.7460897303179242
+        },
+        {
+          "material": "EPOXY_2",
+          "film_angle_deg": 120.0,
+          "side": -1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847795,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.8660254037849385,
+            0.499999999999134,
+            -2.7210224969714288e-14
+          ],
+          "planarity_residual_mm": 6.336167677333457e-11,
+          "reaction_N": [
+            52.68858378658408,
+            1.9051134309099225,
+            -25.2690436768699
+          ],
+          "reaction_moment_Nm": [
+            -0.9757803243516553,
+            9.02650919619362,
+            -1.428883867515992
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.5873541904862515,
+          "mean_normal_traction_signed_MPa": 0.46797086619852096,
+          "mean_tangential_traction_norm_MPa": 0.3549481842060413,
+          "mean_axial_shear_signed_MPa": -0.25385606589333276,
+          "df3_traction_norm_lower_bound_MPa": 1.7620625714587546,
+          "df3_tangential_lower_bound_MPa": 1.0648445526181238,
+          "df3_axial_shear_MPa": -0.7615681976799983
+        },
+        {
+          "material": "EPOXY_3",
+          "film_angle_deg": 120.0,
+          "side": 1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847799,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.8660254037830276,
+            0.5000000000024439,
+            -4.425893351983327e-13
+          ],
+          "planarity_residual_mm": 7.288496916308952e-11,
+          "reaction_N": [
+            -28.305390489786355,
+            -44.307756446755405,
+            -24.760760767631222
+          ],
+          "reaction_moment_Nm": [
+            7.273997508900635,
+            -5.402912494201849,
+            1.428192469292409
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.5838406648137491,
+          "mean_normal_traction_signed_MPa": -0.4688233474059413,
+          "mean_tangential_traction_norm_MPa": 0.3479577428614696,
+          "mean_axial_shear_signed_MPa": -0.2487497903512053,
+          "df3_traction_norm_lower_bound_MPa": 1.751521994441247,
+          "df3_tangential_lower_bound_MPa": 1.0438732285844086,
+          "df3_axial_shear_MPa": -0.7462493710536159
+        },
+        {
+          "material": "EPOXY_4",
+          "film_angle_deg": 240.0,
+          "side": -1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847795,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.8660254037823211,
+            -0.500000000003668,
+            3.2264474956861505e-13
+          ],
+          "planarity_residual_mm": 7.516590239301668e-11,
+          "reaction_N": [
+            -28.00011663586631,
+            44.57236479107068,
+            -25.22113598391559
+          ],
+          "reaction_moment_Nm": [
+            -7.311493498703371,
+            -5.35853971624909,
+            -1.4272681973950356
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.5863711092860973,
+          "mean_normal_traction_signed_MPa": -0.4674965477452734,
+          "mean_tangential_traction_norm_MPa": 0.3539464022301393,
+          "mean_axial_shear_signed_MPa": -0.2533747790423176,
+          "df3_traction_norm_lower_bound_MPa": 1.759113327858292,
+          "df3_tangential_lower_bound_MPa": 1.0618392066904179,
+          "df3_axial_shear_MPa": -0.7601243371269527
+        },
+        {
+          "material": "EPOXY_5",
+          "film_angle_deg": 240.0,
+          "side": 1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847799,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.866025403784488,
+            -0.4999999999999147,
+            1.7808914714041377e-13
+          ],
+          "planarity_residual_mm": 5.988497465593981e-11,
+          "reaction_N": [
+            52.52894941924994,
+            -2.258288434656914,
+            -24.78499774830825
+          ],
+          "reaction_moment_Nm": [
+            1.0249845701526765,
+            9.001700340617491,
+            1.4276564322735934
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.5839460001220398,
+          "mean_normal_traction_signed_MPa": 0.4683560356224511,
+          "mean_tangential_traction_norm_MPa": 0.3487628921696669,
+          "mean_axial_shear_signed_MPa": -0.2489932781793353,
+          "df3_traction_norm_lower_bound_MPa": 1.7518380003661191,
+          "df3_tangential_lower_bound_MPa": 1.0462886765090005,
+          "df3_axial_shear_MPa": -0.7469798345380059
+        }
+      ],
+      "summed_reaction_N": [
+        4.1666226024972275e-11,
+        -7.654188394212724e-11,
+        -150.0000000007888
+      ],
+      "global_reaction_crosscheck_difference_N": [
+        2.8953144677774934e-15,
+        -4.406997228083298e-15,
+        0.0
+      ],
+      "summed_support_moment_Nm": [
+        3.8116176881430874e-12,
+        8.952838470577262e-13,
+        -6.987743716990735e-13
+      ],
+      "original_reader_force_residual_N": [
+        4.16633307105045e-11,
+        -7.653747694489916e-11,
+        -7.883897978899768e-10
+      ],
+      "original_reader_moment_residual_Nm": [
+        3.869101436806965e-12,
+        6.483160362724671e-13,
+        -6.97315469255777e-13
+      ],
+      "strict_force_status": "pass"
+    },
+    "single": {
+      "faces": [
+        {
+          "material": "EPOXY_0",
+          "film_angle_deg": 0.0,
+          "side": -1,
+          "node_count": 259,
+          "source_cad_area_mm2": 99.54083069847795,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            -0.0,
+            0.9999999999999999,
+            -2.220446049250313e-16
+          ],
+          "planarity_residual_mm": 1.6697081912198673e-15,
+          "reaction_N": [
+            0.44553244789712093,
+            -39.669622536665436,
+            22.701928404342016
+          ],
+          "reaction_moment_Nm": [
+            6.671148912831164,
+            -0.4900463258104139,
+            -1.0819381258419438
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.45919216031018284,
+          "mean_normal_traction_signed_MPa": -0.3985261350372879,
+          "mean_tangential_traction_norm_MPa": 0.2281104113857453,
+          "mean_axial_shear_signed_MPa": 0.2280664953772497,
+          "df3_traction_norm_lower_bound_MPa": 1.3775764809305484,
+          "df3_tangential_lower_bound_MPa": 0.684331234157236,
+          "df3_axial_shear_MPa": 0.6841994861317492
+        },
+        {
+          "material": "EPOXY_1",
+          "film_angle_deg": 0.0,
+          "side": 1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847799,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "planarity_residual_mm": 0.0,
+          "reaction_N": [
+            -87.74993475894192,
+            106.72242547466074,
+            -98.00055429516104
+          ],
+          "reaction_moment_Nm": [
+            -19.380869119785118,
+            -12.79161113699929,
+            3.4962455077206047
+          ],
+          "mean_traction_norm_lower_bound_MPa": 1.7017393587070417,
+          "mean_normal_traction_signed_MPa": 1.0721472256740223,
+          "mean_tangential_traction_norm_MPa": 1.3215207798033863,
+          "mean_axial_shear_signed_MPa": -0.9845261849583851,
+          "df3_traction_norm_lower_bound_MPa": 5.105218076121125,
+          "df3_tangential_lower_bound_MPa": 3.964562339410159,
+          "df3_axial_shear_MPa": -2.9535785548751554
+        },
+        {
+          "material": "EPOXY_2",
+          "film_angle_deg": 120.0,
+          "side": -1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847795,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.8660254037849385,
+            0.499999999999134,
+            -2.7210224969714288e-14
+          ],
+          "planarity_residual_mm": 6.336167677333457e-11,
+          "reaction_N": [
+            136.78051346488462,
+            -23.52600527262258,
+            -98.9717260735981
+          ],
+          "reaction_moment_Nm": [
+            1.5180006448222254,
+            23.26020594301188,
+            -3.4996347743924443
+          ],
+          "mean_traction_norm_lower_bound_MPa": 1.7124976627694157,
+          "mean_normal_traction_signed_MPa": 1.0718455534114917,
+          "mean_tangential_traction_norm_MPa": 1.3355880182985786,
+          "mean_axial_shear_signed_MPa": -0.9942827016724048,
+          "df3_traction_norm_lower_bound_MPa": 5.137492988308247,
+          "df3_tangential_lower_bound_MPa": 4.0067640548957355,
+          "df3_axial_shear_MPa": -2.982848105017214
+        },
+        {
+          "material": "EPOXY_3",
+          "film_angle_deg": 120.0,
+          "side": 1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847799,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.8660254037830276,
+            0.5000000000024439,
+            -4.425893351983327e-13
+          ],
+          "planarity_residual_mm": 7.288496916308952e-11,
+          "reaction_N": [
+            -35.23020516841425,
+            -19.149005559372398,
+            23.326317743295334
+          ],
+          "reaction_moment_Nm": [
+            3.7185177800161395,
+            -5.634716467169732,
+            1.088850751496817
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.46603306563092556,
+          "mean_normal_traction_signed_MPa": -0.4026966135886496,
+          "mean_tangential_traction_norm_MPa": 0.23456823243054972,
+          "mean_axial_shear_signed_MPa": 0.23433919105973466,
+          "df3_traction_norm_lower_bound_MPa": 1.3980991968927765,
+          "df3_tangential_lower_bound_MPa": 0.7037046972916492,
+          "df3_axial_shear_MPa": 0.703017573179204
+        },
+        {
+          "material": "EPOXY_4",
+          "film_angle_deg": 240.0,
+          "side": -1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847795,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.8660254037823211,
+            -0.500000000003668,
+            3.2264474956861505e-13
+          ],
+          "planarity_residual_mm": 7.516590239301668e-11,
+          "reaction_N": [
+            -1.2276947860148077,
+            -15.671264823892091,
+            0.4983011800731834
+          ],
+          "reaction_moment_Nm": [
+            2.680429625654394,
+            -0.19878324012149576,
+            0.29863031424820863
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.1579972395261497,
+          "mean_normal_traction_signed_MPa": 0.06803657847439804,
+          "mean_tangential_traction_norm_MPa": 0.1425978670506,
+          "mean_axial_shear_signed_MPa": 0.005005997805891354,
+          "df3_traction_norm_lower_bound_MPa": 0.4739917185784491,
+          "df3_tangential_lower_bound_MPa": 0.42779360115180004,
+          "df3_axial_shear_MPa": 0.015017993417674064
+        },
+        {
+          "material": "EPOXY_5",
+          "film_angle_deg": 240.0,
+          "side": 1,
+          "node_count": 263,
+          "source_cad_area_mm2": 99.54083069847799,
+          "plane_normal_sign_convention": "largest absolute component positive, not an outward-orientation claim",
+          "plane_normal": [
+            0.866025403784488,
+            -0.4999999999999147,
+            1.7808914714041377e-13
+          ],
+          "planarity_residual_mm": 5.988497465593981e-11,
+          "reaction_N": [
+            -13.018211199382474,
+            -8.706527282501021,
+            0.44573303993365615
+          ],
+          "reaction_moment_Nm": [
+            1.4802249870212656,
+            -2.232548772894765,
+            -0.3021536732361846
+          ],
+          "mean_traction_norm_lower_bound_MPa": 0.1573995051610707,
+          "mean_normal_traction_signed_MPa": -0.0695276292219342,
+          "mean_tangential_traction_norm_MPa": 0.14121088130780562,
+          "mean_axial_shear_signed_MPa": 0.004477891502471373,
+          "df3_traction_norm_lower_bound_MPa": 0.4721985154832122,
+          "df3_tangential_lower_bound_MPa": 0.4236326439234168,
+          "df3_axial_shear_MPa": 0.013433674507414119
+        }
+      ],
+      "summed_reaction_N": [
+        2.829025902428839e-11,
+        -3.927986824692198e-10,
+        -150.00000000111496
+      ],
+      "global_reaction_crosscheck_difference_N": [
+        1.4404745639026197e-14,
+        -1.8475042188378227e-15,
+        0.0
+      ],
+      "summed_support_moment_Nm": [
+        -3.31254716943993,
+        1.9125000000161818,
+        -4.942046771816422e-12
+      ],
+      "original_reader_force_residual_N": [
+        2.8275854278649363e-11,
+        -3.9279683496500095e-10,
+        -1.1145289136038627e-09
+      ],
+      "original_reader_moment_residual_Nm": [
+        3.5577762957927916e-11,
+        1.5863754754263937e-11,
+        -4.9435415613516276e-12
+      ],
+      "strict_force_status": "pass"
+    }
+  },
+  "after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_support_traction.py": "d99e00662a8d2a535346fff3a792d1ab2a092c3664dcf681f35a927d721fa182",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-elmer-bridge-diagnostic.yaml": "df9b6b333677381b9d28b79da7b051b672ad84fc132ba3abf9f26cea99d94a3c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/native/equal/field_t0001.vtu": "caa4974c113912e85456e6571b9eb732183a5d235b57a41c0d5e9d21bc6155b4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/reviewed-preflight.json": "ff1e1e11cfb2c0112b511d359a49f265d26aceeb5c8e5dadb7bc09bb0d661a69",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115"
+  },
+  "sources_unchanged": true,
+  "prefix_unchanged": true,
+  "runtime_unchanged": true,
+  "cpu_s": 4.152892,
+  "wall_s": 4.190233082976192,
+  "peak_rss_bytes": 814776320
+}

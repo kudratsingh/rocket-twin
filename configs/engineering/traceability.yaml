@@ -3,6 +3,15 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-g80-bridge-support-traction.md
+  scope: Isolated G80 fixed-support face-resultant lower bounds, using recovered Elmer fields.
+  limitation: DF3 average shear exceeds the estimated hot screen; no physical capacity, mixed-mode allowable, convergence or active adoption.
+- path: docs/wo03-bridge-gauss-stress.md
+  scope: Known-case-verified material-local stress postprocessing of two saved coarse G80 fields.
+  limitation: Sampled stresses are not converged; laminate, peel, backing and installed capacity remain unqualified. No G54 or G12 pass.
+- path: docs/wo03-g80-recovery-branch-loads.md
+  scope: Count-once 73-part G80 recovery branch freebodies, canopy above the junction and full growth aft.
+  limitation: Demand bookkeeping only; primary backbone retains full 1782.253 N factored screen and attachments remain undesigned.
 - path: runs/wo03-g80-reciprocity-20261101-v1/record.json
   scope: Read-only reciprocal-work diagnostic of preserved linear bridge responses; large discrepancy remains unexplained.
   limitation: No new solver run or strength credit. Native response pairing fails within print bounds; underlying cause remains unidentified.
@@ -608,6 +617,9 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-bridge-elmer-results.md
+  - docs/wo03-g80-bridge-support-traction.md
+  - docs/wo03-bridge-gauss-stress.md
   - runs/wo03-g80-reciprocity-20261101-v1/record.json
   - runs/wo03-g80-recovery-path-20261101-v1/record.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
@@ -628,8 +640,10 @@ requirements:
   evidence_basis: Exact clipped sections and internal bracing are calculated; G54
     eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint strength remains
     open; ideal strip-end restraints are rejected as load-path proof.
-    The separate G80 actual bridge fails force balance and reciprocal work; raw
-    displacement/stress are unvalidated. Small known cases do not transfer a pass.
+    The original G80 CCX fields fail force/reciprocity. Separate recovered Elmer coarse
+    fields pass those numerical checks, but fixed-support face-average DF3 shear exceeds
+    the estimated hot bond screen. Material-local sampled stresses and refinement remain
+    unqualified for strength; no installed acceptance follows.
 
 - id: RT-LOAD-002
   applies_to: *id001
@@ -836,6 +850,7 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-g80-recovery-branch-loads.md
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
   - runs/wo03-g80-recovery-path-20261101-v1/record.json
   - runs/wo03-g80-backbone-route-20261101-v1/record.json
@@ -1249,9 +1264,12 @@ interfaces:
   power_connectors: Ignition/arming and independent recovery remain separate service
     interfaces.
   unresolved:
+  - Isolated G80 bond-only reverse path exceeds estimated hot shear screen; positive load-path correction remains open
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-g80-bridge-support-traction.md
+  - docs/wo03-bridge-gauss-stress.md
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
   - docs/wo03-package-closure-progress.md
@@ -1585,6 +1603,8 @@ fmea:
     geometry and staged service studies are proposed in docs/wo03-g80-keeper-service.md;
     no active adoption or strength pass follows from nominal restraints.
   residual_risk: Estimated properties and assembly workmanship remain unqualified.
+    The isolated G80 fixed-support mean shear exceeds its provisional hot screen;
+    a positive load-path correction is required before acceptance.
     G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness
     is not zero physical reaction. Installed load paths and later owner proof remain open.
   verification_test: Coupons, pull/bending/bearing, buckling and recovery opening

@@ -1532,3 +1532,31 @@ stops/admissions/outputhashes and restored disabledconfigs remain preserved;
 SINGLE resourcecompliance remains unverified. NativeCPU15.172/14.745 seconds,
 well below120/case; tree/truepeakRSS are unavailable. Current mass/CG/tensor,
 activevehicleCAD and flight predictions are unchanged. WO-03 remains open.
+
+
+## G80 bridge stress and support screen — 2026-11-01
+
+A separately known-case-verified element/Gauss postprocessor recovered local
+stress without projecting it across G11/epoxy interfaces. Raw150 N service
+G11 sampled von Mises maxima85.246/257.346 MPa, film shear maxima1.455/4.418 MPa
+and largest positive film-normal values1.770/8.285 MPa are diagnostic only:
+no laminate, mixed-mode/peel or converged capacity is established. The source
+bridge preflight applies DF3 to demands once; the CAD variable's word“design”
+is ambiguous, and already-factored recovery1782.253 N is a separate case.
+
+Independent support-force/area lower bounds give DF3 tangential values
+3.965/4.007 MPa on two critical SINGLE faces against the estimated1 MPa hot
+shear screen; EQUAL values1.044–1.065 MPa are also adverse. This justifies
+keeping the bond-only candidate unaccepted under the stated model without
+calling local stress peaks converged. [Support record](wo03-g80-bridge-support-traction.md),
+[stress method and evidence](wo03-bridge-gauss-stress.md).
+
+One3 mm mesh pilot stopped on a metadata key-type mismatch after meshing; its
+saved input was checked read-only, not regenerated. The remaining2 mm pilot
+ran once and passed input guards. Together with the saved1.5 mm grid they have
+21341/30384/42850 declared nodes but do not demonstrate uniform regional
+refinement; film normal span remains0.1 mm. They are not a three-grid stress
+convergence result. The physical bridge web remains2 mm in all cases.
+Known B native stress output separately passed its original axial2% and the
+primary-declared full-component2% checks. No further actual-component native
+solve or working-vehicle change occurred in this increment. WO-03 remains open.

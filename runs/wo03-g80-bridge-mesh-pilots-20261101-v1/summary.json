@@ -1,0 +1,39 @@
+{
+  "status": "stopped_before_independent_validation",
+  "error": "regional metrics KeyError: string connectivity key versus integer material key in in-memory adapter metadata",
+  "adapter_preflight_status": "adapter_preflight_passed_no_solver_invoked",
+  "nodes": 21341,
+  "tetrahedra": 10864,
+  "patch_area_mm2": [
+    54.53809824749179,
+    54.53809824749184,
+    54.53809824749185
+  ],
+  "jacobian": {
+    "type": "Gmsh element type 11 / Gauss4",
+    "sample_count": 119504,
+    "minimum_determinant": 0.032486580506550344,
+    "positive_all_samples": true
+  },
+  "independent_input_check": "not reached",
+  "regional_metrics": "not produced",
+  "pilot_2mm": "not launched",
+  "solver_invoked": false,
+  "source_unchanged": true,
+  "physical_source_unchanged": true,
+  "child_wall_s": 2.821218208002392,
+  "child_cpu_accounting": {
+    "child_system_s_delta": 0.118977,
+    "child_user_s_delta": 2.492624,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.005692000000000003,
+    "supervisor_user_s_delta": 0.0038750000000000034
+  },
+  "raw_hashes": {
+    "build/wo03-g80-bridge-mesh-pilots-v1/mesh_3p0/mesh/mesh-meta.json": "ac4ee4bd589917efea2e83897cf500addf83b4f6a23b28c53202da31d1c40ebf",
+    "build/wo03-g80-bridge-mesh-pilots-v1/mesh_3p0/mesh/case.inp": "abfef874ae1ee19ce02e6ff56911f9e823bf4423d8734665ca258fb06301b7c8",
+    "build/wo03-g80-bridge-mesh-pilots-v1/mesh_3p0.log": "b95ddbadc96f84db640a05a680cb752418c1d69712b1bfdc6e63aafcf4faa272",
+    "build/wo03-g80-bridge-mesh-pilots-v1/mesh_3p0-status.json": "b3db6ce3c4ad74888083d2deaf251c72a8b8949b23b176b841bfcd0539239a94",
+    "build/wo03-g80-bridge-mesh-pilots-v1/record.json": "9558c50c7553ed133fb0d4beada2c9a1f98c47e8863bd49ae5bc67e4b9d0b4ba"
+  }
+}
