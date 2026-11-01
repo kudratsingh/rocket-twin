@@ -55,6 +55,10 @@ def test_experiment_real_rollout_and_saved_identity(tmp_path, monkeypatch):
     telemetry = client.get("/api/runs/" + run_id + "/telemetry").json()
     assert len(telemetry["columns"]["time_s"]) > 10
     assert "tilt_deg" in telemetry["columns"]
+    assert telemetry["channel_metadata"]["tilt_deg"]["source"] == "backend-derived"
+    assert telemetry["channel_metadata"]["tilt_deg"]["unit"] == "°"
+    assert telemetry["channel_metadata"]["mass_kg"]["source"] == "recorded-parquet"
+    assert telemetry["channel_metadata"]["mass_kg"]["unit"] == "kg"
     assert telemetry["columns"]["height_ft"][-1] == pytest.approx(
         telemetry["columns"]["height_m"][-1] / 0.3048
     )
@@ -94,3 +98,12 @@ def test_replay_frame_basis():
     displayed = scene_from_ned @ nose_up @ body_from_cad
     np.testing.assert_allclose(displayed @ [0, 1, 0], [0, 1, 0], atol=1e-12)
     assert np.linalg.det(displayed) == 1
+
+
+def test_unknown_telemetry_metadata_never_invents_units_or_semantics():
+    from src.api.experiments import _channel_metadata
+
+    metadata = _channel_metadata({"future_sensor"}, ["future_sensor"])["future_sensor"]
+    assert metadata["source"] == "recorded-parquet"
+    assert metadata["unit"] is None
+    assert metadata["semantic_id"] is None
