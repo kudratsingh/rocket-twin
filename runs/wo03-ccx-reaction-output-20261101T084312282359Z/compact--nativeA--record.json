@@ -1,0 +1,259 @@
+{
+  "projection": "resource samples omitted; exact raw hash retained",
+  "original_sha256": "993dce803cd04ea2df30326acc4aaad207d009dc7fdb45706e05149d3b751114",
+  "record": {
+    "status": "stopped",
+    "authorized_native_cases": [
+      "A",
+      "B"
+    ],
+    "case_C": "unavailable: nonnative input moment failed",
+    "explicit_authorization": "primary authorized A then B from saved v6 decks; overrides nonnative-only proposal for these two cases only",
+    "input_hash_scope": "input files first hashed at admission and checked through copy and execution; no original deck/meta hashes were recorded at v6 generation",
+    "source_before": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_native.py": "af8e65055d77822dc69d3493f2d00fa099d690819e462d2d55e7f5f147000bc9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/wo03-ccx-reaction-fixture/preflight-v6-source.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-reaction-fixture.yaml": "5bf30735dfc34fd79724b1c25d4d067d9760be6e2bfae71b2f27917ec37a1d31",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+    },
+    "cases": [
+      {
+        "case": "A",
+        "status": "stopped",
+        "input_sha256_at_admission": {
+          "case.inp": "09f4efaa1258926c6f376941815240d02eeaff1a0a86201a99c5fac7cc2e7706",
+          "mesh-meta.json": "56bab5106e7949b06c66bcf2c460cc1d38c26d9ec43d99b66c7924c0eb8431e3",
+          "preflight.json": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d"
+        },
+        "solver_invoked": true,
+        "node_count": 574,
+        "tetrahedron_count": 241,
+        "owned_status": {
+          "argv": [
+            "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+            "-c",
+            "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(10,10));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx','-i','case'])"
+          ],
+          "cleanup_errors": [],
+          "cleanup_outcomes": [],
+          "cpu_accounting": {
+            "child_system_s_delta": 0.030462999999999997,
+            "child_user_s_delta": 0.052711999999999995,
+            "children_rusage_sampled_after_reap": true,
+            "supervisor_system_s_delta": 0.0015249999999999986,
+            "supervisor_user_s_delta": 0.0003949999999999926
+          },
+          "error": null,
+          "finished_utc": "2026-11-01T08:07:46.354241+00:00",
+          "guard_failure": null,
+          "historical_descendant_checks": [],
+          "known_descendant_pids": [],
+          "launch_wall_s": 0.0019672909984365106,
+          "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-ab-v1/A/solver.log",
+          "pid": 40664,
+          "returncode": 0,
+          "rss_limit_bytes": 2147483648,
+          "started_utc": "2026-11-01T08:07:46.247870+00:00",
+          "status": "completed",
+          "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-ab-v1/A/owned-status.json",
+          "status_write_error": null,
+          "success": true,
+          "timed_out": false,
+          "total_wall_s": 0.10626929099089466,
+          "wall_limit_s": 30
+        },
+        "native_warning_lines": [],
+        "result": {
+          "status": "failed_or_unavailable",
+          "steps": [
+            {
+              "step": 1,
+              "support_balance": {
+                "applied_force_N": [
+                  0.0,
+                  0.0,
+                  149.99999999999997
+                ],
+                "reaction_force_N": [
+                  -1.0824262637000001e-13,
+                  -8.371632826000001e-14,
+                  -150.00000000000003
+                ],
+                "force_residual_N": [
+                  -1.0824262637000001e-13,
+                  -8.371632826000001e-14,
+                  -5.684341886080802e-14
+                ],
+                "force_residual_norm_N": 1.4817578765978184e-13,
+                "reaction_print_rounding_bound_N": [
+                  4.2404999999999984e-20,
+                  8.510999999999998e-20,
+                  1.2000000000000038e-05
+                ],
+                "force_balance_status": "unavailable_print_precision",
+                "applied_moment_Nmm": [
+                  -7.105427357601002e-15,
+                  -1.4210854715202004e-13,
+                  0.0
+                ],
+                "reaction_moment_Nmm": [
+                  3.907985046680551e-14,
+                  -7.958078640513122e-13,
+                  -6.283932091399998e-13
+                ],
+                "moment_residual_Nmm": [
+                  3.197442310920451e-14,
+                  -9.379164112033322e-13,
+                  -6.283932091399998e-13
+                ],
+                "reaction_moment_print_rounding_bound_Nmm": [
+                  1.2000000000000068e-05,
+                  8.400000000000024e-05,
+                  5.156099999999999e-19
+                ],
+                "moment_balance_status": "reported_not_thresholded"
+              },
+              "free_end": [
+                {
+                  "bar": 0,
+                  "expected_mm": 0.0625,
+                  "max_abs_error_mm": 0.0,
+                  "limit_mm": 0.000625,
+                  "passed": true,
+                  "max_relative_error": 0.0
+                },
+                {
+                  "bar": 1,
+                  "expected_mm": 0.0625,
+                  "max_abs_error_mm": 0.0,
+                  "limit_mm": 0.000625,
+                  "passed": true,
+                  "max_relative_error": 0.0
+                },
+                {
+                  "bar": 2,
+                  "expected_mm": 0.0625,
+                  "max_abs_error_mm": 0.0,
+                  "limit_mm": 0.000625,
+                  "passed": true,
+                  "max_relative_error": 0.0
+                }
+              ],
+              "all_node_RF_sum_N": [
+                -2.869300003285717e-20,
+                2.1360000008776093e-20,
+                1.5834950635152027e-12
+              ],
+              "all_node_RF_interpretation": "raw labeled native output; compare independently with support and applied loads"
+            },
+            {
+              "step": 2,
+              "support_balance": {
+                "applied_force_N": [
+                  0.0,
+                  0.0,
+                  150.0
+                ],
+                "reaction_force_N": [
+                  -1.2073378999999997e-14,
+                  1.535467031e-13,
+                  -150.00000000000003
+                ],
+                "force_residual_N": [
+                  -1.2073378999999997e-14,
+                  1.535467031e-13,
+                  -2.842170943040401e-14
+                ],
+                "force_residual_norm_N": 1.5662103971147525e-13,
+                "reaction_print_rounding_bound_N": [
+                  1.3000000000000025e-05,
+                  1.3000000000000038e-05,
+                  5.300000000000008e-05
+                ],
+                "force_balance_status": "unavailable_print_precision",
+                "applied_moment_Nmm": [
+                  7.105427357601002e-15,
+                  1500.0,
+                  0.0
+                ],
+                "reaction_moment_Nmm": [
+                  -6.856737400084967e-13,
+                  -1500.0000000000011,
+                  -1.3715264721999998e-12
+                ],
+                "moment_residual_Nmm": [
+                  -6.785683126508957e-13,
+                  -1.1368683772161603e-12,
+                  -1.3715264721999998e-12
+                ],
+                "reaction_moment_print_rounding_bound_Nmm": [
+                  5.60000000000002e-05,
+                  0.0004730000000000012,
+                  8.900000000000032e-05
+                ],
+                "moment_balance_status": "reported_not_thresholded"
+              },
+              "free_end": [
+                {
+                  "bar": 0,
+                  "expected_mm": 0.1875,
+                  "max_abs_error_mm": 0.0,
+                  "limit_mm": 0.001875,
+                  "passed": true,
+                  "max_relative_error": 0.0
+                },
+                {
+                  "bar": 1,
+                  "expected_mm": 0.0,
+                  "max_abs_error_mm": 0.0,
+                  "limit_mm": 1e-08,
+                  "passed": true,
+                  "max_relative_error": null
+                },
+                {
+                  "bar": 2,
+                  "expected_mm": 0.0,
+                  "max_abs_error_mm": 0.0,
+                  "limit_mm": 1e-08,
+                  "passed": true,
+                  "max_relative_error": null
+                }
+              ],
+              "all_node_RF_sum_N": [
+                3.690000008486434e-20,
+                -2.190000002445609e-20,
+                1.6429943758745946e-12
+              ],
+              "all_node_RF_interpretation": "raw labeled native output; compare independently with support and applied loads"
+            }
+          ],
+          "solver_invoked_by_reader": false,
+          "moment_status": "reported independently, not thresholded by this reader"
+        },
+        "error": "ValueError: A: force/displacement failed or unavailable"
+      }
+    ],
+    "earlier_setup_cpu": "unavailable for some previous attempts; not zero",
+    "native_packet_cpu_limit_s": 20,
+    "cpu_limit_per_case_s": 10,
+    "wall_limit_per_case_s": 30,
+    "node_and_tet_caps": 5000,
+    "actual_bridge_run": false,
+    "strength_acceptance": false,
+    "error": "ValueError: A: force/displacement failed or unavailable",
+    "source_after": {
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_native.py": "af8e65055d77822dc69d3493f2d00fa099d690819e462d2d55e7f5f147000bc9",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/wo03-ccx-reaction-fixture/preflight-v6-source.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-reaction-fixture.yaml": "5bf30735dfc34fd79724b1c25d4d067d9760be6e2bfae71b2f27917ec37a1d31",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf"
+    },
+    "source_unchanged": true,
+    "B_unavailable_if_not_run": true
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "status": "strict_force_certificate_unavailable_print_precision",
+  "acceptance": false,
+  "flight_ready": false,
+  "native_cases_executed": [
+    "A",
+    "B_separately_authorized_diagnostic",
+    "D_separately_authorized_diagnostic"
+  ],
+  "C": "input_moment_preflight_failed_native_unrun",
+  "actual_bridge_rerun": false,
+  "outcome": "A/B/D observed fields and force sums agree at displayed resolution, strict1e-5N certificates unavailable; no gross simple-material-contrast discrepancy observed; actual bridge cause remainsunidentified",
+  "files": [
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/poisson-prepare-resource-v1.json",
+      "source_sha256": "efbb67444e7afb847ed199a14b3d805734edd16782eedc02bb600298fbf443fe",
+      "bytes": 5182,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--poisson-prepare-resource-v1.json",
+      "archive_sha256": "efbb67444e7afb847ed199a14b3d805734edd16782eedc02bb600298fbf443fe"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/preflight-v4-source.py",
+      "source_sha256": "429047a0bc70808ae3ef89039c908b896b9b49928a463c55a3bb4494d6fccd31",
+      "bytes": 16235,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v4-source.py",
+      "archive_sha256": "429047a0bc70808ae3ef89039c908b896b9b49928a463c55a3bb4494d6fccd31"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/preflight-v4.json",
+      "source_sha256": "ddf9136fe750b319dfb0c430a648e679c0e4f1bf123ebe629e0082b6c5540d57",
+      "bytes": 865,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v4.json",
+      "archive_sha256": "ddf9136fe750b319dfb0c430a648e679c0e4f1bf123ebe629e0082b6c5540d57"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/preflight-v5.json",
+      "source_sha256": "816c7f084e786e9d7e6bc8228ac861eed22950688586976e44dc4ff1361eee58",
+      "bytes": 876,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v5.json",
+      "archive_sha256": "816c7f084e786e9d7e6bc8228ac861eed22950688586976e44dc4ff1361eee58"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/preflight-v6-record.json",
+      "source_sha256": "fa7039629acab400092161ef841ff266c61312a194013b3d73682738c3c4e132",
+      "bytes": 3181,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-record.json",
+      "archive_sha256": "fa7039629acab400092161ef841ff266c61312a194013b3d73682738c3c4e132"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/preflight-v6-source.py",
+      "source_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "bytes": 20621,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-source.py",
+      "archive_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/stopped-v0/wo03_ccx_reaction_fixture.py",
+      "source_sha256": "d83f0a9fd70b43f39e8933f27356e7c6b558a7243cad44040f276eafcea7124e",
+      "bytes": 15916,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--stopped-v0--wo03_ccx_reaction_fixture.py",
+      "archive_sha256": "d83f0a9fd70b43f39e8933f27356e7c6b558a7243cad44040f276eafcea7124e"
+    },
+    {
+      "source": ".cache/wo03-ccx-reaction-fixture/stopped-v1/wo03_ccx_reaction_fixture.py",
+      "source_sha256": "b3a5ac65cb3d6973daf8af34588e1d48c1f72b00dee632656bc8b59410a690eb",
+      "bytes": 15916,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--stopped-v1--wo03_ccx_reaction_fixture.py",
+      "archive_sha256": "b3a5ac65cb3d6973daf8af34588e1d48c1f72b00dee632656bc8b59410a690eb"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-a/preflight.json",
+      "source_sha256": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d",
+      "bytes": 575,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/preA--preflight.json",
+      "archive_sha256": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-b/preflight.json",
+      "source_sha256": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d",
+      "bytes": 575,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/preA--preflight.json",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/owned-status.json",
+      "source_sha256": "b9d7997473fb5c7c69657180815fc989cf50cf093f96b88ee5918d323fc878e1",
+      "bytes": 2142,
+      "projection": true,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/compact--nativeA--A--owned-status.json",
+      "archive_sha256": "ccb2732a825437a74aacfc9004e6f2eccad29e43219092464524132c3a426737"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/preflight.json",
+      "source_sha256": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d",
+      "bytes": 575,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/preA--preflight.json",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/solver.log",
+      "source_sha256": "f6a096d2b9590358b372c096b1ed328f6b59f5500050a8059521e9675de34c7b",
+      "bytes": 2772,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--A--solver.log",
+      "archive_sha256": "f6a096d2b9590358b372c096b1ed328f6b59f5500050a8059521e9675de34c7b"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/executed-preflight-v6-source.py",
+      "source_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "bytes": 20621,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-source.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/executed-wo03-ccx-reaction-fixture.yaml",
+      "source_sha256": "5bf30735dfc34fd79724b1c25d4d067d9760be6e2bfae71b2f27917ec37a1d31",
+      "bytes": 1366,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03-ccx-reaction-fixture.yaml",
+      "archive_sha256": "5bf30735dfc34fd79724b1c25d4d067d9760be6e2bfae71b2f27917ec37a1d31"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/executed-wo03_ccx_reaction_fixture.py",
+      "source_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "bytes": 20621,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-source.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/executed-wo03_ccx_reaction_native.py",
+      "source_sha256": "af8e65055d77822dc69d3493f2d00fa099d690819e462d2d55e7f5f147000bc9",
+      "bytes": 7840,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_ccx_reaction_native.py",
+      "archive_sha256": "af8e65055d77822dc69d3493f2d00fa099d690819e462d2d55e7f5f147000bc9"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/executed-wo03_g80_bridge_fea.py",
+      "source_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "bytes": 66698,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_g80_bridge_fea.py",
+      "archive_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/executed-wo03_owned_process.py",
+      "source_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "bytes": 24573,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_owned_process.py",
+      "archive_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/record.json",
+      "source_sha256": "993dce803cd04ea2df30326acc4aaad207d009dc7fdb45706e05149d3b751114",
+      "bytes": 11934,
+      "projection": true,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/compact--nativeA--record.json",
+      "archive_sha256": "48caf20a6451edeb6156935842ba05842f94de1f7ff7ee6dd01c79d057e74bc1"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/owned-status.json",
+      "source_sha256": "27095bec9a97a0781c3d25e1fe960e106ac86805a23a2d0f3de169992a7aac32",
+      "bytes": 2139,
+      "projection": true,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/compact--nativeB--B--owned-status.json",
+      "archive_sha256": "855c4aa11efae83bd0eb0fd29afa298df8af7b47e2ca6b431cb1fa63c889e2a0"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/preflight.json",
+      "source_sha256": "4a8bbf3aab77092e35c4d8b5f59fc74fae2ee3ca12f19d5039e93b020353843d",
+      "bytes": 575,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/preA--preflight.json",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/solver.log",
+      "source_sha256": "6c12da680dc3486c818d9a7d9e49ef5556f6afec8ea8ed8a7309ce2d03067de8",
+      "bytes": 2772,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeB--B--solver.log",
+      "archive_sha256": "6c12da680dc3486c818d9a7d9e49ef5556f6afec8ea8ed8a7309ce2d03067de8"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/executed-preflight-v6-source.py",
+      "source_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "bytes": 20621,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-source.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/executed-wo03-ccx-reaction-fixture.yaml",
+      "source_sha256": "5bf30735dfc34fd79724b1c25d4d067d9760be6e2bfae71b2f27917ec37a1d31",
+      "bytes": 1366,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03-ccx-reaction-fixture.yaml",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/executed-wo03_ccx_reaction_b_diagnostic.py",
+      "source_sha256": "4a1bca113a878795c54e57b36fc01e4620d89182b3919c75d048f7dc8189df62",
+      "bytes": 7686,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeB--executed-wo03_ccx_reaction_b_diagnostic.py",
+      "archive_sha256": "4a1bca113a878795c54e57b36fc01e4620d89182b3919c75d048f7dc8189df62"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/executed-wo03_ccx_reaction_fixture.py",
+      "source_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "bytes": 20621,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-source.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/executed-wo03_g80_bridge_fea.py",
+      "source_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "bytes": 66698,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_g80_bridge_fea.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/executed-wo03_owned_process.py",
+      "source_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "bytes": 24573,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_owned_process.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/record.json",
+      "source_sha256": "9e3609f22a3f8ccd5d153867130de72b4d2fed598e13f1ac3d547840ba2adbca",
+      "bytes": 11244,
+      "projection": true,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/compact--nativeB--record.json",
+      "archive_sha256": "afeccc89682d073acceea1448a71948762f6c7d211c8a322cfc7757052594f22"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-diagnostic-v1/preflight.json",
+      "source_sha256": "618fd18ad23536aefe490ac6262ea8c34e3337af97b25defc621792f4c156b6e",
+      "bytes": 4706,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/preD--preflight.json",
+      "archive_sha256": "618fd18ad23536aefe490ac6262ea8c34e3337af97b25defc621792f4c156b6e"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/owned-status.json",
+      "source_sha256": "34e044501b64e519ca50c57254482f1077978a0678b2f8b46a7eacfcb0b47462",
+      "bytes": 2115,
+      "projection": true,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/compact--nativeD--D--owned-status.json",
+      "archive_sha256": "101d070edd4360e1e701219e38e5cee6e77c472d0797d7ee80575ce70af4545f"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/preflight.json",
+      "source_sha256": "618fd18ad23536aefe490ac6262ea8c34e3337af97b25defc621792f4c156b6e",
+      "bytes": 4706,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/preD--preflight.json",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/solver.log",
+      "source_sha256": "eedeb7a0305699c3013746bbc5ecb6d168951ef5796f343205bb5e8369526bdf",
+      "bytes": 2768,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeD--D--solver.log",
+      "archive_sha256": "eedeb7a0305699c3013746bbc5ecb6d168951ef5796f343205bb5e8369526bdf"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/executed-wo03-ccx-poisson-diagnostic.yaml",
+      "source_sha256": "eb43298dc3718c809f68fd11f64addb0afa3810cb489785d34672e74316b459d",
+      "bytes": 944,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeD--executed-wo03-ccx-poisson-diagnostic.yaml",
+      "archive_sha256": "eb43298dc3718c809f68fd11f64addb0afa3810cb489785d34672e74316b459d"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/executed-wo03_ccx_poisson_diagnostic.py",
+      "source_sha256": "6202a3d77645aad3737150e5ea676301bf163cfc80e3cfdca79c5e459ac036a8",
+      "bytes": 12124,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeD--executed-wo03_ccx_poisson_diagnostic.py",
+      "archive_sha256": "6202a3d77645aad3737150e5ea676301bf163cfc80e3cfdca79c5e459ac036a8"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/executed-wo03_ccx_poisson_native.py",
+      "source_sha256": "f76cd20befe9e1e09d733fbcc78df22f9bc05ae861f32b0290262cc23ea47bb1",
+      "bytes": 9759,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeD--executed-wo03_ccx_poisson_native.py",
+      "archive_sha256": "f76cd20befe9e1e09d733fbcc78df22f9bc05ae861f32b0290262cc23ea47bb1"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/executed-wo03_ccx_reaction_fixture.py",
+      "source_sha256": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+      "bytes": 20621,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/setup--preflight-v6-source.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/executed-wo03_g80_bridge_fea.py",
+      "source_sha256": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+      "bytes": 66698,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_g80_bridge_fea.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/executed-wo03_owned_process.py",
+      "source_sha256": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+      "bytes": 24573,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/nativeA--executed-wo03_owned_process.py",
+      "duplicate_bytes": true
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/record.json",
+      "source_sha256": "004be0e7270a97748d52d3c653fce3810c6b9c08342e8f15fce953a50800976b",
+      "bytes": 14117,
+      "projection": true,
+      "archive": "runs/wo03-ccx-reaction-output-20261101T084312282359Z/compact--nativeD--record.json",
+      "archive_sha256": "ebbeaa380b4e4e07d15a4a11fe73c0a0529ef03a7aad695ce0c578cc2a3350e6"
+    }
+  ],
+  "excluded_bulk": [
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-a/case.inp",
+      "source_sha256": "09f4efaa1258926c6f376941815240d02eeaff1a0a86201a99c5fac7cc2e7706",
+      "bytes": 23936,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-a/mesh-meta.json",
+      "source_sha256": "56bab5106e7949b06c66bcf2c460cc1d38c26d9ec43d99b66c7924c0eb8431e3",
+      "bytes": 47474,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp",
+      "source_sha256": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+      "bytes": 25193,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json",
+      "source_sha256": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "bytes": 49116,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-c/case.inp",
+      "source_sha256": "ef311a978612163c0d0a7e6c944fb123ee8c91c147d568a8a7e3195ee2868f02",
+      "bytes": 161097,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-fixture-preflight-v6-c/mesh-meta.json",
+      "source_sha256": "460f61e953cd427185360e49f63fc1f39b2fb917d6ce5419a5a5ff2ed5d9812b",
+      "bytes": 230497,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/case.dat",
+      "source_sha256": "d84052d8f741ea8e31c85e60ece50a72fed1836728151e7d1d193d8cb833371f",
+      "bytes": 126370,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/case.frd",
+      "source_sha256": "9ce17fb69367ebeef4add2bdcdf5d3720c0063371551833a76386125aca37877",
+      "bytes": 61721,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/case.inp",
+      "source_sha256": "09f4efaa1258926c6f376941815240d02eeaff1a0a86201a99c5fac7cc2e7706",
+      "bytes": 23936,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-ab-v1/A/mesh-meta.json",
+      "source_sha256": "56bab5106e7949b06c66bcf2c460cc1d38c26d9ec43d99b66c7924c0eb8431e3",
+      "bytes": 47474,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/case.dat",
+      "source_sha256": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+      "bytes": 130398,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/case.frd",
+      "source_sha256": "eaa4fc9535fb320b2fdf018fd5981101aa8bf6d2a38b730fce511dc0a32bd5ca",
+      "bytes": 64473,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/case.inp",
+      "source_sha256": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+      "bytes": 25193,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-reaction-native-b-diagnostic-v1/B/mesh-meta.json",
+      "source_sha256": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "bytes": 49116,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-diagnostic-v1/case.inp",
+      "source_sha256": "c6f8c6d365b11e557c213954cc64b6f62c752f661fc516ac92e13951b5e22fc9",
+      "bytes": 25207,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-diagnostic-v1/mesh-meta.json",
+      "source_sha256": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "bytes": 49116,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/case.dat",
+      "source_sha256": "fa0b8b6a45e547e5383ad926fb4861c97547b5b751c98e9ff2303a70aa1b3f76",
+      "bytes": 130398,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/case.frd",
+      "source_sha256": "65b3cca1d67225ed2330c782901074c7da98356147da30e938b601578f6f28ee",
+      "bytes": 64473,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/case.inp",
+      "source_sha256": "c6f8c6d365b11e557c213954cc64b6f62c752f661fc516ac92e13951b5e22fc9",
+      "bytes": 25207,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    },
+    {
+      "source": "build/wo03-ccx-poisson-native-d-v1/D/mesh-meta.json",
+      "source_sha256": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+      "bytes": 49116,
+      "reason": "generated mesh/deck/native fields remain local; generator and input-admission hashes archived"
+    }
+  ],
+  "setup_cpu_unavailable_for_early_stops": true
+}

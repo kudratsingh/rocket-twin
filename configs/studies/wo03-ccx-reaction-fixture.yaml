@@ -1,0 +1,31 @@
+version: wo03-ccx-reaction-fixture-v1
+status: nonnative_preflight_only
+solver: /opt/homebrew/bin/ccx
+solver_sha256: 2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf
+gmsh_version: 4.15.2
+cases:
+  A: {geometry: three_flat_4x4x20_mm, elastic_E_MPa: 1000, poisson: 0}
+  B: {geometry: three_flat_4x4x20_mm_two_conformal_axial_layers, layer_E_MPa: [100, 10000], poisson: 0}
+  C: {geometry: three_annular_R3_r1p5_x20_mm_two_conformal_axial_layers, layer_E_MPa: [100, 10000], poisson: 0}
+bar_centers_x_mm: [-10, 0, 10]
+step_bar_loads_N: [[50, 50, 50], [150, 0, 0]]
+expected_total_applied_force_N: [0, 0, 150]
+expected_applied_moments_Nmm: [[0, 0, 0], [0, 1500, 0]]
+node_and_tetrahedron_cap_each: 5000
+preflight_cpu_cap_s: 10
+preflight_wall_cap_s: 30
+native_case_cpu_cap_s: 10
+native_case_wall_cap_s: 30
+maximum_native_cases: 3
+native_execution_authorized: false
+force_balance_strict_absolute_N: 1.0e-5
+relative_displacement_tolerance: 0.01
+moment_check: independent_applied_and_support_resultants_report_rounding
+one_worker_requested: true
+stop_on_first_native_failure: true
+unloaded_bar_abs_displacement_tolerance_mm: 1.0e-8
+native_force_unavailable_print_precision_is_pass: false
+case_A_nonnative_preflight: passed
+case_B_nonnative_preflight: passed
+case_C_nonnative_preflight: failed_unresolved_curved_surface_applied_moment
+case_C_execution_ready: false
