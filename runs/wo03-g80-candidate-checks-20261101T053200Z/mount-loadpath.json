@@ -1,0 +1,215 @@
+{
+  "status": "geometry_and_conditional_screens_complete_not_qualified",
+  "candidate_identity": "0a1ad4c196e7bbd046704199e99bad1f6649bc237c3c07b0e4f26118d4572c4b",
+  "source_sha256_before": {
+    "configs/studies/wo03-g80-mount-loadpath.yaml": "5a045e942158aaf95537dfb39fbe37674b158eda79b8c2ef102419811968cd2b",
+    "scripts/wo03_g80_mount_loadpath.py": "e08996731a60beb52dc85a9898038189fe6fad439d4f71ef0a0935610cc4a8ac",
+    "build/wo03-g80-fit-candidate-v1/candidate-record-io-replan.json": "43497e366ff62f2d984b0432e219bfc1405bb36b8b111b3f17bd65daf8638645",
+    "build/wo03-g80-fit-candidate-v1/resolved-candidate-io-replan.yaml": "d1eff464e1f3dcfedebeaa0fa31ca78a2a002d51f666768232da97a2e767b450",
+    "build/wo03-g80-fit-candidate-v1/motor-mount-candidate-io-replan.step": "eba71395ec1823c3f0fa579eea7a52898673cbd975c22f3769b3785851c35cde",
+    "build/modular-performance-v1/manifest.json": "05caeae43ab74b154a063f68e5744feabe52a4e9ce0dd2774c2b17a72432e83e",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "build/modular-performance-v1/parts/aft_shell.step": "d2c500d1ab79117a7c775e14f0087a03f6dab1504b64e2dea7d55b6160e2b99d",
+    "build/modular-performance-v1/parts/retention.step": "8977f24eb07b9bf150fba5a865d6a6143a793cf27620e12f16a21027bafefe29",
+    "build/modular-performance-v1/parts/aft_retainer.step": "9249c467fd8f93c1d0499b033c7578e8c01103dc2241fd9309dd7e236a400934",
+    "build/modular-performance-v1/parts/thrust_pads.step": "c6bc1fbc53129ef93ed1cb57c6cd3ebabf0cc6fa9eef3b4a9e9bd08ff102a41c"
+  },
+  "source_sha256_after": {
+    "configs/studies/wo03-g80-mount-loadpath.yaml": "5a045e942158aaf95537dfb39fbe37674b158eda79b8c2ef102419811968cd2b",
+    "scripts/wo03_g80_mount_loadpath.py": "e08996731a60beb52dc85a9898038189fe6fad439d4f71ef0a0935610cc4a8ac",
+    "build/wo03-g80-fit-candidate-v1/candidate-record-io-replan.json": "43497e366ff62f2d984b0432e219bfc1405bb36b8b111b3f17bd65daf8638645",
+    "build/wo03-g80-fit-candidate-v1/resolved-candidate-io-replan.yaml": "d1eff464e1f3dcfedebeaa0fa31ca78a2a002d51f666768232da97a2e767b450",
+    "build/wo03-g80-fit-candidate-v1/motor-mount-candidate-io-replan.step": "eba71395ec1823c3f0fa579eea7a52898673cbd975c22f3769b3785851c35cde",
+    "build/modular-performance-v1/manifest.json": "05caeae43ab74b154a063f68e5744feabe52a4e9ce0dd2774c2b17a72432e83e",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "build/modular-performance-v1/parts/aft_shell.step": "d2c500d1ab79117a7c775e14f0087a03f6dab1504b64e2dea7d55b6160e2b99d",
+    "build/modular-performance-v1/parts/retention.step": "8977f24eb07b9bf150fba5a865d6a6143a793cf27620e12f16a21027bafefe29",
+    "build/modular-performance-v1/parts/aft_retainer.step": "9249c467fd8f93c1d0499b033c7578e8c01103dc2241fd9309dd7e236a400934",
+    "build/modular-performance-v1/parts/thrust_pads.step": "c6bc1fbc53129ef93ed1cb57c6cd3ebabf0cc6fa9eef3b4a9e9bd08ff102a41c"
+  },
+  "fixtures_mm2": {
+    "full": 99.99999999999999,
+    "half": 49.99999999999999,
+    "positive_gap": 0.0
+  },
+  "flank": {
+    "rail_area_mm2": 115.08533868788348,
+    "plate_area_mm2": 115.08533868788999,
+    "one_pair_projected_area_mm2": 115.08533868788348,
+    "six_pair_projected_area_mm2": 690.5120321273009,
+    "physical_gap_mm": 0.2,
+    "actual_adhesive_presence_and_coverage": "unavailable",
+    "hypothetical_full_area_shear_MPa": 0.1702070268608042,
+    "hypothetical_full_area_DF3_shear_MPa": 0.5106210805824126
+  },
+  "last_ring": {
+    "mount_surface_area_mm2": 541.1141828060764,
+    "shell_surface_area_mm2": 546.771665062155,
+    "radii_mm": [
+      32.2,
+      32.5
+    ],
+    "physical_gap_mm": 0.3,
+    "nominal_angular_paired_extent_rad": 5.60159609530051,
+    "actual_adhesive_presence_and_coverage": "unavailable"
+  },
+  "shell": {
+    "slotted_section_area_mm2": 91.91436173964095,
+    "hypothetical_117_53N_full_section_average_MPa": 1.278690269676447,
+    "hypothetical_DF3_average_MPa": 3.8360708090293416,
+    "note": "Entire thrust assumed carried axially at this station solely for sensitivity; actual reaction distribution and branch sharing unknown."
+  },
+  "force_assumptions": {
+    "forward_thrust_N": 117.53,
+    "three_equal_shares_N": 39.17666666666667,
+    "factor": 3.0,
+    "reverse_N": 150,
+    "three_equal_reverse_shares_N": 50
+  },
+  "candidate_support": {
+    "configuration_id": "modular-performance-v1",
+    "mode": "performance",
+    "thrust_n": 117.53,
+    "reverse_load_n": 150.0,
+    "design_factor": 3.0,
+    "acceptance_closed": false,
+    "flight_ready": false,
+    "forward_path": "motor case shoulder -> mica sector pads -> fixed G11 thrust plate or TVC integral G11 stop -> rails -> fixed shell joints or radial screws into inner gimbal -> pivots/frame",
+    "reverse_path": "motor case aft closure -> retainer/cap -> three M3 blocks/bolts -> fixed frame or TVC cassette",
+    "screens": {
+      "rails": {
+        "mount_id": "motor_mount",
+        "generator": "mount",
+        "rail_count": 3,
+        "rail_cross_section_mm": [
+          7.0,
+          12.0
+        ],
+        "net_single_rail_section_area_mm2": 45.236543826501766,
+        "channel_net_section": {
+          "cut_center_radius_mm": 30.0,
+          "cut_radial_depth_mm": 6.4,
+          "cut_tangential_width_mm": 7.3,
+          "net_single_rail_section_area_mm2": 45.236543826501766,
+          "net_single_rail_inertias_mm4": {
+            "axis_x": 817.173738701097,
+            "axis_y": 187.44117966304475
+          },
+          "outer_cylinder_trim_radius_mm": 32.2,
+          "method": "Net rail section includes the actual fin channel and optional cylindrical OD trim, integrated by section moments. Omits notch concentration and uncertain local plate/ring restraint."
+        },
+        "rail_total_area_m2": 0.0001357096314795053,
+        "rail_axial_stress_pa": 866040.226612429,
+        "rail_axial_margin_cold": 2.8489359164895576,
+        "rail_axial_margin_hot_half_strength": 0.9244679582447788,
+        "support_stations_m": [
+          0.0,
+          0.09000000000000007,
+          0.16700000000000018,
+          0.19000000000000017
+        ],
+        "maximum_assumed_unsupported_span_m": 0.09000000000000007,
+        "weak_axis_inertia_m4": 1.8744117966304476e-10,
+        "single_rail_pinned_euler_load_n": 456.7827880858678,
+        "forward_rail_euler_margin_cold": 2.8865207869128544,
+        "forward_rail_euler_margin_hot_E_half": 0.9432603934564272,
+        "youngs_modulus_pa": 2000000000.0,
+        "strength_screen_pa": 10000000.0,
+        "method": "Equal forward load share over 3 configured load-bearing rail(s); weakest net rectangular-axis Euler column. Fixed mount uses configured ring stations as lateral supports. TVC cassette assumes rail support at the integral fore stop, grip collar and aft blocks; the longest inter-support span governs. Actual rail restraint is uncertain."
+      },
+      "thrust_plate_and_pads": {
+        "plate_id": "retention",
+        "plate_station_m": 1.06,
+        "plate_thickness_m": 0.009000000000000001,
+        "outer_radius_m": 0.032,
+        "inner_radius_m": 0.012,
+        "rail_slot_count_assumed": 3,
+        "rail_slot_footprint_area_m2": 0.00027528,
+        "nominal_slot_footprint_average_pressure_pa": 426947.1083987213,
+        "pad_total_area_m2": 4.753229684881356e-05,
+        "pad_active_area_m2": 4.7532296848813554e-05,
+        "active_pad_count_assumption": 3,
+        "pad_average_compression_pa": 2472634.562007993,
+        "pad_compression_provisional_capacity_pa": 20000000.0,
+        "pad_margin_design_factor_3": 1.6961795200552232,
+        "plate_sector_cantilever_bending_pa": 5542364.581211986,
+        "plate_bending_margin_cold_material_screen": 2.007140079374218,
+        "plate_bending_margin_hot_half_strength": 0.503570039687109,
+        "plate_bending_strength_estimate_pa": 50000000.0,
+        "method": "Independent radial sector-strip cantilevers from pad edge to outer radius; circumferential ring action omitted. Active pad count reflects the stated support geometry assumption. The fixed notched-slot result is a footprint-average pressure only, not a verified bearing contact area; actual sidewall/base contact and local stress require resolved contact geometry."
+      },
+      "reverse_retainer": {
+        "cap_id": "aft_retainer",
+        "reverse_case_load_n": 150.0,
+        "fastener_count_assumed": 3,
+        "hardware_envelope_id": "retention_hardware",
+        "hardware_estimated_mass_kg": 0.007,
+        "M3_screw_shank_lengths_mm": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "individual_fastener_load_n": 50.0,
+        "hole_or_shank_diameter_m": 0.0034,
+        "M3_nominal_diameter_m": 0.003,
+        "nominal_M3_tensile_area_m2": 5.03e-06,
+        "nominal_M3_tensile_stress_pa": 9940357.852882704,
+        "thread_engagement_m_assumed": null,
+        "captive_nut_pocket_present": true,
+        "G11_thread_cylinder_area_m2": null,
+        "G11_thread_shear_stress_pa": null,
+        "G11_thread_cylinder_margin_DF3": null,
+        "G11_thread_cylinder_margin_DF3_hot": null,
+        "block_cross_section_area_m2": 0.000144,
+        "block_cross_section_average_stress_pa": 347222.2222222222,
+        "block_cross_section_margin_DF3_cold": 8.600000000000001,
+        "block_cross_section_margin_DF3_hot_half_strength": 3.8000000000000007,
+        "plywood_strength_screen_pa": 10000000.0,
+        "method": "Equal load share across configured blocks/bolts. Nominal M3 tensile area is a bolt-demand indicator only. Fixed-mode captive-nut pockets are assumed from CAD; nut grade/retention and plywood block bearing are unverified. TVC G11 tapped-thread stripping uses a simple cylindrical shear-area hypothesis. Washer bearing, pocket breakout, block splitting, edge distance and eccentricity are unverified."
+      },
+      "fixed_mount_bond_proxy": {
+        "assumed_bond_area_m2": 0.000606955700673548,
+        "average_shear_pa": 193638.51409513934,
+        "strength_screens_pa": {
+          "cold": 2000000.0,
+          "hot": 1000000.0
+        },
+        "margin_DF3_cold": 2.4428412642079924,
+        "margin_DF3_hot": 0.7214206321039962,
+        "method": "A single 360-degree bond around the last mount ring is assumed; neither bond gap/land nor actual plywood-to-shell joint is modeled as a verified connection."
+      },
+      "fixed_thrust_plate_bond_sensitivities": {
+        "slot_sidewall_bond_area_m2_assumed": 0.0006696,
+        "bond_finger_count": 6,
+        "bond_finger_clipped_radial_contact_width_mm": 6.2,
+        "bond_finger_geometry_clip_width_mm": 6.393629927104637,
+        "bond_finger_length_mm": 18.0,
+        "slot_sidewall_average_shear_pa": 175522.70011947432,
+        "outer_plate_to_shell_bond_area_m2_assumed": 0.0018095573684677212,
+        "outer_plate_to_shell_average_shear_pa": 64949.58493607797,
+        "cold_epoxy_shear_screen_pa_estimated": 2000000.0,
+        "hot_epoxy_shear_screen_pa_estimated": 1000000.0,
+        "slot_margin_DF3_cold": 2.798179188292351,
+        "slot_margin_DF3_hot": 0.8990895941461754,
+        "outer_bond_margin_DF3_cold": 9.264371470930664,
+        "outer_bond_margin_DF3_hot": 4.132185735465332,
+        "method": "Fixed six-finger estimate uses clipped radial contact width times 18 mm axial finger length for each slot flank, and a full circumferential plate OD bond over 9 mm web thickness. Adhesive geometry is not modeled; 0.2 mm flank gaps, peel, termination, wetting, cure and actual load split remain unresolved. Uniform-shear sensitivity only."
+      }
+    },
+    "unresolved": [
+      "Exact motor case front shoulder/nozzle 24 mm opening geometry and closure capture are supplier dependencies.",
+      "Properties are preliminary estimates, not material or joint allowables; no physical proof test is represented.",
+      "Contact, local stress concentrations, manufacturing tolerances and assembly preload are not solved."
+    ]
+  },
+  "elapsed_s": 2.0655275419994723,
+  "resource_self": {
+    "user_s": 4.014408,
+    "system_s": 0.534435,
+    "peak_rss_bytes_macos": 438370304
+  },
+  "threading": "OCCT default pool 1 and one worker requested; no OS affinity claimed",
+  "actual_bond_stiffness": "unavailable",
+  "acceptance": false,
+  "flight_ready": false
+}

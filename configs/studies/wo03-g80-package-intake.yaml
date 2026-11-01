@@ -1,0 +1,26 @@
+version: wo03-g80-package-intake-v1
+status: intake_only_no_adoption
+configuration: configs/vehicle/platform/performance.yaml
+shared_upper: configs/vehicle/platform/common-upper.yaml
+resolved_spec_sha256: c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e
+cad_revision_sha256: 1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b
+saved_cad_record: runs/wo03-20261031T034832494277Z/record.json
+part_count: 42
+loaded_mass_kg: 0.739462164600174
+growth_allowance_kg: 0.05
+minimum_static_margin_cal: 1.314793
+guide_length_m: 1.5
+guide_exit_target_m_s: 15.0
+historical_fit:
+  record: runs/wo03-tolerances-20261030T205656390867Z/record.json
+  resolved_spec_sha256: c5eab65c97604f6bf6605bf2dff6369c48a62e3d04c808e7ba291489d762ab09
+  interface: aft_shell_inner_radius_to_motor_mount_outer_radius
+  in_domain_minimum_mm: 0.02093
+  required_minimum_mm: 0.1
+  current_identity_result: unavailable
+sequence:
+- Verify the exact current radial stack and develop one fixed-frame fit-correction copy.
+- Evaluate the same copy's support, retention, installed-fin and recovery load paths.
+- Qualify the thermal method and revalidate one complete package.
+acceptance: open
+flight_ready: false

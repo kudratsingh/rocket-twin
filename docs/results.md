@@ -1236,3 +1236,50 @@ Evidence: [compact record](../runs/wo03-root-contact-correction-20261101T0125478
 [actual contact areas](wo03-root-contact-faces.md),
 [corrected sensitivity](wo03-clipped-foot-contact.md). Installed capacity,
 foundation, recovery/thermal integration and flutter remain open WO-03 items.
+
+
+## 2026-10-31 continuation: closed thermal campaign and selected G80 checks
+
+The [Elmer campaign decision](wo03-elmer-campaign-decision.md) closes the declared
+small-test campaign: the tool builds/runs, but A fails the unchanged 1e-7 K
+known-field checks, refinement is nonmonotonic and complete heat/conservation
+and actual-geometry coverage remain unavailable. Neither solver qualifies the
+real baffle. Required thermal cases and 45°C substrate screen are unchanged.
+
+The separate [32.2 mm G80 mount candidate](wo03-g80-fit-candidate.md) passes the
+cold and in-domain radial stack at 0.150/0.12102 mm against 0.1 mm; its
+out-of-domain component-hot sensitivity fails and is retained. The 4.620 g
+incremental-annulus upper budget gives 743.804 g loaded, plus a separate full
+50 g growth reserve. Actual last-ring surface is 541.114 mm² rather than the
+old 606.956 mm² proxy; adhesive coverage, ring/rail/body sharing and retention
+remain open. [Load-path evidence](wo03-g80-mount-loadpath.md).
+
+[Candidate flight/reference](wo03-g80-candidate-flight.md) passes nominal
+apogee/time comparison (633.432 vs 633.392 m) and guide departure in the three
+explicit cases (19.574/17.068/19.834 m/s vs 15). Full-growth loaded passive
+margin is 1.2911 calibres, with growth at 1.212 m. Recovery is incomplete at
+45 s. Saved-flight [forward shell cut bounds](wo03-g80-axial-flight-bounds.md)
+are 1.479/1.158/1.643 MPa maximum sampled uniform DF3 stress, below the
+estimated 2 MPa screen under their near-vertical assumptions. These exclude
+local joint stress, shell buckling and material qualification; they are not
+complete structural acceptance. No active vehicle/CAD or physical/flight gate
+changed, and no G54/G12 finding is cleared by the G80 evidence.
+
+The [early preview delivery](wo04-preview-delivery.md) records actual designated
+Chrome checks after restart: all four configurations, actual geometry, saved
+replay/comparison and unavailable incompatible Analysis. No engine migration.
+
+
+### Same-package G80 follow-through
+
+The [52-part integrated proposal](wo03-g80-integrated-candidate.md) combines
+that mount correction with the existing recovery packaging and regenerates
+normal CAD caches. Exact identity is `62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009`.
+Mass is **748.569 g + separate 50 g**, growth CG **818.503 mm**, margin
+**1.3278 calibres**. Independent preliminary static comparison passes. Its own
+[flight comparison](wo03-g80-integrated-flight.md), rather than borrowed
+mount-only results, gives **631.216 m JAX / 631.249 m RocketPy** and conservative
+guide exit **16.955 m/s**, exceeding 15 m/s. Recovery remains incomplete at
+45 s. Three named envelope-contact overlaps are unresolved; no physical fit,
+installed load path, fin flutter or thermal acceptance follows. Separate
+STEP/GLB exports preserve the working vehicle and preview unchanged.

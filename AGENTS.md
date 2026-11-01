@@ -6,6 +6,15 @@ validation benchmarks. The project is currently in WO-03, expanded by ADR-0007 t
 structural, thermal and tolerance/motion analysis. Expanded WO-03 acceptance
 remains open.
 
+The owner's latest delivery priority is one complete conventional fixed-motor
+G80 engineering package first (ADR-0011). Preserve substantial custom building,
+maximum practical performance and committed PID-to-RL development. G54 upgrade
+and G12 controls remain separate committed tracks. G80-specific evidence never
+clears their findings or aggregate WO-03 acceptance. Deliver the saved early
+frontend preview under ADR-0009; do not rebuild it or change graphics engines.
+Report outcomes, blockers, next bounded deliverable/stop condition and required
+owner input. Ordinary local fixes and focused PR/check/merge work remain autonomous.
+
 The owner's 2026-10-31 continuation uses `docs/wo03-closure-plan.md`: isolate
 thermal errors on known cases, qualify actual geometry or justified bounds,
 then revalidate one complete package. Follow its declared attempt budgets and
@@ -18,10 +27,10 @@ agent. The owner subsequently authorized that frontend agent to perform browser
 verification in the designated Chrome window. It alone owns computer use for this
 verification; the primary must not use computer tools concurrently. Record actual
 observations and screenshots, with failures or unavailable checks explicit.
-WO-03 continues with the external-tool decision in
-`docs/wo03-external-thermal-decision.md`; neither solver yet qualifies for an
-actual-baffle attempt. No production heat-method development precedes that
-published evidence decision. The previous timed stop was fulfilled and later
+The declared Elmer campaign is closed in
+`docs/wo03-elmer-campaign-decision.md`; neither solver qualifies for an
+actual-baffle attempt. Preserve the earlier external-tool record as historical.
+Do not start another open-ended custom heat-solver project. The previous timed stop was fulfilled and later
 revoked by explicit owner resumption; it is historical, not a current pause.
 
 ## Owner-authorized early inspection and experiment preview

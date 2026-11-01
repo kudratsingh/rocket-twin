@@ -306,6 +306,7 @@ def generate(
             "source_sha256": source_hashes,
             "cad_identity": cad_identity,
             "evidence_sources": catalog.get("evidence_sources", []),
+            "delivery_priority": catalog.get("delivery_priority", {}),
             "requirements": resolve_requirements(catalog, vehicle, config_id),
             "interfaces": resolve_interfaces(catalog, config_id),
             "fmea": [

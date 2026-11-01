@@ -12,6 +12,12 @@ Read in this order before any work: this file → `docs/PLAN.md` → `docs/ENVIR
 
 ## Core objectives and active architecture
 
+The current delivery priority is one complete fixed-motor G80 engineering
+package first, while the G54 performance upgrade and G12 PID/RL tracks remain
+committed. ADR-0011 records this priority without changing aggregate WO-03
+completion or the existing gates. Substantial custom construction, maximum
+practical performance and serious PID-to-RL development remain three core goals.
+
 The owner rebaselined WO-01 on 2026-10-29. Custom mechanical design, materials,
 fabrication, assembly, propulsion integration, recovery and avionics are core
 learning goals. Maximum practical performance within the no-high-power-certification
