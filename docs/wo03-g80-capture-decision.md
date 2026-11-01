@@ -253,9 +253,11 @@ first be recorded against their interfaces, not silently propagated.
 The read-only inspector, experiments and replay remain preserved. There is no
 new consistent candidate CAD to publish to the inspector. Browser verification
 is assigned solely to the designated frontend agent; its prior automatic
-approval rejection for an ownership prerequisite remains the blocker. That
-agent is not live in this turn's inventory and runtime ownership has not been
-re-established. No new computer-use call or bypass was attempted. Independent
+approval rejection for an ownership prerequisite remains the blocker. The designated agent was contacted for an ownership-only handoff and confirms
+that it remains owner-designated, but runtime ownership is not established.
+No supported in-session ownership-reset mechanism was documented; the runtime
+operator must resolve or explicitly reassign ownership before verification is
+delegated again. No new computer-use call or bypass was attempted. Independent
 engineering/code checks continue. Physical tests, purchases, paid compute,
 WO-10 owner review and flight release retain their existing gates. Full WO-03
 remains open; this is a design decision, not staged work-order completion.
