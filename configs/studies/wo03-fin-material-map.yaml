@@ -1,0 +1,18 @@
+id: wo03-g12-fin-material-map-v1
+candidate: build/wo03-refreeze-g12-root-v1/resolved-candidate.json
+candidate_file_sha256: 8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af
+candidate_identity: 4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287
+study: configs/studies/wo03-trainer-fin-package.yaml
+original_fin_step: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step
+original_fin_step_sha256: 74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285
+historical_driver_sha256: 479e1f2035ca71d65af1f28316a4f3af4dc2684eac1def04703e9107a674e5e4
+source_function_ast_sha256:
+  _part: df0fbfda64ddab9f47d29fe0d851653196c81873b3bf9ee351520ea63a3c2218
+  layered_shapes: e6aa54c044af9ddcbe5db1a425779425c152649358df0df7801114d8810bc5b4
+matching:
+  bbox_and_centroid_abs_mm: 0.00001
+  candidate_volume_abs_mm3: 0.0001
+  symmetric_difference_abs_mm3: 0.0001
+  intersection_volume_abs_mm3: 0.0001
+budget: {workers: 1, wall_seconds: 120, cpu_seconds: 120, packet_cpu_seconds: 600}
+default_output: build/wo03-fin-material-map-v1

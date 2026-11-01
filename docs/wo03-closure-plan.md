@@ -2,8 +2,10 @@
 
 Owner direction, 2026-10-31. This plan changes neither expanded WO-03 acceptance
 nor the active vehicle. G80 remains the reference, G54 conditional and G12 the
-PID-to-RL trainer. Frontend/browser work remains paused and its saved preview is
-preserved. Physical, paid-run, WO-10 owner-review and flight-release gates remain.
+PID-to-RL trainer. The original frontend/browser pause was superseded by the
+owner's limited preview resumption; its scope and verification are recorded in
+`docs/STATUS.md`. Physical, paid-run, WO-10 owner-review and flight-release gates
+remain.
 
 Computing budgets below are **CPU execution allowances, not delivery dates**.
 No paid compute is authorized. Known-case agreement, actual numerical accuracy,

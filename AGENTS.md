@@ -12,7 +12,7 @@ then revalidate one complete package. Follow its declared attempt budgets and
 stop/replan conditions; do not repeat invalid or capped full-size methods blindly.
 Preserve the saved preview; the latest limited resumption is described below.
 
-Later owner direction on2026-10-31 resumes the saved early frontend inspection,
+Later owner direction on 2026-10-31 resumes the saved early frontend inspection,
 experiments and replay **code and non-browser checks** through a bounded Terra
 agent. The owner subsequently authorized that frontend agent to perform browser
 verification in the designated Chrome window. It alone owns computer use for this
@@ -21,7 +21,8 @@ observations and screenshots, with failures or unavailable checks explicit.
 WO-03 continues with the external-tool decision in
 `docs/wo03-external-thermal-decision.md`; neither solver yet qualifies for an
 actual-baffle attempt. No production heat-method development precedes that
-published evidence decision.
+published evidence decision. The previous timed stop was fulfilled and later
+revoked by explicit owner resumption; it is historical, not a current pause.
 
 ## Owner-authorized early inspection and experiment preview
 
@@ -75,7 +76,7 @@ outputs through the same required checks before publishing.
 ## Computer use restriction
 
 The owner explicitly reassigned frontend browser verification to the bounded
-frontend Terra agent on2026-10-31. Its only permitted browser window is the Chrome
+frontend Terra agent on 2026-10-31. Its only permitted browser window is the Chrome
 window containing the Atlas Fibre G11 PDF; other tabs in that same window are
 allowed. Do not use any other browser or application window. The primary and
 other agents must not use computer tools concurrently with that verification.

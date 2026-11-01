@@ -1,0 +1,14 @@
+id: wo03-refreeze-g12-layered-hoop-v1
+installed_root_config: configs/studies/wo03-installed-root.yaml
+old_audit: build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json
+old_reconciled: runs/wo03-installed-root-20261031T041923712847Z/reconciled-source-only.json
+recovery_config: configs/studies/wo03-recovery-budget-closure.yaml
+source_hoop: build/wo03-recovery-clearance/hoop/resolved-candidate.yaml
+fin_step: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step
+frame_step: build/wo03-recovery-clearance/hoop/recovery-cap-frame.step
+budget:
+  workers: 1
+  wall_seconds: 120
+  cpu_seconds: 120
+  packet_cpu_seconds: 600
+output: build/wo03-refreeze-g12-root-v1

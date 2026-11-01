@@ -1,0 +1,74 @@
+id: wo03-installed-root
+status: one_positive_capture_feasibility_family_not_acceptance
+source_vehicle: build/wo03-recovery-clearance/hoop/resolved-candidate.yaml
+source_frame_step: build/wo03-recovery-clearance/hoop/recovery-cap-frame.step
+source_frame_record: build/wo03-recovery-clearance/hoop/record.json
+source_layered_fin_step: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step
+source_layered_fin_record: build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/record.json
+source_recovery_configuration: configs/studies/wo03-recovery-budget-closure.yaml
+capture:
+  id: two_local_deep_tabs_open_G11_clevis_per_fin
+  fin_angles_deg: [0.0, 120.0, 240.0]
+  capture_station_centres_m: [1.078, 1.152]
+  capture_station_length_m: 0.020
+  old_tab_depth_m: 0.0025
+  new_local_tab_depth_m: 0.006
+  wood_thickness_m: 0.005
+  cheek_inner_radius_m: 0.0267
+  cheek_outer_radius_m: 0.0327
+  cheek_thickness_m: 0.001
+  cheek_face_gap_each_m: 0.0001
+  face_gap_filler: explicit_epoxy_compression_shim_no_tension_or_friction_credit
+  frame_channel_inner_radius_m: 0.0303
+  ideal_full_fixity_radius_m: 0.0295
+  fastener_radius_m: 0.0312
+  fastener_count: 6
+  fastener: purchased_M2x14_socket_head_thin_nut_two_washers_geometry_hypothesis_exact_SKU_unselected
+  fastener_axis: tangential_CAD_y_at_each_fin
+  shank_diameter_m: 0.002
+  shank_length_m: 0.014
+  head_diameter_m: 0.0038
+  head_height_m: 0.002
+  thin_nut_across_flats_m: 0.004
+  thin_nut_thickness_m: 0.0012
+  washer_inner_diameter_m: 0.0022
+  washer_outer_diameter_m: 0.005
+  washer_thickness_m: 0.0002
+  density_kg_m3: {plywood: 715.0, G11: 1850.0, steel_estimate: 8000.0, epoxy: 1200.0}
+  existing_potting_or_machining_mass_credit_kg: 0.0
+  maximum_incremental_mass_kg: 0.009
+mechanics:
+  hot_G11_youngs_pa_estimate: 5000000000.0
+  hot_plywood_existing_screen_pa: 5000000.0
+  hot_adhesive_youngs_pa_estimate: 1000000000.0
+  design_factor_strength_only: 3.0
+  ideal_both_cheeks_active_upper_bound: true
+  no_paper_peel_allowable_established: true
+  legacy_root_rotational_stiffness_sensitivity_nm_rad: [0.0, 30.0, 100.0, 358.70012008685717, 1000.0, 137875.93767295784]
+motion:
+  grid_count_per_axis: 5
+  new_capture_linear_tolerance_mm_estimate: 0.1
+  positive_clearance_reserve_mm: 0.15
+  use_source_moving_part_linear_tolerance: true
+  angular_bearing_backlash_thermal_deformation_covered: false
+  intersection_threshold_mm3: 0.00001
+guide:
+  preserve_full_growth_kg: 0.05
+  guide_length_m: 5.0
+  minimum_departure_mps: 10.0
+  dt_s: [0.001, 0.0005]
+  additional_thermal_mass_cases_kg: [0.0, 0.008]
+  no_hypothetical_rail_saving_credit: true
+stop_rules:
+  - Stop before expensive installed FEA if the optimistic capture branch cannot supply the necessary root stiffness or source strength screen.
+  - Do not use unknown legacy paper/peel strength or frame/body stiffness as a passing constraint.
+  - Preserve any actual motion, fixed-part machining, body-hole, mass and guide failures.
+  - One open-cheek capture family only; no dimensional optimization or new generic property increase.
+scope:
+  actual_layered_fin_STEP_required: true
+  actual_rounded_hoop_frame_STEP_required: true
+  all_old_CAD_caches_cleared_and_recomputed: true
+  substrate_screen_c_unchanged: 45.0
+  installed_stiffness_strength_or_flutter_acceptance: false
+  active_adoption: false
+  flight_ready: false
