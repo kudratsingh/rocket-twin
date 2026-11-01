@@ -1,0 +1,34 @@
+# G80 through-bolt retention hardware envelope research
+
+**Disposition: exact supplier-listed candidate set identified; primary selection and geometry acceptance remain open.** The proposed set is one Accu M3×35 full-thread socket-cap screw, one Accu M3 DIN 934 nut and one Accu M3 DIN 9021 large washer at each of the three existing axes. The washer OD tolerance is unavailable in the reviewed listing, and the three supplier pages report contradictory/discontinued availability states; neither a worst-case washer OD nor current orderability is established. Use the stated nominal envelope only for a clearly bounded exploratory check, preserve these gaps, and do not claim a fully tolerance-qualified purchased stack. This is not a hardware selection, joint analysis, or qualification.
+
+## Basis and candidate dimensions
+
+The geometry basis is the frozen 52-part source identity `62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009`, as cited in the [mount fabrication proposal](wo03-g80-mount-fabrication.md) and [study config](../configs/studies/wo03-g80-mount-fabrication.yaml). That proposal places the bridge forward face at local 170.1 mm and retainer-cap aft face at 197 mm. Its 30.9 mm minimum geometric distance is before screw-head seating, nut protrusion, manufacturing tolerances, and any keeper. It currently uses unverified placeholder envelopes: washer OD 8 mm, bore 3.4 mm, thickness 1 mm; nut 6.6 × 6.6 × 3 mm.
+
+| Part candidate | Supplier-documented envelope | Mass evidence | Remaining uncertainty |
+|---|---|---|---|
+| Accu `SSCF-M3-35-A2`, full-thread socket cap screw, DIN 912 / ISO 4762, M3×0.5, A2 stainless | Nominal length 35 mm; head Ø5.5 mm, +0/−0.18; head height 3.0 mm, +0/−0.14; 2.5 mm hex socket, 1.3 mm drive depth. | Supplier listing weight 211 g per 100, or 2.11 g nominal average each. It is not an individual mass tolerance. | No explicit fastener length tolerance or strength/property class was found on the product listing. The listing marked the product discontinued; current orderability is not established. [Accu product listing](https://www.accu.co.uk/metric-cap-head-screws/642043-SSCF-M3-35-A2) |
+| Accu `HPN-M3-A2`, hexagon nut, DIN 934, M3×0.5, A2 stainless | Across flats 5.5 mm, +0/−0.18; height 2.4 mm, +0/−0.25. The supplier drawing/listing identifies the standard geometry. | Supplier listing weight 38 g per 100, or 0.38 g nominal average each; not an individual mass tolerance. | No explicit property class found. Product listing marked discontinued; current orderability is not established. The 5.5 mm hex does not fit the proposed 6.6 mm square placeholder: its calculated maximum corner-to-corner size is about 6.35 mm before tolerance/clearance. [Accu product listing](https://www.accu.co.uk/hexagon-nuts/7888-HPN-M3-A2) |
+| Accu `HPW-M3-V2-A2`, flat washer, DIN 9021, A2 stainless | Nominal OD 9 mm (tolerance not published on reviewed listing); ID 3.2 mm, +0.18/−0; thickness 0.9 mm, +0/−0.2. | Supplier listing weight 35 g per 100, or 0.35 g nominal average each; not an individual mass tolerance. | Product page simultaneously labels the item discontinued/out of stock and available offline/manufactured to order. Current orderability and OD tolerance are not established. [Accu product listing](https://www.accu.co.uk/metric-flat-washers/406770-HPW-M3-V2-A2) |
+
+For the candidate screw and nut, 35 mm nominal under-head length exceeds the 30.9 mm cap-to-nut-forward-face distance by 4.1 mm. This is only an arithmetic nominal allowance; it does not prove full thread engagement, sufficient thread protrusion, tolerance fit, head seating, assembly access, or compatibility with the washer and keeper. The screw’s length tolerance was not found, so the available tolerance-adjusted protrusion cannot be calculated.
+
+The M3×35 and DIN 934 nut dimensions are supplier-listed, but their discontinued listing status and absent strength class prevent calling this an orderable, rated set. Do not infer A2 grade from the “A2” material designation. No full screw/nut/washer set is selected.
+
+## Geometry and load-path implications
+
+The documented nut is a 5.5 mm AF hex with 2.4 mm nominal height, rather than the study’s 6.6 mm square by 3 mm placeholder. The CAD envelope must use the exact nut’s across-flats/corners and height tolerances, plus clearance for installation and any positive anti-rotation keeper. The hex corner size above is a calculated geometric bound, not a supplier-toleranced across-corners dimension. The documented washer has a 9 mm nominal OD, 3.2 mm ID, and 0.9 mm nominal thickness; its ID and thickness tolerances are given, but its OD tolerance is not. Therefore the old 8 × 3.4 × 1 mm relief/seat envelope cannot simply be reused, and a conservative OD allowance must not be invented.
+
+The three supplier per-100 mass listings imply an average of 2.84 g per screw/nut/washer stack, or 8.52 g across three, before any keeper or locking hardware. These are calculated averages from listed bulk weights, not measured individual masses or a resolved incremental mass delta; existing retention-hardware mass must be reconciled item by item.
+
+The proposal’s reverse demand remains 150 N total with DF3 and nominal equal share among three fasteners only as an existing screening assumption. The possible additional motor inertia/recovery load remains unquantified. This note does not assess screw strength, washer bending, nut stripping, bridge bearing/pull-through, preload, bond transfer, retention reliability, or load sharing. The listed mass averages cannot close the existing unitemized retention hardware budget; keeper and added hardware masses are still unknown.
+
+## Required closure before a geometry attempt
+
+1. Primary decides whether to authorize one exploratory geometry check with a 9 mm nominal washer OD while keeping the missing OD tolerance explicit, or to defer until the supplier provides that tolerance. Check the 3.2 mm minimum ID against the 3.4 mm bridge bore and account for the possible 3.38 mm maximum listed ID; seat size and tolerance remain design inputs.
+2. Resolve current availability and exact grade/property class for the screw and nut candidates, or replace them with documented available variants. Obtain screw length tolerance.
+3. Define nut capture/anti-rotation, insertion route, tool clearance, keeper retention, and service access separately from the purchased screw/nut/washer stack.
+4. Recompute the full assembled stack and mass, including washer, keeper, tolerance clearances, and any locking hardware. Preserve the unquantified motor-inertia/recovery load as open.
+
+This candidate set supplies a useful nominal envelope for a proposed exploratory check, subject to the primary’s decision on the missing washer OD tolerance. It does not establish a worst-case tolerance fit, current procurement availability, or structural adequacy.

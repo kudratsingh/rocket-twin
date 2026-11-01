@@ -1,0 +1,53 @@
+version: wo03-g80-captive-retention-plan-v1
+status: proposed_only_no_cad_or_adoption
+source_candidate_identity: 62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009
+source_replan: build/wo03-g80-retention-geometry-replan-v1/record.json
+source_hardware: configs/studies/wo03-g80-retention-hardware.yaml
+units: mm
+mount_station_m: 1.01
+keeper:
+  material: G11
+  inner_radius: 15.8
+  outer_radius: 32.2
+  forward_station: 166.0
+  aft_station: 170.0
+  thickness: 4.0
+  purpose: Nut anti-rotation and stowage only; no reverse-load washer-bearing credit.
+  washer_counterbore_diameter_nominal: 9.6
+  washer_counterbore_depth_from_aft: 1.1
+  nut_hex_pocket_across_flats_nominal: 5.7
+  nut_hex_pocket_floor_station: 166.5
+  nut_hex_corner_relief_diameter_proposed: 1.0
+  screw_tip_clearance_bore_diameter_nominal: 3.6
+  forward_floor_thickness_nominal: 0.5
+  bolt_axis_radius: 25.5
+  bolt_axis_angles_deg: [60, 180, 300]
+  retain_existing_rail_and_fin_channels: true
+  nominal_clearance_note: All pocket, cutter, keeper and alignment dimensions are unverified nominal proposals; washer maximum OD is unavailable.
+closure:
+  bridge_forward_station: 170.1
+  nominal_keeper_to_bridge_gap: 0.1
+  stowage_screw_count: 3
+  stowage_hole_diameter_nominal: 2.2
+  stowage_hole_radius: 19.0
+  stowage_hole_angles_deg: [30, 150, 270]
+  standoff_count: 3
+  standoff_outer_diameter_nominal: 4.0
+  standoff_bore_nominal: 2.2
+  standoff_thickness_nominal: 0.1
+  standoff_mass_g: null
+  stowage_hardware_mass_g: null
+  purpose: Mechanically retain keeper/bridge closure; not credited as the reverse-load path.
+hardware_reference:
+  nut_across_flats_range: [5.32, 5.5]
+  nut_height_range: [2.15, 2.4]
+  washer_diameter_nominal: 9.0
+  washer_od_tolerance: null
+  washer_thickness_range_from_study_yaml: [0.7, 0.9]
+  washer_thickness_source_note: Supplier and hardware table give 0.9 plus zero minus 0.2 mm, consistently 0.7 to 0.9 mm; the 1.1 mm pocket depth is a design input, not a washer thickness.
+  washer_bore_range: [3.2, 3.38]
+  three_m3_stack_nominal_mass_g: 8.52
+  original_hardware_allowance_g: 7.0
+  keeper_hardware_added_mass_g: null
+acceptance: false
+flight_ready: false

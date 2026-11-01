@@ -47,3 +47,12 @@ One child completed in **6.346 s wall / 5.304 CPU s**, peak RSS **444,809,216 by
 Actual bond load sharing and strength, installed fin/root/flutter, out-of-domain hot fit, an approved thermal method, recovery hardware and full deployment, as-built properties and all physical/flight release gates remain open. The candidate has not been adopted into the active vehicle.
 
 Published [same-package evidence](../runs/wo03-g80-integrated-package-20261101T053840103311Z/record.json) retains exact CAD/mass/static/flight compact records and their hashes. Generated geometry and full telemetry remain local. The 52-part identity is a proposal; working vehicle and release status remain unchanged.
+
+## Growth-station clarification
+
+This packet specifies the 1.212 m growth station explicitly. The current active
+vehicles also declare `airframe.length_m = 1.212`, so the existing simulator's
+default growth-station fallback already agrees for these vehicles. Omitting the
+case override is not evidence that these current vehicles used 1.200 m. No
+shared flight-code correction or baseline rerun is justified by that omission
+alone; the earlier records retain their original settings and source identities.

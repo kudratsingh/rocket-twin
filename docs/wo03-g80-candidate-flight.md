@@ -51,3 +51,12 @@ The fitted mount's out-of-domain hot sensitivity, actual bond coverage and load 
 ## Published evidence
 
 The [candidate-check packet](../runs/wo03-g80-candidate-checks-20261101T053200Z/record.json) retains the exact compact records and their source hashes, including the stopped fit input attempt. Generated CAD, resolved copies and full telemetry remain local; their hashes and reproduction sources are recorded. This is evidence for the separate candidate, not adoption or complete WO-03 acceptance.
+
+## Growth-station clarification
+
+This packet specifies the 1.212 m growth station explicitly. The current active
+vehicles also declare `airframe.length_m = 1.212`, so the existing simulator's
+default growth-station fallback already agrees for these vehicles. Omitting the
+case override is not evidence that these current vehicles used 1.200 m. No
+shared flight-code correction or baseline rerun is justified by that omission
+alone; the earlier records retain their original settings and source identities.

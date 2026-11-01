@@ -1,0 +1,107 @@
+study_id: wo03-g80-keeper-hardware
+status: candidate-fastener-pair-documented-washer-open
+purpose: >-
+  Record a candidate three-fastener mechanical keeper closure stack. These
+  fasteners retain the keeper closed only; they are not part of the primary
+  motor reverse-retention load path and receive no strength or qualification
+  credit.
+source_basis:
+  keeper_envelope_mm: 4.0
+  nominal_keeper_to_bridge_gap_mm: 0.1
+  bridge_thickness_mm: 2.0
+  nominal_under_head_span_before_washer_and_nut_mm: 6.1
+  count: 3
+  proposed_ring_spacer:
+    outer_diameter_mm: 4.0
+    inner_diameter_mm: 2.2
+    thickness_mm: 0.1
+    material: null
+    mass_g: null
+    procurement_status: not established; custom G11 or cut PET are concepts only
+    density_basis: null
+    note: >-
+      Do not assume commercial sheet availability, density, or finished
+      thickness. Material and tolerance need resolution before CAD or mass use.
+candidate_screw:
+  manufacturer: Accu
+  part_number: SSCF-M2-10-A2-BL
+  standard: DIN 912 / ISO 4762
+  material_designation: A2 stainless steel, matte black finish
+  thread: M2x0.4
+  thread_length: full
+  nominal_under_head_length_mm: 10.0
+  length_tolerance_mm: null
+  head_diameter_mm: 3.8
+  head_diameter_tolerance_mm: "+0/-0.18"
+  head_height_mm: 2.0
+  head_height_tolerance_mm: "+0/-0.14"
+  hex_socket_mm: 1.5
+  socket_depth_mm: 1.0
+  listing_mass_g_per_100: 30
+  nominal_average_mass_g_each: 0.30
+  strength_property_class: null
+  current_orderability: unverified
+  source_url: https://www.accu.co.uk/metric-cap-head-screws/152179-SSCF-M2-10-A2-BL
+candidate_nut:
+  manufacturer: Accu
+  part_number: HPN-M2-A2
+  standard: DIN 934
+  material_designation: A2 stainless steel
+  thread: M2x0.4
+  across_flats_mm: 4.0
+  across_flats_tolerance_mm: "+0/-0.18"
+  height_mm: 1.6
+  height_tolerance_mm: "+0/-0.25"
+  listing_mass_g_per_100: 14
+  nominal_average_mass_g_each: 0.14
+  strength_property_class: null
+  availability: listing marked discontinued/out of stock and available offline; current orderability unverified
+  source_url: https://www.accu.co.uk/hexagon-nuts/7884-HPN-M2-A2
+candidate_washer:
+  manufacturer: null
+  part_number: null
+  standard: null
+  material: null
+  outer_diameter_mm: null
+  outer_diameter_tolerance_mm: null
+  bore_mm: null
+  bore_tolerance_mm: null
+  thickness_mm: null
+  thickness_tolerance_mm: null
+  mass_g: null
+  status: >-
+    Exact washer variant not identified within the three-query cap; no washer
+    dimensions or mass are assumed.
+  source_url: null
+nominal_stack_check:
+  assumed_washer_location: beneath_nut
+  under_head_length_mm: 10.0
+  keeper_gap_bridge_mm: 6.1
+  nut_height_mm: 1.6
+  calculated_nominal_thread_protrusion_mm: null
+  formula: "10.0 - 6.1 - washer_thickness - 1.6 = 2.3 - washer_thickness_mm"
+  screw_length_tolerance_known: false
+  interpretation: >-
+    Cannot calculate final thread protrusion until washer thickness and
+    screw-length tolerance are established. The assumed washer location is a
+    bookkeeping assumption only; actual interface placement needs design review.
+mass_summary:
+  listed_average_screw_plus_nut_mass_g_each: 0.44
+  listed_average_screw_plus_nut_mass_g_three_sets: 1.32
+  excludes: washer, proposed 0.1 mm spacer, keeper, finish, locking features
+functional_boundary:
+  function: mechanically stow the keeper closed
+  primary_reverse_retention_load_path: false
+  strength_rating_inference: prohibited
+  qualification: none
+decision:
+  primary_selection: pending
+  allow_keeper_geometry_check: false
+  blockers:
+    - exact washer variant and dimensions/mass unknown
+    - screw length tolerance and current orderability unverified
+    - 0.1 mm spacer material, tolerance, availability and density basis unresolved
+  next_step: >-
+    Primary decides whether to bound geometry with nominal fastener envelopes
+    while preserving the washer/spacer gaps, or defer for a documented washer
+    and spacer material specification. No structural rating or load-path claim.

@@ -1,0 +1,39 @@
+version: wo03-g80-bridge-structural-preflight-v1
+status: plan_only_no_solver_or_design_acceptance
+candidate_source_identity: 62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009
+source_record: build/wo03-g80-keeper-service-v1/record.json
+bridge_step: build/wo03-g80-keeper-service-v1/bridge.step
+bridge_step_sha256: f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed
+keeper_step: build/wo03-g80-keeper-service-v1/keeper.step
+keeper_step_sha256: 436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8
+washer_seat_area_mm2_per_axis: 54.53804846658042
+washer_axis_radius_mm: 25.5
+washer_axis_angles_deg: [60, 180, 300]
+reverse_service_load_n: 150.0
+design_factor: 3.0
+load_cases:
+  equal: {washer_forces_n: [50.0, 50.0, 50.0]}
+  single_bolt: {washer_forces_n: [150.0, 0.0, 0.0]}
+bridge_thickness_mm: 2.0
+tab_count: 6
+tab_gap_mm_nominal: 0.1
+tab_length_mm: 15.0
+adhesive_youngs_mpa_hypothesis: 100.0
+adhesive_poisson_hypothesis: 0.3
+adhesive_hot_shear_screen_mpa_estimate: 1.0
+g11_youngs_mpa_hypothesis: 10000.0
+g11_poisson_hypothesis: 0.3
+g11_strength_hot_mpa_estimate: 25.0
+keeper_gap_mm_nominal: 0.1
+keeper_gap_note: Broad-face nominal gap does not imply zero contact; integral pads and M2 closure can transfer load.
+mesh_in_plane_targets_mm: [1.5, 1.0, 0.7]
+mesh_adhesive_thickness_mm: 0.1
+maximum_nodes: 150000
+maximum_tetrahedra: 200000
+maximum_process_rss_bytes: 2147483648
+per_child_wall_seconds: 120
+packet_cpu_seconds: 600
+cpu_threads_requested: 1
+stop_on: invalid_geometry_or_interface_or_fixtures_or_connectivity_or_mesh_jacobian_or_cap_or_solver_or_output
+acceptance: false
+flight_ready: false

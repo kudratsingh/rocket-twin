@@ -1,0 +1,98 @@
+{
+  "status": "nominal_geometry_unaccepted",
+  "source_identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+  "known_fixture": {
+    "wall_mm3": 20.043361129902852,
+    "bore_overlap_mm3": 0.0,
+    "bearing_mm2": 54.53804846633908
+  },
+  "removed_old_ring_contribution_mm3": 5677.332656040152,
+  "candidate_intersections": [],
+  "direct_bridge_seat_mm2": [
+    54.53804846658042,
+    54.53804846658042,
+    54.53804846658042
+  ],
+  "nut_constraints": [
+    {
+      "axis_deg": 60,
+      "rotation_5deg_overlap_mm3": 0.008277738340065385,
+      "rotation_plus_15deg_overlap_mm3": 1.4067448900331438,
+      "rotation_minus_15deg_overlap_mm3": 1.406744890033167,
+      "forward_dropout_0p5mm_overlap_mm3": 3.2037016533689586
+    },
+    {
+      "axis_deg": 180,
+      "rotation_5deg_overlap_mm3": 0.008277738342755749,
+      "rotation_plus_15deg_overlap_mm3": 1.4067448900574517,
+      "rotation_minus_15deg_overlap_mm3": 1.4067448900578199,
+      "forward_dropout_0p5mm_overlap_mm3": 3.2037016533750062
+    },
+    {
+      "axis_deg": 300,
+      "rotation_5deg_overlap_mm3": 0.008277738340078531,
+      "rotation_plus_15deg_overlap_mm3": 1.406744890033114,
+      "rotation_minus_15deg_overlap_mm3": 1.4067448900331523,
+      "forward_dropout_0p5mm_overlap_mm3": 3.2037016533689586
+    }
+  ],
+  "pre_shell_axial_samples": {
+    "spacing_mm": 5,
+    "blockers": [],
+    "moving_parts": [
+      "modified_mount",
+      "keeper",
+      "bridge",
+      "guide_0",
+      "guide_1",
+      "guide_2",
+      "m2_screw_0",
+      "m2_nut_0",
+      "m2_screw_1",
+      "m2_nut_1",
+      "m2_screw_2",
+      "m2_nut_2",
+      "nut_0",
+      "nut_1",
+      "nut_2",
+      "washer_0",
+      "washer_1",
+      "washer_2"
+    ],
+    "obstacles": [
+      "aft_shell"
+    ],
+    "not_yet_installed": [
+      "fin_set",
+      "motor",
+      "motor_liner",
+      "main_cap_screws"
+    ],
+    "limitation": "Liner/shield and fin installation/access are separate unverified stages."
+  },
+  "cap_aft_service_samples": {
+    "spacing_mm": 5,
+    "m3_screws_removed": true,
+    "blockers": []
+  },
+  "motor_aft_service_samples": {
+    "spacing_mm": 5,
+    "cap_and_m3_screws_removed": true,
+    "blockers": []
+  },
+  "masses": {
+    "removed_old_ring_contribution_g": 4.059292849068709,
+    "keeper_g": 15.40967476802307,
+    "modified_mount_and_guides_g": 40.44819462455291,
+    "source_replan_mount_and_guides_g": 44.50748747362193,
+    "bridge_after_holes_g": 10.176846592845157,
+    "m2_screws_and_nuts_nominal_g": 1.32,
+    "m2_washer_mass_g": 0.0,
+    "integral_g11_pads_in_keeper_mass": true,
+    "net_vehicle_mass_change_g": null
+  },
+  "m2_direct_bearing_and_integral_pad_qualification": "unavailable",
+  "full_vehicle_regenerated": false,
+  "acceptance": false,
+  "flight_ready": false
+}

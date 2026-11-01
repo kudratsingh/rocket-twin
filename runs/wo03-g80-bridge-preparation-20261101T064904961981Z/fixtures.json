@@ -1,0 +1,37 @@
+{
+  "status": "fixtures_complete_bridge_face_emitter_unavailable",
+  "cases": [
+    {
+      "name": "axial_fixture",
+      "child_wall_s": 0.4379793749831151,
+      "observed_peak_process_rss_bytes": 62226432,
+      "worker_output": "{\"name\": \"axial_fixture\", \"result\": {\"fixture\": \"axial bar; no rocket geometry\", \"gmsh_version\": \"4.15.2\", \"mesh_size_mm\": 3.0, \"node_count\": 820, \"element_count\": 349, \"load_n\": 0.9999999999999999, \"expected_displacement_mm\": 0.0013333333333333333, \"expected_stress_mpa\": 0.04, \"mesh_generated\": true, \"solver_executed\": true, \"ccx_version\": \"This is Version 2.23\", \"displacement_mm\": 0.0013333329999999997, \"regional_stress_mpa\": 0.04, \"support_reaction_n\": -0.9999999899999941, \"errors\": {\"displacement_relative\": 2.500000001459668e-07, \"stress_relative\": 0.0, \"equilibrium_n\": 1.0000005934429623e-08}, \"passed\": true}, \"process_and_children_cpu_s\": 0.221676}"
+    },
+    {
+      "name": "shear_fixture",
+      "child_wall_s": 0.24090545900980942,
+      "observed_peak_process_rss_bytes": 66355200,
+      "worker_output": "{\"name\": \"shear_fixture\", \"result\": {\"area_mm2\": 99.99999999999999, \"force_N\": 10.000000000000005, \"expected_displacement_mm\": 0.00031200000000000005, \"top_displacement_mm\": 0.0003119999999999999, \"interface_displacement_mm\": 0.00026, \"reaction_N\": -9.999999980000007, \"expected_energy_Nmm\": 0.0015600000000000002, \"reconstructed_layer_energy_Nmm\": 0.0015599999999999987, \"external_work_Nmm\": 0.0015599999999999993, \"nodes\": 1571, \"tetrahedra\": 830, \"minimum_jacobian\": 0.04979937466454754, \"energy_basis\": \"Reconstructed homogeneous-layer strain energy from interface/top displacements, not native CCX element energy.\"}, \"process_and_children_cpu_s\": 0.208785}"
+    }
+  ],
+  "inputs_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "309f036c976de0943fab29ffe13a30845488ef776cd281c7a8d33ed7b47b30d2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "8ddb8ddcbf8ae75a3ac910f0791a02eef7b37e19275df1e328853fabd2e2b055",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-structural-preflight.yaml": "04b2fead59897045d894d9df46dcff51f4a77c418e5b3aa29b0ee03a19655c7e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/fea.py": "36ccfb0c96e7be95b49fd75d6fd700b62d5a9cf0e20b474f14feb8bd05a58fe2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/support_fea.py": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695"
+  },
+  "inputs_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "309f036c976de0943fab29ffe13a30845488ef776cd281c7a8d33ed7b47b30d2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "8ddb8ddcbf8ae75a3ac910f0791a02eef7b37e19275df1e328853fabd2e2b055",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-structural-preflight.yaml": "04b2fead59897045d894d9df46dcff51f4a77c418e5b3aa29b0ee03a19655c7e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/fea.py": "36ccfb0c96e7be95b49fd75d6fd700b62d5a9cf0e20b474f14feb8bd05a58fe2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/support_fea.py": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695"
+  },
+  "remaining": "Exact bridge/adhesive face ownership, finite load patches and 3D CalculiX emitter not implemented; no bridge mesh/solve.",
+  "acceptance": false
+}

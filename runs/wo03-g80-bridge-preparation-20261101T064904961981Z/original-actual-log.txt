@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1082, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 1072, in main
+    actual_worker(a.worker, cfg)
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py", line 888, in actual_worker
+    meta = build_case(folder, sizes[name], cfg["maximum_nodes"], cfg["maximum_tetrahedra"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py", line 470, in build_case
+    washer_faces = [
+                   ^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py", line 471, in <listcomp>
+    _import_washer_patch(gmsh, path, center)
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py", line 380, in _import_washer_patch
+    raise ValueError(
+ValueError: Could not identify unique z=170.1 washer contact face in /Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_0.step: []
