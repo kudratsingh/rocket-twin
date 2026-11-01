@@ -1,0 +1,41 @@
+{
+  "status": "fixtures_complete_bridge_face_emitter_unavailable",
+  "cases": [
+    {
+      "name": "geometry_preflight",
+      "child_wall_s": 5.9564009589958005,
+      "observed_peak_process_rss_bytes": 490078208,
+      "worker_output": "{\"name\": \"geometry_preflight\", \"result\": {\"pair_count\": 6, \"bridge_areas_mm2\": [99.25388770151278, 99.25388770151272, 99.25388770151278, 99.25388770151272, 99.25388770151278, 99.25388770151272], \"rail_areas_mm2\": [99.54083069847795, 99.54083069847799, 99.54083069847795, 99.54083069847799, 99.54083069847795, 99.54083069847799], \"seat_areas_mm2\": [54.53804846631881, 54.53804846631885, 54.53804846631881]}, \"process_and_children_cpu_s\": 4.777758}"
+    }
+  ],
+  "inputs_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "309f036c976de0943fab29ffe13a30845488ef776cd281c7a8d33ed7b47b30d2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "f4124ec5932bd648306f16426d19a28118a8d4d4d0419dc0da5fc89960e68a05",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-structural-preflight.yaml": "04b2fead59897045d894d9df46dcff51f4a77c418e5b3aa29b0ee03a19655c7e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/fea.py": "36ccfb0c96e7be95b49fd75d6fd700b62d5a9cf0e20b474f14feb8bd05a58fe2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/support_fea.py": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_root_contact_faces.py": "e914155e8c6907dfe6f860667b267fb530a6a27a744930a5fce03ddbe676e7d4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/modified_mount.step": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_0.step": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_1.step": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_2.step": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47"
+  },
+  "inputs_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-fea.yaml": "309f036c976de0943fab29ffe13a30845488ef776cd281c7a8d33ed7b47b30d2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "f4124ec5932bd648306f16426d19a28118a8d4d4d0419dc0da5fc89960e68a05",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-bridge-structural-preflight.yaml": "04b2fead59897045d894d9df46dcff51f4a77c418e5b3aa29b0ee03a19655c7e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/fea.py": "36ccfb0c96e7be95b49fd75d6fd700b62d5a9cf0e20b474f14feb8bd05a58fe2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/analysis/support_fea.py": "1554ff852289a32701ca7b57d5b4843910fd484c6b12c005295e79844bedc695",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_root_contact_faces.py": "e914155e8c6907dfe6f860667b267fb530a6a27a744930a5fce03ddbe676e7d4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/modified_mount.step": "8f88eeeb8c41e2f19b4c9b8ad9eb42a7ece433814ed9f079f9ac2b6c0ae50a14",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_0.step": "acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_1.step": "890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/washer_2.step": "95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47"
+  },
+  "remaining": "Exact bridge/adhesive face ownership, finite load patches and 3D CalculiX emitter not implemented; no bridge mesh/solve.",
+  "acceptance": false
+}

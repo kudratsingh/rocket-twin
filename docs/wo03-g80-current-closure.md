@@ -28,3 +28,15 @@ owner review and flight release retain their gates. No G80 preliminary pass
 completes WO-03 or closes G54/G12.
 
 Published [same-package evidence](../runs/wo03-g80-integrated-package-20261101T053840103311Z/record.json) retains exact CAD/mass/static/flight compact records and their hashes. Generated geometry and full telemetry remain local. The 52-part identity is a proposal; working vehicle and release status remain unchanged.
+
+## Subsequent retention geometry (not part of the frozen 52-part proposal)
+
+[Two recorded geometry attempts](wo03-g80-retention-geometry.md) preserve the
+initial 9 mm washer/ring conflict and a single input correction. The corrected
+nominal screen has no positive-volume screened overlaps and has 54.538 mm²
+washer/bridge probes, but washer OD tolerance, keeper/capture, rail-tab load
+transfer and assembly remain open. Radial removal hits the installed shell;
+[this unexecuted keeper plan](wo03-g80-captive-retention-plan.md) distinguishes
+pre-shell nut installation from routine aft cap/motor service. Its new G11 ring,
+closure hardware, mass and thermal/structural effects still require evaluation.
+No result is transferred to the active design or treated as a retention pass.

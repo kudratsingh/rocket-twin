@@ -15,6 +15,44 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
+**Bridge structural analysis remains open:** two known mechanical fixtures pass
+and six finite bond pairs/three washer seats map on the actual BReps. The first
+actual Gmsh preflight stopped on a washer bbox-index defect. One controlled API
+repair then stopped in process supervision; no completed actual mesh/deck/CCX
+result exists. [Evidence](wo03-g80-bridge-fea.md) preserves all failures and
+accounting limits. The guard and immediate error-log persistence must be
+validated before another actual attempt. No owner permission or tool upgrade
+is requested from these software failures; no strength/convergence pass follows.
+
+**Keeper/service continuation:** the unchanged proposed parts now have completed
+nominal 5 mm-spaced pre-shell support insertion and aft cap/motor removal samples,
+with no sampled blockers. [Results](wo03-g80-keeper-service.md) and
+[rotation bound](wo03-g80-nut-rotation-bound.md) retain the earlier inconclusive
+5° diagnostic; a source-specific fixed-axis ±15° barrier is separately calculated
+and observed. This is not torque, tolerance, all-path capture or strength
+qualification. Separate STEP parts and component masses are available: keeper
+15.410 g, bridge10.177 g, modified plywood/guides40.448 g. Complete replacement
+hardware/adhesive ledger and full mass/CG/inertia remain unresolved; the frozen
+52-part flight predictions are not assigned to these changed parts.
+
+**Published G80 milestone:** [PR #26](https://github.com/kudratsingh/rocket-twin/pull/26)
+is merged after both required jobs passed (run 41278070445). The same-package
+mass/static/guide/flight evidence and preview handoff are published; expanded
+engineering acceptance remains open.
+
+**Latest retention study, separate from the 52-part package:** sourced M3×35
+screw/nut/9 mm washer candidates replace the placeholder hardware dimensions.
+The first nominal check stopped on 1.098419 mm³ washer/mount overlaps; one
+recorded input-layout replan clears screened overlaps with R20.7 mm relief.
+Three washer/bridge probes are 54.538 mm². No tolerance minimum or capture pass:
+washer OD tolerance is missing, all three sampled radial nut/washer removal
+paths meet the installed shell, and no keeper was modeled. Actual replacement
+hardware mass increment is unresolved. [Executed evidence](wo03-g80-retention-geometry.md).
+A [4 mm G11 captive keeper plan](wo03-g80-captive-retention-plan.md) uses
+pre-shell assembly and aft cap/motor service; it has not been executed.
+The earlier two-attempt packet is stopped; a different keeper function needs
+its own declared geometry/assembly check, not a blind third layout retry.
+
 **Latest integrated G80 proposal (52 parts, not active):** the selected mount
 and recovery packaging now share one normally validated resolved identity
 `62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009`.

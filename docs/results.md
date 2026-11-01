@@ -1283,3 +1283,35 @@ guide exit **16.955 m/s**, exceeding 15 m/s. Recovery remains incomplete at
 45 s. Three named envelope-contact overlaps are unresolved; no physical fit,
 installed load path, fin flutter or thermal acceptance follows. Separate
 STEP/GLB exports preserve the working vehicle and preview unchanged.
+
+
+### G80 through-bolt geometry: stopped conflict and nominal correction
+
+The [retention study](wo03-g80-retention-geometry.md) uses sourced candidate
+M3×35/hexnut/9 mm washer envelopes. Its first nominal attempt stopped on
+1.098419 mm³ per-washer interference. One input-layout replan changes relief
+start R21.5→20.7 mm, retaining 9.6 mm width; screened solid overlaps clear and
+three bridge-bearing probes are 54.538 mm². No tolerance acceptance: washer OD
+tolerance is unavailable. All sampled radial removal paths meet the shell;
+keeper/capture, structural capacity and complete mass/CG/inertia remain open.
+The original failure is preserved, with its missing first CPU/before-hash data
+explicit. The replan used 5.405 measured CPU s; aggregate CPU is unavailable.
+The [captive keeper plan](wo03-g80-captive-retention-plan.md) proposes pre-shell
+nut assembly and routine aft cap/motor service; no new keeper CAD run has
+executed in that record. Working vehicle, preview and all release gates remain.
+
+
+### Unchanged keeper geometry: staged service and mass evidence
+
+The first keeper trial stopped on an inconclusive 5° collision-volume probe.
+A separate source-specific [analytic rotation barrier](wo03-g80-nut-rotation-bound.md)
+justifies investigating bounded centered rotation without changing geometry or
+silently passing that old diagnostic. The [one service continuation](wo03-g80-keeper-service.md)
+observes 1.406745 mm³ at ±15°, repeats the old probes, and completes nominal
+5 mm-spaced pre-shell insertion and aft cap/motor removal samples without
+blockers. It exports partial study STEP parts and masses, not a new complete
+vehicle: keeper15.410 g, bridge10.177 g, modified plywood/guides40.448 g.
+Tracked child CPU is 13.979 s for continuation, 18.428 s including the earlier
+keeper child; caps were not reached. Hardware/adhesive ledger, installed force
+sharing, torque/strength, tolerance, thermal and complete mass/flight acceptance
+remain open. G54/G12 findings, active designs and the preview remain unchanged.

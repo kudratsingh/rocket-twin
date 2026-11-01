@@ -312,6 +312,24 @@ evidence_sources:
 - path: runs/wo03-g80-integrated-package-20261101T053840103311Z/record.json
   scope: Exact52partcandidate CAD/mass/static/flight compact evidence and source hashes.
   limitation: Unadopted proposal; no physical or full engineering acceptance. Three excluded nominal interface overlaps require resolution;45secondrecoveries incomplete.
+- path: docs/wo03-g80-retention-geometry.md
+  scope: Original nominal washer conflict and one explicit source-layout replan.
+  limitation: Replan has no screened nominal intersections, but missing OD tolerance, blocked radial access and absent keeper leave capture/service/load acceptance open; no active adoption.
+- path: runs/wo03-g80-retention-20261101T060234513931Z/record.json
+  scope: Preserved stopped and replan source/evidence records, compact only.
+  limitation: First CPU/before hashes unavailable; aggregate CPU unknown. No complete vehicle, strength, heat or flight acceptance.
+- path: docs/wo03-g80-keeper-service.md
+  scope: Source-identical nominal keeper geometry continuation and sampled staged service.
+  limitation: No torque, translation/tilt escape, tolerance, structural, thermal or full-vehicle acceptance. No new full-mass/flight result.
+- path: runs/wo03-g80-keeper-20261101T063807744500Z/record.json
+  scope: Keeper stop, analytic/observed rotation barriers, fixtures, service samples and component masses.
+  limitation: Partial study geometry only; working configuration unchanged. Native CAD excluded; material/fastener and installed-joint qualification open.
+- path: docs/wo03-g80-bridge-fea.md
+  scope: Two known mechanical cases and actual BRep film/seat pairing; actual meshing stopped.
+  limitation: No actual bridge mesh, force balance, stress, convergence or installed-joint acceptance. API and supervisor stops preserved; owner permission is not the next dependency.
+- path: runs/wo03-g80-bridge-preparation-20261101T064904961981Z/record.json
+  scope: Compact known-case, geometry and preserved stopped-attempt evidence.
+  limitation: Source geometry/material hypotheses only; no bridge strength or thermal acceptance. Native bulk excluded.
 delivery_priority:
   decision: docs/adr/0011-g80-first-engineering-delivery.md
   first_integrated_package: G80
@@ -1530,9 +1548,12 @@ fmea:
   detection: Inspection, dimensional/proof tests; hidden bond defects may escape visual
     inspection.
   mitigation_design_change: Close load paths, reinforced interfaces, orientation and
-    cure specification; verified/converged analyses.
-  residual_risk: Estimated properties and assembly workmanship remain unqualified
-    until owner tests.
+    cure specification; verified/converged analyses. Separate G80 keeper/through-bolt
+    geometry and staged service studies are proposed in docs/wo03-g80-keeper-service.md;
+    no active adoption or strength pass follows from nominal restraints.
+  residual_risk: Estimated properties and assembly workmanship remain unqualified.
+    G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness
+    is not zero physical reaction. Installed load paths and later owner proof remain open.
   verification_test: Coupons, pull/bending/bearing, buckling and recovery opening
     proof tests.
   requirements:
