@@ -1,0 +1,23 @@
+id: wo03-elmer-classic-a-comparison-v1
+status: classic_three_case_packet_primary_authorized
+source_packet: build/wo03-elmer-thermal-comparison-io-replan
+source_runtime_record: .cache/elmer-evaluation/setup-v1/runtime-record.json
+source_harness: scripts/wo03_elmer_thermal_comparison.py
+source_config: configs/studies/wo03-elmer-thermal-comparison.yaml
+elmer_home: .cache/elmer-evaluation/setup-v1/prefix
+levels: [2, 4, 8]
+threads: 1
+cpu_seconds_per_level: 60
+wall_seconds_per_level: 120
+planned_native_cpu_seconds: 180
+packet_cpu_ceiling: 600
+field_absolute_tolerance_k: 1.0e-7
+change_only: 'Procedure = File "HeatSolveVec" "HeatSolver" to Procedure = File "HeatSolve" "HeatSolver"'
+stop_policy: invalid_inputs_or_mesh_or_output_nonfinite_nonconvergence_or_cap
+accuracy_failures: record_on_each_predeclared_level_no_further_method_or_grid_tuning
+native_execution_authorized: true
+actual_baffle_authorized: false
+parent_cpu_cap_s: 60
+setup_cpu_reservation_s: 30
+planned_total_cpu_reservation_s: 270
+resource_replan: child_inherits_60_cpu_hard_cap_from_60_cpu_parent

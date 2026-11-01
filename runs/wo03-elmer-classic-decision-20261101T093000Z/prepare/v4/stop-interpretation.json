@@ -1,0 +1,10 @@
+{
+  "status": "stopped_before_elmer_exec",
+  "original_record_sha256": "e6f1a3018c52deb9785bdbab3b62808fa007be3420784218b52ca56c60ea2b0c",
+  "original_record_solver_invoked_flag": true,
+  "flag_interpretation": "The original flag is set before launching the Python resource-limit wrapper. It records attempted solver launch, not proof that ElmerSolver ran. The wrapper log proves setrlimit failed before os.execv.",
+  "python_resource_launcher_invoked": true,
+  "elmer_solver_exec_observed": false,
+  "native_temperature_fields_produced": false,
+  "retry_performed": false
+}

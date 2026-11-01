@@ -1407,3 +1407,30 @@ comparisons, not actualbridge validation. The estimated-upper-bound MPC row
 is not evidence of a hiddenMPC; equation counts match uniqueSPC arithmetic.
 Source/input/binary hashes and all stopped histories are archived, with no
 additional fixture, actualbridge or accepted Analysis field selected.
+
+## Controlled Elmer implementation comparison — complete, unqualified
+
+The three classic A2/A4/A8 cases completed exactly once after one explicitly
+recorded resource-only launcher replan. The prior launch failed before Elmer
+executed because a child could not raise its inherited CPU hard cap; that
+failure and its misleading pre-launch flag interpretation remain preserved.
+The completed packet reserved270CPU s below600, with native children0.740CPU s
+and parent1.213CPU s. SIF physics, all four mesh files, UMFPACK, precision and
+the original saved Vec outputs were unchanged.
+
+[Classic results](wo03-elmer-classic-comparison.md) agree with Vec within
+5.4e-12K. Both fail the unchanged1e-7K exact-field threshold, with nonmonotone
+errors1.93e-5/1.12e-4/3.74e-5K. Classic conductive-heat reference errors pass
+their separate tolerance; local/Robin/algebraic energy balances and raw-C
+convergence remain unavailable. Density warnings are retained, not suppressed.
+The [read-only audit](wo03-elmer-local-error-audit.md) reconstructs the reference
+from literal SIF values and finds exact saved-coordinate matching; spatial
+errors persist and their cause is unidentified.
+
+The [updated decision](wo03-elmer-campaign-decision.md) rejects implementation
+switching as a correction and leaves both tools unqualified for actual-baffle
+acceptance. The0.000112K toy error is much smaller than a physical design
+temperature margin, but cannot bound actual-geometry errors or fill missing
+conservation/refinement evidence. No threshold, required thermal case,45°C
+screen, active vehicle, preview asset or release gate changes. No automatic
+new grid, solver run or production heat method follows this closed campaign.

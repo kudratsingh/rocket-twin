@@ -1,0 +1,91 @@
+{
+  "status": "completed_evidence_packaging_unqualified",
+  "solver_or_mesh_invoked_for_packaging": false,
+  "strict_criteria": {
+    "exact_field_max_nodal_error_k": 1e-07,
+    "native_conductive_heat_error_w": "1e-10 W plus 1 ppm of reference heat",
+    "substrate_temperature_screen_c": 45
+  },
+  "classic_case_results": [
+    {
+      "level": 2,
+      "node_count": 125,
+      "max_nodal_error_k": 1.933576351e-05,
+      "classic_vs_vec_max_abs_k": 7.39e-13,
+      "exact_field": "fail"
+    },
+    {
+      "level": 4,
+      "node_count": 729,
+      "max_nodal_error_k": 0.0001122233601,
+      "classic_vs_vec_max_abs_k": 2.5e-12,
+      "exact_field": "fail"
+    },
+    {
+      "level": 8,
+      "node_count": 4913,
+      "max_nodal_error_k": 3.735985797e-05,
+      "classic_vs_vec_max_abs_k": 5.34e-12,
+      "exact_field": "fail"
+    }
+  ],
+  "native_heat_interpretation": "Conductive-flux indicators only; Robin exchange and global/local algebraic energy balances unavailable.",
+  "thermal_matrix_retained": {
+    "source_case_peak_c": [
+      120,
+      250,
+      300
+    ],
+    "ambient_c": [
+      15,
+      35,
+      35,
+      35
+    ],
+    "contaminated_foil_emissivity": 0.9,
+    "contact_conductance_w_k": [
+      0.02,
+      0.2
+    ],
+    "substrate_screen_c": 45,
+    "required_scenario": "300 C case source, contaminated foil, 35 C ambient"
+  },
+  "decision": "Elmer classic and HeatSolveVec agree with each other on fixture A but both fail the unchanged analytic field criterion. Neither is qualified for actual-baffle output; no physical input or temperature criterion is changed.",
+  "separate_v4_control_failure": "Python resource wrapper stopped before ElmerSolver exec because it could not raise its hard CPU limit above inherited parent limit. v4 solver_invoked=true means launch attempted only; no native field exists for v4.",
+  "resource_ledger": {
+    "v4_planned_cpu_s": 450,
+    "v4_parent_cpu_s": 0.032825,
+    "v4_child_launcher_cpu_s": 0.02337,
+    "v4_wall_s": 0.059175,
+    "v4_elmer_exec_observed": false,
+    "v5_setup_reservation_cpu_s": 30,
+    "v5_parent_cpu_limit_s": 60,
+    "v5_native_total_cpu_cap_s": 180,
+    "v5_total_planned_cpu_s": 270,
+    "v5_parent_cpu_s": 1.212668,
+    "v5_three_native_children_cpu_s": 0.739856,
+    "v5_tracked_setup_cpu_s_from_decision_doc": 6.405859,
+    "v5_setup_reservation_is_measured": "no; conservative reservation",
+    "rss_note": "Parent and children RSS peaks are separate, not simultaneous; no simultaneous-total claim."
+  },
+  "density_warning_counts": {
+    "2": 48,
+    "4": 384,
+    "8": 3072
+  },
+  "source_unchanged": true,
+  "initial_local_error_audit_failure_found": false,
+  "local_error_audit_initial_failure_candidates_checked": [
+    "build/wo03-elmer-local-error-audit-v1/failure.json",
+    "build/wo03-elmer-local-error-audit-v1/initial-failure.json",
+    "build/wo03-elmer-local-error-audit-v1/record-initial-failure.json"
+  ],
+  "archive": "See .cache/wo03-elmer-classic-publication.json for included file paths and SHA-256.",
+  "excluded": [
+    "meshes",
+    "VTUs",
+    "binaries",
+    "generated nodal temperature arrays",
+    "signed acquisition URLs"
+  ]
+}
