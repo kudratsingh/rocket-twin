@@ -39,6 +39,14 @@ subframe linked to the protected aramid backbone. Endpoint/body/fin/motor
 restraints, hot properties and complete mass/fit/load ledger must pass admission
 before detailed work. This does not revise the work-order sequence or criteria.
 
+The owner's subsequent bounded S1 admission is recorded in
+[connections/margins](../wo03-g80-short-subframe-decision.md). It fails coupled
+recovery bearing, full-growth guide mass and heel screw length; no CAD/FEA is
+admitted. Revise IF-RECOVERY-001 with a real load-spreading endpoint and the
+complete mass ledger, recalculate the same recovery cases at that mass, and
+retain guide speed/thermal/structural criteria. This changes the next design
+interface, not the formal work-order sequence or acceptance requirements.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete

@@ -31,10 +31,12 @@ Deliver the saved early frontend under ADR-0009 in parallel; missing analysis
 overlays do not delay usable inspection, real experiments and replay.
 The bounded G80 comparison now stops both specified capture envelopes before
 CAD/FEA: rail bearing/pin engagement rejects B, while coupler fit/net section
-rejects C under current provisional screens. The single next direction is a
-short captured G11 aft subframe connected to the aramid backbone, with separately
-verified body/fin/motor restraints. It is not an adopted design or a third
-executed study. See [decision](wo03-g80-capture-decision.md) and
+rejects C under current provisional screens. The one subsequent S1 short-cassette study is also not admitted: its coupled
+recovery-bearing, guide-mass and heel-length screens fail. IF-RECOVERY-001 needs
+a dimensioned load-spreading saddle/strap endpoint and a complete full-growth
+mass ledger; recovery demand must increase with that mass. No longer guide,
+material limit or active vehicle change is adopted. See
+[S1 decision](wo03-g80-short-subframe-decision.md). See [decision](wo03-g80-capture-decision.md) and
 [current closure](wo03-g80-current-closure.md). Complete-package revalidation
 remains mandatory; no completion gate is removed.
 
