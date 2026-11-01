@@ -15,6 +15,24 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
+**Current retention decision — design screen remains adverse:** the fixed-support
+face-resultant audit gives3.965/4.007 MPa minimum peak shear demand on the two
+most loaded faces after DF3, versus the estimated1 MPa hot-bond screen.
+Material-local Gauss recovery also shows adverse coarse demands. The current
+2 mm physical web uses a1.5 mm mesh target; mesh settings must not be confused
+with part thickness. No strength, contact or convergence pass follows. Stop
+further automatic refinement of this unchanged bond-only candidate and evaluate
+rail-aligned positive capture against a continuous G11 load-frame alternative,
+with mass/CG/recovery/thermal consequences in one package. See
+[support bounds](wo03-g80-bridge-support-traction.md),
+[stress diagnostic](wo03-bridge-gauss-stress.md) and
+[bounded correction trade](wo03-g80-retention-correction-trade.md).
+
+The two new mesh-only pilots pass their input guards but do not establish
+uniform regional refinement; no new structural solver run followed them. The
+known-case stress-output path passed separately. Existing numerical results
+remain useful diagnostics, while the physical G80 package and WO-03 stay open.
+
 **Actual bridge numerical result:** two saved Elmer coarse fields pass the
 unchanged strict force and reciprocal-work comparisons. Maximum displacement
 is0.381 mm distributed /1.157 mm single-washer; no stress, fit or convergence

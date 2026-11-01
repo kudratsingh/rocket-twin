@@ -1,0 +1,123 @@
+{
+  "dataset_id": "wo03-bridge-gauss-stress-20261101-v1",
+  "status": "completed_coarse_numerical_stress_diagnostic_not_strength_or_convergence_acceptance",
+  "source_output_directory": "build/wo03-bridge-gauss-stress-v1",
+  "publication_kind": "byte_identical_compact_records_and_source_snapshots; original paths in records retain their execution context",
+  "original_record_path_semantics": "Absolute paths and hashes in copied records describe original inputs at execution; they are not rewritten to publication paths. artifact-manifest.json retains original build artifact paths, including omitted local NPZ hashes.",
+  "execution_context": {
+    "cwd": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin",
+    "worker": "Direct .venv/bin/python -m scripts.wo03_bridge_gauss_stress --phase PHASE; no separate one-off computation worker or generated launcher",
+    "child": "Verification invokes .venv/bin/python -m pytest -q tests/test_bridge_gauss_stress.py; exact test source included",
+    "phase_order": [
+      "verify",
+      "equal",
+      "single"
+    ],
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "limits": "30 CPU seconds / 30 wall seconds per process; VTK one-thread settings; no native solver or mesh generation"
+  },
+  "retained_original_dataset_inputs_sha256": {
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115",
+    "build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f"
+  },
+  "not_published": "All NPZ all-Gauss output arrays, original source deck/mesh metadata, VTU fields and other generated mesh/data remain local ignored build inputs; repository-only records do not replace those raw datasets.",
+  "required_code_snapshots": [
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/equal.json",
+      "original_path": "build/wo03-bridge-gauss-stress-v1/equal.json",
+      "sha256": "c9421de98113913e39f8d776a3fd23d61c0e1e731eb336823cf74d6976dac18a",
+      "copy": "byte_identical"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/single.json",
+      "original_path": "build/wo03-bridge-gauss-stress-v1/single.json",
+      "sha256": "1a677c67ea05984b9bd368e5d74561a9e302e4603e1ceffed03c923516caf3df",
+      "copy": "byte_identical"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/verify.json",
+      "original_path": "build/wo03-bridge-gauss-stress-v1/verify.json",
+      "sha256": "45ed5341ab58b445cc51317544d5c306d44f8c1c603e5510c6d4829930f2c5ce",
+      "copy": "byte_identical"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/executed-verify.json",
+      "original_path": "build/wo03-bridge-gauss-stress-v1/executed-verify.json",
+      "sha256": "45ed5341ab58b445cc51317544d5c306d44f8c1c603e5510c6d4829930f2c5ce",
+      "copy": "byte_identical"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/artifact-manifest.json",
+      "original_path": "build/wo03-bridge-gauss-stress-v1/artifact-manifest.json",
+      "sha256": "37df7d5e561dfcc6dbdea482c30b5b39664600e5e3d4aeb79cc8a2ef4b3d5068",
+      "copy": "byte_identical"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/executed-postprocessor.py",
+      "original_path": "build/wo03-bridge-gauss-stress-v1/executed-postprocessor.py",
+      "sha256": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+      "copy": "byte_identical"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/source-wo03_elmer_bridge_input.py",
+      "original_path": "scripts/wo03_elmer_bridge_input.py",
+      "sha256": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+      "copy": "byte_identical_dependency_snapshot"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/source-wo03_elmer_bridge_diagnostic.py",
+      "original_path": "scripts/wo03_elmer_bridge_diagnostic.py",
+      "sha256": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+      "copy": "byte_identical_dependency_snapshot"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/source-wo03_elmer_stress_fixture_reader.py",
+      "original_path": "scripts/wo03_elmer_stress_fixture_reader.py",
+      "sha256": "a45a392d14593bb642ef68e38735ff4f24daf1c8536f4eb4357cf633d681bd22",
+      "copy": "byte_identical_dependency_snapshot"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/source-wo03_elmer_stress_fixture.py",
+      "original_path": "scripts/wo03_elmer_stress_fixture.py",
+      "sha256": "48bfdbaa727b3742f9afa319fdf5763f44ca0c284c3a42bb3ac5239aa7477e2f",
+      "copy": "byte_identical_dependency_snapshot"
+    },
+    {
+      "published_path": "runs/wo03-bridge-gauss-stress-20261101-v1/executed-test_bridge_gauss_stress.py",
+      "original_path": "tests/test_bridge_gauss_stress.py",
+      "sha256": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c",
+      "copy": "byte_identical"
+    }
+  ],
+  "root_current_source": {
+    "path": "scripts/wo03_bridge_gauss_stress.py",
+    "sha256": "c08c4f4498de73d02556f1e817bcfb27822d073635b3a45686dd2b5495e4d9df",
+    "difference_from_executed": "Black formatting plus source citation docstring only; computational AST equality recorded in original artifact-manifest"
+  },
+  "root_current_test": {
+    "path": "tests/test_bridge_gauss_stress.py",
+    "sha256": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c"
+  },
+  "source_equations": {
+    "elmer_commit": "a19504ac53ec222e3355e182b08f2ff280c2203a",
+    "strain_and_isotropic_law": "https://github.com/ElmerCSC/elmerfem/blob/a19504ac53ec222e3355e182b08f2ff280c2203a/fem/src/Stress.F90#L1460",
+    "solver_context": "https://github.com/ElmerCSC/elmerfem/blob/a19504ac53ec222e3355e182b08f2ff280c2203a/fem/src/modules/StressSolve.F90",
+    "textbook": "Timoshenko and Goodier, Theory of Elasticity, third edition, chapter 1"
+  },
+  "validation": "No computation rerun during publication. Byte copies and recorded source hashes checked only."
+}

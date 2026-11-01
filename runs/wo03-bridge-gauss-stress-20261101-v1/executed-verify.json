@@ -1,0 +1,101 @@
+{
+  "status": "verified_for_coarse_diagnostic_only",
+  "synthetic_patch_checks": "........                                                                 [100%]\n8 passed in 0.11s",
+  "B_expected_loaded_axial_MPa": 9.375,
+  "B_component_order": [
+    "xx",
+    "yy",
+    "zz",
+    "xy",
+    "yz",
+    "xz"
+  ],
+  "B_max_abs_component_errors_MPa": [
+    5.598134087989713e-12,
+    5.1676345796926405e-12,
+    6.830802590229723e-11,
+    3.4890592225188976e-12,
+    1.2578079900383175e-11,
+    1.4761181215745114e-11
+  ],
+  "B_max_error_reference_scaled": 7.286189429578372e-12,
+  "B_all_components_existing_2pct_pass": true,
+  "native_B_PointData_crosscheck_separate_projection": {
+    "component_order": [
+      "xx",
+      "yy",
+      "zz",
+      "xy",
+      "yz",
+      "xz"
+    ],
+    "max_abs_error_pa": [
+      6.207813700690146e-06,
+      3.164587812688242e-06,
+      7.333792746067047e-05,
+      2.7114716615700924e-06,
+      1.1114984856517992e-05,
+      1.2429274583898666e-05
+    ],
+    "max_error_normalized_by_loaded_axial": 7.822712262471517e-12,
+    "original_axial_criterion_pass": true,
+    "all_components_primary_2pct_scale_pass": true,
+    "association": "PointData",
+    "dtype": "float64",
+    "node_count": 593
+  },
+  "source_sha256": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_bridge_gauss_stress.py": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_input.py": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_bridge_gauss_stress.py": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c"
+  },
+  "retained_inputs_sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_bridge_gauss_stress.py": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_input.py": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_bridge_gauss_stress.py": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f"
+  },
+  "retained_inputs_sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_bridge_gauss_stress.py": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_input.py": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_bridge_gauss_stress.py": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f"
+  },
+  "retained_inputs_unchanged": true,
+  "one_cpu_requested": true,
+  "process_cpu_s": 1.727915,
+  "wall_s": 2.4034541670116596,
+  "peak_process_rss_bytes_macos": 493453312
+}

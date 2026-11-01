@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_mesh_pilots.py", line 231, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_mesh_pilots.py", line 111, in main
+    worker(args.worker)
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_mesh_pilots.py", line 90, in worker
+    (out / "regional-metrics.json").write_text(json.dumps(metrics(meta), indent=2) + "\n")
+                                                          ^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_mesh_pilots.py", line 39, in metrics
+    owner = meta["tetrahedron_material"][key]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+KeyError: '7770'

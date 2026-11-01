@@ -1,0 +1,12 @@
+status: prepare_only_no_native
+native_execution_authorized: false
+source_prepared: build/wo03-elmer-nodal-fixture-v1/prepared
+source_result: build/wo03-elmer-nodal-fixture-v1/native-single/record.json
+stress_source_glob: .cache/elmer-evaluation/setup-v1/elmerfem/*/fem/src/modules/StressSolve.F90
+expected_loaded_sigma_zz_pa: 9375000.0
+existing_relative_stress_limit: 0.02
+native_cpu_s: 120
+native_wall_s: 120
+parent_cpu_s: 120
+setup_reserve_cpu_s: 60
+root_rss_bytes: 2147483648

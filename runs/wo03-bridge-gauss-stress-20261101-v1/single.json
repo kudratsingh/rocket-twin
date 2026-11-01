@@ -1,0 +1,1582 @@
+{
+  "status": "executed_coarse_material_local_diagnostic",
+  "case": "single",
+  "service_force_N": 150,
+  "design_factor_not_applied_to_raw_results": 3,
+  "strength_acceptance": false,
+  "convergence_acceptance": false,
+  "materials_E_MPa_nu_from_original_deck": {
+    "G11": [
+      10000.0,
+      0.3
+    ],
+    "EPOXY_0": [
+      100.0,
+      0.3
+    ],
+    "EPOXY_1": [
+      100.0,
+      0.3
+    ],
+    "EPOXY_2": [
+      100.0,
+      0.3
+    ],
+    "EPOXY_3": [
+      100.0,
+      0.3
+    ],
+    "EPOXY_4": [
+      100.0,
+      0.3
+    ],
+    "EPOXY_5": [
+      100.0,
+      0.3
+    ]
+  },
+  "quadrature": "source-identical eleven-point signed Gauss4; one negative weight; means are signed quadrature volume integrals, no probabilistic percentiles",
+  "regions": {
+    "EPOXY_0": {
+      "volume_mm3": 9.939776890071622,
+      "element_count": 345,
+      "sample_count": 3795,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": -0.17006160829662717,
+          "minimum": {
+            "value": -4.113065415250998,
+            "element_id": 35260,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.157534907971748,
+              -6.085714285714278,
+              172.16839834499996
+            ]
+          },
+          "maximum": {
+            "value": 0.22531030851220432,
+            "element_id": 35143,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              31.544479002163225,
+              -6.0071447087477585,
+              176.33157597165294
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": -0.3990997280447495,
+          "minimum": {
+            "value": -9.732267088863109,
+            "element_id": 35260,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              25.15753490797175,
+              -6.014285714285736,
+              172.16839834499996
+            ]
+          },
+          "maximum": {
+            "value": 0.527446388895991,
+            "element_id": 35143,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              31.544479002163225,
+              -6.0071447087477585,
+              176.33157597165294
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": -0.17068724068045646,
+          "minimum": {
+            "value": -4.125316335222491,
+            "element_id": 35260,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              25.15753490797175,
+              -6.014285714285736,
+              172.16839834499996
+            ]
+          },
+          "maximum": {
+            "value": 0.22283992047251494,
+            "element_id": 35143,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              31.544479002163225,
+              -6.0071447087477585,
+              176.33157597165294
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": 0.00448231839429456,
+          "minimum": {
+            "value": -1.0446686337077724,
+            "element_id": 35260,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.157534907971748,
+              -6.085714285714278,
+              172.16839834499996
+            ]
+          },
+          "maximum": {
+            "value": 0.14633992367579704,
+            "element_id": 35137,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              31.54155194822648,
+              -6.007144708747776,
+              178.36715435922486
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": 0.22839474824571254,
+          "minimum": {
+            "value": -1.0229571375058157,
+            "element_id": 35393,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              31.362754266377447,
+              -6.092857142857139,
+              172.17178410493884
+            ]
+          },
+          "maximum": {
+            "value": 1.798077490074456,
+            "element_id": 35260,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              25.15753490797175,
+              -6.014285714285736,
+              172.16839834499996
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": 0.00040325611992076364,
+          "minimum": {
+            "value": -0.07777808136817521,
+            "element_id": 35205,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.06300739587145,
+              -6.014285714285738,
+              172.27554120214316
+            ]
+          },
+          "maximum": {
+            "value": 0.12153593511957085,
+            "element_id": 35260,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.157534907971748,
+              -6.085714285714278,
+              172.16839834499996
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 0.7241048648032116,
+          "minimum": {
+            "value": 0.12321566113207344,
+            "element_id": 35372,
+            "gauss_index_0_based": 9,
+            "xyz_mm": [
+              30.30596104533191,
+              -6.0399403576166995,
+              175.15587523186724
+            ]
+          },
+          "maximum": {
+            "value": 6.465090422358882,
+            "element_id": 35260,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              25.15753490797175,
+              -6.014285714285736,
+              172.16839834499996
+            ]
+          }
+        },
+        "film_normal_tension_positive": {
+          "signed_quadrature_volume_mean": -0.3990997280447495,
+          "minimum": {
+            "value": -9.732267088863109,
+            "element_id": 35260,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              25.15753490797175,
+              -6.014285714285736,
+              172.16839834499996
+            ]
+          },
+          "maximum": {
+            "value": 0.527446388895991,
+            "element_id": 35143,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              31.544479002163225,
+              -6.0071447087477585,
+              176.33157597165294
+            ]
+          }
+        },
+        "film_total_shear": {
+          "signed_quadrature_volume_mean": 0.3197891347600205,
+          "minimum": {
+            "value": 0.007713887578210385,
+            "element_id": 35143,
+            "gauss_index_0_based": 10,
+            "xyz_mm": [
+              31.50708286662998,
+              -6.010062072614728,
+              175.77375430898914
+            ]
+          },
+          "maximum": {
+            "value": 1.836429144044336,
+            "element_id": 35260,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              25.15753490797175,
+              -6.014285714285736,
+              172.16839834499996
+            ]
+          }
+        }
+      },
+      "film_normal_G11_to_rail": [
+        -0.0,
+        1.0,
+        -0.0
+      ]
+    },
+    "EPOXY_1": {
+      "volume_mm3": 9.939776890071625,
+      "element_count": 352,
+      "sample_count": 3872,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": -0.4573210037796844,
+          "minimum": {
+            "value": -4.714296542963544,
+            "element_id": 35752,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.06647332705717,
+              6.00714285714286,
+              173.35048050057134
+            ]
+          },
+          "maximum": {
+            "value": 3.545844003778627,
+            "element_id": 35479,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              30.045690258818265,
+              6.092857142857139,
+              172.1923395746531
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": -1.0736903519524341,
+          "minimum": {
+            "value": -11.036206855865837,
+            "element_id": 35752,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.06647332705717,
+              6.00714285714286,
+              173.35048050057134
+            ]
+          },
+          "maximum": {
+            "value": 8.190524162874965,
+            "element_id": 35479,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              30.045690258818265,
+              6.092857142857139,
+              172.1923395746531
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": -0.4413515221710641,
+          "minimum": {
+            "value": -4.697988089616259,
+            "element_id": 35752,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.06647332705717,
+              6.00714285714286,
+              173.35048050057134
+            ]
+          },
+          "maximum": {
+            "value": 3.918801937826924,
+            "element_id": 35622,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              28.734481039236364,
+              6.092857142857137,
+              172.1640841178571
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": 0.8828159397248876,
+          "minimum": {
+            "value": -0.427642221092524,
+            "element_id": 35643,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              31.47324467366497,
+              6.007144554447347,
+              172.17096231457143
+            ]
+          },
+          "maximum": {
+            "value": 4.26493586697536,
+            "element_id": 35750,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.161000839157463,
+              6.085714285714278,
+              172.17190907199998
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": 0.9859431995170359,
+          "minimum": {
+            "value": -3.6282248136133997,
+            "element_id": 35651,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              31.362405880520036,
+              6.092857142857137,
+              172.1705939573673
+            ]
+          },
+          "maximum": {
+            "value": 3.1407130294849424,
+            "element_id": 35739,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.162148529381696,
+              6.014285714285719,
+              173.81158940671435
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": -0.009330922335970333,
+          "minimum": {
+            "value": -0.2516709193865088,
+            "element_id": 35674,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              28.95316796434087,
+              6.085714285714278,
+              175.98265098518328
+            ]
+          },
+          "maximum": {
+            "value": 0.19651297108610027,
+            "element_id": 35674,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              29.1277168411061,
+              6.014285714285736,
+              175.01847686518371
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 2.801343273508734,
+          "minimum": {
+            "value": 0.7809803374100063,
+            "element_id": 35757,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.06665239254901,
+              6.07857142857142,
+              186.92189482828562
+            ]
+          },
+          "maximum": {
+            "value": 8.776199750544475,
+            "element_id": 35576,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.06629783037758,
+              6.092857142857139,
+              173.45756387636726
+            ]
+          }
+        },
+        "film_normal_tension_positive": {
+          "signed_quadrature_volume_mean": -1.0736903519524341,
+          "minimum": {
+            "value": -11.036206855865837,
+            "element_id": 35752,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              25.06647332705717,
+              6.00714285714286,
+              173.35048050057134
+            ]
+          },
+          "maximum": {
+            "value": 8.190524162874965,
+            "element_id": 35479,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              30.045690258818265,
+              6.092857142857139,
+              172.1923395746531
+            ]
+          }
+        },
+        "film_total_shear": {
+          "signed_quadrature_volume_mean": 1.5076293271743695,
+          "minimum": {
+            "value": 0.438273978581435,
+            "element_id": 35758,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.16117990464718,
+              6.085714285714258,
+              187.0290376854283
+            ]
+          },
+          "maximum": {
+            "value": 4.3816260106216065,
+            "element_id": 35750,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.161000839157463,
+              6.085714285714278,
+              172.17190907199998
+            ]
+          }
+        }
+      },
+      "film_normal_G11_to_rail": [
+        -0.0,
+        -1.0,
+        -0.0
+      ]
+    },
+    "EPOXY_2": {
+      "volume_mm3": 9.939776890163898,
+      "element_count": 346,
+      "sample_count": 3806,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": -1.6927254643299967,
+          "minimum": {
+            "value": -13.284154086609188,
+            "element_id": 35882,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.256579768736766,
+              24.754479134328577,
+              173.35042091599956
+            ]
+          },
+          "maximum": {
+            "value": 6.766409900059173,
+            "element_id": 35829,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -9.746275127442694,
+              29.066757990985376,
+              172.19233877751017
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": 0.16211837332099868,
+          "minimum": {
+            "value": -4.7969479076886214,
+            "element_id": 35882,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.256579768736766,
+              24.754479134328577,
+              173.35042091599956
+            ]
+          },
+          "maximum": {
+            "value": 5.40766568918286,
+            "element_id": 35915,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -9.090671452268321,
+              27.931219115967263,
+              172.16408411785716
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": -0.4410986900933813,
+          "minimum": {
+            "value": -7.234997412123132,
+            "element_id": 35946,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -7.834155449949126,
+              25.59772670229995,
+              175.95194343948987
+            ]
+          },
+          "maximum": {
+            "value": 4.387637886252245,
+            "element_id": 35946,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -7.3819893213942205,
+              24.814551994157426,
+              176.49231676520384
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": 0.17970172554747016,
+          "minimum": {
+            "value": -1.8236759830561369,
+            "element_id": 35882,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.256579768736766,
+              24.754479134328577,
+              173.35042091599956
+            ]
+          },
+          "maximum": {
+            "value": 2.398572314965317,
+            "element_id": 35915,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -9.090671452268321,
+              27.931219115967263,
+              172.16408411785716
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": 0.48970545189036996,
+          "minimum": {
+            "value": -1.8113397663598387,
+            "element_id": 35949,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872937776,
+              30.207068787773142,
+              172.1705939573673
+            ]
+          },
+          "maximum": {
+            "value": 1.8615793611587663,
+            "element_id": 35946,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -7.3819893213942205,
+              24.814551994157426,
+              176.49231676520384
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": 0.8670196386763314,
+          "minimum": {
+            "value": -3.1791848330247783,
+            "element_id": 35949,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872937776,
+              30.207068787773142,
+              172.1705939573673
+            ]
+          },
+          "maximum": {
+            "value": 3.787964772609435,
+            "element_id": 35946,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -7.834155449949126,
+              25.59772670229995,
+              175.95194343948987
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 2.8287764072969495,
+          "minimum": {
+            "value": 0.790959026160098,
+            "element_id": 36091,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.26925946354575,
+              24.747869581400003,
+              186.9206858197751
+            ]
+          },
+          "maximum": {
+            "value": 10.243226640377156,
+            "element_id": 35882,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.256579768736766,
+              24.754479134328577,
+              173.35042091599956
+            ]
+          }
+        },
+        "film_normal_tension_positive": {
+          "signed_quadrature_volume_mean": -1.0733882454910793,
+          "minimum": {
+            "value": -12.741702271482904,
+            "element_id": 35882,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.256579768736766,
+              24.754479134328577,
+              173.35042091599956
+            ]
+          },
+          "maximum": {
+            "value": 8.285392318875504,
+            "element_id": 35829,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -9.746275127442694,
+              29.066757990985376,
+              172.19233877751017
+            ]
+          }
+        },
+        "film_total_shear": {
+          "signed_quadrature_volume_mean": 1.5229409918518708,
+          "minimum": {
+            "value": 0.44403207857436766,
+            "element_id": 36093,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -7.310337323853024,
+              24.833304236794152,
+              187.0278286769183
+            ]
+          },
+          "maximum": {
+            "value": 4.41758388589223,
+            "element_id": 35946,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -7.834155449949126,
+              25.59772670229995,
+              175.95194343948987
+            ]
+          }
+        }
+      },
+      "film_normal_G11_to_rail": [
+        -0.8660254037849384,
+        -0.49999999999913414,
+        2.721191159124357e-14
+      ]
+    },
+    "EPOXY_3": {
+      "volume_mm3": 9.939776889124303,
+      "element_count": 346,
+      "sample_count": 3806,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": -0.3543978529633282,
+          "minimum": {
+            "value": -8.041597691033765,
+            "element_id": 36413,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.789024633751076,
+              18.78292305417555,
+              172.17190907200003
+            ]
+          },
+          "maximum": {
+            "value": 0.4662732237048174,
+            "element_id": 36154,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -21.031957992632627,
+              24.256987551277522,
+              176.32700202836722
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": -0.2206897438355635,
+          "minimum": {
+            "value": -6.410025018449634,
+            "element_id": 36413,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -17.850883591179617,
+              18.747208768461284,
+              172.17190907200003
+            ]
+          },
+          "maximum": {
+            "value": 0.38259973522520396,
+            "element_id": 36191,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.971087281638752,
+              24.30869924420609,
+              177.82245414391824
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": -0.17238387839000688,
+          "minimum": {
+            "value": -4.143747725752854,
+            "element_id": 36413,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.789024633751076,
+              18.78292305417555,
+              172.17190907200003
+            ]
+          },
+          "maximum": {
+            "value": 0.22104686633227655,
+            "element_id": 36154,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -21.031957992632627,
+              24.256987551277522,
+              176.32700202836722
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": -0.09503807054969604,
+          "minimum": {
+            "value": -2.947331417636687,
+            "element_id": 36413,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -17.850883591179617,
+              18.747208768461284,
+              172.17190907200003
+            ]
+          },
+          "maximum": {
+            "value": 0.18569575254623324,
+            "element_id": 36191,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.971087281638752,
+              24.30869924420609,
+              177.82245414391824
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": 0.11776513022270645,
+          "minimum": {
+            "value": -0.5171777338275787,
+            "element_id": 36315,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.957772007604028,
+              24.11421164491624,
+              172.17059395736734
+            ]
+          },
+          "maximum": {
+            "value": 0.9381770736403287,
+            "element_id": 36411,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.73557498197154,
+              18.70463125592263,
+              172.27905192914312
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": 0.2029893190812282,
+          "minimum": {
+            "value": -0.884890482438705,
+            "element_id": 36315,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.957772007604028,
+              24.11421164491624,
+              172.17059395736734
+            ]
+          },
+          "maximum": {
+            "value": 1.621620905628493,
+            "element_id": 36411,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.73557498197154,
+              18.70463125592263,
+              172.27905192914312
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 0.7353201730622815,
+          "minimum": {
+            "value": 0.1141027193957056,
+            "element_id": 36185,
+            "gauss_index_0_based": 9,
+            "xyz_mm": [
+              -20.495989388538458,
+              23.379975687563427,
+              175.12689782908353
+            ]
+          },
+          "maximum": {
+            "value": 6.523881702344339,
+            "element_id": 36413,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.789024633751076,
+              18.78292305417555,
+              172.17190907200003
+            ]
+          }
+        },
+        "film_normal_tension_positive": {
+          "signed_quadrature_volume_mean": -0.4032762091042307,
+          "minimum": {
+            "value": -9.795138774335458,
+            "element_id": 36413,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -17.850883591179617,
+              18.747208768461284,
+              172.17190907200003
+            ]
+          },
+          "maximum": {
+            "value": 0.5793224186804484,
+            "element_id": 36154,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -21.031957992632627,
+              24.256987551277522,
+              176.32700202836722
+            ]
+          }
+        },
+        "film_total_shear": {
+          "signed_quadrature_volume_mean": 0.325625108995268,
+          "minimum": {
+            "value": 0.023818321354409467,
+            "element_id": 36154,
+            "gauss_index_0_based": 8,
+            "xyz_mm": [
+              -20.98475172315471,
+              24.246644089705068,
+              175.76731259626615
+            ]
+          },
+          "maximum": {
+            "value": 1.888217595147182,
+            "element_id": 36411,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.73557498197154,
+              18.70463125592263,
+              172.27905192914312
+            ]
+          }
+        }
+      },
+      "film_normal_G11_to_rail": [
+        0.8660254037830275,
+        0.5000000000024442,
+        -4.426053236486413e-13
+      ]
+    },
+    "EPOXY_4": {
+      "volume_mm3": 9.939776889988934,
+      "element_count": 347,
+      "sample_count": 3817,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": -0.06514876791153179,
+          "minimum": {
+            "value": -0.9453348643449261,
+            "element_id": 36811,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -17.735556750565408,
+              -18.70459967822875,
+              172.38612626442884
+            ]
+          },
+          "maximum": {
+            "value": 0.9600599781826564,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": 0.1626642407524522,
+          "minimum": {
+            "value": -0.08763737103963407,
+            "element_id": 36587,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.98647082184693,
+              -24.33534431748365,
+              186.81387373557132
+            ]
+          },
+          "maximum": {
+            "value": 1.8231546146555428,
+            "element_id": 36634,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -20.938831582079423,
+              -24.252831042346642,
+              172.1721713230816
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": 0.030005251515286574,
+          "minimum": {
+            "value": -0.23917297100356624,
+            "element_id": 36620,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -17.74279242184287,
+              -18.717132228500027,
+              173.86616980591847
+            ]
+          },
+          "maximum": {
+            "value": 0.8445270326306633,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": -0.08813831321482056,
+          "minimum": {
+            "value": -0.9000872322084514,
+            "element_id": 36634,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -20.938831582079423,
+              -24.252831042346642,
+              172.1721713230816
+            ]
+          },
+          "maximum": {
+            "value": 0.04558347179251581,
+            "element_id": 36587,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.98647082184693,
+              -24.33534431748365,
+              186.81387373557132
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": -0.002485687321721478,
+          "minimum": {
+            "value": -0.3720804695852445,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          },
+          "maximum": {
+            "value": 0.23115845948033426,
+            "element_id": 36781,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -17.74807592491441,
+              -18.69771209566547,
+              172.2792880547145
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": 0.004353635795308586,
+          "minimum": {
+            "value": -0.4081296639274264,
+            "element_id": 36781,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -17.80993488234296,
+              -18.661997809951206,
+              172.27928805471456
+            ]
+          },
+          "maximum": {
+            "value": 0.6380103935720811,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 0.38348048177874894,
+          "minimum": {
+            "value": 0.005537841572462332,
+            "element_id": 36724,
+            "gauss_index_0_based": 0,
+            "xyz_mm": [
+              -19.578256309137497,
+              -21.8105346510875,
+              180.64883601087502
+            ]
+          },
+          "maximum": {
+            "value": 2.206237461031151,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          }
+        },
+        "film_normal_tension_positive": {
+          "signed_quadrature_volume_mean": 0.06813450254642073,
+          "minimum": {
+            "value": -0.5570778765034616,
+            "element_id": 36620,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -17.74279242184287,
+              -18.717132228500027,
+              173.86616980591847
+            ]
+          },
+          "maximum": {
+            "value": 1.9462751810520447,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          }
+        },
+        "film_total_shear": {
+          "signed_quadrature_volume_mean": 0.21500182779068963,
+          "minimum": {
+            "value": 0.0025121133520436363,
+            "element_id": 36724,
+            "gauss_index_0_based": 0,
+            "xyz_mm": [
+              -19.578256309137497,
+              -21.8105346510875,
+              180.64883601087502
+            ]
+          },
+          "maximum": {
+            "value": 1.1015305805422755,
+            "element_id": 36647,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -20.95794642427546,
+              -24.11451374343869,
+              172.17178344279594
+            ]
+          }
+        }
+      },
+      "film_normal_G11_to_rail": [
+        0.8660254037823207,
+        -0.5000000000036682,
+        3.2261925696066257e-13
+      ]
+    },
+    "EPOXY_5": {
+      "volume_mm3": 9.939776890076654,
+      "element_count": 350,
+      "sample_count": 3850,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": 0.18212897589829832,
+          "minimum": {
+            "value": -0.2095019594191242,
+            "element_id": 36938,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -7.338115784950421,
+              -24.724275085642883,
+              174.83045552020397
+            ]
+          },
+          "maximum": {
+            "value": 2.401824820814416,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": -0.08249500494866702,
+          "minimum": {
+            "value": -0.857007105882,
+            "element_id": 37127,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -7.330880113680828,
+              -24.711742535371453,
+              172.3861262644287
+            ]
+          },
+          "maximum": {
+            "value": 0.42309754116676906,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": 0.030634705456427186,
+          "minimum": {
+            "value": -0.26153680641251553,
+            "element_id": 36938,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -7.338115784950421,
+              -24.724275085642883,
+              174.83045552020397
+            ]
+          },
+          "maximum": {
+            "value": 0.8581871188428305,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": 0.05351492130452863,
+          "minimum": {
+            "value": -0.1035846458744373,
+            "element_id": 37014,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -10.465461071823327,
+              -30.283856552789494,
+              172.1721713230816
+            ]
+          },
+          "maximum": {
+            "value": 0.472216251256305,
+            "element_id": 37127,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -7.330880113680828,
+              -24.711742535371453,
+              172.3861262644287
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": 0.0022886248150844088,
+          "minimum": {
+            "value": -0.24587380514205262,
+            "element_id": 36947,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -7.256579847835949,
+              -24.75447927134286,
+              172.2789924477959
+            ]
+          },
+          "maximum": {
+            "value": 0.36948194085627645,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": -0.0038567275851014,
+          "minimum": {
+            "value": -0.6462701966238314,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          },
+          "maximum": {
+            "value": 0.4090182718859399,
+            "element_id": 36947,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -7.318438805248169,
+              -24.718764985628596,
+              172.27899244779599
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 0.3823366049031488,
+          "minimum": {
+            "value": 0.0068748364112200845,
+            "element_id": 37108,
+            "gauss_index_0_based": 0,
+            "xyz_mm": [
+              -9.14369072845625,
+              -27.8873369103875,
+              180.57275773700002
+            ]
+          },
+          "maximum": {
+            "value": 2.2196329997609863,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        },
+        "film_normal_tension_positive": {
+          "signed_quadrature_volume_mean": 0.06962769935533657,
+          "minimum": {
+            "value": -0.6094470930420588,
+            "element_id": 36938,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -7.338115784950421,
+              -24.724275085642883,
+              174.83045552020397
+            ]
+          },
+          "maximum": {
+            "value": 1.9787032329668302,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        },
+        "film_total_shear": {
+          "signed_quadrature_volume_mean": 0.21415911147366926,
+          "minimum": {
+            "value": 0.003535256092940647,
+            "element_id": 37108,
+            "gauss_index_0_based": 0,
+            "xyz_mm": [
+              -9.14369072845625,
+              -27.8873369103875,
+              180.57275773700002
+            ]
+          },
+          "maximum": {
+            "value": 1.1041785609799388,
+            "element_id": 37029,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              -10.404633872938,
+              -30.207068787773135,
+              172.1705939573673
+            ]
+          }
+        }
+      },
+      "film_normal_G11_to_rail": [
+        -0.8660254037844882,
+        0.49999999999991424,
+        -1.7810935933491844e-13
+      ]
+    },
+    "G11": {
+      "volume_mm3": 5501.023169933356,
+      "element_count": 20409,
+      "sample_count": 224499,
+      "metrics_MPa": {
+        "xx": {
+          "signed_quadrature_volume_mean": -0.5149091529213874,
+          "minimum": {
+            "value": -187.82072804735765,
+            "element_id": 18018,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -5.573315575408932,
+              25.874449229102318,
+              172.04122076714276
+            ]
+          },
+          "maximum": {
+            "value": 103.7084814172313,
+            "element_id": 32925,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -17.80175677765717,
+              18.490690059971417,
+              172.0285714285714
+            ]
+          }
+        },
+        "yy": {
+          "signed_quadrature_volume_mean": 0.07474502749262996,
+          "minimum": {
+            "value": -137.70118193408717,
+            "element_id": 32916,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -7.112528936648342,
+              24.662118631400013,
+              172.02857142857115
+            ]
+          },
+          "maximum": {
+            "value": 76.10612430315098,
+            "element_id": 18944,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              27.16426592619367,
+              8.434112404147688,
+              170.38571428571476
+            ]
+          }
+        },
+        "zz": {
+          "signed_quadrature_volume_mean": -0.24704945044337323,
+          "minimum": {
+            "value": -271.3990182994697,
+            "element_id": 33204,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -5.5785703954128945,
+              25.719510215591843,
+              172.34601943804088
+            ]
+          },
+          "maximum": {
+            "value": 68.67553000805145,
+            "element_id": 31307,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              26.088350273683304,
+              6.171428571428797,
+              172.05579923257136
+            ]
+          }
+        },
+        "xy": {
+          "signed_quadrature_volume_mean": 0.5159061133716427,
+          "minimum": {
+            "value": -72.53372421584122,
+            "element_id": 33068,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              24.914285714285732,
+              -6.171428571428797,
+              172.02857142857133
+            ]
+          },
+          "maximum": {
+            "value": 66.08776617121906,
+            "element_id": 33227,
+            "gauss_index_0_based": 4,
+            "xyz_mm": [
+              13.921434723357061,
+              23.350151541895993,
+              170.12399495691832
+            ]
+          }
+        },
+        "yz": {
+          "signed_quadrature_volume_mean": 0.056724537217741455,
+          "minimum": {
+            "value": -62.873465119717025,
+            "element_id": 32916,
+            "gauss_index_0_based": 2,
+            "xyz_mm": [
+              -6.529653648225133,
+              25.081120445971262,
+              172.0285714285712
+            ]
+          },
+          "maximum": {
+            "value": 92.00777829732843,
+            "element_id": 29727,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.150550128347238,
+              8.028571428571396,
+              172.16699279306118
+            ]
+          }
+        },
+        "xz": {
+          "signed_quadrature_volume_mean": 0.03340991894477934,
+          "minimum": {
+            "value": -79.24167445957313,
+            "element_id": 31577,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              25.062484939649174,
+              7.957142857142798,
+              172.23895065771447
+            ]
+          },
+          "maximum": {
+            "value": 111.52727758745573,
+            "element_id": 29740,
+            "gauss_index_0_based": 3,
+            "xyz_mm": [
+              -5.622602989761605,
+              25.795776906192078,
+              172.16691871622447
+            ]
+          }
+        },
+        "von_mises": {
+          "signed_quadrature_volume_mean": 7.670851683691502,
+          "minimum": {
+            "value": 0.004692256045841816,
+            "element_id": 33124,
+            "gauss_index_0_based": 9,
+            "xyz_mm": [
+              -8.31984579654501,
+              -30.418461957205743,
+              187.0050772228409
+            ]
+          },
+          "maximum": {
+            "value": 257.3462736328452,
+            "element_id": 33204,
+            "gauss_index_0_based": 1,
+            "xyz_mm": [
+              -5.5785703954128945,
+              25.719510215591843,
+              172.34601943804088
+            ]
+          }
+        }
+      }
+    }
+  },
+  "original_quadrature_max_xyz_delta_mm": 5.421725290943868e-10,
+  "original_quadrature_max_dv_delta_mm3": 2.075796062817048e-10,
+  "source_sha256": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_bridge_gauss_stress.py": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_input.py": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-bridge-gauss-stress-v1/verify.json": "45ed5341ab58b445cc51317544d5c306d44f8c1c603e5510c6d4829930f2c5ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115"
+  },
+  "retained_inputs_sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_bridge_gauss_stress.py": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_input.py": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_bridge_gauss_stress.py": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f"
+  },
+  "retained_inputs_sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_bridge_gauss_stress.py": "cd1c887030511f56a0ac5e426a944c11f424bf61519847c1f95f3c31649f28ce",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_input.py": "1ed3c28c8c25c6c388f2d04b12992e9fd5c389481484c2f35746a4f7a3f987a4",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_bridge_gauss_stress.py": "e1b864f806581be3b5fc52869d23c2f3412101842c8b638835238ba4e87dee6c",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-recovery.json": "d4efd431c52d273d955eb4622422140e9052a1463efe394037f47f7fd817e681",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/equal-readonly-displacements.npz": "94db8dfeee9205779c737988858089937ef1fed19dfc24a4f869339f6050bf5a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single-readonly-recovery.json": "b7576e358b6f137e243cf66867330394db10f56fd0e6bd865ceee18a44187115",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-single-continuation-v1/single/field_t0001.vtu": "f62bd3bdb407f5a18a432831f33bcbeae8d0a5b3513a1597d7d650c06b851fd9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_elmer_bridge_diagnostic.py": "8a74b89fc5e29811b5148f0602f8ed972942f9a73d33f863e56159e3f7cfd399",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/node-map.json": "234493aa98164e2b8100a2a1c77e0cde50f1f230c5b40b52d714e11f93d726b1",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-input-v2/prepared/mesh/mesh.nodes": "ee4bb4afa4136982367dc5bb5362b681385b1ef823f4bb1dccba1734b92bd66d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-bridge-diagnostic-v1/preflight-reviewed.json": "0276b360862ee163e400f322deaa553a50edceee588894e7ccabf9fcd558c071",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/case/mesh/field_t0001.vtu": "c6f09f8875382b51a0db6c6c98e94a5036aa846b7ac679ddefa55f76fff83ce9",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-elmer-stress-fixture-v2/native/record.json": "00038919322ef13a3fc3cacc4772a0bcafd3b18827078979d0bde3216c55b02f"
+  },
+  "retained_inputs_unchanged": true,
+  "one_cpu_requested": true,
+  "process_cpu_s": 3.9803010000000003,
+  "wall_s": 4.470890041993698,
+  "peak_process_rss_bytes_macos": 654458880
+}

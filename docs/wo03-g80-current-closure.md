@@ -124,3 +124,23 @@ canopy above the junction from retained body mass. A bypassing backbone leaves
 a157.466 g known forward-body/payload subset (332.29 N severe), with separate
 uncertain allocations; the primary backbone/terminations still retain the full
 1,782.253 N screen. This is load accounting, not designed attachments or capacity.
+
+
+## Retention design correction required before another refinement campaign
+
+The fixed-support [face-resultant bounds](wo03-g80-bridge-support-traction.md)
+exceed the estimated1 MPa hot shear screen:3.965/4.007 MPa after DF3 in the
+single-washer service case, with adverse slightly-over-screen distributed-load
+bounds too. These are model-based bounds, not measured capacity. The
+[material-local stress diagnostic](wo03-bridge-gauss-stress.md) preserves
+coarse peaks and normal/peel uncertainty rather than treating a nodal average
+as an adhesive allowable. Small-strain, hot properties and backing/contact
+assumptions remain explicit limitations.
+
+The physical bridge web is2 mm;1.5 mm is its nominal calculation-grid target.
+The3.0/2.0/1.5 mesh-only pilots changed grids, not geometry. They passed input
+checks but do not show uniform regional refinement, including unchanged film
+normal resolution, so they are not a convergence pass. No additional structural
+solve follows automatically. Next compare a positive rail-aligned mechanical
+load path with a continuous G11 frame, retaining the full growth allowance and
+separate recovery cases. No alternative is adopted or declared sufficient.
