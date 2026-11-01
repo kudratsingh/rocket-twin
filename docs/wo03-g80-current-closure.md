@@ -1,5 +1,11 @@
 # G80 package closure — isolated integrated candidate, acceptance open
 
+**Subsequent one-concept decision:** [S1 short-frame connections and margins](wo03-g80-short-subframe-decision.md)
+rejects admission before native work. Its added mass raises the unchanged
+recovery-opening demand; clevis bearing, guide mass and heel length fail.
+IF-RECOVERY-001 needs a complete load-spreading endpoint and coupled mass
+revision. No installed requirement closes and no CAD/flight identity is promoted.
+
 **Latest bounded decision:** [capture B/C comparison](wo03-g80-capture-decision.md)
 stops both specified envelopes before CAD/FEA. B relocates the weak connection
 to the rail/pin and C conflicts with the coupler and current hot-section screen.

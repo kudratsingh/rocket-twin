@@ -1596,3 +1596,37 @@ separate G54/G12 tracks remain unchanged. New browser verification is blocked
 by the designated agent's unresolved runtime-ownership prerequisite; its
 ownership-only handoff confirms no retry/bypass. Physical qualification and
 all release gates remain later; aggregate WO-03 is open.
+
+
+## WO-03 S1 short subframe admission — 2026-11-01
+
+One specified G11 cassette/clevis arrangement is **not admitted** before detailed
+CAD/FEA. [Connections, force diagram, margins and decision](wo03-g80-short-subframe-decision.md)
+cover motor, fin, body and recovery joints without rigid-support strength credit.
+The [packet](../runs/wo03-g80-short-subframe-20261101-v1/record.json) retains
+source hashes, removal ledger, all defined component/hardware budgets and the
+unchanged archived guide implementation.
+
+Source844.582g including full50g grows to a1057.417g cut-blank/preliminary budget;
+mandatory-solid mathematical floor is937.673g under the retained estimated
+ledger. The unchanged20.4m/s/0.3m/DF3 recovery case therefore gives1978.696N at
+the floor or2231.382N at the budget, rather than carrying the old1782.253N
+unchanged. M6 clevis net ratio1.136 does not close bearing: projected demands
+25.368/28.607MPa exceed the generic25MPa hot comparison, not a qualified bearing
+allowable. M3x16 heel screws cannot span minimum17.3/17.8mm stacks.
+
+The source1.5m mass-only guide screen gives14.190m/s at the full budget versus
+15m/s; its full-mass ceiling is958.398g. Mandatory solids plus just the defined
+M3 sets reach985.079g. These are conditional model/ledger bounds, not physical
+measurements or a new JAX/RocketPy flight. No temperature, installed fin/root/
+flutter, full inertia, actual CAD or interface acceptance follows. One hand
+packet used0.385CPU s within10CPU/20wall; no native or free-flight calls and
+no automatic variant was run. Required thermal cases and45C screen remain.
+
+Required IF-RECOVERY-001 change is a dimensioned through-frame saddle/strap
+load-spreading endpoint and coupled complete mass budget, with actual eye/pin/
+foot support, not an ideal fixed connection. No industrial lifting hardware,
+longer guide or raised property limit is adopted. Active vehicle and separate
+G54/G12/RL gates remain unchanged. PR41 and independent replay-race fix PR42
+are merged after both required jobs passed (41359972531/41361056195). Browser
+runtime ownership remains unresolved; code tests are not visual verification.

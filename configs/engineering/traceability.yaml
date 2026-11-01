@@ -3,6 +3,12 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-g80-short-subframe-decision.md
+  scope: One G80 S1 subframe admission with explicit connection hypotheses, recovery mass feedback and shared guide screens.
+  limitation: Not admitted; clevis scalar bearing, guide mass and heel screw lengths fail. No CAD/FEA, installed strength or temperature result; G54/G12 separate.
+- path: runs/wo03-g80-short-subframe-20261101-v1/record.json
+  scope: Source-pinned hand mass/force/net/contact arithmetic and archived shared mass-only guide function.
+  limitation: Conditional estimated ledger and unqualified hot properties; not reconciled CAD, free flight or measured mass. Full50g growth retained.
 - path: docs/wo03-g80-capture-decision.md
   scope: Bounded G80 rail-capture versus continuous G11 frame comparison and stop decision.
   limitation: Both specified envelopes fail early credibility screens; stock-only mass/tensors are not installed bounds. No CAD/FEA, adoption or G54/G12 acceptance.
@@ -470,6 +476,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - runs/wo02-20261030T173859843386Z/record.json
   - runs/wo02-20261030T204849990760Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
@@ -569,6 +576,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-staged-retention-20261101-v1/record.json
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
@@ -596,6 +604,7 @@ requirements:
   - 09
   - '12'
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-staged-retention-20261101-v1/record.json
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
@@ -625,6 +634,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-bridge-elmer-results.md
   - docs/wo03-g80-bridge-support-traction.md
@@ -729,6 +739,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-elmer-classic-decision-20261101T093000Z/record.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
@@ -789,6 +800,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-20261030T180113490389Z/record.json
   - runs/wo03-tolerances-20261030T182928948369Z/record.json
@@ -861,6 +873,7 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-recovery-branch-loads.md
   - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
@@ -1281,6 +1294,7 @@ interfaces:
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-bridge-support-traction.md
   - docs/wo03-bridge-gauss-stress.md
@@ -1391,12 +1405,14 @@ interfaces:
     no plugged G12 motor-ejection backup.
   unresolved:
   - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only load credit
+  - S1 aft termination and foot must be redesigned with load-spreading contact, valid fastener grip and finished-eye capacity; recalculate unchanged opening cases at complete full-growth mass, not frozen1782N
   - Actual deployment/separation mechanism and pressure isolation compatible with tether passages
   - Bends, abrasion, hot terminations and module/motor service; straight envelope is not installed clearance
   - Packed-volume/cord/connector envelope and extraction measurements
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-recovery-path-20261101-v1/record.json
   - runs/wo03-g80-backbone-route-20261101-v1/record.json
@@ -1463,6 +1479,7 @@ interfaces:
   - Actual club guide equipment/travel and lug supplier dimensions
   - Attachment reinforcement/proof and friction measurements
   evidence:
+  - docs/wo03-g80-short-subframe-decision.md
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
 - id: IF-CONFIG-001

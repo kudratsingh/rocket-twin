@@ -15,7 +15,25 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
-**Current capture comparison — both specified envelopes stopped at preflight:**
+**Latest G80 structural-concept decision — S1 not admitted:** the single short
+G11 cassette/clevis budget is1057.417g including separate50g, and the same severe
+recovery screen rises to2231.382N. Its clevis bearing reaches28.607MPa versus
+estimated25MPa; even its937.673g mandatory-solid floor gives25.368MPa. The source
+1.5m guide screen gives14.190m/s versus15; solids plus defined M3 sets already
+exceed the958.398g source-model mass ceiling. M3x16 heel screws also fail the
+17.3/17.8mm minimum stacks. No new CAD/FEA or free flight was admitted. Required
+IF-RECOVERY-001 revision is a dimensioned, load-spreading through-frame saddle/
+strap attachment plus complete mass closure; do not keep1782N frozen as mass
+increases or silently extend the guide. See [S1 connections and margins](wo03-g80-short-subframe-decision.md).
+Active vehicle, prior flights and separate G54/G12 requirements remain unchanged.
+
+[PR #41](https://github.com/kudratsingh/rocket-twin/pull/41) merged after both
+required jobs passed in run41359972531. The independent frontend saved-run
+request-order fix is [PR #42](https://github.com/kudratsingh/rocket-twin/pull/42),
+merged after both jobs passed in run41361056195; older responses no longer
+replace a newer replay/comparison selection. No browser verification is claimed.
+
+**Previous capture comparison — both specified envelopes stopped at preflight:**
 B moves reverse load into an unreinforced plywood rail: projected bearing12.50MPa
 exceeds the generic10MPa screen, and its specified12mm pin cannot engage both
 fork lugs. C intersects the modular coupler; trimming its section to fit leaves
