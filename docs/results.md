@@ -1373,3 +1373,23 @@ suite passes285tests plus3subtests, withBlack/Ruff/mypy checks. This supports
 execution reliability, not engineering closure. The designated Chrome agent
 confirms currentG80 preview availability; all working core/vehicle/UI source
 files checked against publishedGit blobs remain unchanged.
+
+## G80 bridge: first completed native run, failed equilibrium — 2026-11-01
+
+[Geometry and input-control evidence](wo03-g80-bridge-boundary-case.md) confirms
+three source-centred Circle patches. The96/32 coarse grid stops at63,788nodes
+versus50,000. A [separate analytic area budget](wo03-g80-washer-area-budget.md)
+justifies48/24 through the sum of absolute disk deficits0.000127566mm² below
+its0.00015budget, without changing the0.0002actualarea gate. The one final
+coarse case then passes input guards at42,850nodes/22,495tets, with areaerror
++0.000049781mm². CalculiX returns0 and finishes both loadsteps.
+
+The [native-output diagnostic](wo03-g80-final-coarse-diagnostic.md) fails strict
+force balance: equal/single axial reaction totals−45.3032/−127.9073N versus
++150Napplied, residual104.6968/22.0927N, millions of times the printed
+roundoff scale in the equalcase. RawU/stress/work isunvalidated, notstrength
+evidence. Read-only node/face/output/Jacobian checks do not identify thecause.
+Mesh/solverCPU9.513/7.130s and19.644wall remainwithin45+45CPU/120wall
+limits. Nativefields staylocal; compactsource/failure/audits are archived.
+No furtherfull3D attempt, thresholdrelaxation, activevehiclechange oraccepted
+Analysisoverlay follows. Next is smallknown-answer output verification.

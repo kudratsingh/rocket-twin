@@ -1,0 +1,320 @@
+{
+  "status": "read_only_postprocessing_of_failed_equilibrium_do_not_interpret_as_valid_strength",
+  "steps": [
+    {
+      "step": 1,
+      "balance": {
+        "applied_force_N": [
+          0.0,
+          0.0,
+          150.0
+        ],
+        "reaction_force_N": [
+          2.659116799391681e-07,
+          1.8292099321359778e-07,
+          -45.30322366996822
+        ],
+        "force_residual_N": [
+          2.659116799391681e-07,
+          1.8292099321359778e-07,
+          104.69677633003178
+        ],
+        "force_residual_norm_N": 104.69677633003178,
+        "reaction_print_rounding_bound_N": [
+          1.2515657710000062e-05,
+          1.52194675000002e-05,
+          1.1272771750000148e-05
+        ],
+        "force_balance_status": "fail",
+        "applied_moment_Nmm": [
+          1.5359824523386578e-10,
+          -2.6543212072738243e-12,
+          0.0
+        ],
+        "reaction_moment_Nmm": [
+          295.2920592666601,
+          -343.51319572360734,
+          6.682442343142192e-06
+        ],
+        "moment_residual_Nmm": [
+          295.2920592668137,
+          -343.51319572361,
+          6.682442343142192e-06
+        ],
+        "reaction_moment_print_rounding_bound_Nmm": [
+          0.002885974351266501,
+          0.0024128976483960155,
+          0.0005907034264922945
+        ],
+        "moment_balance_status": "reported_not_thresholded"
+      },
+      "external_work_half_Fu_Nmm": 5.393044926108631,
+      "u_component_abs_max_mm": [
+        0.01406664,
+        0.009239479,
+        0.1632658
+      ],
+      "material_stress_extrema": {
+        "BRIDGE": {
+          "Sxx": {
+            "minimum_MPa": -55.60902,
+            "minimum_element": 33658,
+            "minimum_ip": 2,
+            "maximum_MPa": 68.48041,
+            "maximum_element": 33672,
+            "maximum_ip": 2
+          },
+          "Syy": {
+            "minimum_MPa": -44.50678,
+            "minimum_element": 30276,
+            "minimum_ip": 3,
+            "maximum_MPa": 72.77445,
+            "maximum_element": 30276,
+            "maximum_ip": 1
+          },
+          "Szz": {
+            "minimum_MPa": -88.7322,
+            "minimum_element": 30276,
+            "minimum_ip": 3,
+            "maximum_MPa": 343.7539,
+            "maximum_element": 32027,
+            "maximum_ip": 1
+          },
+          "Sxy": {
+            "minimum_MPa": -53.68322,
+            "minimum_element": 33560,
+            "minimum_ip": 3,
+            "maximum_MPa": 61.05094,
+            "maximum_element": 33658,
+            "maximum_ip": 3
+          },
+          "Sxz": {
+            "minimum_MPa": -79.33758,
+            "minimum_element": 33692,
+            "minimum_ip": 2,
+            "maximum_MPa": 101.4582,
+            "maximum_element": 33296,
+            "maximum_ip": 1
+          },
+          "Syz": {
+            "minimum_MPa": -124.9071,
+            "minimum_element": 33560,
+            "minimum_ip": 3,
+            "maximum_MPa": 110.4538,
+            "maximum_element": 33661,
+            "maximum_ip": 2
+          }
+        },
+        "ADHESIVE": {
+          "Sxx": {
+            "minimum_MPa": -1.977639,
+            "minimum_element": 36947,
+            "minimum_ip": 2,
+            "maximum_MPa": 0.8950712,
+            "maximum_element": 36163,
+            "maximum_ip": 3
+          },
+          "Syy": {
+            "minimum_MPa": -1.573915,
+            "minimum_element": 36781,
+            "minimum_ip": 4,
+            "maximum_MPa": 0.7513615,
+            "maximum_element": 35393,
+            "maximum_ip": 4
+          },
+          "Szz": {
+            "minimum_MPa": -0.8300951,
+            "minimum_element": 36781,
+            "minimum_ip": 2,
+            "maximum_MPa": 0.5041392,
+            "maximum_element": 36315,
+            "maximum_ip": 2
+          },
+          "Sxy": {
+            "minimum_MPa": -0.6024749,
+            "minimum_element": 36245,
+            "minimum_ip": 1,
+            "maximum_MPa": 0.7677125,
+            "maximum_element": 36781,
+            "maximum_ip": 4
+          },
+          "Sxz": {
+            "minimum_MPa": -0.446152,
+            "minimum_element": 36410,
+            "minimum_ip": 1,
+            "maximum_MPa": 0.462048,
+            "maximum_element": 36315,
+            "maximum_ip": 1
+          },
+          "Syz": {
+            "minimum_MPa": -0.3818568,
+            "minimum_element": 35261,
+            "minimum_ip": 1,
+            "maximum_MPa": 0.3928705,
+            "maximum_element": 35393,
+            "maximum_ip": 1
+          }
+        }
+      }
+    },
+    {
+      "step": 2,
+      "balance": {
+        "applied_force_N": [
+          0.0,
+          0.0,
+          150.00000000000054
+        ],
+        "reaction_force_N": [
+          -2.1782700423598166e-07,
+          -1.2313129990129679e-06,
+          -127.90734630257396
+        ],
+        "force_residual_N": [
+          -2.1782700423598166e-07,
+          -1.2313129990129679e-06,
+          22.092653697426584
+        ],
+        "force_residual_norm_N": 22.09265369742662,
+        "reaction_print_rounding_bound_N": [
+          5.901446649999961e-05,
+          5.874208599999948e-05,
+          4.852654149999978e-05
+        ],
+        "force_balance_status": "fail",
+        "applied_moment_Nmm": [
+          3312.54716947546,
+          -1912.500000000005,
+          0.0
+        ],
+        "reaction_moment_Nmm": [
+          -2849.4604839913222,
+          1618.3692932006165,
+          -3.5744748010269056e-05
+        ],
+        "moment_residual_Nmm": [
+          463.0866854841379,
+          -294.13070679938846,
+          -3.5744748010269056e-05
+        ],
+        "reaction_moment_print_rounding_bound_Nmm": [
+          0.011109301549061729,
+          0.011299778051045773,
+          0.0026542583707952374
+        ],
+        "moment_balance_status": "reported_not_thresholded"
+      },
+      "external_work_half_Fu_Nmm": 51.98986211378245,
+      "u_component_abs_max_mm": [
+        0.06720329,
+        0.07002032,
+        0.9967484
+      ],
+      "material_stress_extrema": {
+        "BRIDGE": {
+          "Sxx": {
+            "minimum_MPa": -138.3137,
+            "minimum_element": 18018,
+            "minimum_ip": 3,
+            "maximum_MPa": 81.66526,
+            "maximum_element": 32765,
+            "maximum_ip": 2
+          },
+          "Syy": {
+            "minimum_MPa": -95.06848,
+            "minimum_element": 32916,
+            "minimum_ip": 3,
+            "maximum_MPa": 51.99574,
+            "maximum_element": 30273,
+            "maximum_ip": 3
+          },
+          "Szz": {
+            "minimum_MPa": -181.5029,
+            "minimum_element": 29740,
+            "minimum_ip": 3,
+            "maximum_MPa": 234.0075,
+            "maximum_element": 31888,
+            "maximum_ip": 3
+          },
+          "Sxy": {
+            "minimum_MPa": -49.47179,
+            "minimum_element": 33068,
+            "minimum_ip": 2,
+            "maximum_MPa": 53.00702,
+            "maximum_element": 33227,
+            "maximum_ip": 2
+          },
+          "Sxz": {
+            "minimum_MPa": -86.09391,
+            "minimum_element": 33422,
+            "minimum_ip": 3,
+            "maximum_MPa": 98.32889,
+            "maximum_element": 33674,
+            "maximum_ip": 2
+          },
+          "Syz": {
+            "minimum_MPa": -72.65879,
+            "minimum_element": 29208,
+            "minimum_ip": 3,
+            "maximum_MPa": 63.65763,
+            "maximum_element": 29727,
+            "maximum_ip": 3
+          }
+        },
+        "ADHESIVE": {
+          "Sxx": {
+            "minimum_MPa": -9.95529,
+            "minimum_element": 35882,
+            "minimum_ip": 2,
+            "maximum_MPa": 5.116713,
+            "maximum_element": 35949,
+            "maximum_ip": 1
+          },
+          "Syy": {
+            "minimum_MPa": -7.895853,
+            "minimum_element": 35752,
+            "minimum_ip": 1,
+            "maximum_MPa": 6.0282,
+            "maximum_element": 35479,
+            "maximum_ip": 1
+          },
+          "Szz": {
+            "minimum_MPa": -4.383307,
+            "minimum_element": 35946,
+            "minimum_ip": 4,
+            "maximum_MPa": 3.037844,
+            "maximum_element": 35915,
+            "maximum_ip": 1
+          },
+          "Sxy": {
+            "minimum_MPa": -2.30072,
+            "minimum_element": 36413,
+            "minimum_ip": 1,
+            "maximum_MPa": 3.311496,
+            "maximum_element": 35750,
+            "maximum_ip": 3
+          },
+          "Sxz": {
+            "minimum_MPa": -2.474991,
+            "minimum_element": 35949,
+            "minimum_ip": 2,
+            "maximum_MPa": 2.776608,
+            "maximum_element": 35946,
+            "maximum_ip": 4
+          },
+          "Syz": {
+            "minimum_MPa": -2.739857,
+            "minimum_element": 35651,
+            "minimum_ip": 3,
+            "maximum_MPa": 2.590837,
+            "maximum_element": 35738,
+            "maximum_ip": 2
+          }
+        }
+      }
+    }
+  ],
+  "native_energy": "unavailable",
+  "regional_stress_mapping": "unavailable",
+  "cpu_s": 2.72564
+}

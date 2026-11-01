@@ -1,0 +1,30 @@
+version: wo03-g80-washer-area-budget-v1
+status: proposed_2d_known_case_only
+washer_center_source_step:
+- path: build/wo03-g80-keeper-service-v1/washer_0.step
+  sha256: acf7cf97bee7d38d74cc5e3dbe1b655fab56b3c969b21716a50203f59b46fac2
+- path: build/wo03-g80-keeper-service-v1/washer_1.step
+  sha256: 890a1ce02c81d9ae9e79b4a852e05c86367b19325d73cc333e25668a8789d96b
+- path: build/wo03-g80-keeper-service-v1/washer_2.step
+  sha256: 95d24c89b863bc5221e99e6c3aac5d27eccf2b2824b2f76349a0d4d12ba67f47
+bridge_step:
+  path: build/wo03-g80-keeper-service-v1/bridge.step
+  sha256: f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed
+source_center_basis: original_STEP_washer_face_center_of_mass
+patch_outer_radius_mm: 4.5
+patch_inner_radius_mm: 1.7
+full_circle_equivalent_segments:
+  outer: 48
+  inner: 24
+curve_match_tolerance_mm: 1.0e-05
+bulk_mesh_target_mm: 1.5
+maximum_nodes: 50000
+maximum_tetrahedra: 75000
+maximum_process_rss_bytes: 2147483648
+known_fixture_packet_cpu_limit_s: 20
+known_fixture_case_cpu_and_wall_limit_s: 10
+actual_bridge_authorized: false
+maximum_sum_absolute_disk_area_deficits_mm2: 0.00015
+existing_mesh_patch_area_guard_mm2: 0.0002
+leftover_guard_headroom_mm2: 5.0e-05
+attempt_policy: one 2D known case, no actual bridge until separately authorized

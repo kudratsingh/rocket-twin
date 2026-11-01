@@ -1,0 +1,39 @@
+{
+  "publication_form": "compact_projection_resource_sample_arrays_omitted",
+  "original_sha256": "6383556582d15ecc238cf5c8101a0c5953df004540fcd00bae51a668a08a87e0",
+  "record": {
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "-c",
+      "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(45,45));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx','-i','case'])"
+    ],
+    "cleanup_errors": [],
+    "cleanup_outcomes": [],
+    "cpu_accounting": {
+      "child_system_s_delta": 0.436956,
+      "child_user_s_delta": 6.693249,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.013432999999999994,
+      "supervisor_user_s_delta": 0.011187000000000002
+    },
+    "error": null,
+    "finished_utc": "2026-11-01T07:45:41.632924+00:00",
+    "guard_failure": null,
+    "historical_descendant_checks": [],
+    "known_descendant_pids": [],
+    "launch_wall_s": 0.0025583750102669,
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/solver.log",
+    "pid": 33512,
+    "returncode": 0,
+    "rss_limit_bytes": 2147483648,
+    "started_utc": "2026-11-01T07:45:34.347844+00:00",
+    "status": "completed",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/solver-status.json",
+    "status_write_error": null,
+    "success": true,
+    "timed_out": false,
+    "total_wall_s": 7.285025832999963,
+    "wall_limit_s": 110.21669075000682,
+    "largest_sampled_rss_bytes": 881852416
+  }
+}

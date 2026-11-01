@@ -548,7 +548,13 @@ def _volume_entities_from_map(mapping: list[list[tuple[int, int]]]) -> list[int]
 
 
 def build_case(
-    folder: Path, mesh_size_mm: float, node_cap: int, tet_cap: int, *, geometry_only: bool = False
+    folder: Path,
+    mesh_size_mm: float,
+    node_cap: int,
+    tet_cap: int,
+    *,
+    geometry_only: bool = False,
+    boundary_callback=None,
 ) -> dict[str, Any]:
     """Create one exact-source bridge mesh/deck for the comparison packet.
 
@@ -692,6 +698,16 @@ def build_case(
                 raise ValueError(f"Imprinted washer patch {i} center mismatch: {center}")
             washer_candidates.append([face for face, _face_area, _face_center in keep])
 
+        boundary_report = None
+        if boundary_callback is not None:
+            patches = [
+                {"face_tags": faces, "center_xyz_mm": center}
+                for faces, center in zip(washer_candidates, washer_exact_centers, strict=True)
+            ]
+            boundary_report = boundary_callback(gmsh, patches)
+            if not isinstance(boundary_report, dict):
+                raise ValueError("Boundary callback must return a report")
+
         if geometry_only:
             # Diagnostic boundary only: preserve the exact source OCC construction
             # and stop before ANY mesh generation or solver invocation.
@@ -722,6 +738,7 @@ def build_case(
                     for group in washer_candidates
                 ],
                 "washer_centers_mm": washer_centers,
+                "boundary_control": boundary_report,
                 "mesh_generated": False,
                 "solver_invoked": False,
                 "meaning": "Exact OCC import, two fragment mappings and washer identification only; no mesh-node/interface ownership or force distribution was checked.",
@@ -1056,6 +1073,7 @@ def build_case(
             "step_nodal_forces_N": load_records,
             "preflight": preflight,
             "serialized_deck_load_resultants": serialized_resultants,
+            "boundary_control": boundary_report,
             "solver_invoked": False,
         }
         (folder / "case.inp").write_text(deck)

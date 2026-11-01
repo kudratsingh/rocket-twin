@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_boundary_case.py", line 442, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_boundary_case.py", line 432, in main
+    mesh_worker(args.output.resolve(), cfg, spec)
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_boundary_case.py", line 228, in mesh_worker
+    build_case(
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_adapter.py", line 756, in build_case
+    raise ValueError(
+ValueError: Pre-solver mesh cap exceeded: 63788 nodes, 34591 tets
