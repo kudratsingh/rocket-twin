@@ -1,0 +1,284 @@
+{
+  "status": "both_as_specified_screened_out_no_CAD_admission",
+  "inputs_sha256": {
+    "configs/studies/wo03-g80-capture-bounds.yaml": "129a9b80a566ec08b0506646703809d11d8be7c003f5de466c9d58a2db04bbf6",
+    "scripts/wo03_g80_capture_bounds.py": "88d606b2c33adc92a47e6286ccba40954890b9013fd62fd8aa76bd2252ea1bdd",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-g80-capture-comparison.yaml": "4a49044e17066d2d63889cfa56a0664a504ef9144039f7c9e1030d0a0e56bb71",
+    "runs/wo03-g80-capture-comparison-20261101-v1/stock-mass-record.json": "9ef0387462ae3000b9dfab71048bfd337f6d7e63374eb6152136f7bb457c7996"
+  },
+  "retention_factored_N": 450,
+  "recovery_already_factored_N": 1782.253,
+  "growth_kg_separate": 0.05,
+  "B": {
+    "rail_gross_area_mm2": 84,
+    "rail_second_moment_mm4": 343.0,
+    "eccentricity_mm": 3.0,
+    "gross_axial_MPa": 5.357142857142857,
+    "gross_bending_MPa": 13.775510204081632,
+    "gross_combined_MPa": 19.132653061224488,
+    "fixed_end_sensitivities_not_installed_bounds": [
+      {
+        "length_mm": 15,
+        "E_factor": 1.0,
+        "axial_mm": 0.04017857142857143,
+        "radial_mm": 0.2213921282798834,
+        "rotation_rad": 0.029518950437317785,
+        "loadpoint_axial_mm": 0.1287354227405248,
+        "small_rotation_0p1rad_diagnostic": true
+      },
+      {
+        "length_mm": 15,
+        "E_factor": 0.5,
+        "axial_mm": 0.08035714285714286,
+        "radial_mm": 0.4427842565597668,
+        "rotation_rad": 0.05903790087463557,
+        "loadpoint_axial_mm": 0.2574708454810496,
+        "small_rotation_0p1rad_diagnostic": true
+      },
+      {
+        "length_mm": 95,
+        "E_factor": 1.0,
+        "axial_mm": 0.2544642857142857,
+        "radial_mm": 8.880284256559767,
+        "rotation_rad": 0.1869533527696793,
+        "loadpoint_axial_mm": 0.8153243440233237,
+        "small_rotation_0p1rad_diagnostic": false
+      },
+      {
+        "length_mm": 95,
+        "E_factor": 0.5,
+        "axial_mm": 0.5089285714285714,
+        "radial_mm": 17.760568513119534,
+        "rotation_rad": 0.3739067055393586,
+        "loadpoint_axial_mm": 1.6306486880466473,
+        "small_rotation_0p1rad_diagnostic": false
+      }
+    ],
+    "pin_blank_length_mm": 12,
+    "minimum_outer_washer_span_mm_without_retention": 18.2,
+    "pin_blank_cannot_engage_both_lugs": true,
+    "hypothetical_long_enough_pin_double_shear_MPa": 31.830988618379067,
+    "hypothetical_uniform_rail_pin_bending_MPa": 348.0188088942778,
+    "hypothetical_lug_projected_bearing_MPa": 37.5,
+    "pin_values_not_joint_allowables": true
+  },
+  "C": {
+    "coupler_limited_radial_width_mm": 4.972112037692639,
+    "coupler_limited_area_mm2": 59.66534445231167,
+    "ideal_uniform_recovery_MPa": 29.870823949143368,
+    "unbraced_975mm_strip_Euler_pinned_N": 0.48450391975542767,
+    "unbraced_975mm_strip_Euler_fixed_N": 1.9380156790217107,
+    "Euler_note": "conditional compression only; recovery is tension; bracing unverified"
+  },
+  "thermal_elements": {
+    "existing_three_wood_rails": {
+      "conductance_W_K": 0.0001989473684210526,
+      "interpretation": "isolated axial element; no contact/radiation or temperature bound"
+    },
+    "B_six_G11_lugs": {
+      "conductance_W_K": 0.0014,
+      "interpretation": "isolated axial element; no contact/radiation or temperature bound"
+    },
+    "B_three_G11_pin_blanks": {
+      "conductance_W_K": 0.0004417864669110646,
+      "interpretation": "isolated axial element; no contact/radiation or temperature bound"
+    },
+    "existing_three_M3_shanks": {
+      "conductance_W_K": 0.009088178747884758,
+      "interpretation": "isolated axial element; no contact/radiation or temperature bound"
+    },
+    "C_six_full_strips": {
+      "conductance_W_K": 2.153846153846154e-05,
+      "interpretation": "isolated axial element; no contact/radiation or temperature bound"
+    },
+    "C_aft_to_coupler_strip_segments": {
+      "conductance_W_K": 9.210526315789473e-05,
+      "interpretation": "isolated axial element; no contact/radiation or temperature bound"
+    }
+  },
+  "thermal_temperatures": null,
+  "thermal_acceptance": "unavailable; required matrix and 45C screen unchanged",
+  "stock_mass_record_sha256": "9ef0387462ae3000b9dfab71048bfd337f6d7e63374eb6152136f7bb457c7996",
+  "stock_not_installed": {
+    "B": {
+      "stock_inventory": {
+        "lug": {
+          "count": 6,
+          "mass_kg": 0.002331
+        },
+        "pin": {
+          "count": 3,
+          "mass_kg": 0.0004707676591404306
+        },
+        "washer": {
+          "count": 6,
+          "mass_kg": 0.0002245736092492128
+        }
+      },
+      "stock_only_no_credits": {
+        "mass_kg": 0.8476080535454462,
+        "cg_station_m": 0.8138512412969746,
+        "cg_lateral_body_m": [
+          -1.870976647129365e-05,
+          0.0006478912496093917
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0009210610610407527,
+            0.00019038394143107835,
+            -0.0001803189780075653
+          ],
+          [
+            0.00019038394143107835,
+            0.14701364122623162,
+            -1.1327456110775006e-07
+          ],
+          [
+            -0.0001803189780075653,
+            -1.1327456110775006e-07,
+            0.14701557515566221
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": []
+      },
+      "stock_only_with_explicit_credits": {
+        "mass_kg": 0.8207015321845733,
+        "cg_station_m": 0.8018497007633241,
+        "cg_lateral_body_m": [
+          -1.9323162098662145e-05,
+          0.0006691322234147349
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0009041809793256856,
+            0.00019019361441555816,
+            -0.00017372823791954545
+          ],
+          [
+            0.00019019361441555816,
+            0.14328095543299446,
+            -1.1361141212615403e-07
+          ],
+          [
+            -0.00017372823791954545,
+            -1.1361141212615403e-07,
+            0.14328290101734464
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": [
+          "service_keeper",
+          "service_bridge",
+          "service_m2_screw_0",
+          "service_m2_screw_1",
+          "service_m2_screw_2",
+          "service_m2_nut_0",
+          "service_m2_nut_1",
+          "service_m2_nut_2"
+        ]
+      }
+    },
+    "C": {
+      "stock_inventory": {
+        "strip": {
+          "count": 6,
+          "mass_kg": 0.151515
+        },
+        "lap_plate": {
+          "count": 12,
+          "mass_kg": 0.006216000000000002
+        },
+        "pin": {
+          "count": 24,
+          "mass_kg": 0.0025107608487489616
+        },
+        "washer": {
+          "count": 48,
+          "mass_kg": 0.0017965888739937034
+        },
+        "ring": {
+          "count": 2,
+          "mass_kg": 0.036601313706207124
+        }
+      },
+      "stock_only_no_credits": {
+        "mass_kg": 1.0432213757060076,
+        "cg_station_m": 0.7955524596056882,
+        "cg_lateral_body_m": [
+          -1.5201518211118879e-05,
+          0.0005264058557263531
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0010779417385592942,
+            0.00019009374930972615,
+            -0.00017027005856122193
+          ],
+          [
+            0.00019009374930972615,
+            0.169093732389492,
+            -1.1134797906749028e-07
+          ],
+          [
+            -0.00017027005856122193,
+            -1.113479790675411e-07,
+            0.16909559965990284
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": []
+      },
+      "stock_only_with_explicit_credits": {
+        "mass_kg": 1.0163148543451348,
+        "cg_station_m": 0.7853764406084447,
+        "cg_lateral_body_m": [
+          -1.5603972207256445e-05,
+          0.0005403422361118544
+        ],
+        "inertia_body_about_cg_kg_m2": [
+          [
+            0.0010610656715641527,
+            0.000189932372416469,
+            -0.0001646818179388168
+          ],
+          [
+            0.000189932372416469,
+            0.16500453727352915,
+            -1.1156898983511057e-07
+          ],
+          [
+            -0.0001646818179388168,
+            -1.1156898983516478e-07,
+            0.16500641219083023
+          ]
+        ],
+        "growth_mass_kg": 0.05,
+        "growth_station_m": 1.212,
+        "credits": [
+          "service_keeper",
+          "service_bridge",
+          "service_m2_screw_0",
+          "service_m2_screw_1",
+          "service_m2_screw_2",
+          "service_m2_nut_0",
+          "service_m2_nut_1",
+          "service_m2_nut_2"
+        ]
+      }
+    }
+  },
+  "verification": {
+    "known_arithmetic_checks": 6,
+    "passed": true,
+    "not_a_native_mesh_or_strength_validation": true
+  },
+  "source_unchanged": true,
+  "native_solver_cad_flight_calls": 0,
+  "cpu_s": 0.05887099999999999,
+  "wall_s": 0.01256904102046974
+}

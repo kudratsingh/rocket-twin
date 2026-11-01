@@ -1,0 +1,42 @@
+status: rejected_envelopes_hand_screen_only
+comparison: configs/studies/wo03-g80-capture-comparison.yaml
+materials: configs/engineering/wo03.yaml
+stock_record: runs/wo03-g80-capture-comparison-20261101-v1/stock-mass-record.json
+retention_service_n: 150
+design_factor: 3
+recovery_already_factored_n: 1782.253
+growth_kg: 0.05
+B:
+  bolt_radius_mm: 25.5
+  rail_centroid_radius_mm: 28.5
+  rail_radial_mm: 7
+  rail_tangential_mm: 12
+  pin_diameter_mm: 3
+  lug_thickness_mm: 2
+  lug_centers_mm: [-7.1, 7.1]
+  pin_blank_length_mm: 12
+  washer_thickness_mm: 1
+  support_length_cases_mm: [15, 95]
+  stiffness_factors: [1.0, 0.5]
+  stiffness_note: 0.5 is an exploratory fin-study sensitivity, not measured hot mount data
+C:
+  strips: 6
+  radial_mm: 7
+  tangential_mm: 2
+  full_length_mm: 975
+  coupler_bore_radius_mm: 30.5
+  strip_inner_radial_coordinate_mm: 25
+  strip_outer_tangential_coordinate_mm: 5.65
+thermal_elements:
+  # Separate k*A/L elements, not a connected network or a temperature calculation.
+  existing_three_wood_rails: {material: plywood, count: 3, area_each_mm2: 84, length_mm: 190}
+  B_six_G11_lugs: {material: G11, count: 6, area_each_mm2: 14, length_mm: 15}
+  B_three_G11_pin_blanks: {material: G11, count: 3, diameter_mm: 3, length_mm: 12}
+  existing_three_M3_shanks: {material: stainless_fastener, count: 3, diameter_mm: 3, length_mm: 35}
+  C_six_full_strips: {material: G11, count: 6, area_each_mm2: 14, length_mm: 975}
+  C_aft_to_coupler_strip_segments: {material: G11, count: 6, area_each_mm2: 14, length_mm: 228}
+budget:
+  cpu_s: 10
+  wall_s: 15
+  requested_threads: 1
+  native_solver_or_cad: false

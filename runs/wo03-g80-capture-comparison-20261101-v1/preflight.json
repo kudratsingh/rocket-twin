@@ -1,0 +1,69 @@
+{
+  "status": "preliminary_hand_screen_no_cad",
+  "source_sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-capture-comparison.yaml": "497c761480eb5a5d29e4ae4c6f4fd6b4fc908165dcb05c6673fc2a78e077876d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_capture_comparison.py": "02dd5a28fae6155fa2a78bac65eef85290751efcaceb737d97732179a13b1b83",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/record.json": "55a96ab2c4ea0baf5aa0837ab88db34038eb93022b81289103d1560cbfe78289",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-mount-fabrication.yaml": "6995f85ccf130d610544d4246d3dc54b9d74e31bf769a2bb46323731a41b74d6",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/keeper.step": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8"
+  },
+  "source_sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-capture-comparison.yaml": "497c761480eb5a5d29e4ae4c6f4fd6b4fc908165dcb05c6673fc2a78e077876d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_capture_comparison.py": "02dd5a28fae6155fa2a78bac65eef85290751efcaceb737d97732179a13b1b83",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/record.json": "55a96ab2c4ea0baf5aa0837ab88db34038eb93022b81289103d1560cbfe78289",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-mount-fabrication.yaml": "6995f85ccf130d610544d4246d3dc54b9d74e31bf769a2bb46323731a41b74d6",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/bridge.step": "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-keeper-service-v1/keeper.step": "436b444410db60b87f050cb1083032c5a484ae2bdf8b1c0ed3fcad42467f91c8"
+  },
+  "72_identity": "90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc",
+  "73_corrected_identity": "6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4",
+  "73_asrun_yaml_not_corrected_identity": true,
+  "73_source_parts": 73,
+  "73_asrun_source_mass_kg": 0.7945817122770563,
+  "full_growth_kg_separate": 0.05,
+  "B": {
+    "single_pin_factored_N": 450.0,
+    "pin_bearing_MPa": 12.5,
+    "rail_net_section_MPa": 9.86842105263158,
+    "optimistic_bearing_d_min_mm": 3.75,
+    "optimistic_net_hole_d_max_mm": 3.25,
+    "screen_MPa": 10.0,
+    "screen_basis": "generic estimated weak direction; not bearing or net allowable",
+    "cap_bore_shift_chord_mm": 25.5,
+    "six_ideal_lug_blank_mass_g": 2.331,
+    "engineering_status": "unslotted single unreinforced rail conditional screen fails; no CAD"
+  },
+  "C": {
+    "already_factored_recovery_N": 1782.253,
+    "strip_gross_area_mm2": 84.0,
+    "uniform_equal_share_axial_MPa": 21.217297619047617,
+    "one_strip_axial_MPa": 127.30378571428571,
+    "one_strip_450N_axial_MPa": 32.142857142857146,
+    "g11_screen_MPa": 25.0,
+    "screen_basis": "generic estimated hot strength, not directional/joint allowable",
+    "six_untrimmed_blank_volume_mm3": 81900.0,
+    "six_untrimmed_blank_mass_g": 151.515,
+    "ring_joint_pin_adhesive_mass_g": null,
+    "installed_net_mass_change_g": null,
+    "full_vehicle_cg_tensor": null,
+    "force_transfer_and_clearance": "unresolved, no mechanical ground credit"
+  },
+  "source_items_kg": {
+    "parachute": 0.0516,
+    "motor_mount": 0.035296783665463856,
+    "service_keeper": 0.015409674768023069,
+    "service_bridge": 0.01017684659284994,
+    "adhesive_finish": 0.012,
+    "fin_bonds": 0.008,
+    "incremental_mount_gap_epoxy_upper_budget": 0.004620026156369208,
+    "retention_locking_materials_reserve": 0.001,
+    "canopy_line_connector_sensitivity": 0.005
+  },
+  "native_cad_invoked": false,
+  "qualification": false
+}

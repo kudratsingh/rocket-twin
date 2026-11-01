@@ -1,5 +1,15 @@
 # G80 package closure — isolated integrated candidate, acceptance open
 
+**Latest bounded decision:** [capture B/C comparison](wo03-g80-capture-decision.md)
+stops both specified envelopes before CAD/FEA. B relocates the weak connection
+to the rail/pin and C conflicts with the coupler and current hot-section screen.
+Defined stock mass/tensors are not installed vehicle properties. No installed
+strength or WO-03 acceptance requirement closes; previous bridge failure remains.
+The single next direction is a short mechanically captured G11 aft subframe
+connected to the protected aramid backbone, with separately verified body/fin/
+motor restraints. It is neither an adopted design nor a third executed option.
+The decision's closure table links unchanged requirements and remaining evidence.
+
 The latest isolated candidate is the **72-part retention/recovery integration**,
 identity `90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc`,
 at its real staged CAD revision. It has not replaced the active 42-part design

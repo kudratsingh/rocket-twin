@@ -15,18 +15,23 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
-**Current retention decision — design screen remains adverse:** the fixed-support
-face-resultant audit gives3.965/4.007 MPa minimum peak shear demand on the two
-most loaded faces after DF3, versus the estimated1 MPa hot-bond screen.
-Material-local Gauss recovery also shows adverse coarse demands. The current
-2 mm physical web uses a1.5 mm mesh target; mesh settings must not be confused
-with part thickness. No strength, contact or convergence pass follows. Stop
-further automatic refinement of this unchanged bond-only candidate and evaluate
-rail-aligned positive capture against a continuous G11 load-frame alternative,
-with mass/CG/recovery/thermal consequences in one package. See
-[support bounds](wo03-g80-bridge-support-traction.md),
-[stress diagnostic](wo03-bridge-gauss-stress.md) and
-[bounded correction trade](wo03-g80-retention-correction-trade.md).
+**Current capture comparison — both specified envelopes stopped at preflight:**
+B moves reverse load into an unreinforced plywood rail: projected bearing12.50MPa
+exceeds the generic10MPa screen, and its specified12mm pin cannot engage both
+fork lugs. C intersects the modular coupler; trimming its section to fit leaves
+ideal recovery stress29.87MPa above the estimated25MPa hot G11 screen. Defined
+stock ledgers include pins/washers/splices/rings and separate full50g growth,
+but complete installed mass remains unavailable. No CAD/FEA is admitted for
+either unchanged proposal. See the [comparison and decision](wo03-g80-capture-decision.md).
+
+The failed bond-only bridge remains visible: fixed-support DF3 mean shear
+3.965/4.007MPa exceeds the estimated1MPa hot-bond screen; force/work consistency
+does not establish installed strength. No strength, thermal or complete-package
+acceptance requirement closes here. The one next direction is a **short captured
+G11 aft subframe connected to the aramid backbone**, with separate verified
+body/fin/motor restraints, not a third executed candidate. G80 first; G54/G12
+remain separate. Working vehicle, preview assets and earlier flight predictions
+are unchanged. Native budgets were not spent; no failed path was rerun.
 
 The two new mesh-only pilots pass their input guards but do not establish
 uniform regional refinement; no new structural solver run followed them. The
@@ -49,7 +54,10 @@ to active-design experiments. The prepared snapshot is local and hash checked.
 The host API needs to load the updated code; the owner restart question remains
 pending. New-candidate browser verification/screenshot is unavailable because
 automatic approval review rejected the designated frontend agent's computer-use
-call for an agent-ownership prerequisite. No bypass was attempted. See
+call for an agent-ownership prerequisite. The designated agent reconfirmed
+its assignment in an ownership-only handoff; runtime ownership remains unresolved
+and no supported in-session reset was documented. No new computer-use call or
+bypass was attempted. See
 [preview scope and commands](wo04-g80-retention-snapshot-preview.md).
 
 **Structural-method decision:** the two small layered-bar Elmer cases now
@@ -70,7 +78,7 @@ gives822.982g; growth CG829.167mm, loaded/burnout margin1.1663/1.5483cal.
 All four guide screens pass, minimum16.848m/s versus15 on the assumed1.5m
 guide. Nominal apogee620.610m versus RocketPy620.650m passes the5% comparison.
 All trajectories reach modeled ground; recovery sizing remains open, along
-with actual bridge equilibrium, hot joints, installed fin/root/flutter,
+with installed bridge supports, hot joints, installed fin/root/flutter,
 thermal acceptance and the three recovery overlaps. The
 [staged report](wo03-g80-staged-retention-results.md) and
 [closure table](wo03-g80-current-closure.md) keep these design failures separate

@@ -1560,3 +1560,39 @@ convergence result. The physical bridge web remains2 mm in all cases.
 Known B native stress output separately passed its original axial2% and the
 primary-declared full-component2% checks. No further actual-component native
 solve or working-vehicle change occurred in this increment. WO-03 remains open.
+
+
+## WO-03 G80 rail capture / continuous-frame decision — 2026-11-01
+
+**Both specified envelopes stopped at hand preflight; no installed requirement
+closed and no CAD/FEA admitted.** The previous bond-only bridge remains adverse:
+DF3 mean shear3.965/4.007MPa versus estimated1MPa hot screen. Numerical force and
+reciprocal-work consistency does not establish installed capacity.
+
+B's optimistic full-width pin bearing is12.50MPa versus generic10MPa plywood;
+bearing requires pin≥3.75mm while net section needs hole≤3.25mm under that same
+unqualified screen. Its12mm pin cannot span the16.2mm fork outside width. C's
+strips intersect the real coupler; fitting its bore leaves≤59.665mm² and ideal
+already-factored recovery stress29.87MPa versus estimated25MPa hot G11, before
+joints/holes. Generic strengths are estimates, not hot joint allowables.
+
+The defined stock ledgers, including separate full50g growth, are B820.702g
+with specified removal credits /847.608g without, and C1016.315/1043.221g.
+These are **not installed masses or bounds**; unknown attachments, clipping,
+shielding and adhesive remain. Full CG/tensors and source identities are in
+[runs/wo03-g80-capture-comparison-20261101-v1](../runs/wo03-g80-capture-comparison-20261101-v1/manifest.json).
+The [supplemental hand packet](../runs/wo03-g80-capture-bounds-20261101-v1/record.json)
+checks conditional support flexibility, pin engagement and isolated kA/L heat
+routes. Six independent arithmetic checks pass;0.059 CPU s within the declared
+10 CPU/15 wall-second packet. No transient temperatures or thermal acceptance
+are produced. Required300°C/contaminated-foil/35°C cases and45°C substrate
+screen are unchanged.
+
+[Integrated decision and closure table](wo03-g80-capture-decision.md) selects
+one next direction only: short captured G11 aft subframe linked to the protected
+aramid backbone, with separate body/fin/motor restraints. It is not a third
+executed candidate. Active vehicle, previous flights, inspector/replay and
+separate G54/G12 tracks remain unchanged. New browser verification is blocked
+by the designated agent's unresolved runtime-ownership prerequisite; its
+ownership-only handoff confirms no retry/bypass. Physical qualification and
+all release gates remain later; aggregate WO-03 is open.
