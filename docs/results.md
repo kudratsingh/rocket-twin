@@ -1460,3 +1460,55 @@ The [bounded straight-route check](wo03-g80-backbone-route.md) imports all72 ind
 The [read-only reciprocal-work audit](wo03-g80-bridge-reciprocity-audit.md) on the preserved bridge finds W12=34.25509 andW21=2.02603Nmm, a32.22906Nmm difference against3.253e-6Nmm conservative printing uncertainty. Both native fields are complete and are end-of-step results at times1/2, oneincrement each. Linear source/deck conditions and unchanged hashes are recorded. No new solver was run; the result does not identify a tool bug or validate strength. The [backend/output research](wo03-ccx-backend-output-assessment.md) records documented alternatives and unresolved installed-format/precision behavior, with no automatic execution.
 
 A [guide-clock proof attempt](wo03-g80-guide-clock-audit.md) remains unadmitted after source review found its constrained-motion precondition does not cover internalRK4 release. Its hypothetical arithmetic/conditional flags are not acceptance evidence. No missing trajectory was fabricated or run repeated. Requirements, interfaces and FMEA retain stable IDs/open status and link the isolated evidence separately from active/G54/G12 acceptance.
+
+
+## WO-03 structural solver decision — 2026-11-01
+
+The same saved layered-bar problem was compared through isolated output/backend
+pilots. B1 completed but could not certify step1 force at 1e-5 N once float32
+encoding uncertainty was included. B2 completed but failed known displacement
+(maximum transverse magnitude 0.08850 mm versus the 1e-8 mm zero-component gate).
+Both stopped records remain preserved; no actual bridge rerun used either route.
+
+Elmer StressSolve/direct UMFPACK loaded the isolated pinned module and produced
+Float64 fields. Its original EQUAL packet stopped because the log classifier
+matched an unused keyword name; a separately admitted read-only assessment of
+that saved output passed displacement and strict force. The remaining SINGLE
+case was then separately admitted once and passed: maximum axial error
+6.2241e-15 m and axial support residual9.547e-11 N (Float64 encoding bound
+1.066e-14 N). EQUAL maximum axial error was2.0751e-15 m and axial force
+residual−1.793e-11 N. No sign, numerical criterion or physical input was changed.
+Original stop, recovered evidence and continuation are distinct records.
+
+The [decision](wo03-structural-solver-decision.md) selects this specific existing
+solver path for bounded bridge input preparation, not engineering acceptance.
+Each native small case used under0.2 CPU seconds; process success is separate
+from its known-answer checks. Setup is partly unmetered. Memory samples/caps
+cover root processes only, not aggregate trees; the earlier module-build tree
+claim is explicitly unverified. Active vehicle/CAD and G54/G12 are unchanged.
+WO-03, actual bridge, thermal, installed-fin/flutter and recovery acceptance
+remain open. No physical work or paid compute occurred.
+
+
+The bridge input-only v2 conversion retains42,715 used nodes with an explicit
+ID map;135 unused nodes carry neither support nor load. It checks one connected
+component, seven material regions,1,574 supported nodes/694 support faces and
+exactly roundtrips3,184/1,072 original load tokens. The original stop compared
+CAD with mesh volume at a serialization threshold. Saved G11 mesh volume is
+5501.023169931971 mm³; converted serialized geometry gives5501.023169933384 mm³,
+while CAD is5500.998158294296 mm³. The unchanged1e-8 preservation check now
+compares mesh against mesh; the separate original1% mesh/CAD check also passes.
+This is a corrected comparison target, not a relaxed physical criterion.
+The [input report](wo03-elmer-bridge-input.md) preserves the stop and diagnosis.
+No actual bridge solve occurred; direct nodal-RHS verification remains separate
+from the uniform-traction known cases and is not yet qualified.
+
+
+The separately admitted single [nodal-RHS B fixture](wo03-elmer-nodal-fixture.md)
+now passes using the exact13 original SINGLE load tokens with Target Nodes /
+Displacement3Load. Native Float64 fields map all593 nodes; maximum axial error
+6.2246e-15 m and axial support residual9.533e-11 N (encoding bound1.066e-14 N).
+Child usage0.172743 CPU/0.216612 wall seconds, sampled root RSS13,778,944 bytes;
+parent1.292624 CPU seconds. All source/prefix/generated hashes match after.
+No actual bridge solve, retry, sign change, threshold change or vehicle adoption.
+This supersedes only the preceding statement that this source path was untested.

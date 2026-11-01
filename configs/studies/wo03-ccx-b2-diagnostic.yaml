@@ -1,0 +1,19 @@
+status: separate_preparation_no_native_authorized
+native_execution_authorized: false
+solver: /opt/homebrew/bin/ccx
+solver_sha256: 2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf
+b1_driver: runs/wo03-ccx-vector-b1-20261101-v1/as-run-driver.py
+b1_driver_sha256: 1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02
+fixture_source: build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp
+fixture_meta: build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json
+b1_frd: build/wo03-ccx-backend-diagnostic-v2/native-B1/case.frd
+b1_dat: build/wo03-ccx-backend-diagnostic-v2/native-B1/case.dat
+b1_assessment: build/wo03-ccx-backend-diagnostic-v2/native-B1/assessment.json
+planned_cases: [B2_known_fixture, prospective_actual_separate_decision]
+case_cpu_wall_s: 120
+parent_cpu_s: 120
+setup_reserve_cpu_s: 60
+packet_cpu_ceiling_s: 600
+rss_tree_bytes: 2147483648
+strict_force_N: 0.00001
+fixture_relative_displacement: 0.01

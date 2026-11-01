@@ -1,0 +1,141 @@
+{
+  "status": "stopped_precision_or_force",
+  "source_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-b-diagnostic-v1/B/case.dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/B_spooles_binary.inp": "945759d3f40bd36b8fb4f3ad5fa2d64a2fd62ab29639d6a8c6feb3ee14bf7ead",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_backend_diagnostic.py": "1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-backend-diagnostic.yaml": "e3c17e7385e2e5de3f0d9df31f1c6cf7693f730e30532e80300c76925340d52c"
+  },
+  "limits": {
+    "child_cpu_s": 120,
+    "wall_s": 120,
+    "rss_bytes": 2147483648,
+    "parent_cpu_s": 120
+  },
+  "no_automatic_next_case": true,
+  "assessment": {
+    "steps": [
+      {
+        "step": 1,
+        "force_residual_N": [
+          -9.83642310237916e-12,
+          -7.678220685016854e-12,
+          5.722045955280919e-06
+        ],
+        "encoding_bound_N": [
+          5.03349328905868e-19,
+          4.512038630905251e-19,
+          8.583068847657226e-06
+        ],
+        "force_status": "unavailable_precision",
+        "moment_residual_Nmm": [
+          2.0198953620820248e-11,
+          -5.5848659030743875e-11,
+          2.018551062688272e-11
+        ],
+        "moment_encoding_bound_Nmm": [
+          8.583068847658202e-06,
+          6.0081481933600906e-05,
+          3.1310572895255212e-18
+        ],
+        "max_node_displacement_error_mm": 1.1920928966180355e-08
+      },
+      {
+        "step": 2,
+        "force_residual_N": [
+          -1.006311693181475e-11,
+          -8.446528905516342e-12,
+          1.4210854715202004e-13
+        ],
+        "encoding_bound_N": [
+          5.336307567702092e-19,
+          4.1854015506203116e-19,
+          5.722045898438803e-06
+        ],
+        "force_status": "pass",
+        "moment_residual_Nmm": [
+          1.716671249596402e-11,
+          -5.775291356258094e-11,
+          9.919039451155827e-11
+        ],
+        "moment_encoding_bound_Nmm": [
+          5.722045898440102e-06,
+          5.7220458984388024e-05,
+          5.025869992533391e-18
+        ],
+        "max_node_displacement_error_mm": 2.384185793236071e-08
+      }
+    ],
+    "strict_force_pass": false
+  },
+  "source_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-native-b-diagnostic-v1/B/case.dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/B_spooles_binary.inp": "945759d3f40bd36b8fb4f3ad5fa2d64a2fd62ab29639d6a8c6feb3ee14bf7ead",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_backend_diagnostic.py": "1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-backend-diagnostic.yaml": "e3c17e7385e2e5de3f0d9df31f1c6cf7693f730e30532e80300c76925340d52c"
+  },
+  "source_unchanged": true,
+  "native_status_compact": {
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "-c",
+      "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(120,120));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx','-i','case'])"
+    ],
+    "cleanup_errors": [],
+    "cleanup_outcomes": [],
+    "cpu_accounting": {
+      "child_system_s_delta": 0.028919999999999998,
+      "child_user_s_delta": 0.052355,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.0019750000000000045,
+      "supervisor_user_s_delta": 0.0004979999999999984
+    },
+    "error": null,
+    "finished_utc": "2026-11-01T10:22:37.503175+00:00",
+    "guard_failure": null,
+    "historical_descendant_checks": [],
+    "known_descendant_pids": [],
+    "launch_wall_s": 0.0023785000084899366,
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/solver.log",
+    "pid": 85212,
+    "returncode": 0,
+    "rss_limit_bytes": 2147483648,
+    "started_utc": "2026-11-01T10:22:37.338944+00:00",
+    "status": "completed",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/status.json",
+    "status_write_error": null,
+    "success": true,
+    "timed_out": false,
+    "total_wall_s": 0.1641278750030324,
+    "wall_limit_s": 120,
+    "peak_sampled_tree_rss_bytes": 171261952
+  },
+  "evidence_scope": "B fixture only; decoded 593 nodes, two U/RF steps and matched same-run DAT intervals plus analytic U; not a general format or bridge qualification",
+  "full_output_hashes": {
+    "case.inp": "945759d3f40bd36b8fb4f3ad5fa2d64a2fd62ab29639d6a8c6feb3ee14bf7ead",
+    "case.dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "case.frd": "116e09f853d16b8c2d0df7a167ba575ae4d027565fa96d32ede768ea4d51d712",
+    "case.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "case.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "solver.log": "4b1a29f6d08fc3ca4cd11cc31da81fa05f2cd26783ecb7c62b4195a5a8014a5d",
+    "status.json": "0d6904ad9598e34c0660aa765bb0061d553c5fc4d6cc303c2cfd60425a31deea",
+    "assessment.json": "e70191f51d028729bd2cf28f437924f395e7ed335cc83d1401cdfb2cacb5fc47"
+  },
+  "full_outputs_omitted_from_publication": [
+    "case.dat",
+    "case.frd"
+  ],
+  "earlier_setup_cpu": "partly unmeasured; unavailable, not zero"
+}

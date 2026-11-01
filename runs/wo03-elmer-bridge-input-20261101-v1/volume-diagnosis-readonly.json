@@ -1,0 +1,130 @@
+{
+  "status": "read_only_diagnosis_complete",
+  "inputs_sha256_before": {
+    "deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "metadata": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "volume_routine": "6e35316d99ea667fa519955c69d1fcf356302abb7bdac09d9a9bad57d49fbd1f",
+    "original_adapter": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+    "stop": "af1c9ede60ba5142b16247295406913370a1da13613ead92cd7b47fc8b324a0c",
+    "elements_def": "fd7797060c26856026a246dc986c3a8e1e0b56e9de0843b99c81f1176609edbd"
+  },
+  "quadrature": {
+    "source": "frozen routine: gmsh element 11 Gauss4, 11 points; weights may be negative",
+    "point_count": 11,
+    "weight_sum": 0.1666666666661,
+    "max_reference_weight_difference": 0.0,
+    "deck_min_determinant_mm3": 0.0008639239494469705,
+    "raw_min_determinant_mm3": 0.0008639240722403853
+  },
+  "units": "Original coordinates, determinants and volumes are mm, mm^3 and mm^3; Elmer conversion would scale coordinates by 1e-3 to m.",
+  "conventions": "CCX C3D10 / Elmer 510 node order edges 12,23,31,14,24,34; Gmsh integration uses same physical mapping after source reorder.",
+  "guard": "frozen proposed guard math.isclose(rel_tol=1e-8, abs_tol=1e-8 mm3) against metadata material_region_volumes_mm3",
+  "metadata_conventions": "material_region_volumes_mm3 from OCC BRep CAD masses; tetrahedron_volumes_mm3 from Gmsh Gauss4 integration on raw mesh.",
+  "max_serialization_coordinate_delta_mm": 4.998526037525153e-10,
+  "max_abs_element_volume_delta_deck_vs_saved_mm3": 7.560985171295442e-10,
+  "max_abs_element_volume_delta_raw_vs_saved_mm3": 5.362377208939506e-14,
+  "materials": {
+    "G11": {
+      "cad_occ_volume_mm3": 5500.998158294296,
+      "serialized_deck_quadrature_volume_mm3": 5501.023169933356,
+      "raw_mesh_coords_same_routine_volume_mm3": 5501.023169931946,
+      "saved_gmsh_quadrature_volume_mm3": 5501.023169931971,
+      "deck_minus_cad_mm3": 0.025011639059812296,
+      "deck_vs_cad_relative": 4.54674557963635e-06,
+      "deck_minus_saved_mesh_mm3": 1.3851604308001697e-09,
+      "deck_vs_saved_mesh_relative": 2.5180050838020726e-13,
+      "raw_minus_saved_mesh_mm3": -2.546585164964199e-11,
+      "saved_mesh_minus_cad_mm3": 0.025011637674651865
+    },
+    "EPOXY_0": {
+      "cad_occ_volume_mm3": 9.939776890153977,
+      "serialized_deck_quadrature_volume_mm3": 9.939776890071622,
+      "raw_mesh_coords_same_routine_volume_mm3": 9.939776890100175,
+      "saved_gmsh_quadrature_volume_mm3": 9.93977689010016,
+      "deck_minus_cad_mm3": -8.235545578827441e-11,
+      "deck_vs_cad_relative": -8.28544309378343e-12,
+      "deck_minus_saved_mesh_mm3": -2.8538948981804424e-11,
+      "deck_vs_saved_mesh_relative": -2.8711860736259288e-12,
+      "raw_minus_saved_mesh_mm3": 1.4210854715202004e-14,
+      "saved_mesh_minus_cad_mm3": -5.381650680646999e-11
+    },
+    "EPOXY_1": {
+      "cad_occ_volume_mm3": 9.939776890154864,
+      "serialized_deck_quadrature_volume_mm3": 9.939776890071625,
+      "raw_mesh_coords_same_routine_volume_mm3": 9.939776890100173,
+      "saved_gmsh_quadrature_volume_mm3": 9.939776890100125,
+      "deck_minus_cad_mm3": -8.323830513745634e-11,
+      "deck_vs_cad_relative": -8.374262929372398e-12,
+      "deck_minus_saved_mesh_mm3": -2.849986913133762e-11,
+      "deck_vs_saved_mesh_relative": -2.867254410883516e-12,
+      "raw_minus_saved_mesh_mm3": 4.796163466380676e-14,
+      "saved_mesh_minus_cad_mm3": -5.473843600611872e-11
+    },
+    "EPOXY_2": {
+      "cad_occ_volume_mm3": 9.939776890145605,
+      "serialized_deck_quadrature_volume_mm3": 9.939776890163898,
+      "raw_mesh_coords_same_routine_volume_mm3": 9.939776890068902,
+      "saved_gmsh_quadrature_volume_mm3": 9.939776890068918,
+      "deck_minus_cad_mm3": 1.829292273214378e-11,
+      "deck_vs_cad_relative": 1.8403755873312977e-12,
+      "deck_minus_saved_mesh_mm3": 9.498002384589199e-11,
+      "deck_vs_saved_mesh_relative": 9.555548871603841e-12,
+      "raw_minus_saved_mesh_mm3": -1.5987211554602254e-14,
+      "saved_mesh_minus_cad_mm3": -7.668710111374821e-11
+    },
+    "EPOXY_3": {
+      "cad_occ_volume_mm3": 9.939776890014107,
+      "serialized_deck_quadrature_volume_mm3": 9.939776889124305,
+      "raw_mesh_coords_same_routine_volume_mm3": 9.93977688970568,
+      "saved_gmsh_quadrature_volume_mm3": 9.939776889705724,
+      "deck_minus_cad_mm3": -8.898020098513371e-10,
+      "deck_vs_cad_relative": -8.951931413523652e-11,
+      "deck_minus_saved_mesh_mm3": -5.81419357104096e-10,
+      "deck_vs_saved_mesh_relative": -5.849420601243589e-11,
+      "raw_minus_saved_mesh_mm3": -4.440892098500626e-14,
+      "saved_mesh_minus_cad_mm3": -3.083826527472411e-10
+    },
+    "EPOXY_4": {
+      "cad_occ_volume_mm3": 9.939776890062387,
+      "serialized_deck_quadrature_volume_mm3": 9.939776889988936,
+      "raw_mesh_coords_same_routine_volume_mm3": 9.939776889842472,
+      "saved_gmsh_quadrature_volume_mm3": 9.939776889842479,
+      "deck_minus_cad_mm3": -7.345057895236096e-11,
+      "deck_vs_cad_relative": -7.389560124412405e-12,
+      "deck_minus_saved_mesh_mm3": 1.4645706869487185e-10,
+      "deck_vs_saved_mesh_relative": 1.4734442263441272e-11,
+      "raw_minus_saved_mesh_mm3": -7.105427357601002e-15,
+      "saved_mesh_minus_cad_mm3": -2.199076476472328e-10
+    },
+    "EPOXY_5": {
+      "cad_occ_volume_mm3": 9.939776890097775,
+      "serialized_deck_quadrature_volume_mm3": 9.939776890076654,
+      "raw_mesh_coords_same_routine_volume_mm3": 9.939776889933114,
+      "saved_gmsh_quadrature_volume_mm3": 9.939776889933105,
+      "deck_minus_cad_mm3": -2.1120882820468978e-11,
+      "deck_vs_cad_relative": -2.1248850003373885e-12,
+      "deck_minus_saved_mesh_mm3": 1.4354917254877364e-10,
+      "deck_vs_saved_mesh_relative": 1.4441890812877162e-11,
+      "raw_minus_saved_mesh_mm3": 8.881784197001252e-15,
+      "saved_mesh_minus_cad_mm3": -1.6467005536924262e-10
+    }
+  },
+  "native_solver_invoked": false,
+  "original_stop_unchanged": true,
+  "inputs_sha256_after": {
+    "deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "metadata": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "volume_routine": "6e35316d99ea667fa519955c69d1fcf356302abb7bdac09d9a9bad57d49fbd1f",
+    "original_adapter": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+    "stop": "af1c9ede60ba5142b16247295406913370a1da13613ead92cd7b47fc8b324a0c",
+    "elements_def": "fd7797060c26856026a246dc986c3a8e1e0b56e9de0843b99c81f1176609edbd"
+  },
+  "inputs_unchanged": true,
+  "process_cpu_s": 1.07263,
+  "peak_rss_bytes": 384647168,
+  "source_convention_snapshot_verified_after": {
+    "path": "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_bridge_adapter.py",
+    "sha256": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+    "matches_adapter_hashed_before_after": true
+  }
+}

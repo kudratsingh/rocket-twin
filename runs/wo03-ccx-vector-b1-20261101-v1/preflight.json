@@ -1,0 +1,42 @@
+{
+  "status": "prepared_no_native_run",
+  "source_sha256_before": {
+    "fixture_deck": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "fixture_meta": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "fixture_saved_dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "actual_deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "actual_meta": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "actual_saved_dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b"
+  },
+  "source_sha256_after": {
+    "fixture_deck": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "fixture_meta": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "fixture_saved_dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "actual_deck": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "actual_meta": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "actual_saved_dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b"
+  },
+  "solver_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+  "outputs": {
+    "B_spooles_binary": {
+      "sha256": "945759d3f40bd36b8fb4f3ad5fa2d64a2fd62ab29639d6a8c6feb3ee14bf7ead",
+      "source_key": "fixture_deck",
+      "node_output_blocks": 2,
+      "iterative_cholesky": false
+    },
+    "B_iterative_cholesky_binary": {
+      "sha256": "94a2783e535ff7476637fbee0bc72e14322b7e2835d11e68d87733e7ad715369",
+      "source_key": "fixture_deck",
+      "node_output_blocks": 2,
+      "iterative_cholesky": true
+    },
+    "actual_iterative_cholesky_binary": {
+      "sha256": "f03d3a3b5fae33dad4db51974cedc9e6030197ccac17707aad6c82f18732501e",
+      "source_key": "actual_deck",
+      "node_output_blocks": 2,
+      "iterative_cholesky": true
+    }
+  },
+  "reader_status": "source-derived provisional; vector framing, step attribution, DAT comparisons and physics gates NOT yet verified against installed 2.23",
+  "native_execution_authorized": false
+}

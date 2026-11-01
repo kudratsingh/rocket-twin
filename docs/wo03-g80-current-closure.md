@@ -106,3 +106,12 @@ remains unvalidated; component and full-vehicle strength acceptance stay open.
 The full3D route is stopped for this packet. A smaller known-case output
 verification is required before any further numerical reliance; no criterion
 or physical requirement is relaxed and no new vehicle geometry is adopted.
+
+## Structural input/output path narrowed
+
+The [structural solver decision](wo03-structural-solver-decision.md) closes the
+specific small Elmer input/Float64-output/reaction verification obstacle for two
+known load cases. It does not close the actual bridge's reaction or reciprocal-work
+failure. CalculiX B1 precision remains insufficient and B2 displacement fails.
+A bounded bridge input study is next; installed strength, hot load paths,
+mesh convergence, fin/root/flutter and thermal acceptance remain open.

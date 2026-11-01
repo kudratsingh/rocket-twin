@@ -1,0 +1,89 @@
+{
+  "status": "stopped",
+  "source_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/case.frd": "116e09f853d16b8c2d0df7a167ba575ae4d027565fa96d32ede768ea4d51d712",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/case.dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/assessment.json": "e70191f51d028729bd2cf28f437924f395e7ed335cc83d1401cdfb2cacb5fc47",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-ccx-vector-b1-20261101-v1/as-run-driver.py": "1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-b2-diagnostic-v1/B2.inp": "94a2783e535ff7476637fbee0bc72e14322b7e2835d11e68d87733e7ad715369",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_b2_diagnostic.py": "99fe4cfca1c00d56591796139b8990a2d9b9e47dcc33a3e45d0deca6e0b32994",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-b2-diagnostic.yaml": "3439da8abaa953e82162ce49dad6d0f94c0eae530b83fa6fe2f44deb6b186206"
+  },
+  "no_actual_or_automatic_continuation": true,
+  "strict_force_criterion_N": 1e-05,
+  "cause_isolation_only": true,
+  "error": "ValueError('Analytic displacement mismatch')",
+  "source_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/case.inp": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-reaction-fixture-preflight-v6-b/mesh-meta.json": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/case.frd": "116e09f853d16b8c2d0df7a167ba575ae4d027565fa96d32ede768ea4d51d712",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/case.dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-backend-diagnostic-v2/native-B1/assessment.json": "e70191f51d028729bd2cf28f437924f395e7ed335cc83d1401cdfb2cacb5fc47",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-ccx-vector-b1-20261101-v1/as-run-driver.py": "1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02",
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-b2-diagnostic-v1/B2.inp": "94a2783e535ff7476637fbee0bc72e14322b7e2835d11e68d87733e7ad715369",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_b2_diagnostic.py": "99fe4cfca1c00d56591796139b8990a2d9b9e47dcc33a3e45d0deca6e0b32994",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-b2-diagnostic.yaml": "3439da8abaa953e82162ce49dad6d0f94c0eae530b83fa6fe2f44deb6b186206"
+  },
+  "source_unchanged": true,
+  "native_status_compact": {
+    "argv": [
+      "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+      "-c",
+      "import os,resource;resource.setrlimit(resource.RLIMIT_CPU,(120,120));os.execv('/opt/homebrew/bin/ccx',['/opt/homebrew/bin/ccx',\"-i\",\"case\"])"
+    ],
+    "cleanup_errors": [],
+    "cleanup_outcomes": [],
+    "cpu_accounting": {
+      "child_system_s_delta": 0.027299,
+      "child_user_s_delta": 0.074541,
+      "children_rusage_sampled_after_reap": true,
+      "supervisor_system_s_delta": 0.002014000000000002,
+      "supervisor_user_s_delta": 0.0005760000000000071
+    },
+    "error": null,
+    "finished_utc": "2026-11-01T10:35:08.253383+00:00",
+    "guard_failure": null,
+    "historical_descendant_checks": [],
+    "known_descendant_pids": [],
+    "launch_wall_s": 0.00209070899290964,
+    "log_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-b2-diagnostic-v1/native-B2/solver.log",
+    "pid": 89229,
+    "returncode": 0,
+    "rss_limit_bytes": 2147483648,
+    "started_utc": "2026-11-01T10:35:08.139230+00:00",
+    "status": "completed",
+    "status_path": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-ccx-b2-diagnostic-v1/native-B2/status.json",
+    "status_write_error": null,
+    "success": true,
+    "timed_out": false,
+    "total_wall_s": 0.11376516701420769,
+    "wall_limit_s": 120,
+    "peak_sampled_tree_rss_bytes": 7651328
+  },
+  "coverage": {
+    "solver": "exit 0, iterative Cholesky identified",
+    "binary_fields": "all four blocks decoded with 593-node step framing",
+    "same_run_dat": "step 1 checked; step 2 not reached",
+    "analytic": "failed step 1; independent readonly scan in packet",
+    "strict_force": "not reached, unavailable",
+    "b1_b2_local_rf": "not reached, unavailable",
+    "actual_case": "not executed",
+    "no_acceptance": true
+  },
+  "raw_output_sha256": {
+    "case.inp": "94a2783e535ff7476637fbee0bc72e14322b7e2835d11e68d87733e7ad715369",
+    "case.dat": "d6ef4d78ebe74d4fc39d5f9609e213351c6d4434ae42167327264b4767be1496",
+    "case.frd": "8060878a06b24678e3aaf04290ec878535bf3cd442ace618711c2f3539ffb1d6",
+    "case.sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "case.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "solver.log": "2a44395c3d1b7ad7081cb77aa8061bb15a7943c1a32ffb2eba1f8c8b0781831c",
+    "status.json": "1ec10cfb8948151ea73b4d5d9739243a5fef23540cfa07920f0a892751115c40",
+    "assessment.json": "eccf83ec35368b3359fe2105b1965c0395e29c7b09394f19683697cfdd4aaedf"
+  },
+  "raw_frd_dat_omitted": true,
+  "earlier_setup_cpu": "partly unavailable; not zero"
+}

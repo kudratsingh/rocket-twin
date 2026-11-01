@@ -1,0 +1,222 @@
+ELMER SOLVER (v 26.2) STARTED AT: 2026/11/01 03:31:53
+ParCommInit: Initialize #PEs: 1
+MAIN: 
+MAIN: =============================================================
+MAIN: ElmerSolver finite element software, Welcome!
+MAIN: This program is free software licensed under (L)GPL
+MAIN: Copyright 1st April 1995 - , CSC - IT Center for Science Ltd.
+MAIN: Webpage http://www.csc.fi/elmer, Email elmeradm@csc.fi
+MAIN: Version: 26.2-unknown (Rev: unknown, Compiled: 2026-10-31)
+MAIN:  Running one task without MPI parallelization.
+MAIN:  Running with just one thread per task.
+MAIN: =============================================================
+MAIN: 
+MAIN: 
+MAIN: -------------------------------------
+MAIN: Reading Model: case.sif
+LoadInputFile: Scanning input file: case.sif
+LoadInputFile: Scanning only size info
+LoadInputFile: First time visiting
+LoadInputFile: Reading base load of sif file
+LoadInputFile: Loading input file: case.sif
+LoadInputFile: Reading base load of sif file
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 10]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 11]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 12]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 13]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 14]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 15]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 16]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 17]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 18]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 19]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 20]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 21]
+CheckKeyword:  Unlisted keyword: [displacement 3 load] in section: [boundary condition 22]
+LoadInputFile: Number of BCs: 22
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 1
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 2
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 3
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 5
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 6
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 7
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 8
+WARNING:: LoadInputFile: Entry missing for: Boundary Condition 9
+LoadInputFile: Number of Body Forces: 0
+LoadInputFile: Number of Initial Conditions: 0
+LoadInputFile: Number of Materials: 2
+LoadInputFile: Number of Equations: 1
+LoadInputFile: Number of Solvers: 2
+LoadInputFile: Number of Bodies: 2
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver_Init0]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_Init0]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_Init0]
+LoadMesh: Loading serial mesh!
+ElmerMeshReader: Performing step: 1
+ElmerMeshReader: Base mesh name: ./mesh
+ReadHeaderFile: Reading header info from file: ./mesh/mesh.header
+InitializeMesh: Number of nodes in mesh: 593
+InitializeMesh: Number of bulk elements in mesh: 254
+InitializeMesh: Number of boundary elements in mesh: 216
+InitializeMesh: Initial number of max element nodes: 10
+ElmerMeshReader: Performing step: 2
+ReadNodesFile: Reading nodes from file: ./mesh/mesh.nodes
+MapCoordinates: Performing coordinate mapping
+SetMeshDimension: Dimension of mesh is: 3
+SetMeshDimension: Max dimension of mesh is: 3
+ElmerMeshReader: Performing step: 3
+ReadElementsFile: Reading bulk elements from file: ./mesh/mesh.elements
+ElmerMeshReader: Performing step: 4
+ReadBoundaryFile: Reading boundary elements from file: ./mesh/mesh.boundary
+PermuteNodeNumbering: Performing node mapping
+MapBodiesAndBCs: Skipping remapping of bodies
+MapBodiesAndBCs: Remapping boundaries
+MapBodiesAndBCs: Minimum initial boundary index: 1
+MapBodiesAndBCs: Maximum initial boundary index: 7
+ElmerMeshReader: Performing step: 5
+ElmerMeshReader: Performing step: 6
+LoadMesh: Loading mesh done
+LoadMesh: Preparing mesh done
+LoadMesh: Elapsed REAL time:     0.0013 (s)
+MeshStabParams: Computing stabilization parameters
+MeshStabParams: Elapsed REAL time:     0.0001 (s)
+MAIN: -------------------------------------
+AddMeshCoordinates: Setting mesh coordinates and time
+AddSolvers: Setting up 2 solvers
+AddSolvers: Setting up solver 1: elasticity
+AddEquationBasics: Using procedure: /Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib StressSolver
+AddEquationBasics: Setting up solver: elasticity
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver_Init]
+StressSolve_init: --------------------------------------------------
+StressSolve_init: Solving displacements from linear elasticity model
+StressSolve_init: --------------------------------------------------
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver_bulk]
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver_bulk]
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver]
+AddEquationBasics: Creating standard variable: displacement
+OptimizeBandwidth: ---------------------------------------------------------
+OptimizeBandwidth: Computing matrix structure for: elasticity
+OptimizeBandwidth: Initial bandwidth for elasticity: 564
+OptimizeBandwidth: Optimized bandwidth for elasticity: 87
+OptimizeBandwidth: ---------------------------------------------------------
+AddSolvers: Setting up solver 2: result output
+AddEquationBasics: Using procedure: ResultOutputSolve ResultOutputSolver
+AddEquationBasics: Setting up solver: result output
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_Init]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_Init]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_bulk]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_bulk]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver]
+AddTimeEtc: Setting time and other global variables
+MAIN: Random seed initialized to: 314159265
+SetInitialConditions: Setting up initial conditions (if any)
+MAIN: Number of timesteps to be saved: 1
+MAIN: 
+MAIN: -------------------------------------
+MAIN:  Steady state iteration:            1
+MAIN: -------------------------------------
+MAIN: 
+SingleSolver: Attempting to call solver: 1
+SingleSolver: Solver Equation string is: elasticity
+StressSolve: 
+StressSolve: --------------------------------------------------
+StressSolve: Solving displacements from linear elasticity model
+StressSolve: --------------------------------------------------
+DefaultStart: Starting solver: elasticity
+StressSolve: Starting assembly...
+StressSolve: Assembly:
+DefaultFinishBulkAssembly: Saving bulk values for: elasticity
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+SetNodalLoads: Setting nodal loads on target nodes: displacement 3
+DefUtils::DefaultDirichletBCs: Setting Dirichlet boundary conditions
+EnforceDirichletConditions: Enforcing total of 117 Dirichlet conditions.
+EnforceDirichletConditions: Applying Dirichlet conditions using scaled diagonal
+ScaleLinearSystem: Creating > DiagScaling < vector of size 1779
+EnforceDirichletConditions: Dirichlet conditions enforced for dofs: 117
+DefaultSolve: Solving linear system with default routines
+SolveSystem: Solving linear system
+SolveLinearSystem: Assuming real valued linear system
+SolveLinearSystem: Assuming serial linear system
+ScaleLinearSystem: Creating > DiagScaling < vector of size 1779
+SolveLinearSystem: Serial linear System Solver: direct
+DirectSolver: Using direct method: umfpack
+SolveLinearSystem: Calculating nodal loads for: displacement
+CalculateLoads: Computing boundary fluxes from nodal loads
+CalculateLoads: displacement 1 Flux over BC 4:  9.18725E-13
+CalculateLoads: displacement 2 Flux over BC 4:  2.56522E-11
+CalculateLoads: displacement 3 Flux over BC 4: -1.50000E+02
+ComputeNorm: Computing norm of solution
+ComputeChange: NS (ITER=1) (NRM,RELC): ( 0.25451399E-03  2.0000000     ) :: elasticity
+DefaultFinish: Finished solver: elasticity
+StressSolver: All done
+StressSolver: ------------------------------------------
+ComputeNorm: Computing norm of solution
+ComputeChange: SS (ITER=1) (NRM,RELC): ( 0.25451399E-03  2.0000000     ) :: elasticity
+SingleSolver: Attempting to call solver: 2
+SingleSolver: Solver Equation string is: result output
+ResultOutputSolver: -------------------------------------
+ResultOutputSolver: Saving with prefix: field
+ResultOutputSolver: Dimension of mesh is: 3
+ResultOutputSolver: Working on mesh 1: mesh with 593 nodes
+ResultOutputSolver: Creating list for saving - if not present
+CreateListForSaving: Field Variables for Saving
+CreateListForSaving: Vector Field 1: displacement
+CreateListForSaving: Vector Field 2: displacement loads
+ResultOutputSolver: Saving in unstructured VTK XML (.vtu) format
+VtuOutputSolver: Saving results in VTK XML format with prefix: field
+VtuOutputSolver: Saving number of partitions: 1
+SolverOutputDirectory: Creating directory: mesh
+VtuOutputSolver: Full filename base is: mesh/field
+GenerateSaveMask: Number of active elements 470 out of 470
+GenerateSaveMask: Number of geometry nodes 593 out of 593
+VtuOutputSolver: Total number of elements to save: 470
+VtuOutputSolver: Total number of geometry nodes to save: 593
+VtuOutputSolver: Total number of dof nodes to save: 593
+VtuOutputSolver: Writing the vtu file: mesh/field_t0001.vtu
+AscBinWriteInit: Initializing buffered ascii/binary writing
+AscBinWriteInit: Writing in binary
+AscBinWriteInit: Writing in double precision
+AscBinWriteInit: Writing to unit number: 58
+AscBinWriteInit: Size of buffer is: 1000
+WriteVtuFile: Writing nodal fields
+WriteVtuFile: Saving 3-component variable: displacement
+WriteVtuFile: Saving 3-component variable: displacement loads
+WriteVtuFile: Number of nodal fields written: 2
+WriteVtuFile: Writing elemental fields
+WriteVtuFile: Number of elemental fields written: 0
+WriteVtuFile: Writing coordinates for each used node
+WriteVtuFile: Writing the elemental connectivity data
+WriteVtuFile: Writing nodal fields
+WriteVtuFile: Saving 3-component variable: displacement
+WriteVtuFile: Saving 3-component variable: displacement loads
+WriteVtuFile: Writing elemental fields
+AscBinWriteFree: Terminating buffered ascii/binary writing
+VtuOutputSolver: All done for now
+ResultOutputSolver: -------------------------------------
+ReloadInputFile: Reloading input file
+LoadInputFile: Loading input file:
+MAIN: Reporting unused list entries for sif improvement!
+MAIN: If you do not want these lines undefine > DEVEL_LISTUSAGE < !
+   Unused keywords:
+       Solver 1              linear system max iterations
+       Solver 1              linear system convergence tolerance
+       Solver 1              linear system abort not converged
+MAIN: *** Elmer Solver: ALL DONE ***
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver_Finalize]
+Loading user function library: [/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib]...[StressSolver_Finalize]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_Finalize]
+Loading user function library: [ResultOutputSolve]...[ResultOutputSolver_Finalize]
+MAIN: The end
+SOLVER TOTAL TIME(CPU,REAL):         0.14        0.15
+ELMER SOLVER FINISHED AT: 2026/11/01 03:31:54

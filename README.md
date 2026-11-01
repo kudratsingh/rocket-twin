@@ -11,7 +11,7 @@ conventional performance, finned TVC training and eventual finless configuration
 Custom fabrication, maximum practical conventional performance and committed
 PID-to-RL development remain equally important outcomes.
 
-## Current integrated vehicle — WO-03 open
+## Working vehicle baseline — WO-03 open
 
 **Diameter: 66 mm. Overall length: approximately 1.21 m (1,212 mm).** A 400 mm
 upper-body extension, stronger fins/supports, thermal protection and recovery
@@ -37,12 +37,46 @@ availability and club acceptance are unconfirmed.** The lower-thrust, full-growt
 screen retains its 10 m/s departure requirement. This guide assumption is not
 confirmed launch equipment or authorization.
 
+### Latest isolated G80 correction studies
+
+The working specifications and preview above remain unchanged. The following
+**unadopted candidates** integrate the new retention parts and recovery studies;
+their results belong to their own source revisions.
+
+| G80 candidate | Nominal loaded mass | With separate 50 g growth | Nominal modeled altitude | Growth loaded stability margin |
+|---|---:|---:|---:|---:|
+| 72-part keeper/bridge integration | 773.0 g | 823.0 g | 620.6 m / 2,036 ft | 1.166 calibres |
+| Larger-canopy study | 789.6 g | 839.6 g | 613.2 m / 2,012 ft | 1.361 calibres |
+
+The larger-canopy study also evaluates a **separate estimated 5 g** line and
+connector allocation, giving 844.6 g with growth and 1.419 calibres. A calibre
+here is one body diameter of separation between the balance point and the
+aerodynamic-force location. These preliminary stability and ascent comparisons
+pass their stated screens; they do not qualify the structures or recovery.
+See [integrated results](docs/wo03-g80-staged-retention-results.md) and
+[canopy results](docs/wo03-g80-canopy-stage3-results.md).
+
+All five larger-canopy simulations meet the 6 m/s **vertical descent** target
+under unmeasured drag assumptions, including an illustrative lower-drag case.
+Wind adds horizontal landing speed and drift. Packed fit, opening loads, actual
+drag and independent recovery operation remain unverified. The proposed
+continuous recovery tether and its end attachments are **not included** in
+those masses or flight predictions. Its
+[straight-route study](docs/wo03-g80-backbone-route.md) does not establish an
+installed, load-qualified recovery system.
+
+Two major numerical/design blockers remain: the actual bridge fails force and
+reciprocal-work checks, and the closed thermal-tool comparison does not qualify
+an actual-baffle calculation. Installed fin/root/flutter and complete recovery
+load paths also remain open. The [current closure table](docs/wo03-g80-current-closure.md)
+separates these from later owner-performed qualification.
+
 The integrated design uses light kraft tubes, custom keyed joints, rectangular
 plywood fins and root gussets, machined G11 recovery/thrust/gimbal parts, mica/foil
 thermal protection and a dedicated recovery-controller power package. All-printed,
 rolled-paper and composite options remain available where justified by strength,
 heat, mass, cost and learning. One shared YAML parts model drives CAD, mass/CG/full
-inertia, JAX physics, BOM/learn metadata and future viewer inspection.
+inertia, JAX physics, BOM/learn metadata and the early inspection viewer.
 
 **WO-03 acceptance remains open.** Remaining items include installed fin/root and
 flutter evidence, minimum clearances, G54 thermal/CG sensitivities, detailed motor
@@ -118,8 +152,8 @@ and shared upper are under [configs/vehicle/platform](configs/vehicle/platform).
 
 ## Delivered-performance evidence
 
-The current table above is the integrated WO-03 prediction, with G80 as reference
-and G54 conditional. The current 27-case campaign includes motor alternatives,
+The working-baseline table above retains the integrated WO-03 prediction, with G80 as reference
+and G54 conditional. Its recorded 27-case campaign includes motor alternatives,
 growth, thrust/drag, wind and recovery timing. Five nominal RocketPy comparisons
 meet the 5% benchmark; the largest current error is finned-G12 altitude 2.064% and
 time-to-apogee 0.917%. Numerical agreement under assumptions is not measured flight

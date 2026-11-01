@@ -1,0 +1,87 @@
+{
+  "status": "prepared_no_native",
+  "source_before": {
+    "fixture_source": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "fixture_meta": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "b1_frd": "116e09f853d16b8c2d0df7a167ba575ae4d027565fa96d32ede768ea4d51d712",
+    "b1_dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "b1_assessment": "e70191f51d028729bd2cf28f437924f395e7ed335cc83d1401cdfb2cacb5fc47",
+    "b1_driver": "1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02"
+  },
+  "source_after": {
+    "fixture_source": "6e4ade672575780ceaa31bf0f6d888ef2c08e539bf47045d0d09062fcaae29fa",
+    "fixture_meta": "d8638961d92a61e09c73d4d66c90cb463552009b2028a818a88bb4d431520f4d",
+    "b1_frd": "116e09f853d16b8c2d0df7a167ba575ae4d027565fa96d32ede768ea4d51d712",
+    "b1_dat": "d063d63cde82a61c525a87bf9e8cc810cbe8a6970068e42b5aea17192c0897dd",
+    "b1_assessment": "e70191f51d028729bd2cf28f437924f395e7ed335cc83d1401cdfb2cacb5fc47",
+    "b1_driver": "1fff5b26142a2ff0a2e93d57b98ee64791b8da68a4e8d1c60a448020397b0c02"
+  },
+  "source_ledger": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_b2_diagnostic.py": "72e582f0c32e449c76090107e2bfeda404d4a6bc2319c224222a16bdb74513da",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-ccx-b2-diagnostic.yaml": "1225763f30e6dd5bff95b4ad7f61e8ea81ef1c6ba2684a96ae3c430ca4ec7e93",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_ccx_reaction_fixture.py": "4444ec418530a775ac6dfbec7573c33e9f14185a6ab64b58bfa83c1e08d0d8c3",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_bridge_fea.py": "81c667881957fed28b68cc2bf595c04a778701002b0e3c7ed09321ee26ca740e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_owned_process.py": "65b2cf8b647412ad35c38171c119eadd538de4a760ffd1224926cfbb9fa4cd9f",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/tests/test_ccx_b2_diagnostic.py": "b3aeb941802ec405bc33eadabb95674bd1104595c28c551f5b22db07ece670a6"
+  },
+  "solver_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+  "b2_deck_sha256": "94a2783e535ff7476637fbee0bc72e14322b7e2835d11e68d87733e7ad715369",
+  "b1_recheck": {
+    "steps": [
+      {
+        "step": 1,
+        "force_residual_N": [
+          -9.83642310237916e-12,
+          -7.678220685016854e-12,
+          5.722045955280919e-06
+        ],
+        "encoding_bound_N": [
+          5.03349328905868e-19,
+          4.512038630905251e-19,
+          8.583068847657226e-06
+        ],
+        "force_status": "unavailable_precision",
+        "moment_residual_Nmm": [
+          2.0198953620820248e-11,
+          -5.5848659030743875e-11,
+          2.018551062688272e-11
+        ],
+        "moment_encoding_bound_Nmm": [
+          8.583068847658202e-06,
+          6.0081481933600906e-05,
+          3.1310572895255212e-18
+        ],
+        "max_node_displacement_error_mm": 1.1920928966180355e-08
+      },
+      {
+        "step": 2,
+        "force_residual_N": [
+          -1.006311693181475e-11,
+          -8.446528905516342e-12,
+          1.4210854715202004e-13
+        ],
+        "encoding_bound_N": [
+          5.336307567702092e-19,
+          4.1854015506203116e-19,
+          5.722045898438803e-06
+        ],
+        "force_status": "pass",
+        "moment_residual_Nmm": [
+          1.716671249596402e-11,
+          -5.775291356258094e-11,
+          9.919039451155827e-11
+        ],
+        "moment_encoding_bound_Nmm": [
+          5.722045898440102e-06,
+          5.7220458984388024e-05,
+          5.025869992533391e-18
+        ],
+        "max_node_displacement_error_mm": 2.384185793236071e-08
+      }
+    ],
+    "strict_force_pass": false
+  },
+  "native_execution_authorized": false,
+  "packet_cpu_reservation_s": 420,
+  "actual_case_implemented": false
+}

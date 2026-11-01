@@ -1,0 +1,14 @@
+status: input_assessment_only_no_solver
+source_deck: build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp
+source_metadata: build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json
+elmer_solver: .cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver
+elmer_solver_sha256: 006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e
+stress_module: .cache/elmer-evaluation/structural-module-v1/artifacts/StressSolve.dylib
+stress_module_sha256: 792f1fd46d06d8b0cf05865a0492237221200fe2d20e96a5698cbf219fc14e1f
+native_execution_authorized: false
+force_criterion_N: 0.00001
+case_cpu_wall_s: 120
+parent_cpu_reserve_s: 120
+setup_cpu_reserve_s: 60
+packet_cpu_ceiling_s: 600
+root_rss_limit_bytes: 2147483648
