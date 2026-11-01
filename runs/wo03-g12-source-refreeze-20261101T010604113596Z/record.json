@@ -1,0 +1,6057 @@
+{
+  "scope": "historical G12 source identity and CAD-property comparison only",
+  "acceptance": false,
+  "active_vehicle_changed": false,
+  "flight_ready": false,
+  "raw_record_path": "build/wo03-refreeze-g12-root-v1/record.json",
+  "raw_record_sha256": "ca088a51fda4ac0258bf6ebd0bf5024e631475dad96fc36ba95e431382aede60",
+  "refreeze": {
+    "status": "validated_existing_reconciled_copy_assembly_unqualified",
+    "accepted": false,
+    "flight_ready": false,
+    "input_sha256_before": {
+      "configs/studies/wo03-refreeze-g12-root.yaml": "87f46fa934bca208d2fb078ece5fd9a52daf3b95ce370000141581bd6b513aa6",
+      "scripts/wo03_refreeze_g12_root.py": "b50d7231d1f62306714ac002fc68f12c0389598a64d787bc45e84f78ff62570d",
+      "configs/studies/wo03-installed-root.yaml": "d72175fe6bf5da6f136f57099093c875217bc5831285dc9dc0618ff5ac5fb331",
+      "build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json": "7ed721e84ffb60b753c67eb0a6d579e071b4a42c68e76d06f2fe1444555ebebb",
+      "runs/wo03-installed-root-20261031T041923712847Z/reconciled-source-only.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-recovery-clearance/hoop/resolved-candidate.yaml": "81529f6a6f01516de59b99cb3acc85b353c5d01275ecbb23be967a71151db890",
+      "configs/studies/wo03-recovery-budget-closure.yaml": "a151e8cad659b401e0afed2ee218110e6a5eb4dd387a8f7dc36ebb10e4ce3fe7",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "build/wo03-recovery-clearance/hoop/recovery-cap-frame.step": "d012f27912f1c1c28c4d63bf9ef03c78c31c6abab61029d04e5e66c511221b54"
+    },
+    "input_sha256_after": {
+      "configs/studies/wo03-refreeze-g12-root.yaml": "87f46fa934bca208d2fb078ece5fd9a52daf3b95ce370000141581bd6b513aa6",
+      "scripts/wo03_refreeze_g12_root.py": "b50d7231d1f62306714ac002fc68f12c0389598a64d787bc45e84f78ff62570d",
+      "configs/studies/wo03-installed-root.yaml": "d72175fe6bf5da6f136f57099093c875217bc5831285dc9dc0618ff5ac5fb331",
+      "build/wo03-installed-fin-closure-audit-v1/completed-audit/record.json": "7ed721e84ffb60b753c67eb0a6d579e071b4a42c68e76d06f2fe1444555ebebb",
+      "runs/wo03-installed-root-20261031T041923712847Z/reconciled-source-only.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "build/wo03-recovery-clearance/hoop/resolved-candidate.yaml": "81529f6a6f01516de59b99cb3acc85b353c5d01275ecbb23be967a71151db890",
+      "configs/studies/wo03-recovery-budget-closure.yaml": "a151e8cad659b401e0afed2ee218110e6a5eb4dd387a8f7dc36ebb10e4ce3fe7",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "build/wo03-recovery-clearance/hoop/recovery-cap-frame.step": "d012f27912f1c1c28c4d63bf9ef03c78c31c6abab61029d04e5e66c511221b54"
+    },
+    "new_resolved_file_sha256": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+    "new_resolved_spec_sha256": "4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287",
+    "historical_reconciled_spec_sha256": "4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287",
+    "reload_valid": true,
+    "proposal_non_mass_property_changes": [],
+    "historical_hoop_mass_kg": 0.781641871701945,
+    "reconciled_mass_kg": 0.7815721978214214,
+    "mass_saving_credited": false,
+    "parts": [
+      {
+        "id": "nose_cone",
+        "historical_volume_m3": 3.085726512808923e-05,
+        "new_geometric_volume_m3": 3.085726512808923e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.10507448848415252,
+          -3.6431000163605166e-16,
+          2.7230500515332014e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.10507448848415252,
+          -3.6431000163605166e-16,
+          2.7230500515332014e-18
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0007942587951587128,
+            -2.416983494407599e-17,
+            -1.804916136095085e-18
+          ],
+          [
+            -2.416983494407599e-17,
+            0.0021438771840434786,
+            -3.9983277360268475e-19
+          ],
+          [
+            -1.804916136095085e-18,
+            -3.9983277360268475e-19,
+            0.0021438771840434734
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0007942587951587128,
+            -2.416983494407599e-17,
+            -1.804916136095085e-18
+          ],
+          [
+            -2.416983494407599e-17,
+            0.0021438771840434786,
+            -3.9983277360268475e-19
+          ],
+          [
+            -1.804916136095085e-18,
+            -3.9983277360268475e-19,
+            0.0021438771840434734
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.033017273687055475,
+        "new_mass_kg": 0.033017273687055475,
+        "new_local_bbox_mm": [
+          -33.0,
+          33.0,
+          -33.0,
+          33.0,
+          0.0,
+          170.0
+        ],
+        "new_placed_bbox_mm": [
+          -33.0,
+          33.0,
+          -33.0,
+          33.0,
+          0.0,
+          170.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "body_upper",
+        "historical_volume_m3": 7.994650014580484e-05,
+        "new_geometric_volume_m3": 7.994650014580484e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.38907358519716967,
+          -3.774257054477922e-11,
+          -4.05416089297198e-05
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.38907358519716967,
+          -3.774257054477922e-11,
+          -4.05416089297198e-05
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0010726234110345883,
+            1.8702451434113397e-12,
+            2.394937225889764e-06
+          ],
+          [
+            1.8702451434113397e-12,
+            0.05103453816783425,
+            9.62636028090764e-13
+          ],
+          [
+            2.394937225889764e-06,
+            9.62636028090764e-13,
+            0.051035837959766406
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0010726234110345883,
+            1.8702451434113397e-12,
+            2.394937225889764e-06
+          ],
+          [
+            1.8702451434113397e-12,
+            0.05103453816783425,
+            9.62636028090764e-13
+          ],
+          [
+            2.394937225889764e-06,
+            9.62636028090764e-13,
+            0.051035837959766406
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.05603234701199932,
+        "new_mass_kg": 0.055962550102063385,
+        "new_local_bbox_mm": [
+          -33.0000001,
+          33.0000001,
+          -33.0000001,
+          33.0000001,
+          -1e-07,
+          778.0000001
+        ],
+        "new_placed_bbox_mm": [
+          -33.0000001,
+          33.0000001,
+          -33.0000001,
+          33.0000001,
+          139.9999999,
+          918.0000001
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "interface_coupler",
+        "historical_volume_m3": 3.0096186419339158e-05,
+        "new_geometric_volume_m3": 3.0096186419339158e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.05173368289305022,
+          -1.5237326488424089e-15,
+          7.551898109829633e-05
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.05173368289305022,
+          -1.5237326488424089e-15,
+          7.551898109829633e-05
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0009771079395584417,
+            -5.336854161281298e-19,
+            1.1528967130407356e-06
+          ],
+          [
+            -5.336854161281298e-19,
+            0.0013996506190562333,
+            1.4027392198967983e-20
+          ],
+          [
+            1.1528967130407356e-06,
+            1.4027392198967983e-20,
+            0.0014019976850738233
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0009771079395584417,
+            -5.336854161281298e-19,
+            1.1528967130407356e-06
+          ],
+          [
+            -5.336854161281298e-19,
+            0.0013996506190562333,
+            1.4027392198967983e-20
+          ],
+          [
+            1.1528967130407356e-06,
+            1.4027392198967983e-20,
+            0.0014019976850738233
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.02106733049353741,
+        "new_mass_kg": 0.02106733049353741,
+        "new_local_bbox_mm": [
+          -32.0,
+          32.0,
+          -32.0,
+          32.0,
+          0.0,
+          104.0
+        ],
+        "new_placed_bbox_mm": [
+          -32.0,
+          32.0,
+          -32.0,
+          32.0,
+          868.0000000000001,
+          972.0000000000001
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "avionics_bay",
+        "historical_volume_m3": 8.452902517919897e-06,
+        "new_geometric_volume_m3": 8.452902517919897e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.105,
+          -1.6139332611103e-19,
+          -1.1018299257368416e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.105,
+          -1.6139332611103e-19,
+          -1.1018299257368416e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00029163420315975164,
+            1.6946299241658148e-20,
+            1.4344574829136594e-21
+          ],
+          [
+            1.6946299241658148e-20,
+            0.00372092680827068,
+            3.3195868047669694e-23
+          ],
+          [
+            1.4344574829136594e-21,
+            3.3195868047669694e-23,
+            0.004011894344763775
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00029163420315975164,
+            1.6946299241658148e-20,
+            1.4344574829136594e-21
+          ],
+          [
+            1.6946299241658148e-20,
+            0.00372092680827068,
+            3.3195868047669694e-23
+          ],
+          [
+            1.4344574829136594e-21,
+            3.3195868047669694e-23,
+            0.004011894344763775
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00904460569417429,
+        "new_mass_kg": 0.00904460569417429,
+        "new_local_bbox_mm": [
+          -24.0,
+          24.0,
+          -1.0,
+          1.0,
+          0.0,
+          210.0
+        ],
+        "new_placed_bbox_mm": [
+          -24.0,
+          24.0,
+          -1.0,
+          1.0,
+          240.0,
+          450.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_bulkhead",
+        "historical_volume_m3": 1.634256498397411e-05,
+        "new_geometric_volume_m3": 1.634256498397411e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0025,
+          -1.9930334705221083e-18,
+          -1.0889277509186553e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0025,
+          -1.9930334705221083e-18,
+          -1.0889277509186553e-18
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.000523090000000003,
+            1.4469492560858591e-21,
+            8.588445607734067e-23
+          ],
+          [
+            1.4469492560858591e-21,
+            0.00026362833333333757,
+            -7.181964298846852e-21
+          ],
+          [
+            8.588445607734067e-23,
+            -7.181964298846852e-21,
+            0.00026362833333333215
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.000523090000000003,
+            1.4469492560858591e-21,
+            8.588445607734067e-23
+          ],
+          [
+            1.4469492560858591e-21,
+            0.00026362833333333757,
+            -7.181964298846852e-21
+          ],
+          [
+            8.588445607734067e-23,
+            -7.181964298846852e-21,
+            0.00026362833333333215
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0302337452203521,
+        "new_mass_kg": 0.0302337452203521,
+        "new_local_bbox_mm": [
+          -32.300000000000004,
+          32.300000000000004,
+          -32.300000000000004,
+          32.300000000000004,
+          0.0,
+          5.0
+        ],
+        "new_placed_bbox_mm": [
+          -32.300000000000004,
+          32.300000000000004,
+          -32.300000000000004,
+          32.300000000000004,
+          225.0,
+          230.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "parachute",
+        "historical_volume_m3": 8.800000000000001e-05,
+        "new_geometric_volume_m3": 8.800000000000001e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0275,
+          -2.5828507227045964e-19,
+          -2.5837917664003642e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0275,
+          -2.5828507227045964e-19,
+          -2.5837917664003642e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00026666666666666673,
+            -2.5754179125236063e-22,
+            1.0583211075175891e-20
+          ],
+          [
+            -2.5754179125236063e-22,
+            0.00038541666666666656,
+            9.772957662769082e-23
+          ],
+          [
+            1.0583211075175891e-20,
+            9.772957662769082e-23,
+            0.00038541666666666656
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00026666666666666673,
+            -2.5754179125236063e-22,
+            1.0583211075175891e-20
+          ],
+          [
+            -2.5754179125236063e-22,
+            0.00038541666666666656,
+            9.772957662769082e-23
+          ],
+          [
+            1.0583211075175891e-20,
+            9.772957662769082e-23,
+            0.00038541666666666656
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.035,
+        "new_mass_kg": 0.035,
+        "new_local_bbox_mm": [
+          -20.0,
+          20.0,
+          -20.0,
+          20.0,
+          0.0,
+          55.0
+        ],
+        "new_placed_bbox_mm": [
+          -20.0,
+          20.0,
+          -20.0,
+          20.0,
+          150.0,
+          205.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_protection",
+        "historical_volume_m3": 4.8e-06,
+        "new_geometric_volume_m3": 4.8e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.005,
+          -2.231061006301183e-19,
+          -1.0658141036401508e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.005,
+          -2.231061006301183e-19,
+          -1.0658141036401508e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00014533333333333336,
+            -2.182689853579242e-23,
+            0.0
+          ],
+          [
+            -2.182689853579242e-23,
+            2.033333333333334e-05,
+            -7.213822519364961e-23
+          ],
+          [
+            0.0,
+            -7.213822519364961e-23,
+            0.00014166666666666668
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00014533333333333336,
+            -2.182689853579242e-23,
+            0.0
+          ],
+          [
+            -2.182689853579242e-23,
+            2.033333333333334e-05,
+            -7.213822519364961e-23
+          ],
+          [
+            0.0,
+            -7.213822519364961e-23,
+            0.00014166666666666668
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.006,
+        "new_mass_kg": 0.006,
+        "new_local_bbox_mm": [
+          -20.0,
+          20.0,
+          -6.0,
+          6.0,
+          0.0,
+          10.0
+        ],
+        "new_placed_bbox_mm": [
+          -20.0,
+          20.0,
+          8.0,
+          20.0,
+          205.0,
+          215.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "independent_recovery",
+        "historical_volume_m3": 1.1872353459635851e-06,
+        "new_geometric_volume_m3": 1.1872353459635851e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.019049999999999997,
+          0.0,
+          -1.0448441009457222e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.019049999999999997,
+          0.0,
+          -1.0448441009457222e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            3.3970610516421944e-05,
+            6.1284880364458036e-21,
+            -6.527641076231583e-23
+          ],
+          [
+            6.1284880364458036e-21,
+            0.00011547157613224503,
+            2.907724195879753e-24
+          ],
+          [
+            -6.527641076231583e-23,
+            2.907724195879753e-24,
+            0.00014901551998200053
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            3.3970610516421944e-05,
+            6.1284880364458036e-21,
+            -6.527641076231583e-23
+          ],
+          [
+            6.1284880364458036e-21,
+            0.00011547157613224503,
+            2.907724195879753e-24
+          ],
+          [
+            -6.527641076231583e-23,
+            2.907724195879753e-24,
+            0.00014901551998200053
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003,
+        "new_mass_kg": 0.003,
+        "new_local_bbox_mm": [
+          -10.16,
+          10.16,
+          -0.8,
+          0.8,
+          0.0,
+          38.1
+        ],
+        "new_placed_bbox_mm": [
+          -10.16,
+          10.16,
+          -18.5,
+          -16.9,
+          380.0,
+          418.1
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "micro_sd",
+        "historical_volume_m3": 3.999999999999999e-06,
+        "new_geometric_volume_m3": 3.999999999999999e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.01,
+          -7.010472406238666e-20,
+          1.2256862191861732e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.01,
+          -7.010472406238666e-20,
+          1.2256862191861732e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            4.166666666666669e-05,
+            -3.107875707433486e-23,
+            -2.273736754432321e-22
+          ],
+          [
+            -3.107875707433486e-23,
+            4.1666666666666665e-05,
+            -1.5539378537167573e-23
+          ],
+          [
+            -2.273736754432321e-22,
+            -1.5539378537167573e-23,
+            6.666666666666667e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            4.166666666666669e-05,
+            -3.107875707433486e-23,
+            -2.273736754432321e-22
+          ],
+          [
+            -3.107875707433486e-23,
+            4.1666666666666665e-05,
+            -1.5539378537167573e-23
+          ],
+          [
+            -2.273736754432321e-22,
+            -1.5539378537167573e-23,
+            6.666666666666667e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003,
+        "new_mass_kg": 0.003,
+        "new_local_bbox_mm": [
+          -10.0,
+          10.0,
+          -5.0,
+          5.0,
+          0.0,
+          20.0
+        ],
+        "new_placed_bbox_mm": [
+          -22.0,
+          -2.0,
+          3.0,
+          13.0,
+          405.0,
+          425.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "adhesive_finish",
+        "historical_volume_m3": 4.800000000000001e-06,
+        "new_geometric_volume_m3": 4.800000000000001e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.06,
+          -6.714836695331239e-20,
+          -1.7763568394002506e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.06,
+          -6.714836695331239e-20,
+          -1.7763568394002506e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            9.666666666666665e-06,
+            6.997400101206286e-23,
+            0.0
+          ],
+          [
+            6.997400101206286e-23,
+            0.0012013333333333331,
+            -4.7410437824362934e-24
+          ],
+          [
+            0.0,
+            -4.7410437824362934e-24,
+            0.0012083333333333332
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            9.666666666666665e-06,
+            6.997400101206286e-23,
+            0.0
+          ],
+          [
+            6.997400101206286e-23,
+            0.0012013333333333331,
+            -4.7410437824362934e-24
+          ],
+          [
+            0.0,
+            -4.7410437824362934e-24,
+            0.0012083333333333332
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.012,
+        "new_mass_kg": 0.012,
+        "new_local_bbox_mm": [
+          -5.0,
+          5.0,
+          -2.0,
+          2.0,
+          0.0,
+          120.0
+        ],
+        "new_placed_bbox_mm": [
+          -29.0,
+          -19.0,
+          -2.0,
+          2.0,
+          300.0,
+          420.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "rail_guides",
+        "historical_volume_m3": 5.822422088397746e-07,
+        "new_geometric_volume_m3": 5.822422088397746e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.096,
+          0.03554010129189649,
+          7.627224600136645e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.096,
+          0.03554010129189649,
+          7.627224600136645e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            6.5256287073149225e-06,
+            -3.998862331156441e-19,
+            1.1129646136519392e-20
+          ],
+          [
+            -3.998862331156441e-19,
+            0.008115289404143454,
+            -3.743364576142593e-21
+          ],
+          [
+            1.1129646136519392e-20,
+            -3.743364576142593e-21,
+            0.008115236224563841
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            6.5256287073149225e-06,
+            -3.998862331156441e-19,
+            1.1129646136519392e-20
+          ],
+          [
+            -3.998862331156441e-19,
+            0.008115289404143454,
+            -3.743364576142593e-21
+          ],
+          [
+            1.1129646136519392e-20,
+            -3.743364576142593e-21,
+            0.008115236224563841
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0006229991634585588,
+        "new_mass_kg": 0.0006229991634585588,
+        "new_local_bbox_mm": [
+          32.863353450309965,
+          39.0,
+          -3.00000000000002,
+          3.0,
+          0.0,
+          192.0
+        ],
+        "new_placed_bbox_mm": [
+          32.863353450309965,
+          39.0,
+          -3.00000000000002,
+          3.0,
+          250.0,
+          442.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "flight_computer",
+        "historical_volume_m3": 6.588e-06,
+        "new_geometric_volume_m3": 6.588e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0305,
+          -4.208429369201878e-20,
+          -1.013828432930319e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0305,
+          -4.208429369201878e-20,
+          -1.013828432930319e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.9999999999999997e-05,
+            1.0462718687268777e-22,
+            2.105311809659556e-21
+          ],
+          [
+            1.0462718687268777e-22,
+            0.0003130833333333333,
+            1.2223571216986337e-23
+          ],
+          [
+            2.105311809659556e-21,
+            1.2223571216986337e-23,
+            0.0003370833333333333
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.9999999999999997e-05,
+            1.0462718687268777e-22,
+            2.105311809659556e-21
+          ],
+          [
+            1.0462718687268777e-22,
+            0.0003130833333333333,
+            1.2223571216986337e-23
+          ],
+          [
+            2.105311809659556e-21,
+            1.2223571216986337e-23,
+            0.0003370833333333333
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.012,
+        "new_mass_kg": 0.012,
+        "new_local_bbox_mm": [
+          -9.0,
+          9.0,
+          -3.0,
+          3.0,
+          0.0,
+          61.0
+        ],
+        "new_placed_bbox_mm": [
+          -9.0,
+          9.0,
+          3.0,
+          9.0,
+          245.0,
+          306.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "imu",
+        "historical_volume_m3": 1.2000000000000002e-06,
+        "new_geometric_volume_m3": 1.2000000000000002e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.01,
+          -2.0057494799022108e-19,
+          -1.7763568394002506e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.01,
+          -2.0057494799022108e-19,
+          -1.7763568394002506e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.008333333333333e-05,
+            2.9578794281069073e-24,
+            0.0
+          ],
+          [
+            2.9578794281069073e-24,
+            3.4666666666666665e-05,
+            2.581630200938076e-24
+          ],
+          [
+            0.0,
+            2.581630200938076e-24,
+            5.208333333333334e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.008333333333333e-05,
+            2.9578794281069073e-24,
+            0.0
+          ],
+          [
+            2.9578794281069073e-24,
+            3.4666666666666665e-05,
+            2.581630200938076e-24
+          ],
+          [
+            0.0,
+            2.581630200938076e-24,
+            5.208333333333334e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.002,
+        "new_mass_kg": 0.002,
+        "new_local_bbox_mm": [
+          -7.5,
+          7.5,
+          -2.0,
+          2.0,
+          0.0,
+          20.0
+        ],
+        "new_placed_bbox_mm": [
+          -19.5,
+          -4.5,
+          3.0,
+          7.0,
+          315.0,
+          335.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "baro",
+        "historical_volume_m3": 5.4e-07,
+        "new_geometric_volume_m3": 5.4e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0075,
+          2.647004375773134e-20,
+          -1.4802973661668755e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0075,
+          2.647004375773134e-20,
+          -1.4802973661668755e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.275e-05,
+            -8.695433455881115e-23,
+            0.0
+          ],
+          [
+            -8.695433455881115e-23,
+            1.95e-05,
+            2.9551517337754834e-24
+          ],
+          [
+            0.0,
+            2.9551517337754834e-24,
+            3.0749999999999995e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.275e-05,
+            -8.695433455881115e-23,
+            0.0
+          ],
+          [
+            -8.695433455881115e-23,
+            1.95e-05,
+            2.9551517337754834e-24
+          ],
+          [
+            0.0,
+            2.9551517337754834e-24,
+            3.0749999999999995e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.001,
+        "new_mass_kg": 0.001,
+        "new_local_bbox_mm": [
+          -6.0,
+          6.0,
+          -1.5,
+          1.5,
+          0.0,
+          15.0
+        ],
+        "new_placed_bbox_mm": [
+          7.0,
+          19.0,
+          3.5,
+          6.5,
+          318.0,
+          333.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "battery",
+        "historical_volume_m3": 7.087781250000001e-06,
+        "new_geometric_volume_m3": 7.087781250000001e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.018125000000000002,
+          -1.2079776180966414e-19,
+          -2.2400455051387433e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.018125000000000002,
+          -1.2079776180966414e-19,
+          -2.2400455051387433e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            4.067270833333333e-05,
+            -1.6510295622642431e-22,
+            1.1396987836585898e-37
+          ],
+          [
+            -1.6510295622642431e-22,
+            0.00011767270833333328,
+            3.388769573704877e-23
+          ],
+          [
+            1.1396987836585898e-37,
+            3.388769573704877e-23,
+            0.00014201041666666664
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            4.067270833333333e-05,
+            -1.6510295622642431e-22,
+            1.1396987836585898e-37
+          ],
+          [
+            -1.6510295622642431e-22,
+            0.00011767270833333328,
+            3.388769573704877e-23
+          ],
+          [
+            1.1396987836585898e-37,
+            3.388769573704877e-23,
+            0.00014201041666666664
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0133,
+        "new_mass_kg": 0.0133,
+        "new_local_bbox_mm": [
+          -9.875,
+          9.875,
+          -4.95,
+          4.95,
+          0.0,
+          36.25
+        ],
+        "new_placed_bbox_mm": [
+          -9.875,
+          9.875,
+          -16.95,
+          -7.049999999999999,
+          245.0,
+          281.25
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "regulator_5v",
+        "historical_volume_m3": 3.6000000000000003e-06,
+        "new_geometric_volume_m3": 3.6000000000000003e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0125,
+          7.976791298603489e-20,
+          -2.763221750178167e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0125,
+          7.976791298603489e-20,
+          -2.763221750178167e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            3.233333333333333e-05,
+            1.6521758461664623e-23,
+            -5.609677548238306e-38
+          ],
+          [
+            1.6521758461664623e-23,
+            5.741666666666666e-05,
+            2.5200519336503405e-24
+          ],
+          [
+            -5.609677548238306e-38,
+            2.5200519336503405e-24,
+            7.908333333333332e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            3.233333333333333e-05,
+            1.6521758461664623e-23,
+            -5.609677548238306e-38
+          ],
+          [
+            1.6521758461664623e-23,
+            5.741666666666666e-05,
+            2.5200519336503405e-24
+          ],
+          [
+            -5.609677548238306e-38,
+            2.5200519336503405e-24,
+            7.908333333333332e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.008,
+        "new_mass_kg": 0.008,
+        "new_local_bbox_mm": [
+          -9.0,
+          9.0,
+          -4.0,
+          4.0,
+          0.0,
+          25.0
+        ],
+        "new_placed_bbox_mm": [
+          3.0,
+          21.0,
+          3.0,
+          11.0,
+          405.0,
+          430.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "pyro_mosfet",
+        "historical_volume_m3": 1.5e-06,
+        "new_geometric_volume_m3": 1.5e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.01,
+          -4.0702832444198575e-20,
+          2.960594732333751e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.01,
+          -4.0702832444198575e-20,
+          2.960594732333751e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.0833333333333333e-05,
+            5.777514126897421e-23,
+            0.0
+          ],
+          [
+            5.777514126897421e-23,
+            3.541666666666666e-05,
+            -9.157468049365226e-24
+          ],
+          [
+            0.0,
+            -9.157468049365226e-24,
+            5.208333333333334e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.0833333333333333e-05,
+            5.777514126897421e-23,
+            0.0
+          ],
+          [
+            5.777514126897421e-23,
+            3.541666666666666e-05,
+            -9.157468049365226e-24
+          ],
+          [
+            0.0,
+            -9.157468049365226e-24,
+            5.208333333333334e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003,
+        "new_mass_kg": 0.003,
+        "new_local_bbox_mm": [
+          -7.5,
+          7.5,
+          -2.5,
+          2.5,
+          0.0,
+          20.0
+        ],
+        "new_placed_bbox_mm": [
+          -19.5,
+          -4.5,
+          3.5,
+          8.5,
+          430.0,
+          450.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "arming_switch",
+        "historical_volume_m3": 9.600000000000001e-07,
+        "new_geometric_volume_m3": 9.600000000000001e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.006,
+          5.0541672106094437e-20,
+          7.864079757761526e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.006,
+          5.0541672106094437e-20,
+          7.864079757761526e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.3666666666666666e-05,
+            -1.2183974357891882e-23,
+            0.0
+          ],
+          [
+            -1.2183974357891882e-23,
+            2.033333333333333e-05,
+            -1.828471863281978e-23
+          ],
+          [
+            0.0,
+            -1.828471863281978e-23,
+            1.7333333333333332e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.3666666666666666e-05,
+            -1.2183974357891882e-23,
+            0.0
+          ],
+          [
+            -1.2183974357891882e-23,
+            2.033333333333333e-05,
+            -1.828471863281978e-23
+          ],
+          [
+            0.0,
+            -1.828471863281978e-23,
+            1.7333333333333332e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003,
+        "new_mass_kg": 0.003,
+        "new_local_bbox_mm": [
+          -4.0,
+          4.0,
+          -5.0,
+          5.0,
+          0.0,
+          12.0
+        ],
+        "new_placed_bbox_mm": [
+          11.0,
+          19.0,
+          3.0,
+          13.0,
+          435.0,
+          447.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "harness",
+        "historical_volume_m3": 4.9999999999999996e-06,
+        "new_geometric_volume_m3": 4.9999999999999996e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.05,
+          -6.882528746320412e-20,
+          -7.105427357601003e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.05,
+          -6.882528746320412e-20,
+          -7.105427357601003e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.0416666666666668e-05,
+            -1.9742320445078952e-23,
+            0.0
+          ],
+          [
+            -1.9742320445078952e-23,
+            0.0008354166666666669,
+            1.943826244990188e-24
+          ],
+          [
+            0.0,
+            1.943826244990188e-24,
+            0.0008416666666666669
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.0416666666666668e-05,
+            -1.9742320445078952e-23,
+            0.0
+          ],
+          [
+            -1.9742320445078952e-23,
+            0.0008354166666666669,
+            1.943826244990188e-24
+          ],
+          [
+            0.0,
+            1.943826244990188e-24,
+            0.0008416666666666669
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.012,
+        "new_mass_kg": 0.012,
+        "new_local_bbox_mm": [
+          -5.0,
+          5.0,
+          -2.5,
+          2.5,
+          0.0,
+          100.0
+        ],
+        "new_placed_bbox_mm": [
+          -9.0,
+          1.0,
+          9.5,
+          14.5,
+          335.0,
+          435.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "joint_stop",
+        "historical_volume_m3": 1.2329490349749706e-06,
+        "new_geometric_volume_m3": 1.2329490349749706e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.005410522155188142,
+          -1.6588083956393149e-15,
+          -0.0012814803817354128
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.005410522155188142,
+          -1.6588083956393149e-15,
+          -0.0012814803817354128
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0010478853001099713,
+            5.289680278602815e-18,
+            -1.4210948301815623e-05
+          ],
+          [
+            5.289680278602815e-18,
+            0.0005943705951032275,
+            2.1493354716163946e-18
+          ],
+          [
+            -1.4210948301815623e-05,
+            2.1493354716163946e-18,
+            0.0005556968465181233
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0010478853001099713,
+            5.289680278602815e-18,
+            -1.4210948301815623e-05
+          ],
+          [
+            5.289680278602815e-18,
+            0.0005943705951032275,
+            2.1493354716163946e-18
+          ],
+          [
+            -1.4210948301815623e-05,
+            2.1493354716163946e-18,
+            0.0005556968465181233
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0013192554674232185,
+        "new_mass_kg": 0.0013192554674232185,
+        "new_local_bbox_mm": [
+          -33.2,
+          33.2,
+          -33.2,
+          33.2,
+          0.0,
+          29.0
+        ],
+        "new_placed_bbox_mm": [
+          -33.2,
+          33.2,
+          -33.2,
+          33.2,
+          918.0,
+          947.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "high_g_accel",
+        "historical_volume_m3": 2.084352e-06,
+        "new_geometric_volume_m3": 2.084352e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.012799999999999997,
+          5.921759525532937e-20,
+          2.940209281316622e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.012799999999999997,
+          5.921759525532937e-20,
+          2.940209281316622e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.787083333333333e-05,
+            8.666829801483647e-23,
+            1.9377570749717805e-37
+          ],
+          [
+            8.666829801483647e-23,
+            5.637666666666678e-05,
+            -2.362838012328557e-24
+          ],
+          [
+            1.9377570749717805e-37,
+            -2.362838012328557e-24,
+            8.072083333333342e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.787083333333333e-05,
+            8.666829801483647e-23,
+            1.9377570749717805e-37
+          ],
+          [
+            8.666829801483647e-23,
+            5.637666666666678e-05,
+            -2.362838012328557e-24
+          ],
+          [
+            1.9377570749717805e-37,
+            -2.362838012328557e-24,
+            8.072083333333342e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.001,
+        "new_mass_kg": 0.001,
+        "new_local_bbox_mm": [
+          -8.85,
+          8.85,
+          -2.3,
+          2.3,
+          0.0,
+          25.6
+        ],
+        "new_placed_bbox_mm": [
+          -8.85,
+          8.85,
+          4.0,
+          8.6,
+          345.0,
+          370.6
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_battery",
+        "historical_volume_m3": 1.8000000000000001e-06,
+        "new_geometric_volume_m3": 1.8000000000000001e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.015,
+          -1.5414183146314416e-19,
+          -3.9474596431116674e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.015,
+          -1.5414183146314416e-19,
+          -3.9474596431116674e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.008333333333333e-05,
+            -1.1128501653237388e-23,
+            0.0
+          ],
+          [
+            -1.1128501653237388e-23,
+            7.633333333333332e-05,
+            -1.3504096779426903e-24
+          ],
+          [
+            0.0,
+            -1.3504096779426903e-24,
+            9.375e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.008333333333333e-05,
+            -1.1128501653237388e-23,
+            0.0
+          ],
+          [
+            -1.1128501653237388e-23,
+            7.633333333333332e-05,
+            -1.3504096779426903e-24
+          ],
+          [
+            0.0,
+            -1.3504096779426903e-24,
+            9.375e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0036,
+        "new_mass_kg": 0.0036,
+        "new_local_bbox_mm": [
+          -7.5,
+          7.5,
+          -2.0,
+          2.0,
+          0.0,
+          30.0
+        ],
+        "new_placed_bbox_mm": [
+          -7.5,
+          7.5,
+          -16.0,
+          -12.0,
+          333.0,
+          363.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_power_switch",
+        "historical_volume_m3": 5.7610771874999995e-06,
+        "new_geometric_volume_m3": 5.7610771874999995e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0142875,
+          -8.715105697731849e-21,
+          -2.4083474777951064e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0142875,
+          -8.715105697731849e-21,
+          -2.4083474777951064e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            3.444213541666667e-05,
+            1.5568196196333086e-22,
+            -2.506168190555118e-22
+          ],
+          [
+            1.5568196196333086e-22,
+            8.14850520833333e-05,
+            -9.088796064907528e-24
+          ],
+          [
+            -2.506168190555118e-22,
+            -9.088796064907528e-24,
+            8.904552083333336e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            3.444213541666667e-05,
+            1.5568196196333086e-22,
+            -2.506168190555118e-22
+          ],
+          [
+            1.5568196196333086e-22,
+            8.14850520833333e-05,
+            -9.088796064907528e-24
+          ],
+          [
+            -2.506168190555118e-22,
+            -9.088796064907528e-24,
+            8.904552083333336e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0037,
+        "new_mass_kg": 0.0037,
+        "new_local_bbox_mm": [
+          -7.9375,
+          7.9375,
+          -6.35,
+          6.35,
+          0.0,
+          28.575
+        ],
+        "new_placed_bbox_mm": [
+          -7.9375,
+          7.9375,
+          -35.1,
+          -22.4,
+          455.71250000000003,
+          484.2875
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_output_harness",
+        "historical_volume_m3": 9.600000000000001e-07,
+        "new_geometric_volume_m3": 9.600000000000001e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.04,
+          1.0582807649581445e-20,
+          -9.71445146547012e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.04,
+          1.0582807649581445e-20,
+          -9.71445146547012e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.0833333333333334e-06,
+            -1.8962040255477155e-23,
+            0.0
+          ],
+          [
+            -1.8962040255477155e-23,
+            0.0005340833333333334,
+            -1.2134854517154661e-24
+          ],
+          [
+            0.0,
+            -1.2134854517154661e-24,
+            0.0005346666666666666
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.0833333333333334e-06,
+            -1.8962040255477155e-23,
+            0.0
+          ],
+          [
+            -1.8962040255477155e-23,
+            0.0005340833333333334,
+            -1.2134854517154661e-24
+          ],
+          [
+            0.0,
+            -1.2134854517154661e-24,
+            0.0005346666666666666
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.004,
+        "new_mass_kg": 0.004,
+        "new_local_bbox_mm": [
+          -2.0,
+          2.0,
+          -1.5,
+          1.5,
+          0.0,
+          80.0
+        ],
+        "new_placed_bbox_mm": [
+          -2.0,
+          2.0,
+          -1.5,
+          1.5,
+          380.0,
+          460.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "aft_shell",
+        "historical_volume_m3": 2.493317156293639e-05,
+        "new_geometric_volume_m3": 2.493317156293639e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.1235734126506517,
+          -5.005268771502276e-15,
+          -8.311723890173776e-17
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.1235734126506517,
+          -5.005268771502276e-15,
+          -8.311723890173776e-17
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.001072626841363929,
+            6.231832115843581e-18,
+            6.136121441688869e-18
+          ],
+          [
+            6.231832115843581e-18,
+            0.005865286533838799,
+            8.130395205003333e-19
+          ],
+          [
+            6.136121441688869e-18,
+            8.130395205003333e-19,
+            0.005865286533838722
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.001072626841363929,
+            6.231832115843581e-18,
+            6.136121441688869e-18
+          ],
+          [
+            6.231832115843581e-18,
+            0.005865286533838799,
+            8.130395205003333e-19
+          ],
+          [
+            6.136121441688869e-18,
+            8.130395205003333e-19,
+            0.005865286533838722
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.017453220094055474,
+        "new_mass_kg": 0.017453220094055474,
+        "new_local_bbox_mm": [
+          -33.0,
+          33.0,
+          -33.0,
+          33.0,
+          0.0,
+          253.0
+        ],
+        "new_placed_bbox_mm": [
+          -33.0,
+          33.0,
+          -33.0,
+          33.0,
+          922.0,
+          1175.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "aft_interface_hardware",
+        "historical_volume_m3": 7.199999999999999e-07,
+        "new_geometric_volume_m3": 7.199999999999999e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.006,
+          -1.195162181132109e-19,
+          -2.9605947323337515e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.006,
+          -1.195162181132109e-19,
+          -2.9605947323337515e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.1333333333333336e-05,
+            -4.2464158788120037e-23,
+            0.0
+          ],
+          [
+            -4.2464158788120037e-23,
+            1.5000000000000007e-05,
+            4.860509658608257e-24
+          ],
+          [
+            0.0,
+            4.860509658608257e-24,
+            2.033333333333334e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.1333333333333336e-05,
+            -4.2464158788120037e-23,
+            0.0
+          ],
+          [
+            -4.2464158788120037e-23,
+            1.5000000000000007e-05,
+            4.860509658608257e-24
+          ],
+          [
+            0.0,
+            4.860509658608257e-24,
+            2.033333333333334e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.006,
+        "new_mass_kg": 0.006,
+        "new_local_bbox_mm": [
+          -5.0,
+          5.0,
+          -3.0,
+          3.0,
+          0.0,
+          12.0
+        ],
+        "new_placed_bbox_mm": [
+          -5.0,
+          5.0,
+          -29.0,
+          -23.0,
+          935.0,
+          947.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "motor_mount",
+        "historical_volume_m3": 2.0840012572095356e-05,
+        "new_geometric_volume_m3": 2.0840012572095356e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.06802561960496031,
+          -0.0008277579941203037,
+          0.0004606143903358778
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.06802561960496031,
+          -0.0008277579941203037,
+          0.0004606143903358778
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0002915791269476361,
+            4.507628028764352e-05,
+            -2.2106647045708003e-05
+          ],
+          [
+            4.507628028764352e-05,
+            0.002303938995413167,
+            -6.222741827294543e-06
+          ],
+          [
+            -2.2106647045708003e-05,
+            -6.222741827294543e-06,
+            0.0022960428947748183
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0002915791269476361,
+            4.507628028764352e-05,
+            -2.2106647045708003e-05
+          ],
+          [
+            4.507628028764352e-05,
+            0.002303938995413167,
+            -6.222741827294543e-06
+          ],
+          [
+            -2.2106647045708003e-05,
+            -6.222741827294543e-06,
+            0.0022960428947748183
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.03855402325837641,
+        "new_mass_kg": 0.03855402325837641,
+        "new_local_bbox_mm": [
+          -20.619546181365436,
+          20.619546181365433,
+          -21.5,
+          19.5,
+          0.0,
+          163.99999999999991
+        ],
+        "new_placed_bbox_mm": [
+          -20.619546181365436,
+          20.619546181365433,
+          -21.5,
+          19.5,
+          1036.0,
+          1200.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "motor_liner",
+        "historical_volume_m3": 5.841854371203321e-06,
+        "new_geometric_volume_m3": 5.841854371203321e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.07800000000000003,
+          -1.3267557450105321e-15,
+          -2.506923075955081e-17
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.07800000000000003,
+          -1.3267557450105321e-15,
+          -2.506923075955081e-17
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00022205000000000122,
+            -5.791517685325681e-20,
+            -1.9183894165683753e-20
+          ],
+          [
+            -5.791517685325681e-20,
+            0.002139024999999987,
+            5.3770493165390576e-20
+          ],
+          [
+            -1.9183894165683753e-20,
+            5.3770493165390576e-20,
+            0.002139024999999983
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00022205000000000122,
+            -5.791517685325681e-20,
+            -1.9183894165683753e-20
+          ],
+          [
+            -5.791517685325681e-20,
+            0.002139024999999987,
+            5.3770493165390576e-20
+          ],
+          [
+            -1.9183894165683753e-20,
+            5.3770493165390576e-20,
+            0.002139024999999983
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.012267894179526973,
+        "new_mass_kg": 0.012267894179526973,
+        "new_local_bbox_mm": [
+          -15.100000000000001,
+          15.100000000000001,
+          -15.100000000000001,
+          15.100000000000001,
+          0.0,
+          156.0
+        ],
+        "new_placed_bbox_mm": [
+          -15.100000000000001,
+          15.100000000000001,
+          -15.100000000000001,
+          15.100000000000001,
+          1044.0,
+          1200.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "motor",
+        "historical_volume_m3": 0.00010304109744509162,
+        "new_geometric_volume_m3": 0.00010304109744509162,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.07800000000000001,
+          -4.377955818257458e-18,
+          -8.526218923560459e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.07800000000000001,
+          -4.377955818257458e-18,
+          -8.526218923560459e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00010512500000000056,
+            -3.8130582933209977e-20,
+            -5.4386243597814985e-22
+          ],
+          [
+            -3.8130582933209977e-20,
+            0.002080562499999999,
+            -8.485388447001138e-22
+          ],
+          [
+            -5.4386243597814985e-22,
+            -8.485388447001138e-22,
+            0.002080562499999997
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00010512500000000056,
+            -3.8130582933209977e-20,
+            -5.4386243597814985e-22
+          ],
+          [
+            -3.8130582933209977e-20,
+            0.002080562499999999,
+            -8.485388447001138e-22
+          ],
+          [
+            -5.4386243597814985e-22,
+            -8.485388447001138e-22,
+            0.002080562499999997
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.15,
+        "new_mass_kg": 0.15,
+        "new_local_bbox_mm": [
+          -14.5,
+          14.5,
+          -14.5,
+          14.5,
+          0.0,
+          156.0
+        ],
+        "new_placed_bbox_mm": [
+          -14.5,
+          14.5,
+          -14.5,
+          14.5,
+          1044.0,
+          1200.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "fin_set",
+        "historical_volume_m3": 0.0001720355792596234,
+        "new_geometric_volume_m3": 0.0001720355792596234,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.05999999999999996,
+          -8.310217237315815e-18,
+          6.0687121486849204e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.059999999999999956,
+          -1.7705003194038655e-14,
+          3.5932413606614145e-16
+        ],
+        "centroid_max_abs_difference_m": null,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.003156966997946279,
+            -3.618961569201611e-20,
+            -2.334236609122075e-19
+          ],
+          [
+            -3.618961569201611e-20,
+            0.0028199771229225705,
+            5.816904409754929e-19
+          ],
+          [
+            -2.334236609122075e-19,
+            5.816904409754929e-19,
+            0.0028199771229225705
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.004444216483222707,
+            3.3563987097624836e-19,
+            -1.2180479188681286e-19
+          ],
+          [
+            3.3563987097624836e-19,
+            0.0034275308721084764,
+            1.6684549715335984e-17
+          ],
+          [
+            -1.2180479188681286e-19,
+            1.6684549715335984e-17,
+            0.0034275308721070864
+          ]
+        ],
+        "inertia_max_abs_difference_m2": null,
+        "historical_mass_kg": 0.08194789080906072,
+        "new_mass_kg": 0.08194789080906072,
+        "new_local_bbox_mm": [
+          -54.115396719429526,
+          103.0,
+          -90.71061658979,
+          90.710616589797,
+          -0.2,
+          120.2
+        ],
+        "new_placed_bbox_mm": [
+          -54.115396719429526,
+          103.0,
+          -90.71061658979,
+          90.710616589797,
+          1054.8000000000002,
+          1175.2000000000003
+        ],
+        "historical_bbox_mm": [
+          -54.115396719429526,
+          103.0,
+          -90.71061658979,
+          90.710616589797,
+          -0.2,
+          120.2
+        ],
+        "old_vs_new_shape_equivalence": "original_STEP_preserved",
+        "fin_centroid_inertia_basis": "historical density-weighted composite; current geometric values are uniform-volume, not comparable"
+      },
+      {
+        "id": "fin_bonds",
+        "historical_volume_m3": 1.9200000000000003e-06,
+        "new_geometric_volume_m3": 1.9200000000000003e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.04,
+          6.270919481901845e-20,
+          -1.1102230246251566e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.04,
+          6.270919481901845e-20,
+          -1.1102230246251566e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            4.333333333333333e-06,
+            5.2761865076680527e-23,
+            0.0
+          ],
+          [
+            5.2761865076680527e-23,
+            0.0005346666666666666,
+            -3.045993589472982e-24
+          ],
+          [
+            0.0,
+            -3.045993589472982e-24,
+            0.0005363333333333333
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            4.333333333333333e-06,
+            5.2761865076680527e-23,
+            0.0
+          ],
+          [
+            5.2761865076680527e-23,
+            0.0005346666666666666,
+            -3.045993589472982e-24
+          ],
+          [
+            0.0,
+            -3.045993589472982e-24,
+            0.0005363333333333333
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.004373452798681234,
+        "new_mass_kg": 0.004373452798681234,
+        "new_local_bbox_mm": [
+          -3.0,
+          3.0,
+          -2.0,
+          2.0,
+          0.0,
+          80.0
+        ],
+        "new_placed_bbox_mm": [
+          27.0,
+          33.0,
+          -2.0,
+          2.0,
+          1070.0,
+          1150.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "tvc_gimbal",
+        "historical_volume_m3": 4.069776321021322e-06,
+        "new_geometric_volume_m3": 4.069776321021322e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.002651661021732802,
+          0.00048826757765521356,
+          -0.0008090811296980775
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.002651661021732802,
+          0.00048826757765521356,
+          -0.0008090811296980775
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0007317127737488196,
+            -4.560254490332907e-06,
+            7.812264203039067e-06
+          ],
+          [
+            -4.560254490332907e-06,
+            0.0003781810184702727,
+            1.0826833504742662e-05
+          ],
+          [
+            7.812264203039067e-06,
+            1.0826833504742662e-05,
+            0.00036683925053663656
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0007317127737488196,
+            -4.560254490332907e-06,
+            7.812264203039067e-06
+          ],
+          [
+            -4.560254490332907e-06,
+            0.0003781810184702727,
+            1.0826833504742662e-05
+          ],
+          [
+            7.812264203039067e-06,
+            1.0826833504742662e-05,
+            0.00036683925053663656
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.007529086193889445,
+        "new_mass_kg": 0.007529086193889445,
+        "new_local_bbox_mm": [
+          -29.0000001,
+          29.0000001,
+          -29.000000120886778,
+          29.000000120886778,
+          -13.0000001,
+          6.0000007
+        ],
+        "new_placed_bbox_mm": [
+          -29.0000001,
+          29.0000001,
+          -29.000000120886778,
+          29.000000120886778,
+          1083.9999999,
+          1103.0000007
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "gimbal_links",
+        "historical_volume_m3": 4.7482185585976874e-07,
+        "new_geometric_volume_m3": 4.7482185585976874e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.03655712797825723,
+          0.010967702774418756,
+          -0.01796552314028343
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.03655712797825723,
+          0.010967702774418756,
+          -0.01796552314028343
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00018666628052263303,
+            -3.753745445097589e-05,
+            -5.3850274491596446e-05
+          ],
+          [
+            -3.753745445097589e-05,
+            0.0005166904506220567,
+            -8.374041196903645e-05
+          ],
+          [
+            -5.3850274491596446e-05,
+            -8.374041196903645e-05,
+            0.0005636158834971922
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00018666628052263303,
+            -3.753745445097589e-05,
+            -5.3850274491596446e-05
+          ],
+          [
+            -3.753745445097589e-05,
+            0.0005166904506220567,
+            -8.374041196903645e-05
+          ],
+          [
+            -5.3850274491596446e-05,
+            -8.374041196903645e-05,
+            0.0005636158834971922
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.008,
+        "new_mass_kg": 0.008,
+        "new_local_bbox_mm": [
+          -1.0,
+          28.983389943962493,
+          -0.9562057120911734,
+          28.996448291857373,
+          -0.34440507295575057,
+          75.34440507295575
+        ],
+        "new_placed_bbox_mm": [
+          -1.0,
+          28.983389943962493,
+          -0.9562057120911734,
+          28.996448291857373,
+          1011.6555949270443,
+          1087.3444050729559
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "servo_support",
+        "historical_volume_m3": 4.58397688256398e-06,
+        "new_geometric_volume_m3": 4.58397688256398e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0176571012375782,
+          0.01500166260229179,
+          -0.015001662602294205
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0176571012375782,
+          0.01500166260229179,
+          -0.015001662602294205
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0004915854478375538,
+            -1.0681263622405726e-07,
+            1.068126362210605e-07
+          ],
+          [
+            -1.0681263622405726e-07,
+            0.0003573943356558328,
+            -0.00022504988083304589
+          ],
+          [
+            1.068126362210605e-07,
+            -0.00022504988083304589,
+            0.0003573943356558392
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0004915854478375538,
+            -1.0681263622405726e-07,
+            1.068126362210605e-07
+          ],
+          [
+            -1.0681263622405726e-07,
+            0.0003573943356558328,
+            -0.00022504988083304589
+          ],
+          [
+            1.068126362210605e-07,
+            -0.00022504988083304589,
+            0.0003573943356558392
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.004904855264343459,
+        "new_mass_kg": 0.004904855264343459,
+        "new_local_bbox_mm": [
+          -12.0,
+          31.800000000000214,
+          -12.00000000000053,
+          31.800000000000107,
+          0.0,
+          36.0
+        ],
+        "new_placed_bbox_mm": [
+          -12.0,
+          31.800000000000214,
+          -12.00000000000053,
+          31.800000000000107,
+          974.0,
+          1010.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "thermal_guard",
+        "historical_volume_m3": 3.2345837961360233e-06,
+        "new_geometric_volume_m3": 3.2345837961360233e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.02249999999999995,
+          -4.610480224004551e-15,
+          -9.647493376208737e-17
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.02249999999999995,
+          -4.610480224004551e-15,
+          -9.647493376208737e-17
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0008180000000000187,
+            -3.8563600824699634e-19,
+            2.4822242031460835e-19
+          ],
+          [
+            -3.8563600824699634e-19,
+            0.0005777500000000122,
+            -1.3759879855736864e-19
+          ],
+          [
+            2.4822242031460835e-19,
+            -1.3759879855736864e-19,
+            0.0005777500000000168
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0008180000000000187,
+            -3.8563600824699634e-19,
+            2.4822242031460835e-19
+          ],
+          [
+            -3.8563600824699634e-19,
+            0.0005777500000000122,
+            -1.3759879855736864e-19
+          ],
+          [
+            2.4822242031460835e-19,
+            -1.3759879855736864e-19,
+            0.0005777500000000168
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00420495893497683,
+        "new_mass_kg": 0.00420495893497683,
+        "new_local_bbox_mm": [
+          -28.8,
+          28.8,
+          -28.8,
+          28.8,
+          0.0,
+          44.99999999999993
+        ],
+        "new_placed_bbox_mm": [
+          -28.8,
+          28.8,
+          -28.8,
+          28.8,
+          1125.0,
+          1170.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "servo_pitch",
+        "historical_volume_m3": 1.053e-05,
+        "new_geometric_volume_m3": 1.053e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.015,
+          1.415013076410654e-19,
+          4.386066270124075e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.015,
+          1.415013076410654e-19,
+          4.386066270124075e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            7.483333333333333e-05,
+            -2.6904144175186565e-23,
+            -7.67135391212076e-38
+          ],
+          [
+            -2.6904144175186565e-23,
+            8.908333333333332e-05,
+            4.2585364219798576e-39
+          ],
+          [
+            -7.67135391212076e-38,
+            4.2585364219798576e-39,
+            0.00013575
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            7.483333333333333e-05,
+            -2.6904144175186565e-23,
+            -7.67135391212076e-38
+          ],
+          [
+            -2.6904144175186565e-23,
+            8.908333333333332e-05,
+            4.2585364219798576e-39
+          ],
+          [
+            -7.67135391212076e-38,
+            4.2585364219798576e-39,
+            0.00013575
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.014,
+        "new_mass_kg": 0.014,
+        "new_local_bbox_mm": [
+          -13.5,
+          13.5,
+          -6.5,
+          6.5,
+          0.0,
+          30.0
+        ],
+        "new_placed_bbox_mm": [
+          -13.5,
+          13.5,
+          15.5,
+          28.5,
+          976.0,
+          1006.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "servo_yaw",
+        "historical_volume_m3": 1.053e-05,
+        "new_geometric_volume_m3": 1.053e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.015,
+          -3.071849408851686e-20,
+          1.8219044506669235e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.015,
+          -3.071849408851686e-20,
+          1.8219044506669235e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            7.483333333333333e-05,
+            -1.534270782424152e-37,
+            -3.83567695606038e-38
+          ],
+          [
+            -1.534270782424152e-37,
+            0.00013575,
+            -4.0910094251437357e-23
+          ],
+          [
+            -3.83567695606038e-38,
+            -4.0910094251437357e-23,
+            8.908333333333332e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            7.483333333333333e-05,
+            -1.534270782424152e-37,
+            -3.83567695606038e-38
+          ],
+          [
+            -1.534270782424152e-37,
+            0.00013575,
+            -4.0910094251437357e-23
+          ],
+          [
+            -3.83567695606038e-38,
+            -4.0910094251437357e-23,
+            8.908333333333332e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.014,
+        "new_mass_kg": 0.014,
+        "new_local_bbox_mm": [
+          -6.5,
+          6.5,
+          -13.5,
+          13.5,
+          0.0,
+          30.0
+        ],
+        "new_placed_bbox_mm": [
+          15.5,
+          28.5,
+          -13.5,
+          13.5,
+          976.0,
+          1006.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "gimbal_inner",
+        "historical_volume_m3": 3.1807678111109223e-06,
+        "new_geometric_volume_m3": 3.1807678111109223e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0020625171119553727,
+          -4.367029279337856e-07,
+          -0.0015408126345255561
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0020625171119553727,
+          -4.367029279337856e-07,
+          -0.0015408126345255561
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0004870610191188106,
+            2.1097535608638e-10,
+            1.859734908255133e-05
+          ],
+          [
+            2.1097535608638e-10,
+            0.00027866715863602426,
+            1.1880555817879477e-09
+          ],
+          [
+            1.859734908255133e-05,
+            1.1880555817879477e-09,
+            0.0002387966413919174
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0004870610191188106,
+            2.1097535608638e-10,
+            1.859734908255133e-05
+          ],
+          [
+            2.1097535608638e-10,
+            0.00027866715863602426,
+            1.1880555817879477e-09
+          ],
+          [
+            1.859734908255133e-05,
+            1.1880555817879477e-09,
+            0.0002387966413919174
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0058844204505552064,
+        "new_mass_kg": 0.0058844204505552064,
+        "new_local_bbox_mm": [
+          -24.000000112099354,
+          24.0000001,
+          -24.0000001,
+          24.5,
+          -17.0,
+          6.0000001
+        ],
+        "new_placed_bbox_mm": [
+          -24.000000112099354,
+          24.0000001,
+          -24.0000001,
+          24.5,
+          1080.0,
+          1103.0000001
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "gimbal_frame",
+        "historical_volume_m3": 2.4387217989700454e-05,
+        "new_geometric_volume_m3": 2.4387217989700454e-05,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.04865200513413624,
+          -0.0007203986032854062,
+          0.00043330203325937794
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.04865200513413624,
+          -0.0007203986032854062,
+          0.00043330203325937794
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0008911511620861961,
+            3.216141844129721e-05,
+            -1.9345043089402105e-05
+          ],
+          [
+            3.216141844129721e-05,
+            0.0034213287154189094,
+            -2.9177975583375393e-06
+          ],
+          [
+            -1.9345043089402105e-05,
+            -2.9177975583375393e-06,
+            0.003412891658564516
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0008911511620861961,
+            3.216141844129721e-05,
+            -1.9345043089402105e-05
+          ],
+          [
+            3.216141844129721e-05,
+            0.0034213287154189094,
+            -2.9177975583375393e-06
+          ],
+          [
+            -1.9345043089402105e-05,
+            -2.9177975583375393e-06,
+            0.003412891658564516
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.04511623025153358,
+        "new_mass_kg": 0.04511635328094584,
+        "new_local_bbox_mm": [
+          -32.000000100001806,
+          32.0000001000002,
+          -32.00000011898424,
+          32.00000011898629,
+          -1e-07,
+          168.0000001
+        ],
+        "new_placed_bbox_mm": [
+          -32.000000100001806,
+          32.0000001000002,
+          -32.00000011898424,
+          32.00000011898629,
+          1011.9999999,
+          1180.0000001
+        ],
+        "historical_bbox_mm": [
+          -32.000000100001806,
+          32.0000001000002,
+          -32.00000011898424,
+          32.00000011898629,
+          -1e-07,
+          168.0000001
+        ],
+        "old_vs_new_shape_equivalence": "original_STEP_preserved",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "outer_pivots",
+        "historical_volume_m3": 1.0178760197630932e-07,
+        "new_geometric_volume_m3": 1.0178760197630932e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.009999999999999998,
+          1.0369515168859153e-19,
+          -2.2338052083804118e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.009999999999999998,
+          1.0369515168859153e-19,
+          -2.2338052083804118e-18
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0008228425000000001,
+            6.342178242033776e-23,
+            -1.3402831250282475e-20
+          ],
+          [
+            6.342178242033776e-23,
+            0.0008228425000000001,
+            1.532082475594048e-22
+          ],
+          [
+            -1.3402831250282475e-20,
+            1.532082475594048e-22,
+            1.1250000000000547e-06
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0008228425000000001,
+            6.342178242033776e-23,
+            -1.3402831250282475e-20
+          ],
+          [
+            6.342178242033776e-23,
+            0.0008228425000000001,
+            1.532082475594048e-22
+          ],
+          [
+            -1.3402831250282475e-20,
+            1.532082475594048e-22,
+            1.1250000000000547e-06
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.002,
+        "new_mass_kg": 0.002,
+        "new_local_bbox_mm": [
+          -1.5,
+          1.5,
+          -32.2,
+          32.2,
+          8.5,
+          11.5
+        ],
+        "new_placed_bbox_mm": [
+          -1.5,
+          1.5,
+          -32.2,
+          32.2,
+          1098.5,
+          1101.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "inner_pivots",
+        "historical_volume_m3": 9.896016858807849e-08,
+        "new_geometric_volume_m3": 9.896016858807849e-08,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.01,
+          -1.1488141071670692e-18,
+          1.649030491496004e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.01,
+          -1.1488141071670692e-18,
+          1.649030491496004e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0006447358333333333,
+            -6.892884643002412e-21,
+            1.903564249155791e-22
+          ],
+          [
+            -6.892884643002412e-21,
+            1.1250000000000021e-06,
+            1.81005280466737e-24
+          ],
+          [
+            1.903564249155791e-22,
+            1.81005280466737e-24,
+            0.0006447358333333332
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0006447358333333333,
+            -6.892884643002412e-21,
+            1.903564249155791e-22
+          ],
+          [
+            -6.892884643002412e-21,
+            1.1250000000000021e-06,
+            1.81005280466737e-24
+          ],
+          [
+            1.903564249155791e-22,
+            1.81005280466737e-24,
+            0.0006447358333333332
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.002,
+        "new_mass_kg": 0.002,
+        "new_local_bbox_mm": [
+          -28.8,
+          28.8,
+          -1.5,
+          1.5,
+          8.5,
+          11.5
+        ],
+        "new_placed_bbox_mm": [
+          -28.8,
+          28.8,
+          -1.5,
+          1.5,
+          1098.5,
+          1101.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "servo_horns",
+        "historical_volume_m3": 6.22035345410779e-08,
+        "new_geometric_volume_m3": 6.22035345410779e-08,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0029999999999999996,
+          0.012099999999999996,
+          -0.0121
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0029999999999999996,
+          0.012099999999999996,
+          -0.0121
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0002949958333333333,
+            -7.310635227426803e-21,
+            0.0
+          ],
+          [
+            -7.310635227426803e-21,
+            0.0001480604166666667,
+            -0.00014641
+          ],
+          [
+            0.0,
+            -0.00014641,
+            0.00014806041666666668
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0002949958333333333,
+            -7.310635227426803e-21,
+            0.0
+          ],
+          [
+            -7.310635227426803e-21,
+            0.0001480604166666667,
+            -0.00014641
+          ],
+          [
+            0.0,
+            -0.00014641,
+            0.00014806041666666668
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 6.655778195895337e-05,
+        "new_mass_kg": 6.655778195895337e-05,
+        "new_local_bbox_mm": [
+          -1.5,
+          26.4,
+          -1.5,
+          26.4,
+          1.5,
+          4.5
+        ],
+        "new_placed_bbox_mm": [
+          -1.5,
+          26.4,
+          -1.5,
+          26.4,
+          1010.4999999999999,
+          1013.4999999999999
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "motor_radiant_shield",
+        "historical_volume_m3": 2.962094615733877e-07,
+        "new_geometric_volume_m3": 2.962094615733877e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.07800000000000099,
+          -2.8857764207217675e-14,
+          -3.398552680984329e-17
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.07800000000000099,
+          -2.8857764207217675e-14,
+          -3.398552680984329e-17
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00022831219999995588,
+            1.3313063394772908e-17,
+            -6.819666095817145e-19
+          ],
+          [
+            1.3313063394772908e-17,
+            0.0021421561000002595,
+            -3.12357766168967e-19
+          ],
+          [
+            -6.819666095817145e-19,
+            -3.12357766168967e-19,
+            0.002142156099999937
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00022831219999995588,
+            1.3313063394772908e-17,
+            -6.819666095817145e-19
+          ],
+          [
+            1.3313063394772908e-17,
+            0.0021421561000002595,
+            -3.12357766168967e-19
+          ],
+          [
+            -6.819666095817145e-19,
+            -3.12357766168967e-19,
+            0.002142156099999937
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0007997655462481468,
+        "new_mass_kg": 0.0007997655462481468,
+        "new_local_bbox_mm": [
+          -15.12,
+          15.12,
+          -15.12,
+          15.12,
+          0.0,
+          156.0
+        ],
+        "new_placed_bbox_mm": [
+          -15.12,
+          15.12,
+          -15.12,
+          15.12,
+          1044.0,
+          1200.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "thrust_pads",
+        "historical_volume_m3": 1.0736654233657164e-07,
+        "new_geometric_volume_m3": 1.0736654233657164e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0015000000000000029,
+          -2.9780621051361964e-18,
+          9.265082104868167e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0015000000000000029,
+          -2.9780621051361964e-18,
+          9.265082104868167e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00017327317283623165,
+            2.8787933682983316e-21,
+            -5.8899450523804794e-21
+          ],
+          [
+            2.8787933682983316e-21,
+            8.738658641811584e-05,
+            -5.294332631353241e-21
+          ],
+          [
+            -5.8899450523804794e-21,
+            -5.294332631353241e-21,
+            8.73865864181158e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00017327317283623165,
+            2.8787933682983316e-21,
+            -5.8899450523804794e-21
+          ],
+          [
+            2.8787933682983316e-21,
+            8.738658641811584e-05,
+            -5.294332631353241e-21
+          ],
+          [
+            -5.8899450523804794e-21,
+            -5.294332631353241e-21,
+            8.73865864181158e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00022546973890680044,
+        "new_mass_kg": 0.00022546973890680044,
+        "new_local_bbox_mm": [
+          -10.571413315041896,
+          13.799999999999999,
+          -13.59034699156847,
+          13.59034699156847,
+          0.0,
+          3.0
+        ],
+        "new_placed_bbox_mm": [
+          -10.571413315041896,
+          13.799999999999999,
+          -13.59034699156847,
+          13.59034699156847,
+          1041.0000000000002,
+          1044.0000000000002
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "aft_retainer",
+        "historical_volume_m3": 1.9983414778833554e-06,
+        "new_geometric_volume_m3": 1.9983414778833554e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0019999999999999996,
+          3.7121113900876775e-18,
+          8.550087494432073e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0019999999999999996,
+          3.7121113900876775e-18,
+          8.550087494432073e-18
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00023977547743554145,
+            3.6267754960626897e-22,
+            -2.222146409041351e-21
+          ],
+          [
+            3.6267754960626897e-22,
+            0.00012122107205110366,
+            -7.627596344680633e-20
+          ],
+          [
+            -2.222146409041351e-21,
+            -7.627596344680633e-20,
+            0.00012122107205110454
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00023977547743554145,
+            3.6267754960626897e-22,
+            -2.222146409041351e-21
+          ],
+          [
+            3.6267754960626897e-22,
+            0.00012122107205110366,
+            -7.627596344680633e-20
+          ],
+          [
+            -2.222146409041351e-21,
+            -7.627596344680633e-20,
+            0.00012122107205110454
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0036969317340842076,
+        "new_mass_kg": 0.0036969317340842076,
+        "new_local_bbox_mm": [
+          -20.619546181365436,
+          20.619546181365433,
+          -21.5,
+          16.5,
+          0.0,
+          4.0
+        ],
+        "new_placed_bbox_mm": [
+          -20.619546181365436,
+          20.619546181365433,
+          -21.5,
+          16.5,
+          1202.9999999999998,
+          1206.9999999999998
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "retention_hardware",
+        "historical_volume_m3": 5.531166565726529e-07,
+        "new_geometric_volume_m3": 5.531166565726529e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.011672523961661343,
+          -9.345584410141055e-19,
+          -1.5415396965181123e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.011672523961661343,
+          -9.345584410141055e-19,
+          -1.5415396965181123e-18
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.000344401857028754,
+            1.4608351067953486e-20,
+            1.306073201660186e-20
+          ],
+          [
+            1.4608351067953486e-20,
+            0.0002069786719842501,
+            1.7008321318249836e-20
+          ],
+          [
+            1.306073201660186e-20,
+            1.7008321318249836e-20,
+            0.0002069786719842502
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.000344401857028754,
+            1.4608351067953486e-20,
+            1.306073201660186e-20
+          ],
+          [
+            1.4608351067953486e-20,
+            0.0002069786719842501,
+            1.7008321318249836e-20
+          ],
+          [
+            1.306073201660186e-20,
+            1.7008321318249836e-20,
+            0.0002069786719842502
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.007,
+        "new_mass_kg": 0.007,
+        "new_local_bbox_mm": [
+          -18.771469970012117,
+          18.771469970012117,
+          -21.25,
+          11.999999999999998,
+          0.0,
+          19.0
+        ],
+        "new_placed_bbox_mm": [
+          -18.771469970012117,
+          18.771469970012117,
+          -21.25,
+          11.999999999999998,
+          1190.9999999999998,
+          1209.9999999999998
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "cassette_mount_screws",
+        "historical_volume_m3": 1.3624616099720896e-07,
+        "new_geometric_volume_m3": 1.3624616099720896e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          8.982070991760821e-20,
+          6.636265012070686e-18,
+          6.258167398416364e-18
+        ],
+        "new_geometric_centroid_body_m": [
+          8.982070991760821e-20,
+          6.636265012070686e-18,
+          6.258167398416364e-18
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0004267343803538283,
+            -1.3242724961571083e-21,
+            8.42013091110411e-23
+          ],
+          [
+            -1.3242724961571083e-21,
+            0.00021389584717162224,
+            1.7001354765697828e-20
+          ],
+          [
+            8.42013091110411e-23,
+            1.7001354765697828e-20,
+            0.0002138958471716226
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0004267343803538283,
+            -1.3242724961571083e-21,
+            8.42013091110411e-23
+          ],
+          [
+            -1.3242724961571083e-21,
+            0.00021389584717162224,
+            1.7001354765697828e-20
+          ],
+          [
+            8.42013091110411e-23,
+            1.7001354765697828e-20,
+            0.0002138958471716226
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0015,
+        "new_mass_kg": 0.0015,
+        "new_local_bbox_mm": [
+          -21.95960969082653,
+          21.95960969082653,
+          -24.0,
+          14.035159698893429,
+          -2.35,
+          2.35
+        ],
+        "new_placed_bbox_mm": [
+          -21.95960969082653,
+          21.95960969082653,
+          -24.0,
+          14.035159698893429,
+          1097.6499999999999,
+          1102.3499999999997
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "aft_thrust_pads",
+        "historical_volume_m3": 1.4253779925875974e-07,
+        "new_geometric_volume_m3": 1.4253779925875974e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0015,
+          1.1963862040050688e-18,
+          -7.975908026700458e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0015,
+          1.1963862040050688e-18,
+          -7.975908026700458e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00017887085242250688,
+            -7.975908026700458e-22,
+            -2.193374707342626e-21
+          ],
+          [
+            -7.975908026700458e-22,
+            9.018542621125346e-05,
+            -9.571089632040551e-21
+          ],
+          [
+            -2.193374707342626e-21,
+            -9.571089632040551e-21,
+            9.018542621125346e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00017887085242250688,
+            -7.975908026700458e-22,
+            -2.193374707342626e-21
+          ],
+          [
+            -7.975908026700458e-22,
+            9.018542621125346e-05,
+            -9.571089632040551e-21
+          ],
+          [
+            -2.193374707342626e-21,
+            -9.571089632040551e-21,
+            9.018542621125346e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00029932937844339547,
+        "new_mass_kg": 0.00029932937844339547,
+        "new_local_bbox_mm": [
+          -10.877831092289489,
+          14.200000000000001,
+          -13.984270092773356,
+          13.984270092773356,
+          0.0,
+          3.0
+        ],
+        "new_placed_bbox_mm": [
+          -10.877831092289489,
+          14.200000000000001,
+          -13.984270092773356,
+          13.984270092773356,
+          1200.0,
+          1203.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_easymini_components",
+        "historical_volume_m3": 3.0033658961738165e-06,
+        "new_geometric_volume_m3": 3.0033658961738165e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.01904999999999999,
+          -3.7853142657859e-20,
+          -7.319260006109458e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.01904999999999999,
+          -3.7853142657859e-20,
+          -7.319260006109458e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            3.384711738862817e-05,
+            -1.7014987624707627e-21,
+            1.5016681779201232e-22
+          ],
+          [
+            -1.7014987624707627e-21,
+            0.00010474839209001694,
+            1.0995670965978874e-23
+          ],
+          [
+            1.5016681779201232e-22,
+            1.0995670965978874e-23,
+            0.00013536884281197846
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            3.384711738862817e-05,
+            -1.7014987624707627e-21,
+            1.5016681779201232e-22
+          ],
+          [
+            -1.7014987624707627e-21,
+            0.00010474839209001694,
+            1.0995670965978874e-23
+          ],
+          [
+            1.5016681779201232e-22,
+            1.0995670965978874e-23,
+            0.00013536884281197846
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0035,
+        "new_mass_kg": 0.0035,
+        "new_local_bbox_mm": [
+          -10.16,
+          10.16,
+          -2.2,
+          2.2,
+          0.0,
+          38.1
+        ],
+        "new_placed_bbox_mm": [
+          -10.16,
+          10.16,
+          -16.9,
+          -12.499999999999998,
+          380.0,
+          418.1
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_switch_g11_doubler",
+        "historical_volume_m3": 1.123307825564064e-06,
+        "new_geometric_volume_m3": 1.123307825564064e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.015,
+          -4.197578739081237e-20,
+          4.290341426492229e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.015,
+          -4.197578739081237e-20,
+          4.290341426492229e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            9.191730497726399e-05,
+            -2.0466686462661656e-22,
+            -1.9843158224476576e-22
+          ],
+          [
+            -2.0466686462661656e-22,
+            9.191730497726414e-05,
+            4.567572864443617e-24
+          ],
+          [
+            -1.9843158224476576e-22,
+            4.567572864443617e-24,
+            0.00018340794328786146
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            9.191730497726399e-05,
+            -2.0466686462661656e-22,
+            -1.9843158224476576e-22
+          ],
+          [
+            -2.0466686462661656e-22,
+            9.191730497726414e-05,
+            4.567572864443617e-24
+          ],
+          [
+            -1.9843158224476576e-22,
+            4.567572864443617e-24,
+            0.00018340794328786146
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0020781194772935183,
+        "new_mass_kg": 0.0020781194772935183,
+        "new_local_bbox_mm": [
+          -15.0,
+          15.0,
+          -0.8,
+          0.8,
+          0.0,
+          30.0
+        ],
+        "new_placed_bbox_mm": [
+          -15.0,
+          15.0,
+          -34.599999999999994,
+          -32.99999999999999,
+          455.0,
+          485.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_mount_carrier",
+        "historical_volume_m3": 2.322884961621023e-06,
+        "new_geometric_volume_m3": 2.322884961621023e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.04554207024569057,
+          1.774150651237004e-19,
+          -6.713704856975967e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.04554207024569057,
+          1.774150651237004e-19,
+          -6.713704856975967e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            5.553030338541357e-05,
+            -7.688312663061924e-21,
+            -4.145254023204124e-22
+          ],
+          [
+            -7.688312663061924e-21,
+            0.0007052117705590605,
+            -1.767561029214162e-24
+          ],
+          [
+            -4.145254023204124e-22,
+            -1.767561029214162e-24,
+            0.0007605754072778079
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            5.553030338541357e-05,
+            -7.688312663061924e-21,
+            -4.145254023204124e-22
+          ],
+          [
+            -7.688312663061924e-21,
+            0.0007052117705590605,
+            -1.767561029214162e-24
+          ],
+          [
+            -4.145254023204124e-22,
+            -1.767561029214162e-24,
+            0.0007605754072778079
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.004297337178998893,
+        "new_mass_kg": 0.004297337178998893,
+        "new_local_bbox_mm": [
+          -13.0,
+          13.0,
+          -0.5,
+          0.5,
+          0.0,
+          92.0
+        ],
+        "new_placed_bbox_mm": [
+          -13.0,
+          13.0,
+          -10.5,
+          -9.5,
+          333.0,
+          425.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_battery_tray",
+        "historical_volume_m3": 6.2025e-07,
+        "new_geometric_volume_m3": 6.2025e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.015215235792019348,
+          -8.283672030732379e-21,
+          2.781136638452235e-05
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.015215235792019348,
+          -8.283672030732379e-21,
+          2.781136638452235e-05
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            2.8902768446481037e-05,
+            -1.9218915106954532e-21,
+            -1.1881852867768394e-07
+          ],
+          [
+            -1.9218915106954532e-21,
+            8.776114272582874e-05,
+            -2.2343781729649352e-23
+          ],
+          [
+            -1.1881852867768394e-07,
+            -2.2343781729649352e-23,
+            0.00011646170962799745
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            2.8902768446481037e-05,
+            -1.9218915106954532e-21,
+            -1.1881852867768394e-07
+          ],
+          [
+            -1.9218915106954532e-21,
+            8.776114272582874e-05,
+            -2.2343781729649352e-23
+          ],
+          [
+            -1.1881852867768394e-07,
+            -2.2343781729649352e-23,
+            0.00011646170962799745
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0006636675,
+        "new_mass_kg": 0.0006636675,
+        "new_local_bbox_mm": [
+          -8.75,
+          8.75,
+          -1.0,
+          0.5,
+          0.0,
+          31.5
+        ],
+        "new_placed_bbox_mm": [
+          -8.75,
+          8.75,
+          -12.0,
+          -10.5,
+          333.0,
+          364.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_battery_band",
+        "historical_volume_m3": 1.9200000000000004e-09,
+        "new_geometric_volume_m3": 1.9200000000000004e-09,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.004,
+          -3.1506613893728362e-21,
+          -5.734224823367779e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.004,
+          -3.1506613893728362e-21,
+          -5.734224823367779e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            6.083333333333333e-08,
+            -2.4255250160751234e-25,
+            3.2098832406453926e-39
+          ],
+          [
+            -2.4255250160751234e-25,
+            5.386666666666666e-06,
+            4.752601396888413e-26
+          ],
+          [
+            3.2098832406453926e-39,
+            4.752601396888413e-26,
+            5.340833333333333e-06
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            6.083333333333333e-08,
+            -2.4255250160751234e-25,
+            3.2098832406453926e-39
+          ],
+          [
+            -2.4255250160751234e-25,
+            5.386666666666666e-06,
+            4.752601396888413e-26
+          ],
+          [
+            3.2098832406453926e-39,
+            4.752601396888413e-26,
+            5.340833333333333e-06
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00035,
+        "new_mass_kg": 0.00035,
+        "new_local_bbox_mm": [
+          -0.15,
+          0.15,
+          -0.4,
+          0.4,
+          0.0,
+          8.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.15,
+          0.15,
+          -14.4,
+          -13.6,
+          333.0,
+          341.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_standoffs",
+        "historical_volume_m3": 9.273981513397069e-08,
+        "new_geometric_volume_m3": 9.273981513397069e-08,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.019049999999999997,
+          1.5323358898951003e-19,
+          -0.0022000000000000006
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.019049999999999997,
+          1.5323358898951003e-19,
+          -0.0022000000000000006
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            5.1326058333333386e-05,
+            -7.822574717914485e-21,
+            1.471042454299296e-20
+          ],
+          [
+            -7.822574717914485e-21,
+            0.0002545514583333332,
+            -1.2565154297139823e-21
+          ],
+          [
+            1.471042454299296e-20,
+            -1.2565154297139823e-21,
+            0.00030521085000000006
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            5.1326058333333386e-05,
+            -7.822574717914485e-21,
+            1.471042454299296e-20
+          ],
+          [
+            -7.822574717914485e-21,
+            0.0002545514583333332,
+            -1.2565154297139823e-21
+          ],
+          [
+            1.471042454299296e-20,
+            -1.2565154297139823e-21,
+            0.00030521085000000006
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0001066507874040663,
+        "new_mass_kg": 0.0001066507874040663,
+        "new_local_bbox_mm": [
+          -9.485,
+          9.485,
+          1.2000000000000002,
+          3.2,
+          0.6749999999999998,
+          37.425
+        ],
+        "new_placed_bbox_mm": [
+          -9.485,
+          9.485,
+          -12.500000000000002,
+          -10.5,
+          380.675,
+          417.425
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_fasteners",
+        "historical_volume_m3": 5.941380026469017e-07,
+        "new_geometric_volume_m3": 5.941380026469017e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.01905,
+          2.5114362966999006e-19,
+          -0.001982994923857868
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.01905,
+          2.5114362966999006e-19,
+          -0.001982994923857868
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            7.07892568933753e-05,
+            6.6965654968433775e-21,
+            0.0
+          ],
+          [
+            6.6965654968433775e-21,
+            0.000274014656893375,
+            -1.5564075535469312e-21
+          ],
+          [
+            0.0,
+            -1.5564075535469312e-21,
+            0.0003028980961928932
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            7.07892568933753e-05,
+            6.6965654968433775e-21,
+            0.0
+          ],
+          [
+            6.6965654968433775e-21,
+            0.000274014656893375,
+            -1.5564075535469312e-21
+          ],
+          [
+            0.0,
+            -1.5564075535469312e-21,
+            0.0003028980961928932
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0006832587030439369,
+        "new_mass_kg": 0.0006832587030439369,
+        "new_local_bbox_mm": [
+          -9.585,
+          9.585,
+          -3.8,
+          11.2,
+          0.5749999999999997,
+          37.525
+        ],
+        "new_placed_bbox_mm": [
+          -9.585,
+          9.585,
+          -21.5,
+          -6.5,
+          380.575,
+          417.52500000000003
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_nuts",
+        "historical_volume_m3": 2.1319221894537727e-07,
+        "new_geometric_volume_m3": 2.1319221894537727e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.019049999999999987,
+          9.33204630999231e-19,
+          6.516788709477316e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.019049999999999987,
+          9.33204630999231e-19,
+          6.516788709477316e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            5.2472204056749425e-05,
+            -7.132349679779678e-22,
+            -9.592805142977806e-22
+          ],
+          [
+            -7.132349679779678e-22,
+            0.0002556976040567495,
+            -2.2840198945504094e-22
+          ],
+          [
+            -9.592805142977806e-22,
+            -2.2840198945504094e-22,
+            0.00030720980811349893
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            5.2472204056749425e-05,
+            -7.132349679779678e-22,
+            -9.592805142977806e-22
+          ],
+          [
+            -7.132349679779678e-22,
+            0.0002556976040567495,
+            -2.2840198945504094e-22
+          ],
+          [
+            -9.592805142977806e-22,
+            -2.2840198945504094e-22,
+            0.00030720980811349893
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0002451710517871839,
+        "new_mass_kg": 0.0002451710517871839,
+        "new_local_bbox_mm": [
+          -9.735,
+          9.735,
+          -1.2,
+          1.2,
+          0.4249999999999998,
+          37.675
+        ],
+        "new_placed_bbox_mm": [
+          -9.735,
+          9.735,
+          -6.9,
+          -4.5,
+          380.425,
+          417.675
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_sled_fasteners",
+        "historical_volume_m3": 5.528574751787318e-07,
+        "new_geometric_volume_m3": 5.528574751787318e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.057333333333333326,
+          7.068702553794989e-19,
+          -0.0029749403341288783
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.057333333333333326,
+          7.068702553794989e-19,
+          -0.0029749403341288783
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00013740116546978923,
+            -2.5721509171506126e-20,
+            2.632127787304025e-20
+          ],
+          [
+            -2.5721509171506126e-20,
+            0.0006400400543586783,
+            -4.49784350121033e-22
+          ],
+          [
+            2.632127787304025e-20,
+            -4.49784350121033e-22,
+            0.0007392591026915945
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00013740116546978923,
+            -2.5721509171506126e-20,
+            2.632127787304025e-20
+          ],
+          [
+            -2.5721509171506126e-20,
+            0.0006400400543586783,
+            -4.49784350121033e-22
+          ],
+          [
+            2.632127787304025e-20,
+            -4.49784350121033e-22,
+            0.0007392591026915945
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0006357860964555416,
+        "new_mass_kg": 0.0006357860964555416,
+        "new_local_bbox_mm": [
+          -13.8,
+          13.8,
+          -2.5,
+          11.5,
+          24.7,
+          90.3
+        ],
+        "new_placed_bbox_mm": [
+          -13.8,
+          13.8,
+          -12.5,
+          1.5,
+          357.7,
+          423.3
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_sled_nuts",
+        "historical_volume_m3": 1.69109740787568e-07,
+        "new_geometric_volume_m3": 1.69109740787568e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.05733333333333332,
+          -2.1848665894378474e-18,
+          -9.687631493507282e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.05733333333333332,
+          -2.1848665894378474e-18,
+          -9.687631493507282e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00012012739841544004,
+            2.845928788293398e-20,
+            6.793673499012263e-22
+          ],
+          [
+            2.845928788293398e-20,
+            0.0006227662873043295,
+            -9.453749665836817e-23
+          ],
+          [
+            6.793673499012263e-22,
+            -9.453749665836817e-23,
+            0.0007422270190531015
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00012012739841544004,
+            2.845928788293398e-20,
+            6.793673499012263e-22
+          ],
+          [
+            2.845928788293398e-20,
+            0.0006227662873043295,
+            -9.453749665836817e-23
+          ],
+          [
+            6.793673499012263e-22,
+            -9.453749665836817e-23,
+            0.0007422270190531015
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0001944762019057032,
+        "new_mass_kg": 0.0001944762019057032,
+        "new_local_bbox_mm": [
+          -13.75,
+          13.75,
+          -1.0,
+          1.0,
+          24.75,
+          90.25
+        ],
+        "new_placed_bbox_mm": [
+          -13.75,
+          13.75,
+          1.0,
+          3.0,
+          357.75,
+          423.25
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_sled_reinforcement",
+        "historical_volume_m3": 3.4705487039378404e-07,
+        "new_geometric_volume_m3": 3.4705487039378404e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.034333333333333375,
+          -6.960989479396194e-19,
+          3.243969850160939e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.034333333333333375,
+          -6.960989479396194e-19,
+          3.243969850160939e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.00012351558872383228,
+            1.6037573800569686e-20,
+            -1.7866986188652525e-22
+          ],
+          [
+            1.6037573800569686e-20,
+            0.0006261544776127208,
+            -1.383560638712709e-23
+          ],
+          [
+            -1.7866986188652525e-22,
+            -1.383560638712709e-23,
+            0.0007495033996698868
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.00012351558872383228,
+            1.6037573800569686e-20,
+            -1.7866986188652525e-22
+          ],
+          [
+            1.6037573800569686e-20,
+            0.0006261544776127208,
+            -1.383560638712709e-23
+          ],
+          [
+            -1.7866986188652525e-22,
+            -1.383560638712709e-23,
+            0.0007495033996698868
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0003713487113213489,
+        "new_mass_kg": 0.0003713487113213489,
+        "new_local_bbox_mm": [
+          -15.5,
+          15.5,
+          -0.5,
+          0.5,
+          3.552713678800501e-14,
+          69.00000000000003
+        ],
+        "new_placed_bbox_mm": [
+          -15.5,
+          15.5,
+          -2.0,
+          -1.0,
+          356.00000000000006,
+          425.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_mount_hardware_allowance",
+        "historical_volume_m3": 3.44e-07,
+        "new_geometric_volume_m3": 3.44e-07,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.043000000000000003,
+          2.1809076893221652e-20,
+          -2.0655312086049423e-20
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.043000000000000003,
+          2.1809076893221652e-20,
+          -2.0655312086049423e-20
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            6.666666666666667e-07,
+            -3.3492807427628135e-23,
+            -6.609699867535816e-22
+          ],
+          [
+            -3.3492807427628135e-23,
+            0.0006166666666666664,
+            -5.106009130878046e-25
+          ],
+          [
+            -6.609699867535816e-22,
+            -5.106009130878046e-25,
+            0.0006166666666666667
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            6.666666666666667e-07,
+            -3.3492807427628135e-23,
+            -6.609699867535816e-22
+          ],
+          [
+            -3.3492807427628135e-23,
+            0.0006166666666666664,
+            -5.106009130878046e-25
+          ],
+          [
+            -6.609699867535816e-22,
+            -5.106009130878046e-25,
+            0.0006166666666666667
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003139321735486285,
+        "new_mass_kg": 0.003139321735486285,
+        "new_local_bbox_mm": [
+          -1.0,
+          1.0,
+          -1.0,
+          1.0,
+          0.0,
+          86.0
+        ],
+        "new_placed_bbox_mm": [
+          -1.0,
+          1.0,
+          20.0,
+          22.0,
+          333.0,
+          419.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_main_hmpe",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0060750000000000005,
+        "new_mass_kg": 0.0060750000000000005,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          412.5,
+          413.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_main_hot_leader",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0052,
+        "new_mass_kg": 0.0052,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          192.5,
+          193.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_aft_leg_0",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0037350000000000005,
+        "new_mass_kg": 0.0037350000000000005,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          806.0,
+          807.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_aft_leg_120",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0037350000000000005,
+        "new_mass_kg": 0.0037350000000000005,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          806.0,
+          807.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_aft_leg_240",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0037350000000000005,
+        "new_mass_kg": 0.0037350000000000005,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          806.0,
+          807.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_nose_branch",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00396,
+        "new_mass_kg": 0.00396,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          382.5,
+          383.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_body_branch",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0025200000000000005,
+        "new_mass_kg": 0.0025200000000000005,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          550.0,
+          551.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_coupler_branch",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003375,
+        "new_mass_kg": 0.003375,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          762.5,
+          763.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_line_sled_branch",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00324,
+        "new_mass_kg": 0.00324,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          472.5,
+          473.5
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_bridle_termination_and_stitch",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.002,
+        "new_mass_kg": 0.002,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          600.0,
+          601.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_upper_body_band",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.001174,
+        "new_mass_kg": 0.001174,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          500.0,
+          501.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_sled_tabs",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.002165,
+        "new_mass_kg": 0.002165,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          345.0,
+          346.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_seal_and_grommet",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0015,
+        "new_mass_kg": 0.0015,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          225.0,
+          226.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_heat_sleeve",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.003,
+        "new_mass_kg": 0.003,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          225.0,
+          226.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_adhesive_and_fillet",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.002,
+        "new_mass_kg": 0.002,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          950.0,
+          951.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_extra_future_positive_pin_delta_g_estimate",
+        "historical_volume_m3": 9.999999999999999e-10,
+        "new_geometric_volume_m3": 9.999999999999999e-10,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.0005,
+          -2.4897145062532106e-21,
+          4.3368086899420186e-21
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            1.6666666666666665e-07,
+            -3.3412888279751914e-26,
+            -3.469446951953615e-24
+          ],
+          [
+            -3.3412888279751914e-26,
+            1.666666666666667e-07,
+            -3.341288827975159e-26
+          ],
+          [
+            -3.469446951953615e-24,
+            -3.341288827975159e-26,
+            1.6666666666666676e-07
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.0008,
+        "new_mass_kg": 0.0008,
+        "new_local_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          0.0,
+          1.0
+        ],
+        "new_placed_bbox_mm": [
+          -0.5,
+          0.5,
+          -0.5,
+          0.5,
+          925.0,
+          926.0
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      },
+      {
+        "id": "recovery_junction",
+        "historical_volume_m3": 4.541130327355103e-06,
+        "new_geometric_volume_m3": 4.541130327355103e-06,
+        "volume_difference_m3": 0.0,
+        "historical_centroid_body_m": [
+          -0.004,
+          -1.3356130203778526e-17,
+          -8.100017701462698e-19
+        ],
+        "new_geometric_centroid_body_m": [
+          -0.004,
+          -1.3356130203778526e-17,
+          -8.100017701462698e-19
+        ],
+        "centroid_max_abs_difference_m": 0.0,
+        "historical_inertia_per_kg_m2": [
+          [
+            0.0001215587425936098,
+            1.3018158774067167e-21,
+            -5.462640098285601e-23
+          ],
+          [
+            1.3018158774067167e-21,
+            6.546372096283565e-05,
+            -8.077737797660176e-22
+          ],
+          [
+            -5.462640098285601e-23,
+            -8.077737797660176e-22,
+            6.546372096283516e-05
+          ]
+        ],
+        "new_geometric_inertia_per_kg_m2": [
+          [
+            0.0001215587425936098,
+            1.3018158774067167e-21,
+            -5.462640098285601e-23
+          ],
+          [
+            1.3018158774067167e-21,
+            6.546372096283565e-05,
+            -8.077737797660176e-22
+          ],
+          [
+            -5.462640098285601e-23,
+            -8.077737797660176e-22,
+            6.546372096283516e-05
+          ]
+        ],
+        "inertia_max_abs_difference_m2": 0.0,
+        "historical_mass_kg": 0.00840109110560694,
+        "new_mass_kg": 0.008401091105606941,
+        "new_local_bbox_mm": [
+          -15.0000001,
+          15.0,
+          -15.0,
+          15.0,
+          0.0,
+          8.0
+        ],
+        "new_placed_bbox_mm": [
+          -15.0,
+          15.0000001,
+          -15.0,
+          15.0,
+          599.9999999,
+          608.0000001
+        ],
+        "historical_bbox_mm": null,
+        "old_vs_new_shape_equivalence": "unproved_no_individual_old_STEP",
+        "fin_centroid_inertia_basis": null
+      }
+    ],
+    "assembly_step_sha256": "327092163c9c07d1c6eaa830159481d7d1bbdeb9ef2a8c92069f15adb011644b",
+    "original_steps_byte_identical": true,
+    "fin_and_frame_original_STEP_geometry": {
+      "fin_local_bbox_mm": [
+        -54.115396719429526,
+        103.0,
+        -90.71061658979,
+        90.710616589797,
+        -0.2,
+        120.2
+      ],
+      "frame_local_bbox_mm": [
+        -32.000000100001806,
+        32.0000001000002,
+        -32.00000011898424,
+        32.00000011898629,
+        -1e-07,
+        168.0000001
+      ],
+      "fin_global_bbox_mm": [
+        -54.115396719429526,
+        103.0,
+        -90.71061658979,
+        90.710616589797,
+        1054.8000000000002,
+        1175.2000000000003
+      ],
+      "frame_global_bbox_mm": [
+        -32.000000100001806,
+        32.0000001000002,
+        -32.00000011898424,
+        32.00000011898629,
+        1011.9999999,
+        1180.0000001
+      ],
+      "fin_station_m": 1.0550000000000002,
+      "frame_station_m": 1.012,
+      "fin_dimensions": {
+        "length_m": 0.12,
+        "radius_m": 0.033,
+        "count": 3,
+        "span_m": 0.07,
+        "root_chord_m": 0.12,
+        "tip_chord_m": 0.12,
+        "sweep_m": 0.0,
+        "thickness_m": 0.00564
+      },
+      "frame_dimensions": {
+        "length_m": 0.168,
+        "radius_m": 0.032,
+        "inner_radius_m": 0.0303
+      },
+      "fin_parameters": {
+        "tab_depth_mm": 2.5,
+        "tab_length_mm": 100,
+        "tab_offset_mm": 10,
+        "root_gusset_span_mm": 20,
+        "root_gusset_base_mm": 3,
+        "root_gusset_inset_mm": 1,
+        "layered_study": {
+          "id": "wo03-trainer-carbon-pvc5-forward25-backed-reconciled",
+          "prior_unreconciled_record": "build/wo03-trainer-fin-root/pvc5-forward25-backed/record.json",
+          "root_adhesive_budget": {
+            "part_id": "fin_bonds",
+            "baseline_tabs_and_fillets_kg": 0.006,
+            "baseline_gussets_kg": 0.002,
+            "allocation_basis": "Reallocate only the explicitly modeled tab, gusset-face and curved-foot bonds from the existing 6 g tab/fillet plus 2 g gusset allowance. Keep the residual for unmodeled fillets and application variation. New skin/core/cap/tip-seal/frame-gap bonds remain additional."
+          },
+          "historical_panel_report": "build/wo03-trainer-fin-package/extended/metric-5mm-gusset-20mm/fin-fea/modular-tvc-finned-v1/wo03-fin-acceptance-20261031T000111044153Z/report.json",
+          "historical_refinement_report": "build/wo03-trainer-fin-package/refine-2mm/comparison.json",
+          "forward_shift_m": 0.025,
+          "root_band_m": 0.02,
+          "core_thickness_m": 0.005,
+          "core_thickness_tolerance_m": 0.0003,
+          "skin_thickness_m": 0.00022,
+          "skin_thickness_tolerance_m": 0.0001,
+          "skin_areal_mass_kg_m2": 0.35,
+          "skin_youngs_pa_typical": 50100000000,
+          "skin_tensile_strength_pa_typical": 641000000,
+          "core_density_kg_m3": 75,
+          "core_youngs_pa_typical": 97000000,
+          "core_shear_pa_typical": 30000000,
+          "core_shear_strength_pa_typical": 1200000,
+          "face_bond_thickness_m": 0.0001,
+          "gusset_face_bond_thickness_m": 0.0001,
+          "foot_bond_thickness_m": 0.0001,
+          "edge_cap_thickness_m": 0.0002,
+          "edge_cap_overlap_m": 0.005,
+          "edge_cap_bond_thickness_m": 5e-05,
+          "tip_edge_seal_mass_kg": 0.001,
+          "hot_property_fraction": 0.5,
+          "design_factor": 3,
+          "hot_adhesive_youngs_pa_estimate": 1000000000,
+          "adhesive_poisson_estimate": 0.3,
+          "root_bond_thickness_sensitivity_m": [
+            0.0001,
+            0.0003
+          ],
+          "cold_skin_shear_pa_estimate": [
+            2000000000,
+            5000000000
+          ],
+          "cold_cap_shear_pa_estimate": 4000000000,
+          "added_recovery_mass_kg_hypothesis": 0.064,
+          "added_thermal_mass_kg_hypothesis": [
+            0.008,
+            0.014
+          ],
+          "sources": {
+            "skin": {
+              "url": "https://media.easycomposites.co.uk/datasheets/EC-TDS-Double-Sided-High-Strength-Carbon-Sheet.pdf",
+              "version": "1.2; revised 2026-04-02; retrieved 2026-10-30",
+              "basis": "Typical production sheet data, not guaranteed minima; 0.25 mm product is 0.22 +/-0.10 mm and 0.35 kg/m2; E0/90 50.1 GPa, tensile strength 641 MPa. Single ply; compression, 45-degree, transverse and full laminate engineering constants unavailable."
+            },
+            "core": {
+              "url": "https://media.easycomposites.co.uk/datasheets/EC-TDS-Easy-Cell-75-Closed-Cell-PVC-Foam.pdf",
+              "version": "1.0; revised 2025-07-15; retrieved 2026-10-30",
+              "basis": "Typical density 75 kg/m3, compression modulus 97 MPa, shear modulus 30 MPa, shear strength 1.2 MPa; no hot allowables or thickness tolerance established. The 0.3 mm core tolerance is an explicit conservative study assumption."
+            },
+            "assembly": {
+              "url": "https://www.easycomposites.co.uk/double-sided-high-strength-carbon-fibre-sheet",
+              "basis": "Supplier discusses bonding thin cured sheets to foam using epoxy and preparing the glossy bonding surfaces; this does not establish this root or bond strength."
+            }
+          },
+          "property_status": "The hot reduction, adhesive stiffness, glass-cap and skin shear values are study estimates; retain the existing 45 C substrate screen. Supplier Tg/service/processing temperatures are not a new rocket temperature limit."
+        }
+      },
+      "frame_parameters": {
+        "ring_thickness_mm": 3,
+        "ring_stations_mm": [
+          0,
+          8.000000000000007,
+          165.0
+        ],
+        "rail_width_mm": 12,
+        "rail_depth_mm": 2.5,
+        "rail_radius_mm": 30.75,
+        "tab_slot_start_mm": 53.00000000000001,
+        "pivot_ring": true,
+        "pivot_station_mm": 88.0,
+        "fin_channels": true,
+        "fin_slot_width_mm": 7.3,
+        "fin_slot_length_mm": 100,
+        "fin_channel_radius_mm": 32,
+        "fin_channel_depth_mm": 3.4,
+        "trim_outer_cylinder": true,
+        "ring_thicknesses_mm": [
+          8,
+          5,
+          3
+        ],
+        "ring_inner_radii_mm": [
+          24,
+          29.8,
+          30.3
+        ],
+        "machining_holes": [
+          {
+            "start_mm": [
+              18.330127018922198,
+              21.74871130596428,
+              -1
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 3.7,
+            "length_mm": 15,
+            "study_role": "recovery_port",
+            "group_angle_deg": 60
+          },
+          {
+            "start_mm": [
+              9.66987298107781,
+              26.74871130596428,
+              -1
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 3.7,
+            "length_mm": 15,
+            "study_role": "recovery_port",
+            "group_angle_deg": 60
+          },
+          {
+            "start_mm": [
+              -28.0,
+              5.0000000000000036,
+              -1
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 3.7,
+            "length_mm": 15,
+            "study_role": "recovery_port",
+            "group_angle_deg": 180
+          },
+          {
+            "start_mm": [
+              -28.0,
+              -4.9999999999999964,
+              -1
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 3.7,
+            "length_mm": 15,
+            "study_role": "recovery_port",
+            "group_angle_deg": 180
+          },
+          {
+            "start_mm": [
+              9.66987298107781,
+              -26.74871130596428,
+              -1
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 3.7,
+            "length_mm": 15,
+            "study_role": "recovery_port",
+            "group_angle_deg": 300
+          },
+          {
+            "start_mm": [
+              18.330127018922198,
+              -21.74871130596428,
+              -1
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 3.7,
+            "length_mm": 15,
+            "study_role": "recovery_port",
+            "group_angle_deg": 300
+          },
+          {
+            "start_mm": [
+              26.0,
+              0.0,
+              0
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 7.9,
+            "length_mm": 8,
+            "study_role": "rounded_link_window",
+            "mechanism_axis": 0,
+            "angle_deg": 0,
+            "center_radius_mm": 26.0
+          },
+          {
+            "start_mm": [
+              25.74696978728083,
+              3.6185006249617016,
+              0
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 7.9,
+            "length_mm": 8,
+            "study_role": "rounded_link_window",
+            "mechanism_axis": 0,
+            "angle_deg": 8,
+            "center_radius_mm": 26.0
+          },
+          {
+            "start_mm": [
+              24.99280409439629,
+              7.166571251241979,
+              0
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 7.9,
+            "length_mm": 8,
+            "study_role": "rounded_link_window",
+            "mechanism_axis": 0,
+            "angle_deg": 16,
+            "center_radius_mm": 26.0
+          },
+          {
+            "start_mm": [
+              1.6042873068830326e-15,
+              26.2,
+              0
+            ],
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "diameter_mm": 7.5,
+            "length_mm": 8,
+            "study_role": "rounded_link_window",
+            "mechanism_axis": 1,
+            "angle_deg": 90,
+            "center_radius_mm": 26.2
+          }
+        ],
+        "study_integral_rounded_saddles": {
+          "group_angles_deg": [
+            60,
+            180,
+            300
+          ],
+          "x_mm": 28,
+          "radius_mm": 3,
+          "length_mm": 6,
+          "cap_thickness_mm": 8
+        }
+      },
+      "shell_station_m": 0.922,
+      "shell_parameters": {
+        "fin_slots": true,
+        "fin_slot_width_mm": 7.3,
+        "fin_slot_length_mm": 100,
+        "fin_slot_start_mm": 143.0
+      }
+    },
+    "geometry_equivalence_all_parts": null,
+    "geometry_comparison_limit": "Old per-part STEP unavailable except fin and frame; identical volume/centroid/inertia is not proof of same shape.",
+    "reconstruction_limit": "Generic export_vehicle regenerates a homogeneous fin and omits frame post-Boolean rounded saddles; use explicit source STEP substitution and output assembly.",
+    "motion_history": "Flat servo horns/fixed-shaft and prior conflict evidence remain open; no inherited motion or strength pass.",
+    "old_contact_or_strength_transferred": false,
+    "elapsed_wall_s": 2.292445291997865,
+    "process_cpu_s": 3.7467599999999996,
+    "max_rss_bytes_macos": 539836416,
+    "source_identity_unchanged": true
+  },
+  "completion": {
+    "exit_code": 0,
+    "wall_seconds": 7.869533666991629,
+    "timeout": false,
+    "completed": true
+  },
+  "post_run_code_hashes": {
+    "scope": "post-run filesystem hashes only; these were not captured before worker execution",
+    "sha256": {
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166"
+    }
+  },
+  "reproduction_requires_local_archived_inputs": true,
+  "bulk_artifacts_published": false
+}

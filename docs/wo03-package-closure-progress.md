@@ -1,3 +1,23 @@
+# Resumed-session source prerequisite — 2026-10-31 Pacific
+
+| Issue / previous finding | Executed correction or clarification | Criterion / new result | Remaining verification |
+| --- | --- | --- | --- |
+| Historical 77-part G12 hoop YAML has 60 stale property-cache errors | Reload the existing reconciled historical identity; preserve original fin/frame STEP; rebuild an explicit inspection assembly | Exact resolved bytes and canonical identity retained; 77 volumes and 76 comparable centroids/full inertia match recorded precision | Detailed old shapes unavailable for 75 parts; density-weighted fin properties are distinct from uniform-volume properties. No strength, motion, thermal or flutter pass, and no mass saving credited. [Evidence](wo03-refreeze-g12-root.md) |
+
+The [material-solid map](wo03-fin-material-map.md) subsequently closes nominal
+solid identity for all 60 fin solids by unique geometry matching. Contact-face
+ownership, hot properties and the installed load path remain open. The
+[thermal output check](wo03-ccx-output-probe.md) confirms float32 evidence is
+insufficient; its three-grid packet remains incomplete after the first parser
+stop. No actual-baffle result or design acceptance follows.
+
+The [next installed-root case](wo03-installed-root-next-case.md) is a proposed
+conditional foundation calculation, not an executed pass or a new requirement.
+The active vehicle remains unchanged. Thermal qualification and complete-package
+integration are still open. Historical findings below retain their identities.
+
+---
+
 # Timed-session force-accounting checkpoint — 2026-10-31
 
 No design correction package is adopted and WO-03 remains open. The following
@@ -132,6 +152,7 @@ structure, heat, fit, static stability and actual flight/RocketPy comparisons on
 one complete package. Full WO-04 and WO-05 completion remains subject to their
 prerequisites and benchmarks; ADR-0009 separately authorizes the limited early
 read-only inspection, recorded-Analysis, and real-simulator preview while WO-03 is
-open. That preview is currently paused by owner direction. Purchases, physical
+open. The owner subsequently resumed that limited preview; current evidence is
+in `docs/STATUS.md`. Purchases, physical
 work, paid runs, WO-10 owner firmware/abort review and flight release retain their
 separate gates.

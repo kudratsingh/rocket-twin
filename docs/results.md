@@ -1150,3 +1150,58 @@ ASTs. No newgeometry, FEA, heat calculation, designadoption or physicaltest was
 performed. Complete recovery/thermal/fin integration remains open. Evidence:
 `runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json`, [fin routing](wo03-fin-load-routing.md),
 [support cuts](wo03-support-cutloads.md). Ownerrequested stop remains09:49UTC.
+
+
+## WO-03 resumed G12 source prerequisite (2026-10-31 Pacific)
+
+The owner resumed work after the saved timed-session stop. The historical
+77-part G12 layered-fin/hoop reconciled copy reloads and retains canonical
+identity `4ff75b8f2c6ab47ddf90b546761d7fa6d4a72c3af9f382e6b3790cbeb19c1287`.
+The fin and rounded frame STEP files are preserved byte-for-byte; all 77
+geometric volumes and 76 comparable centroids/full inertia match archived
+property precision. The fin's density-weighted properties are not compared
+with uniform-volume geometric properties. Detailed historic shape equivalence
+is unavailable for the other 75 parts. No installed strength, clearance or
+flutter acceptance follows, and no 0.069674 g reconciliation saving is credited.
+
+One child completed in 7.870 s parent-observed wall time, with 3.747 CPU s and
+2.292 s worker wall after imports, peak RSS 539,836,416 bytes. Single-worker
+execution was requested but single-core compliance was not demonstrated.
+All recorded source artifact hashes match before/after; CAD/schema code hashes
+were captured after execution only. Active vehicle, CAD, schema and simulator
+sources match the published baseline across 53 files checked independently.
+No active design or physical/paid/WO-10/flight gate changed.
+Evidence: [`record.json`](../runs/wo03-g12-source-refreeze-20261101T010604113596Z/record.json);
+[source report](wo03-refreeze-g12-root.md).
+
+
+## WO-03 output precision and fin-solid mapping (2026-10-31 Pacific)
+
+One new CalculiX A-2 output-only diagnostic completed (0.012015 child CPU s,
+0.0200 s wall, 6,160,384 bytes peak RSS). The first reader's framing error
+stopped the declared packet; A-4/A-8 were not run. Read-only decoding of the
+preserved NT/RFL fields confirms 4-byte node IDs and float32 values. NT spacing
+is 3.05e-5–6.10e-5 K; maximum encoded-field difference from the exact A answer is
+2.4414e-5 K. This cannot establish the unchanged 1e-7 K field criterion. The
+small encoded overshoot of the fixed wall is compatible with float rounding,
+not a demonstration of a solver temperature violation or a verified local
+maximum principle. Film-integrated heat and 1e-10 W balance remain unavailable.
+A malformed-file self-check caught and corrected a truncated-record reader
+weakness; no solver rerun followed. Neither external tool qualifies actual heat
+predictions; the old impossible baffle fields remain failed.
+
+For the separate historical G12 candidate, the preserved construction recipe
+uniquely maps all 60 fin solids by centroid/bounds/volume and two-way Boolean
+comparison (reported maximum symmetric difference 0 mm³ at kernel precision).
+193 overlapping-bounds pairs had reported zero intersection; the other 1,577
+pairs have bounding-box intersection upper bounds at most 3.84e-11 mm³. This
+closes solid identity only. Face contacts, installed strength and flutter remain
+open. A single child used 7.495 CPU s / 5.118 worker wall s, parent 5.436 s,
+peak RSS 513,458,176 bytes. One-worker/thread settings were requested, but
+single-core execution is not demonstrated. Sources/configs were unchanged
+through execution. The offline helper's later typing comment changes no function
+AST and no CAD-source revision; the saved preview remains compatible.
+
+Evidence: [compact record](../runs/wo03-output-solid-map-20261101T011408613691Z/record.json),
+[thermal output](wo03-ccx-output-probe.md), [material map](wo03-fin-material-map.md).
+No active vehicle, gate or full work-order acceptance changed.

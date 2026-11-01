@@ -1,0 +1,2687 @@
+{
+  "scope": "offline thermal output and historical G12 material-solid prerequisites only",
+  "accepted": false,
+  "active_vehicle_changed": false,
+  "flight_ready": false,
+  "thermal_probe": {
+    "run_record": {
+      "packet": "wo03-ccx-output-probe-v1",
+      "config_sha256": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa",
+      "binary_path": "/opt/homebrew/bin/ccx",
+      "binary_realpath": "/opt/homebrew/Cellar/calculix@2.23/2.23_1/bin/ccx",
+      "binary_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+      "threads_requested": 1,
+      "environment_threads": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "CCX_NPROC_CFD": "1"
+      },
+      "case_wall_limit_seconds_all_grids": 120,
+      "packet_cpu_limit_seconds": 600,
+      "grids": [
+        {
+          "divisions": 2,
+          "source_input": "build/wo03-ccx-thermal-comparison-v1/A-2/case.inp",
+          "source_input_sha256": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+          "probe_input_sha256": "5e50a7a7dc5a0be1d8f383cb2da76cbdb38f3d545c840d8d7304713bf2c152d6",
+          "returncode": 0,
+          "wall_seconds": 0.020005375001346692,
+          "child_cpu_seconds": 0.012015,
+          "child_peak_rss_bytes_cumulative_max": 6160384,
+          "completed_marker": true,
+          "status": "solved"
+        }
+      ],
+      "status": "incomplete_preserved",
+      "source_inputs": {
+        "build/wo03-ccx-thermal-comparison-v1/A-2/case.inp": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+        "build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.inp": "d5dbcfcbdc881c61f468d379d03a02f77310ce8f91148861a32e37d4eb0d68f9",
+        "build/wo03-ccx-thermal-comparison-v1/A-8/case.inp": "7338ee4a466ca17f48222e5ee2313db72b9382ad8ff21f42eea53304c07a2162"
+      },
+      "source_config_sha256": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+      "setup_wall_seconds": 0.006587500014575198,
+      "stop_reason": "ValueError: Expected one FRD NDTEMP field header, got 0",
+      "case_wall_seconds_all_grids": 0.021534750005230308,
+      "packet_child_cpu_seconds": 0.012015,
+      "setup_wall_limit_seconds": 120,
+      "setup_included_in_case_wall": false,
+      "source_inputs_unchanged_after": {
+        "build/wo03-ccx-thermal-comparison-v1/A-2/case.inp": true,
+        "build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.inp": true,
+        "build/wo03-ccx-thermal-comparison-v1/A-8/case.inp": true
+      }
+    },
+    "read_only_decode": {
+      "source_packet_record_sha256_before_decode": "68789f9bc76d3014da0a28dfd059a47e13786d4401087d61bce2ccba53fa48b9",
+      "probe_config_sha256": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa",
+      "source_config_sha256": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+      "binary_sha256": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+      "as_run_manifest": {
+        "scripts/wo03_ccx_output_probe.py": "b8749cb9a380d4b85a4ac00e4624ac7eb215cea0396a35f3efc9206ac8a4ff4c",
+        "configs/studies/wo03-ccx-output-probe.yaml": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa",
+        "build/wo03-ccx-output-probe-v1/record.json": "68789f9bc76d3014da0a28dfd059a47e13786d4401087d61bce2ccba53fa48b9",
+        "build/wo03-ccx-output-probe-v1/runner-as-run.py": "b8749cb9a380d4b85a4ac00e4624ac7eb215cea0396a35f3efc9206ac8a4ff4c",
+        "build/wo03-ccx-output-probe-v1/run-config-as-run.yaml": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa"
+      },
+      "preserved_run_record_status": "incomplete_preserved",
+      "preserved_run_stop_reason": "ValueError: Expected one FRD NDTEMP field header, got 0",
+      "solver_returncode": 0,
+      "solver_wall_seconds": 0.020005375001346692,
+      "solver_child_cpu_seconds": 0.012015,
+      "solver_child_peak_rss_bytes_cumulative_max": 6160384,
+      "packet_wall_seconds_at_parser_stop": 0.021534750005230308,
+      "packet_child_cpu_seconds_at_parser_stop": 0.012015,
+      "setup_wall_seconds": 0.006587500014575198,
+      "raw_frd_sha256": "7a85e1201c6181d3905db82d792c473e68300a54089e89d6d2de4d4b56ba4790",
+      "probe_input_sha256": "5e50a7a7dc5a0be1d8f383cb2da76cbdb38f3d545c840d8d7304713bf2c152d6",
+      "source_input_sha256_after": "863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31",
+      "divisions": 2,
+      "node_count": 27,
+      "frd_header_lines": [
+        " -4  NDTEMP 1 1",
+        " -5  T 1 1 0 0",
+        " -4  RFL 1 1",
+        " -5  RFL 1 1 0 0"
+      ],
+      "frd_record_layout": "source-based four-byte native int node IDs followed by four-byte native float32 scalar values; fixed all-node count; NT block followed by ASCII 1PSTEP header and RFL block followed by ASCII 9999 file footer",
+      "field_framing_checks": "all node IDs decoded in order 1..27; component labels and following structural headers matched",
+      "nt_min_k": 309.61285400390625,
+      "nt_max_k": 573.1500244140625,
+      "nt_max_abs_error_from_exact_a_k": 2.4414062522737368e-05,
+      "nt_max_abs_difference_from_dat_print_k": 4.5996093774647306e-05,
+      "nt_float32_spacing_min_k": 3.0517578125e-05,
+      "nt_float32_spacing_max_k": 6.103515625e-05,
+      "unchanged_1e-7_k_field_check": "not demonstrated by this float32 field encoding; no tolerance was relaxed",
+      "rfl_min": -2.4640722274780273,
+      "rfl_max": 2.4640722274780273,
+      "rfl_hot_sum": 9.856288969516754,
+      "rfl_hot_node_float32_spacing_min_w": 2.9802322387695312e-08,
+      "rfl_hot_node_float32_spacing_max_w": 2.384185791015625e-07,
+      "rfl_hot_sum_dat_total": 9.856289,
+      "rfl_hot_node_max_difference_from_dat": 2.2747802752576263e-07,
+      "rfl_semantics": "manual identifies external concentrated heat sources; the output does not by itself establish integrated *FILM heat",
+      "grid_4_and_8": "not run: preserved A-2 parser-format stop rule; no reruns or additional grids",
+      "packet_status": "partial_diagnostic; three-grid packet incomplete; solver acceptance not established"
+    },
+    "primary_reader_review": {
+      "scope": "read-only recheck of saved A2, no solver invocation",
+      "fixed_column_marker_checks": true,
+      "synthetic_truncated_record_rejected": true,
+      "prior_flexible_whitespace_reader_rejected_truncation": false,
+      "source_sha256": "d8c4936826fffe6cdd1c48d0f9663122cc5c1ad1c0870d179f8931b59d6e47d2",
+      "frd_sha256": "7a85e1201c6181d3905db82d792c473e68300a54089e89d6d2de4d4b56ba4790",
+      "decoded_fields": {
+        "NDTEMP": {
+          "1": 573.1500244140625,
+          "2": 573.1500244140625,
+          "3": 573.1500244140625,
+          "4": 573.1500244140625,
+          "5": 573.1500244140625,
+          "6": 573.1500244140625,
+          "7": 573.1500244140625,
+          "8": 573.1500244140625,
+          "9": 573.1500244140625,
+          "10": 441.3814392089844,
+          "11": 441.3814392089844,
+          "12": 441.3814392089844,
+          "13": 441.3814392089844,
+          "14": 441.3814392089844,
+          "15": 441.3814392089844,
+          "16": 441.3814392089844,
+          "17": 441.3814392089844,
+          "18": 441.3814392089844,
+          "19": 309.61285400390625,
+          "20": 309.61285400390625,
+          "21": 309.61285400390625,
+          "22": 309.61285400390625,
+          "23": 309.61285400390625,
+          "24": 309.61285400390625,
+          "25": 309.61285400390625,
+          "26": 309.61285400390625,
+          "27": 309.61285400390625
+        },
+        "RFL": {
+          "1": 0.8213574290275574,
+          "2": 1.2320361137390137,
+          "3": 0.4106787145137787,
+          "4": 1.2320361137390137,
+          "5": 2.4640722274780273,
+          "6": 1.2320361137390137,
+          "7": 0.4106787145137787,
+          "8": 1.2320361137390137,
+          "9": 0.8213574290275574,
+          "10": 2.377617777173677e-16,
+          "11": -6.584251267408101e-16,
+          "12": -4.753297850675224e-18,
+          "13": 2.2550989612158746e-16,
+          "14": 8.91643737366461e-16,
+          "15": 1.206118403910674e-16,
+          "16": 3.093303972275213e-16,
+          "17": -3.748009618525952e-16,
+          "18": -2.0745669910495233e-16,
+          "19": -0.8213574290275574,
+          "20": -1.2320361137390137,
+          "21": -0.4106787145137787,
+          "22": -1.2320361137390137,
+          "23": -2.4640722274780273,
+          "24": -1.2320361137390137,
+          "25": -0.4106787145137787,
+          "26": -1.2320361137390137,
+          "27": -0.8213574290275574
+        }
+      },
+      "packet_still_incomplete": true,
+      "thermal_acceptance": false
+    },
+    "as_run_manifest": {
+      "scripts/wo03_ccx_output_probe.py": "b8749cb9a380d4b85a4ac00e4624ac7eb215cea0396a35f3efc9206ac8a4ff4c",
+      "configs/studies/wo03-ccx-output-probe.yaml": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa",
+      "build/wo03-ccx-output-probe-v1/record.json": "68789f9bc76d3014da0a28dfd059a47e13786d4401087d61bce2ccba53fa48b9",
+      "build/wo03-ccx-output-probe-v1/runner-as-run.py": "b8749cb9a380d4b85a4ac00e4624ac7eb215cea0396a35f3efc9206ac8a4ff4c",
+      "build/wo03-ccx-output-probe-v1/run-config-as-run.yaml": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa"
+    },
+    "post_run_review_manifest": {
+      "scripts/wo03_ccx_output_probe.py": "73cbfbf71810ed8cadcc0756a0c1b52c3f8aa6860a84a7c3892c38472daa0442",
+      "tests/test_ccx_output_probe.py": "80188c3a45d233fb6f01639d32c1a41497ad9c61c9bac3a74e5f69da3e883425",
+      "configs/studies/wo03-ccx-output-probe.yaml": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa",
+      "configs/studies/wo03-thermal-error-isolation.yaml": "04bfb41d359a2f4513c531bf4cb9f7c131d7db4175215a3169c1b22879bc8589",
+      "build/wo03-ccx-output-probe-v1/runner-as-run.py": "b8749cb9a380d4b85a4ac00e4624ac7eb215cea0396a35f3efc9206ac8a4ff4c",
+      "build/wo03-ccx-output-probe-v1/run-config-as-run.yaml": "61bb82162846063fe22eacb61229e05f7d13920ba15cddf331dc1561f87c95fa",
+      "build/wo03-ccx-output-probe-v1/record.json": "68789f9bc76d3014da0a28dfd059a47e13786d4401087d61bce2ccba53fa48b9",
+      "build/wo03-ccx-output-probe-v1/runner-parser-correction.diff": "63a2818eb672d10eefdaf9b9e32d4daa51c2fb16086b7dd718cb835f1ba7371f",
+      "build/wo03-ccx-output-probe-v1/read-only-decode.json": "d5a5de101152c40f7fd2904383c1f411bf66060f6c97a5221220f4438bc939df",
+      "build/wo03-ccx-output-probe-v1/A-2/case.inp": "5e50a7a7dc5a0be1d8f383cb2da76cbdb38f3d545c840d8d7304713bf2c152d6",
+      "build/wo03-ccx-output-probe-v1/A-2/case.frd": "7a85e1201c6181d3905db82d792c473e68300a54089e89d6d2de4d4b56ba4790",
+      "build/wo03-ccx-output-probe-v1/A-2/case.dat": "73d5a01fbc776e34d723005129efa5406f85f69005a04d676bc2161fa240bd76",
+      "build/wo03-ccx-output-probe-v1/A-2/stdout.txt": "be979c4fd70f397b12acbbbc290b14d5308e2df7b69da79649f60411783155e9",
+      "original_as_run_manifest_sha256": "44e9a82fe0648912c30c0f798fc566dc3d5ca4aa8885948f301ff174df1bd34b"
+    },
+    "as_run_runner_source": "\"\"\"One declared, output-only CalculiX diagnostic on the retained A decks.\n\nThe only input edit is a *NODE OUTPUT request for NT and RFL. No mesh,\nboundary, material, or numerical method is generated or changed here.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport hashlib\nimport json\nimport math\nimport os\nimport resource\nimport struct\nimport subprocess\nimport time\nfrom pathlib import Path\n\nimport yaml\n\nROOT = Path(__file__).resolve().parents[1]\nCONFIG = ROOT / \"configs/studies/wo03-ccx-output-probe.yaml\"\nSOURCE_CONFIG = ROOT / \"configs/studies/wo03-thermal-error-isolation.yaml\"\n\n\ndef sha256(path: Path) -> str:\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\n\ndef parse_nodes(inp: str) -> dict[int, tuple[float, float, float]]:\n    lines = inp.splitlines()\n    start = next((i for i, line in enumerate(lines) if line.upper().startswith(\"*NODE\")), None)\n    if start is None:\n        raise ValueError(\"Input has no node block\")\n    nodes: dict[int, tuple[float, float, float]] = {}\n    for line in lines[start + 1 :]:\n        if line.startswith(\"*\"):\n            break\n        if not line.strip():\n            continue\n        fields = [part.strip() for part in line.split(\",\")]\n        if len(fields) < 4:\n            raise ValueError(\"Malformed node record in retained deck\")\n        nodes[int(fields[0])] = (float(fields[1]), float(fields[2]), float(fields[3]))\n    if not nodes:\n        raise ValueError(\"Empty node block\")\n    return nodes\n\n\ndef add_output_request(original: str) -> str:\n    endings = [i for i, line in enumerate(original.splitlines()) if line.strip().upper() == \"*END STEP\"]\n    if len(endings) != 1:\n        raise ValueError(\"Expected one *END STEP in retained A input\")\n    lines = original.splitlines()\n    idx = endings[0]\n    if any(line.strip().upper().startswith(\"*NODE OUTPUT\") for line in lines):\n        raise ValueError(\"Retained source already has NODE OUTPUT; refusing to alter it\")\n    lines[idx:idx] = [\"*NODE OUTPUT\", \"NT,RFL\"]\n    return \"\\n\".join(lines) + \"\\n\"\n\n\ndef parse_dat_temperatures(text: str) -> dict[int, float]:\n    parts = text.lower().split(\"temperatures\", 1)\n    if len(parts) != 2:\n        raise ValueError(\"No DAT temperatures block\")\n    values: dict[int, float] = {}\n    for line in parts[1].splitlines()[1:]:\n        fields = line.split()\n        if len(fields) == 2 and fields[0].isdigit():\n            values[int(fields[0])] = float(fields[1])\n        elif values:\n            break\n    if not values:\n        raise ValueError(\"DAT temperatures block has no values\")\n    return values\n\n\ndef parse_binary_scalar_field(frd: bytes, field: bytes, node_ids: list[int]) -> dict[int, float]:\n    \"\"\"Decode a scalar mixed-FRD field after checking framing and all node IDs.\n\n    Mapping follows the record layout in upstream frdselect.c: 4-byte integer\n    node ID followed by one 4-byte float per scalar node; the text -3 record\n    terminates that field. If any framing differs, fail closed and preserve FRD.\n    \"\"\"\n    marker = b\" -4 \" + field\n    starts = []\n    offset = 0\n    while True:\n        at = frd.find(marker, offset)\n        if at < 0:\n            break\n        starts.append(at)\n        offset = at + len(marker)\n    if len(starts) != 1:\n        raise ValueError(f\"Expected one FRD {field.decode()} field header, got {len(starts)}\")\n    pos = frd.find(b\"\\n\", starts[0]) + 1\n    if pos == 0:\n        raise ValueError(\"Truncated FRD field header\")\n    metadata_end = frd.find(b\"\\n\", pos)\n    if metadata_end < 0:\n        raise ValueError(\"Truncated FRD component header\")\n    component = frd[pos:metadata_end]\n    if not component.startswith(b\" -5 \"):\n        raise ValueError(\"Unexpected FRD component header\")\n    start = metadata_end + 1\n    end = start + 8 * len(node_ids)\n    if end > len(frd):\n        raise ValueError(\"Truncated binary FRD scalar records\")\n    terminator = frd[end : end + 4]\n    if terminator != b\" -3\\n\":\n        raise ValueError(f\"Unexpected binary FRD field terminator: {terminator!r}\")\n    result: dict[int, float] = {}\n    for i, expected_id in enumerate(node_ids):\n        node, value = struct.unpack_from(\"<if\", frd, start + i * 8)\n        if node != expected_id or not math.isfinite(value):\n            raise ValueError(f\"Unexpected binary field record at index {i}: id={node}, value={value}\")\n        result[node] = value\n    return result\n\n\ndef exact_temperature(x: float, cfg: dict) -> float:\n    a = cfg[\"case_a\"]\n    dx, width, length = cfg[\"dimensions_m\"]\n    k = cfg[\"conductivity_w_m_k\"]\n    q = (a[\"hot_prescribed_k\"] - a[\"cold_bulk_k\"]) / (dx / k + 1.0 / a[\"h_w_m2_k\"])\n    return a[\"hot_prescribed_k\"] - q * x / k\n\n\ndef float32_spacing(value: float) -> float:\n    \"\"\"ULP for a positive finite binary32 value, using adjacent IEEE bits.\"\"\"\n    bits = int.from_bytes(struct.pack(\"<f\", value), \"little\")\n    here = struct.unpack(\"<f\", bits.to_bytes(4, \"little\"))[0]\n    following = struct.unpack(\"<f\", (bits + 1).to_bytes(4, \"little\"))[0]\n    return following - here\n\n\ndef run(outdir: Path) -> None:\n    if outdir.exists():\n        raise FileExistsError(f\"Fresh output path required: {outdir}\")\n    outdir.mkdir(parents=True, exist_ok=False)\n    setup_start = time.monotonic()\n    proc_cpu_total = 0.0\n    env = os.environ.copy()\n    for key in (\n        \"OMP_NUM_THREADS\", \"OPENBLAS_NUM_THREADS\", \"MKL_NUM_THREADS\",\n        \"VECLIB_MAXIMUM_THREADS\", \"BLIS_NUM_THREADS\", \"CCX_NPROC_EQUATION_SOLVER\",\n        \"CCX_NPROC_RESULTS\", \"CCX_NPROC_CFD\",\n    ):\n        env[key] = \"1\"\n    cfg = yaml.safe_load(CONFIG.read_text())\n    source_cfg = yaml.safe_load(SOURCE_CONFIG.read_text())\n    binary = Path(cfg[\"binary\"])\n    records: dict = {\n        \"packet\": cfg[\"id\"],\n        \"config_sha256\": sha256(CONFIG),\n        \"binary_path\": str(binary),\n        \"binary_realpath\": str(binary.resolve()),\n        \"binary_sha256\": sha256(binary),\n        \"threads_requested\": 1,\n        \"environment_threads\": {key: env[key] for key in (\n            \"OMP_NUM_THREADS\", \"OPENBLAS_NUM_THREADS\", \"MKL_NUM_THREADS\",\n            \"VECLIB_MAXIMUM_THREADS\", \"BLIS_NUM_THREADS\", \"CCX_NPROC_EQUATION_SOLVER\",\n            \"CCX_NPROC_RESULTS\", \"CCX_NPROC_CFD\",\n        )},\n        \"case_wall_limit_seconds_all_grids\": cfg[\"limits\"][\"case_wall_seconds_all_grids\"],\n        \"packet_cpu_limit_seconds\": cfg[\"limits\"][\"packet_cpu_seconds\"],\n        \"grids\": [],\n        \"status\": \"preflight\",\n    }\n    record_path = outdir / \"record.json\"\n    try:\n        if records[\"binary_sha256\"] != cfg[\"binary_sha256\"]:\n            raise ValueError(\"Installed CalculiX hash differs from declared packet\")\n        original_sources: dict[str, str] = {}\n        for item in cfg[\"grids\"]:\n            src = ROOT / item[\"input\"]\n            actual = sha256(src)\n            if actual != item[\"input_sha256\"]:\n                raise ValueError(f\"Retained source hash mismatch: {item['input']}\")\n            original_sources[str(src.relative_to(ROOT))] = actual\n        records[\"source_inputs\"] = original_sources\n        records[\"source_config_sha256\"] = sha256(SOURCE_CONFIG)\n        records[\"setup_wall_seconds\"] = time.monotonic() - setup_start\n        if records[\"setup_wall_seconds\"] > 120:\n            raise TimeoutError(\"Declared setup wall limit reached before solve\")\n        case_start = time.monotonic()\n        records[\"status\"] = \"running\"\n        record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n        for item in cfg[\"grids\"]:\n            elapsed = time.monotonic() - case_start\n            remaining = cfg[\"limits\"][\"case_wall_seconds_all_grids\"] - elapsed\n            if remaining <= 0 or proc_cpu_total >= cfg[\"limits\"][\"packet_cpu_seconds\"]:\n                raise TimeoutError(\"Declared A-case or packet limit reached; no retry\")\n            src = ROOT / item[\"input\"]\n            original = src.read_text()\n            nodes = parse_nodes(original)\n            expected_node_count = (int(item[\"divisions\"]) + 1) ** 3\n            if len(nodes) != expected_node_count or list(nodes) != list(range(1, expected_node_count + 1)):\n                raise ValueError(\"Retained deck node topology is not the expected structured A grid\")\n            folder = outdir / f\"A-{item['divisions']}\"\n            folder.mkdir()\n            modified = add_output_request(original)\n            inp = folder / \"case.inp\"\n            inp.write_text(modified)\n            check = modified.replace(\"*NODE OUTPUT\\nNT,RFL\\n\", \"\", 1)\n            if check != original:\n                raise ValueError(\"Input edit exceeded the output-only card insertion\")\n            (folder / \"source_input.sha256\").write_text(item[\"input_sha256\"] + \"  \" + item[\"input\"] + \"\\n\")\n            before = resource.getrusage(resource.RUSAGE_CHILDREN)\n            begin = time.monotonic()\n            proc = subprocess.run(\n                [str(binary), \"-i\", \"case\"], cwd=folder, env=env,\n                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,\n                timeout=remaining, check=False,\n            )\n            usage = resource.getrusage(resource.RUSAGE_CHILDREN)\n            cpu = (usage.ru_utime + usage.ru_stime) - (before.ru_utime + before.ru_stime)\n            proc_cpu_total += cpu\n            wall = time.monotonic() - begin\n            (folder / \"stdout.txt\").write_text(proc.stdout)\n            row = {\n                \"divisions\": item[\"divisions\"], \"source_input\": item[\"input\"],\n                \"source_input_sha256\": item[\"input_sha256\"],\n                \"probe_input_sha256\": sha256(inp), \"returncode\": proc.returncode,\n                \"wall_seconds\": wall, \"child_cpu_seconds\": cpu,\n                \"child_peak_rss_bytes_cumulative_max\": usage.ru_maxrss,\n                \"completed_marker\": \"Job finished\" in proc.stdout,\n                \"status\": \"solved\" if proc.returncode == 0 and \"Job finished\" in proc.stdout else \"invalid_solve\",\n            }\n            records[\"grids\"].append(row)\n            record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n            if row[\"status\"] != \"solved\":\n                raise RuntimeError(\"Invalid solve; preserve outputs and stop without retry\")\n            frd_path = folder / \"case.frd\"\n            frd = frd_path.read_bytes()\n            ids = list(nodes)\n            fields = {\n                name: parse_binary_scalar_field(frd, field, ids)\n                for name, field in ((\"NT\", b\"NDTEMP\"), (\"RFL\", b\"RFL\"))\n            }\n            dat_t = parse_dat_temperatures((folder / \"case.dat\").read_text())\n            if set(dat_t) != set(ids):\n                raise ValueError(\"DAT field node IDs differ from retained source nodes\")\n            nt = fields[\"NT\"]\n            exact = {node_id: exact_temperature(xyz[0], source_cfg) for node_id, xyz in nodes.items()}\n            errors = [abs(nt[node_id] - exact[node_id]) for node_id in ids]\n            max_pair = max(abs(nt[node_id] - dat_t[node_id]) for node_id in ids)\n            vals = list(nt.values())\n            row.update({\n                \"node_count\": len(nodes), \"frd_size_bytes\": len(frd),\n                \"frd_field_record_mapping\": \"4-byte LE node ID + 4-byte LE float32 value, fixed node count, followed by ASCII ` -3\\\\n`; NT and RFL component headers verified\",\n                \"nt_min_k\": min(vals), \"nt_max_k\": max(vals),\n                \"nt_max_abs_error_from_exact_a_k\": max(errors),\n                \"nt_max_abs_difference_from_dat_print_k\": max_pair,\n                \"nt_float32_spacing_min_k\": min(float32_spacing(v) for v in vals),\n                \"nt_float32_spacing_max_k\": max(float32_spacing(v) for v in vals),\n                \"raw_output_meets_1e-7_k\": max(errors) <= 1e-7,\n                \"rfl_min\": min(fields[\"RFL\"].values()), \"rfl_max\": max(fields[\"RFL\"].values()),\n                \"rfl_semantics\": \"manual: external concentrated heat sources; not a film-integrated heat total\",\n            })\n            records[\"status\"] = \"running\"\n            record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n            if proc_cpu_total > cfg[\"limits\"][\"packet_cpu_seconds\"]:\n                raise TimeoutError(\"CPU limit exceeded; no retry\")\n        records[\"status\"] = \"complete_diagnostic_not_qualification\"\n    except BaseException as exc:\n        records[\"status\"] = \"incomplete_preserved\"\n        records[\"stop_reason\"] = f\"{type(exc).__name__}: {exc}\"\n        raise\n    finally:\n        records[\"setup_wall_seconds\"] = records.get(\"setup_wall_seconds\", time.monotonic() - setup_start)\n        records[\"case_wall_seconds_all_grids\"] = time.monotonic() - locals().get(\"case_start\", setup_start)\n        records[\"packet_child_cpu_seconds\"] = proc_cpu_total\n        records[\"setup_wall_limit_seconds\"] = 120\n        records[\"setup_included_in_case_wall\"] = False\n        records[\"source_inputs_unchanged_after\"] = {\n            rel: (ROOT / rel).exists() and sha256(ROOT / rel) == expected\n            for rel, expected in records.get(\"source_inputs\", {}).items()\n        }\n        record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n\n\ndef main() -> None:\n    parser = argparse.ArgumentParser()\n    parser.add_argument(\"--output\", default=\"build/wo03-ccx-output-probe-v1\")\n    args = parser.parse_args()\n    outdir = Path(args.output)\n    if not outdir.is_absolute():\n        outdir = ROOT / outdir\n    run(outdir)\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "source_input_A2": "*HEADING\nWO03 A level 2\n*NODE,NSET=ALL\n1,0,0,0\n2,0,0,0.0935\n3,0,0,0.187\n4,0,0.00050000000000000001,0\n5,0,0.00050000000000000001,0.0935\n6,0,0.00050000000000000001,0.187\n7,0,0.001,0\n8,0,0.001,0.0935\n9,0,0.001,0.187\n10,0.0001,0,0\n11,0.0001,0,0.0935\n12,0.0001,0,0.187\n13,0.0001,0.00050000000000000001,0\n14,0.0001,0.00050000000000000001,0.0935\n15,0.0001,0.00050000000000000001,0.187\n16,0.0001,0.001,0\n17,0.0001,0.001,0.0935\n18,0.0001,0.001,0.187\n19,0.00020000000000000001,0,0\n20,0.00020000000000000001,0,0.0935\n21,0.00020000000000000001,0,0.187\n22,0.00020000000000000001,0.00050000000000000001,0\n23,0.00020000000000000001,0.00050000000000000001,0.0935\n24,0.00020000000000000001,0.00050000000000000001,0.187\n25,0.00020000000000000001,0.001,0\n26,0.00020000000000000001,0.001,0.0935\n27,0.00020000000000000001,0.001,0.187\n*ELEMENT,TYPE=C3D4,ELSET=SOLID\n1,1,10,13,14\n2,1,11,10,14\n3,1,13,4,14\n4,1,4,5,14\n5,1,2,11,14\n6,1,5,2,14\n7,2,11,14,15\n8,2,12,11,15\n9,2,14,5,15\n10,2,5,6,15\n11,2,3,12,15\n12,2,6,3,15\n13,4,13,16,17\n14,4,14,13,17\n15,4,16,7,17\n16,4,7,8,17\n17,4,5,14,17\n18,4,8,5,17\n19,5,14,17,18\n20,5,15,14,18\n21,5,17,8,18\n22,5,8,9,18\n23,5,6,15,18\n24,5,9,6,18\n25,10,19,22,23\n26,10,20,19,23\n27,10,22,13,23\n28,10,13,14,23\n29,10,11,20,23\n30,10,14,11,23\n31,11,20,23,24\n32,11,21,20,24\n33,11,23,14,24\n34,11,14,15,24\n35,11,12,21,24\n36,11,15,12,24\n37,13,22,25,26\n38,13,23,22,26\n39,13,25,16,26\n40,13,16,17,26\n41,13,14,23,26\n42,13,17,14,26\n43,14,23,26,27\n44,14,24,23,27\n45,14,26,17,27\n46,14,17,18,27\n47,14,15,24,27\n48,14,18,15,27\n*NSET,NSET=HOT\n1,2,3,4,5,6,7,8,9\n*MATERIAL,NAME=GAS\n*CONDUCTIVITY\n0.04\n*SOLID SECTION,ELSET=SOLID,MATERIAL=GAS\n*STEP\n*HEAT TRANSFER,STEADY STATE\n*BOUNDARY\nHOT,11,11,573.15\n*FILM\n25,F3,308.15,36030.6\n26,F3,308.15,36030.6\n31,F3,308.15,36030.6\n32,F3,308.15,36030.6\n37,F3,308.15,36030.6\n38,F3,308.15,36030.6\n43,F3,308.15,36030.6\n44,F3,308.15,36030.6\n*NODE PRINT,NSET=ALL\nNT\n*NODE PRINT,NSET=HOT,TOTALS=YES\nRFL\n*END STEP\n",
+    "as_run_to_published_runner_diff": "--- as-run\n+++ published\n@@ -11,6 +11,7 @@\n import json\n import math\n import os\n+import re\n import resource\n import struct\n import subprocess\n@@ -49,7 +50,9 @@\n \n \n def add_output_request(original: str) -> str:\n-    endings = [i for i, line in enumerate(original.splitlines()) if line.strip().upper() == \"*END STEP\"]\n+    endings = [\n+        i for i, line in enumerate(original.splitlines()) if line.strip().upper() == \"*END STEP\"\n+    ]\n     if len(endings) != 1:\n         raise ValueError(\"Expected one *END STEP in retained A input\")\n     lines = original.splitlines()\n@@ -79,49 +82,79 @@\n def parse_binary_scalar_field(frd: bytes, field: bytes, node_ids: list[int]) -> dict[int, float]:\n     \"\"\"Decode a scalar mixed-FRD field after checking framing and all node IDs.\n \n-    Mapping follows the record layout in upstream frdselect.c: 4-byte integer\n-    node ID followed by one 4-byte float per scalar node; the text -3 record\n-    terminates that field. If any framing differs, fail closed and preserve FRD.\n+    Mapping follows upstream frdselect.c: 4-byte integer node ID followed by\n+    one 4-byte float per scalar node. Binary frdselect records have no ASCII\n+    -3 field terminator; fixed node count determines the next record boundary.\n+    Fail closed unless the component header, every node ID, and following\n+    structural marker agree with the observed CalculiX 2.23 file.\n     \"\"\"\n-    marker = b\" -4 \" + field\n-    starts = []\n-    offset = 0\n-    while True:\n-        at = frd.find(marker, offset)\n-        if at < 0:\n-            break\n-        starts.append(at)\n-        offset = at + len(marker)\n-    if len(starts) != 1:\n-        raise ValueError(f\"Expected one FRD {field.decode()} field header, got {len(starts)}\")\n-    pos = frd.find(b\"\\n\", starts[0]) + 1\n-    if pos == 0:\n+    marker = re.compile(rb\"(?m)^[ \\t]*-4[ \\t]+\" + re.escape(field) + rb\"[ \\t]+[^\\n]*\\n\")\n+    matches = list(marker.finditer(frd))\n+    if len(matches) != 1:\n+        raise ValueError(f\"Expected one FRD {field.decode()} field header, got {len(matches)}\")\n+    pos = matches[0].end()\n+    if pos < 2:\n         raise ValueError(\"Truncated FRD field header\")\n     metadata_end = frd.find(b\"\\n\", pos)\n     if metadata_end < 0:\n         raise ValueError(\"Truncated FRD component header\")\n     component = frd[pos:metadata_end]\n-    if not component.startswith(b\" -5 \"):\n+    parts = component.split()\n+    expected_component = b\"T\" if field == b\"NDTEMP\" else field\n+    if len(parts) < 2 or parts[0] != b\"-5\" or parts[1] != expected_component:\n         raise ValueError(\"Unexpected FRD component header\")\n     start = metadata_end + 1\n     end = start + 8 * len(node_ids)\n     if end > len(frd):\n         raise ValueError(\"Truncated binary FRD scalar records\")\n-    terminator = frd[end : end + 4]\n-    if terminator != b\" -3\\n\":\n-        raise ValueError(f\"Unexpected binary FRD field terminator: {terminator!r}\")\n+    following = frd[end : end + 32]\n+    # These exact fixed-column prefixes are observed in the pinned 2.23 file.\n+    # Accepting arbitrary whitespace here could hide a truncated binary value\n+    # by consuming a byte from the following ASCII header.\n+    if field == b\"NDTEMP\":\n+        if not re.match(rb\"    1PSTEP\\b\", following):\n+            raise ValueError(f\"Unexpected bytes after NT records: {following!r}\")\n+    elif field == b\"RFL\" and not following.startswith(b\" 9999\\n\"):\n+        raise ValueError(f\"Unexpected bytes after RFL records: {following!r}\")\n     result: dict[int, float] = {}\n     for i, expected_id in enumerate(node_ids):\n         node, value = struct.unpack_from(\"<if\", frd, start + i * 8)\n         if node != expected_id or not math.isfinite(value):\n-            raise ValueError(f\"Unexpected binary field record at index {i}: id={node}, value={value}\")\n+            raise ValueError(\n+                f\"Unexpected binary field record at index {i}: id={node}, value={value}\"\n+            )\n         result[node] = value\n     return result\n \n \n+def parse_dat_rfl(text: str) -> tuple[dict[int, float], float]:\n+    lower = text.lower()\n+    key = \"heat generation for set hot\"\n+    if key not in lower:\n+        raise ValueError(\"No DAT hot-set RFL block\")\n+    block = text[lower.index(key) + len(key) :]\n+    values: dict[int, float] = {}\n+    for line in block.splitlines()[1:]:\n+        fields = line.split()\n+        if len(fields) == 2 and fields[0].isdigit():\n+            values[int(fields[0])] = float(fields[1])\n+        elif values:\n+            break\n+    total_key = \"total heat generation for set hot\"\n+    if total_key not in lower:\n+        raise ValueError(\"No DAT hot-set RFL total\")\n+    total_block = text[lower.index(total_key) + len(total_key) :]\n+    total = next(\n+        (float(line.split()[0]) for line in total_block.splitlines()[1:] if line.split()), None\n+    )\n+    if not values or total is None:\n+        raise ValueError(\"Incomplete DAT hot-set RFL block\")\n+    return values, total\n+\n+\n def exact_temperature(x: float, cfg: dict) -> float:\n     a = cfg[\"case_a\"]\n-    dx, width, length = cfg[\"dimensions_m\"]\n+    dx, _width, _length = cfg[\"dimensions_m\"]\n     k = cfg[\"conductivity_w_m_k\"]\n     q = (a[\"hot_prescribed_k\"] - a[\"cold_bulk_k\"]) / (dx / k + 1.0 / a[\"h_w_m2_k\"])\n     return a[\"hot_prescribed_k\"] - q * x / k\n@@ -143,9 +176,14 @@\n     proc_cpu_total = 0.0\n     env = os.environ.copy()\n     for key in (\n-        \"OMP_NUM_THREADS\", \"OPENBLAS_NUM_THREADS\", \"MKL_NUM_THREADS\",\n-        \"VECLIB_MAXIMUM_THREADS\", \"BLIS_NUM_THREADS\", \"CCX_NPROC_EQUATION_SOLVER\",\n-        \"CCX_NPROC_RESULTS\", \"CCX_NPROC_CFD\",\n+        \"OMP_NUM_THREADS\",\n+        \"OPENBLAS_NUM_THREADS\",\n+        \"MKL_NUM_THREADS\",\n+        \"VECLIB_MAXIMUM_THREADS\",\n+        \"BLIS_NUM_THREADS\",\n+        \"CCX_NPROC_EQUATION_SOLVER\",\n+        \"CCX_NPROC_RESULTS\",\n+        \"CCX_NPROC_CFD\",\n     ):\n         env[key] = \"1\"\n     cfg = yaml.safe_load(CONFIG.read_text())\n@@ -158,11 +196,19 @@\n         \"binary_realpath\": str(binary.resolve()),\n         \"binary_sha256\": sha256(binary),\n         \"threads_requested\": 1,\n-        \"environment_threads\": {key: env[key] for key in (\n-            \"OMP_NUM_THREADS\", \"OPENBLAS_NUM_THREADS\", \"MKL_NUM_THREADS\",\n-            \"VECLIB_MAXIMUM_THREADS\", \"BLIS_NUM_THREADS\", \"CCX_NPROC_EQUATION_SOLVER\",\n-            \"CCX_NPROC_RESULTS\", \"CCX_NPROC_CFD\",\n-        )},\n+        \"environment_threads\": {\n+            key: env[key]\n+            for key in (\n+                \"OMP_NUM_THREADS\",\n+                \"OPENBLAS_NUM_THREADS\",\n+                \"MKL_NUM_THREADS\",\n+                \"VECLIB_MAXIMUM_THREADS\",\n+                \"BLIS_NUM_THREADS\",\n+                \"CCX_NPROC_EQUATION_SOLVER\",\n+                \"CCX_NPROC_RESULTS\",\n+                \"CCX_NPROC_CFD\",\n+            )\n+        },\n         \"case_wall_limit_seconds_all_grids\": cfg[\"limits\"][\"case_wall_seconds_all_grids\"],\n         \"packet_cpu_limit_seconds\": cfg[\"limits\"][\"packet_cpu_seconds\"],\n         \"grids\": [],\n@@ -196,8 +242,12 @@\n             original = src.read_text()\n             nodes = parse_nodes(original)\n             expected_node_count = (int(item[\"divisions\"]) + 1) ** 3\n-            if len(nodes) != expected_node_count or list(nodes) != list(range(1, expected_node_count + 1)):\n-                raise ValueError(\"Retained deck node topology is not the expected structured A grid\")\n+            if len(nodes) != expected_node_count or list(nodes) != list(\n+                range(1, expected_node_count + 1)\n+            ):\n+                raise ValueError(\n+                    \"Retained deck node topology is not the expected structured A grid\"\n+                )\n             folder = outdir / f\"A-{item['divisions']}\"\n             folder.mkdir()\n             modified = add_output_request(original)\n@@ -206,13 +256,20 @@\n             check = modified.replace(\"*NODE OUTPUT\\nNT,RFL\\n\", \"\", 1)\n             if check != original:\n                 raise ValueError(\"Input edit exceeded the output-only card insertion\")\n-            (folder / \"source_input.sha256\").write_text(item[\"input_sha256\"] + \"  \" + item[\"input\"] + \"\\n\")\n+            (folder / \"source_input.sha256\").write_text(\n+                item[\"input_sha256\"] + \"  \" + item[\"input\"] + \"\\n\"\n+            )\n             before = resource.getrusage(resource.RUSAGE_CHILDREN)\n             begin = time.monotonic()\n             proc = subprocess.run(\n-                [str(binary), \"-i\", \"case\"], cwd=folder, env=env,\n-                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,\n-                timeout=remaining, check=False,\n+                [str(binary), \"-i\", \"case\"],\n+                cwd=folder,\n+                env=env,\n+                stdout=subprocess.PIPE,\n+                stderr=subprocess.STDOUT,\n+                text=True,\n+                timeout=remaining,\n+                check=False,\n             )\n             usage = resource.getrusage(resource.RUSAGE_CHILDREN)\n             cpu = (usage.ru_utime + usage.ru_stime) - (before.ru_utime + before.ru_stime)\n@@ -220,13 +277,20 @@\n             wall = time.monotonic() - begin\n             (folder / \"stdout.txt\").write_text(proc.stdout)\n             row = {\n-                \"divisions\": item[\"divisions\"], \"source_input\": item[\"input\"],\n+                \"divisions\": item[\"divisions\"],\n+                \"source_input\": item[\"input\"],\n                 \"source_input_sha256\": item[\"input_sha256\"],\n-                \"probe_input_sha256\": sha256(inp), \"returncode\": proc.returncode,\n-                \"wall_seconds\": wall, \"child_cpu_seconds\": cpu,\n+                \"probe_input_sha256\": sha256(inp),\n+                \"returncode\": proc.returncode,\n+                \"wall_seconds\": wall,\n+                \"child_cpu_seconds\": cpu,\n                 \"child_peak_rss_bytes_cumulative_max\": usage.ru_maxrss,\n                 \"completed_marker\": \"Job finished\" in proc.stdout,\n-                \"status\": \"solved\" if proc.returncode == 0 and \"Job finished\" in proc.stdout else \"invalid_solve\",\n+                \"status\": (\n+                    \"solved\"\n+                    if proc.returncode == 0 and \"Job finished\" in proc.stdout\n+                    else \"invalid_solve\"\n+                ),\n             }\n             records[\"grids\"].append(row)\n             record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n@@ -243,22 +307,29 @@\n             if set(dat_t) != set(ids):\n                 raise ValueError(\"DAT field node IDs differ from retained source nodes\")\n             nt = fields[\"NT\"]\n-            exact = {node_id: exact_temperature(xyz[0], source_cfg) for node_id, xyz in nodes.items()}\n+            exact = {\n+                node_id: exact_temperature(xyz[0], source_cfg) for node_id, xyz in nodes.items()\n+            }\n             errors = [abs(nt[node_id] - exact[node_id]) for node_id in ids]\n             max_pair = max(abs(nt[node_id] - dat_t[node_id]) for node_id in ids)\n             vals = list(nt.values())\n-            row.update({\n-                \"node_count\": len(nodes), \"frd_size_bytes\": len(frd),\n-                \"frd_field_record_mapping\": \"4-byte LE node ID + 4-byte LE float32 value, fixed node count, followed by ASCII ` -3\\\\n`; NT and RFL component headers verified\",\n-                \"nt_min_k\": min(vals), \"nt_max_k\": max(vals),\n-                \"nt_max_abs_error_from_exact_a_k\": max(errors),\n-                \"nt_max_abs_difference_from_dat_print_k\": max_pair,\n-                \"nt_float32_spacing_min_k\": min(float32_spacing(v) for v in vals),\n-                \"nt_float32_spacing_max_k\": max(float32_spacing(v) for v in vals),\n-                \"raw_output_meets_1e-7_k\": max(errors) <= 1e-7,\n-                \"rfl_min\": min(fields[\"RFL\"].values()), \"rfl_max\": max(fields[\"RFL\"].values()),\n-                \"rfl_semantics\": \"manual: external concentrated heat sources; not a film-integrated heat total\",\n-            })\n+            row.update(\n+                {\n+                    \"node_count\": len(nodes),\n+                    \"frd_size_bytes\": len(frd),\n+                    \"frd_field_record_mapping\": \"4-byte LE node ID + 4-byte LE float32 value, fixed node count, followed by ASCII ` -3\\\\n`; NT and RFL component headers verified\",\n+                    \"nt_min_k\": min(vals),\n+                    \"nt_max_k\": max(vals),\n+                    \"nt_max_abs_error_from_exact_a_k\": max(errors),\n+                    \"nt_max_abs_difference_from_dat_print_k\": max_pair,\n+                    \"nt_float32_spacing_min_k\": min(float32_spacing(v) for v in vals),\n+                    \"nt_float32_spacing_max_k\": max(float32_spacing(v) for v in vals),\n+                    \"raw_output_meets_1e-7_k\": max(errors) <= 1e-7,\n+                    \"rfl_min\": min(fields[\"RFL\"].values()),\n+                    \"rfl_max\": max(fields[\"RFL\"].values()),\n+                    \"rfl_semantics\": \"manual: external concentrated heat sources; not a film-integrated heat total\",\n+                }\n+            )\n             records[\"status\"] = \"running\"\n             record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n             if proc_cpu_total > cfg[\"limits\"][\"packet_cpu_seconds\"]:\n@@ -269,8 +340,12 @@\n         records[\"stop_reason\"] = f\"{type(exc).__name__}: {exc}\"\n         raise\n     finally:\n-        records[\"setup_wall_seconds\"] = records.get(\"setup_wall_seconds\", time.monotonic() - setup_start)\n-        records[\"case_wall_seconds_all_grids\"] = time.monotonic() - locals().get(\"case_start\", setup_start)\n+        records[\"setup_wall_seconds\"] = records.get(\n+            \"setup_wall_seconds\", time.monotonic() - setup_start\n+        )\n+        records[\"case_wall_seconds_all_grids\"] = time.monotonic() - locals().get(\n+            \"case_start\", setup_start\n+        )\n         records[\"packet_child_cpu_seconds\"] = proc_cpu_total\n         records[\"setup_wall_limit_seconds\"] = 120\n         records[\"setup_included_in_case_wall\"] = False\n@@ -281,14 +356,110 @@\n         record_path.write_text(json.dumps(records, indent=2) + \"\\n\")\n \n \n+def decode_preserved(outdir: Path) -> None:\n+    \"\"\"Read the preserved A-2 artifacts only; never invoke CalculiX.\"\"\"\n+    record_path = outdir / \"record.json\"\n+    original_record = json.loads(record_path.read_text())\n+    if (\n+        original_record.get(\"status\") != \"incomplete_preserved\"\n+        or len(original_record.get(\"grids\", [])) != 1\n+    ):\n+        raise ValueError(\n+            \"Read-only decode is limited to the single preserved A-2 diagnostic result\"\n+        )\n+    cfg = yaml.safe_load(CONFIG.read_text())\n+    source_cfg = yaml.safe_load(SOURCE_CONFIG.read_text())\n+    item = cfg[\"grids\"][0]\n+    source = ROOT / item[\"input\"]\n+    if sha256(source) != item[\"input_sha256\"]:\n+        raise ValueError(\"A-2 retained source changed since run\")\n+    folder = outdir / \"A-2\"\n+    input_text = source.read_text()\n+    nodes = parse_nodes(input_text)\n+    frd = (folder / \"case.frd\").read_bytes()\n+    ids = list(nodes)\n+    nt = parse_binary_scalar_field(frd, b\"NDTEMP\", ids)\n+    rfl = parse_binary_scalar_field(frd, b\"RFL\", ids)\n+    dat = (folder / \"case.dat\").read_text()\n+    dat_nt = parse_dat_temperatures(dat)\n+    dat_rfl, dat_rfl_total = parse_dat_rfl(dat)\n+    exact = {node_id: exact_temperature(xyz[0], source_cfg) for node_id, xyz in nodes.items()}\n+    nt_values = list(nt.values())\n+    hot_ids = [node_id for node_id, xyz in nodes.items() if xyz[0] == 0.0]\n+    observed = {\n+        \"source_packet_record_sha256_before_decode\": sha256(record_path),\n+        \"probe_config_sha256\": sha256(CONFIG),\n+        \"source_config_sha256\": sha256(SOURCE_CONFIG),\n+        \"binary_sha256\": original_record[\"binary_sha256\"],\n+        \"as_run_manifest\": json.loads((outdir / \"as-run-manifest.json\").read_text()),\n+        \"preserved_run_record_status\": original_record[\"status\"],\n+        \"preserved_run_stop_reason\": original_record.get(\"stop_reason\"),\n+        \"solver_returncode\": original_record[\"grids\"][0][\"returncode\"],\n+        \"solver_wall_seconds\": original_record[\"grids\"][0][\"wall_seconds\"],\n+        \"solver_child_cpu_seconds\": original_record[\"grids\"][0][\"child_cpu_seconds\"],\n+        \"solver_child_peak_rss_bytes_cumulative_max\": original_record[\"grids\"][0][\n+            \"child_peak_rss_bytes_cumulative_max\"\n+        ],\n+        \"packet_wall_seconds_at_parser_stop\": original_record[\"case_wall_seconds_all_grids\"],\n+        \"packet_child_cpu_seconds_at_parser_stop\": original_record[\"packet_child_cpu_seconds\"],\n+        \"setup_wall_seconds\": original_record[\"setup_wall_seconds\"],\n+        \"raw_frd_sha256\": sha256(folder / \"case.frd\"),\n+        \"probe_input_sha256\": sha256(folder / \"case.inp\"),\n+        \"source_input_sha256_after\": sha256(source),\n+        \"divisions\": 2,\n+        \"node_count\": len(nodes),\n+        \"frd_header_lines\": [\n+            \" -4  NDTEMP 1 1\",\n+            \" -5  T 1 1 0 0\",\n+            \" -4  RFL 1 1\",\n+            \" -5  RFL 1 1 0 0\",\n+        ],\n+        \"frd_record_layout\": \"source-based four-byte native int node IDs followed by four-byte native float32 scalar values; fixed all-node count; NT block followed by ASCII 1PSTEP header and RFL block followed by ASCII 9999 file footer\",\n+        \"field_framing_checks\": \"all node IDs decoded in order 1..27; component labels and following structural headers matched\",\n+        \"nt_min_k\": min(nt_values),\n+        \"nt_max_k\": max(nt_values),\n+        \"nt_max_abs_error_from_exact_a_k\": max(\n+            abs(nt[node_id] - exact[node_id]) for node_id in ids\n+        ),\n+        \"nt_max_abs_difference_from_dat_print_k\": max(\n+            abs(nt[node_id] - dat_nt[node_id]) for node_id in ids\n+        ),\n+        \"nt_float32_spacing_min_k\": min(float32_spacing(v) for v in nt_values),\n+        \"nt_float32_spacing_max_k\": max(float32_spacing(v) for v in nt_values),\n+        \"unchanged_1e-7_k_field_check\": \"not demonstrated by this float32 field encoding; no tolerance was relaxed\",\n+        \"rfl_min\": min(rfl.values()),\n+        \"rfl_max\": max(rfl.values()),\n+        \"rfl_hot_sum\": sum(rfl[node_id] for node_id in hot_ids),\n+        \"rfl_hot_node_float32_spacing_min_w\": min(\n+            float32_spacing(abs(rfl[node_id])) for node_id in hot_ids\n+        ),\n+        \"rfl_hot_node_float32_spacing_max_w\": max(\n+            float32_spacing(abs(rfl[node_id])) for node_id in hot_ids\n+        ),\n+        \"rfl_hot_sum_dat_total\": dat_rfl_total,\n+        \"rfl_hot_node_max_difference_from_dat\": max(\n+            abs(rfl[node_id] - dat_rfl[node_id]) for node_id in hot_ids\n+        ),\n+        \"rfl_semantics\": \"manual identifies external concentrated heat sources; the output does not by itself establish integrated *FILM heat\",\n+        \"grid_4_and_8\": \"not run: preserved A-2 parser-format stop rule; no reruns or additional grids\",\n+        \"packet_status\": \"partial_diagnostic; three-grid packet incomplete; solver acceptance not established\",\n+    }\n+    decode_path = outdir / \"read-only-decode.json\"\n+    decode_path.write_text(json.dumps(observed, indent=2) + \"\\n\")\n+\n+\n def main() -> None:\n     parser = argparse.ArgumentParser()\n     parser.add_argument(\"--output\", default=\"build/wo03-ccx-output-probe-v1\")\n+    parser.add_argument(\"--decode-preserved-only\", action=\"store_true\")\n     args = parser.parse_args()\n     outdir = Path(args.output)\n     if not outdir.is_absolute():\n         outdir = ROOT / outdir\n-    run(outdir)\n+    if args.decode_preserved_only:\n+        decode_preserved(outdir)\n+    else:\n+        run(outdir)\n \n \n if __name__ == \"__main__\":\n",
+    "published_runner_sha256": "d8c4936826fffe6cdd1c48d0f9663122cc5c1ad1c0870d179f8931b59d6e47d2",
+    "packet_stopped": true,
+    "three_grids_completed": false,
+    "new_solve_after_stop": false
+  },
+  "fin_solid_map": {
+    "status": "solid_mapping_completed_face_ownership_unclosed",
+    "matches": [
+      {
+        "name": "root_insert_and_tab",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            41.93867924528302,
+            -4.685560116002925e-17,
+            60.0
+          ],
+          "bbox_mm": [
+            30.5,
+            53.0,
+            -2.5,
+            2.5,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 13250.0
+        },
+        "original_step_solid_index": 0,
+        "original_descriptor": {
+          "centroid_mm": [
+            41.93867924528302,
+            -4.685560116002925e-17,
+            60.0
+          ],
+          "bbox_mm": [
+            30.5,
+            53.0,
+            -2.5,
+            2.5,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 13250.0
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "root_insert_and_tab",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -20.969339622641492,
+            36.31996162758229,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -28.665063509461085,
+            -13.084936490538896,
+            25.16377481542538,
+            47.149346400575254,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 13250.000000000002
+        },
+        "original_step_solid_index": 1,
+        "original_descriptor": {
+          "centroid_mm": [
+            -20.9693396226358,
+            36.319961627580184,
+            60.0
+          ],
+          "bbox_mm": [
+            -28.6650635094639,
+            -13.08493649053,
+            25.16377481542067,
+            47.149346400575,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 13250.000000017995
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "root_insert_and_tab",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -20.969339622641524,
+            -36.31996162758227,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -28.66506350946112,
+            -13.084936490538917,
+            -47.14934640057524,
+            -25.16377481542537,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 13250.0
+        },
+        "original_step_solid_index": 2,
+        "original_descriptor": {
+          "centroid_mm": [
+            -20.96933962263785,
+            -36.31996162757828,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            -28.665063509464332,
+            -13.08493649053,
+            -47.14934640057433,
+            -25.16377481542,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 13250.000000018086
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foam_core",
+        "material": "PVC_foam",
+        "density_kg_m3": 75,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            78.0,
+            -1.4210854715202004e-17,
+            60.0
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            -2.5,
+            2.5,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 30000.0
+        },
+        "original_step_solid_index": 3,
+        "original_descriptor": {
+          "centroid_mm": [
+            78.0,
+            -1.4210854715202004e-17,
+            60.0
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            -2.5,
+            2.5,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 30000.0
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foam_core",
+        "material": "PVC_foam",
+        "density_kg_m3": 75,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -38.999999999999986,
+            67.54998149518623,
+            60.0
+          ],
+          "bbox_mm": [
+            -53.66506350946108,
+            -24.33493649053889,
+            44.649346400575254,
+            90.45061658979719,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 30000.000000000007
+        },
+        "original_step_solid_index": 4,
+        "original_descriptor": {
+          "centroid_mm": [
+            -38.999999999995254,
+            67.5499814951837,
+            60.0
+          ],
+          "bbox_mm": [
+            -53.665063509469526,
+            -24.33493649053,
+            44.64934640057067,
+            90.450616589797,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 30000.000000040596
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foam_core",
+        "material": "PVC_foam",
+        "density_kg_m3": 75,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -39.00000000000004,
+            -67.5499814951862,
+            60.0
+          ],
+          "bbox_mm": [
+            -53.66506350946114,
+            -24.33493649053893,
+            -90.45061658979715,
+            -44.64934640057523,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 29999.999999999993
+        },
+        "original_step_solid_index": 5,
+        "original_descriptor": {
+          "centroid_mm": [
+            -38.99999999999703,
+            -67.54998149518102,
+            60.000000000000014
+          ],
+          "bbox_mm": [
+            -53.66506350946866,
+            -24.33493649053,
+            -90.45061658979434,
+            -44.64934640057,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 30000.000000039552
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "skin_-1",
+        "material": "carbon_sheet",
+        "density_kg_m3": 1590.9090909090908,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            68.0,
+            -2.7099999999999995,
+            60.0
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.82,
+            -2.5999999999999996,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1847.9999999999995
+        },
+        "original_step_solid_index": 6,
+        "original_descriptor": {
+          "centroid_mm": [
+            67.99999999999999,
+            -2.71,
+            60.0
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.82,
+            -2.6,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1847.9999999999984
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "skin_-1",
+        "material": "carbon_sheet",
+        "density_kg_m3": 1590.9090909090908,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -31.653071155744165,
+            60.24472745734185,
+            60.0
+          ],
+          "bbox_mm": [
+            -49.24833395016044,
+            -14.057808361327876,
+            29.878838324886477,
+            90.61061658979719,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1848.000000000001
+        },
+        "original_step_solid_index": 7,
+        "original_descriptor": {
+          "centroid_mm": [
+            -31.653071155741003,
+            60.24472745733936,
+            60.0
+          ],
+          "bbox_mm": [
+            -49.248333950173425,
+            -14.05780836132,
+            29.878838324882743,
+            90.610616589797,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1848.0000000540208
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "skin_-1",
+        "material": "carbon_sheet",
+        "density_kg_m3": 1590.9090909090908,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -36.34692884425584,
+            -57.5347274573418,
+            60.0
+          ],
+          "bbox_mm": [
+            -53.94219163867216,
+            -18.751666049839553,
+            -87.90061658979715,
+            -27.168838324886465,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1848.0000000000036
+        },
+        "original_step_solid_index": 8,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.34692884425645,
+            -57.53472745733378,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -53.94219163868299,
+            -18.75166604983938,
+            -87.90061658979,
+            -27.16883832488,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1847.9999999812599
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "face_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            68.0,
+            -2.5499999999999994,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.5999999999999996,
+            -2.4999999999999996,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999999991
+        },
+        "original_step_solid_index": 9,
+        "original_descriptor": {
+          "centroid_mm": [
+            68.0,
+            -2.5500000000000003,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.6,
+            -2.5,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 840.0000000000008
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "face_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -31.791635220349647,
+            60.164727457341804,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -49.33493649053889,
+            -14.248333950160452,
+            29.828838324886476,
+            90.50061658979719,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999999967
+        },
+        "original_step_solid_index": 10,
+        "original_descriptor": {
+          "centroid_mm": [
+            -31.791635220347487,
+            60.16472745734193,
+            60.0
+          ],
+          "bbox_mm": [
+            -49.33493649054343,
+            -14.24833395016,
+            29.828838324886,
+            90.500616589797,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999385832
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "face_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -36.208364779650374,
+            -57.61472745734187,
+            60.000000000000014
+          ],
+          "bbox_mm": [
+            -53.751666049839585,
+            -18.66506350946111,
+            -87.95061658979715,
+            -27.278838324886465,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 840.0000000000008
+        },
+        "original_step_solid_index": 11,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.20836477965172,
+            -57.61472745733423,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -53.75166604985299,
+            -18.66506350946,
+            -87.9506165897907,
+            -27.27883832488,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 840.0000000113041
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_-1",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            39.532231306344535,
+            -3.8912452440120404,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            32.58128144137655,
+            53.0,
+            -5.836959794089068,
+            -2.919999999999984,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752882674
+        },
+        "original_step_solid_index": 12,
+        "original_descriptor": {
+          "centroid_mm": [
+            39.53223130633792,
+            -3.8912452440152903,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            32.58128144137657,
+            53.00000000000085,
+            -5.836959794089164,
+            -2.92,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752932587
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_-1",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -16.39619841950245,
+            36.181539201582865,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -23.97120582094943,
+            -11.235685258138746,
+            30.01368102364387,
+            47.35934640057525,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.731375288266
+        },
+        "original_step_solid_index": 13,
+        "original_descriptor": {
+          "centroid_mm": [
+            -16.39619841949081,
+            36.18153920157075,
+            60.0
+          ],
+          "bbox_mm": [
+            -23.971205820950047,
+            -11.23568525813,
+            30.013681023644,
+            47.359346400575,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752873238
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_-1",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -23.136032886842088,
+            -32.29029395757082,
+            60.0
+          ],
+          "bbox_mm": [
+            -29.028794179050585,
+            -19.01426960440606,
+            -44.43934640057524,
+            -25.297737519038016,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752882624
+        },
+        "original_step_solid_index": 14,
+        "original_descriptor": {
+          "centroid_mm": [
+            -23.136032886833252,
+            -32.290293957559264,
+            60.0
+          ],
+          "bbox_mm": [
+            -29.02879417905,
+            -19.0142696044,
+            -44.439346400575396,
+            -25.297737519029585,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752943305
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foot_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            32.74667245487356,
+            -4.385121899015854,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            32.47700377642019,
+            32.970950850711,
+            -5.851856603368588,
+            -2.919999999999984,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195161324
+        },
+        "original_step_solid_index": 15,
+        "original_descriptor": {
+          "centroid_mm": [
+            32.74667245487316,
+            -4.385121899019417,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            32.477003776419956,
+            32.970950850711,
+            -5.85185660336902,
+            -2.9199999999999924,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.41790819528213
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foot_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -12.575709264197599,
+            30.552011184836562,
+            60.0
+          ],
+          "bbox_mm": [
+            -13.956681246304946,
+            -11.170645410389174,
+            29.92673848546756,
+            31.134697313127095,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.4179081951614
+        },
+        "original_step_solid_index": 16,
+        "original_descriptor": {
+          "centroid_mm": [
+            -12.575709264190538,
+            30.552011184838882,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            -13.95668124630082,
+            -11.17064541038,
+            29.926738485468,
+            31.134697313129884,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195243626
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foot_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -20.17096319067599,
+            -26.166889285820698,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            -21.345596183237806,
+            -18.964073306585952,
+            -27.09368102364387,
+            -25.19998200749873,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195161445
+        },
+        "original_step_solid_index": 17,
+        "original_descriptor": {
+          "centroid_mm": [
+            -20.1709631906681,
+            -26.166889285823665,
+            60.0
+          ],
+          "bbox_mm": [
+            -21.345596183237213,
+            -18.964073306579206,
+            -27.093681023645434,
+            -25.19998200749,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195365186
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_face_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            43.00000000000001,
+            -2.87,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            33.0,
+            53.0,
+            -2.92,
+            -2.82,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 239.99999999999972
+        },
+        "original_step_solid_index": 18,
+        "original_descriptor": {
+          "centroid_mm": [
+            43.0,
+            -2.8699999999999997,
+            60.0
+          ],
+          "bbox_mm": [
+            33.0,
+            53.0,
+            -2.92,
+            -2.82,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.0000000000002
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_face_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -19.014507091138654,
+            38.67409236273087,
+            60.0
+          ],
+          "bbox_mm": [
+            -24.057808361327872,
+            -13.971205820949432,
+            29.988838324886476,
+            47.359346400575255,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000000057
+        },
+        "original_step_solid_index": 19,
+        "original_descriptor": {
+          "centroid_mm": [
+            -19.014507091130323,
+            38.67409236272994,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -24.057808361323897,
+            -13.97120582094,
+            29.988838324885307,
+            47.359346400575,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000323377
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_face_bond_-1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -23.985492908861357,
+            -35.80409236273085,
+            60.0
+          ],
+          "bbox_mm": [
+            -29.028794179050585,
+            -18.94219163867213,
+            -44.48934640057523,
+            -27.118838324886465,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000000034
+        },
+        "original_step_solid_index": 20,
+        "original_descriptor": {
+          "centroid_mm": [
+            -23.98549290886068,
+            -35.804092362724916,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -29.02879417905433,
+            -18.94219163867,
+            -44.489346400570696,
+            -27.11883832488,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000324394
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "skin_1",
+        "material": "carbon_sheet",
+        "density_kg_m3": 1590.9090909090908,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            68.0,
+            2.7100000000000004,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            2.6,
+            2.8200000000000003,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1847.9999999999993
+        },
+        "original_step_solid_index": 21,
+        "original_descriptor": {
+          "centroid_mm": [
+            68.0,
+            2.71,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            2.6,
+            2.82,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1847.9999999999982
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "skin_1",
+        "material": "carbon_sheet",
+        "density_kg_m3": 1590.9090909090908,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -36.346928844255814,
+            57.53472745734182,
+            60.0
+          ],
+          "bbox_mm": [
+            -53.9421916386721,
+            -18.751666049839532,
+            27.16883832488648,
+            87.9006165897972,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1848.0000000000077
+        },
+        "original_step_solid_index": 22,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.34692884425697,
+            57.53472745734103,
+            60.0
+          ],
+          "bbox_mm": [
+            -53.942191638683425,
+            -18.75166604984,
+            27.168838324886,
+            87.900616589797,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1847.99999998128
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "skin_1",
+        "material": "carbon_sheet",
+        "density_kg_m3": 1590.9090909090908,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -31.6530711557442,
+            -60.24472745734181,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -49.24833395016051,
+            -14.057808361327899,
+            -90.61061658979716,
+            -29.878838324886466,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1848.0000000000057
+        },
+        "original_step_solid_index": 23,
+        "original_descriptor": {
+          "centroid_mm": [
+            -31.65307115574239,
+            -60.24472745733539,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -49.24833395017299,
+            -14.05780836132,
+            -90.61061658979325,
+            -29.87883832488,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 1848.0000000540056
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "face_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            68.0,
+            2.5500000000000007,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            2.5,
+            2.6,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999999991
+        },
+        "original_step_solid_index": 24,
+        "original_descriptor": {
+          "centroid_mm": [
+            68.00000000000001,
+            2.5500000000000007,
+            60.0
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            2.5,
+            2.6,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 840.0000000000007
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "face_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -36.20836477965032,
+            57.61472745734187,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -53.75166604983952,
+            -18.66506350946109,
+            27.278838324886475,
+            87.95061658979719,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999999909
+        },
+        "original_step_solid_index": 25,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.208364779651504,
+            57.614727457340216,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            -53.751666049853426,
+            -18.66506350946,
+            27.278838324885307,
+            87.950616589797,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 840.0000000113155
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "face_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -31.79163522034971,
+            -60.164727457341804,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -49.33493649053895,
+            -14.248333950160475,
+            -90.50061658979715,
+            -29.82883832488647,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999999945
+        },
+        "original_step_solid_index": 26,
+        "original_descriptor": {
+          "centroid_mm": [
+            -31.791635220345658,
+            -60.16472745733238,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -49.334936490542994,
+            -14.2483339501579,
+            -90.50061658979,
+            -29.82883832488,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 839.9999999385436
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_1",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            39.53223130634453,
+            3.8912452440120386,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            32.58128144137655,
+            53.0,
+            2.9199999999999995,
+            5.836959794089068,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.731375288269
+        },
+        "original_step_solid_index": 27,
+        "original_descriptor": {
+          "centroid_mm": [
+            39.53223130635045,
+            3.8912452440123553,
+            60.0
+          ],
+          "bbox_mm": [
+            32.581281441376575,
+            53.00000000000085,
+            2.919999999999999,
+            5.836959794089164,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752916234
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_1",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -23.136032886842052,
+            32.29029395757083,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -29.02879417905055,
+            -19.014269604406053,
+            25.29773751903803,
+            44.43934640057525,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.73137528827
+        },
+        "original_step_solid_index": 28,
+        "original_descriptor": {
+          "centroid_mm": [
+            -23.13603288683335,
+            32.29029395756332,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -29.02879417905,
+            -19.0142696044,
+            25.29773751903675,
+            44.43934640057998,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752772734
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_1",
+        "material": "plywood",
+        "density_kg_m3": 715,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -16.396198419502483,
+            -36.18153920158285,
+            60.0
+          ],
+          "bbox_mm": [
+            -23.971205820949464,
+            -11.235685258138771,
+            -47.359346400575234,
+            -30.01368102364386,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.731375288267
+        },
+        "original_step_solid_index": 29,
+        "original_descriptor": {
+          "centroid_mm": [
+            -16.39619841949602,
+            -36.18153920157552,
+            60.0
+          ],
+          "bbox_mm": [
+            -23.97120582094859,
+            -11.235685258129397,
+            -47.35934640057,
+            -30.01368102364,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 3497.7313752792925
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foot_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            32.746672454873575,
+            4.3851218990158785,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            32.4770037764202,
+            32.970950850711,
+            2.9199999999999995,
+            5.851856603368546,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.41790819515979
+        },
+        "original_step_solid_index": 30,
+        "original_descriptor": {
+          "centroid_mm": [
+            32.74667245487345,
+            4.385121899017309,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            32.477003776419956,
+            32.970950850711,
+            2.919999999999978,
+            5.85185660336902,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195175826
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foot_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -20.170963190675987,
+            26.166889285820705,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            -21.345596183237785,
+            -18.96407330658593,
+            25.19998200749877,
+            27.093681023643875,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195159704
+        },
+        "original_step_solid_index": 31,
+        "original_descriptor": {
+          "centroid_mm": [
+            -20.17096319067304,
+            26.166889285822666,
+            60.0
+          ],
+          "bbox_mm": [
+            -21.345596183233255,
+            -18.96407330658,
+            25.199982007499,
+            27.093681023646763,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.417908195061166
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "foot_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -12.575709264197593,
+            -30.55201118483657,
+            60.0
+          ],
+          "bbox_mm": [
+            -13.956681246304955,
+            -11.170645410389236,
+            -31.134697313127088,
+            -29.926738485467553,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.41790819515974
+        },
+        "original_step_solid_index": 32,
+        "original_descriptor": {
+          "centroid_mm": [
+            -12.575709264199306,
+            -30.552011184833603,
+            60.0
+          ],
+          "bbox_mm": [
+            -13.95668124630236,
+            -11.170645410379539,
+            -31.134697313129074,
+            -29.92673848546,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 35.41790819533901
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_face_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            43.00000000000001,
+            2.870000000000001,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            33.0,
+            53.0,
+            2.8200000000000003,
+            2.9200000000000004,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 239.99999999999972
+        },
+        "original_step_solid_index": 33,
+        "original_descriptor": {
+          "centroid_mm": [
+            43.0,
+            2.8699999999999997,
+            60.0
+          ],
+          "bbox_mm": [
+            33.0,
+            53.0,
+            2.82,
+            2.92,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.0000000000002
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_face_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -23.985492908861325,
+            35.80409236273086,
+            59.99999999999999
+          ],
+          "bbox_mm": [
+            -29.02879417905055,
+            -18.94219163867211,
+            27.11883832488648,
+            44.48934640057526,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 239.99999999999994
+        },
+        "original_step_solid_index": 34,
+        "original_descriptor": {
+          "centroid_mm": [
+            -23.985492908860355,
+            35.80409236272999,
+            60.0
+          ],
+          "bbox_mm": [
+            -29.028794179053897,
+            -18.94219163867,
+            27.118838324885306,
+            44.489346400575,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000323865
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "gusset_face_bond_1",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -19.014507091138682,
+            -38.67409236273085,
+            60.0
+          ],
+          "bbox_mm": [
+            -24.057808361327908,
+            -13.971205820949454,
+            -47.359346400575234,
+            -29.98883832488647,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000000003
+        },
+        "original_step_solid_index": 35,
+        "original_descriptor": {
+          "centroid_mm": [
+            -19.014507091130678,
+            -38.674092362724934,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -24.05780836132433,
+            -13.97120582094,
+            -47.35934640057069,
+            -29.98883832488,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 240.00000000324493
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "tab_potting",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            30.92747285874243,
+            9.649494767368743e-15,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            30.3,
+            31.902194281898698,
+            -3.65,
+            3.65,
+            10.0,
+            110.0
+          ],
+          "volume_mm3": 456.5384061982233
+        },
+        "original_step_solid_index": 36,
+        "original_descriptor": {
+          "centroid_mm": [
+            30.927472858743634,
+            2.166716231502875e-12,
+            60.00000000000003
+          ],
+          "bbox_mm": [
+            30.3,
+            31.902194281899,
+            -3.6500000000000092,
+            3.650000000000013,
+            10.0,
+            110.0
+          ],
+          "volume_mm3": 456.53840619897926
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "tab_potting",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -15.463736429371227,
+            26.78397717052469,
+            60.00000000000003
+          ],
+          "bbox_mm": [
+            -19.056569938875253,
+            -11.989007276186792,
+            24.415569734668495,
+            29.356947352121683,
+            10.0,
+            110.0
+          ],
+          "volume_mm3": 456.5384061982233
+        },
+        "original_step_solid_index": 37,
+        "original_descriptor": {
+          "centroid_mm": [
+            -15.463736429369343,
+            26.783977170524064,
+            59.99999999999998
+          ],
+          "bbox_mm": [
+            -19.056569938872176,
+            -11.98900727618,
+            24.415569734665056,
+            29.356947352124966,
+            10.0,
+            110.0
+          ],
+          "volume_mm3": 456.5384061989631
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "tab_potting",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -15.46373642937123,
+            -26.783977170524683,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -19.05656993887527,
+            -11.989007276186815,
+            -29.356947352121676,
+            -24.41556973466848,
+            10.0,
+            110.0
+          ],
+          "volume_mm3": 456.5384061982241
+        },
+        "original_step_solid_index": 38,
+        "original_descriptor": {
+          "centroid_mm": [
+            -15.463736429367302,
+            -26.78397717051988,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -19.056569938874773,
+            -11.98900727618,
+            -29.356947352124646,
+            -24.41556973466,
+            10.0,
+            110.0
+          ],
+          "volume_mm3": 456.53840620150777
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "frame_shell_gap_bond",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            31.940838482204597,
+            7.69148451486591e-15,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            31.432467291003118,
+            32.5,
+            -6.000000000001305,
+            6.0000000000013,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 358.43611326535336
+        },
+        "original_step_solid_index": 39,
+        "original_descriptor": {
+          "centroid_mm": [
+            31.940838482204764,
+            1.084015625298242e-11,
+            59.99999999999998
+          ],
+          "bbox_mm": [
+            31.432467291003,
+            32.5,
+            -6.000000000001135,
+            6.000000000001126,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 358.4361132665495
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "frame_shell_gap_bond",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -15.97041924110231,
+            27.661577543764786,
+            60.00000000000003
+          ],
+          "bbox_mm": [
+            -21.16682867639207,
+            -10.520081222793959,
+            24.221315177631713,
+            30.662022702615666,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 358.4361132653531
+        },
+        "original_step_solid_index": 40,
+        "original_descriptor": {
+          "centroid_mm": [
+            -15.970419241128912,
+            27.66157754374879,
+            59.999999999999986
+          ],
+          "bbox_mm": [
+            -21.16682867639106,
+            -10.52008122279,
+            24.221315177630913,
+            30.662022702617648,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 358.4361132668785
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "frame_shell_gap_bond",
+        "material": "epoxy",
+        "density_kg_m3": 1200,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -15.970419241102311,
+            -27.66157754376479,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -21.16682867639209,
+            -10.52008122279398,
+            -30.662022702615655,
+            -24.2213151776317,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 358.4361132653539
+        },
+        "original_step_solid_index": 41,
+        "original_descriptor": {
+          "centroid_mm": [
+            -15.9704192411104,
+            -27.661577543759226,
+            60.00000000000001
+          ],
+          "bbox_mm": [
+            -21.16682867639304,
+            -10.52008122279,
+            -30.662022702617094,
+            -24.221315177629414,
+            0.0,
+            120.0
+          ],
+          "volume_mm3": 358.43611326668133
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_False_-1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            78.0,
+            -2.9200000000000004,
+            2.5
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            -3.0200000000000005,
+            -2.8200000000000003,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 50.00000000000002
+        },
+        "original_step_solid_index": 42,
+        "original_descriptor": {
+          "centroid_mm": [
+            78.0,
+            -2.9200000000000004,
+            2.5
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            -3.02,
+            -2.82,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 50.00000000000004
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_False_-1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -36.471205820949415,
+            69.00998149518621,
+            2.5
+          ],
+          "bbox_mm": [
+            -49.057808361327865,
+            -23.884603280570982,
+            47.30934640057525,
+            90.7106165897972,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 50.00000000000012
+        },
+        "original_step_solid_index": 43,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.47120582094684,
+            69.00998149518645,
+            2.5
+          ],
+          "bbox_mm": [
+            -49.05780836132953,
+            -23.88460328057,
+            47.309346400575,
+            90.710616589797,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 49.99999999850799
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_False_-1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -41.528794179050614,
+            -66.08998149518622,
+            2.5
+          ],
+          "bbox_mm": [
+            -54.11539671942905,
+            -28.94219163867214,
+            -87.79061658979715,
+            -44.389346400575235,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 49.999999999999986
+        },
+        "original_step_solid_index": 44,
+        "original_descriptor": {
+          "centroid_mm": [
+            -41.52879417904543,
+            -66.08998149517825,
+            2.5
+          ],
+          "bbox_mm": [
+            -54.11539671942866,
+            -28.942191638668298,
+            -87.79061658979,
+            -44.38934640057,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 49.99999999850739
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_False_1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            77.99999999999999,
+            2.9200000000000004,
+            2.5
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            2.8200000000000003,
+            3.0200000000000005,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 50.00000000000002
+        },
+        "original_step_solid_index": 45,
+        "original_descriptor": {
+          "centroid_mm": [
+            77.99999999999999,
+            2.919999999999999,
+            2.5
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            2.82,
+            3.02,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 50.00000000000006
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_False_1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -41.52879417905054,
+            66.08998149518621,
+            2.5
+          ],
+          "bbox_mm": [
+            -54.115396719428986,
+            -28.942191638672107,
+            44.38934640057525,
+            87.7906165897972,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 49.99999999999998
+        },
+        "original_step_solid_index": 46,
+        "original_descriptor": {
+          "centroid_mm": [
+            -41.52879417904678,
+            66.08998149518632,
+            2.5000000000000004
+          ],
+          "bbox_mm": [
+            -54.115396719429526,
+            -28.94219163867,
+            44.389346400575,
+            87.790616589797,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 49.99999999850818
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_False_1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -36.47120582094948,
+            -69.0099814951862,
+            2.499999999999999
+          ],
+          "bbox_mm": [
+            -49.05780836132793,
+            -23.88460328057102,
+            -90.71061658979716,
+            -47.30934640057524,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 50.000000000000014
+        },
+        "original_step_solid_index": 47,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.47120582094549,
+            -69.00998149517835,
+            2.5
+          ],
+          "bbox_mm": [
+            -49.05780836132866,
+            -23.8846032805683,
+            -90.71061658979,
+            -47.30934640057,
+            0.0,
+            5.0
+          ],
+          "volume_mm3": 49.999999998507846
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_web_False",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            68.0,
+            4.49938409169263e-17,
+            -0.1
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.8200000000000003,
+            2.8200000000000003,
+            -0.2,
+            0.0
+          ],
+          "volume_mm3": 78.96000000000001
+        },
+        "original_step_solid_index": 48,
+        "original_descriptor": {
+          "centroid_mm": [
+            67.99999999999999,
+            1.2556093730879747e-17,
+            -0.10000000000000002
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.82,
+            2.82,
+            -0.2,
+            0.0
+          ],
+          "volume_mm3": 78.96
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_web_False",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -33.99999999999998,
+            58.88972745734183,
+            -0.09999999999999999
+          ],
+          "bbox_mm": [
+            -53.9421916386721,
+            -14.057808361327876,
+            27.168838324886476,
+            90.61061658979719,
+            -0.2,
+            0.0
+          ],
+          "volume_mm3": 78.96000000000004
+        },
+        "original_step_solid_index": 49,
+        "original_descriptor": {
+          "centroid_mm": [
+            -33.99999999999591,
+            58.88972745733919,
+            -0.10000000000000002
+          ],
+          "bbox_mm": [
+            -53.942191638683425,
+            -14.05780836132,
+            27.168838324882433,
+            90.610616589797,
+            -0.2,
+            0.0
+          ],
+          "volume_mm3": 78.96000000007027
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_web_False",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -34.00000000000003,
+            -58.88972745734181,
+            -0.1
+          ],
+          "bbox_mm": [
+            -53.94219163867216,
+            -14.057808361327899,
+            -90.61061658979716,
+            -27.168838324886465,
+            -0.2,
+            0.0
+          ],
+          "volume_mm3": 78.96000000000002
+        },
+        "original_step_solid_index": 50,
+        "original_descriptor": {
+          "centroid_mm": [
+            -33.999999999997385,
+            -58.8897274573354,
+            -0.09999999999999996
+          ],
+          "bbox_mm": [
+            -53.94219163868299,
+            -14.05780836132,
+            -90.61061658979358,
+            -27.16883832488,
+            -0.2,
+            0.0
+          ],
+          "volume_mm3": 78.96000000006926
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_True_-1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            78.0,
+            -2.9200000000000004,
+            117.5
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            -3.0200000000000005,
+            -2.8200000000000003,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 50.00000000000002
+        },
+        "original_step_solid_index": 51,
+        "original_descriptor": {
+          "centroid_mm": [
+            78.0,
+            -2.9200000000000004,
+            117.50000000000001
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            -3.02,
+            -2.82,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 50.00000000000004
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_True_-1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -36.471205820949415,
+            69.00998149518621,
+            117.49999999999999
+          ],
+          "bbox_mm": [
+            -49.057808361327865,
+            -23.884603280570982,
+            47.30934640057525,
+            90.7106165897972,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 50.00000000000012
+        },
+        "original_step_solid_index": 52,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.47120582094684,
+            69.00998149518645,
+            117.49999999999999
+          ],
+          "bbox_mm": [
+            -49.05780836132953,
+            -23.88460328057,
+            47.309346400575,
+            90.710616589797,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 49.99999999850799
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_True_-1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -41.528794179050614,
+            -66.08998149518622,
+            117.5
+          ],
+          "bbox_mm": [
+            -54.11539671942905,
+            -28.94219163867214,
+            -87.79061658979715,
+            -44.389346400575235,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 49.999999999999986
+        },
+        "original_step_solid_index": 53,
+        "original_descriptor": {
+          "centroid_mm": [
+            -41.52879417904543,
+            -66.08998149517825,
+            117.50000000000001
+          ],
+          "bbox_mm": [
+            -54.11539671942866,
+            -28.942191638668298,
+            -87.79061658979,
+            -44.38934640057,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 49.99999999850739
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_True_1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            77.99999999999999,
+            2.9200000000000004,
+            117.5
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            2.8200000000000003,
+            3.0200000000000005,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 50.00000000000002
+        },
+        "original_step_solid_index": 54,
+        "original_descriptor": {
+          "centroid_mm": [
+            77.99999999999999,
+            2.919999999999999,
+            117.49999999999997
+          ],
+          "bbox_mm": [
+            53.0,
+            103.0,
+            2.82,
+            3.02,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 50.00000000000006
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_True_1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -41.52879417905054,
+            66.08998149518621,
+            117.5
+          ],
+          "bbox_mm": [
+            -54.115396719428986,
+            -28.942191638672107,
+            44.38934640057525,
+            87.7906165897972,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 49.99999999999998
+        },
+        "original_step_solid_index": 55,
+        "original_descriptor": {
+          "centroid_mm": [
+            -41.52879417904678,
+            66.08998149518632,
+            117.50000000000001
+          ],
+          "bbox_mm": [
+            -54.115396719429526,
+            -28.94219163867,
+            44.389346400575,
+            87.790616589797,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 49.99999999850818
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_lap_True_1",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -36.47120582094948,
+            -69.0099814951862,
+            117.49999999999999
+          ],
+          "bbox_mm": [
+            -49.05780836132793,
+            -23.88460328057102,
+            -90.71061658979716,
+            -47.30934640057524,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 50.000000000000014
+        },
+        "original_step_solid_index": 56,
+        "original_descriptor": {
+          "centroid_mm": [
+            -36.47120582094549,
+            -69.00998149517835,
+            117.49999999999999
+          ],
+          "bbox_mm": [
+            -49.05780836132866,
+            -23.8846032805683,
+            -90.71061658979,
+            -47.30934640057,
+            115.0,
+            120.0
+          ],
+          "volume_mm3": 49.999999998507846
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_web_True",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 0,
+        "descriptor": {
+          "centroid_mm": [
+            68.0,
+            -3.965082230804074e-18,
+            120.10000000000001
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.8200000000000003,
+            2.8200000000000003,
+            120.0,
+            120.2
+          ],
+          "volume_mm3": 78.96000000000113
+        },
+        "original_step_solid_index": 57,
+        "original_descriptor": {
+          "centroid_mm": [
+            67.99999999999999,
+            4.6259292692716795e-18,
+            120.10000000000001
+          ],
+          "bbox_mm": [
+            33.0,
+            103.0,
+            -2.82,
+            2.82,
+            120.0,
+            120.2
+          ],
+          "volume_mm3": 78.96000000000113
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_web_True",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 120,
+        "descriptor": {
+          "centroid_mm": [
+            -33.999999999999986,
+            58.88972745734184,
+            120.09999999999998
+          ],
+          "bbox_mm": [
+            -53.9421916386721,
+            -14.057808361327876,
+            27.168838324886476,
+            90.61061658979719,
+            120.0,
+            120.2
+          ],
+          "volume_mm3": 78.96000000000114
+        },
+        "original_step_solid_index": 58,
+        "original_descriptor": {
+          "centroid_mm": [
+            -33.99999999999591,
+            58.8897274573392,
+            120.10000000000001
+          ],
+          "bbox_mm": [
+            -53.942191638683425,
+            -14.05780836132,
+            27.168838324882433,
+            90.610616589797,
+            120.0,
+            120.2
+          ],
+          "volume_mm3": 78.96000000007139
+        },
+        "symmetric_difference_mm3": 0.0
+      },
+      {
+        "name": "cap_web_True",
+        "material": "fiberglass",
+        "density_kg_m3": 1850,
+        "fin_angle_deg": 240,
+        "descriptor": {
+          "centroid_mm": [
+            -34.00000000000002,
+            -58.889727457341806,
+            120.10000000000001
+          ],
+          "bbox_mm": [
+            -53.94219163867216,
+            -14.057808361327899,
+            -90.61061658979716,
+            -27.168838324886465,
+            120.0,
+            120.2
+          ],
+          "volume_mm3": 78.96000000000113
+        },
+        "original_step_solid_index": 59,
+        "original_descriptor": {
+          "centroid_mm": [
+            -33.99999999999739,
+            -58.8897274573354,
+            120.1
+          ],
+          "bbox_mm": [
+            -53.94219163868299,
+            -14.05780836132,
+            -90.61061658979358,
+            -27.16883832488,
+            120.0,
+            120.2
+          ],
+          "volume_mm3": 78.96000000007037
+        },
+        "symmetric_difference_mm3": 0.0
+      }
+    ],
+    "overlap_checks_completed": 193,
+    "input_sha256_before": {
+      "scripts/wo03_fin_material_map.py": "a11e923a73b011ac4b14fa2ebf1207805f69d7bfa05a48a69076f2a7f669396d",
+      "configs/studies/wo03-fin-material-map.yaml": "ebfa73ceb56abb54e58d59d41ff823239cad77c745e8448390a1bfa0ff966b84",
+      "src/analysis/layered_fin_geometry.py": "3d483919e6863572f8abe7c710aaa6a7860dadd645fd23067549164a1d930fc9",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "configs/studies/wo03-trainer-fin-package.yaml": "6c16d734bdc7edb3df2242269846b92882e61952f10259cc2f521794a196b4db",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088"
+    },
+    "face_interface_mapping": null,
+    "accepted": false,
+    "flight_ready": false,
+    "max_overlap_mm3": 0.0,
+    "matching": "unique bbox/centroid/volume candidates plus per-solid two-way boolean differences; STEP index only identifies original file",
+    "material_basis": "named nominal geometry/density identity, not measured hot allowables",
+    "physics_acceptance": false,
+    "input_sha256_after": {
+      "scripts/wo03_fin_material_map.py": "a11e923a73b011ac4b14fa2ebf1207805f69d7bfa05a48a69076f2a7f669396d",
+      "configs/studies/wo03-fin-material-map.yaml": "ebfa73ceb56abb54e58d59d41ff823239cad77c745e8448390a1bfa0ff966b84",
+      "src/analysis/layered_fin_geometry.py": "3d483919e6863572f8abe7c710aaa6a7860dadd645fd23067549164a1d930fc9",
+      "build/wo03-refreeze-g12-root-v1/resolved-candidate.json": "8528d3f550ab31f53e51dcd894ce4dced1f3e6acec26f322d6f047270de192af",
+      "configs/studies/wo03-trainer-fin-package.yaml": "6c16d734bdc7edb3df2242269846b92882e61952f10259cc2f521794a196b4db",
+      "build/wo03-trainer-fin-root/pvc5-forward25-backed-reconciled/fin-layers.step": "74a4a92bc27034ca1d1a2bda893e3ce4fe7e37a70fc1e74c0ba92ca689534285",
+      "src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+      "src/vehicle/materials.py": "4b3571c943da01935654f1d5c1df55a7e5495c3c8c0837cb790be239f5af6166",
+      "src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+      "src/cad/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+      "src/cad/kinematics.py": "c26c5587048c448dab2635d607fdbe75f3f8f7d3d8e144481ec90c6ca0758ade",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+      "src/cad/verification.py": "7e49c4a00bc1b9386d05fd448022d724b29a5c3b5a54d8960dafe727138e5088"
+    },
+    "inputs_unchanged": true,
+    "elapsed_wall_s": 5.117558375000954,
+    "process_cpu_s": 7.494776,
+    "max_rss_bytes_macos": 513458176
+  },
+  "overlap_bounds": {
+    "method": "post-run arithmetic using saved regenerated solid bounding boxes; intersection volume cannot exceed intersection bounding-box volume",
+    "source_record_sha256": "4fe958a8b54d57277d0f730330fbb28c3a21cf2d355fd2d47347610c592a8e76",
+    "skipped_pairs": 1577,
+    "maximum_possible_intersection_volume_mm3": 3.836930773104541e-11,
+    "threshold_mm3": 0.0001,
+    "all_skipped_bounds_below_threshold": true
+  },
+  "helper_postrun_typing_comment": {
+    "function_AST_unchanged": true,
+    "as_run_source": "\"\"\"Historical G12 layered-fin geometry; provenance, not an adopted design.\n\nExtracted without AST changes from scripts/wo03_trainer_fin_root.py SHA-256\n479e1f2035ca71d65af1f28316a4f3af4dc2684eac1def04703e9107a674e5e4.\nFunction AST SHA-256 (ast.dump include_attributes=False, Python 3.11):\n_part df0fbfda64ddab9f47d29fe0d851653196c81873b3bf9ee351520ea63a3c2218;\nlayered_shapes e6aa54c044af9ddcbe5db1a425779425c152649358df0df7801114d8810bc5b4.\nShapes are nominal and do not establish material qualification.\n\"\"\"\n\nfrom __future__ import annotations\n\nfrom typing import Any\n\nfrom src.cad.parts import box, compound, cq, tube\nfrom src.vehicle.materials import DENSITY_KG_M3\nfrom src.vehicle.schema import Vehicle\n\n\ndef _part(vehicle: Vehicle, ident: str):\n    return next(p for p in vehicle.parts if p.id == ident)\n\n\ndef layered_shapes(v: Vehicle, c: dict[str, Any]) -> list[tuple[str, Any, float]]:\n    \"\"\"Explicit nonoverlapping nominal material solids for one three-fin set.\n\n    Carbon density is derived from supplier areal mass / stated actual thickness.\n    The cap's thin adhesive is charged as an equivalent cured mass, not hidden in\n    its laminate density. Main root potting is the actual trimmed channel void.\n    \"\"\"\n    fin = _part(v, \"fin_set\")\n    assert fin.cad\n    g, p = fin.geometry, fin.cad.parameters\n    r, span, chord = (g[k] * 1000 for k in (\"radius_m\", \"span_m\", \"root_chord_m\"))\n    core, skin, bond, band = (\n        c[k] * 1000\n        for k in (\"core_thickness_m\", \"skin_thickness_m\", \"face_bond_thickness_m\", \"root_band_m\")\n    )\n    outer = core / 2 + bond + skin\n    foot = c[\"foot_bond_thickness_m\"] * 1000\n    side_bond = c[\"gusset_face_bond_thickness_m\"] * 1000\n    body = cq.Solid.makeCylinder(r, chord + 2, cq.Vector(0, 0, -1))\n    body_plus = cq.Solid.makeCylinder(r + foot, chord + 2, cq.Vector(0, 0, -1))\n    skin_density = c[\"skin_areal_mass_kg_m2\"] / c[\"skin_thickness_m\"]\n    tab = box(p[\"tab_depth_mm\"], core, p[\"tab_length_mm\"]).translate(\n        (r - p[\"tab_depth_mm\"] / 2, 0, p[\"tab_offset_mm\"])\n    )\n    root = box(band, core, chord).translate((r + band / 2, 0, 0)).fuse(tab)\n    one = [\n        (\"root_insert_and_tab\", root, DENSITY_KG_M3[\"plywood\"]),\n        (\n            \"foam_core\",\n            box(span - band, core, chord).translate((r + band + (span - band) / 2, 0, 0)),\n            c[\"core_density_kg_m3\"],\n        ),\n    ]\n    for side in (-1, 1):\n        one += [\n            (\n                f\"skin_{side}\",\n                box(span, skin, chord).translate(\n                    (r + span / 2, side * (core / 2 + bond + skin / 2), 0)\n                ),\n                skin_density,\n            ),\n            (\n                f\"face_bond_{side}\",\n                box(span, bond, chord).translate((r + span / 2, side * (core / 2 + bond / 2), 0)),\n                DENSITY_KG_M3[\"epoxy\"],\n            ),\n        ]\n        wedge = (\n            cq.Workplane(\"XY\")\n            .polyline(\n                [\n                    (r - p[\"root_gusset_inset_mm\"], side * (outer + side_bond)),\n                    (\n                        r - p[\"root_gusset_inset_mm\"],\n                        side * (outer + side_bond + p[\"root_gusset_base_mm\"]),\n                    ),\n                    (r + p[\"root_gusset_span_mm\"], side * (outer + side_bond)),\n                ]\n            )\n            .close()\n            .extrude(chord)\n            .val()\n        )\n        one += [\n            (f\"gusset_{side}\", wedge.cut(body_plus), DENSITY_KG_M3[\"plywood\"]),\n            (f\"foot_bond_{side}\", wedge.intersect(body_plus).cut(body), DENSITY_KG_M3[\"epoxy\"]),\n            (\n                f\"gusset_face_bond_{side}\",\n                box(band, side_bond, chord)\n                .translate((r + band / 2, side * (outer + side_bond / 2), 0))\n                .cut(body_plus),\n                DENSITY_KG_M3[\"epoxy\"],\n            ),\n        ]\n    # Fill only the actual channel void inside the G11 outer cylinder. Its\n    # shared faces meet the channel walls/floor and the solid plywood tab.\n    frame = _part(v, \"gimbal_frame\")\n    assert frame.cad\n    fp = frame.cad.parameters\n    channel = (\n        box(fp[\"fin_channel_depth_mm\"], fp[\"fin_slot_width_mm\"], p[\"tab_length_mm\"])\n        .translate((fp[\"fin_channel_radius_mm\"], 0, p[\"tab_offset_mm\"]))\n        .intersect(cq.Solid.makeCylinder(frame.geometry[\"radius_m\"] * 1000, chord))\n    )\n    one.append((\"tab_potting\", channel.cut(root), DENSITY_KG_M3[\"epoxy\"]))\n    shell = _part(v, \"aft_shell\")\n    gap_inner = frame.geometry[\"radius_m\"] * 1000\n    gap_outer = shell.geometry[\"inner_radius_m\"] * 1000\n    if gap_outer <= gap_inner:\n        raise ValueError(\"Root-gap backing hypothesis requires a positive frame/shell gap\")\n    backing = (\n        tube(gap_outer, gap_inner, chord)\n        .intersect(box(10, fp[\"rail_width_mm\"], chord).translate((gap_inner, 0, 0)))\n        .cut(\n            box(10, fp[\"fin_slot_width_mm\"], p[\"tab_length_mm\"]).translate(\n                (gap_inner, 0, p[\"tab_offset_mm\"])\n            )\n        )\n    )\n    one.append((\"frame_shell_gap_bond\", backing, DENSITY_KG_M3[\"epoxy\"]))\n    cap = c[\"edge_cap_thickness_m\"] * 1000\n    lap = c[\"edge_cap_overlap_m\"] * 1000\n    for aft in (False, True):\n        z0 = chord if aft else -cap\n        web = box(span, 2 * outer, cap).translate((r + span / 2, 0, z0))\n        for side in (-1, 1):\n            # Close the foam span only. Root-band gussets occupy these face\n            # corners; do not let glass laps overlap the actual wood solids.\n            flange = box(span - band, cap, lap).translate(\n                (r + band + (span - band) / 2, side * (outer + cap / 2), chord - lap if aft else 0)\n            )\n            one.append((f\"cap_lap_{aft}_{side}\", flange, DENSITY_KG_M3[\"fiberglass\"]))\n        one.append((f\"cap_web_{aft}\", web, DENSITY_KG_M3[\"fiberglass\"]))\n    return [\n        (name, compound([shape.rotate((0, 0, 0), (0, 0, 1), i * 120) for i in range(3)]), density)\n        for name, shape, density in one\n    ]\n",
+    "current_sha256": "d794e4a5b949ff2e80e3fd638c451a6755f8c0debf13473af8824d6bc8821cb4",
+    "reason": "Keep exact historical function AST while acknowledging missing historical return annotation to strict mypy; comment only, no CAD rerun."
+  },
+  "unavailable": [
+    "qualified actual-baffle thermal result",
+    "installed fin/root strength/stiffness/flutter acceptance",
+    "verified physical contact-face ownership"
+  ],
+  "unchanged_files_audit": {
+    "published_base": "9ab10bc205fa56801a8b4aeecc655dbb4d8660f2",
+    "compared_files": 53,
+    "changed_files": []
+  }
+}

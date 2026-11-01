@@ -4,10 +4,40 @@ Updated: 2026-10-31 (run IDs use UTC)
 
 ## Current work order
 
-**Timed-session handoff (2026-10-31):** the owner directed work to stop at
-09:49 UTC /02:49 America/Los_Angeles, after saving and pushing progress. Treat
-this session as paused after that time until the owner resumes it; no autonomous
-agent continuation is authorized past the deadline. WO-03 remains open.
+**Owner-resumed session (2026-10-31 Pacific):** the previous timed session was
+saved and stopped. The owner subsequently resumed WO-03 and the limited early
+frontend work; the old deadline no longer pauses this session. WO-03 remains
+open, with no new acceptance or release authorization.
+
+**Latest bounded work:** the [G12 source refreeze](wo03-refreeze-g12-root.md)
+validates the historical 77-part reconciled identity and preserves the original
+layered-fin and rounded-frame STEP files. This closes a source-loading
+prerequisite, not installed strength, clearance, flutter or a mass saving.
+The [proposed installed-root case](wo03-installed-root-next-case.md) records
+the remaining geometry/material prerequisites; it has not been executed.
+
+The [CalculiX output probe](wo03-ccx-output-probe.md) confirms float32 NT/RFL
+output for installed A-2. Its first reader-format failure stopped the packet;
+A-4/A-8 were not run. The preserved A-2 bytes were decoded read-only, and a
+truncated-record self-check improved the reader. Output precision still cannot
+establish the unchanged 1e-7 K / 1e-10 W checks. Neither thermal tool qualifies
+an actual-baffle attempt; the required matrix and 45°C screen remain unchanged.
+
+The [solid map](wo03-fin-material-map.md) now uniquely matches all 60 historical
+G12 fin solids to the AST-preserved material recipe. Contact-face mapping and
+installed strength/stiffness/flutter remain open. One-worker settings were
+requested, but CAD CPU/wall observations do not demonstrate single-core execution.
+Evidence: `runs/wo03-output-solid-map-20261101T011408613691Z/record.json`.
+
+**Latest frontend increment:** [PR #21](https://github.com/kudratsingh/rocket-twin/pull/21)
+publishes the recorded telemetry picker and metadata-aware comparison. Local
+checks and designated-window observations pass for the exercised paths. Both
+[required hosted jobs](https://github.com/kudratsingh/rocket-twin/actions/runs/41259442719)
+passed and PR #21 is merged. Raw mass, derived speed, two-run tilt, event/playback,
+actual 3D visibility and finless warning were observed. No WebGL failure was
+established: fallback text in the accessibility tree appeared alongside a working
+canvas. [Checks and limits](wo05-telemetry-picker-preview.md). No compatible
+current engineering overlays or full WO-04/05 acceptance is claimed.
 
 **Latest structural accounting:** the [G12 fin routing audit](wo03-fin-load-routing.md)
 keeps axial-Z root torque separate from the old radial-X rail-bending surrogate;

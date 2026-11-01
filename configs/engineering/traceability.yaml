@@ -267,6 +267,27 @@ evidence_sources:
   scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
   limitation: Separate G12/G54 identities; unknown components and installed load shares
     remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
+- path: docs/wo03-refreeze-g12-root.md
+  scope: Historical G12 resolved source identity and explicit original-STEP assembly.
+  limitation: Source prerequisite only; no strength, motion, flutter, thermal or mass-credit acceptance.
+- path: docs/wo03-installed-root-next-case.md
+  scope: Proposed conditional G12 foundation load case and preflight requirements.
+  limitation: Not executed; ideal restraints and unknown hot properties cannot establish installed acceptance.
+- path: runs/wo03-g12-source-refreeze-20261101T010604113596Z/record.json
+  scope: Executed 77-part source/property comparison and resource observations.
+  limitation: 75 historic BReps unavailable; code hashes after run only; single-core execution unproved.
+- path: docs/wo03-ccx-io-prerequisites.md
+  scope: Thermal solver input/output documentation and version limitations.
+  limitation: No qualified baffle temperature or installed mechanical acceptance; no active adoption.
+- path: docs/wo03-ccx-output-probe.md
+  scope: Partial installed A-2 output-encoding diagnostic, stopped before more grids.
+  limitation: No qualified baffle temperature or installed mechanical acceptance; no active adoption.
+- path: docs/wo03-fin-material-map.md
+  scope: Unique historical G12 material-solid geometry mapping.
+  limitation: No qualified baffle temperature or installed mechanical acceptance; no active adoption.
+- path: runs/wo03-output-solid-map-20261101T011408613691Z/record.json
+  scope: Bounded thermal output and G12 solid-mapping evidence and source snapshots.
+  limitation: No qualified baffle temperature or installed mechanical acceptance; no active adoption.
 configurations:
   G80: configs/vehicle/platform/performance.yaml
   G54: configs/vehicle/wo02/performance-g54.yaml

@@ -11,6 +11,21 @@ MacPorts source port with arm64 build records, but no verified accessible binary
 runtime closure or relocatable installation for this host. It adds distribution
 evidence, not a successful setup or solver test. No further packet was executed.
 
+## Subsequent input/output prerequisite
+
+The [installed-binary probe](wo03-ccx-output-probe.md) directly confirms float32
+NT/RFL for A-2. The reader initially stopped on an incorrect record-layout
+assumption; no further grids were run. Read-only decoding establishes output
+precision, not solver field accuracy or film-integrated heat. Repeating A-4/A-8
+with this same output path would not resolve its precision limit and is not
+selected. Continuously varying film input and precise heat/field output remain
+prerequisites. [Source/format audit](wo03-ccx-io-prerequisites.md).
+
+The decision remains **neither tool qualified**. No actual-baffle attempt or
+new production method follows. Any later build, alternate output route or
+bounded representation requires a separate feasible preflight and declared
+budget; the stopped methods and unchanged acceptance criteria are retained.
+
 ## Declared allowance and what was executed
 
 Two packets were declared before execution: Elmer and installed CalculiX 2.23.
@@ -148,5 +163,6 @@ Recovery/support and installed-fin audits remain as in the
 [complete-package closure table](wo03-package-closure-progress.md). No strength,
 flutter, recovery mass or G12 departure item closes from this tool comparison.
 The shared flight simulator, active vehicle and physical/paid/WO-10/flight gates
-are unchanged. The owner's later instruction independently resumes preview
-**code only** through a bounded frontend agent; computer use remains paused.
+are unchanged. The owner separately resumed limited frontend code and then
+designated-window browser verification. See `docs/STATUS.md`; that preview
+authorization does not qualify a thermal method or result.

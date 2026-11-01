@@ -1,0 +1,22 @@
+id: wo03-ccx-output-probe-v1
+source_config: configs/studies/wo03-thermal-error-isolation.yaml
+prior_packet: build/wo03-ccx-thermal-comparison-v1
+binary: /opt/homebrew/bin/ccx
+binary_sha256: 2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf
+grids:
+  - divisions: 2
+    input: build/wo03-ccx-thermal-comparison-v1/A-2/case.inp
+    input_sha256: 863c865282a83f35fc0283f2f2fbf68a719dd8ef14b8078338b679512e41ac31
+  - divisions: 4
+    input: build/wo03-ccx-thermal-comparison-v1/A-4-field-width-fixed/case.inp
+    input_sha256: d5dbcfcbdc881c61f468d379d03a02f77310ce8f91148861a32e37d4eb0d68f9
+  - divisions: 8
+    input: build/wo03-ccx-thermal-comparison-v1/A-8/case.inp
+    input_sha256: 7338ee4a466ca17f48222e5ee2313db72b9382ad8ff21f42eea53304c07a2162
+limits:
+  threads: 1
+  case_wall_seconds_all_grids: 120
+  packet_cpu_seconds: 600
+output_cards:
+  - '*NODE OUTPUT'
+  - 'NT,RFL'
