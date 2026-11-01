@@ -1,0 +1,281 @@
+{
+  "scope": "isolated Elmer software setup only",
+  "qualified": false,
+  "actual_baffle_attempted": false,
+  "original_private_acquisition_sha256": "796a59dd60dbd32b909aee60f88182b83389896a85ed285a584fa5f029a62e75",
+  "acquisition_redacted": {
+    "started_utc": "2026-11-01T04:19:28.536210+00:00",
+    "scope": "download only; no extraction, installation, build or solver execution",
+    "elmer_release": "26.2.1",
+    "elmer_commit": "a19504ac53ec222e3355e182b08f2ff280c2203a",
+    "per_file_wall_limit_s": 120,
+    "total_wall_limit_s": 300,
+    "maximum_bytes_per_file": 104857600,
+    "files": [
+      {
+        "name": "cmake-3.31.8-macos-universal.tar.gz",
+        "url": "https://github.com/Kitware/CMake/releases/download/v3.31.8/cmake-3.31.8-macos-universal.tar.gz",
+        "expected_sha256": "d1449f969c54d5c00886d5b643340d493dfb3c81cb39ee29b35453395c11ebf7",
+        "status": "official_checksum_verified",
+        "resolved_url": "https://release-assets.githubusercontent.com/github-production-release-asset/537699/117d2530-114d-4e70-a631-c991a61ae698",
+        "bytes": 78373419,
+        "sha256": "d1449f969c54d5c00886d5b643340d493dfb3c81cb39ee29b35453395c11ebf7",
+        "wall_seconds": 34.99562445899937
+      },
+      {
+        "name": "elmerfem-a19504ac53ec222e3355e182b08f2ff280c2203a.tar.gz",
+        "url": "https://github.com/ElmerCSC/elmerfem/archive/a19504ac53ec222e3355e182b08f2ff280c2203a.tar.gz",
+        "expected_sha256": null,
+        "status": "commit_addressed_digest_recorded",
+        "resolved_url": "https://codeload.github.com/ElmerCSC/elmerfem/tar.gz/a19504ac53ec222e3355e182b08f2ff280c2203a",
+        "bytes": 66625779,
+        "sha256": "1451e82f05b9661d82e1ebbf6e90ac373fc1b19482eef3889334a6df5ff0144a",
+        "wall_seconds": 72.01589137499104
+      }
+    ],
+    "status": "downloaded_not_installed_or_qualified",
+    "wall_seconds": 107.01268462499138
+  },
+  "inspection": {
+    "archives": [
+      {
+        "name": "elmerfem-a19504ac53ec222e3355e182b08f2ff280c2203a.tar.gz",
+        "sha256": "1451e82f05b9661d82e1ebbf6e90ac373fc1b19482eef3889334a6df5ff0144a",
+        "members": 13495,
+        "expanded_bytes": 255985679,
+        "prefix": "elmerfem-a19504ac53ec222e3355e182b08f2ff280c2203a"
+      },
+      {
+        "name": "cmake-3.31.8-macos-universal.tar.gz",
+        "sha256": "d1449f969c54d5c00886d5b643340d493dfb3c81cb39ee29b35453395c11ebf7",
+        "members": 8218,
+        "expanded_bytes": 227564231,
+        "prefix": "cmake-3.31.8-macos-universal"
+      }
+    ],
+    "inspection_wall_s": 1.4409468749945518
+  },
+  "initial_setup": {
+    "status": "installed_isolated_not_qualified",
+    "setup_total_wall_cap_s": 600,
+    "owner_acquisition_wall_s": 107.01268462499138,
+    "local_started_unix": 1793506981.429507,
+    "one_build_job": true,
+    "thread_env": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "CMAKE_BUILD_PARALLEL_LEVEL": "1"
+    },
+    "source_commit": "a19504ac53ec222e3355e182b08f2ff280c2203a",
+    "source_archive_sha256": "1451e82f05b9661d82e1ebbf6e90ac373fc1b19482eef3889334a6df5ff0144a",
+    "cmake_archive_sha256": "d1449f969c54d5c00886d5b643340d493dfb3c81cb39ee29b35453395c11ebf7",
+    "steps": [
+      {
+        "name": "cmake-version",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "--version"
+        ],
+        "budget_remaining_wall_s": 419.5826714038849,
+        "returncode": 0,
+        "wall_s": 1.2166500091552734,
+        "child_cpu_s": 0.016847,
+        "cumulative_peak_child_rss_bytes_macos": 10731520,
+        "log_sha256": "7e7adc8e36a68ba428602f991671d15d9e37b349ec07a24043492fde86f490df"
+      },
+      {
+        "name": "configure",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "-S",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/elmerfem/elmerfem-a19504ac53ec222e3355e182b08f2ff280c2203a",
+          "-B",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/build",
+          "-DCMAKE_BUILD_TYPE=Release",
+          "-DCMAKE_C_COMPILER=/usr/bin/clang",
+          "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+          "-DCMAKE_Fortran_COMPILER=/opt/homebrew/bin/gfortran",
+          "-DCMAKE_INSTALL_PREFIX=/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix",
+          "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF",
+          "-DCMAKE_C_FLAGS_RELEASE=-O1 -DNDEBUG",
+          "-DCMAKE_CXX_FLAGS_RELEASE=-O1 -DNDEBUG",
+          "-DCMAKE_Fortran_FLAGS_RELEASE=-O1 -DNDEBUG",
+          "-DUSE_MACOS_PACKAGE_MANAGER=OFF",
+          "-DWITH_MPI=OFF",
+          "-DWITH_OpenMP=OFF",
+          "-DWITH_ELMERGUI=OFF",
+          "-DWITH_ELMERPOST=OFF",
+          "-DWITH_ElmerIce=OFF",
+          "-DWITH_XIOS=OFF",
+          "-DWITH_NETCDF=OFF",
+          "-DWITH_Mumps=OFF",
+          "-DWITH_Hypre=OFF",
+          "-DWITH_CHOLMOD=OFF",
+          "-DWITH_Trilinos=OFF",
+          "-DWITH_FETI4I=OFF",
+          "-DWITH_CONTRIB=OFF",
+          "-DWITH_LUA=OFF",
+          "-DWITH_MMG=OFF",
+          "-DWITH_PARMMG=OFF",
+          "-DWITH_ROCALUTION=OFF",
+          "-DWITH_Zoltan=OFF",
+          "-DBUILD_TESTING=OFF",
+          "-DBLA_VENDOR=Apple",
+          "-DINCLUDE_ELMER_MODULES=HeatSolve;FluxSolver;ResultOutputSolve;SaveData"
+        ],
+        "budget_remaining_wall_s": 418.3656325340271,
+        "returncode": 0,
+        "wall_s": 6.6460230350494385,
+        "child_cpu_s": 4.396989,
+        "cumulative_peak_child_rss_bytes_macos": 64684032,
+        "log_sha256": "4e23188eef79de8043144890e1cfa73a52a588c5b904fa85eae48d7a93e88b85"
+      },
+      {
+        "name": "build",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "--build",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/build",
+          "--parallel",
+          "1"
+        ],
+        "budget_remaining_wall_s": 411.7194163799286,
+        "returncode": 0,
+        "wall_s": 150.76083397865295,
+        "child_cpu_s": 144.046556,
+        "cumulative_peak_child_rss_bytes_macos": 488407040,
+        "log_sha256": "06a9488a59c0043ea6ee5b4fa2694d02da564cd0b7ac68abb84abb2eba8c06d9"
+      },
+      {
+        "name": "install",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "--install",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/build"
+        ],
+        "budget_remaining_wall_s": 260.95822525024414,
+        "returncode": 0,
+        "wall_s": 0.4134242534637451,
+        "child_cpu_s": 0.19578699999999571,
+        "cumulative_peak_child_rss_bytes_macos": 488407040,
+        "log_sha256": "e0732e6e291b6a0529143f76992b3371ba0f0820439681a5f220129c7d1a9729"
+      }
+    ],
+    "solver_qualified": false,
+    "actual_baffle_attempted": false,
+    "local_wall_s": 232.44293403625488,
+    "inclusive_setup_wall_s": 339.45561866124626,
+    "runner_sha256": "4b5e5e701067af19edb39ea5fc7f072a5e908b418712a117812fb88485adec3f"
+  },
+  "vector_addendum": {
+    "reason": "Pinned-source audit identifies HeatSolveVec integration-point wall evaluation as required comparison prerequisite; initial build succeeded, no failed build retry.",
+    "original_record_sha256": "50fc05175bed1155264b0ca298bf51af36877ebde7784c76543df69540bb1bd8",
+    "same_total_wall_cap_s": 600,
+    "steps": [
+      {
+        "name": "vector-configure",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "-S",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/elmerfem/elmerfem-a19504ac53ec222e3355e182b08f2ff280c2203a",
+          "-B",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/build",
+          "-DINCLUDE_ELMER_MODULES=HeatSolve;HeatSolveVec;FluxSolver;ResultOutputSolve;SaveData"
+        ],
+        "remaining_s": 228.35599827766418,
+        "returncode": 0,
+        "wall_s": 1.6492059230804443,
+        "child_cpu_s": 1.395444,
+        "cumulative_peak_child_rss_bytes_macos": 40058880
+      },
+      {
+        "name": "vector-build",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "--build",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/build",
+          "--target",
+          "HeatSolveVec",
+          "--parallel",
+          "1"
+        ],
+        "remaining_s": 226.7067482471466,
+        "returncode": 0,
+        "wall_s": 58.44311594963074,
+        "child_cpu_s": 55.370679,
+        "cumulative_peak_child_rss_bytes_macos": 489652224
+      },
+      {
+        "name": "vector-install",
+        "command": [
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/cmake/cmake-3.31.8-macos-universal/CMake.app/Contents/bin/cmake",
+          "--install",
+          "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/build"
+        ],
+        "remaining_s": 168.263578414917,
+        "returncode": 0,
+        "wall_s": 0.2552828788757324,
+        "child_cpu_s": 0.18307500000000232,
+        "cumulative_peak_child_rss_bytes_macos": 489652224
+      }
+    ],
+    "solver_qualified": false,
+    "status": "installed_vector_module_not_qualified",
+    "inclusive_setup_wall_s": 431.99179963429924,
+    "runner_sha256": "199d2735a6ceaf06b56b0b119d12c5cb2919f785c318a8da4add110f340294b4"
+  },
+  "runtime": {
+    "status": "isolated_available_not_qualified",
+    "version_returncode": 0,
+    "version_output": "ELMER SOLVER (v 26.2) STARTED AT: 2026/10/31 21:29:23\nParCommInit: Initialize #PEs: 1\nMAIN: \nMAIN: =============================================================\nMAIN: ElmerSolver finite element software, Welcome!\nMAIN: This program is free software licensed under (L)GPL\nMAIN: Copyright 1st April 1995 - , CSC - IT Center for Science Ltd.\nMAIN: Webpage http://www.csc.fi/elmer, Email elmeradm@csc.fi\nMAIN: Version: 26.2-unknown (Rev: unknown, Compiled: 2026-10-31)\nMAIN:  Running one task without MPI parallelization.\nMAIN:  Running with just one thread per task.\nMAIN: =============================================================\nSOLVER TOTAL TIME(CPU,REAL):         0.00        0.00\nELMER SOLVER FINISHED AT: 2026/10/31 21:29:23\n",
+    "artifact_sha256": {
+      "bin/ElmerSolver": "006922a630d1daa404ff1191a39dc33a44aa4b6d0c5bac907f07861db4232d6e",
+      "bin/ElmerGrid": "d82c0be874bb4506c09d8a63339e129ea11e5b3124426a4bcbc856bacead2cc4",
+      "share/elmersolver/lib/FluxSolver.dylib": "eb0b12ab2ef505e7e251d87df3084e151c05751aef98b82541e4f3bb176ee5a8",
+      "share/elmersolver/lib/HeatSolve.dylib": "4c3089732c61dbc684ba5be8232539a4196155b2253e1d216fa7986812f3b812",
+      "share/elmersolver/lib/HeatSolveVec.dylib": "61ae7dfbf04f1aa3b8cdec328c7a69f7df99fc9d5ccaf71800673c254c8eba42",
+      "share/elmersolver/lib/ResultOutputSolve.dylib": "6105e177a2815aeff382b27fb767b3e6c9418943597df3e121b83d0694010164",
+      "share/elmersolver/lib/SaveData.dylib": "4008d7e6e6edead6fa358ea6ce7df57e4fa3196d518c9e4d57a7dd0f073dcc8c",
+      "lib/elmersolver/libarpack.dylib": "577752405add0bacd568666de012115290ad2fddea9e8dfa3d7614fed4f3d58f",
+      "lib/elmersolver/libelmersolver.dylib": "99abe5a998a6768c066a31554e95b37837025caa557c466e215abcf0fa668ea1",
+      "lib/elmersolver/libfhuti.dylib": "35cf8071f84daa66a1dc78af693f73c8fb767feaa97cc97386892c4d62d0dc10",
+      "lib/elmersolver/libmatc.dylib": "f71f2223ca836bd115ed254becb87211a5cae8a8b709e8e02effd9c93379cda9",
+      "lib/elmersolver/libmpi_stubs.dylib": "c975ec15c53b33c43f855232749dbbb629f0b5936bfbb8756f05952e25afb6fb"
+    },
+    "otool_L": {
+      "bin/ElmerSolver": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerSolver:\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "bin/ElmerGrid": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/bin/ElmerGrid:\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "share/elmersolver/lib/FluxSolver.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/FluxSolver.dylib:\n\t@rpath/FluxSolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "share/elmersolver/lib/HeatSolve.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolve.dylib:\n\t@rpath/HeatSolve.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "share/elmersolver/lib/HeatSolveVec.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/HeatSolveVec.dylib:\n\t@rpath/HeatSolveVec.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "share/elmersolver/lib/ResultOutputSolve.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/ResultOutputSolve.dylib:\n\t@rpath/ResultOutputSolve.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "share/elmersolver/lib/SaveData.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/share/elmersolver/lib/SaveData.dylib:\n\t@rpath/SaveData.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "lib/elmersolver/libarpack.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libarpack.dylib:\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "lib/elmersolver/libelmersolver.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libelmersolver.dylib:\n\t@rpath/libelmersolver.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libarpack.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2100.43.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "lib/elmersolver/libfhuti.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libfhuti.dylib:\n\t@rpath/libfhuti.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate (compatibility version 1.0.0, current version 4.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "lib/elmersolver/libmatc.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libmatc.dylib:\n\t@rpath/libmatc.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "lib/elmersolver/libmpi_stubs.dylib": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.cache/elmer-evaluation/setup-v1/prefix/lib/elmersolver/libmpi_stubs.dylib:\n\t@rpath/libmpi_stubs.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib (compatibility version 6.0.0, current version 6.0.0)\n\t/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib (compatibility version 1.0.0, current version 1.0.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n"
+    },
+    "source_archive_sha256": "1451e82f05b9661d82e1ebbf6e90ac373fc1b19482eef3889334a6df5ff0144a",
+    "inclusive_setup_wall_s": 489.4233295917511,
+    "qualification": false,
+    "actual_baffle_attempted": false
+  },
+  "as_run_setup_sources": {
+    "runner.py": "import os,json,time,subprocess,signal,resource,hashlib\nfrom pathlib import Path\nbase=Path(__file__).resolve().parent; root=base.parents[2]; start=json.loads((base/'start.json').read_text()); deadline=start['local_started_unix']+600-start['download_wall_s']\nsource=next((base/'elmerfem').glob('elmerfem-*')); cmake=next((base/'cmake').glob('cmake-*'))/'CMake.app/Contents/bin/cmake'; build=base/'build'; prefix=base/'prefix'\nenv=os.environ.copy()\nfor k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','BLIS_NUM_THREADS','NUMEXPR_NUM_THREADS','CMAKE_BUILD_PARALLEL_LEVEL'):env[k]='1'\nenv['XDG_CACHE_HOME']=str(root/'.cache'); env['CLANG_MODULE_CACHE_PATH']=str(base/'clang-cache');env['TMPDIR']=str(base/'tmp');Path(env['TMPDIR']).mkdir(exist_ok=True)\nflags=['-DCMAKE_BUILD_TYPE=Release','-DCMAKE_C_COMPILER=/usr/bin/clang','-DCMAKE_CXX_COMPILER=/usr/bin/clang++','-DCMAKE_Fortran_COMPILER=/opt/homebrew/bin/gfortran','-DCMAKE_INSTALL_PREFIX='+str(prefix),'-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF','-DCMAKE_C_FLAGS_RELEASE=-O1 -DNDEBUG','-DCMAKE_CXX_FLAGS_RELEASE=-O1 -DNDEBUG','-DCMAKE_Fortran_FLAGS_RELEASE=-O1 -DNDEBUG','-DUSE_MACOS_PACKAGE_MANAGER=OFF','-DWITH_MPI=OFF','-DWITH_OpenMP=OFF','-DWITH_ELMERGUI=OFF','-DWITH_ELMERPOST=OFF','-DWITH_ElmerIce=OFF','-DWITH_XIOS=OFF','-DWITH_NETCDF=OFF','-DWITH_Mumps=OFF','-DWITH_Hypre=OFF','-DWITH_CHOLMOD=OFF','-DWITH_Trilinos=OFF','-DWITH_FETI4I=OFF','-DWITH_CONTRIB=OFF','-DWITH_LUA=OFF','-DWITH_MMG=OFF','-DWITH_PARMMG=OFF','-DWITH_ROCALUTION=OFF','-DWITH_Zoltan=OFF','-DBUILD_TESTING=OFF','-DBLA_VENDOR=Apple','-DINCLUDE_ELMER_MODULES=HeatSolve;FluxSolver;ResultOutputSolve;SaveData']\ncommands=[('cmake-version',[str(cmake),'--version']),('configure',[str(cmake),'-S',str(source),'-B',str(build),*flags]),('build',[str(cmake),'--build',str(build),'--parallel','1']),('install',[str(cmake),'--install',str(build)])]\nrecord={'status':'running','setup_total_wall_cap_s':600,'owner_acquisition_wall_s':start['download_wall_s'],'local_started_unix':start['local_started_unix'],'one_build_job':True,'thread_env':{k:env[k] for k in env if k.endswith('NUM_THREADS') or k in ('VECLIB_MAXIMUM_THREADS','CMAKE_BUILD_PARALLEL_LEVEL')},'source_commit':'a19504ac53ec222e3355e182b08f2ff280c2203a','source_archive_sha256':'1451e82f05b9661d82e1ebbf6e90ac373fc1b19482eef3889334a6df5ff0144a','cmake_archive_sha256':'d1449f969c54d5c00886d5b643340d493dfb3c81cb39ee29b35453395c11ebf7','steps':[],'solver_qualified':False,'actual_baffle_attempted':False}\ntry:\n for name,cmd in commands:\n  remaining=deadline-time.time()\n  if remaining<=0:raise TimeoutError('Inclusive setup cap reached before '+name)\n  before=resource.getrusage(resource.RUSAGE_CHILDREN);t=time.time(); step={'name':name,'command':cmd,'budget_remaining_wall_s':remaining};record['steps'].append(step)\n  (base/'setup-record.json').write_text(json.dumps(record,indent=2)+'\\n')\n  with (base/(name+'.log')).open('wb') as log:\n   proc=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT,env=env,start_new_session=True)\n   try:code=proc.wait(timeout=remaining)\n   except subprocess.TimeoutExpired:\n    os.killpg(proc.pid,signal.SIGKILL);proc.wait();raise TimeoutError('Inclusive setup cap reached during '+name)\n  after=resource.getrusage(resource.RUSAGE_CHILDREN);step.update(returncode=code,wall_s=time.time()-t,child_cpu_s=(after.ru_utime+after.ru_stime)-(before.ru_utime+before.ru_stime),cumulative_peak_child_rss_bytes_macos=after.ru_maxrss,log_sha256=hashlib.sha256((base/(name+'.log')).read_bytes()).hexdigest())\n  print(name,code,round(step['wall_s'],3),flush=True)\n  if code!=0:raise RuntimeError(name+' failed; no automatic retry')\n record['status']='installed_isolated_not_qualified'\nexcept Exception as e:\n record.update(status='stopped_preserved',error=type(e).__name__+': '+str(e));print(record['error'],flush=True)\nfinally:\n record['local_wall_s']=time.time()-start['local_started_unix'];record['inclusive_setup_wall_s']=record['local_wall_s']+start['download_wall_s'];record['runner_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest();(base/'setup-record.json').write_text(json.dumps(record,indent=2)+'\\n')\n",
+    "addendum.py": "import os,json,time,subprocess,signal,resource,hashlib\nfrom pathlib import Path\nb=Path(__file__).resolve().parent;s=json.loads((b/'start.json').read_text());old=json.loads((b/'setup-record.json').read_text());deadline=s['local_started_unix']+600-s['download_wall_s'];cmake=next((b/'cmake').glob('cmake-*'))/'CMake.app/Contents/bin/cmake';source=next((b/'elmerfem').glob('elmerfem-*'));env=os.environ.copy()\nfor k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','BLIS_NUM_THREADS','NUMEXPR_NUM_THREADS','CMAKE_BUILD_PARALLEL_LEVEL'):env[k]='1'\nenv.update(XDG_CACHE_HOME=str(b.parents[2]/'.cache'),TMPDIR=str(b/'tmp'),CLANG_MODULE_CACHE_PATH=str(b/'clang-cache'))\nr={'reason':'Pinned-source audit identifies HeatSolveVec integration-point wall evaluation as required comparison prerequisite; initial build succeeded, no failed build retry.','original_record_sha256':hashlib.sha256((b/'setup-record.json').read_bytes()).hexdigest(),'same_total_wall_cap_s':600,'steps':[],'solver_qualified':False}\ntry:\n for name,cmd in [('vector-configure',[str(cmake),'-S',str(source),'-B',str(b/'build'),'-DINCLUDE_ELMER_MODULES=HeatSolve;HeatSolveVec;FluxSolver;ResultOutputSolve;SaveData']),('vector-build',[str(cmake),'--build',str(b/'build'),'--target','HeatSolveVec','--parallel','1']),('vector-install',[str(cmake),'--install',str(b/'build')])]:\n  remaining=deadline-time.time()\n  if remaining<=0:raise TimeoutError('Original inclusive setup ceiling reached')\n  t=time.time();before=resource.getrusage(resource.RUSAGE_CHILDREN);row={'name':name,'command':cmd,'remaining_s':remaining};r['steps'].append(row)\n  with (b/(name+'.log')).open('wb') as log:\n   p=subprocess.Popen(cmd,stdout=log,stderr=subprocess.STDOUT,env=env,start_new_session=True)\n   try:code=p.wait(timeout=remaining)\n   except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait();raise TimeoutError('Original inclusive setup ceiling reached during '+name)\n  after=resource.getrusage(resource.RUSAGE_CHILDREN);row.update(returncode=code,wall_s=time.time()-t,child_cpu_s=(after.ru_utime+after.ru_stime)-(before.ru_utime+before.ru_stime),cumulative_peak_child_rss_bytes_macos=after.ru_maxrss)\n  print(name,code,round(row['wall_s'],3),flush=True)\n  if code:raise RuntimeError(name+' failed; stop without retry')\n r['status']='installed_vector_module_not_qualified'\nexcept Exception as e:r.update(status='stopped_preserved',error=str(e));print(r['error'],flush=True)\nfinally:\n r['inclusive_setup_wall_s']=time.time()-s['local_started_unix']+s['download_wall_s'];r['runner_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest();(b/'addendum-record.json').write_text(json.dumps(r,indent=2)+'\\n')\n"
+  },
+  "selected_source_sha256": {
+    "CMakeLists.txt": "b6d98c28e1127a2d34ae1f1fadebbe709766f45433eaff566e9ca89dc8806194",
+    "fem/src/modules/HeatSolveVec.F90": "f745a711669aa9f7aeeb44d2a3f16ec1ba312958ee93311901f7712f079ff1a6",
+    "fem/src/modules/HeatSolve.F90": "7f160b0f00e08e5d3fb2f91e6a8731080b2d997d6e4f03278e1b518eeb3e40e8",
+    "fem/src/modules/ResultOutputSolve/VtuOutputSolver.F90": "fa173731d686c551881723150fd8bb20b242614b19fb93b9c3f890b4f62afbb3",
+    "fem/src/Lists.F90": "d6ab213dfc36bfe6d875f1ab5305c290884b878febc7bebbd528e4b3dc29503d",
+    "fem/src/GeneralUtils.F90": "87ec30d8c975131d41be0a09276516a58ad4328a79d267b27346e511a811952b"
+  },
+  "setup_closed": true
+}

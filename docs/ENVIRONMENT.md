@@ -203,3 +203,18 @@ about the coaxial model describes historical proxy runs; actual-CAD gas, materia
 connections and common-surface coupling are now separate evolving modules.
 Neither tool execution nor simple-case agreement establishes full thermal
 acceptance or physical material qualification.
+
+## Isolated Elmer evaluation (2026-11-01 UTC)
+
+Elmer is now built under `.cache/elmer-evaluation/setup-v1/prefix`, from pinned
+26.2.1 source commit `a19504ac53ec222e3355e182b08f2ff280c2203a`; the executable
+reports `26.2-unknown`. CMake3.31.8 was unpacked locally; existing compiler and
+project dependency pins are unchanged. Setup including download/runtime checks
+closed at489.423s against600s. [Setup and resources](wo03-elmer-local-setup.md).
+
+HeatSolve/HeatSolveVec/FluxSolver/ResultOutputSolve/SaveData are available, with
+serial UMFPACK and binary Float64 output. Availability is distinct from thermal
+qualification: [the completed campaign](wo03-elmer-thermal-comparison.md) retains
+failed/unavailable criteria and [the scoped decision](wo03-elmer-campaign-decision.md)
+keeps actual-baffle calculations unqualified. Do not rerun downloads/builds or
+install a second copy when continuing from these artifacts.
