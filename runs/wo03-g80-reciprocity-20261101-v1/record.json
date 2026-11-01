@@ -1,0 +1,153 @@
+{
+  "case": "preserved 48/24 washer-boundary actual G80 bridge; 1.5 mm mesh",
+  "current_source_hashes": {
+    "case_dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b",
+    "case_inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "case_sta": "4629c2318b3aa94965c19c46b92bc7e972ddbbb0d918d2c4b0151f0a930d2812",
+    "mesh_meta": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "prior_campaign_record": "1447009207bcc61c05559a3a477a23b25948e89ee8504a40ec5c3ec44e5312bc",
+    "raw_audit_record": "376015aabd8a7303ad9489cb5b39e699dfcb7e777acc3addb118cb58d3a6d789"
+  },
+  "field_completeness": {
+    "DAT_table_headers": [
+      "displacements (vx,vy,vz) for set ALL and time  0.1000000E+01",
+      "forces (fx,fy,fz) for set SUPPORT and time  0.1000000E+01",
+      "displacements (vx,vy,vz) for set ALL and time  0.2000000E+01",
+      "forces (fx,fy,fz) for set SUPPORT and time  0.2000000E+01"
+    ],
+    "all_sets_complete_unique": true,
+    "displacement_rows_by_step": {
+      "1": 42850,
+      "2": 42850
+    },
+    "nodes": 42850,
+    "support_force_rows_by_step": {
+      "1": 1574,
+      "2": 1574
+    },
+    "support_nodes": 1574
+  },
+  "load_row_counts": {
+    "serialized_load_rows_omitted": 4256,
+    "step1_equal_50_each": 3184,
+    "step2_single_150_on_patch0": 1072
+  },
+  "model_and_steps": {
+    "all_nodal_coordinates_match_mesh_metadata_with_deck_rounding": true,
+    "boundary_block_before_step1": [
+      {
+        "header": "*BOUNDARY",
+        "rows": [
+          "SUPPORT,1,3,0"
+        ]
+      }
+    ],
+    "ccx_material_model": "all seven materials use one *ELASTIC line (G11 10000, nu 0.3; six EPOXY regions 100, nu 0.3)",
+    "cload_op_each_step": [
+      "NEW",
+      "NEW"
+    ],
+    "contact_keywords_present": false,
+    "geometric_nonlinearity_keyword_present": false,
+    "loads_are_serialized_total_patterns": "step2 OP=NEW replaces step1 CLOAD; deck has exactly two CLOAD blocks and no DLOAD/DSLOAD",
+    "material_nonlinear_keywords_present": [],
+    "static_steps": [
+      true,
+      true
+    ],
+    "step_boundary_overrides": [
+      [],
+      []
+    ],
+    "steps": 2,
+    "washer_boundary_segments_full_circle_equivalent": {
+      "inner": 24,
+      "outer": 48
+    }
+  },
+  "native_status_rows": [
+    {
+      "attempt": 1,
+      "increment": 1,
+      "increment_time_token": "0.100000E+01",
+      "iterations": 1,
+      "step": 1,
+      "step_time_token": "0.100000E+01",
+      "total_time_token": "0.100000E+01"
+    },
+    {
+      "attempt": 1,
+      "increment": 1,
+      "increment_time_token": "0.100000E+01",
+      "iterations": 1,
+      "step": 2,
+      "step_time_token": "0.100000E+01",
+      "total_time_token": "0.200000E+01"
+    }
+  ],
+  "omissions": {
+    "all_generated_nodal_displacement_arrays_omitted": true,
+    "omitted_displacement_rows": 85700,
+    "omitted_serialized_CLOAD_rows": 4256,
+    "omitted_support_reaction_vector_rows": 3148,
+    "raw_audit_record_preserved_unchanged": true
+  },
+  "output_backend_source_note": {
+    "execution_status": "No backend/output solver runs authorized or performed by the projection.",
+    "manual_2_23": "NODE OUTPUT documents mixed binary/ASCII FRD; no numeric width or double-width selector documented.",
+    "official_master_frdvector": "asc writes text after float casts; bin writes float32 components; third/other branch writes double64 components; no user-facing selector for third branch found.",
+    "version_match": "Master source is not pinned or verified identical to installed 2.23 source archive; installed RF encoding remains unresolved."
+  },
+  "preserved_native_force_balance_failure": {
+    "actual_acceptance": false,
+    "campaign_status": "stopped",
+    "error": "ValueError: Force equilibrium fails even allowing printed rounding: {'applied_force_N': [0.0, 0.0, 150.0], 'reaction_force_N': [2.659116799391681e-07, 1.8292099321359778e-07, -45.30322366996822], 'force_residual_N': [2.659116799391681e-07, 1.8292099321359778e-07, 104.69677633003178], 'force_residual_norm_N': 104.69677633003178, 'reaction_print_rounding_bound_N': [1.2515657710000062e-05, 1.52194675000002e-05, 1.1272771750000148e-05], 'force_balance_status': 'fail', 'applied_moment_Nmm': [1.5359824523386578e-10, -2.6543212072738243e-12, 0.0], 'reaction_moment_Nmm': [295.2920592666601, -343.51319572360734, 6.682442343142192e-06], 'moment_residual_Nmm': [295.2920592668137, -343.51319572361, 6.682442343142192e-06], 'reaction_moment_print_rounding_bound_Nmm': [0.002885974351266501, 0.0024128976483960155, 0.0005907034264922945], 'moment_balance_status': 'reported_not_thresholded'}",
+    "preserved": true
+  },
+  "raw_record": "build/wo03-g80-bridge-reciprocity-audit-v1/record.json",
+  "raw_record_sha256": "376015aabd8a7303ad9489cb5b39e699dfcb7e777acc3addb118cb58d3a6d789",
+  "reciprocal_work": {
+    "W12_Nmm": "34.25509251812350021372421166810701640457",
+    "W12_conservative_print_rounding_bound_Nmm": "0.000002551335717096299741579458442896870725",
+    "W12_definition": "F_step1 dot U_step2",
+    "W21_Nmm": "2.026028133416671823735598617688688548024",
+    "W21_conservative_print_rounding_bound_Nmm": "7.0136681751948798734116330518927750E-7",
+    "W21_definition": "F_step2 dot U_step1",
+    "absolute_difference_Nmm": "32.22906438470682838998861305041832785655",
+    "bound_assumption": "Each force and displacement token is treated as a rounded decimal with half-last-place uncertainty; |F|du + |U|dF + dFdu accumulated termwise. Serialized deck CLOADs themselves remain the exact solver inputs.",
+    "difference_conservative_combined_rounding_bound_Nmm": "0.000003252702534615787728920621748086148225",
+    "relative_difference_over_mean_absolute_work": "1.776630038209068960338645541884502555752",
+    "units": "N mm",
+    "within_conservative_print_rounding_bound": false
+  },
+  "resource_accounting": {
+    "audit_cpu_s": null,
+    "audit_wall_s": null,
+    "note": "Not measured in the preserved audit record; no zero or cap-compliance inference."
+  },
+  "result": "reciprocity_failure_outside_print_rounding; prior force balance failure remains",
+  "source_hashes_unchanged_in_original_audit": true,
+  "source_sha256_after": {
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-result.json": "ea6abfbb77988ecbf5bac5383b51118031809283d0b2d2d88cfed51d963a4534",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-bridge-fea.yaml": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-washer-boundary-area-budget.yaml": "a50148a3220705abdf75b1113cb3365d2c7ffdbe488824f4a705023675e9ab75",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_bridge_adapter.py": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/record.json": "1447009207bcc61c05559a3a477a23b25948e89ee8504a40ec5c3ec44e5312bc"
+  },
+  "source_sha256_before": {
+    "/opt/homebrew/bin/ccx": "2349c77ebd8302615828ac3911caac45fb0a39363914ee555db1c7e3a86250bf",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.dat": "57a3527d4721f5b17f1c18b9451249a1fa723baf75d60b15d8ba63424df6db2b",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/case.inp": "5f024c0512c6cf18eaef45111426bf98ea8a63ffc26c2ac18992d1b69449d89b",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/bridge_1p5mm/mesh-meta.json": "85e1ad28b503d784561d3245621877336c7927429a03d268f08cf7eb04e6c961",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-result.json": "ea6abfbb77988ecbf5bac5383b51118031809283d0b2d2d88cfed51d963a4534",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-bridge-fea.yaml": "bcb684efc181e10be7424df3b12633f321bfa0568399b237b2fb52eaffb53af3",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03-g80-washer-boundary-area-budget.yaml": "a50148a3220705abdf75b1113cb3365d2c7ffdbe488824f4a705023675e9ab75",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/executed-wo03_g80_bridge_adapter.py": "4a855dabd83b224a56b4063e9f87e2bea080bbe84dbd6277ab5960bf39e28c49",
+    "build/wo03-g80-bridge-area-budget-coarse-v1/record.json": "1447009207bcc61c05559a3a477a23b25948e89ee8504a40ec5c3ec44e5312bc"
+  },
+  "status": "read_only_reciprocal_work_audit_compact_projection"
+}

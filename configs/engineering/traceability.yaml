@@ -3,6 +3,24 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: runs/wo03-g80-reciprocity-20261101-v1/record.json
+  scope: Read-only reciprocal-work diagnostic of preserved linear bridge responses; large discrepancy remains unexplained.
+  limitation: No new solver run or strength credit. Native response pairing fails within print bounds; underlying cause remains unidentified.
+- path: runs/wo03-g80-staged-retention-20261101-v1/record.json
+  scope: Isolated 72-part G80 CAD/mass/static/four-case flight integration; active vehicle unchanged.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+- path: runs/wo03-g80-canopy-stage3-20261101-v1/record.json
+  scope: Five-case larger-canopy screening and metadata-only equivalent sensitivity; full trajectories not retained.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+- path: runs/wo03-g80-recovery-path-20261101-v1/record.json
+  scope: Complete recovery force-path intake and serial paper-body cut demand; off-nominal screen exceeds estimated strength.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+- path: runs/wo03-g80-backbone-route-20261101-v1/record.json
+  scope: Two source-pinned straight tether envelopes; selected 60-degree layout reference only.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+- path: runs/wo03-elmer-classic-decision-20261101T093000Z/record.json
+  scope: Closed classic versus vectorized known-case comparison; actual geometry remains unqualified.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
 - path: runs/wo03-support-fea-20261030T225615144070Z/record.json
   scope: Frame-only internal-brace eigenvalue study and known case.
   limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
@@ -536,13 +554,14 @@ requirements:
   - 09
   - '11'
   evidence:
+  - runs/wo03-g80-staged-retention-20261101-v1/record.json
+  - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
   - runs/wo03-20261030T180113490389Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: PR9 vehicle remains active. New braces/bonds, shoulder, anchors,
-    rope terminations, carrier, battery and fin trades must be integrated and CAD/mass/full-inertia
-    reconciled before accepting updated flight/static margins.
+  evidence_basis: Active designs remain unchanged. Isolated 72-part G80 bookkeeping and same-identity static/ascent checks pass with full 50 g retained. Larger-canopy sensitivity separately adds 5 g; supplier masses, packing, end attachments and unpriced entries remain unresolved. G54/G12 evidence is separate.
+
 - id: RT-MASS-002
   applies_to: *id001
   purpose_source: WO-03 mass/CG/inertia consistency
@@ -561,12 +580,14 @@ requirements:
   - 09
   - '12'
   evidence:
+  - runs/wo03-g80-staged-retention-20261101-v1/record.json
+  - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
   - runs/wo03-20261030T180113490389Z/record.json
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Isolated G80 manufactured solids, full centroid/tensor and exact source identity reconciled; no adoption. Canopy metadata-only copy has bitwise-identical shared builder inputs, not a new benchmark. Flexible envelope inertia, measured mass and installed recovery remain open.
+
 - id: RT-LOAD-001
   applies_to: *id001
   purpose_source: Structural adequacy and acceleration
@@ -587,6 +608,8 @@ requirements:
   - '03'
   - 09
   evidence:
+  - runs/wo03-g80-reciprocity-20261101-v1/record.json
+  - runs/wo03-g80-recovery-path-20261101-v1/record.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-mount-loadpath-20261030T185139862170Z/record.json
   - runs/wo03-motor-support-20261030T204829437762Z/record.json
@@ -605,6 +628,9 @@ requirements:
   evidence_basis: Exact clipped sections and internal bracing are calculated; G54
     eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint strength remains
     open; ideal strip-end restraints are rejected as load-path proof.
+    The separate G80 actual bridge fails force balance and reciprocal work; raw
+    displacement/stress are unvalidated. Small known cases do not transfer a pass.
+
 - id: RT-LOAD-002
   applies_to: *id001
   purpose_source: Fin/guide/servo loads and joints
@@ -680,6 +706,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - runs/wo03-elmer-classic-decision-20261101T093000Z/record.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-thermal-20261030T182422090687Z/record.json
   - runs/wo03-thermal-20261030T204848956297Z/record.json
@@ -809,6 +836,9 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - runs/wo03-g80-canopy-stage3-20261101-v1/record.json
+  - runs/wo03-g80-recovery-path-20261101-v1/record.json
+  - runs/wo03-g80-backbone-route-20261101-v1/record.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
   - docs/wo03-recovery-anchor.md
@@ -823,10 +853,8 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: Three-leg rounded G11 aft anchor and complete carrier are isolated
-    candidates. Section estimates do not close splice, gas/heat, bond peel, service
-    or installed capacity. Total versus incremental budget counted once; industrial
-    eye/steel boss remain rejected.
+  evidence_basis: Latest isolated G80 canopy passes five modeled vertical-descent screens under unmeasured drag assumptions. Serial paper-body recovery cut exceeds its estimated screen in existing off-nominal probes. Selected 60-degree straight backbone envelope has 0.45 mm inflated coupler clearance; end attachments, bends, packing, pressure isolation, extraction, hot/termination capacity and service remain open. G54/G12 requirements are unchanged; industrial lifting hardware remains rejected.
+
 - id: RT-RECOVERY-002
   applies_to: *id001
   purpose_source: Plugged G12 and common-cause failures
@@ -1330,10 +1358,15 @@ interfaces:
   power_connectors: Independent processor/task and isolated reserve supply required;
     no plugged G12 motor-ejection backup.
   unresolved:
+  - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only load credit
+  - Actual deployment/separation mechanism and pressure isolation compatible with tether passages
+  - Bends, abrasion, hot terminations and module/motor service; straight envelope is not installed clearance
   - Packed-volume/cord/connector envelope and extraction measurements
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - runs/wo03-g80-recovery-path-20261101-v1/record.json
+  - runs/wo03-g80-backbone-route-20261101-v1/record.json
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
@@ -1628,9 +1661,7 @@ fmea:
   detection: Ground extraction/deployment/continuity/proof; flight sensing does not
     guarantee inflation.
   mitigation_design_change: Independent qualified recovery, protected snag-free pack
-    and load-qualified attachments. Current anchor demand reaches1831.7N in the factored
-    off-nominal probe; switch mounting/access, board retention, wire routing and rated
-    anchor transfer remain open WO-03 design items.
+    and load-qualified attachments. Historical all-mode demand reaches1831.7N; the new isolated G80 probe is1782.3N, already DF3. Its serial paper-body cut exceeds the estimated screen. A continuous protected backbone is only a layout candidate; actual nose/payload/aft joints, separation mechanism, pressure isolation, switch access, board retention and routing remain open WO-03 design items.
   residual_risk: Plugged G12 has no motor-ejection backup; redundant triggers cannot
     release a jammed pack.
   verification_test: Repeated repacking, cold/hot extraction, deployment and opening-load

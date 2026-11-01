@@ -1,0 +1,83 @@
+{
+  "status": "completed_readonly_no_new_flight",
+  "source_before": {
+    "runs/wo03-g80-canopy-stage3-20261101-v1/flight-result.json": "35f0e1ed47516b5f7c5dc4f9426f3aec88b65c7173cc5ffbcc535bda87bd08b7",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+    "runs/wo03-g80-guide-clock-bound-20261101-v1/proof.py": "494ede4d0b25de38ae57ecd88cc8be2dd04e2fbcbf04dae9e1784259c4d6a504"
+  },
+  "source_after": {
+    "runs/wo03-g80-canopy-stage3-20261101-v1/flight-result.json": "35f0e1ed47516b5f7c5dc4f9426f3aec88b65c7173cc5ffbcc535bda87bd08b7",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "src/sim/env.py": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "src/sim/inputs.py": "584ecc3a70e6549a8c843519ac8ada2f59d944c156c9864e58c227bd37b2dd1f",
+    "runs/wo03-g80-guide-clock-bound-20261101-v1/proof.py": "494ede4d0b25de38ae57ecd88cc8be2dd04e2fbcbf04dae9e1784259c4d6a504"
+  },
+  "source_unchanged": true,
+  "cases": [
+    {
+      "case": "nominal_calm",
+      "status": "conditional_recorded_model_clock_bound",
+      "source_curve_peak_n": 102.2,
+      "thrust_scale": 1.0,
+      "mass_lower_bound_kg": 0.7270817122770563,
+      "dt_s": 0.005,
+      "accel_upper_mps2": 150.36856797196026,
+      "speed_allowance_mps": 0.7518428398598013,
+      "recorded_guide_speed_mps": 18.90641273696407,
+      "conditional_guide_crossing_speed_lower_mps": 18.15456989710427,
+      "unchanged_target_mps": 15.0,
+      "conditional_screen_pass": true
+    },
+    {
+      "case": "growth_low_thrust",
+      "status": "conditional_recorded_model_clock_bound",
+      "source_curve_peak_n": 102.2,
+      "thrust_scale": 0.85,
+      "mass_lower_bound_kg": 0.7820817122770564,
+      "dt_s": 0.005,
+      "accel_upper_mps2": 120.88200010258093,
+      "speed_allowance_mps": 0.6044100005129047,
+      "recorded_guide_speed_mps": 16.365810657574883,
+      "conditional_guide_crossing_speed_lower_mps": 15.761400657061978,
+      "unchanged_target_mps": 15.0,
+      "conditional_screen_pass": true
+    },
+    {
+      "case": "growth_wind",
+      "status": "unavailable_for_this_calm_air_bound"
+    },
+    {
+      "case": "growth_low_cda",
+      "status": "conditional_recorded_model_clock_bound",
+      "source_curve_peak_n": 102.2,
+      "thrust_scale": 1.0,
+      "mass_lower_bound_kg": 0.7820817122770564,
+      "dt_s": 0.005,
+      "accel_upper_mps2": 140.48353247362462,
+      "speed_allowance_mps": 0.7024176623681231,
+      "recorded_guide_speed_mps": 18.08775638483323,
+      "conditional_guide_crossing_speed_lower_mps": 17.385338722465107,
+      "unchanged_target_mps": 15.0,
+      "conditional_screen_pass": true
+    },
+    {
+      "case": "growth_wind_low_cda",
+      "status": "unavailable_for_this_calm_air_bound"
+    }
+  ],
+  "basis": "For the saved fixed-motor zero-wind guide model, on-guide speed is axial and drag/friction oppose forward motion. Piecewise-linear thrust cannot exceed its endpoint maximum. Instantaneous mass is no smaller than effective full-depletion mass. Use Fmax/mmin + g, conservatively allowing gravity to aid acceleration. RK4 increments cannot exceed dt times this acceleration upper bound while the guide constraint applies. Exit is detected on the first step ending beyond the guide, so the clock offset is at most one dt. Subtract this speed bound without reconstructing an unsaved row.",
+  "limitations": [
+    "Conditional on existing rigid fixed-guide model and physical sign assumptions; no real guide qualification.",
+    "No reconstruction of missing telemetry or independent accuracy validation of integration/force/aerodynamic models.",
+    "Windy cases unavailable under this narrowly scoped calm-air proof.",
+    "Full trajectories, guide-row audit, manufacturing and site evidence remain unavailable.",
+    "Not a replacement for static/reference/uncertainty or recovery checks."
+  ],
+  "cpu_s": 0.0007329999999999975,
+  "solver_or_mesh_or_flight_invoked": false,
+  "flight_ready": false
+}

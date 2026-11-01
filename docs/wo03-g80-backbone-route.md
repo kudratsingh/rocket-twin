@@ -1,0 +1,27 @@
+# G80 straight recovery-backbone route — 2026-11-01
+
+**Both tested straight cylindrical envelopes are nominally clear of the saved physical-part solids, but neither establishes a usable installed tether.** The tightest modeled clearance is 0.45 mm between the inflated envelope and the coupler. The first unclosed connection is the forward canopy/backbone junction and its positive nose and forward-carrier attachments; the aft termination and motor/fin mass capture are also unclosed. No attachment, bend, slack, deployment or service path was modeled or credited.
+
+The isolated study uses the 72-part `90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc` CAD source, revision `344f646f81e15d42ab54e7d996179581d638c6046bf1d006935b028709eca53f`. It imports each of the 72 saved part STEP files and places it according to the saved specification; it does not regenerate the vehicle. CAD X corresponds to body lateral Y, CAD Y to negative body lateral Z, and CAD Z to aft station. Azimuths are measured from +CAD X toward +CAD Y. Two straight centerlines at radius 28 mm and 60° / 180° span stations 231–1009 mm, stopping 1 mm aft of the 225–230 mm bulkhead and 1 mm ahead of the 1010 mm motor mount. Those stops are not attachment assumptions. Nominal 3.5 mm and inflated 4.1 mm cylindrical diameters include an **assumed** 0.3 mm per-side construction allowance, not a measured supplier tolerance or bending radius.
+
+Bounding boxes selected pairs with a lower-bound separation of at most 4 mm from the inflated envelope; exact BRep intersection volumes and distances were then evaluated for every selected pair. Every other saved solid has an inflated-envelope bounding-box separation greater than 4 mm. Neither route has positive-volume intersection with any selected manufactured solid at either diameter. Exact minimum clearances, nominal/inflated, are:
+
+| Nearby saved solid | 60° mm | 180° mm |
+| --- | ---: | ---: |
+| Interface coupler | 0.75 / 0.45 | 0.75 / 0.45 |
+| Upper body tube | 2.75 / 2.45 | 2.75 / 2.45 |
+| Avionics-bay solid | >4 / >4 bounding-box bound | 2.25 / 1.95 |
+| Recovery bulkhead at forward stop | 1.00 / 1.00 | 1.00 / 1.00 |
+| Motor mount at aft stop | 1.00 / 1.00 | 1.00 / 1.00 |
+| Aft shell | 2.75 / 2.45 | 2.75 / 2.45 |
+
+The 180° route intersects the saved `adhesive_finish` **distributed-budget envelope** by 973.135 / 1,256.659 mm³. It is a budget representation, not established physical adhesive geometry; it must be resolved rather than silently called a physical obstruction or ignored as proven clearance. All physical and budget roles, broad-phase bounds and exact pair outputs are retained in the [record](../runs/wo03-g80-backbone-route-20261101-v1/record.json). The independently powered recovery unit, carrier and related electronics were included in all 72 saved-part broad-phase checks; none was selected within 4 mm at either route. Their saved envelopes and the 72-part model are not proof of wiring, cell restraint, assembled access or cable movement. This fixed-motor package has no TVC pivot; neither route demonstrates motion clearance at its ends.
+
+The 778 mm straight length alone is about 5.1 g if the trade's unverified 2 g/ft cord mass applies. For 1–2 m of actual cord, the same assumption gives 6.6–13.1 g; routing length, loop tails, connector, abrasion and thermal protection mass are unknown, so no complete assembly mass range or vehicle mass is asserted. Neither the old shock-cord allowance nor the separate 5 g connector sensitivity is silently removed or double-counted here.
+
+The coupler clearance is a nominal static geometric result, not evidence that the cord survives assembly, motor removal, chafe, ejection or opening shock. The route crosses the removable module joint, and a separable positive connection or accessible service loop has yet to be designed; no anchor has been invented at either stop. Before choosing a route, define the forward load junction and individual nose/payload retention, then an independent aft attachment to the actual aft structure and retained motor without relying on the unqualified motor bridge. Check real curved termination paths, finite connection size, packing, deployment and assembly sweeps, tolerance stack, hot-gas protection and factored force transfer. If those cannot fit or be connected, the straight result does not rescue the concept.
+
+One authorized case processed both declared directions. Child process completed in 6.10 s supervised wall with 4.54 CPU s reported by the worker and 767 MB maximum sampled tree RSS, under declared 60 CPU / 120 wall s per child and 2 GiB live RSS cap. One worker was requested and OCCT pool set to one; CPU exceeds the internally timed geometry section and no OS-affinity or independently measured aggregate CPU claim is made. The 74 pinned input hashes match before/after. No flight, FEA, heat analysis, active-vehicle change, physical test or adoption occurred.
+
+
+The primary selected **60°** as the sole reference for the next layout because it avoids the 180° route’s adhesive-budget-envelope intersection. This is a geometry-study selection, not an installed-tether pass. The endpoint geometry and attachment design remain a separate primary decision. The archived executed script remains unchanged; the root publication script only reorganizes import statements and formats code. After normalization of import grouping and ordering, the parsed syntax trees otherwise match. No CAD case was rerun.
