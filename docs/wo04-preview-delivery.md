@@ -79,3 +79,14 @@ established. See [the preview handoff](wo04-preview-handoff.md) and
 Full WO-03, WO-04 and WO-05 acceptance remain open. Structural, thermal,
 tolerance/motion, physical tests, paid-run approval, WO-10 owner review and
 flight-release gates are unchanged. PID and RL controls remain later work.
+
+## Availability recheck — 2026-11-01
+
+The designated Chrome agent refreshed the existing preview tab and observed
+the42-part G80 inspector,739.46g nominal mass and rendered CAD rocket. An
+actual screenshot was emitted through computer use; no image file was saved.
+The current shell could not connect to or bind the preview ports, whereas
+browser-to-host access worked. No owner restart was needed, and no frontend
+code, geometry or simulator was changed by this availability check. The
+earlier four-configuration, visibility, replay and comparison observations
+remain dated as above; this was not a repeated full verification campaign.

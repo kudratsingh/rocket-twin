@@ -1,0 +1,488 @@
+{
+  "status": "completed_diagnostic_only",
+  "candidate_identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+  "candidate_part_count": 52,
+  "fin_load_method": "Unvalidated scalar panel-load estimate from saved q(t), alpha(t), CNa and uniform span/2 resultant; not a recovered simulator per-fin force, validated aero model or validated load bound.",
+  "cad_orientation": {
+    "base_fin_plane": "XZ, normal -Y in CAD generator before 120 degree sector rotations",
+    "local_first_fin_axes": {
+      "X": "radial/outward span",
+      "Y": "tangential/fin-normal",
+      "Z": "rocket axial"
+    },
+    "moment": "Magnitude uses F*(span/2). For a positive +Y normal force on the +X fin, r_X cross F_Y gives +M_Z, an axial root torque; alpha magnitude does not recover the physical load sign."
+  },
+  "geometry": {
+    "area_per_fin_m2": 0.008400000000000001,
+    "span_m": 0.07,
+    "count": 3,
+    "planform_centroid_station_m": 1.1400000000000001,
+    "CNa_per_rad": 1.698653752738762,
+    "coefficient_cap": 2.0
+  },
+  "historical_40kPa_5deg_panel_design_case": {
+    "q_pa": 40000.0,
+    "alpha_deg": 5.0,
+    "c_n": 0.14823550418324521,
+    "force_per_fin_N": 49.8071294055704,
+    "root_moment_magnitude_per_fin_Nm": 1.7432495291949641,
+    "df3_applied": false,
+    "known_case_check": "Matches retained historical 49.8071294055704 N formula result; arithmetic sanity only."
+  },
+  "cases": {
+    "nominal_calm": {
+      "flight_case": {
+        "dt_s": 0.005,
+        "max_time_s": 180.0,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.0,
+        "time_scale": 1.0,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.0,
+        "rail_friction_n": 0.0
+      },
+      "parquet": "nominal_calm.parquet",
+      "parquet_sha256": "f8d273130037be286c3bf1348da6fc5f45a76cf4370bf908898088784b04feaa",
+      "sample_count_total": 36000,
+      "sample_count_landed_excluded": 13005,
+      "apogee_trigger_time_s": 10.400000000000226,
+      "canopy_opening_start_inferred_s": 10.700000000000227,
+      "canopy_inflation_complete_s": 11.000000000000227,
+      "canopy_inflation_interval_s": [
+        10.700000000000227,
+        11.000000000000227
+      ],
+      "canopy_phase_sample_counts": {
+        "opening_and_inflation": 60,
+        "after_inflation_complete": 20796
+      },
+      "canopy_timing_basis": "Uses saved 180 s flight-record event metrics plus candidate trigger lag/inflation; Parquet contains no explicit deployment state. Apogee is cross-checked against its down-coordinate minimum.",
+      "phase_loads": [
+        {
+          "phase": "powered_predeployment",
+          "sample_count": 361,
+          "peak_estimated_load": {
+            "time_s": 0.6050000000000004,
+            "dynamic_pressure_pa": 2919.728270449232,
+            "alpha_deg_signed": 0.7046175549198986,
+            "c_n_capped": 0.02088986770198333,
+            "normal_force_per_fin_N": 0.5123389932815705,
+            "root_moment_magnitude_per_fin_Nm": 0.01793186476485497,
+            "thrust_N": 99.39943980263158
+          },
+          "max_dynamic_pressure": {
+            "time_s": 1.4449999999999912,
+            "value_pa": 12198.553397960935,
+            "alpha_deg_signed": 0.0064828753219223914
+          },
+          "max_absolute_alpha": {
+            "time_s": 0.5350000000000004,
+            "value_deg": 0.7914033695924407
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 0,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        },
+        {
+          "phase": "coast_predeployment",
+          "sample_count": 1778,
+          "peak_estimated_load": {
+            "time_s": 10.695000000000272,
+            "dynamic_pressure_pa": 5.341316976604325,
+            "alpha_deg_signed": 89.99999996883872,
+            "c_n_capped": 2.0,
+            "normal_force_per_fin_N": 0.08973412520695268,
+            "root_moment_magnitude_per_fin_Nm": 0.003140694382243344,
+            "thrust_N": 0.0
+          },
+          "max_dynamic_pressure": {
+            "time_s": 1.8099999999999834,
+            "value_pa": 11119.339837646929,
+            "alpha_deg_signed": 0.021469110192744327
+          },
+          "max_absolute_alpha": {
+            "time_s": 10.695000000000272,
+            "value_deg": 89.99999996883872
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 137,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        },
+        {
+          "phase": "postdeployment_opening_and_descent",
+          "sample_count": 20856,
+          "peak_estimated_load": {
+            "time_s": 17.76500000000075,
+            "dynamic_pressure_pa": 20.079840874895385,
+            "alpha_deg_signed": 89.99999995891272,
+            "c_n_capped": 2.0,
+            "normal_force_per_fin_N": 0.3373413266982425,
+            "root_moment_magnitude_per_fin_Nm": 0.011806946434438489,
+            "thrust_N": 0.0
+          },
+          "max_dynamic_pressure": {
+            "time_s": 17.76500000000075,
+            "value_pa": 20.079840874895385,
+            "alpha_deg_signed": 89.99999995891272
+          },
+          "max_absolute_alpha": {
+            "time_s": 10.945000000000311,
+            "value_deg": 89.99999997367532
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 20856,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        }
+      ],
+      "overall_alpha_diagnostic": {
+        "max_abs_alpha_time_s": 10.945000000000311,
+        "max_abs_alpha_deg": 89.99999997367532,
+        "samples_over_10deg": 20993,
+        "provisional_cutoff_deg": 10.0,
+        "status": "diagnostic reporting only; the 10 degree cutoff is not a validated method domain or requirement change"
+      },
+      "maximum_q_times_cn2_envelope": {
+        "qmax_pa": 12198.553397960935,
+        "qmax_time_s": 1.4449999999999912,
+        "alpha_at_qmax_deg": 0.0064828753219223914,
+        "assumed_cn": 2.0,
+        "force_per_fin_N": 204.93569708574375,
+        "root_moment_magnitude_per_fin_Nm": 7.172749398001032,
+        "status": "noncoincident qmax*CN=2 envelope sensitivity; not a physical maximum or validated load bound"
+      },
+      "peak_speed_mps": 147.92514261729218,
+      "speed_metric_recorded_mps": 147.92514261729218
+    },
+    "growth_low_thrust_high_drag": {
+      "flight_case": {
+        "dt_s": 0.005,
+        "max_time_s": 180.0,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 0.85,
+        "time_scale": 0.95,
+        "drag_scale": 1.2,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.5
+      },
+      "parquet": "growth_low_thrust_high_drag.parquet",
+      "parquet_sha256": "3410dbbe3c72ffa850e1b8785a39e4247fbd06b9e6e7183a3c69e0574adb668a",
+      "sample_count_total": 36000,
+      "sample_count_landed_excluded": 19901,
+      "apogee_trigger_time_s": 9.08000000000002,
+      "canopy_opening_start_inferred_s": 9.38000000000002,
+      "canopy_inflation_complete_s": 9.680000000000021,
+      "canopy_inflation_interval_s": [
+        9.38000000000002,
+        9.680000000000021
+      ],
+      "canopy_phase_sample_counts": {
+        "opening_and_inflation": 60,
+        "after_inflation_complete": 14164
+      },
+      "canopy_timing_basis": "Uses saved 180 s flight-record event metrics plus candidate trigger lag/inflation; Parquet contains no explicit deployment state. Apogee is cross-checked against its down-coordinate minimum.",
+      "phase_loads": [
+        {
+          "phase": "powered_predeployment",
+          "sample_count": 343,
+          "peak_estimated_load": {
+            "time_s": 0.7200000000000005,
+            "dynamic_pressure_pa": 2537.9217519065855,
+            "alpha_deg_signed": 0.7949551273979992,
+            "c_n_capped": 0.02356811482257967,
+            "normal_force_per_fin_N": 0.5024378625811186,
+            "root_moment_magnitude_per_fin_Nm": 0.01758532519033915,
+            "thrust_N": 82.87546115990612
+          },
+          "max_dynamic_pressure": {
+            "time_s": 1.3999999999999921,
+            "value_pa": 6973.244420345813,
+            "alpha_deg_signed": 0.00589507152372306
+          },
+          "max_absolute_alpha": {
+            "time_s": 0.6400000000000005,
+            "value_deg": 0.8839905224375104
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 0,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        },
+        {
+          "phase": "coast_predeployment",
+          "sample_count": 1532,
+          "peak_estimated_load": {
+            "time_s": 9.375000000000066,
+            "dynamic_pressure_pa": 5.321699044905318,
+            "alpha_deg_signed": 89.99999996785817,
+            "c_n_capped": 2.0,
+            "normal_force_per_fin_N": 0.08940454395440936,
+            "root_moment_magnitude_per_fin_Nm": 0.0031291590384043277,
+            "thrust_N": 0.0
+          },
+          "max_dynamic_pressure": {
+            "time_s": 1.7199999999999853,
+            "value_pa": 6474.626802756024,
+            "alpha_deg_signed": 0.011153524954895086
+          },
+          "max_absolute_alpha": {
+            "time_s": 9.375000000000066,
+            "value_deg": 89.99999996785817
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 139,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        },
+        {
+          "phase": "postdeployment_opening_and_descent",
+          "sample_count": 14224,
+          "peak_estimated_load": {
+            "time_s": 16.505000000001,
+            "dynamic_pressure_pa": 21.540204942890156,
+            "alpha_deg_signed": 89.999999955785,
+            "c_n_capped": 2.0,
+            "normal_force_per_fin_N": 0.3618754430405547,
+            "root_moment_magnitude_per_fin_Nm": 0.012665640506419416,
+            "thrust_N": 0.0
+          },
+          "max_dynamic_pressure": {
+            "time_s": 16.505000000001,
+            "value_pa": 21.540204942890156,
+            "alpha_deg_signed": 89.999999955785
+          },
+          "max_absolute_alpha": {
+            "time_s": 9.625000000000105,
+            "value_deg": 89.99999997252502
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 14224,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        }
+      ],
+      "overall_alpha_diagnostic": {
+        "max_abs_alpha_time_s": 9.625000000000105,
+        "max_abs_alpha_deg": 89.99999997252502,
+        "samples_over_10deg": 14363,
+        "provisional_cutoff_deg": 10.0,
+        "status": "diagnostic reporting only; the 10 degree cutoff is not a validated method domain or requirement change"
+      },
+      "maximum_q_times_cn2_envelope": {
+        "qmax_pa": 6973.244420345813,
+        "qmax_time_s": 1.3999999999999921,
+        "alpha_at_qmax_deg": 0.00589507152372306,
+        "assumed_cn": 2.0,
+        "force_per_fin_N": 117.15050626180967,
+        "root_moment_magnitude_per_fin_Nm": 4.100267719163338,
+        "status": "noncoincident qmax*CN=2 envelope sensitivity; not a physical maximum or validated load bound"
+      },
+      "peak_speed_mps": 111.66711251869614,
+      "speed_metric_recorded_mps": 111.66711251869614
+    },
+    "growth_high_thrust": {
+      "flight_case": {
+        "dt_s": 0.005,
+        "max_time_s": 180.0,
+        "sensor_noise": false,
+        "elevation_m": 850.0,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0,
+        "thrust_scale": 1.15,
+        "time_scale": 1.05,
+        "drag_scale": 1.0,
+        "added_mass_kg": 0.05,
+        "added_mass_station_m": 1.212,
+        "rail_friction_n": 0.0
+      },
+      "parquet": "growth_high_thrust.parquet",
+      "parquet_sha256": "c560845ca11bec0a4728e92a39f7b77596346b22294cf7890e3e72558dae47d3",
+      "sample_count_total": 36000,
+      "sample_count_landed_excluded": 10327,
+      "apogee_trigger_time_s": 11.06000000000033,
+      "canopy_opening_start_inferred_s": 11.36000000000033,
+      "canopy_inflation_complete_s": 11.66000000000033,
+      "canopy_inflation_interval_s": [
+        11.36000000000033,
+        11.66000000000033
+      ],
+      "canopy_phase_sample_counts": {
+        "opening_and_inflation": 60,
+        "after_inflation_complete": 23342
+      },
+      "canopy_timing_basis": "Uses saved 180 s flight-record event metrics plus candidate trigger lag/inflation; Parquet contains no explicit deployment state. Apogee is cross-checked against its down-coordinate minimum.",
+      "phase_loads": [
+        {
+          "phase": "powered_predeployment",
+          "sample_count": 379,
+          "peak_estimated_load": {
+            "time_s": 0.6200000000000004,
+            "dynamic_pressure_pa": 3577.620017356401,
+            "alpha_deg_signed": 0.7838155850320928,
+            "c_n_capped": 0.02323785968678352,
+            "normal_force_per_fin_N": 0.6983443485980311,
+            "root_moment_magnitude_per_fin_Nm": 0.02444205220093109,
+            "thrust_N": 114.30326270050124
+          },
+          "max_dynamic_pressure": {
+            "time_s": 1.4949999999999901,
+            "value_pa": 15315.27245683975,
+            "alpha_deg_signed": 0.0007103497314368375
+          },
+          "max_absolute_alpha": {
+            "time_s": 0.5500000000000004,
+            "value_deg": 0.8714499681396084
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 0,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        },
+        {
+          "phase": "coast_predeployment",
+          "sample_count": 1892,
+          "peak_estimated_load": {
+            "time_s": 11.355000000000375,
+            "dynamic_pressure_pa": 5.478514770732269,
+            "alpha_deg_signed": 89.99999997262033,
+            "c_n_capped": 2.0,
+            "normal_force_per_fin_N": 0.09203904814830213,
+            "root_moment_magnitude_per_fin_Nm": 0.003221366685190575,
+            "thrust_N": 0.0
+          },
+          "max_dynamic_pressure": {
+            "time_s": 1.8999999999999815,
+            "value_pa": 13779.606581268696,
+            "alpha_deg_signed": 0.023691101353257155
+          },
+          "max_absolute_alpha": {
+            "time_s": 11.355000000000375,
+            "value_deg": 89.99999997262033
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 147,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        },
+        {
+          "phase": "postdeployment_opening_and_descent",
+          "sample_count": 23402,
+          "peak_estimated_load": {
+            "time_s": 18.740000000000556,
+            "dynamic_pressure_pa": 21.527913609093247,
+            "alpha_deg_signed": 89.99999996290892,
+            "c_n_capped": 2.0,
+            "normal_force_per_fin_N": 0.3616689486327666,
+            "root_moment_magnitude_per_fin_Nm": 0.012658413202146833,
+            "thrust_N": 0.0
+          },
+          "max_dynamic_pressure": {
+            "time_s": 18.740000000000556,
+            "value_pa": 21.527913609093247,
+            "alpha_deg_signed": 89.99999996290892
+          },
+          "max_absolute_alpha": {
+            "time_s": 11.605000000000414,
+            "value_deg": 89.99999997662657
+          },
+          "small_angle_diagnostic": {
+            "cutoff_deg": 10.0,
+            "samples_over_cutoff": 23402,
+            "meaning": "Reporting cutoff only; no validated small-angle domain or acceptance requirement is asserted."
+          }
+        }
+      ],
+      "overall_alpha_diagnostic": {
+        "max_abs_alpha_time_s": 11.605000000000414,
+        "max_abs_alpha_deg": 89.99999997662657,
+        "samples_over_10deg": 23549,
+        "provisional_cutoff_deg": 10.0,
+        "status": "diagnostic reporting only; the 10 degree cutoff is not a validated method domain or requirement change"
+      },
+      "maximum_q_times_cn2_envelope": {
+        "qmax_pa": 15315.27245683975,
+        "qmax_time_s": 1.4949999999999901,
+        "alpha_at_qmax_deg": 0.0007103497314368375,
+        "assumed_cn": 2.0,
+        "force_per_fin_N": 257.29657727490786,
+        "root_moment_magnitude_per_fin_Nm": 9.005380204621776,
+        "status": "noncoincident qmax*CN=2 envelope sensitivity; not a physical maximum or validated load bound"
+      },
+      "peak_speed_mps": 165.90316922163987,
+      "speed_metric_recorded_mps": 165.90316922163987
+    }
+  },
+  "peak_speed_for_flutter_input": {
+    "case_speeds_mps": {
+      "nominal_calm": 147.92514261729218,
+      "growth_low_thrust_high_drag": 111.66711251869614,
+      "growth_high_thrust": 165.90316922163987
+    },
+    "maximum_saved_case_speed_mps": 165.90316922163987,
+    "meaning": "Candidate-specific kinematic speed input for a later flutter screen only; it is not a flutter pass or validated flight envelope."
+  },
+  "design_factor": 1.0,
+  "DF3_applied": false,
+  "identity_and_source_validation": {
+    "candidate_record_source_hashes_rechecked": 24,
+    "flight_record_source_hashes_rechecked": 44,
+    "flight_record_before_after_equal": true,
+    "candidate_record_before_after_equal": true,
+    "input_sha256_before": {
+      "build/wo03-g80-integrated-candidate-v1/record.json": "4dbdf17c901e38d42c741d8cf739ead7d1b6b38bdc833538eccf76185fb0d614",
+      "build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+      "build/wo03-g80-integrated-recovery-horizon-v1/growth_high_thrust.parquet": "c560845ca11bec0a4728e92a39f7b77596346b22294cf7890e3e72558dae47d3",
+      "build/wo03-g80-integrated-recovery-horizon-v1/growth_low_thrust_high_drag.parquet": "3410dbbe3c72ffa850e1b8785a39e4247fbd06b9e6e7183a3c69e0574adb668a",
+      "build/wo03-g80-integrated-recovery-horizon-v1/nominal_calm.parquet": "f8d273130037be286c3bf1348da6fc5f45a76cf4370bf908898088784b04feaa",
+      "build/wo03-g80-integrated-recovery-horizon-v1/record.json": "fa304d71672d19ee6b24907bde0855b3276ebb45a2333b3b1fe5de0e90e633bd",
+      "configs/studies/wo03-g80-fin-loads.yaml": "8ebabc61babedf4f52f57f84249b9e6b5e1faa1b463fb54ee1ceb5a50e806fab",
+      "configs/studies/wo03-g80-integrated-recovery-horizon.yaml": "7de15fd96e80daf3df94a81fe4b506fe3b65b9980c00173cac41692f05c7fe7d",
+      "scripts/wo03_g80_fin_loads.py": "9298f95d8b8afe20129abbcc09861fc5ec93bef27d801581c282fc54a815d968"
+    },
+    "input_sha256_after": {
+      "build/wo03-g80-integrated-candidate-v1/record.json": "4dbdf17c901e38d42c741d8cf739ead7d1b6b38bdc833538eccf76185fb0d614",
+      "build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": "2ff6276fc294f2bcaa01c2c954a663f2896669da5f7ea34ca819772283c91293",
+      "build/wo03-g80-integrated-recovery-horizon-v1/growth_high_thrust.parquet": "c560845ca11bec0a4728e92a39f7b77596346b22294cf7890e3e72558dae47d3",
+      "build/wo03-g80-integrated-recovery-horizon-v1/growth_low_thrust_high_drag.parquet": "3410dbbe3c72ffa850e1b8785a39e4247fbd06b9e6e7183a3c69e0574adb668a",
+      "build/wo03-g80-integrated-recovery-horizon-v1/nominal_calm.parquet": "f8d273130037be286c3bf1348da6fc5f45a76cf4370bf908898088784b04feaa",
+      "build/wo03-g80-integrated-recovery-horizon-v1/record.json": "fa304d71672d19ee6b24907bde0855b3276ebb45a2333b3b1fe5de0e90e633bd",
+      "configs/studies/wo03-g80-fin-loads.yaml": "8ebabc61babedf4f52f57f84249b9e6b5e1faa1b463fb54ee1ceb5a50e806fab",
+      "configs/studies/wo03-g80-integrated-recovery-horizon.yaml": "7de15fd96e80daf3df94a81fe4b506fe3b65b9980c00173cac41692f05c7fe7d",
+      "scripts/wo03_g80_fin_loads.py": "9298f95d8b8afe20129abbcc09861fc5ec93bef27d801581c282fc54a815d968"
+    }
+  },
+  "acceptance": false,
+  "flight_ready": false,
+  "elapsed_s": 0.24358512501930818,
+  "resource_self": {
+    "user_s": 0.378378,
+    "system_s": 0.077125,
+    "peak_rss_bytes_macos": 158482432
+  },
+  "resource_reaped_children": {
+    "user_s": 0.0,
+    "system_s": 0.0,
+    "peak_rss_bytes_macos": 0,
+    "meaning": "OS-reported reaped child usage; extraction launches no child process itself."
+  }
+}

@@ -1349,3 +1349,27 @@ identifies the exact unclosed G80 root/flutter evidence. Full local checks pass
 (Ruff, Black, mypy;279tests plus3subtests), supporting software consistency only.
 The macOS process-control tests run locally; only their platform-specific
 libproc probes skip on Linux. No acceptance or physical-release gate closes.
+
+## G80 source-specific preparation: boundary accuracy, fin loads and recovery sources
+
+The [known annulus comparison](wo03-g80-washer-area-method.md) isolates
+quadratic circular-boundary approximation: area errors are+.006444961,
++.000408875 and+.000025650mm² for24/8,48/16 and96/32 outer/inner segments.
+The last meets the unchanged.0002mm² criterion; analytic arc area agrees
+within1.7e-13mm². Source-pinned small-case controls pass; actual bridge
+fragmentation and3D feasibility remain unverified, with no further actualtrial.
+
+The [G80 fin intake](wo03-g80-fin-loads.md) reuses exact52-part180s telemetry.
+It reports powered scalar per-fin estimates.502–.698N and.0176–.0244Nm
+root-torque magnitudes, distinct from unvalidated noncoincidentCN2 sensitivities
+and unsupported large-angle coast/recovery estimates. No installed-root or
+flutter pass follows. [Official canopy source options](wo03-g80-recovery-canopy-sources.md)
+replace none of the active parts; the35g allowance remains unsourced, and
+sizing-only substitutions use full-growth burnout mass with50g retained.
+
+A [macOS exit-observation race](wo03-owned-process-guard.md) found during the
+full local suite is preserved and narrowly corrected; the subsequent current
+suite passes285tests plus3subtests, withBlack/Ruff/mypy checks. This supports
+execution reliability, not engineering closure. The designated Chrome agent
+confirms currentG80 preview availability; all working core/vehicle/UI source
+files checked against publishedGit blobs remain unchanged.

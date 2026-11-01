@@ -131,6 +131,30 @@ def _fresh_descendants(
     return list(dict.fromkeys(pids))
 
 
+def _root_reaped_after_rss_esrch(
+    process: subprocess.Popen[bytes], wall_deadline: float, max_wait_s: float = 0.02
+) -> bool:
+    """Resolve only the root's ESRCH/Popen.waitpid observation race.
+
+    A kernel RSS query can report ESRCH after the child has exited but before
+    ``Popen.poll`` has observed and reaped its status. Wait briefly on that
+    launched root only, bounded by both 20 ms and the existing case deadline.
+    This does not retry RSS, inspect or signal descendants, or forgive a live
+    process whose RSS query continues to fail.
+    """
+    if process.poll() is not None:
+        return True
+    remaining_wall = max(0.0, wall_deadline - time.monotonic())
+    wait_s = min(max_wait_s, remaining_wall)
+    if wait_s <= 0:
+        return process.poll() is not None
+    try:
+        process.wait(timeout=wait_s)
+    except subprocess.TimeoutExpired:
+        return process.poll() is not None
+    return True
+
+
 def _signal_fresh_descendants(
     process: subprocess.Popen[bytes],
     callback: DescendantsCallback | None,
@@ -450,11 +474,11 @@ def run_owned(
                     try:
                         rss_bytes = int(rss_callback(process.pid))
                     except ProcessLookupError as exc:
-                        if process.poll() is not None:
+                        if _root_reaped_after_rss_esrch(process, started + wall_limit_s):
                             continue
                         fail(
                             "rss_reader",
-                            f"RSS reader failed while process remained live: {exc}",
+                            f"RSS reader reported ESRCH while process remained live after a bounded root wait: {exc}",
                             exc,
                         )
                         break

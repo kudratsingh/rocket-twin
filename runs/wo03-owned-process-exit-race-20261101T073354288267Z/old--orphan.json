@@ -1,0 +1,381 @@
+{
+  "argv": [
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+    "-c",
+    "import pathlib,subprocess,sys,time; p=subprocess.Popen([sys.executable,'-c','import time; time.sleep(0.6)']); pathlib.Path('/private/var/folders/s4/pt6slb0903z429c5g1lbk8d40000gn/T/pytest-of-kudratsingh/pytest-177/test_unreaped_short_orphan_fai0/orphan.pid').write_text(str(p.pid)); time.sleep(0.1)"
+  ],
+  "cleanup_errors": [],
+  "cleanup_outcomes": [
+    {
+      "pid": 27757,
+      "result": "sent_direct_pid",
+      "signal": 15
+    },
+    {
+      "pid": 27756,
+      "result": "root_reaped"
+    }
+  ],
+  "cpu_accounting": {
+    "child_system_s_delta": 0.017552999999999985,
+    "child_user_s_delta": 0.024239999999999817,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.016155999999998727,
+    "supervisor_user_s_delta": 0.0026720000000040045
+  },
+  "cpu_samples": [
+    {
+      "elapsed_wall_s": 0.02685837500030175,
+      "supervisor_cpu_system_s": 0.014603999999998507,
+      "supervisor_cpu_user_s": 0.001591000000004783
+    },
+    {
+      "elapsed_wall_s": 0.032635125011438504,
+      "supervisor_cpu_system_s": 0.01483099999999915,
+      "supervisor_cpu_user_s": 0.0016840000000044597
+    },
+    {
+      "elapsed_wall_s": 0.03969862501253374,
+      "supervisor_cpu_system_s": 0.014861999999999043,
+      "supervisor_cpu_user_s": 0.0017470000000017194
+    },
+    {
+      "elapsed_wall_s": 0.04730333300540224,
+      "supervisor_cpu_system_s": 0.014916999999998737,
+      "supervisor_cpu_user_s": 0.0017920000000017922
+    },
+    {
+      "elapsed_wall_s": 0.05492295799194835,
+      "supervisor_cpu_system_s": 0.014985999999998612,
+      "supervisor_cpu_user_s": 0.0018380000000064456
+    },
+    {
+      "elapsed_wall_s": 0.060650416009593755,
+      "supervisor_cpu_system_s": 0.015089999999998938,
+      "supervisor_cpu_user_s": 0.00191300000000183
+    },
+    {
+      "elapsed_wall_s": 0.0682434159971308,
+      "supervisor_cpu_system_s": 0.015124999999999389,
+      "supervisor_cpu_user_s": 0.001967000000000496
+    },
+    {
+      "elapsed_wall_s": 0.07508904099813662,
+      "supervisor_cpu_system_s": 0.015184999999998894,
+      "supervisor_cpu_user_s": 0.0020150000000001
+    },
+    {
+      "elapsed_wall_s": 0.08126508299028501,
+      "supervisor_cpu_system_s": 0.015278999999999598,
+      "supervisor_cpu_user_s": 0.002068000000001291
+    },
+    {
+      "elapsed_wall_s": 0.08641841600183398,
+      "supervisor_cpu_system_s": 0.015308999999998463,
+      "supervisor_cpu_user_s": 0.002098000000003708
+    },
+    {
+      "elapsed_wall_s": 0.09402474999660626,
+      "supervisor_cpu_system_s": 0.015350999999999004,
+      "supervisor_cpu_user_s": 0.002144000000001256
+    },
+    {
+      "elapsed_wall_s": 0.10167649999493733,
+      "supervisor_cpu_system_s": 0.015398999999998608,
+      "supervisor_cpu_user_s": 0.002235000000005982
+    },
+    {
+      "elapsed_wall_s": 0.10928154099383391,
+      "supervisor_cpu_system_s": 0.015462999999998672,
+      "supervisor_cpu_user_s": 0.002270000000002881
+    },
+    {
+      "elapsed_wall_s": 0.11690241598989815,
+      "supervisor_cpu_system_s": 0.015536999999998358,
+      "supervisor_cpu_user_s": 0.0023120000000034224
+    },
+    {
+      "elapsed_wall_s": 0.12449104100232944,
+      "supervisor_cpu_system_s": 0.01559299999999908,
+      "supervisor_cpu_user_s": 0.0023430000000033147
+    },
+    {
+      "elapsed_wall_s": 0.13018683300470002,
+      "supervisor_cpu_system_s": 0.015670999999999324,
+      "supervisor_cpu_user_s": 0.0023809999999997444
+    },
+    {
+      "elapsed_wall_s": 0.13777204099460505,
+      "supervisor_cpu_system_s": 0.015711999999998838,
+      "supervisor_cpu_user_s": 0.0024170000000012237
+    },
+    {
+      "elapsed_wall_s": 0.1453449999971781,
+      "supervisor_cpu_system_s": 0.01575099999999985,
+      "supervisor_cpu_user_s": 0.002450000000003172
+    },
+    {
+      "elapsed_wall_s": 0.15296512498753145,
+      "supervisor_cpu_system_s": 0.015831999999999624,
+      "supervisor_cpu_user_s": 0.002486000000004651
+    },
+    {
+      "elapsed_wall_s": 0.1605349580058828,
+      "supervisor_cpu_system_s": 0.01588099999999848,
+      "supervisor_cpu_user_s": 0.0025070000000013692
+    },
+    {
+      "elapsed_wall_s": 0.16813549998914823,
+      "supervisor_cpu_system_s": 0.015950999999999382,
+      "supervisor_cpu_user_s": 0.0025350000000017303
+    }
+  ],
+  "descendant_pid_samples": [
+    {
+      "elapsed_wall_s": 0.02685837500030175,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.032635125011438504,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.03969862501253374,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.04730333300540224,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.05492295799194835,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.060650416009593755,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.0682434159971308,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.07508904099813662,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.08126508299028501,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.08641841600183398,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.09402474999660626,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.10167649999493733,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.10928154099383391,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.11690241598989815,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.12449104100232944,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.13018683300470002,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.13777204099460505,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.1453449999971781,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.15296512498753145,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.1605349580058828,
+      "pids": [
+        27757
+      ]
+    },
+    {
+      "elapsed_wall_s": 0.16813549998914823,
+      "pids": [
+        27757
+      ]
+    }
+  ],
+  "error": {
+    "kind": "rss_reader",
+    "message": "RSS reader failed while process remained live: [Errno 3] No such process: 27756"
+  },
+  "finished_utc": "2026-11-01T07:28:38.073728+00:00",
+  "guard_failure": null,
+  "historical_descendant_checks": [],
+  "known_descendant_pids": [
+    27757
+  ],
+  "launch_wall_s": 0.026828458008822054,
+  "log_path": "/private/var/folders/s4/pt6slb0903z429c5g1lbk8d40000gn/T/pytest-of-kudratsingh/pytest-177/test_unreaped_short_orphan_fai0/orphan.log",
+  "pid": 27756,
+  "returncode": 0,
+  "rss_limit_bytes": 2147483648,
+  "rss_samples_bytes": [
+    {
+      "bytes": 114688,
+      "elapsed_wall_s": 0.02685837500030175
+    },
+    {
+      "bytes": 114688,
+      "elapsed_wall_s": 0.032635125011438504
+    },
+    {
+      "bytes": 9912320,
+      "elapsed_wall_s": 0.03969862501253374
+    },
+    {
+      "bytes": 13189120,
+      "elapsed_wall_s": 0.04730333300540224
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.05492295799194835
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.060650416009593755
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.0682434159971308
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.07508904099813662
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.08126508299028501
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.08641841600183398
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.09402474999660626
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.10167649999493733
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.10928154099383391
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.11690241598989815
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.12449104100232944
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.13018683300470002
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.13777204099460505
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.1453449999971781
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.15296512498753145
+    },
+    {
+      "bytes": 14712832,
+      "elapsed_wall_s": 0.1605349580058828
+    }
+  ],
+  "started_utc": "2026-11-01T07:28:37.876530+00:00",
+  "status": "failed",
+  "status_path": "/private/var/folders/s4/pt6slb0903z429c5g1lbk8d40000gn/T/pytest-of-kudratsingh/pytest-177/test_unreaped_short_orphan_fai0/orphan.json",
+  "status_write_error": null,
+  "success": false,
+  "timed_out": false,
+  "total_wall_s": 0.1971629580075387,
+  "wall_limit_s": 2.0,
+  "wall_samples": [
+    0.02685837500030175,
+    0.032635125011438504,
+    0.03969862501253374,
+    0.04730333300540224,
+    0.05492295799194835,
+    0.060650416009593755,
+    0.0682434159971308,
+    0.07508904099813662,
+    0.08126508299028501,
+    0.08641841600183398,
+    0.09402474999660626,
+    0.10167649999493733,
+    0.10928154099383391,
+    0.11690241598989815,
+    0.12449104100232944,
+    0.13018683300470002,
+    0.13777204099460505,
+    0.1453449999971781,
+    0.15296512498753145,
+    0.1605349580058828,
+    0.16813549998914823
+  ]
+}
