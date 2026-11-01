@@ -2,9 +2,14 @@
 
 from __future__ import annotations
 
+import hashlib
+from pathlib import Path
+
 import numpy as np
+import pytest
 
 from scripts.wo03_g80_bridge_adapter import (
+    EXPECTED_SHA256,
     SOURCE,
     _emit_deck,
     _import_washer_patch,
@@ -116,7 +121,27 @@ def test_deck_resets_loads_and_keeps_regions_separate():
     assert {node for node, dof in sections[1] if dof == 3} == {4, 5}
 
 
-def test_bridge_recipe_and_mesh_order_sources_are_pinned():
+def test_published_recipe_and_mesh_order_sources_are_pinned():
+    root = Path(__file__).resolve().parents[1]
+    recipe = root / "runs/wo03-g80-bridge-preparation-20261101T064904961981Z/geometry-source.py"
+    order = root / "src/analysis/support_fea.py"
+    assert hashlib.sha256(recipe.read_bytes()).hexdigest() == EXPECTED_SHA256["film_recipe_source"]
+    assert hashlib.sha256(order.read_bytes()).hexdigest() == EXPECTED_SHA256["tet_order_source"]
+
+
+def test_local_bridge_recipe_and_geometry_sources_are_pinned():
+    needed = [
+        *(
+            SOURCE / f"{part}.step"
+            for part in ["bridge", "modified_mount", "washer_0", "washer_1", "washer_2"]
+        ),
+        SOURCE.parent / "wo03-g80-bridge-fea-v1/geometry-preflight.json",
+        SOURCE.parent / "wo03-g80-bridge-fea-v1/geometry-executed.py",
+    ]
+    if not all(path.is_file() for path in needed):
+        pytest.skip(
+            "Local generated BReps/geometry packet are excluded from a source-only checkout"
+        )
     hashes = source_hashes()
     assert hashes["bridge"] == "f92832b8cf272ef0f4a2f38b6e62312321b80f899e7efba98a004879806408ed"
     assert (
@@ -203,6 +228,10 @@ def test_tetrahedral_rule_allows_signed_weights_but_requires_positive_jacobians(
 def test_saved_step_washer_face_selector_uses_z_axis_and_padding_tolerance():
     import gmsh
 
+    if not (SOURCE / "washer_0.step").is_file():
+        pytest.skip(
+            "Local generated washer STEP is excluded; self-contained STEP regression still runs"
+        )
     gmsh.initialize()
     try:
         gmsh.option.setNumber("General.Terminal", 0)
