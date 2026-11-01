@@ -3,7 +3,9 @@
 The latest isolated candidate is the **72-part retention/recovery integration**,
 identity `90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc`,
 at its real staged CAD revision. It has not replaced the active 42-part design
-or preview. The frozen 52-part studies below retain their own identities and
+or its default preview. A [separate archived candidate inspector](wo04-g80-retention-snapshot-preview.md)
+is now published; it does not run this candidate as an active experiment.
+The frozen 52-part studies below retain their own identities and
 must not supply strength, fit or recovery acceptance for changed parts.
 
 | Issue / previous finding | Implemented in the isolated 72-part candidate | Criterion / new result | Evidence | Remaining design and physical verification |
@@ -11,7 +13,7 @@ must not supply strength, fit or recovery acceptance for changed parts.
 | Keeper/bridge absent from complete vehicle mass | Separate modified mount, guides, keeper, bridge and itemized M3/M2 hardware; remove old 7 g lump once, retain distinct 1 g estimated locking/materials reserve | Loaded 772.982 g; full 50 g allowance gives 822.982 g. Full tensor and lateral/axial CG reconciled; 21 affected physical solids match pinned source STEP | [Integrated staged report](wo03-g80-staged-retention-results.md), compact source/mass ledger | Supplier tolerances, actual locking method, glue/grade/properties and measured masses; reserve is not selected locking hardware. |
 | New mass invalidated old static and ascent predictions | Run same resolved candidate through static model, JAX and RocketPy | Growth loaded/burnout margin 1.1663/1.5483 cal ≥1; growth CG 829.167 mm. Nominal apogee 620.610 m vs RocketPy 620.650 m; apogee/time errors 0.00650%/0.01711% <5% | [Four-case results](wo03-g80-staged-retention-results.md) | Exact motor CG/source and as-built aerodynamics. Exploratory +12.8 mm motor-CG shift still gives 1.1360 cal; this is not a measured tolerance. |
 | Changed-package guide and full descent unavailable | Four finite 180 s flights, including full-growth low/high thrust and 3 m/s east wind | Guide speeds 18.772/16.848/19.700/18.770 m/s ≥15 on assumed 1.5 m guide; all reach modeled ground. Total ground speeds 6.071/6.281/6.279/6.731 m/s exceed separate impact diagnostic | [Saved flight/landing evidence](wo03-g80-staged-retention-results.md) | Existing 6 m/s vertical-descent target remains distinct from total speed. Canopy sizing/drag, opening, packing/extraction, anchor and local site/guide remain open; modeled descent/wind not independently validated. |
-| Actual bridge load sharing not trustworthy | Preserve completed 3D result and bounded known-case diagnostics separately | Mesh/input guards pass but actual reaction balance fails by 104.697/22.093 N; no installed strength/stiffness credit | [Bridge failure](wo03-g80-final-coarse-diagnostic.md), [known cases](wo03-ccx-reaction-fixture.md) | Numerical cause unresolved, actual hot joint/bearing/peel and reverse retention acceptance open; later proof tests do not replace these design requirements. |
+| Actual bridge numerical consistency unresolved | Preserve failed CCX results; use the verified Elmer path on the same coarse geometry and original loads | Recovered fields pass strict force (axial residuals below1.2e-9 N) and reciprocal work (2.637e-16 ≤4.840e-16 N·m); max displacement0.381/1.157 mm | [Coarse Elmer results](wo03-g80-bridge-elmer-results.md); original failures retained | SINGLE supervision failed a terminal RSS query. Stress, three-grid convergence, hot joints, bearing/peel, contact and reverse retention remain open; no installed acceptance. |
 | Installed fin/root/flutter and thermal design unclosed | Preserve exact geometry/source identities and failed/unavailable states | No new installed-root/flutter or thermal pass; Elmer implementation switching does not resolve exact-field failures | [Fin intake](wo03-g80-installed-fin-intake.md), [thermal decision](wo03-elmer-campaign-decision.md) | Applicable installed analysis, qualified heat method/useful bounds, unchanged required cases/45°C screen, and owner coupon/hot-load/modal/temperature measurements. |
 | Recovery packaging had excluded positive overlaps | Retain the complete package rather than silently deleting contact-envelope conflicts | Three earlier overlaps remain unresolved; supplier canopy/switch updates are studies only | [Integration report](wo03-g80-staged-retention-results.md) | Actual hardware envelopes, load path, arming/tool access, routing/strain relief and extraction must close before adoption. |
 
@@ -115,3 +117,10 @@ known load cases. It does not close the actual bridge's reaction or reciprocal-w
 failure. CalculiX B1 precision remains insufficient and B2 displacement fails.
 A bounded bridge input study is next; installed strength, hot load paths,
 mesh convergence, fin/root/flutter and thermal acceptance remain open.
+
+
+The [branch freebodies](wo03-g80-recovery-branch-loads.md) now separate the
+canopy above the junction from retained body mass. A bypassing backbone leaves
+a157.466 g known forward-body/payload subset (332.29 N severe), with separate
+uncertain allocations; the primary backbone/terminations still retain the full
+1,782.253 N screen. This is load accounting, not designed attachments or capacity.

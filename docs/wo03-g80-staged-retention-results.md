@@ -1,5 +1,12 @@
 # Isolated 72-part G80 stage 2: static and flight results
 
+**Current interpretation:** the active recovery sizing target is6 m/s vertical
+descent. Total ground speed is a separate impact diagnostic. The original
+“requested total-ground-speed screen” wording below is retained as historical
+reporting and is superseded by the saved vertical audit at the end of this
+report; it does not establish a second accepted requirement. Three of four
+vertical cases fail, as that audit records.
+
 The exact unadopted candidate `90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc` passes the requested **preliminary static comparison and all four guide-speed screens**, but **all four modeled landings exceed the 6 m/s total ground-speed screen**. This is not flight release, recovery qualification, structural acceptance or adoption. No CAD, structural or thermal run was performed in this stage.
 
 The copied resolved spec, stage-1 record and manifest were byte-identical to the retained stage-1 files. The staged `Vehicle` validated normally at the real staged CAD revision `344f646f81e15d42ab54e7d996179581d638c6046bf1d006935b028709eca53f`; all recorded source hashes remained unchanged. The source motor is the existing preliminary AeroTech G80 curve, the motor is fixed, `tvc` is absent, and these are unguided modeled trajectories. Cases use dt=0.005 s, a 180 s horizon, 850 m elevation hypothesis and the existing 1.5 m guide. The full growth sensitivity is an additional 50 g at 1.212 m, not an expended or removed allowance.
