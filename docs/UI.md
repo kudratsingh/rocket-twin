@@ -241,3 +241,17 @@ may use the visibly labeled prepared offline export; incompatible/missing source
 errors must remain errors. The first graphics are at
 `http://127.0.0.1:5173/?workspace=engineering`, with `&view=forces`, `&view=mass`
 or `&view=evidence`. No engineering calculation runs in TypeScript.
+
+
+## Connections workbench delivery increment
+
+The owner-authorized A–F extension adds source-linked comparison, recovery,
+thermal-connection/history status, recorded electrical topology, assembly/service
+storyboards and physical-requirement graphics to the existing Engineering tab.
+Keep the first frozen C1 walkthrough unchanged; A/B concepts remain separate.
+Use backend-recorded values, full identities and explicit unavailable inertia/
+fields/pins; no browser physics. Export SVG and offline image artifacts with
+source/status. Actual artifact image inspection is separate from designated-agent
+browser interaction acceptance. See `docs/wo04-workbench-connections.md` and
+`docs/CURRENT.md` for the implemented scope/remaining evidence; full WO criteria
+and every existing release gate remain unchanged.

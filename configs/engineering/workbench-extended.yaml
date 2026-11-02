@@ -1,0 +1,69 @@
+# Separate presentation extension. Frozen first-walkthrough files remain unchanged.
+schema_version: 1.0.0
+id: g80-engineering-extended-v1
+label: Recorded engineering connections and candidate history
+sources:
+  base_exporter:
+    path: src/api/workbench.py
+    sha256: 1551b2c3a0ea3142b9ebe54aeec1ec78d45f0fced180bde59784d41d722967c4
+    description: base exporter
+  base_mapping:
+    path: configs/engineering/workbench.yaml
+    sha256: 5bdbc7ffa6950fcd9992ff426527d414b7146724f7eef3034b49c88dc76fdeed
+    description: base mapping
+  source_c3:
+    path: runs/wo03-c3-continuous-connection-20261102-v1/record.json
+    sha256: f639e82bdd2b6872fbe2437454c4703a09ef5b4f8864ca96ff24b29916952afc
+    description: source c3
+  c3_config:
+    path: configs/studies/wo03-c3-continuous-connection.yaml
+    sha256: 7798d7eea36e48dc2af5690bf8cb94f80dd44f291b3713c4d5a7ef543306926a
+    description: c3 config
+  historical_thermal_topology:
+    path: configs/studies/wo03-thermal-topology.yaml
+    sha256: cd5d8ca2553048205ed2b9432740e151c933ddeccb3e44076a7f60ae1d1d882a
+    description: historical thermal topology
+  historical_thermal_layout:
+    path: runs/wo03-thermal-layout-20261031T042330617623Z/record.json
+    sha256: 79331f5dc0eb18e3645d31ade0f37583fdcb4e74806d3151009fdaec9323ecc0
+    description: historical thermal layout
+  historical_thermal_campaign:
+    path: runs/wo03-elmer-campaign-20261101T054800Z/record.json
+    sha256: 28a31d6975ac1bd0d4a2128ec8be0e42288f0089c94d29821a614e9a9e7ba7d2
+    description: historical thermal campaign
+  historical_thermal_materials:
+    path: configs/engineering/wo03.yaml
+    sha256: f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678
+    description: historical thermal materials
+  historical_thermal_acceptance:
+    path: configs/engineering/wo03-thermal-acceptance.yaml
+    sha256: 855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d
+    description: historical thermal acceptance
+  pid_work_order:
+    path: docs/work-orders/WO-06-avionics-pid-baseline.md
+    sha256: 6a6a6b695447650d7877e0d52872f98b24237e9c4fb7524acdaeb05e19bb3e57
+    description: pid work order
+  rl_work_order:
+    path: docs/work-orders/WO-07-rl-ascent.md
+    sha256: 7bc67d8d17e23592ab33c86ec86c72957a67e2d4a5e980ba59f22e517b10fd78
+    description: rl work order
+  firmware_work_order:
+    path: docs/work-orders/WO-10-firmware-hil.md
+    sha256: d8b229636e7617761d9e3c16ef14e41f469411bf3728f1349d33fec1962feba3
+    description: firmware work order
+  architecture_record:
+    path: runs/wo03-architecture-space-mass-20261102-v1/record.json
+    sha256: 7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2
+    description: architecture record
+  architecture_config:
+    path: configs/studies/wo03-architecture-space-mass.yaml
+    sha256: 336d79130931012710155ab8777cfe439afddf51f3b1c688637d41b8e90ce137
+    description: architecture config
+  architecture_executed_script:
+    path: runs/wo03-architecture-space-mass-20261102-v1/executed-script.py
+    sha256: 7f76580a92fc76de5f8fecda9d36c87a4f41f249b0142e0ef16f62a5675b4104
+    description: architecture executed script
+  architecture_research:
+    path: configs/studies/wo03-architecture-sources.yaml
+    sha256: 37d76e57fb61da71444e58d65d6c3964d146b7b405d0cf2c2a44b080638d7ad1
+    description: architecture research

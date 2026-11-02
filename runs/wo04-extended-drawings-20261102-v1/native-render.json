@@ -1,0 +1,146 @@
+{
+  "result": "complete_representative_offline_visual_checks_passed",
+  "render_elapsed_seconds": 7.179534416995011,
+  "maximum_full_render_seconds": 120,
+  "renderer": "Existing documented AppKit image-document snapshot helper",
+  "renderer_helper_path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+  "renderer_helper_sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931",
+  "renderer_attempts": 1,
+  "rendered": [
+    {
+      "id": "comparison-01",
+      "path": "output/engineering-workbench-extended/comparison-01.png",
+      "sha256": "40e7287a2a07686cb930b8ee50ba0da795bd626e4bc9924a7754d9d8caecce62",
+      "dimensions": [
+        1100,
+        1948
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1948\n"
+    },
+    {
+      "id": "recovery-01",
+      "path": "output/engineering-workbench-extended/recovery-01.png",
+      "sha256": "c07e70255a1628b44930483c9547f4690c5b79090568a86ed55e1d8a7ebcbdad",
+      "dimensions": [
+        1100,
+        2932
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2932\n"
+    },
+    {
+      "id": "recovery-02",
+      "path": "output/engineering-workbench-extended/recovery-02.png",
+      "sha256": "301694ac27c6f06b876c67f2d778c3c83ae71d2cd061128f506285239abc41fc",
+      "dimensions": [
+        1100,
+        1486
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1486\n"
+    },
+    {
+      "id": "recovery-03",
+      "path": "output/engineering-workbench-extended/recovery-03.png",
+      "sha256": "fae2f5811b55827df2fec4770bda14a0a7f4eb8659ce62b928effb313a1aac97",
+      "dimensions": [
+        1100,
+        1486
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1486\n"
+    },
+    {
+      "id": "thermal-01",
+      "path": "output/engineering-workbench-extended/thermal-01.png",
+      "sha256": "32c0731730c5716966a435f6c710a3f1e50cd6399e5aee8f5d9206e549af144a",
+      "dimensions": [
+        1100,
+        2450
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2450\n"
+    },
+    {
+      "id": "thermal-02",
+      "path": "output/engineering-workbench-extended/thermal-02.png",
+      "sha256": "4eefc4532891e6c27cf1e8e88422ddcc803d4f01e93767a14253f5e1f0804b77",
+      "dimensions": [
+        1100,
+        7685
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x7685\n"
+    },
+    {
+      "id": "electrical-01",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "sha256": "1dad93be2055500ec5814f8529019b52130df0a6622cc16a37244cc3530f3497",
+      "dimensions": [
+        1100,
+        2610
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2610\n"
+    },
+    {
+      "id": "electrical-02",
+      "path": "output/engineering-workbench-extended/electrical-02.png",
+      "sha256": "63ad00b44107a1f3c822f5ceade4ef448b7e8ea2e43c139cacb1956025c55bd6",
+      "dimensions": [
+        1100,
+        1989
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1989\n"
+    },
+    {
+      "id": "assembly-01",
+      "path": "output/engineering-workbench-extended/assembly-01.png",
+      "sha256": "7e59d3848a86d6d8e7164f7528b9461e669ead6f1471cc806d94623b99664223",
+      "dimensions": [
+        1100,
+        1702
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1702\n"
+    },
+    {
+      "id": "assembly-02",
+      "path": "output/engineering-workbench-extended/assembly-02.png",
+      "sha256": "59c24d496f774b905c444508ad5b6400477633d106aeaf53cfa829c4c4c16dba",
+      "dimensions": [
+        1100,
+        2514
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2514\n"
+    },
+    {
+      "id": "requirements-01",
+      "path": "output/engineering-workbench-extended/requirements-01.png",
+      "sha256": "6b2f1a9d6648621bb9fc8229505466d2c856c508f1af907eabc95ae333bc076e",
+      "dimensions": [
+        1100,
+        4511
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x4511\n"
+    }
+  ],
+  "xml_and_portability_checks": "passed11SVGs",
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/contact-sheet.png",
+      "observation": "All11 pages visible in overview, covering comparison/recovery/thermal/electrical/assembly/requirements. Overview does not verify every annotation."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/comparison-01.png",
+      "observation": "C1/R1/C2/C3 nominal/probe rows, supplied loaded masses and filled/hollow static-margin dots readable; criterion line and preliminary boundary present."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/recovery-01.png",
+      "observation": "Backbone/loop/end topology labels and failed/unavailable states readable, arrowheads visible. Dense crossing connections require numbered edge legend to trace; no physical layout is established."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "observation": "Source circuit node labels, separate recovery power branches, gauge/unavailable edge labels and arrowheads visible. Crossing lines require numbered source-net legend; no missing pins invented."
+    }
+  ],
+  "browser_used": false,
+  "physics_run": false
+}

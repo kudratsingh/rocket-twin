@@ -11,8 +11,8 @@ import { execFileSync } from "node:child_process";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const OUT = resolve(ROOT, "output/engineering-walkthrough");
-const RUN = resolve(ROOT, "runs/wo04-walkthrough-export-20261102-v2");
-const PREVIOUS_RUN = "runs/wo04-walkthrough-export-20261102-v1";
+const RUN = resolve(ROOT, "build/wo04-walkthrough-export");
+const PREVIOUS_RUN = "runs/wo04-walkthrough-export-20261102-v3";
 const INPUT = "web/public/engineering-workbench/g80-c1.json";
 const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const raw = readFileSync(resolve(ROOT, INPUT));
@@ -262,13 +262,139 @@ function normalizeIds(svg) {
       replacements.set(old, id);
       node.attrs.id = id;
     }
-  for (const node of allNodes(svg))
-    for (const [key, value] of Object.entries(node.attrs))
+  for (const node of allNodes(svg)) {
+    for (const [key, value] of Object.entries(node.attrs)) {
+      let normalized = value;
       for (const [before, after] of replacements)
-        node.attrs[key] = value
+        normalized = normalized
           .replaceAll(`url(#${before})`, `url(#${after})`)
           .replaceAll(`#${before}`, `#${after}`);
+      node.attrs[key] = normalized;
+    }
+  }
 }
+/** Portability only: flatten this project's known SVG triangle markers, not a general SVG renderer. */
+function explicitProjectArrowheads(svg) {
+  const markers = new Map(
+    allNodes(svg)
+      .filter((node) => node.tag === "marker")
+      .map((node) => [node.attrs.id, node]),
+  );
+  let count = 0;
+  const stop = (reason, node) => {
+    writeFileSync(
+      resolve(RUN, "portability-stop.json"),
+      JSON.stringify(
+        {
+          result: "stopped_unsupported_marker_pattern",
+          reason,
+          attributes: node.attrs,
+        },
+        null,
+        2,
+      ) + "\n",
+    );
+    throw new Error(reason);
+  };
+  for (const parent of allNodes(svg)) {
+    for (const node of [...(parent.children ?? [])]) {
+      if (node.tag !== "path" || !node.attrs["marker-end"]) continue;
+      const reference = /^url\(#([^)]*)\)$/.exec(node.attrs["marker-end"]);
+      const marker = reference && markers.get(reference[1]);
+      if (!marker || !/^wb-(body|path)-/.test(reference[1]))
+        stop("Marker is outside recognized project body/path templates", node);
+      const template = marker.children.find((child) => child.tag === "path");
+      if (
+        marker.attrs.markerUnits !== "userSpaceOnUse" ||
+        marker.attrs.orient !== "auto" ||
+        !template ||
+        template.attrs.d !== "M 0 0 L 9 5 L 0 10 Z"
+      )
+        stop("Unrecognized marker units/orientation/triangle template", node);
+      const tokens = node.attrs.d.match(
+        /[A-Za-z]|[-+]?(?:\d*\.)?\d+(?:e[-+]?\d+)?/gi,
+      );
+      let end, tangent;
+      if (tokens?.length === 6 && tokens[0] === "M" && tokens[3] === "L") {
+        end = [+tokens[4], +tokens[5]];
+        tangent = [end[0] - +tokens[1], end[1] - +tokens[2]];
+      } else if (
+        tokens?.length === 10 &&
+        tokens[0] === "M" &&
+        tokens[3] === "C"
+      ) {
+        end = [+tokens[8], +tokens[9]];
+        tangent = [end[0] - +tokens[6], end[1] - +tokens[7]];
+      } else if (
+        tokens?.length === 11 &&
+        tokens[0] === "M" &&
+        tokens[3] === "A" &&
+        +tokens[4] === +tokens[5] &&
+        +tokens[6] === 0
+      ) {
+        // SVG circular-arc endpoint tangent, source sweep/large-arc flags retained.
+        const start = [+tokens[1], +tokens[2]],
+          radius = +tokens[4],
+          large = +tokens[7],
+          sweep = +tokens[8];
+        end = [+tokens[9], +tokens[10]];
+        const dx = (start[0] - end[0]) / 2,
+          dy = (start[1] - end[1]) / 2,
+          halfChordSq = dx * dx + dy * dy;
+        if (!(
+          halfChordSq > 0 &&
+          halfChordSq <= radius * radius &&
+          [0, 1].includes(large) &&
+          [0, 1].includes(sweep)
+        ))
+          stop("Unrecognized circular arc geometry/flags", node);
+        const coefficient =
+          (large === sweep ? -1 : 1) *
+          Math.sqrt((radius * radius - halfChordSq) / halfChordSq);
+        const center = [
+          coefficient * dy + (start[0] + end[0]) / 2,
+          -coefficient * dx + (start[1] + end[1]) / 2,
+        ];
+        const rx = end[0] - center[0],
+          ry = end[1] - center[1];
+        tangent = sweep ? [-ry, rx] : [ry, -rx];
+      } else
+        stop(
+          "Unrecognized source arrow path; no physical direction approximated",
+          node,
+        );
+      if (
+        !end.every(Number.isFinite) ||
+        !tangent.every(Number.isFinite) ||
+        Math.hypot(...tangent) === 0
+      )
+        stop("Arrow endpoint/tangent unavailable", node);
+      const head = {
+        tag: "path",
+        attrs: {
+          ...template.attrs,
+          transform: `translate(${end[0]} ${end[1]}) rotate(${(Math.atan2(tangent[1], tangent[0]) * 180) / Math.PI}) translate(${-Number(marker.attrs.refX)} ${-Number(marker.attrs.refY)})`,
+          "data-offline-marker-head": "true",
+          "data-source-marker-id": reference[1],
+        },
+        children: [],
+        parent,
+      };
+      parent.children.splice(parent.children.indexOf(node) + 1, 0, head);
+      delete node.attrs["marker-end"];
+      count++;
+    }
+  }
+  return count;
+}
+const knownArrowFixture = parseMarkup(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250"><rect width="400" height="250" fill="#101e29"/><defs><marker id="wb-body-test-calculated" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M 0 0 L 9 5 L 0 10 Z" fill="#80bff1"/></marker></defs><text x="20" y="25" fill="#dcebf4" font-family="Helvetica" font-size="17">Known straight + circular source arrows</text><path d="M 40 70 L 170 70" fill="none" stroke="#80bff1" stroke-width="3" marker-end="url(#wb-body-test-calculated)"/><path d="M 90 196 A 28 28 0 1 1 137 174" fill="none" stroke="#80bff1" stroke-width="3" marker-end="url(#wb-body-test-calculated)"/><text x="200" y="75" fill="#bcd4e3" font-family="Helvetica" font-size="13">Straight source tangent</text><text x="200" y="180" fill="#bcd4e3" font-family="Helvetica" font-size="13">Curved source tangent</text><text x="20" y="230" fill="#bcd4e3" font-family="Helvetica" font-size="12">Presentation geometry only; no load sign or physical calculation.</text></svg>',
+).children[0];
+assert.equal(explicitProjectArrowheads(knownArrowFixture), 2);
+writeFileSync(
+  resolve(RUN, "known-arrow-portability.svg"),
+  serialize(knownArrowFixture) + "\n",
+);
 const artifacts = [];
 const warnings = [];
 function text(x, y, value, size = 13, color = "#c7d9e5", extra = "") {
@@ -283,6 +409,7 @@ function writeDrawing(
   view = {},
 ) {
   normalizeIds(svg);
+  const explicitArrowheadCount = explicitProjectArrowheads(svg);
   const [, , width, height] = svg.attrs.viewBox.split(/\s+/).map(Number);
   assert.ok(
     Number.isFinite(width) && Number.isFinite(height),
@@ -351,6 +478,12 @@ function writeDrawing(
     sources: document.generated_from,
     exporter_sha256: hash(readFileSync(import.meta.filename)),
     browser_verified: false,
+    marker_portability_transform: {
+      source_template: "project triangle marker",
+      explicit_head_count: explicitArrowheadCount,
+      endpoint_tangent_from_recorded_svg_path: true,
+      physical_calculation: false,
+    },
     presentation_layout: {
       header_max_characters: 120,
       header_line_count: headerLines.length,
@@ -418,6 +551,7 @@ function writeDrawing(
     height: pageHeight,
     sha256: hash(output),
     view,
+    explicit_arrowhead_count: explicitArrowheadCount,
     portable_style_attributes: true,
     browser_verified: false,
     header_line_count: headerLines.length,
@@ -764,7 +898,8 @@ const record = {
   schema_version: "1.0.0",
   created_at_utc: new Date().toISOString(),
   command: "node scripts/wo04_export_walkthrough_drawings.mjs",
-  result: "portable_svg_exports_complete_png_rendering_blocked",
+  result:
+    "portable_svg_exports_complete_native_render_available_separate_record",
   artifact_count: artifacts.length,
   output_directory: relative(ROOT, OUT),
   manifest_path: relative(ROOT, resolve(OUT, "source-manifest.json")),
@@ -776,7 +911,7 @@ const record = {
   visual_png_inspection: false,
   warnings,
   presentation_revision:
-    "v2: source-observed header overflow correction; no visual inspection claim",
+    "v4: recognized project triangle markers flattened to explicit SVG paths after documented native marker limitation; source endpoints/tangents unchanged",
   previous_run: {
     path: PREVIOUS_RUN,
     record_sha256: hash(
@@ -837,6 +972,11 @@ for artifact in manifest["artifacts"]:
  assert metadata["sources"]==manifest["sources"]
  assert "var(" not in raw.decode() and "currentColor" not in raw.decode()
  assert len(tree.findall(".//s:text",ns))>30
+ ids={node.get("id") for node in tree.iter() if node.get("id")}
+ import re
+ for node in tree.iter():
+  for value in node.attrib.values():
+   for marker in re.findall(r"url\(#([^)]*)\)",value): assert marker in ids, (artifact["path"],marker)
  assert not tree.findall(".//s:script",ns) and not tree.findall(".//s:foreignObject",ns)
  assert all("http" not in v for node in tree.iter() for k,v in node.attrib.items() if k.endswith("href"))
  headers=[node for node in tree.findall("s:text",ns) if node.get("data-export-header")=="true"]
@@ -862,7 +1002,7 @@ print(json.dumps({"result":"passed","svg_xml_parsed":len(manifest["artifacts"]),
 record.offline_artifact_checks = checkArtifacts();
 writeFileSync(
   resolve(RUN, "README.md"),
-  `# Offline walkthrough export v2\n\nRegenerate with: \`node scripts/wo04_export_walkthrough_drawings.mjs\`.\n\nLocal drawings and accessible index: \`output/engineering-walkthrough/index.html\`. Generated SVG bulk is a local artifact; publish the script, small record and source manifest instead.\n\nV2 wraps every standalone header to width-aware lines capped at120characters and derives drawing/footer vertical positions from the header height. This is a source-observed presentation correction, not a visual acceptance claim.\n\nThe preserved v1 record, manifest and exact exporter source are in \`${PREVIOUS_RUN}\`. V2 makes no native renderer attempts. Historical native PNG failures remain recorded; no PNG or browser observations are claimed.\n`,
+  `# Offline walkthrough export v4\n\nRegenerate with: \`node scripts/wo04_export_walkthrough_drawings.mjs\`.\n\nLocal drawings and accessible index: \`output/engineering-walkthrough/index.html\`. Generated SVG bulk is a local artifact; publish the script, small record and source manifest instead.\n\nV4 retains the wrapped standalone headers to width-aware lines capped at120characters and derives drawing/footer vertical positions from the header height. This is a source-observed presentation correction, not a visual acceptance claim.\n\nThe preserved previous record, manifest and exact exporter source are in \`${PREVIOUS_RUN}\`. This exporter makes no renderer attempts. Companion native AppKit rendering is recorded separately; no browser observations are claimed. V4 renders recognized project marker triangles as explicit paths using the saved endpoint/tangent; circular moment sign remains unspecified as recorded. Unknown patterns stop instead of approximating direction.\n`,
 );
 writeFileSync(
   resolve(RUN, "record.json"),

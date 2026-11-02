@@ -1,0 +1,44 @@
+{
+  "result": "passed_actual_document_SSR_only",
+  "results": [
+    {
+      "mode": "comparison",
+      "svg_count": 1,
+      "bytes": 11315
+    },
+    {
+      "mode": "recovery",
+      "svg_count": 3,
+      "bytes": 28851
+    },
+    {
+      "mode": "thermal",
+      "svg_count": 2,
+      "bytes": 118347
+    },
+    {
+      "mode": "electrical",
+      "svg_count": 2,
+      "bytes": 34532
+    },
+    {
+      "mode": "assembly",
+      "svg_count": 2,
+      "bytes": 25181
+    },
+    {
+      "mode": "requirements",
+      "svg_count": 1,
+      "bytes": 49869
+    }
+  ],
+  "source_count": 29,
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "limits": [
+    "No browser, event dispatch or responsive UI verification.",
+    "Thermal records are scalar historical summaries; no time-series or spatial fields created.",
+    "C1 identity is frozen; rejected candidate quantities remain separate."
+  ]
+}

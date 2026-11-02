@@ -3,20 +3,38 @@ import { getJson } from '../api';
 import { GeometryViews } from './GeometryViews';
 import { LoadPathViews } from './LoadPathViews';
 import { MassLaunchViews } from './MassLaunchViews';
+import { ExtensionViews } from './ExtensionViews';
+import type { ExtendedDocument, ExtensionMode } from './extendedTypes';
+import { compatibleExtension } from './extendedTypes';
 import type { WorkbenchDocument } from './types';
 import './workbench.css';
 
-type View = 'geometry' | 'forces' | 'mass' | 'evidence';
+type View = 'geometry' | 'forces' | 'mass' | 'evidence' | ExtensionMode;
+const extensionModes: ExtensionMode[] = [
+  'comparison',
+  'recovery',
+  'thermal',
+  'electrical',
+  'assembly',
+  'requirements',
+];
 
 export default function EngineeringWorkbench() {
   const [document, setDocument] = useState<WorkbenchDocument | null>(null);
   const [error, setError] = useState('');
+  const [extended, setExtended] = useState<ExtendedDocument | null>(null);
+  const [extensionError, setExtensionError] = useState('');
+  const [extensionPrepared, setExtensionPrepared] = useState(false);
+  const [selectedJointId, setSelectedJointId] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
   const [view, setView] = useState<View>(() => {
     const requested =
       typeof window === 'undefined' ? '' : new URLSearchParams(window.location.search).get('view');
-    return requested === 'forces' || requested === 'mass' || requested === 'evidence'
-      ? requested
+    return requested === 'forces' ||
+      requested === 'mass' ||
+      requested === 'evidence' ||
+      extensionModes.includes(requested as ExtensionMode)
+      ? (requested as View)
       : 'geometry';
   });
   const [prepared, setPrepared] = useState(false);
@@ -51,6 +69,37 @@ export default function EngineeringWorkbench() {
       });
     return () => controller.abort();
   }, [retry]);
+  useEffect(() => {
+    const controller = new AbortController();
+    void getJson<ExtendedDocument>('/api/engineering/workbench-extended', controller.signal)
+      .catch(async (reason: unknown) => {
+        if (
+          controller.signal.aborted ||
+          !(reason instanceof Error) ||
+          !reason.message.startsWith('404')
+        )
+          throw reason;
+        const saved = await getJson<ExtendedDocument>(
+          '/engineering-workbench/g80-extended.json',
+          controller.signal,
+        );
+        setExtensionPrepared(true);
+        return saved;
+      })
+      .then((value) => {
+        if (!controller.signal.aborted) {
+          setExtended(value);
+          setExtensionError('');
+        }
+      })
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted)
+          setExtensionError(
+            reason instanceof Error ? reason.message : 'Extended engineering records unavailable.',
+          );
+      });
+    return () => controller.abort();
+  }, [retry]);
   if (error)
     return (
       <main className="center-state">
@@ -70,7 +119,27 @@ export default function EngineeringWorkbench() {
       </main>
     );
   const part = document.parts.find((item) => item.id === selected);
-  const props = { document, selectedPartId: selected, onSelectPart: setSelected };
+  const selectedJoint = document.joints.find((joint) => joint.id === selectedJointId);
+  const drawingDocument = selectedJoint
+    ? {
+        ...document,
+        joints: [selectedJoint, ...document.joints.filter((joint) => joint.id !== selectedJointId)],
+      }
+    : document;
+  const props = { document: drawingDocument, selectedPartId: selected, onSelectPart: setSelected };
+  const extendedCompatible = extended
+    ? compatibleExtension(document.identity, extended.identity)
+    : false;
+  const openJoint = (id: string) => {
+    const joint = document.joints.find((item) => item.id === id);
+    if (!joint) return;
+    setSelectedJointId(id);
+    const linked = joint.part_ids.find((partId) =>
+      document.parts.some((part) => part.id === partId),
+    );
+    if (linked) setSelected(linked);
+    setView('geometry');
+  };
   const visible = document.parts.filter((item) =>
     `${item.id} ${item.label} ${item.material} ${item.subsystem}`
       .toLowerCase()
@@ -109,6 +178,12 @@ export default function EngineeringWorkbench() {
             ['geometry', 'Arrangement & sections'],
             ['forces', 'Forces & connections'],
             ['mass', 'Mass, balance & launch'],
+            ['comparison', 'Candidate comparisons'],
+            ['recovery', 'Recovery & extraction'],
+            ['thermal', 'Thermal connections'],
+            ['electrical', 'Electrical nets'],
+            ['assembly', 'Assembly & service'],
+            ['requirements', 'Physical verification'],
             ['evidence', 'Evidence & next views'],
           ] as [View, string][]
         ).map(([id, label]) => (
@@ -150,6 +225,43 @@ export default function EngineeringWorkbench() {
             <LoadPathViews {...props} />
           ) : view === 'mass' ? (
             <MassLaunchViews {...props} />
+          ) : extensionModes.includes(view as ExtensionMode) ? (
+            extensionError || (extended && !extendedCompatible) ? (
+              <div className="wb-extension">
+                <div className="wb-ext-loading">
+                  <h2>Extended source records unavailable</h2>
+                  <p>
+                    {extensionError ||
+                      'Extended configuration, specification hash or CAD identity differs from the frozen C1 document. Graphics are not attached.'}
+                  </p>
+                  <button type="button" onClick={() => setRetry(retry + 1)}>
+                    Retry source records
+                  </button>
+                </div>
+              </div>
+            ) : extended ? (
+              <>
+                <div className="wb-notice">
+                  {extensionPrepared
+                    ? 'Prepared offline extension export; source identity is shown in each evidence record.'
+                    : 'Source-checked extension records.'}{' '}
+                  C1 stays frozen; stopped revisions remain separate.
+                </div>
+                <ExtensionViews
+                  {...props}
+                  extended={extended}
+                  mode={view as ExtensionMode}
+                  onOpenJoint={openJoint}
+                />
+              </>
+            ) : (
+              <div className="wb-extension">
+                <p className="wb-ext-loading" role="status">
+                  Loading extended source records. Existing geometry, forces and experiment views
+                  remain available.
+                </p>
+              </div>
+            )
           ) : (
             <>
               <h2>What exists, and what evidence is missing</h2>

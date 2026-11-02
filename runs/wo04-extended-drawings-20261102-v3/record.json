@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "result": "complete_representative_offline_visual_checks_passed",
+  "command": "node scripts/wo04_export_extended_drawings.mjs --record-dir runs/wo04-extended-drawings-20261102-v3",
+  "artifact_count": 11,
+  "source_count": 33,
+  "data_bytes": 242050,
+  "graph_data_bytes": 55605,
+  "graph_node_count": 80,
+  "graph_edge_count": 103,
+  "ssr": [
+    {
+      "mode": "comparison",
+      "elapsed_ms": 24.223959000000036,
+      "markup_bytes": 16839,
+      "svg_count": 1
+    },
+    {
+      "mode": "recovery",
+      "elapsed_ms": 6.640582999999992,
+      "markup_bytes": 28851,
+      "svg_count": 3
+    },
+    {
+      "mode": "thermal",
+      "elapsed_ms": 29.743790999999987,
+      "markup_bytes": 118347,
+      "svg_count": 2
+    },
+    {
+      "mode": "electrical",
+      "elapsed_ms": 5.774000000000001,
+      "markup_bytes": 34532,
+      "svg_count": 2
+    },
+    {
+      "mode": "assembly",
+      "elapsed_ms": 4.576833000000022,
+      "markup_bytes": 25182,
+      "svg_count": 2
+    },
+    {
+      "mode": "requirements",
+      "elapsed_ms": 4.276166999999987,
+      "markup_bytes": 49845,
+      "svg_count": 1
+    }
+  ],
+  "ssr_elapsed_total_ms": 75.23533300000003,
+  "native": {
+    "result": "native_render_complete_pending_visual_inspection",
+    "rendered": 11,
+    "elapsed_seconds": 41.71070445794612
+  },
+  "archived_v4_helper_unchanged": true,
+  "archived_v4_sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3",
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/comparison-01.png",
+      "observation": "Final V3 twelve-case comparison visibly includes C1/R1/C2/C3/A/B. Architecture IDs and CONCEPT / NOT ADMITTED lines fit; source mass and margin labels readable. Existing C1 geometry remains separate."
+    },
+    {
+      "method": "view_image_in_v2_plus_exact_PNG_SHA256_match",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "observation": "Final V3 electrical PNG is byte-identical to the actual V2 image inspected earlier. Source labels and explicit arrowheads remain visible; dense edges require numbered legend."
+    },
+    {
+      "method": "view_image_in_v2_plus_exact_PNG_SHA256_match",
+      "path": "output/engineering-workbench-extended/contact-sheet.png",
+      "observation": "All11 PNG pages are byte-identical between V2 and V3, which changes record defaults/helper provenance only. Contact sheet was reviewed in V2; no exhaustive full-size claim."
+    }
+  ],
+  "limits": [
+    "Static offline selection states only, not browser runtime/interaction/FPS measurements.",
+    "No physical calculations, current temperature curves or fields, guessed pins or new inertia tensors.",
+    "Known extension triangle/cubic pattern only; unsupported patterns stop explicitly.",
+    "Contact sheet is an overview; representative full-size image observations are recorded separately."
+  ],
+  "candidate_count": 6,
+  "case_count": 12,
+  "fps_measured": false,
+  "checks": {
+    "source_hashes_verified": 33,
+    "svg_png_sidecars_verified": 11,
+    "frontend_typecheck_lint_build_format_tests27": "passed",
+    "defaults_write_build": true,
+    "existing_explicit_archive_refused_without_mutation": true,
+    "v2_v3_all11_PNG_hashes_equal": true,
+    "canonical_v4_original_preserved_in_archive": true,
+    "maintained_v4_mjs_and_native_py_only_default_directory_changed": true
+  },
+  "historical_source_archives": [
+    {
+      "path": "runs/wo04-walkthrough-export-20261102-v4/executed-script.mjs",
+      "sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3"
+    },
+    {
+      "path": "runs/wo04-offline-render-feasibility-20261102-v4/executed-script.py",
+      "sha256": "b5e265b5b593985639d264b97c781fa883deb682537498fcb84f426bb7607e85"
+    },
+    {
+      "path": "runs/wo04-extended-drawings-20261102-v2/executed-script.mjs",
+      "sha256": "4cd21c6406b3154b03296691510ef5e9c69b0407fc433b43013a214fa9b18622"
+    }
+  ],
+  "safe_regeneration": {
+    "maintained_default_record_dirs": [
+      "build/wo04-walkthrough-export",
+      "build/wo04-offline-render-feasibility",
+      "build/wo04-extended-drawings"
+    ],
+    "explicit_archive_option": "--record-dir NEW_DIRECTORY; existing record.json is refused",
+    "historical_records_preserved": [
+      "runs/wo04-walkthrough-export-20261102-v4",
+      "runs/wo04-offline-render-feasibility-20261102-v4",
+      "runs/wo04-extended-drawings-20261102-v1",
+      "runs/wo04-extended-drawings-20261102-v2"
+    ],
+    "mutable_output": "output/ directories remain presentation caches; final record/manifests hold their hashes"
+  },
+  "graph_data_scope": "Six supplied graph objects; default11SVG selections do not cover every thermal toggle or assembly joint."
+}

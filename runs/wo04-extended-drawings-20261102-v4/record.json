@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "result": "electrical_only_layout_correction_complete_visual_check_passed",
+  "command": "node scripts/wo04_export_extended_drawings.mjs --record-dir runs/wo04-extended-drawings-20261102-v4",
+  "artifact_count": 11,
+  "source_count": 33,
+  "data_bytes": 242050,
+  "graph_data_bytes": 55605,
+  "graph_node_count": 80,
+  "graph_edge_count": 103,
+  "ssr": [
+    {
+      "mode": "comparison",
+      "elapsed_ms": 18.449749999999995,
+      "markup_bytes": 16839,
+      "svg_count": 1
+    },
+    {
+      "mode": "recovery",
+      "elapsed_ms": 6.076959000000045,
+      "markup_bytes": 28851,
+      "svg_count": 3
+    },
+    {
+      "mode": "thermal",
+      "elapsed_ms": 28.09508299999999,
+      "markup_bytes": 118347,
+      "svg_count": 2
+    },
+    {
+      "mode": "electrical",
+      "elapsed_ms": 5.391708000000051,
+      "markup_bytes": 36485,
+      "svg_count": 2
+    },
+    {
+      "mode": "assembly",
+      "elapsed_ms": 4.380417000000023,
+      "markup_bytes": 25182,
+      "svg_count": 2
+    },
+    {
+      "mode": "requirements",
+      "elapsed_ms": 4.507708999999977,
+      "markup_bytes": 49845,
+      "svg_count": 1
+    }
+  ],
+  "ssr_elapsed_total_ms": 66.90162600000008,
+  "native": {
+    "result": "native_render_complete_pending_visual_inspection",
+    "rendered": 11,
+    "elapsed_seconds": 38.70536770898616
+  },
+  "archived_v4_helper_unchanged": true,
+  "archived_v4_sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3",
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "observation": "Main avionics and independent recovery are visibly separated into labeled lanes. Main battery follows regulator to flight computer; no power arrow runs through IMU or recovery-battery boxes. Recovery return is routed beside its own switch. Source labels, net-index legend and arrowheads readable."
+    }
+  ],
+  "limits": [
+    "Static offline selection states only, not browser runtime/interaction/FPS measurements.",
+    "No physical calculations, current temperature curves or fields, guessed pins or new inertia tensors.",
+    "Known extension triangle/cubic pattern only; unsupported patterns stop explicitly.",
+    "Contact sheet is an overview; representative full-size image observations are recorded separately.",
+    "Plain-language glossary is below the graph in UI HTML and local index, not baked into PNG. SVG hashes prove it required no second native batch.",
+    "Curve checks are sampled drawing-route tests, not physical clearance, electrical qualification or current/harness sizing verification."
+  ],
+  "checks": {
+    "frozen_source_hashes_verified": 33,
+    "exact_source_nodes": 12,
+    "exact_source_nets": 11,
+    "sampled_unrelated_node_intersections": 0,
+    "curve_samples_each": 401,
+    "only_changed_PNG": "electrical-01",
+    "other10_PNGs_byte_identical_to_V3": true,
+    "two_electrical_SVGs_identical_before_after_HTML_glossary": true,
+    "native_batches": 1,
+    "full_native_under120s": true,
+    "frontend_typecheck_lint_build_format_tests27": "passed"
+  },
+  "route_check_path": "runs/wo04-extended-drawings-20261102-v4/electrical-route-check.json",
+  "glossary_check_path": "runs/wo04-extended-drawings-20261102-v4/glossary-source-check.json",
+  "historical_component_archive": "runs/wo04-extended-drawings-20261102-v3/source-archive/ExtensionViews.tsx",
+  "render_source_aliases": {
+    "web/src/workbench/ExtensionViews.tsx": "runs/wo04-extended-drawings-20261102-v4/source-archive/ExtensionViews-rendered.tsx",
+    "web/src/workbench/extensionViews.css": "runs/wo04-extended-drawings-20261102-v4/source-archive/extensionViews-rendered.css"
+  }
+}

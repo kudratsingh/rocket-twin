@@ -1,5 +1,11 @@
 # First engineering walkthrough
 
+The [connections increment](wo04-workbench-connections.md) now adds six graphical
+views, six candidates/twelve cases and actual offline native images. The
+first frozen C1 geometry/force/mass components and source identity remain
+unchanged. Offline image review is distinct from pending browser acceptance.
+
+
 This increment implements a read-only C1 engineering explanation alongside the
 saved preview. It adds arrangement/projection/section SVGs, selectable construction
 details and assembly illustrations, load-transfer/free-body diagrams, mass/CG/CP

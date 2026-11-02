@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "result": "complete_representative_offline_visual_checks_passed",
+  "command": "node scripts/wo04_export_extended_drawings.mjs",
+  "artifact_count": 11,
+  "source_count": 33,
+  "data_bytes": 242050,
+  "graph_data_bytes": 55605,
+  "graph_node_count": 80,
+  "graph_edge_count": 103,
+  "ssr": [
+    {
+      "mode": "comparison",
+      "elapsed_ms": 32.1275,
+      "markup_bytes": 16839,
+      "svg_count": 1
+    },
+    {
+      "mode": "recovery",
+      "elapsed_ms": 6.485667000000035,
+      "markup_bytes": 28851,
+      "svg_count": 3
+    },
+    {
+      "mode": "thermal",
+      "elapsed_ms": 29.882542,
+      "markup_bytes": 118347,
+      "svg_count": 2
+    },
+    {
+      "mode": "electrical",
+      "elapsed_ms": 5.7422919999999635,
+      "markup_bytes": 34532,
+      "svg_count": 2
+    },
+    {
+      "mode": "assembly",
+      "elapsed_ms": 4.1107920000000036,
+      "markup_bytes": 25182,
+      "svg_count": 2
+    },
+    {
+      "mode": "requirements",
+      "elapsed_ms": 3.9562500000000114,
+      "markup_bytes": 49845,
+      "svg_count": 1
+    }
+  ],
+  "ssr_elapsed_total_ms": 82.30504300000001,
+  "native": {
+    "result": "native_render_complete_pending_visual_inspection",
+    "rendered": 11,
+    "elapsed_seconds": 6.014769916946534
+  },
+  "canonical_v4_exporter_unchanged": true,
+  "canonical_v4_sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3",
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/comparison-01.png",
+      "observation": "All12 source cases visible. A_motor_fin_can and B_outer_captured_roots identifiers, case labels and CONCEPT / NOT ADMITTED tags fit the left column; loaded mass and static-margin labels readable. No C1 geometry replacement is implied."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "observation": "Electrical node/net labels and explicit arrowheads visible. Dense crossing connections still require numbered legends; source missing gauges/pins remain unavailable."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/contact-sheet.png",
+      "observation": "All11 refreshed pages visible in overview; no exhaustive full-size annotation review implied."
+    }
+  ],
+  "limits": [
+    "Static offline selection states only, not browser runtime/interaction/FPS measurements.",
+    "No physical calculations, current temperature curves or fields, guessed pins or new inertia tensors.",
+    "Known extension triangle/cubic pattern only; unsupported patterns stop explicitly.",
+    "Contact sheet is an overview; representative full-size image observations are recorded separately."
+  ],
+  "candidate_count": 6,
+  "case_count": 12,
+  "fps_measured": false,
+  "checks": {
+    "source_hashes_verified": 33,
+    "svg_png_pairs_verified": 11,
+    "native_full_render_under120s": true,
+    "frontend_typecheck_lint_build_format_tests27": "passed"
+  }
+}
