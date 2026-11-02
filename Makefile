@@ -14,6 +14,9 @@ setup-viewer: ## Install CAD and API dependencies before WO-04.
 preview: ## Authorized early local inspection/experiment preview; WO-03 acceptance remains open.
 	bash scripts/wo04_preview.sh
 
+workbench: ## Prepare source-checked engineering graphics data; no solver/CAD run.
+	$(PYTHON) scripts/wo04_workbench_export.py --output web/public/engineering-workbench/g80-c1.json
+
 web-check: ## Strict TypeScript, lint and production build for the local preview.
 	npm --prefix web run typecheck
 	npm --prefix web run lint

@@ -1,0 +1,585 @@
+.wb-geometry {
+  --wb-geometry-border: #344552;
+  --wb-geometry-muted: #a7bbc8;
+  color: #e3edf3;
+  min-width: 0;
+}
+.wb-geometry * {
+  box-sizing: border-box;
+}
+.wb-geometry h2,
+.wb-geometry h3,
+.wb-geometry h4,
+.wb-geometry p {
+  margin: 0;
+}
+.wb-geometry h2 {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.3;
+}
+.wb-geometry h3 {
+  font-size: 1rem;
+}
+.wb-geometry h4 {
+  font-size: 0.9rem;
+}
+.wb-geometry button {
+  font: inherit;
+  cursor: pointer;
+}
+.wb-geometry button:focus-visible,
+.wb-geometry summary:focus-visible {
+  outline: 2px solid #e5f7ff;
+  outline-offset: 3px;
+}
+.wb-geometry-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 6px 0 16px;
+}
+.wb-geometry .wb-geometry-eyebrow {
+  color: #83cfe2;
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 7px;
+}
+.wb-geometry-status {
+  background: #332c20;
+  border: 1px solid #735936;
+  color: #f1ce92;
+  font-size: 0.76rem;
+  padding: 7px 10px;
+  border-radius: 5px;
+}
+.wb-geometry-explanation {
+  max-width: 100ch;
+  color: #bdccd6;
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+.wb-geometry-identity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 0.74rem;
+  padding: 13px 0;
+  color: var(--wb-geometry-muted);
+  overflow-wrap: anywhere;
+}
+.wb-geometry-identity span:first-child {
+  color: #dce8f0;
+  font-family: ui-monospace, monospace;
+}
+.wb-geometry-legend,
+.wb-geometry-maturity-key {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-size: 0.75rem;
+}
+.wb-geometry-legend {
+  padding: 12px 0;
+  border-top: 1px solid var(--wb-geometry-border);
+}
+.wb-geometry-legend span,
+.wb-geometry-maturity-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.wb-geometry-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.wb-geometry-maturity-key {
+  color: var(--wb-geometry-muted);
+  padding-bottom: 16px;
+}
+.wb-geometry-maturity-key i {
+  display: inline-block;
+  width: 24px;
+  height: 0;
+  border-top: 2px solid #b8cad5;
+}
+.wb-geometry-maturity-key .concept-line {
+  border-top-style: dashed;
+}
+.wb-geometry-maturity-key .envelope-line {
+  border-top-style: dotted;
+}
+.wb-geometry-maturity-key .undefined-line {
+  border-top-color: #e6b68c;
+  border-top-style: dashed;
+}
+.wb-geometry-selection-key {
+  color: #f1f9ff;
+}
+.wb-geometry-figure {
+  min-width: 0;
+  background: #111d27;
+  border: 1px solid var(--wb-geometry-border);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.wb-geometry-figure-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 18px 9px;
+}
+.wb-geometry-figure-heading > button {
+  padding: 5px 9px;
+  font-size: 0.72rem;
+  border: 1px solid #4d6779;
+  border-radius: 4px;
+  color: #bed5e4;
+  background: #1a2b38;
+}
+.wb-geometry-figure-heading > button:hover {
+  background: #294458;
+  color: white;
+}
+.wb-geometry .wb-geometry-figure-note {
+  padding: 0 18px;
+  color: var(--wb-geometry-muted);
+  font-size: 0.77rem;
+  line-height: 1.55;
+  max-width: 125ch;
+}
+.wb-geometry-canvas {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+.wb-geometry svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.wb-geometry-canvas > svg {
+  min-width: 640px;
+}
+.wb-geometry svg text {
+  fill: #c7d7e1;
+  font-size: 13px;
+  pointer-events: none;
+}
+.wb-geometry svg .wb-geometry-small {
+  fill: #a7bbc8;
+  font-size: 12px;
+}
+.wb-geometry svg .wb-geometry-svg-kicker {
+  fill: #96b6c9;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 1.1px;
+}
+.wb-geometry-part {
+  cursor: pointer;
+  outline: none;
+}
+.wb-geometry-part > rect,
+.wb-geometry-part > path,
+.wb-geometry-part > circle,
+.wb-geometry-part > g > rect {
+  fill: var(--part-color, #91acbf);
+  fill-opacity: 0.2;
+  stroke: var(--part-color, #91acbf);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+.wb-geometry-part.maturity-concept > rect,
+.wb-geometry-part.maturity-concept > path,
+.wb-geometry-part.maturity-concept > circle,
+.wb-geometry-part.maturity-concept > g > rect {
+  stroke-dasharray: 6 3;
+}
+.wb-geometry-part.maturity-envelope > rect,
+.wb-geometry-part.maturity-envelope > path,
+.wb-geometry-part.maturity-envelope > circle,
+.wb-geometry-part.maturity-envelope > g > rect {
+  stroke-dasharray: 2 3;
+  fill-opacity: 0.09;
+}
+.wb-geometry-part.maturity-undefined > rect,
+.wb-geometry-part.maturity-undefined > path,
+.wb-geometry-part.maturity-undefined > circle {
+  stroke-dasharray: 4 5;
+  fill-opacity: 0.03;
+}
+.wb-geometry-part:hover > rect,
+.wb-geometry-part:hover > path,
+.wb-geometry-part:hover > circle,
+.wb-geometry-part:hover > g > rect {
+  fill-opacity: 0.42;
+  stroke-width: 2;
+}
+.wb-geometry-part.is-selected > rect,
+.wb-geometry-part.is-selected > path,
+.wb-geometry-part.is-selected > circle,
+.wb-geometry-part.is-selected > g > rect,
+.wb-geometry-part:focus-visible > rect,
+.wb-geometry-part:focus-visible > path,
+.wb-geometry-part:focus-visible > circle,
+.wb-geometry-part:focus-visible > g > rect {
+  stroke: #f5fbff;
+  stroke-width: 2.5;
+  fill-opacity: 0.5;
+}
+.wb-geometry-part .wb-geometry-open-face {
+  fill: none;
+  stroke-dasharray: 3 4;
+  opacity: 0.5;
+}
+.wb-geometry-reference {
+  stroke: #526675;
+  stroke-width: 1;
+  stroke-dasharray: 9 5 2 5;
+  fill: none;
+}
+.wb-geometry-envelope {
+  stroke: #718491;
+  stroke-dasharray: 4 6;
+  fill: #496072;
+  fill-opacity: 0.05;
+  stroke-width: 1;
+}
+.wb-geometry-dimension {
+  stroke: #93acbc;
+  stroke-width: 1;
+  fill: none;
+}
+.wb-geometry-dimension text {
+  stroke: none;
+  font-size: 13px;
+}
+.wb-geometry-station path {
+  stroke: #728b9d;
+}
+.wb-geometry-station text {
+  font-size: 11px;
+  fill: #98b0c0;
+}
+.wb-geometry-selected-label path {
+  fill: none;
+  stroke: #eff8ff;
+  stroke-dasharray: 2 3;
+}
+.wb-geometry-selected-label text {
+  fill: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: #111d27;
+  stroke-width: 4px;
+}
+.wb-geometry .wb-geometry-stamp {
+  border-top: 1px solid #293b48;
+  padding: 8px 18px;
+  color: #c9b484;
+  background: #14212b;
+  font-size: 0.69rem;
+  letter-spacing: 0.02em;
+}
+.wb-geometry-projections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.wb-geometry-projections .wb-geometry-canvas > svg {
+  min-width: 350px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.wb-geometry-ranges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding: 0 4px 16px;
+}
+.wb-geometry-ranges > span {
+  display: grid;
+  gap: 3px;
+  color: #9ab2c3;
+  font-size: 0.73rem;
+}
+.wb-geometry-ranges strong {
+  color: #c7d8e3;
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+.wb-geometry-current {
+  padding: 12px 16px;
+  background: #1a2b37;
+  border-left: 3px solid #c1e0f4;
+  font-size: 0.81rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.wb-geometry-current > span {
+  display: inline-block;
+  margin-left: 14px;
+  font-size: 0.73rem;
+  color: #b7c7d2;
+}
+.wb-geometry-current p {
+  color: #c6d4de;
+}
+.wb-geometry-parts-key,
+.wb-geometry-missing {
+  font-size: 0.79rem;
+  border: 1px solid var(--wb-geometry-border);
+  padding: 12px 15px;
+  border-radius: 5px;
+  margin-bottom: 14px;
+}
+.wb-geometry summary {
+  cursor: pointer;
+  color: #cbdde9;
+}
+.wb-geometry-missing {
+  border-color: #735936;
+  color: #d9bba2;
+}
+.wb-geometry-missing p {
+  margin-top: 10px;
+}
+.wb-geometry-missing ul {
+  padding-left: 18px;
+}
+.wb-geometry-missing li {
+  margin: 7px 0;
+}
+.wb-geometry-missing button {
+  background: none;
+  border: 0;
+  color: #c9e5f9;
+  padding: 0;
+  text-decoration: underline;
+}
+.wb-geometry-missing li span {
+  color: #a7bbc8;
+  margin-left: 12px;
+}
+.wb-geometry-joint-heading {
+  margin-top: 28px;
+  margin-bottom: 14px;
+}
+.wb-geometry-joint-heading h3 {
+  font-size: 1.1rem;
+  margin-bottom: 7px;
+}
+.wb-geometry-joint-heading p {
+  font-size: 0.8rem;
+  color: var(--wb-geometry-muted);
+  line-height: 1.5;
+}
+.wb-geometry-joint-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.wb-geometry-joint-tabs > button {
+  text-align: left;
+  background: #162631;
+  border: 1px solid #405665;
+  border-radius: 6px;
+  padding: 10px 13px;
+  color: #bed0dd;
+  font-size: 0.79rem;
+}
+.wb-geometry-joint-tabs > button[aria-pressed='true'] {
+  color: #f2f9ff;
+  border-color: #8bbbd9;
+  background: #264458;
+}
+.wb-geometry-joint-tabs > button span {
+  display: block;
+  font-size: 0.68rem;
+  margin-top: 3px;
+  color: #d9bba2;
+}
+.wb-geometry-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 1fr);
+  gap: 18px;
+  margin: 16px 0;
+}
+.wb-geometry-layer-drawing {
+  border: 1px solid var(--wb-geometry-border);
+  border-radius: 6px;
+  overflow-x: auto;
+  background: #111d27;
+}
+.wb-geometry-layer-drawing svg {
+  min-width: 620px;
+}
+.wb-geometry svg .wb-geometry-layer-label {
+  fill: #deebf3;
+  font-size: 14px;
+  font-weight: 550;
+}
+.wb-geometry svg .wb-geometry-gap-label {
+  fill: #d5ac88;
+  font-size: 10px;
+}
+.wb-geometry-undefined {
+  fill: none;
+  stroke: #e1ad82;
+  stroke-dasharray: 5 5;
+  stroke-width: 1.5;
+}
+.wb-geometry svg .wb-geometry-warning-text {
+  fill: #e5b990;
+  font-size: 15px;
+}
+.wb-geometry-dimensions {
+  padding: 14px;
+  border: 1px solid var(--wb-geometry-border);
+  border-radius: 6px;
+  font-size: 0.77rem;
+}
+.wb-geometry-dimensions dl {
+  margin: 12px 0 0;
+}
+.wb-geometry-dimensions dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid #2c3c48;
+}
+.wb-geometry-dimensions dt {
+  color: #bacbd7;
+}
+.wb-geometry-dimensions dd {
+  color: #e1edf6;
+  text-align: right;
+  margin: 0;
+}
+.wb-geometry-dimensions dd span {
+  display: block;
+  color: #a3b6c3;
+  font-size: 0.67rem;
+  margin-top: 3px;
+}
+.wb-geometry-part-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+}
+.wb-geometry-part-links button {
+  text-align: left;
+  background: #14232e;
+  border: 1px solid #3e5565;
+  border-left: 3px solid var(--part-color);
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.73rem;
+  color: #d5e4ed;
+}
+.wb-geometry-part-links button span {
+  display: block;
+  font-size: 0.65rem;
+  color: #a8bfcd;
+  margin-top: 3px;
+}
+.wb-geometry-part-links button[aria-pressed='true'] {
+  outline: 1px solid #edf7ff;
+  background: #294456;
+}
+.wb-geometry-findings {
+  padding: 12px 16px 12px 34px;
+  border-left: 2px solid #b1845f;
+  background: #27251f;
+  color: #dcc7af;
+  font-size: 0.79rem;
+  line-height: 1.65;
+}
+.wb-geometry-findings li + li {
+  margin-top: 5px;
+}
+.wb-geometry-storyboard {
+  border: 1px solid var(--wb-geometry-border);
+  border-radius: 7px;
+  background: #111d27;
+  margin-top: 18px;
+  overflow: hidden;
+}
+.wb-geometry-storyboard .wb-geometry-figure-heading span {
+  font-size: 0.7rem;
+  color: #dbba92;
+}
+.wb-geometry-storyboard > p {
+  padding: 14px 18px;
+  font-size: 0.8rem;
+  color: #bacbd5;
+}
+.wb-geometry-step-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px;
+  list-style: none;
+  padding: 0 18px;
+  margin: 10px 0 14px;
+}
+.wb-geometry-step-list li {
+  min-width: 0;
+}
+.wb-geometry-step-list button {
+  display: flex;
+  gap: 9px;
+  width: 100%;
+  height: 100%;
+  background: #182a37;
+  border: 1px solid #384f60;
+  color: #b9cddc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.wb-geometry-step-list button > span {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 1px solid #687f91;
+  font-size: 0.7rem;
+}
+.wb-geometry-step-list button[aria-current='step'] {
+  border-color: #97c5df;
+  background: #29485d;
+  color: #e9f5fc;
+}
+.wb-geometry svg .wb-geometry-story-number {
+  fill: #eaf8ff;
+  font-size: 17px;
+  font-weight: 600;
+}
+@media (max-width: 1000px) {
+  .wb-geometry-projections,
+  .wb-geometry-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .wb-geometry-current > span {
+    display: block;
+    margin: 5px 0;
+  }
+}

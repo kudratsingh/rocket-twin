@@ -15,6 +15,7 @@ if [[ ! -d web/node_modules ]]; then
   echo "Missing locked web dependencies. In a normal terminal run npm --prefix web ci, then retry." >&2
   exit 1
 fi
+.venv/bin/python scripts/wo04_workbench_export.py --output web/public/engineering-workbench/g80-c1.json
 .venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
 preview_api_pid=$!
 cleanup() {

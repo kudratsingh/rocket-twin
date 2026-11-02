@@ -20,6 +20,30 @@ not a mandate to minimize building. Performance means useful delivered impulse a
 flight performance within verified launch, structural and recovery limits, not simply
 maximum nominal motor designation or a heavier rocket approaching the mass cap.
 
+**C2 bounded correction — rejected before detailed CAD/FEA (2026-11-02):**
+The [complete sandwich/socket preflight](wo03-c2-sandwich-socket.md) removes
+196.092g and adds250.021g, net+53.929g. Full50g nominal/adverse totals are
+1183.736/1203.736g, loaded margins1.139/1.034cal. Hypothetical1.971m speeds
+15.263/15.116m/s pass formal15 only; planning15.5 and unchanged1.5m fail.
+Receiver-pad hot mean shear3.828MPa>1, floor58.501MPa>25 and motion2.328mm>1
+fail; actual nominal2D harness/link envelopes overlap. No installed engineering
+requirement closes. Do not admit CAD/native analysis or another local glued pad.
+The necessary interface change is continuous structural socket/receiver/end
+moment transfer compatible with the recovery route. C1 stays preliminary; G54
+and G12/PID-to-RL stay separate. Existing physical/paid/WO10/flight gates remain.
+The saved axis-to-tip conversion now uses123mm: C1/R1 scalar aggregates
+3.198/1.054mm; earlier3.179/1.039 proxies remain preserved as superseded.
+
+## Engineering workbench delivery
+
+Owner direction2026-11-02 expands the ADR-0009 early preview into source-linked
+engineering explanation. WB-01–03 deliver geometry/sections/forces and mass/launch
+now; WB-04–05 bound subsequent heat/netlist/compatible-field/build-sheet views.
+See `docs/UI.md`, the A–L inventory and walkthrough. Code/API/SSR verification
+remains separate from browser observation and engineering/physical acceptance.
+The bounded next C1 sandwich-fin correction proceeds separately; G80 first,
+G54 upgrade and G12/PID-to-RL remain committed. No WO sequence/release gate changes.
+
 ## Preliminary physical platform
 
 **Current C1 attachment checkpoint (2026-11-02):**

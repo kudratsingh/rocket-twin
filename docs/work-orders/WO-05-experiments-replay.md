@@ -67,3 +67,7 @@ selection-linked metadata and preserving all experiment/replay benchmarks.
 ## Traceability and vibration-risk carry-through
 
 Preserve source-linked requirements/interfaces/FMEA and unresolved status while comparing/replaying recorded results. Never attach evidence to a different module/CAD identity or imply time coupling without a recorded mapping.
+
+## Engineering-workbench increment (owner2026-11-02)
+
+Implement WB-01–05 in `docs/UI.md` and the [A–L inventory](../wo04-engineering-view-inventory.md). First deliver linked C1 arrangement/internal sections, fin/recovery connections, actual load-path/free-body diagrams, C1/R1 mass/balance and conditional launch graphics. Later increments expose source-identified heat/netlist/compatible result fields and verification maps. No frontend physical calculations or invented analysis fields. Retain full benchmarks, earlier viewer/experiments/replay, exact identity/maturity, browser evidence boundaries and every engineering/build/flight gate.

@@ -618,6 +618,17 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
     def health() -> dict[str, Any]:
         return {"status": "ok", "mode": "read-only recorded inspection", "flight_ready": False}
 
+    @app.get("/api/engineering/workbench")
+    def engineering_workbench() -> dict[str, Any]:
+        from src.api.workbench import build_workbench
+
+        try:
+            return build_workbench(root)
+        except (OSError, ValueError, KeyError) as error:
+            raise HTTPException(
+                409, f"Engineering walkthrough source unavailable: {error}"
+            ) from error
+
     @app.get("/api/vehicles")
     def vehicles() -> dict[str, Any]:
         rows = []

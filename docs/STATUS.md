@@ -1,5 +1,37 @@
 # Status
 
+**C2 bounded correction — rejected before detailed CAD/FEA (2026-11-02):**
+The [complete sandwich/socket preflight](wo03-c2-sandwich-socket.md) removes
+196.092g and adds250.021g, net+53.929g. Full50g nominal/adverse totals are
+1183.736/1203.736g, loaded margins1.139/1.034cal. Hypothetical1.971m speeds
+15.263/15.116m/s pass formal15 only; planning15.5 and unchanged1.5m fail.
+Receiver-pad hot mean shear3.828MPa>1, floor58.501MPa>25 and motion2.328mm>1
+fail; actual nominal2D harness/link envelopes overlap. No installed engineering
+requirement closes. Do not admit CAD/native analysis or another local glued pad.
+The necessary interface change is continuous structural socket/receiver/end
+moment transfer compatible with the recovery route. C1 stays preliminary; G54
+and G12/PID-to-RL stay separate. Existing physical/paid/WO10/flight gates remain.
+The saved axis-to-tip conversion now uses123mm: C1/R1 scalar aggregates
+3.198/1.054mm; earlier3.179/1.039 proxies remain preserved as superseded.
+
+
+**Engineering walkthrough first increment — code delivered, browser unverified:**
+The [new Engineering tab](wo04-engineering-walkthrough.md) provides linked C1
+arrangement/sections, source-defined joint layers and assembly illustrations,
+five force/free-body paths, and recorded C1/R1 mass/balance/guide comparisons.
+135component rows and136 mass-distribution entries reconcile the source lock.
+The current C1 CAD revision is null; archived72-part CAD is separate. No fake
+stress/temperature field or accepted installed strength/thermal result is added.
+Production build/lint/format,24 frontend tests and12 backend/export/API tests pass;
+non-browser render checks produced15SVGs (7geometry/6mass/2forces). `make preview` in
+this sandbox failed listen EPERM5173; the owner has replied done to normal-Terminal
+startup. One new restricted-shell check still refused5173/8000, so host-browser
+reachability remains unverified. Browser runtimeownership prerequisite
+remains unresolved after automatic approval rejection; no screenshot/visual
+acceptance or alternate-window/headless bypass. Bounded remaining A–L tasks are
+recorded in the [inventory](wo04-engineering-view-inventory.md) and UI contract.
+
+
 **Current C1 attachment checkpoint (2026-11-02):**
 [C1 source identity](wo03-c1-attachment-source-lock.md) is frozen at1079.807g
 nominal + separate50g =1129.807g. The one [R1 installed-fin reinforcement

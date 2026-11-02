@@ -208,3 +208,36 @@ The archived 72-part retention model remains separate from active designs and
 from C1. C1 currently has numerical study evidence, not an exported complete CAD
 assembly; neither the archived model nor an invented assembly is labeled C1.
 The increment adds no engineering, build, flight or full-WO acceptance.
+
+## Owner-authorized engineering workbench — 2026-11-02
+
+The owner expands the early WO-04/05 preview from camera/inspection controls to
+an explanatory engineering workbench. This explicitly updates the frozen UI
+contract within ADR-0009; full milestone and physical-flight gates are unchanged.
+Use [bounded tasks and A–L inventory](wo04-engineering-view-inventory.md) and
+[first walkthrough](wo04-engineering-walkthrough.md). All diagrams/values derive
+from versioned backend/offline sources, with configuration, frame, units and
+maturity. C1 concept geometry never borrows the archived72-part CAD identity.
+
+| Task | Deliverable / acceptance | State |
+| --- | --- | --- |
+| WB-01 | Linked C1 arrangement, side/front/aft projections, longitudinal and fin/recovery/receiver/motor sections; selection and source/maturity inspector; SVG exports with identity | Implemented code/API/SSR; browser unverified |
+| WB-02 | Clickable motor/reverse/fin/guide/recovery paths and free-body diagrams; actual joint assumptions, failures and finite/unresolved supports | Implemented code/API/SSR; no invented clamps/sharing |
+| WB-03 | C1/R1 mass distribution, separate50g/additional20g, loaded/burnout CG/CP/calibre, recorded guide samples and overall versus usable travel | Implemented code/API/SSR; conditional equipment |
+| WB-04 | One source-identified heat topology and compatible recorded histories; electrical netlist and planned control blocks | Bounded subsequent export/graphics increments; no new solver/controller |
+| WB-05 | Compatible stress/deformation/mode evidence, preliminary component sheets and visual verification/test map | Show missing fields now; real results/qualified WO09 build pack retain prerequisites |
+
+Preserve actual CAD inspection, shared JAX experiments and recorded replay.
+Selecting diagram components links all walkthrough graphics/inspector; link to
+actual model only where its same identity exists. No current C1 full CAD, spatial
+thermal/stress field or installed flutter pass exists. Illustrative assembly and
+deployment sequences are not validated motion simulations. Static scalar failed
+R1 findings must not be presented as fabricated spatial fields. No sensitivity
+range automatically becomes a statistical confidence band.
+
+Export read-only data with `make workbench`; `make preview` prepares it too. The
+new API endpoint is `/api/engineering/workbench`. Only a404 missing-route response
+may use the visibly labeled prepared offline export; incompatible/missing source
+errors must remain errors. The first graphics are at
+`http://127.0.0.1:5173/?workspace=engineering`, with `&view=forces`, `&view=mass`
+or `&view=evidence`. No engineering calculation runs in TypeScript.

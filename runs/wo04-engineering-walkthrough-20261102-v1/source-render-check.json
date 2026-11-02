@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0.0",
+  "recorded_at_utc": "2026-11-02T12:55:18.657Z",
+  "result": "passed_source_and_ssr_only",
+  "commands": [
+    {
+      "command": "make workbench",
+      "result": "passed; actual source-checked export and source manifest written"
+    },
+    {
+      "command": "node .cache/wo04-workbench-ssr-check.mjs",
+      "result": "passed; actual exported document rendered through existing Vite SSR"
+    },
+    {
+      "command": "npm --prefix web run lint",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix web run format:check",
+      "result": "failed initially: web/src/workbench/types.ts from final optional schema extension requires Prettier; primary notified"
+    },
+    {
+      "command": "npm --prefix web run build",
+      "result": "passed; TypeScript and production build; existing chunk-size warning only"
+    },
+    {
+      "command": "npm --prefix web test",
+      "result": "passed; all24 tests"
+    },
+    {
+      "command": "npm --prefix web run format:check",
+      "result": "passed after primary formatted optional revision schema in types.ts; whitespace only; no SSR repeat needed"
+    }
+  ],
+  "input": {
+    "path": "web/public/engineering-workbench/g80-c1.json",
+    "id": "g80-c1-engineering-walkthrough-v1",
+    "configuration_id": "C1_closed_receiver_mass_balance",
+    "specification_sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+    "cad_revision": null,
+    "part_count": 135,
+    "source_count": 15,
+    "sources_hash_verified": true
+  },
+  "components": [
+    {
+      "component": "GeometryViews",
+      "result": "passed",
+      "svg_count": 7,
+      "markup_bytes": 105867,
+      "finite_values": true,
+      "nonempty_tooltips": true,
+      "selected_part_id": "c1_fin_panels",
+      "selected_class_count": 7,
+      "pressed_count": 10,
+      "selection_verification": "Supplied selectedPartId reflected in SVG and controls; mouse/keyboard callback wiring present in source; events not executed."
+    },
+    {
+      "component": "MassLaunchViews",
+      "result": "passed",
+      "svg_count": 6,
+      "markup_bytes": 113389,
+      "finite_values": true,
+      "nonempty_tooltips": true,
+      "selected_part_id": "c1_fin_panels",
+      "selected_class_count": 6,
+      "pressed_count": 12,
+      "selection_verification": "Supplied selectedPartId reflected in SVG and controls; mouse/keyboard callback wiring present in source; events not executed."
+    },
+    {
+      "component": "LoadPathViews",
+      "result": "passed",
+      "svg_count": 2,
+      "markup_bytes": 42420,
+      "finite_values": true,
+      "nonempty_tooltips": true,
+      "selected_part_id": "c1_fin_panels",
+      "selected_class_count": 1,
+      "pressed_count": 2,
+      "selection_verification": "Supplied selectedPartId reflected in SVG and controls; mouse/keyboard callback wiring present in source; events not executed."
+    }
+  ],
+  "source_and_r1_scope": {
+    "export_metadata_matches_document": true,
+    "all_sources_match_sha256": true,
+    "r1_cases_failed_and_historical": true,
+    "scalar_mean_demand_scope_explicit": true,
+    "absent_cad_revision_remains_null": true,
+    "launch_equipment_unconfirmed": true,
+    "no_solver_or_cad_run": true
+  },
+  "revision_mass_additions": {
+    "revision": "R1",
+    "row_count": 14,
+    "recorded_added_mass_g": 70.11101376993652,
+    "per_item_stations_and_valid_selection_targets": true,
+    "c1_distribution_unchanged": true,
+    "browser_does_not_sum_total": true
+  },
+  "scalar_motion_proxies": {
+    "corrected_c1": {
+      "label": "Corrected calculated C1 aggregate scalar proxy; axis-radius conversion only",
+      "value": 3.198208964954454,
+      "unit": "mm",
+      "state": "failed"
+    },
+    "corrected_r1": {
+      "label": "Corrected calculated R1 aggregate scalar proxy; axis-radius conversion only",
+      "value": 1.0543023835465382,
+      "unit": "mm",
+      "state": "failed"
+    },
+    "superseded_r1": {
+      "label": "R1 recorded 1.039 mm aggregate: superseded receiver-lever proxy",
+      "value": 1.0389342402879547,
+      "unit": "mm",
+      "state": "superseded"
+    }
+  },
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "source_inventory": [
+    {
+      "path": "tests/test_workbench_api.py",
+      "sha256": "1935aa400d7beb52cab2a0d4a0d61e206f6f56bd5cf1fc27635f792764965a26"
+    },
+    {
+      "path": "tests/test_workbench_export.py",
+      "sha256": "3773f7b0f27ebeff926cc3f26e43a40fb20dfc33def78ee2e3f93a91bb9eeb37"
+    },
+    {
+      "path": "web/src/App.tsx",
+      "sha256": "31f8afd6a7dfe7cf70a09e71a2a54dfa825c3586832c6d7f611b9c3b3a699bf5"
+    },
+    {
+      "path": "web/src/workbench/EngineeringWorkbench.tsx",
+      "sha256": "a3c9c53c1e1593dd95902afb1dbb1cdcb341db55a8cf6355c3d995e26fd7ca17"
+    },
+    {
+      "path": "web/src/workbench/GeometryViews.tsx",
+      "sha256": "21ed4b7e3019d854f385c14c9d54dec00cb219545283321df50545b4043b2e77"
+    },
+    {
+      "path": "web/src/workbench/LoadPathViews.tsx",
+      "sha256": "49d35cf0c8cb81d046ee62ed1da93d6085386db3719c9937b55e6be57fa59282"
+    },
+    {
+      "path": "web/src/workbench/MassLaunchViews.tsx",
+      "sha256": "ab6fa79daa9b82ba52e87ae02117e4f1a9af0375d45a65c479a5c5561ccd168c"
+    },
+    {
+      "path": "web/src/workbench/exportSvg.ts",
+      "sha256": "a8f63643490583e976ad9f627cc25233542c612df09cb502fe2fbb5badf52176"
+    },
+    {
+      "path": "web/src/workbench/geometryViews.css",
+      "sha256": "1daef07cba7f7ae7e25007c928e1261667a0f96da04a3c90b4b32b1324aa0c0a"
+    },
+    {
+      "path": "web/src/workbench/loadPathDisplay.ts",
+      "sha256": "f428e9e24e0941db62fc20e36bab18138ed96a3d572e4788e5dce9644349850c"
+    },
+    {
+      "path": "web/src/workbench/loadPathViews.css",
+      "sha256": "d4cd32a0d159c95af86db69aa0ad999d0b410df059f5f7beb8e22990d7eb8f31"
+    },
+    {
+      "path": "web/src/workbench/massLaunchViews.css",
+      "sha256": "57f9e1c6899a6b71735d07b7d2fddddada7a05a0bf55bb370f09e190bdf438e1"
+    },
+    {
+      "path": "web/src/workbench/types.ts",
+      "sha256": "f3a2c574ab586158087382c80ed0b0d823825dfe2cc296f06f047b144add4782"
+    },
+    {
+      "path": "web/src/workbench/workbench.css",
+      "sha256": "0d8f69e5335b11988b06c1ade2ab40c6a7f576f30f3942dc71a5425ae1e6673f"
+    },
+    {
+      "path": "web/tests/analysis-boundary.test.mjs",
+      "sha256": "49f360a997f95146591317f09051e933ee278384453f4fc49d04f2dd45e64202"
+    },
+    {
+      "path": "web/tests/comparison.test.mjs",
+      "sha256": "3ce4e86f68c05a023bbd8b83fc710a5f6ddd993f23deb5ae24913006cb946ce8"
+    },
+    {
+      "path": "web/tests/inspection-geometry.test.mjs",
+      "sha256": "07b7f3b6bea513a240f36792e880fd41df22cb4c3294c30fb2df82e2a0c2fb43"
+    },
+    {
+      "path": "web/tests/inspection-state.test.mjs",
+      "sha256": "310e0b91f2695e52e959094148544f36895c567c8ff0f7ddce7ad88eb4dc6a4c"
+    },
+    {
+      "path": "web/tests/loadPathDisplay.test.mjs",
+      "sha256": "b1ca83ce1da90590384004d7cf9eb2df11e823eb4811fcaeffd71fe63708ff08"
+    },
+    {
+      "path": "web/tests/part-search.test.mjs",
+      "sha256": "74dbeab7502eae0c28fa43a6bf62509d92ff4ad5aecacb3a88915cc18526bfd7"
+    },
+    {
+      "path": "web/tests/plot-scale.test.mjs",
+      "sha256": "383690405c04dd0c75f9dc616349f73a41549c649192b8ec0f877ab07a0567cc"
+    },
+    {
+      "path": "web/tests/request-order.test.mjs",
+      "sha256": "cbbb261c56a683cb93d83fbe869494752a18aeea7bfe80cb0961615fc12892a6"
+    },
+    {
+      "path": "web/tests/telemetry-channels.test.mjs",
+      "sha256": "d2e094abe2d938af8f493a75b93aaca9f42dfc2c32704cd68d3f5ad242b4e38c"
+    }
+  ],
+  "integration_fix": {
+    "path": "web/src/workbench/LoadPathViews.tsx",
+    "description": "Primary-authorized React19 SVG title fix: five dynamic titles changed to one template-string child. Physical data unchanged.",
+    "reproduction": {
+      "command": "React19 renderToStaticMarkup(svg(title(label, separator, note)))",
+      "before": "<svg><title></title></svg>",
+      "before_warning_count": 1,
+      "after": "Actual SSR tooltips populated, no empty title elements"
+    }
+  },
+  "limitations": [
+    "Non-browser source and server-render smoke only; no browser, headless browser, screenshots, computer use or visual acceptance.",
+    "SVG counts, finite output, source identity and selection-prop rendering verified. Actual click, keyboard event dispatch, responsive layout, SVG download and browser rendering were not exercised.",
+    "Vite SSR may emit a sandbox WebSocket EPERM on port24678; no port workaround was attempted. Rendering completion is recorded separately from that environment warning.",
+    "R1 values remain scalar recorded screens and historical failure evidence. No spatial stress, displacement, temperature or CFD field is established.",
+    "Complete detailed C1 CAD, installed geometry/contact/fit, real guide equipment and all engineering/physical/flight gates remain unresolved."
+  ],
+  "build_warnings": [
+    "Vite production bundle contains a chunk larger than500kB; build succeeded. No bundle rearchitecture in this bounded increment."
+  ],
+  "final_check_status": "passed; final source data SSR, lint, typechecking/production build, format and all24 frontend tests complete"
+}

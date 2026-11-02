@@ -70,3 +70,7 @@ amplification. Retain Inspect acceptance and every existing work-order position.
 ## Traceability and vibration-risk carry-through
 
 Expose linked stable-ID requirements, interfaces, FMEA mitigations and unresolved evidence in the part inspector/Analysis view. Bind every displayed result to exact configuration and CAD revision; calculated/estimated/measured/unavailable stay distinct.
+
+## Engineering-workbench increment (owner2026-11-02)
+
+Implement WB-01–05 in `docs/UI.md` and the [A–L inventory](../wo04-engineering-view-inventory.md). First deliver linked C1 arrangement/internal sections, fin/recovery connections, actual load-path/free-body diagrams, C1/R1 mass/balance and conditional launch graphics. Later increments expose source-identified heat/netlist/compatible result fields and verification maps. No frontend physical calculations or invented analysis fields. Retain full benchmarks, earlier viewer/experiments/replay, exact identity/maturity, browser evidence boundaries and every engineering/build/flight gate.

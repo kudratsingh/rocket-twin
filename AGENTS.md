@@ -72,6 +72,21 @@ Keep nominal C1 planning headroom22.509g distinct from adverse2.509g, both
 conditional on illustrative1.971m equipment that remains unconfirmed. No
 longer launch baseline or material/load/allowance relaxation is authorized.
 
+The owner's2026-11-02 engineering-workbench expansion updates docs/UI.md through
+WB-01–05 bounded tasks: source-linked arrangement/sections/load paths/mass/launch
+first, then compatible thermal/electrical/results. Preserve the original viewer,
+experiments and replay. C1 presentation geometry is concept/envelope, never the
+archived72-part candidate. No frontend physics or invented spatial fields. Keep
+code/API/SSR checks separate from genuine designated-agent browser evidence.
+
+C2's one sandwich/triangular-socket correction is now stopped as well; see
+`docs/wo03-c2-sandwich-socket.md`. Receiver-pad hot bond, floor, motion and
+harness interference fail, despite promising isolated panel movement. Do not
+repeat/adopt C2 or begin its CAD/FEA. Continuous structural receiver/end moment
+transfer and recovery-route compatibility must be established before another
+construction variant; no next candidate is admitted by this stop. Preserve
+corrected123mm axis-radius scalar conversion and the superseded prior records.
+
 ## Git workflow and autonomy
 
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the
