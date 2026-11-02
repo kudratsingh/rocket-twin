@@ -104,3 +104,13 @@ actual V4 rendered source; added glossary CSS is confined to an HTML-only siblin
 No native image rerun was needed for that metadata-only change. The initial
 whole-CSS-identity check failure and corrected scope reasoning are preserved in
 `runs/wo04-export-provenance-20261102-v1`.
+
+
+## Owner review pack
+
+Open `output/rocket-twin-review/index.html`, or download its `review-pack.zip`.
+The self-contained gallery collects the original25-page set, new11-view set,
+and A/B concept drawings with their actual PNGs, sources/sidecars and record.
+`.venv/bin/python scripts/wo04_review_pack.py` packages existing artifacts only; it does
+not redraw, rerun an engineering calculation or claim browser acceptance.
+Generated image/ZIP bulk is excluded from Git.

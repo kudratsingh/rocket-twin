@@ -46,6 +46,7 @@ New A/B concepts have no fabricated C1 part/CAD association.
 
 | Local artifact | What can be inspected |
 | --- | --- |
+| `output/rocket-twin-review/index.html` and `review-pack.zip` |Self-contained gallery and downloadable pack of recorded drawings/native images |
 | `output/engineering-walkthrough/index.html` |25 C1/R1 SVG drawings with units, source/status and configuration metadata |
 | `output/engineering-walkthrough-rendered/contact-sheet.png` |25 real offline raster pages; representative labels/arrows actually inspected |
 | `output/engineering-workbench-extended/index.html` |New comparison/recovery/thermal/electrical/service/requirement SVGs and actual PNG previews |
