@@ -1881,3 +1881,19 @@ evidence checks verify frozen sources, complete mass/balance/opening accounting,
 retained failures and missing capacities; they are not strength qualification.
 The executed script remains archived; only dict-literal lint normalization was
 made afterward, with normalized-AST equivalence checked without rerunning physics.
+
+## 2026-11-02 architecture-first A/B screen
+
+[Current decision](wo03-architecture-decision.md) and the immutable
+`wo03-architecture-space-mass-20261102-v1` record preserve exactly two selected
+arrangements. A removes161.498g from C1, with separate50g totals968.309/988.309g
+and loaded stability1.856/1.713cal. Its unchanged1.5m departure14.914/14.743m/s
+fails formal15; adverse mass deficit29.911g. B totals995.812/1015.812g and its
+specified optimistic movement proxy1.226mm exceeds1mm. Neither is admitted to
+complete CAD/FEA. A is preferred only for a bounded connection study; no new
+allowable, force, growth or guide baseline is selected. Finished hot cap/root/
+bridle capacities, finite supports, exact retainer fit, temperatures and full
+inertia remain unavailable. The single20CPU/30wall-second packet used0.431/
+0.507seconds, without CAD/FEA/thermal/free-flight or repeated stopped runs.
+Actual offline concept drawings and expanded workbench graphics are separate
+presentation evidence, not engineering qualification or browser acceptance.

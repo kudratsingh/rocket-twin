@@ -1,0 +1,54 @@
+{
+  "browser_verified": false,
+  "elapsed_s": 1.2998671660316177,
+  "engineering_calculation_executed": false,
+  "id": "wo03-architecture-drawings-20261102-v1",
+  "initial_render_record_sha256": "788aa6d241ad3755d7e4a449a14e1e4d9ca4d6cd595c5fd0ebade0f6e14c639b",
+  "input_sha256": {
+    "configs/studies/wo03-architecture-space-mass.yaml": "336d79130931012710155ab8777cfe439afddf51f3b1c688637d41b8e90ce137",
+    "runs/wo03-architecture-space-mass-20261102-v1/record.json": "7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2",
+    "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931",
+    "scripts/wo03_architecture_drawings.py": "a2892261d6b98346674d470aa2564f40b0fc78c3701853e901c0170f90d925cb"
+  },
+  "outputs_sha256": {
+    "output/wo03-architecture/architecture-A-motor-fin-can.png": "a0eb82a94c91da0b4c46bf21eb50e8649fc3c7e9a9adf52b847b30ca8b2e44b2",
+    "output/wo03-architecture/architecture-A-motor-fin-can.svg": "925662156552f580763d3ebf4d27c049bf8a8e8ae17e9ca7c230f3458184585f",
+    "output/wo03-architecture/architecture-B-outer-captured-roots.png": "3cbca4ea9fa88493c7eb9550a4f0cab885c68ebded28544ff24c8ec35b64abb7",
+    "output/wo03-architecture/architecture-B-outer-captured-roots.svg": "1848f93e085f6361a6794ada04e5f8cc42636dd4cd703fb2837dd74de7f8c4f7"
+  },
+  "presentation_fix_cycles": 1,
+  "render": {
+    "combined_limit_s": 120,
+    "initial_and_final_elapsed_upper_bound_s": 38.73069754103199,
+    "observations": [
+      {
+        "exit_code": 0,
+        "input": "output/wo03-architecture/architecture-A-motor-fin-can.svg",
+        "stderr": "",
+        "stdout": "SVG_registered=true\nPNG_dimensions=1600x1440"
+      },
+      {
+        "exit_code": 0,
+        "input": "output/wo03-architecture/architecture-B-outer-captured-roots.svg",
+        "stderr": "",
+        "stdout": "SVG_registered=true\nPNG_dimensions=1600x1440"
+      }
+    ],
+    "renderer": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "requested": true
+  },
+  "status": "presentation_only_both_architectures_not_admitted",
+  "visual_review": {
+    "final_pngs_inspected": true,
+    "limitations": [
+      "No browser interaction evidence.",
+      "No CAD, collision, engineering capacity, field or motion verification."
+    ],
+    "method": "view_image of both initial and final native AppKit PNGs",
+    "observations": [
+      "Both figures retain source hashes, dimensions, station origin, not-admitted status and recorded case tables.",
+      "Final explicit force-path arrowheads are visible; reservation labels are clear of geometry borders.",
+      "Cuff windows and six broad-leg plan inset are visible; sectional and projected-topology meanings are stated."
+    ]
+  }
+}

@@ -1,5 +1,12 @@
 # Plan — modular custom rocket and digital twin
 
+Current delivery checkpoint: [CURRENT.md](CURRENT.md) and
+[work list](wo03-current-worklist.md). The two source-informed A/B architecture
+screens are stopped before full CAD admission; A is the preferred joint-study
+direction only. Continue independent engineering workbench/image/source work.
+No criterion, motor-track priority, sequence exception or release gate changes.
+
+
 **C3 continuous-connection preflight — not admitted (2026-11-02):**
 The [one bounded packet](wo03-c3-continuous-connection.md) replaces local pad
 transfer with integral channels and positive cap pockets as design intent.
