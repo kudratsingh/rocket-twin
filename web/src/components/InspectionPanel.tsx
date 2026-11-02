@@ -110,6 +110,7 @@ function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
   const select = useInspection((s) => s.select);
   const isolate = useInspection((s) => s.isolate);
   const togglePart = useInspection((s) => s.togglePart);
+  const focusPart = useInspection((s) => s.focusPart);
   const hidden = useInspection((s) => s.hiddenIds.includes(part.id));
   const parent = parts.find((entry) => entry.id === part.parent);
   const children = parts.filter((entry) => entry.parent === part.id);
@@ -143,6 +144,10 @@ function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
       </div>
       <p className="part-id">{part.id}</p>
       <div className="inspector-actions">
+        <button onClick={() => focusPart(part.id)} disabled={!part.mesh_url}>
+          <Icon name="fit" size={14} />
+          Focus in 3D
+        </button>
         <button
           onClick={() =>
             isolate(

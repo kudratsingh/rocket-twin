@@ -1,0 +1,111 @@
+.viewport-panel {
+  overflow-y: auto;
+}
+
+.viewport-panel .viewport-heading {
+  padding: 14px 18px 10px;
+}
+
+.viewport-panel .viewport-actions {
+  padding-bottom: 10px;
+}
+
+.viewport-panel .viewport-controls {
+  padding: 12px 18px;
+}
+
+.inspection-view-bar,
+.inspection-display-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 6px;
+  padding: 0 18px 10px;
+}
+
+.inspection-view-bar > span {
+  color: var(--muted);
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+.inspection-view-bar button,
+.inspection-display-bar button {
+  font-size: 10px;
+  padding: 5px 8px;
+}
+
+.inspection-display-bar {
+  border-bottom: 1px solid var(--border);
+}
+
+.selected-part-anchor {
+  pointer-events: none;
+}
+
+.selected-part-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: max-content;
+  max-width: 180px;
+  padding: 9px 12px;
+  border: 1px solid #417f81;
+  border-left: 2px solid #77d7d2;
+  border-radius: 5px;
+  background: #102128ee;
+  box-shadow: 0 4px 18px #0004;
+  color: #d6e9ec;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.selected-part-label > span:last-child {
+  color: #9ab6c2;
+  font-size: 10px;
+}
+
+.selected-part-label .eyebrow {
+  font-size: 8px;
+}
+
+.inspection-display-note {
+  position: absolute;
+  top: 65px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: min(310px, calc(100% - 24px));
+  padding: 7px 10px;
+  border: 1px solid #34505a;
+  border-radius: 5px;
+  background: #102029e8;
+  color: #a3c1cb;
+  font-size: 10px;
+  line-height: 1.6;
+  pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+  .inspection-view-bar,
+  .inspection-display-bar {
+    padding-right: 14px;
+    padding-left: 14px;
+    gap: 5px;
+  }
+
+  .inspection-view-bar button,
+  .inspection-display-bar button {
+    font-size: 9px;
+    padding: 5px 6px;
+  }
+
+  .selected-part-label {
+    max-width: 135px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}

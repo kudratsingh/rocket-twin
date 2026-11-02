@@ -189,3 +189,22 @@ vibration modes/frequencies and flutter screening reports retain their validity/
 attachment/temperature assumptions; a mode shape is a display field with explicit
 normalization, not a measured displacement. Exact configuration/CAD identity checks
 apply to these artifacts as to stress/temperature fields.
+
+## Bounded inspection-visualization increment — owner direction 2026-11-02
+
+The owner requested clearer frontend CAD/rocket visualization while the C1
+engineering work continues. This limited WO-04 increment retains the existing
+three-panel layout, renderer and source geometry. See
+[scope, checks and pending visual observations](wo04-inspection-views.md).
+
+Inspect adds overview/front/side/motor-end camera presets, focus on a selected
+part (`F`), fit visible geometry, a transparent outer shell with internal-part
+selection, a selected-part label, display wireframe and an orientation widget.
+View controls are display-only; the renderer performs no flight or engineering
+calculation. Analysis retains its recorded colors/opacity and excludes the new
+ghost/wireframe/label styling. No incompatible analysis can attach.
+
+The archived 72-part retention model remains separate from active designs and
+from C1. C1 currently has numerical study evidence, not an exported complete CAD
+assembly; neither the archived model nor an invented assembly is labeled C1.
+The increment adds no engineering, build, flight or full-WO acceptance.
