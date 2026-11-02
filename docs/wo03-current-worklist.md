@@ -3,7 +3,7 @@
 G80 engineering first; substantial custom construction, practical performance
 and G12 PID-to-RL remain core goals. G54 remains a separate upgrade track.
 **C1 is preliminary; R1/C2/C3 are rejected. No unchanged rejected calculation
-or detailed CAD/FEA is restarted.** Last published main:
+or detailed CAD/FEA is restarted.** Session-start published main:
 `e58ec0b2cfa396464d6175f30a8c41141eaa7b1e` (PR56/57 merged).
 
 | Deliverable / owner | Identity and acceptance | Budget / stop | Dependencies / actual status |
