@@ -3,6 +3,9 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-architecture-interface-audit.md
+  scope: Read-only retained-upper A/B mating-envelope and cold tolerance audit linked to IF-UPPER-AFT-001 and RT-FIT-001.
+  limitation: Model cold gap fails under declared bounds; no resized coupler, third arrangement, hot supplier evidence or CAD/strength acceptance.
 - path: docs/wo03-architecture-decision.md
   scope: Two selected complete G80 architecture function/space/mass screens with protected volumes and coupled growth, guide, stability and recovery demand.
   limitation: Neither admitted; A preferred for bounded connection study only. Baseline guide, finished hot joints, actual spreading/stiffness, motor fit and thermal/fluter/inertia remain open.
@@ -1459,6 +1462,7 @@ interfaces:
   power_connectors: TVC servo harness disconnected before aft exchange; keyed/labeled channel/polarity
     and strain relief.
   unresolved:
+  - "G80 A/B concepts only: proposed64.4mm bore with retained64.0mm model coupler has0mm minimum radial gap under declared bounds, below0.1mm; actual hot/supplier dimensions and stop/key solid geometry remain unresolved. No active all-mode part is resized."
   - C2 integral socket removes narrow bridge adhesive but shifts force into inadequate local receiver-pad
     bond; actual harness overlap and finite-floor motion remain failed. Need continuous structural moment
     transfer compatible with recovery routing; no next variant admitted.
@@ -1469,6 +1473,8 @@ interfaces:
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-architecture-interface-audit.md
+  - runs/wo03-architecture-interface-audit-20261102-v1/record.json
   - docs/wo03-c2-sandwich-socket.md
   - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md

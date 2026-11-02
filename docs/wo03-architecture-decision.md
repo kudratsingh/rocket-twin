@@ -130,6 +130,16 @@ change heat paths. Existing liner/shield mass remains counted; exact thrust-ring
 and liner-end geometry and all new temperatures remain unresolved. No thermal
 benefit is claimed.
 
+## Retained-interface follow-up (no new construction case)
+
+A separate [read-only interface audit](wo03-architecture-interface-audit.md)
+finds a further concrete cold-fit failure:64.0mm retained model coupler in the
+64.4mm proposed bore has0mm minimum radial gap under the declared±0.1mm per-
+surface screening bounds, versus0.1mm required. Hot/moisture dimensions remain
+unknown. The derived63.8mm maximum nominal coupler OD is a dimensional bound,
+not an adopted part or another mass/strength case. This finding does not rewrite
+the immutable A/B results or create a third arrangement.
+
 ## Admission decision and next bounded action
 
 **No installed engineering requirement closes.** A is the coherent lower-mass

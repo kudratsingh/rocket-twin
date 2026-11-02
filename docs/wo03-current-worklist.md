@@ -3,7 +3,7 @@
 G80 engineering first; substantial custom construction, practical performance
 and G12 PID-to-RL remain core goals. G54 remains a separate upgrade track.
 **C1 is preliminary; R1/C2/C3 are rejected. No unchanged rejected calculation
-or detailed CAD/FEA is restarted.** Last published main:
+or detailed CAD/FEA is restarted.** Session-start published main:
 `e58ec0b2cfa396464d6175f30a8c41141eaa7b1e` (PR56/57 merged).
 
 | Deliverable / owner | Identity and acceptance | Budget / stop | Dependencies / actual status |
@@ -14,6 +14,7 @@ or detailed CAD/FEA is restarted.** Last published main:
 | Linked graphics/navigation / Sol HIGH frontend agent | Actual A–F graphics and selection, retain current viewer/experiment/replay; readable terms, identity and status. | One45 min implementation packet and one focused fix cycle; no graphics-engine change or browser physics. | Implemented: six A–F graphical views, source-linked selection and explicit null/identity handling; browser interaction acceptance stays separate. |
 | Offline image feasibility and drawing correction / same frontend agent | Installed documented offline renderer; representative images, inspect labels/arrows, then complete/contact sheet. Images are not browser screenshots. |10 min discovery, at most two distinct installed renderer candidates,120s each; one correction/rerender cycle. No install/renderer-development project. | Complete: AppKit25-page final render43.94s; marker-ID bug and native marker limitation separately preserved. Explicit source-tangent heads verified on known fixture, FBD/topology images. Additional11-view image pack and A/B drawings generated; representative actual images inspected. |
 | Owner-ready ROC/MDARS questions / Sol HIGH research agent | Current official equipment/date evidence; actual travel/button/start/support/availability/RSO questions. No sent messages or implied booking. | Shares bounded source packet; no broad motor search. | Complete: owner-ready unsent sheet; no date/equipment/access confirmed.1.5m baseline unchanged. |
+| Retained upper-interface audit / primary |Frozen A/B bores and source C1 coupler; unchanged0.1mm minimum, no geometry/mass rerun. |One1CPU/5wall-second analytic audit; stop/refuse overwrite. |Complete0.013CPU: cold minimum0mm fails; actual hot/supplier tolerance unknown. Specific mating-interface action recorded. |
 | Required checks and focused publication / primary | Relevant local checks, both hosted jobs, exact integrated tree and private repo verified before routine merge. | No repeated broad checks absent change/failure; no added review gate. | Local relevant checks complete; focused publication uses required hosted jobs. See linked repository PR status and compact handoff for merge facts. All physical/purchase/paid/firmware/flight gates retained. |
 
 The designated frontend browser agent alone may use the permitted Chrome

@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs/studies/wo03-architecture-space-mass.yaml"
 SOURCE = ROOT / "runs/wo03-architecture-space-mass-20261102-v1/record.json"
 OUT = ROOT / "output/wo03-architecture"
-RUN = ROOT / "runs/wo03-architecture-drawings-20261102-v1"
+RUN = ROOT / "build/wo03-architecture-drawings"
 HELPER = ROOT / "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift"
 NS = "http://www.w3.org/2000/svg"
 ET.register_namespace("", NS)

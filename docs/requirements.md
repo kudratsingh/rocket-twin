@@ -31,6 +31,7 @@ Generated from `configs/engineering/traceability.yaml`. Criteria with `spec_path
 
 ## Evidence pointers
 
+- [`docs/wo03-architecture-interface-audit.md`](wo03-architecture-interface-audit.md) — Read-only retained-upper A/B mating-envelope and cold tolerance audit linked to IF-UPPER-AFT-001 and RT-FIT-001. Model cold gap fails under declared bounds; no resized coupler, third arrangement, hot supplier evidence or CAD/strength acceptance.
 - [`docs/wo03-architecture-decision.md`](wo03-architecture-decision.md) — Two selected complete G80 architecture function/space/mass screens with protected volumes and coupled growth, guide, stability and recovery demand. Neither admitted; A preferred for bounded connection study only. Baseline guide, finished hot joints, actual spreading/stiffness, motor fit and thermal/fluter/inertia remain open.
 - [`docs/wo03-architecture-function-allocation.md`](wo03-architecture-function-allocation.md) — Source-defined A/B concept connection diagrams and complete function replacement accounting. Presentation geometry and actual offline images are not complete CAD, installed qualification or browser verification.
 - [`docs/wo03-c3-continuous-connection.md`](wo03-c3-continuous-connection.md) — Preserved stopped C3 continuous-channel mass and interference preflight. Rejected before detailed CAD/FEA, with motor-arm overlap, bounded harness failure, guide and adverse stability failures.

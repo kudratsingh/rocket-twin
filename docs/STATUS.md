@@ -1,5 +1,12 @@
 # Status
 
+**Retained-upper A/B follow-up:** the [interface audit](wo03-architecture-interface-audit.md)
+adds a cold-fit blocker without another construction case:64.0mm model coupler
+in64.4mm bore, using declared±0.1mm radial bounds, yields0mm minimum versus0.1mm.
+No part, mass, allowable or active vehicle was changed. See CURRENT for this
+finding alongside the adverse29.911g baseline guide deficit and open hot joints.
+
+
 **Current decision and usable artifacts:** see [CURRENT](CURRENT.md) and the
 [bounded work list](wo03-current-worklist.md). A/B function/space/mass screening
 is complete: A is preferred only for the next connection study, neither is
