@@ -49,6 +49,17 @@ motor thermal capture must be defined before another physical revision; no
 isolated pin/saddle sweep or native refinement is admitted. See
 [S2 decision](wo03-g80-saddle-study.md).
 
+The owner's integrated aft admission decision now rejects the additive S2
+receiver before detailed CAD: named stock977.490g with50g already exceeds the
+source15m/s mass screen, before complete hardware and joint/thermal closure.
+No credible complete arrangement is selected. The documented architecture
+direction is a **single positive aft receiver replacing the wood frame and
+duplicate carrier/collars**, with actual fin/body/harness joints and independent
+motor capture. The gross replacement budget is198.333g at the separate15.5m/s
+planning target,252.877g at formal15; no function may be removed for credit.
+See [integrated decision and admission conditions](wo03-integrated-aft-proposal.md).
+This is an interface requirement, not an adopted geometry or a changed WO gate.
+
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
 assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case
 envelope and 1,212 mm overall retention/hardware envelope. The original 800 mm

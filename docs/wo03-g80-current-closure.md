@@ -1,5 +1,16 @@
 # G80 package closure — isolated integrated candidate, acceptance open
 
+**Latest integrated admission:** [aft construction decision](wo03-integrated-aft-proposal.md)
+rejects the additive S2 receiver:977.490g is a partial stock subtotal with50g,
+not complete installed mass, and exceeds the formal guide-model ceiling by
+19.092g. Severe opening demand at that subtotal rises to2062.718N. No physical
+connection or engineering requirement closes; the3.8mm gap is not accepted as
+resolved by a dimensioned sketch. The specific required change is one common
+positive aft receiver replacing duplicated wood frame/carrier/collars, with
+independent motor capture and real fin/body/harness joints. Complete mass,
+CG/full tensor, installed strength/thermal/fit/flutter and flight revalidation
+remain prerequisites. S2's original stops/failures are published in mergedPR45.
+
 **Latest bounded admission:** [S2 saddle/strap study](wo03-g80-saddle-study.md)
 is not admitted. Diagnostic mass932.677g with full50g gives15.230m/s against the
 formal15 and internal15.5 planning target. The3.8mm receiver gap, keeper-length

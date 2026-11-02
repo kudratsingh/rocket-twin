@@ -3,6 +3,12 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-integrated-aft-proposal.md
+  scope: One integrated aft admission decision covering recovery, motor, fin frame and body connections.
+  limitation: No credible complete arrangement selected; additive stock already exceeds guide mass screen and joint/contact/stability remain adverse or unavailable.
+- path: runs/wo03-g80-integrated-aft-decision-20261102-v1/record.json
+  scope: Read-only saved-data arithmetic for partial mass, unchanged opening cases, contact and balance sensitivities, and gross replacement budget.
+  limitation: No CAD, native stress/heat solver or flight; incomplete stock is neither installed mass nor physical bound.
 - path: docs/wo03-g80-saddle-study.md
   scope: One S2 coupled recovery saddle/strap and mass/balance/guide admission decision.
   limitation: Not admitted; diagnostic mass integration gate fails, useful departure margin missing, and receiver/soft/contact/keeper/thermal stack unclosed. No active or G54/G12 transfer.
@@ -488,6 +494,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - runs/wo02-20261030T173859843386Z/record.json
@@ -523,6 +530,7 @@ requirements:
   - '06'
   - '11'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - runs/wo02-20261030T173859843386Z/record.json
   - runs/wo03-fin-design-20261030T184422172911Z/record.json
@@ -590,6 +598,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -619,6 +628,7 @@ requirements:
   - 09
   - '12'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -650,6 +660,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -703,6 +714,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-vibration-20261030T175839356500Z/record.json
   - runs/wo03-fin-design-20261030T184422172911Z/record.json
@@ -756,6 +768,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -818,6 +831,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -892,6 +906,7 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -1095,6 +1110,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - runs/wo03-vibration-20261030T175839356500Z/record.json
   - runs/wo03-vibration-20261030T205443545391Z-summary/record.json
   - docs/wo03-correction-closure.md
@@ -1278,6 +1294,7 @@ interfaces:
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-20261030T205235088123Z/record.json
@@ -1315,6 +1332,7 @@ interfaces:
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -1427,6 +1445,7 @@ interfaces:
     no plugged G12 motor-ejection backup.
   unresolved:
   - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only load credit
+  - Integrated additive receiver is rejected on stock mass and unclosed joints; replace duplicated wood frame and carrier/collars with one common positive aft receiver before another physical iteration
   - S2 requires one positive carrier-to-fin-frame/body receiver, actual motor thermal capture and serviceable harness closure; diagnostic foot gap cannot be a fixed support
   - S1 aft termination and foot must be redesigned with load-spreading contact, valid fastener grip and finished-eye capacity; recalculate unchanged opening cases at complete full-growth mass, not frozen1782N
   - Actual deployment/separation mechanism and pressure isolation compatible with tether passages
@@ -1435,6 +1454,7 @@ interfaces:
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
@@ -1659,6 +1679,7 @@ fmea:
     geometry and staged service studies are proposed in docs/wo03-g80-keeper-service.md;
     no active adoption or strength pass follows from nominal restraints.
   residual_risk: Estimated properties and assembly workmanship remain unqualified.
+    The additive S2 receiver is also rejected; partial stock exceeds formal guide mass ceiling, while shell/fin/pin/hot-contact capacity remains unverified. No rigid support or unmodeled clipping closes a joint.
     S2 is not admitted; its independent carrier has no accepted positive fin-frame/body receiver, and its recorded foot gap is3.8mm. No loop preload or rigid support supplies that missing connection.
     The isolated G80 fixed-support mean shear exceeds its provisional hot screen;
     a positive load-path correction is required before acceptance.

@@ -35,6 +35,32 @@ See [S2 decision/connections](wo03-g80-saddle-study.md) and
 [opening assumptions](wo03-recovery-load-assumptions.md). Working vehicle and
 G54/G12/PID-to-RL tracks remain unchanged.
 
+**S2 publication complete / integrated aft decision:**
+[PR #45](https://github.com/kudratsingh/rocket-twin/pull/45) is merged after both
+required jobs passed in run41370492131; its saved failures remain failures.
+The [integrated aft decision](wo03-integrated-aft-proposal.md) eliminates adding
+cheeks/pins/fin keys/shell fasteners to S2. Named stock alone is927.490g plus
+separate50g =977.490g:19.092g above the existing15m/s guide-model mass ceiling,
+73.636g above the separate15.5 planning ceiling. Complete installed mass is
+unavailable, not977.490g. Required severe force at that partial subtotal is
+2062.718N; hot contact and partial stability sensitivities remain adverse.
+
+No credible complete arrangement is selected and no physical joint/strength,
+fit, thermal or flight requirement closes. The documented interface direction
+is one positive common aft receiver **replacing** the duplicated wood frame
+and G11 carrier/collars, with independent motor thermal capture and explicit
+fin/body/recovery connections. The source-only gross replacement budget is
+198.333g at15.5 planning,252.877g at formal15, including every replacement
+attachment/service/heat item; no deleted function or hardware lump is free mass.
+No further physical variant, detailed CAD, native analysis or flight is admitted
+by this decision. Working vehicle, preview geometry, thermal failures and
+separate G54/G12 requirements are preserved.
+
+Independent frontend [PR #46](https://github.com/kudratsingh/rocket-twin/pull/46)
+adds case-insensitive recorded-part-ID search alongside display attributes.
+Local build/lint/format and10 tests passed. No browser verification is claimed;
+the designated-window runtime-ownership rejection remains without retry/bypass.
+
 Independent frontend [PR #44](https://github.com/kudratsingh/rocket-twin/pull/44)
 is merged after both required jobs passed in run41366658113: graph labels,
 source and units now come from the run actually displayed. Nine frontend tests

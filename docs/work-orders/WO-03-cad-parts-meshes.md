@@ -56,6 +56,16 @@ check are preserved. No third concept or automatic refinement follows. The
 next design must close those physical interfaces and coupled mass/balance
 before detailed CAD; no work-order sequence or acceptance gate is removed.
 
+The [subsequent integrated aft decision](../wo03-integrated-aft-proposal.md)
+screens the receiver, fin/body capture and independent motor retention together.
+The additive sketch exceeds the unchanged formal guide-model mass ceiling at
+named stock alone and retains adverse/unresolved joints, hot contact and
+partial stability. No complete arrangement is selected. Before another physical
+iteration, define one positive common receiver replacing duplicated structure,
+with dimensioned mating/retention, full hardware/heat/service mass, recalculated
+opening demand and useful guide margin. No new CAD/FEA/thermal/flight campaign
+is admitted here. S2 PR45 publication preserves its failed numerical checks.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete
