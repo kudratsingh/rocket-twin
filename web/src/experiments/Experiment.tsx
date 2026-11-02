@@ -1,6 +1,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
 import { comparisonDifferences, comparisonValue } from './comparison';
+import { plotScale, scaleLabels } from './plotScale';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Line, OrbitControls, useGLTF } from '@react-three/drei';
 import { Matrix4, Quaternion, Vector3 } from 'three';
@@ -371,8 +372,8 @@ function Plot({
         <p>Channel unavailable in both runs. Missing data is not zero.</p>
       </div>
     );
-  const max = Math.max(...available, 0.001),
-    min = Math.min(...available, 0);
+  const { min, max } = plotScale(available);
+  const [minLabel, maxLabel] = scaleLabels(min, max);
   const end = Math.max(
     run.telemetry.columns.time_s.at(-1)!,
     other?.telemetry.columns.time_s.at(-1) ?? 0,
@@ -388,7 +389,7 @@ function Plot({
     <div className="exp-plot">
       {selector}
       <span>
-        {min.toFixed(1)} – {max.toFixed(1)}
+        Scale: {minLabel} – {maxLabel}
       </span>
       <svg
         viewBox="0 0 100 100"

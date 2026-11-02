@@ -14,3 +14,9 @@ input-hash records even if both runs omit the same information. The match messag
 is limited to available recorded fields; unrecorded fields cannot be compared. Synthetic
 frontend tests cover missing data, equal zeros and changed wind settings; this
 later change has not been browser verified.
+
+Replay graph vertical scales use the displayed samples rather than forcing zero
+into every range. Constant-valued samples receive a display-only margin, and
+the scale labels retain enough precision to distinguish close bounds. Synthetic
+frontend tests cover small variations and constant data; this change has not
+been browser verified.
