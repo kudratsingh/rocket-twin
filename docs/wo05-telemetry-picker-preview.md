@@ -18,6 +18,8 @@ recorded or backend-derived data and no new browser flight calculation.
 Comparison is withheld when both values exist but the channel's semantic ID,
 unit, source or simulation-code identity cannot be matched. Missing or invalid
 samples are unavailable, not zero. Each run retains its own time samples. The
+graph's description, source and units come from the run whose series is shown;
+metadata from a run without displayed samples is not substituted. The
 plots show decimated playback samples, not the full-resolution peak or a new
 analysis. An existing backend's metadata absence also withholds comparison.
 The endpoint rejects a recorded schema that collides with a derived display

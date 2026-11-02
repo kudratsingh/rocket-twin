@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { channelOptions, label, series, comparisonReason } from '../src/experiments/channels.ts';
+import { channelOptions, label, series, comparisonReason, displayedMetadata } from '../src/experiments/channels.ts';
 
 test('picker discovers new recorded columns across both runs without inventing units', () => {
   const a = { time_s: [0, 1], height_m: [0, 2], new_sensor_xyz: [3, 4] };
@@ -28,4 +28,13 @@ test('comparison requires known matching units, semantics, source and simulation
   assert.match(comparisonReason(meta, { ...meta, semantic_id: null }, 'abc', 'abc'), /withheld/);
   assert.match(comparisonReason(meta, meta, 'abc', 'def'), /withheld/);
   assert.match(comparisonReason(undefined, meta, 'abc', 'abc'), /withheld/);
+});
+
+test('only the displayed run supplies graph metadata, even when the other advertises a channel', () => {
+  const a = { unit: 'm', semantic_id: 'a', source: 'recorded-parquet', description: 'A' };
+  const b = { unit: 's', semantic_id: 'b', source: 'backend-derived', description: 'B' };
+  assert.deepEqual(displayedMetadata(false, true, a, b), { run: 'B', meta: b });
+  assert.deepEqual(displayedMetadata(true, false, undefined, b), { run: 'A', meta: undefined });
+  assert.deepEqual(displayedMetadata(true, true, a, b), { run: 'A', meta: a });
+  assert.equal(displayedMetadata(false, false, a, b), null);
 });

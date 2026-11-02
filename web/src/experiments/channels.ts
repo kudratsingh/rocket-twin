@@ -40,6 +40,19 @@ export type ChannelMeta = {
   description: string;
   semantic_id: string | null;
 };
+
+/** Describe the displayed series, never metadata from a run without a displayed series. */
+export function displayedMetadata(
+  hasA: boolean,
+  hasB: boolean,
+  metaA: ChannelMeta | undefined,
+  metaB: ChannelMeta | undefined,
+): { run: 'A' | 'B'; meta: ChannelMeta | undefined } | null {
+  if (hasA) return { run: 'A', meta: metaA };
+  if (hasB) return { run: 'B', meta: metaB };
+  return null;
+}
+
 export function comparisonReason(
   a: ChannelMeta | undefined,
   b: ChannelMeta | undefined,
