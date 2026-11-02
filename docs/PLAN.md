@@ -1,5 +1,21 @@
 # Plan — modular custom rocket and digital twin
 
+**C3 continuous-connection preflight — not admitted (2026-11-02):**
+The [one bounded packet](wo03-c3-continuous-connection.md) replaces local pad
+transfer with integral channels and positive cap pockets as design intent.
+Its aft central barrel node physically overlaps independent motor arms;
+nominal harness gap0.647848mm becomes−0.052152mm after the existing bounds,
+below0.1mm. Complete counted mass adds105.504g: nominal1235.311g and adverse
+1255.311g each include full separate50g. Illustrative1.971m departure14.891938/
+14.754038m/s fails formal15; adverse stability0.957949cal also fails.
+No installed engineering requirement closes; no CAD/FEA/thermal/free-flight
+run is admitted. Keep the59.299g body-support receiver counted until a defined
+replacement earns its credit. Next interface must separate motor-retention
+travel from end-fastener stock and combine body-support/torsion functions;
+do not restart a local-pad or unchanged-channel variant. G80 stays first,
+G54/G12 remain separate,1.5m baseline and all gates unchanged.
+
+
 Rebaselined by the owner, 2026-10-29. ADR-0006 supersedes the fixed F15, exact
 three-second burn, universal average-TWR 3, 29 mm mount, 78 mm dimensions and PETG
 body assumptions. Earlier results remain historical evidence, not active requirements.
