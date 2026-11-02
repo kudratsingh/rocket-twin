@@ -5,7 +5,14 @@ import { Line, OrbitControls, useGLTF } from '@react-three/drei';
 import { Matrix4, Quaternion, Vector3 } from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
 import type { InspectionDocument, Part } from '../types';
-import { channelOptions, comparisonReason, defaultChannels, label, series } from './channels';
+import {
+  channelOptions,
+  comparisonReason,
+  defaultChannels,
+  displayedMetadata,
+  label,
+  series,
+} from './channels';
 import type { ChannelMeta } from './channels';
 import './experiment.css';
 
@@ -362,7 +369,12 @@ function Plot({
         )
       : null;
   const comparison = mismatch ? null : candidate;
-  const meta = run.telemetry.channel_metadata?.[name] ?? other?.telemetry.channel_metadata?.[name];
+  const displayed = displayedMetadata(
+    !!a,
+    !!comparison,
+    run.telemetry.channel_metadata?.[name],
+    other?.telemetry.channel_metadata?.[name],
+  );
   const available = [...(a ?? []), ...(comparison ?? [])];
   const selector = (
     <select aria-label="Telemetry channel" value={name} onChange={(e) => setName(e.target.value)}>
@@ -442,9 +454,9 @@ function Plot({
       {mismatch && <p>{mismatch}</p>}
       {other && !candidate && <p>Run B channel unavailable; missing data is not zero.</p>}
       <p>
-        {meta
-          ? `${meta.description} · ${meta.source} · ${meta.unit ?? 'units unknown'}`
-          : 'Channel metadata unavailable; units and source unknown.'}
+        {displayed?.meta
+          ? `Run ${displayed.run}: ${displayed.meta.description} · ${displayed.meta.source} · ${displayed.meta.unit ?? 'units unknown'}`
+          : `Run ${displayed?.run}: channel metadata unavailable; units and source unknown.`}
       </p>
     </div>
   );
