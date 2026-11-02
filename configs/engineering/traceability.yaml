@@ -1,353 +1,373 @@
 version: wo03-traceability-v1
-status: Integrated active package adopted under ADR-0008; current calculated evidence
-  linked; expanded acceptance open and physical qualification false.
+status: Integrated active package adopted under ADR-0008; current calculated evidence linked; expanded
+  acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-c1-fin-attachment.md
+  scope: Frozen C1 installed-fin load path and one counted R1 preflight, finite support and same-package
+    guide/recovery/static cases.
+  limitation: 'R1 stopped: hot bridge shear, installed movement, planning mass and adverse stability fail.
+    No actual CAD/FEA/thermal/flutter acceptance or active adoption.'
 - path: docs/wo03-g80-mass-balance-revision.md
-  scope: Four bounded C1 mass/balance, placement/ballast, revised-fin and conditional-guide scenarios with full separate growth.
-  limitation: Calculated static balance positive for selected case; no structural, heat, flutter, full inertia, actual equipment, motor or flight acceptance.
+  scope: Four bounded C1 mass/balance, placement/ballast, revised-fin and conditional-guide scenarios
+    with full separate growth.
+  limitation: Calculated static balance positive for selected case; no structural, heat, flutter, full
+    inertia, actual equipment, motor or flight acceptance.
 - path: runs/wo03-g80-mass-balance-revision-20261102-v2/record.json
   scope: Preserved one executed mass/CP/CG/guide/recovery packet after an input-key guard correction.
-  limitation: Material/hardware allocations and aerodynamic hypotheses remain unmeasured; additional20g/motor-CG scenario is illustrative not validated uncertainty coverage.
+  limitation: Material/hardware allocations and aerodynamic hypotheses remain unmeasured; additional20g/motor-CG
+    scenario is illustrative not validated uncertainty coverage.
 - path: docs/wo03-launch-equipment-confirmation.md
   scope: Short official ROC/MDARS types, inventory lengths, support, dates and confirmation questions.
-  limitation: Owner confirmed nothing booked; no actual rail/button/start/release travel or motor/RSO approval confirmed.
+  limitation: Owner confirmed nothing booked; no actual rail/button/start/release travel or motor/RSO
+    approval confirmed.
 - path: docs/wo03-g80-connected-receiver.md
-  scope: One S3 dimensioned continuous receiver with cap, motor, fin, body and recovery paths; complete preliminary mass and guide/static admission.
-  limitation: Not admitted; planning/departure and stability adverse, cap/contact/body/service unresolved; no CAD, installed strength, thermal or flight acceptance.
+  scope: One S3 dimensioned continuous receiver with cap, motor, fin, body and recovery paths; complete
+    preliminary mass and guide/static admission.
+  limitation: Not admitted; planning/departure and stability adverse, cap/contact/body/service unresolved;
+    no CAD, installed strength, thermal or flight acceptance.
 - path: runs/wo03-g80-connected-receiver-20261102-v2/record.json
-  scope: Preserved v2 geometric mass ledger and existing guide/static hand screens, after targeted input-wiring correction.
-  limitation: Exact intrinsic inertia unavailable, allocated hardware/heat items unselected; some favorable connection proxies superseded by primary audit.
+  scope: Preserved v2 geometric mass ledger and existing guide/static hand screens, after targeted input-wiring
+    correction.
+  limitation: Exact intrinsic inertia unavailable, allocated hardware/heat items unselected; some favorable
+    connection proxies superseded by primary audit.
 - path: runs/wo03-g80-connected-receiver-20261102-v2/connection-audit.json
-  scope: Read-only full-recovery cap demand, actual bore ligaments, opposing fin contact equilibrium and unequal-loop contact sensitivities.
-  limitation: Demand arithmetic not an installed elasticity, local peak, strength or capacity qualification; all acceptance remains open.
+  scope: Read-only full-recovery cap demand, actual bore ligaments, opposing fin contact equilibrium and
+    unequal-loop contact sensitivities.
+  limitation: Demand arithmetic not an installed elasticity, local peak, strength or capacity qualification;
+    all acceptance remains open.
 - path: docs/wo03-launch-guide-motor-trade.md
-  scope: Twelve source-pinned motor/usable-guide hypotheses, dated official club/equipment and motor/eligibility/vendor evidence.
-  limitation: Usable travel and exact motor/state/club eligibility remain conditional; no baseline change or complete CTI vehicle.
+  scope: Twelve source-pinned motor/usable-guide hypotheses, dated official club/equipment and motor/eligibility/vendor
+    evidence.
+  limitation: Usable travel and exact motor/state/club eligibility remain conditional; no baseline change
+    or complete CTI vehicle.
 - path: docs/adr/0012-conditional-launch-guide-options.md
-  scope: Explicit conditional longer-guide planning decision with unchanged formal baseline, thresholds and full growth.
+  scope: Explicit conditional longer-guide planning decision with unchanged formal baseline, thresholds
+    and full growth.
   limitation: No launch equipment reservation, motor approval or physical/design release.
 - path: docs/wo03-integrated-aft-proposal.md
   scope: One integrated aft admission decision covering recovery, motor, fin frame and body connections.
-  limitation: No credible complete arrangement selected; additive stock already exceeds guide mass screen and joint/contact/stability remain adverse or unavailable.
+  limitation: No credible complete arrangement selected; additive stock already exceeds guide mass screen
+    and joint/contact/stability remain adverse or unavailable.
 - path: runs/wo03-g80-integrated-aft-decision-20261102-v1/record.json
-  scope: Read-only saved-data arithmetic for partial mass, unchanged opening cases, contact and balance sensitivities, and gross replacement budget.
-  limitation: No CAD, native stress/heat solver or flight; incomplete stock is neither installed mass nor physical bound.
+  scope: Read-only saved-data arithmetic for partial mass, unchanged opening cases, contact and balance
+    sensitivities, and gross replacement budget.
+  limitation: No CAD, native stress/heat solver or flight; incomplete stock is neither installed mass
+    nor physical bound.
 - path: docs/wo03-g80-saddle-study.md
   scope: One S2 coupled recovery saddle/strap and mass/balance/guide admission decision.
-  limitation: Not admitted; diagnostic mass integration gate fails, useful departure margin missing, and receiver/soft/contact/keeper/thermal stack unclosed. No active or G54/G12 transfer.
+  limitation: Not admitted; diagnostic mass integration gate fails, useful departure margin missing, and
+    receiver/soft/contact/keeper/thermal stack unclosed. No active or G54/G12 transfer.
 - path: docs/wo03-recovery-load-assumptions.md
   scope: Required nominal/severe speeds, stopping travel, participating mass, units and DF3 classification.
-  limitation: Mean energy-equivalent case, not measured peak or proven stopping stroke. Keep20.4m/s/.3m/DF3 and recalculate full new mass plus50g.
+  limitation: Mean energy-equivalent case, not measured peak or proven stopping stroke. Keep20.4m/s/.3m/DF3
+    and recalculate full new mass plus50g.
 - path: runs/wo03-g80-saddle-study-20261102-v2/quadrature-review.json
   scope: Preserved first-adjacent-pair volume-integration failure despite passing final pair.
   limitation: No numerical mass/geometry acceptance; no extra refinement or native analysis.
 - path: runs/wo03-g80-saddle-connections-20261102-v1/record.json
   scope: Read-only saved-data connection, guide target, CG proxy and axial-expansion sensitivities.
-  limitation: Inputs and capacities unqualified; not actual fixed-point reaction, geometry or transient thermal validation.
+  limitation: Inputs and capacities unqualified; not actual fixed-point reaction, geometry or transient
+    thermal validation.
 - path: docs/wo03-g80-short-subframe-decision.md
-  scope: One G80 S1 subframe admission with explicit connection hypotheses, recovery mass feedback and shared guide screens.
-  limitation: Not admitted; clevis scalar bearing, guide mass and heel screw lengths fail. No CAD/FEA, installed strength or temperature result; G54/G12 separate.
+  scope: One G80 S1 subframe admission with explicit connection hypotheses, recovery mass feedback and
+    shared guide screens.
+  limitation: Not admitted; clevis scalar bearing, guide mass and heel screw lengths fail. No CAD/FEA,
+    installed strength or temperature result; G54/G12 separate.
 - path: runs/wo03-g80-short-subframe-20261101-v1/record.json
   scope: Source-pinned hand mass/force/net/contact arithmetic and archived shared mass-only guide function.
-  limitation: Conditional estimated ledger and unqualified hot properties; not reconciled CAD, free flight or measured mass. Full50g growth retained.
+  limitation: Conditional estimated ledger and unqualified hot properties; not reconciled CAD, free flight
+    or measured mass. Full50g growth retained.
 - path: docs/wo03-g80-capture-decision.md
   scope: Bounded G80 rail-capture versus continuous G11 frame comparison and stop decision.
-  limitation: Both specified envelopes fail early credibility screens; stock-only mass/tensors are not installed bounds. No CAD/FEA, adoption or G54/G12 acceptance.
+  limitation: Both specified envelopes fail early credibility screens; stock-only mass/tensors are not
+    installed bounds. No CAD/FEA, adoption or G54/G12 acceptance.
 - path: runs/wo03-g80-capture-bounds-20261101-v1/record.json
   scope: Source-pinned hand support-flexibility, pin-engagement and isolated conductance screens.
-  limitation: Generic estimated properties, conditional ideal supports; no installed strength, transient temperature or conservative temperature bound.
+  limitation: Generic estimated properties, conditional ideal supports; no installed strength, transient
+    temperature or conservative temperature bound.
 - path: docs/wo03-g80-bridge-support-traction.md
   scope: Isolated G80 fixed-support face-resultant lower bounds, using recovered Elmer fields.
-  limitation: DF3 average shear exceeds the estimated hot screen; no physical capacity, mixed-mode allowable, convergence or active adoption.
+  limitation: DF3 average shear exceeds the estimated hot screen; no physical capacity, mixed-mode allowable,
+    convergence or active adoption.
 - path: docs/wo03-bridge-gauss-stress.md
   scope: Known-case-verified material-local stress postprocessing of two saved coarse G80 fields.
-  limitation: Sampled stresses are not converged; laminate, peel, backing and installed capacity remain unqualified. No G54 or G12 pass.
+  limitation: Sampled stresses are not converged; laminate, peel, backing and installed capacity remain
+    unqualified. No G54 or G12 pass.
 - path: docs/wo03-g80-recovery-branch-loads.md
-  scope: Count-once 73-part G80 recovery branch freebodies, canopy above the junction and full growth aft.
-  limitation: Demand bookkeeping only; primary backbone retains full 1782.253 N factored screen and attachments remain undesigned.
+  scope: Count-once 73-part G80 recovery branch freebodies, canopy above the junction and full growth
+    aft.
+  limitation: Demand bookkeeping only; primary backbone retains full 1782.253 N factored screen and attachments
+    remain undesigned.
 - path: runs/wo03-g80-reciprocity-20261101-v1/record.json
-  scope: Read-only reciprocal-work diagnostic of preserved linear bridge responses; large discrepancy remains unexplained.
-  limitation: No new solver run or strength credit. Native response pairing fails within print bounds; underlying cause remains unidentified.
+  scope: Read-only reciprocal-work diagnostic of preserved linear bridge responses; large discrepancy
+    remains unexplained.
+  limitation: No new solver run or strength credit. Native response pairing fails within print bounds;
+    underlying cause remains unidentified.
 - path: runs/wo03-g80-staged-retention-20261101-v1/record.json
   scope: Isolated 72-part G80 CAD/mass/static/four-case flight integration; active vehicle unchanged.
-  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed
+    capacity, physical qualification or flight release. Consult exact identity and scope in the record.
 - path: runs/wo03-g80-canopy-stage3-20261101-v1/record.json
-  scope: Five-case larger-canopy screening and metadata-only equivalent sensitivity; full trajectories not retained.
-  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+  scope: Five-case larger-canopy screening and metadata-only equivalent sensitivity; full trajectories
+    not retained.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed
+    capacity, physical qualification or flight release. Consult exact identity and scope in the record.
 - path: runs/wo03-g80-recovery-path-20261101-v1/record.json
-  scope: Complete recovery force-path intake and serial paper-body cut demand; off-nominal screen exceeds estimated strength.
-  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+  scope: Complete recovery force-path intake and serial paper-body cut demand; off-nominal screen exceeds
+    estimated strength.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed
+    capacity, physical qualification or flight release. Consult exact identity and scope in the record.
 - path: runs/wo03-g80-backbone-route-20261101-v1/record.json
   scope: Two source-pinned straight tether envelopes; selected 60-degree layout reference only.
-  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed
+    capacity, physical qualification or flight release. Consult exact identity and scope in the record.
 - path: runs/wo03-elmer-classic-decision-20261101T093000Z/record.json
   scope: Closed classic versus vectorized known-case comparison; actual geometry remains unqualified.
-  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed capacity, physical qualification or flight release. Consult exact identity and scope in the record.
+  limitation: Isolated calculated evidence with estimated inputs, not active-design adoption, installed
+    capacity, physical qualification or flight release. Consult exact identity and scope in the record.
 - path: runs/wo03-support-fea-20261030T225615144070Z/record.json
   scope: Frame-only internal-brace eigenvalue study and known case.
-  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
-    acceptance remains open; physical qualification and flight_ready false.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03 acceptance remains
+    open; physical qualification and flight_ready false.
 - path: runs/wo03-recovery-budget-20261030T230910555661Z/record.json
   scope: Exact unchanged G12 guide-limited complete recovery budget.
-  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
-    acceptance remains open; physical qualification and flight_ready false.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03 acceptance remains
+    open; physical qualification and flight_ready false.
 - path: runs/wo03-thermal-matrix-20261030T230041977112Z/case-summary.json
   scope: 420-row explicit matrix projected to per-configuration/case worst results.
-  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
-    acceptance remains open; physical qualification and flight_ready false.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03 acceptance remains
+    open; physical qualification and flight_ready false.
 - path: docs/wo03-package-closure-progress.md
-  scope: Current selected-package closure progress table; isolated candidate evidence,
-    no new active package.
-  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03
-    acceptance remains open; physical qualification and flight_ready false.
+  scope: Current selected-package closure progress table; isolated candidate evidence, no new active package.
+  limitation: Calculated using estimated properties/explicit bounds. Expanded WO03 acceptance remains
+    open; physical qualification and flight_ready false.
 - path: docs/wo03-bonded-support.md
-  scope: Current G54 copy-only bonded load-path studies, reduced peel/axial fixtures,
-    rejected paper doubler, and enlarged-bore brace sensitivity.
-  limitation: These studies do not qualify the complete assembly; paper-interface
-    stress, bonded-shell transfer, ring/bracing response, and physical allowables
-    remain open.
+  scope: Current G54 copy-only bonded load-path studies, reduced peel/axial fixtures, rejected paper doubler,
+    and enlarged-bore brace sensitivity.
+  limitation: These studies do not qualify the complete assembly; paper-interface stress, bonded-shell
+    transfer, ring/bracing response, and physical allowables remain open.
 - path: docs/wo03-trainer-fin-package.md
-  scope: Forward-shifted layered carbon/PVC fin-root candidate; 25 mm correction places
-    the root within shell/frame support; candidate remains isolated.
-  limitation: Panel reduction does not establish installed root stiffness/peel, flutter,
-    frame/body response, material allowables, or integrated flight acceptance.
+  scope: Forward-shifted layered carbon/PVC fin-root candidate; 25 mm correction places the root within
+    shell/frame support; candidate remains isolated.
+  limitation: Panel reduction does not establish installed root stiffness/peel, flutter, frame/body response,
+    material allowables, or integrated flight acceptance.
 - path: runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
-  scope: Four-mode isolated recovery packaging copy with zero unexplained nominal
-    intersections and sampled carrier/cell service paths.
-  limitation: Acceptance is false; fastener/tool access, flexible routing, tolerances,
-    strength, retention, packing, and physical service remain unverified.
+  scope: Four-mode isolated recovery packaging copy with zero unexplained nominal intersections and sampled
+    carrier/cell service paths.
+  limitation: Acceptance is false; fastener/tool access, flexible routing, tolerances, strength, retention,
+    packing, and physical service remain unverified.
 - path: runs/wo03-secondary-shield-20261031T001841Z/record.json
-  scope: Corrected fixed-mount G54 R18/R22 shield geometry and required combined 35
-    C / 300 C / epsilon 0.9 thermal runs.
-  limitation: Both candidates exceed the unchanged 45 C screen; enlarged-bore structural
-    revalidation remains open and neither candidate is adopted.
+  scope: Corrected fixed-mount G54 R18/R22 shield geometry and required combined 35 C / 300 C / epsilon
+    0.9 thermal runs.
+  limitation: Both candidates exceed the unchanged 45 C screen; enlarged-bore structural revalidation
+    remains open and neither candidate is adopted.
 - path: runs/wo03-fin-nominal-fields-20261030T210337367164Z/record.json
-  scope: Current installed fin/root and exact nominal-CAD field evidence; compact
-    projection with full original report hash.
-  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter
-    acceptance remains open; nominal field is a separate single-mesh case and is unvalidated.
+  scope: Current installed fin/root and exact nominal-CAD field evidence; compact projection with full
+    original report hash.
+  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter acceptance
+    remains open; nominal field is a separate single-mesh case and is unvalidated.
 - path: runs/wo03-fin-installed-20261030T210211507451Z/record.json
-  scope: Current installed fin/root and exact nominal-CAD field evidence; compact
-    projection with full original report hash.
-  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter
-    acceptance remains open; nominal field is a separate single-mesh case and is unvalidated.
+  scope: Current installed fin/root and exact nominal-CAD field evidence; compact projection with full
+    original report hash.
+  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter acceptance
+    remains open; nominal field is a separate single-mesh case and is unvalidated.
 - path: runs/wo03-fin-installed-20261030T205816596002Z/record.json
-  scope: Current installed fin/root and exact nominal-CAD field evidence; compact
-    projection with full original report hash.
-  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter
-    acceptance remains open; nominal field is a separate single-mesh case and is unvalidated.
+  scope: Current installed fin/root and exact nominal-CAD field evidence; compact projection with full
+    original report hash.
+  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter acceptance
+    remains open; nominal field is a separate single-mesh case and is unvalidated.
 - path: runs/wo03-fin-installed-20261030T205715365284Z/record.json
-  scope: Current installed fin/root and exact nominal-CAD field evidence; compact
-    projection with full original report hash.
-  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter
-    acceptance remains open; nominal field is a separate single-mesh case and is unvalidated.
+  scope: Current installed fin/root and exact nominal-CAD field evidence; compact projection with full
+    original report hash.
+  limitation: Calculated estimated-property screens. Minimum-thickness convergence/root/flutter acceptance
+    remains open; nominal field is a separate single-mesh case and is unvalidated.
 - path: runs/wo03-20261030T205235088123Z/record.json
   scope: Current integrated cad evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo02-20261030T204849990760Z/record.json
   scope: Current integrated flight evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-integrated-20261030T211523356909Z/record.json
   scope: Current integrated mass evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-thermal-20261030T204848956297Z/record.json
   scope: Current integrated thermal evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-motor-support-20261030T204829437762Z/record.json
   scope: Current integrated support evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-recovery-integration-20261030T204618137637Z/record.json
   scope: Current integrated recovery evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-vibration-20261030T205443545391Z-summary/record.json
   scope: Current integrated vibration evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-tolerances-20261030T205656390867Z/record.json
   scope: Current integrated fit evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: docs/wo03-correction-closure.md
   scope: Current integrated fields evidence for adopted active specs.
-  limitation: Calculated with estimated inputs; consult closure table for exact pass
-    scope and remaining design failures. No physical qualification or flight release.
+  limitation: Calculated with estimated inputs; consult closure table for exact pass scope and remaining
+    design failures. No physical qualification or flight release.
 - path: runs/wo03-engineering-20261030T175947969565Z/record.json
-  scope: 'Historical pre-integration record: Latest bounded preliminary structural
-    and thermal screens for G80, G54, G12-F and G12-L; run records unchanged inputs
-    and per-vehicle results.'
-  limitation: Engineering benchmark and flight_ready are false. Only quantities represented
-    by the screens have numerical results; other coverage remains unavailable, never
-    zero or an inferred pass. Estimated properties/case bounds, negative margins and
-    open strength, heat, buckling, packaging and power issues remain unresolved.
+  scope: 'Historical pre-integration record: Latest bounded preliminary structural and thermal screens
+    for G80, G54, G12-F and G12-L; run records unchanged inputs and per-vehicle results.'
+  limitation: Engineering benchmark and flight_ready are false. Only quantities represented by the screens
+    have numerical results; other coverage remains unavailable, never zero or an inferred pass. Estimated
+    properties/case bounds, negative margins and open strength, heat, buckling, packaging and power issues
+    remain unresolved.
 - path: runs/wo03-vibration-20261030T175839356500Z/record.json
-  scope: 'Historical pre-integration record: Latest executed known cases/convergence
-    and three finned-mode spatial exports with consumer checks; inputs are identity-recorded.'
-  limitation: Vibration/flutter acceptance and expanded WO-03 benchmark are false.
-    Known/convergence checks and spatial export consumption do not qualify the vehicle.
-    Attachment/contact, temperature-dependent properties, propulsion/control excitation,
-    sensor aliasing and full aeroelastic coupling remain open; no flutter pass.
+  scope: 'Historical pre-integration record: Latest executed known cases/convergence and three finned-mode
+    spatial exports with consumer checks; inputs are identity-recorded.'
+  limitation: Vibration/flutter acceptance and expanded WO-03 benchmark are false. Known/convergence checks
+    and spatial export consumption do not qualify the vehicle. Attachment/contact, temperature-dependent
+    properties, propulsion/control excitation, sensor aliasing and full aeroelastic coupling remain open;
+    no flutter pass.
 - path: runs/wo02-20261030T173859843386Z/record.json
-  scope: 'Historical pre-integration record: Historical WO-02 simulation benchmark
-    for source-hypothesis cases; nominal actual-mode reference comparisons and 4096-env
-    CPU step are recorded.'
-  limitation: Simulation only, not flight evidence; flight_ready is false. Does not
-    verify the current WO-03 CAD, structural/thermal margins, tolerances, recovery
-    hardware or physical control qualification.
+  scope: 'Historical pre-integration record: Historical WO-02 simulation benchmark for source-hypothesis
+    cases; nominal actual-mode reference comparisons and 4096-env CPU step are recorded.'
+  limitation: Simulation only, not flight evidence; flight_ready is false. Does not verify the current
+    WO-03 CAD, structural/thermal margins, tolerances, recovery hardware or physical control qualification.
 - path: runs/wo03-20261030T180113490389Z/record.json
-  scope: 'Historical pre-integration record: Latest CAD/export benchmark; 67.41 seconds,
-    inputs unchanged, CAD export benchmark passed, six nominal interfaces and both
-    sampled 25-pose sweeps passed.'
-  limitation: Expanded WO-03 benchmark remains false and reconciled_estimates is false.
-    Sweeps explicitly do not verify joint fit or continuous full-mechanism motion;
-    CAD mass remains unmeasured, and solver/strength/thermal, retention, packing,
-    independent battery and physical validation gates remain open.
+  scope: 'Historical pre-integration record: Latest CAD/export benchmark; 67.41 seconds, inputs unchanged,
+    CAD export benchmark passed, six nominal interfaces and both sampled 25-pose sweeps passed.'
+  limitation: Expanded WO-03 benchmark remains false and reconciled_estimates is false. Sweeps explicitly
+    do not verify joint fit or continuous full-mechanism motion; CAD mass remains unmeasured, and solver/strength/thermal,
+    retention, packing, independent battery and physical validation gates remain open.
 - path: runs/wo03-thermal-20261030T182422090687Z/record.json
-  scope: 'Historical pre-integration record: Alternative opaque-wall/radial-liner
-    model with analytic fixtures, three-level refinement and identity-bound part-mean
-    exports.'
-  limitation: Upper exploratory case still fails temperature screens; moving 3D exposure,
-    material/contact data and physical temperatures remain unvalidated.
+  scope: 'Historical pre-integration record: Alternative opaque-wall/radial-liner model with analytic
+    fixtures, three-level refinement and identity-bound part-mean exports.'
+  limitation: Upper exploratory case still fails temperature screens; moving 3D exposure, material/contact
+    data and physical temperatures remain unvalidated.
 - path: runs/wo03-tolerances-20261030T182928948369Z/record.json
-  scope: 'Historical pre-integration record: Manufacturing, material-domain fit and
-    out-of-domain independent temperature sensitivities; source snapshots unchanged.'
-  limitation: Coupler, key-flank and liner/mount failures remain; purchased details,
-    unilateral positioning, real paired temperatures and continuous mechanism clearance
-    are unavailable.
+  scope: 'Historical pre-integration record: Manufacturing, material-domain fit and out-of-domain independent
+    temperature sensitivities; source snapshots unchanged.'
+  limitation: Coupler, key-flank and liner/mount failures remain; purchased details, unilateral positioning,
+    real paired temperatures and continuous mechanism clearance are unavailable.
 - path: runs/wo03-fin-design-20261030T184422172911Z/record.json
-  scope: 'Historical pre-integration record: Forty construction/planform alternatives,
-    distributed and upper-bound displacement screens, component stress and static
-    growth overlays.'
+  scope: 'Historical pre-integration record: Forty construction/planform alternatives, distributed and
+    upper-bound displacement screens, component stress and static growth overlays.'
   limitation: Proposal comparison only. No material, fin or geometry adopted; root/bond/flutter/hot-property
     qualifications remain open.
 - path: runs/wo03-mount-loadpath-20261030T185139862170Z/record.json
-  scope: 'Historical pre-integration record: Four unchanged-source copy models of
-    an extended support tube and internal stop with mass/CG/inertia and hand load-path
-    screens.'
-  limitation: No active adoption. Full-length Euler knockdown is an explicit sensitivity,
-    not actual buckling evidence; bond layers, local ring loads, bidirectional retention
-    and downstream pin/frame/thermal paths remain open.
+  scope: 'Historical pre-integration record: Four unchanged-source copy models of an extended support
+    tube and internal stop with mass/CG/inertia and hand load-path screens.'
+  limitation: No active adoption. Full-length Euler knockdown is an explicit sensitivity, not actual buckling
+    evidence; bond layers, local ring loads, bidirectional retention and downstream pin/frame/thermal
+    paths remain open.
 - path: runs/wo03-thermal-layout-20261031T042330617623Z/record.json
-  scope: Compact executed thermal-layout, finite/common-surface proxy, actual occupancy
-    and unaccepted baffle/circular-pad evidence with separate configuration identities.
-  limitation: Expanded acceptance open; actual angular gas/radiation matrix, installed
-    structure/root and physical verification remain open. Proxy failures and unavailable
-    coverage are retained.
+  scope: Compact executed thermal-layout, finite/common-surface proxy, actual occupancy and unaccepted
+    baffle/circular-pad evidence with separate configuration identities.
+  limitation: Expanded acceptance open; actual angular gas/radiation matrix, installed structure/root
+    and physical verification remain open. Proxy failures and unavailable coverage are retained.
 - path: docs/wo03-thermal-model-corrections.md
-  scope: Before/after thermal methods, disjoint-material evidence, numerical checks
-    and supersession.
-  limitation: Scoped G54 proxy only; not a complete required matrix or an accepted
-    vehicle.
+  scope: Before/after thermal methods, disjoint-material evidence, numerical checks and supersession.
+  limitation: Scoped G54 proxy only; not a complete required matrix or an accepted vehicle.
 - path: runs/wo03-numerical-diagnostics-20261031T065322651352Z/record.json
-  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis
-    and separately verified stable heat accounting.
-  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement
-    and full required matrix remain open. No actual temperature acceptance or adoption.
+  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis and separately verified
+    stable heat accounting.
+  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement and full required
+    matrix remain open. No actual temperature acceptance or adoption.
 - path: docs/wo03-actual-debug-transient.md
-  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis
-    and separately verified stable heat accounting.
-  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement
-    and full required matrix remain open. No actual temperature acceptance or adoption.
+  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis and separately verified
+    stable heat accounting.
+  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement and full required
+    matrix remain open. No actual temperature acceptance or adoption.
 - path: docs/wo03-gas-field-diagnostic.md
-  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis
-    and separately verified stable heat accounting.
-  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement
-    and full required matrix remain open. No actual temperature acceptance or adoption.
+  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis and separately verified
+    stable heat accounting.
+  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement and full required
+    matrix remain open. No actual temperature acceptance or adoption.
 - path: docs/wo03-stable-gas-ledger.md
-  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis
-    and separately verified stable heat accounting.
-  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement
-    and full required matrix remain open. No actual temperature acceptance or adoption.
+  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis and separately verified
+    stable heat accounting.
+  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement and full required
+    matrix remain open. No actual temperature acceptance or adoption.
 - path: docs/wo03-refined-gas-boundary.md
-  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis
-    and separately verified stable heat accounting.
-  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement
-    and full required matrix remain open. No actual temperature acceptance or adoption.
+  scope: Completed actual-baffle failed-model diagnostic, source-field/mesh diagnosis and separately verified
+    stable heat accounting.
+  limitation: Calculated diagnostic only. Source field accuracy fails; relevant refinement and full required
+    matrix remain open. No actual temperature acceptance or adoption.
 - path: runs/wo03-closure-evidence-20261031T072741974902Z/record.json
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-closure-plan.md
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-thermal-method-decision.md
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-strip-refinement-preflight.md
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-thermal-error-isolation.md
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-support-closure-audit.md
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-installed-fin-closure-audit.md
-  scope: Fixed-scope closure, bounded numerical isolation and independently executed
-    installed-fin/support/recovery audits.
+  scope: Fixed-scope closure, bounded numerical isolation and independently executed installed-fin/support/recovery
+    audits.
   limitation: No complete-package acceptance; actual thermal accuracy, installed foundations/capacities/flutter
     and guide-compatible thermal hardware remain open. Inputs are estimated, not measured.
 - path: docs/wo03-robin-lumped-trial.md
   scope: One of two explicitly bounded fixture-only wall-treatment trials.
-  limitation: 'Rejected standalone: source/heat or local-temperature accuracy fails.
-    No actual operator repair or design acceptance; branch stopped after two trials.'
+  limitation: 'Rejected standalone: source/heat or local-temperature accuracy fails. No actual operator
+    repair or design acceptance; branch stopped after two trials.'
 - path: docs/wo03-robin-hybrid-trial.md
   scope: One of two explicitly bounded fixture-only wall-treatment trials.
-  limitation: 'Rejected standalone: source/heat or local-temperature accuracy fails.
-    No actual operator repair or design acceptance; branch stopped after two trials.'
+  limitation: 'Rejected standalone: source/heat or local-temperature accuracy fails. No actual operator
+    repair or design acceptance; branch stopped after two trials.'
 - path: docs/wo03-external-thermal-decision.md
-  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
-    comparisons.
-  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
-    precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
-    No adoption.
+  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX comparisons.
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification; precise
+    energy/local/spatial-wall/transient/contact/radiation checks remain unavailable. No adoption.
 - path: docs/wo03-elmer-literature.md
-  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
-    comparisons.
-  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
-    precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
-    No adoption.
+  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX comparisons.
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification; precise
+    energy/local/spatial-wall/transient/contact/radiation checks remain unavailable. No adoption.
 - path: docs/wo03-ccx-thermal-comparison.md
-  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
-    comparisons.
-  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
-    precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
-    No adoption.
+  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX comparisons.
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification; precise
+    energy/local/spatial-wall/transient/contact/radiation checks remain unavailable. No adoption.
 - path: runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json
-  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX
-    comparisons.
-  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification;
-    precise energy/local/spatial-wall/transient/contact/radiation checks remain unavailable.
-    No adoption.
+  scope: Bounded external thermal-tool literature and two partial three-grid CalculiX comparisons.
+  limitation: Historical checkpoint before isolated Elmer setup; no actual-baffle qualification; precise
+    energy/local/spatial-wall/transient/contact/radiation checks remain unavailable. No adoption.
 - path: docs/wo03-fin-load-routing.md
   scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
-  limitation: Separate G12/G54 identities; unknown components and installed load shares
-    remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
+  limitation: Separate G12/G54 identities; unknown components and installed load shares remain null. No
+    complete-package, structural-capacity, thermal or flutter acceptance.
 - path: docs/wo03-support-cutloads.md
   scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
-  limitation: Separate G12/G54 identities; unknown components and installed load shares
-    remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
+  limitation: Separate G12/G54 identities; unknown components and installed load shares remain null. No
+    complete-package, structural-capacity, thermal or flutter acceptance.
 - path: runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json
   scope: Source-specific force/moment routing and CAD-model free-body cut bounds.
-  limitation: Separate G12/G54 identities; unknown components and installed load shares
-    remain null. No complete-package, structural-capacity, thermal or flutter acceptance.
+  limitation: Separate G12/G54 identities; unknown components and installed load shares remain null. No
+    complete-package, structural-capacity, thermal or flutter acceptance.
 - path: docs/wo03-refreeze-g12-root.md
   scope: Historical G12 resolved source identity and explicit original-STEP assembly.
   limitation: Source prerequisite only; no strength, motion, flutter, thermal or mass-credit acceptance.
@@ -380,44 +400,66 @@ evidence_sources:
   limitation: No hot normal/peel allowable, physical wet bond, installed strength or flutter acceptance.
 - path: docs/wo03-elmer-campaign-decision.md
   scope: Closed isolated Elmer setup and nine-result known-answer campaign decision.
-  limitation: Tool runs; A exact-field checks fail and complete conservation/refinement are unavailable. No actual-baffle qualification or active-design acceptance.
+  limitation: Tool runs; A exact-field checks fail and complete conservation/refinement are unavailable.
+    No actual-baffle qualification or active-design acceptance.
 - path: runs/wo03-elmer-campaign-20261101T054800Z/record.json
   scope: Compact hashed-source projection of the completed P2 A/B/B_strong comparison.
-  limitation: Straight fixture evidence only; generated nodal arrays omitted, failed and unavailable results preserved.
+  limitation: Straight fixture evidence only; generated nodal arrays omitted, failed and unavailable results
+    preserved.
 - path: docs/wo03-g80-fit-candidate.md
   scope: Separate 32.2 mm fixed-mount candidate on exact current G80 source.
-  limitation: Cold and in-domain fit screens pass conditionally; hot out-of-domain sensitivity fails. No assembled load-path, thermal, recovery, flutter or flight acceptance.
+  limitation: Cold and in-domain fit screens pass conditionally; hot out-of-domain sensitivity fails.
+    No assembled load-path, thermal, recovery, flutter or flight acceptance.
 - path: docs/wo03-g80-current-closure.md
   scope: Current52partG80 integrated proposal and issue-by-issue closure states.
-  limitation: Preliminary static/nominal-flight/guide checks pass; actual joint, fit/service, recovery, fin-root/flutter and thermal acceptance remain open. G54/G12 are independent.
+  limitation: Preliminary static/nominal-flight/guide checks pass; actual joint, fit/service, recovery,
+    fin-root/flutter and thermal acceptance remain open. G54/G12 are independent.
 - path: runs/wo03-g80-integrated-package-20261101T053840103311Z/record.json
   scope: Exact52partcandidate CAD/mass/static/flight compact evidence and source hashes.
-  limitation: Unadopted proposal; no physical or full engineering acceptance. Three excluded nominal interface overlaps require resolution;45secondrecoveries incomplete.
+  limitation: Unadopted proposal; no physical or full engineering acceptance. Three excluded nominal interface
+    overlaps require resolution;45secondrecoveries incomplete.
 - path: docs/wo03-g80-retention-geometry.md
   scope: Original nominal washer conflict and one explicit source-layout replan.
-  limitation: Replan has no screened nominal intersections, but missing OD tolerance, blocked radial access and absent keeper leave capture/service/load acceptance open; no active adoption.
+  limitation: Replan has no screened nominal intersections, but missing OD tolerance, blocked radial access
+    and absent keeper leave capture/service/load acceptance open; no active adoption.
 - path: runs/wo03-g80-retention-20261101T060234513931Z/record.json
   scope: Preserved stopped and replan source/evidence records, compact only.
-  limitation: First CPU/before hashes unavailable; aggregate CPU unknown. No complete vehicle, strength, heat or flight acceptance.
+  limitation: First CPU/before hashes unavailable; aggregate CPU unknown. No complete vehicle, strength,
+    heat or flight acceptance.
 - path: docs/wo03-g80-keeper-service.md
   scope: Source-identical nominal keeper geometry continuation and sampled staged service.
-  limitation: No torque, translation/tilt escape, tolerance, structural, thermal or full-vehicle acceptance. No new full-mass/flight result.
+  limitation: No torque, translation/tilt escape, tolerance, structural, thermal or full-vehicle acceptance.
+    No new full-mass/flight result.
 - path: runs/wo03-g80-keeper-20261101T063807744500Z/record.json
   scope: Keeper stop, analytic/observed rotation barriers, fixtures, service samples and component masses.
-  limitation: Partial study geometry only; working configuration unchanged. Native CAD excluded; material/fastener and installed-joint qualification open.
+  limitation: Partial study geometry only; working configuration unchanged. Native CAD excluded; material/fastener
+    and installed-joint qualification open.
 - path: docs/wo03-g80-bridge-fea.md
   scope: Two known mechanical cases and actual BRep film/seat pairing; actual meshing stopped.
-  limitation: No actual bridge mesh, force balance, stress, convergence or installed-joint acceptance. API and supervisor stops preserved; owner permission is not the next dependency.
+  limitation: No actual bridge mesh, force balance, stress, convergence or installed-joint acceptance.
+    API and supervisor stops preserved; owner permission is not the next dependency.
 - path: runs/wo03-g80-bridge-preparation-20261101T064904961981Z/record.json
   scope: Compact known-case, geometry and preserved stopped-attempt evidence.
-  limitation: Source geometry/material hypotheses only; no bridge strength or thermal acceptance. Native bulk excluded.
+  limitation: Source geometry/material hypotheses only; no bridge strength or thermal acceptance. Native
+    bulk excluded.
 delivery_priority:
   decision: docs/adr/0011-g80-first-engineering-delivery.md
   first_integrated_package: G80
-  committed_tracks: [G80, G54, G12-F, G12-L]
-  core_goals: [substantial_custom_build, maximum_practical_conventional_performance, PID_to_RL]
+  committed_tracks:
+  - G80
+  - G54
+  - G12-F
+  - G12-L
+  core_goals:
+  - substantial_custom_build
+  - maximum_practical_conventional_performance
+  - PID_to_RL
   aggregate_wo03_acceptance: open
-  configuration_acceptance: {G80: open, G54: open, G12-F: open, G12-L: open}
+  configuration_acceptance:
+    G80: open
+    G54: open
+    G12-F: open
+    G12-L: open
   preview_authorization: ADR-0009
   physical_and_flight_release: false
 configurations:
@@ -426,12 +468,10 @@ configurations:
   G12-F: configs/vehicle/platform/tvc-finned.yaml
   G12-L: configs/vehicle/platform/tvc-finless.yaml
 ranking_basis:
-  S4: Potential loss of control/structure or recovery with hazardous impact; critical
-    release blocker.
-  S3: Major performance/control degradation with independently verified recovery/containment;
-    conditions may elevate to S4.
-  likelihood: Qualitative mechanism-based assessment; no numeric failure rates or
-    RPN without data.
+  S4: Potential loss of control/structure or recovery with hazardous impact; critical release blocker.
+  S3: Major performance/control degradation with independently verified recovery/containment; conditions
+    may elevate to S4.
+  likelihood: Qualitative mechanism-based assessment; no numeric failure rates or RPN without data.
 requirements:
 - id: RT-SCOPE-001
   applies_to: &id001
@@ -440,9 +480,8 @@ requirements:
   - G12-F
   - G12-L
   purpose_source: Owner objectives; ADR-0006/0007
-  acceptance: Certified-commercial no-HPR scope; loaded mass including allowance below
-    declared cap, propellant and motor certification limits. Exact California/club
-    eligibility is a separate release check.
+  acceptance: Certified-commercial no-HPR scope; loaded mass including allowance below declared cap, propellant
+    and motor certification limits. Exact California/club eligibility is a separate release check.
   spec_paths:
   - limits.max_liftoff_mass_kg
   - limits.max_propellant_kg
@@ -462,16 +501,14 @@ requirements:
   - '11'
   evidence: []
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-PERF-001
   applies_to:
   - G80
   - G54
   purpose_source: Owner maximum practical conventional performance objective
-  acceptance: Rank delivered flight performance with mass, structural, recovery and
-    launch uncertainty. Keep G80 reference and G54 conditional; no fixed hardware
-    selection solely by nominal impulse.
+  acceptance: Rank delivered flight performance with mass, structural, recovery and launch uncertainty.
+    Keep G80 reference and G54 conditional; no fixed hardware selection solely by nominal impulse.
   spec_paths: []
   related_parts:
   - motor
@@ -489,13 +526,12 @@ requirements:
   - runs/wo02-20261030T204849990760Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   status: baseline_numeric
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-GUIDE-001
   applies_to: *id001
   purpose_source: Active design screen; not launch authorization
-  acceptance: Worst-case rail departure meets the current spec minimum at the specified
-    usable travel, growth mass, thrust, friction and drag assumptions.
+  acceptance: Worst-case rail departure meets the current spec minimum at the specified usable travel,
+    growth mass, thrust, friction and drag assumptions.
   spec_paths:
   - design.rail_length_m
   - design.minimum_rail_exit_mps
@@ -509,8 +545,7 @@ requirements:
   - motor
   interfaces:
   - IF-GUIDE-001
-  verification_method: Rail integration and revised full-flight departure; equipment
-    measurement
+  verification_method: Rail integration and revised full-flight departure; equipment measurement
   responsible_wo:
   - '01'
   - '02'
@@ -518,6 +553,9 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-launch-guide-motor-trade.md
   - docs/adr/0012-conditional-launch-guide-options.md
   - docs/wo03-g80-mass-balance-revision.md
@@ -530,19 +568,20 @@ requirements:
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   - runs/wo03-recovery-budget-20261030T230910555661Z/record.json
   status: open
-  evidence_basis: 'Current active G12 5 m usable-guide assumption is unconfirmed.
-    Exact budget root retains 10 m/s, lower thrust/friction/drag and full 50 g growth:
-    current dedicated111.034g, maximum119.767g. Candidate construction trades are
-    not adopted.'
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Current active G12 5 m usable-guide assumption is unconfirmed.
+    Exact budget root retains 10 m/s, lower thrust/friction/drag and full 50 g growth: current dedicated111.034g,
+    maximum119.767g. Candidate construction trades are not adopted.'
 - id: RT-STAB-001
   applies_to:
   - G80
   - G54
   - G12-F
   purpose_source: Active passive-stability screen
-  acceptance: Actual finned geometry meets the spec static margin over depletion and
-    growth position. Finless negative margin is explicit and cannot pass this passive
-    requirement.
+  acceptance: Actual finned geometry meets the spec static margin over depletion and growth position.
+    Finless negative margin is explicit and cannot pass this passive requirement.
   spec_paths:
   - design.minimum_static_margin_cal
   related_parts:
@@ -550,14 +589,16 @@ requirements:
   - nose_cone
   interfaces:
   - IF-UPPER-AFT-001
-  verification_method: Mass/CG/CP, RocketPy static comparison; later measured mass/CG
-    and aero
+  verification_method: Mass/CG/CP, RocketPy static comparison; later measured mass/CG and aero
   responsible_wo:
   - '01'
   - '03'
   - '06'
   - '11'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -568,16 +609,18 @@ requirements:
   - docs/wo03-integrated-vehicle.md
   - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
+    explicitly establishes otherwise.'
 - id: RT-CONTROL-001
   applies_to:
   - G12-F
   - G12-L
   purpose_source: PID-to-RL and original finless objectives
-  acceptance: Meet spec useful-control-time screen; separately meet improved-model
-    PID/RL criteria and qualify burnout-to-recovery transition. A centered unpowered
-    gimbal cannot stabilize finless coast.
+  acceptance: Meet spec useful-control-time screen; separately meet improved-model PID/RL criteria and
+    qualify burnout-to-recovery transition. A centered unpowered gimbal cannot stabilize finless coast.
   spec_paths:
   - design.minimum_control_time_s
   - design.target_control_time_s
@@ -592,8 +635,7 @@ requirements:
   - IF-GIMBAL-001
   - IF-CONFIG-001
   - IF-RECOVERY-001
-  verification_method: Source thrust/rail screen; loaded simulation, faults, HIL and
-    staged flight
+  verification_method: Source thrust/rail screen; loaded simulation, faults, HIL and staged flight
   responsible_wo:
   - '01'
   - '03'
@@ -606,14 +648,12 @@ requirements:
   - runs/wo02-20261030T204849990760Z/record.json
   - runs/wo03-vibration-20261030T205443545391Z-summary/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-MASS-001
   applies_to: *id001
   purpose_source: Model/Class-1 project scope and realistic growth allowance
-  acceptance: Sum every actual part plus explicit allowance; below declared mass cap.
-    Count reinforcement, fasteners, shielding, connectors, wiring and finish. Cap
-    is not a target.
+  acceptance: Sum every actual part plus explicit allowance; below declared mass cap. Count reinforcement,
+    fasteners, shielding, connectors, wiring and finish. Cap is not a target.
   spec_paths:
   - design.mass_allowance_kg
   - limits.max_liftoff_mass_kg
@@ -628,6 +668,9 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -640,26 +683,33 @@ requirements:
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: Active designs remain unchanged. Isolated 72-part G80 bookkeeping and same-identity static/ascent checks pass with full 50 g retained. Larger-canopy sensitivity separately adds 5 g; supplier masses, packing, end attachments and unpriced entries remain unresolved. G54/G12 evidence is separate.
-
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Active designs remain unchanged. Isolated 72-part G80
+    bookkeeping and same-identity static/ascent checks pass with full 50 g retained. Larger-canopy sensitivity
+    separately adds 5 g; supplier masses, packing, end attachments and unpriced entries remain unresolved.
+    G54/G12 evidence is separate.'
 - id: RT-MASS-002
   applies_to: *id001
   purpose_source: WO-03 mass/CG/inertia consistency
-  acceptance: Manufactured CAD volume/density and adopted spec mass agree within 10%;
-    full centroid/tensor and moving/fixed identities consistent. Purchased/flexible
-    mass basis remains supplied/estimated, not box density.
+  acceptance: Manufactured CAD volume/density and adopted spec mass agree within 10%; full centroid/tensor
+    and moving/fixed identities consistent. Purchased/flexible mass basis remains supplied/estimated,
+    not box density.
   spec_paths: []
   related_parts:
   - all
   interfaces:
   - IF-CONFIG-001
-  verification_method: Generator/cache identity check, CAD properties, static/flight
-    rerun; later measurements
+  verification_method: Generator/cache identity check, CAD properties, static/flight rerun; later measurements
   responsible_wo:
   - '03'
   - 09
   - '12'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -672,13 +722,18 @@ requirements:
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   status: open
-  evidence_basis: Isolated G80 manufactured solids, full centroid/tensor and exact source identity reconciled; no adoption. Canopy metadata-only copy has bitwise-identical shared builder inputs, not a new benchmark. Flexible envelope inertia, measured mass and installed recovery remain open.
-
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Isolated G80 manufactured solids, full centroid/tensor
+    and exact source identity reconciled; no adoption. Canopy metadata-only copy has bitwise-identical
+    shared builder inputs, not a new benchmark. Flexible envelope inertia, measured mass and installed
+    recovery remain open.'
 - id: RT-LOAD-001
   applies_to: *id001
   purpose_source: Structural adequacy and acceleration
-  acceptance: Evaluate thrust and component inertia with engineering-input multipliers/design
-    factors; stress, deflection and buckling bounds/FEA must close critical load paths.
+  acceptance: Evaluate thrust and component inertia with engineering-input multipliers/design factors;
+    stress, deflection and buckling bounds/FEA must close critical load paths.
   spec_paths: []
   related_parts:
   - motor_mount
@@ -688,12 +743,14 @@ requirements:
   interfaces:
   - IF-MOTOR-001
   - IF-UPPER-AFT-001
-  verification_method: Hand calculation; targeted verified/converged FEA; owner proof
-    tests
+  verification_method: Hand calculation; targeted verified/converged FEA; owner proof tests
   responsible_wo:
   - '03'
   - 09
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -720,19 +777,20 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: Exact clipped sections and internal bracing are calculated; G54
-    eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint strength remains
-    open; ideal strip-end restraints are rejected as load-path proof.
-    The original G80 CCX fields fail force/reciprocity. Separate recovered Elmer coarse
-    fields pass those numerical checks, but fixed-support face-average DF3 shear exceeds
-    the estimated hot bond screen. Material-local sampled stresses and refinement remain
-    unqualified for strength; no installed acceptance follows.
-
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Exact clipped sections and internal bracing are calculated;
+    G54 eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint strength remains open; ideal
+    strip-end restraints are rejected as load-path proof. The original G80 CCX fields fail force/reciprocity.
+    Separate recovered Elmer coarse fields pass those numerical checks, but fixed-support face-average
+    DF3 shear exceeds the estimated hot bond screen. Material-local sampled stresses and refinement remain
+    unqualified for strength; no installed acceptance follows.'
 - id: RT-LOAD-002
   applies_to: *id001
   purpose_source: Fin/guide/servo loads and joints
-  acceptance: Evaluate fin bending, guide reactions, bearing/servo loads, bonds and
-    modular retention with traceable BCs, orientation, temperature and uncertainty.
+  acceptance: Evaluate fin bending, guide reactions, bearing/servo loads, bonds and modular retention
+    with traceable BCs, orientation, temperature and uncertainty.
   spec_paths: []
   related_parts:
   - fin_set
@@ -776,16 +834,14 @@ requirements:
   - docs/wo03-clipped-foot-contact.md
   - runs/wo03-root-contact-correction-20261101T012547878277Z/record.json
   status: open
-  evidence_basis: The historical G12 slotted-shell foot has only 79.34 percent nominal
-    support coverage. The corrected rigid-foundation sensitivity raises smooth DF3
-    foot normal demand to 2.648 MPa; hot normal/peel allowable and actual foundation
-    stiffness remain unknown. No installed or flutter acceptance.
+  evidence_basis: The historical G12 slotted-shell foot has only 79.34 percent nominal support coverage.
+    The corrected rigid-foundation sensitivity raises smooth DF3 foot normal demand to 2.648 MPa; hot
+    normal/peel allowable and actual foundation stiffness remain unknown. No installed or flutter acceptance.
 - id: RT-THERM-001
   applies_to: *id001
   purpose_source: Long G12 exposure, G80/G54 and heat soak
-  acceptance: Bound temperature histories against sourced or explicitly estimated
-    temperature-dependent material/component limits. Critical unresolved hot-case/property
-    conclusions block WO-03 acceptance.
+  acceptance: Bound temperature histories against sourced or explicitly estimated temperature-dependent
+    material/component limits. Critical unresolved hot-case/property conclusions block WO-03 acceptance.
   spec_paths: []
   related_parts:
   - motor_liner
@@ -798,14 +854,16 @@ requirements:
   - IF-MOTOR-001
   - IF-GIMBAL-001
   - IF-POWER-001
-  verification_method: Transient heat network/FEA as needed, energy/step convergence;
-    instrumented tests
+  verification_method: Transient heat network/FEA as needed, energy/step convergence; instrumented tests
   responsible_wo:
   - '03'
   - 09
   - '11'
   - '12'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -846,16 +904,19 @@ requirements:
   - docs/wo03-ccx-thermal-comparison.md
   - runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json
   status: open
-  evidence_basis: Unchanged45C substrate and required combined300C/epsilon0.9/35C
-    case. Candidate69df actual burn/soak debug completed; complete source gas operator
-    has nonphysical nodal/group undershoots and is failed. Stable local heat ledger
-    verified separately without changing fields. Relevant spatial/time/optical/material
-    quadrature and required matrix remain unresolved; no adoption.
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Unchanged45C substrate and required combined300C/epsilon0.9/35C
+    case. Candidate69df actual burn/soak debug completed; complete source gas operator has nonphysical
+    nodal/group undershoots and is failed. Stable local heat ledger verified separately without changing
+    fields. Relevant spatial/time/optical/material quadrature and required matrix remain unresolved; no
+    adoption.'
 - id: RT-FIT-001
   applies_to: *id001
   purpose_source: Manufacturing/thermal tolerance and service
-  acceptance: Min/nominal/max interface fits and assembly/removal paths satisfy specified
-    clearance minima, including hot expansion and repeated assembly.
+  acceptance: Min/nominal/max interface fits and assembly/removal paths satisfy specified clearance minima,
+    including hot expansion and repeated assembly.
   spec_paths: []
   related_parts:
   - interface_coupler
@@ -871,6 +932,9 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -884,17 +948,19 @@ requirements:
   - runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
   - runs/wo03-thermal-layout-20261031T042330617623Z/record.json
   status: open
-  evidence_basis: PackageA interval calculations pass, but geometry adoption awaits
-    complete structural path. Pin/bore sizes are spec-owned; positive axial retention
-    and purchased articulation remain open.
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. PackageA interval calculations pass, but geometry adoption
+    awaits complete structural path. Pin/bore sizes are spec-owned; positive axial retention and purchased
+    articulation remain open.'
 - id: RT-MOTION-001
   applies_to:
   - G12-F
   - G12-L
   purpose_source: TVC commanded geometry
-  acceptance: Full combined commanded pitch/yaw envelope clears frame, case/nozzle/retention,
-    rods and wiring at tolerance/thermal extremes. No nominal-only or excluded-joint
-    fit claim.
+  acceptance: Full combined commanded pitch/yaw envelope clears frame, case/nozzle/retention, rods and
+    wiring at tolerance/thermal extremes. No nominal-only or excluded-joint fit claim.
   spec_paths:
   - tvc.max_deflection_rad
   - tvc.pivot_position_m
@@ -908,8 +974,7 @@ requirements:
   - harness
   interfaces:
   - IF-GIMBAL-001
-  verification_method: Exact linkage closure, continuous bounds and swept CAD; loaded
-    bench range test
+  verification_method: Exact linkage closure, continuous bounds and swept CAD; loaded bench range test
   responsible_wo:
   - '03'
   - '06'
@@ -922,14 +987,12 @@ requirements:
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
   - runs/wo03-thermal-layout-20261031T042330617623Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-RECOVERY-001
   applies_to: *id001
   purpose_source: Packing, extraction and safe service
-  acceptance: Provide realistic packed volume, harness/anchor/connector access and
-    snag-free extraction/repacking. Verify opening loads and retention; no CAD-volume-only
-    deployment qualification.
+  acceptance: Provide realistic packed volume, harness/anchor/connector access and snag-free extraction/repacking.
+    Verify opening loads and retention; no CAD-volume-only deployment qualification.
   spec_paths:
   - design.mass_allowance_kg
   related_parts:
@@ -940,14 +1003,16 @@ requirements:
   - recovery_protection
   interfaces:
   - IF-RECOVERY-001
-  verification_method: Packing/access envelopes, opening-load analysis, owner deployment/proof
-    tests
+  verification_method: Packing/access envelopes, opening-load analysis, owner deployment/proof tests
   responsible_wo:
   - '03'
   - 09
   - '10'
   - '11'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -972,14 +1037,20 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: Latest isolated G80 canopy passes five modeled vertical-descent screens under unmeasured drag assumptions. Serial paper-body recovery cut exceeds its estimated screen in existing off-nominal probes. Selected 60-degree straight backbone envelope has 0.45 mm inflated coupler clearance; end attachments, bends, packing, pressure isolation, extraction, hot/termination capacity and service remain open. G54/G12 requirements are unchanged; industrial lifting hardware remains rejected.
-
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Latest isolated G80 canopy passes five modeled vertical-descent
+    screens under unmeasured drag assumptions. Serial paper-body recovery cut exceeds its estimated screen
+    in existing off-nominal probes. Selected 60-degree straight backbone envelope has 0.45 mm inflated
+    coupler clearance; end attachments, bends, packing, pressure isolation, extraction, hot/termination
+    capacity and service remain open. G54/G12 requirements are unchanged; industrial lifting hardware
+    remains rejected.'
 - id: RT-RECOVERY-002
   applies_to: *id001
   purpose_source: Plugged G12 and common-cause failures
-  acceptance: Independent recovery cannot depend on control/policy task or a shared
-    failed supply. G12 plugged motor has no motor-ejection backup. Qualify flight-state/arming
-    and burnout transition.
+  acceptance: Independent recovery cannot depend on control/policy task or a shared failed supply. G12
+    plugged motor has no motor-ejection backup. Qualify flight-state/arming and burnout transition.
   spec_paths: []
   related_parts:
   - independent_recovery
@@ -990,8 +1061,7 @@ requirements:
   - IF-RECOVERY-001
   - IF-POWER-001
   - IF-CONFIG-001
-  verification_method: Power/architecture FMEA, fault injection and integrated bench/HIL/deployment
-    tests
+  verification_method: Power/architecture FMEA, fault injection and integrated bench/HIL/deployment tests
   responsible_wo:
   - '03'
   - '06'
@@ -1004,14 +1074,13 @@ requirements:
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
   - runs/wo02-20261030T204849990760Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-SENSOR-001
   applies_to: *id001
-  purpose_source: "WO-02 historical22\u201323g and current source-hypothesis acceleration\
-    \ envelope; retain high-g path alongside low-g IMU."
-  acceptance: Provide high-g acceleration measurement while retaining low-g gyro/attitude
-    path, with range/bandwidth/timing, mounting, mass, connectors and wiring represented.
+  purpose_source: WO-02 historical22–23g and current source-hypothesis acceleration envelope; retain high-g
+    path alongside low-g IMU.
+  acceptance: Provide high-g acceleration measurement while retaining low-g gyro/attitude path, with range/bandwidth/timing,
+    mounting, mass, connectors and wiring represented.
   spec_paths:
   - avionics.sensors.imu.accel_range_g
   - avionics.sensors.imu.rate_hz
@@ -1025,8 +1094,7 @@ requirements:
   interfaces:
   - IF-AVIONICS-001
   - IF-POWER-001
-  verification_method: Datasheet/envelope and clipping/timing model, vibration/aliasing
-    and bench calibration
+  verification_method: Datasheet/envelope and clipping/timing model, vibration/aliasing and bench calibration
   responsible_wo:
   - '03'
   - '06'
@@ -1035,14 +1103,12 @@ requirements:
   evidence:
   - runs/wo02-20261030T173859843386Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-POWER-001
   applies_to: *id001
   purpose_source: Peak servo and independent-recovery power
-  acceptance: Bound simultaneous stall/logic and independent recovery pulse, regulator
-    loss, voltage sag, connector/wire and thermal capacity. Demonstrate isolation
-    before release.
+  acceptance: Bound simultaneous stall/logic and independent recovery pulse, regulator loss, voltage sag,
+    connector/wire and thermal capacity. Demonstrate isolation before release.
   spec_paths: []
   related_parts:
   - battery
@@ -1053,8 +1119,7 @@ requirements:
   - harness
   interfaces:
   - IF-POWER-001
-  verification_method: Power budget/FMEA; loaded voltage/temperature, brownout and
-    isolation tests
+  verification_method: Power budget/FMEA; loaded voltage/temperature, brownout and isolation tests
   responsible_wo:
   - '03'
   - '06'
@@ -1065,14 +1130,12 @@ requirements:
   - docs/wo03-recovery-power-study.md
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-CONFIG-001
   applies_to: *id001
   purpose_source: Swappable modules, sign conventions and policy identity
-  acceptance: Unique mechanical indexing, durable module identification and exact
-    geometry/motor/avionics/policy hashes; reject mismatches before arming. Keying
-    alone does not identify every module type.
+  acceptance: Unique mechanical indexing, durable module identification and exact geometry/motor/avionics/policy
+    hashes; reject mismatches before arming. Keying alone does not identify every module type.
   spec_paths: []
   related_parts:
   - joint_stop
@@ -1082,8 +1145,7 @@ requirements:
   interfaces:
   - IF-UPPER-AFT-001
   - IF-CONFIG-001
-  verification_method: CAD indexing/mate checks, generated IDs, firmware mismatch/fault
-    tests
+  verification_method: CAD indexing/mate checks, generated IDs, firmware mismatch/fault tests
   responsible_wo:
   - '03'
   - '04'
@@ -1095,14 +1157,13 @@ requirements:
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-VIB-001
   applies_to: *id001
   purpose_source: Vibration/resonance and sensor/control coupling
-  acceptance: Execute modes/resonance screens for actual CAD/mass and material, joint,
-    temperature/damping bounds; verify methods and applicable mesh convergence. Assess
-    propulsion/servo/guide excitation and sensor alias/mounting.
+  acceptance: Execute modes/resonance screens for actual CAD/mass and material, joint, temperature/damping
+    bounds; verify methods and applicable mesh convergence. Assess propulsion/servo/guide excitation and
+    sensor alias/mounting.
   spec_paths: []
   related_parts:
   - all
@@ -1110,8 +1171,7 @@ requirements:
   - IF-UPPER-AFT-001
   - IF-GIMBAL-001
   - IF-AVIONICS-001
-  verification_method: Modal/beam/FEA known cases and convergence; owner tap/modal/loaded
-    vibration tests
+  verification_method: Modal/beam/FEA known cases and convergence; owner tap/modal/loaded vibration tests
   responsible_wo:
   - '03'
   - '06'
@@ -1119,23 +1179,28 @@ requirements:
   - '10'
   - '12'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - runs/wo03-vibration-20261030T175839356500Z/record.json
   - runs/wo03-vibration-20261030T205443545391Z-summary/record.json
   - docs/wo03-fin-load-routing.md
   - runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
+    explicitly establishes otherwise.'
 - id: RT-FLUTTER-001
   applies_to:
   - G80
   - G54
   - G12-F
   purpose_source: Fin flutter and body/control coupling
-  acceptance: "Screen actual fin geometry/material/attachment and flight speed/load\
-    \ envelope, including hot stiffness and method domains. No single bending\u2013\
-    torsion estimate clears stall flutter, body coupling or unvalidated conditions.\
-    \ Critical uncertainty remains open."
+  acceptance: Screen actual fin geometry/material/attachment and flight speed/load envelope, including
+    hot stiffness and method domains. No single bending–torsion estimate clears stall flutter, body coupling
+    or unvalidated conditions. Critical uncertainty remains open.
   spec_paths: []
   related_parts:
   - fin_set
@@ -1145,8 +1210,8 @@ requirements:
   interfaces:
   - IF-UPPER-AFT-001
   - IF-GIMBAL-001
-  verification_method: Primary-source criteria/modal/targeted aeroelastic analysis
-    as appropriate; torsion/modal and staged flight evidence
+  verification_method: Primary-source criteria/modal/targeted aeroelastic analysis as appropriate; torsion/modal
+    and staged flight evidence
   responsible_wo:
   - '03'
   - '06'
@@ -1154,6 +1219,9 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -1172,14 +1240,16 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
+    explicitly establishes otherwise.'
 - id: RT-AERO-001
   applies_to: *id001
   purpose_source: WO-02 small-angle bounds and G12 large-angle results
-  acceptance: Before PID acceptance, force/moment/damping models cover intended Mach/Re/alpha
-    or flag out-of-domain cells; targeted higher fidelity when needed. Preserve original
-    WO-02 evidence.
+  acceptance: Before PID acceptance, force/moment/damping models cover intended Mach/Re/alpha or flag
+    out-of-domain cells; targeted higher fidelity when needed. Preserve original WO-02 evidence.
   spec_paths: []
   related_parts:
   - fin_set
@@ -1187,8 +1257,7 @@ requirements:
   - nose_cone
   interfaces:
   - IF-CONFIG-001
-  verification_method: Aero known cases, domain/uncertainty tables, targeted CFD/data;
-    held-out calibration
+  verification_method: Aero known cases, domain/uncertainty tables, targeted CFD/data; held-out calibration
   responsible_wo:
   - '03'
   - '06'
@@ -1200,14 +1269,12 @@ requirements:
   - runs/wo02-20261030T204849990760Z/record.json
   - docs/wo03-correction-closure.md
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-OPS-001
   applies_to: *id001
   purpose_source: Actual California club launch and equipment
-  acceptance: Resolve site/date/RSO acceptance, actual guide/elevation/footprint/wind
-    and exact motor/hardware/certificate/lot/California/stock details before physical
-    release. ROC/elevation remain assumptions until confirmed.
+  acceptance: Resolve site/date/RSO acceptance, actual guide/elevation/footprint/wind and exact motor/hardware/certificate/lot/California/stock
+    details before physical release. ROC/elevation remain assumptions until confirmed.
   spec_paths: []
   related_parts:
   - motor
@@ -1224,14 +1291,12 @@ requirements:
   - '11'
   evidence: []
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 - id: RT-DATA-001
   applies_to: *id001
   purpose_source: Recorded Analysis view and backend-only physics
-  acceptance: Fields and requirements/interfaces/FMEA link exact configuration/spec/CAD
-    identity, SI units, source/assumptions/limits, provenance and validation; stale/corrupt/missing
-    data cannot become a pass.
+  acceptance: Fields and requirements/interfaces/FMEA link exact configuration/spec/CAD identity, SI units,
+    source/assumptions/limits, provenance and validation; stale/corrupt/missing data cannot become a pass.
   spec_paths: []
   related_parts:
   - all
@@ -1244,6 +1309,9 @@ requirements:
   - '05'
   - '12'
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - runs/wo03-engineering-20261030T175947969565Z/record.json
   - runs/wo03-thermal-20261030T182422090687Z/record.json
   - runs/wo03-tolerances-20261030T182928948369Z/record.json
@@ -1269,14 +1337,17 @@ requirements:
   - docs/wo03-robin-lumped-trial.md
   - docs/wo03-robin-hybrid-trial.md
   status: export_contract_verified
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
+    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
+    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
+    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
+    explicitly establishes otherwise.'
 - id: RT-ABORT-001
   applies_to: *id001
   purpose_source: Independent abort and WO-10 owner review
-  acceptance: Detect loss of control, sensor faults and servo/power/configuration
-    faults; qualify actual safe responses/recovery by flight state. No motor shutdown
-    or finless coast stability is implied by centering.
+  acceptance: Detect loss of control, sensor faults and servo/power/configuration faults; qualify actual
+    safe responses/recovery by flight state. No motor shutdown or finless coast stability is implied by
+    centering.
   spec_paths:
   - avionics.abort.max_tilt_rad
   - avionics.abort.max_rate_rad_s
@@ -1291,8 +1362,7 @@ requirements:
   - IF-CONFIG-001
   - IF-RECOVERY-001
   - IF-POWER-001
-  verification_method: Simulation/HIL and bench fault tests, explicit owner firmware/abort
-    review
+  verification_method: Simulation/HIL and bench fault tests, explicit owner firmware/abort review
   responsible_wo:
   - '06'
   - '07'
@@ -1302,8 +1372,7 @@ requirements:
   - runs/wo02-20261030T204849990760Z/record.json
   - runs/wo03-recovery-integration-20261030T204618137637Z/record.json
   status: open
-  evidence_basis: Provisional design/specification unless an evidence record explicitly
-    establishes otherwise.
+  evidence_basis: Provisional design/specification unless an evidence record explicitly establishes otherwise.
 interfaces:
 - id: IF-UPPER-AFT-001
   name: Shared upper / interchangeable aft
@@ -1313,9 +1382,8 @@ interfaces:
   - RT-CONFIG-001
   - RT-LOAD-001
   - RT-VIB-001
-  datums_axes_units: Nose station 0, +station aft m. Body +x noseward, +y lateral,
-    +z down; CAD X=body+y,Y=body-z,Z=station in mm. Joint stop center at platform
-    interface separation datum.
+  datums_axes_units: Nose station 0, +station aft m. Body +x noseward, +y lateral, +z down; CAD X=body+y,Y=body-z,Z=station
+    in mm. Joint stop center at platform interface separation datum.
   spec_parts:
   - interface_coupler
   - joint_stop
@@ -1323,23 +1391,25 @@ interfaces:
   - aft_interface_hardware
   dimensions_source:
   - configs/platform.yaml:interface
-  - parts interface_coupler/joint_stop/aft_shell geometry and cad parameters; engineering
-    tolerances
-  load_retention: Thrust/inertia/recovery and fin bending through coupler, stop, keys
-    and positive removable fasteners/bonds. Indexing keys are not an axial-retention
-    qualification.
-  indexing_identity: One deliberately wider key/slot for unique angular alignment;
-    visible mode and connector labels and software identity required. Equal threefold
-    keys are a known pre-correction ambiguity.
-  clearance: Use current source dimensions and tolerance/expansion stacks; no measured
-    fit yet.
-  power_connectors: TVC servo harness disconnected before aft exchange; keyed/labeled
-    channel/polarity and strain relief.
+  - parts interface_coupler/joint_stop/aft_shell geometry and cad parameters; engineering tolerances
+  load_retention: Thrust/inertia/recovery and fin bending through coupler, stop, keys and positive removable
+    fasteners/bonds. Indexing keys are not an axial-retention qualification.
+  indexing_identity: One deliberately wider key/slot for unique angular alignment; visible mode and connector
+    labels and software identity required. Equal threefold keys are a known pre-correction ambiguity.
+  clearance: Use current source dimensions and tolerance/expansion stacks; no measured fit yet.
+  power_connectors: TVC servo harness disconnected before aft exchange; keyed/labeled channel/polarity
+    and strain relief.
   unresolved:
+  - C1/R1 fin-to-socket bridge, finite receiver/end/body and cap/recovery demands remain unqualified;
+    R1 is stopped before detailed CAD, not a replacement active interface. New keys/skins/wider socket
+    require actual hot fit and service geometry.
   - Detailed fastener/bond/reinforcement load path and supplier fit
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -1356,8 +1426,8 @@ interfaces:
   - RT-LOAD-001
   - RT-THERM-001
   - RT-FIT-001
-  datums_axes_units: Motor-front and nozzle stations from exact source hypothesis,
-    diameters/lengths in YAML SI; CAD mm. No certified motor modification.
+  datums_axes_units: Motor-front and nozzle stations from exact source hypothesis, diameters/lengths in
+    YAML SI; CAD mm. No certified motor modification.
   spec_parts:
   - motor
   - motor_liner
@@ -1367,19 +1437,25 @@ interfaces:
   dimensions_source:
   - motor/part source curves and sidecars
   - parts geometry/cad and engineering tolerances
-  load_retention: Forward thrust reaction and bidirectional retention require a continuous
-    physical load path into fixed or moving carrier and shell/pivots.
-  indexing_identity: Mark motor/hardware/source hypothesis and install orientation;
-    G54 separate longer carrier.
-  clearance: Installation, hot expansion, removal and nozzle sweep including retention
-    must pass quantitative stack.
-  power_connectors: Ignition/arming and independent recovery remain separate service
-    interfaces.
+  load_retention: Forward thrust reaction and bidirectional retention require a continuous physical load
+    path into fixed or moving carrier and shell/pivots.
+  indexing_identity: Mark motor/hardware/source hypothesis and install orientation; G54 separate longer
+    carrier.
+  clearance: Installation, hot expansion, removal and nozzle sweep including retention must pass quantitative
+    stack.
+  power_connectors: Ignition/arming and independent recovery remain separate service interfaces.
   unresolved:
-  - Isolated G80 bond-only reverse path exceeds estimated hot shear screen; positive load-path correction remains open
+  - C1/R1 fin-to-socket bridge, finite receiver/end/body and cap/recovery demands remain unqualified;
+    R1 is stopped before detailed CAD, not a replacement active interface. New keys/skins/wider socket
+    require actual hot fit and service geometry.
+  - Isolated G80 bond-only reverse path exceeds estimated hot shear screen; positive load-path correction
+    remains open
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-launch-guide-motor-trade.md
   - docs/adr/0012-conditional-launch-guide-options.md
   - docs/wo03-g80-mass-balance-revision.md
@@ -1403,8 +1479,8 @@ interfaces:
   - RT-LOAD-002
   - RT-CONTROL-001
   - RT-VIB-001
-  datums_axes_units: Shared pivot station in tvc, orthogonal CAD Y outer/yaw and X
-    inner/pitch. Rod closure in mm, commands radians.
+  datums_axes_units: Shared pivot station in tvc, orthogonal CAD Y outer/yaw and X inner/pitch. Rod closure
+    in mm, commands radians.
   spec_parts:
   - gimbal_frame
   - tvc_gimbal
@@ -1418,14 +1494,12 @@ interfaces:
   dimensions_source:
   - tvc
   - each CAD generator parameter, geometry and engineering tolerances
-  load_retention: Bearings/pins carry moving motor thrust and inertia; articulated
-    rods/servo mounts carry actuation reactions; retain pins and limit motion mechanically.
-  indexing_identity: Explicit yaw/pitch labels and axis/sign test; exact firmware
-    configuration binding.
-  clearance: Combined axes, tolerance/heat extremes, horn/shaft/rod ends, wires and
-    case/nozzle/retention; local joint exclusions do not establish fit.
-  power_connectors: 5 V rail provisional; two 1 A stall estimates; keyed PWM/polarity
-    and strain relief.
+  load_retention: Bearings/pins carry moving motor thrust and inertia; articulated rods/servo mounts carry
+    actuation reactions; retain pins and limit motion mechanically.
+  indexing_identity: Explicit yaw/pitch labels and axis/sign test; exact firmware configuration binding.
+  clearance: Combined axes, tolerance/heat extremes, horn/shaft/rod ends, wires and case/nozzle/retention;
+    local joint exclusions do not establish fit.
+  power_connectors: 5 V rail provisional; two 1 A stall estimates; keyed PWM/polarity and strain relief.
   unresolved:
   - Supplier spline/shaft, rod ends, pin retention and loaded backlash
   - Full tolerance/continuous/wiring and stop evidence
@@ -1441,8 +1515,7 @@ interfaces:
   - RT-VIB-001
   - RT-FIT-001
   - RT-MASS-002
-  datums_axes_units: Part stations and body lateral offsets; sensor axes/alignment
-    to the body frame.
+  datums_axes_units: Part stations and body lateral offsets; sensor axes/alignment to the body frame.
   spec_parts:
   - avionics_bay
   - flight_computer
@@ -1454,13 +1527,11 @@ interfaces:
   dimensions_source:
   - shared upper part geometry/cad
   - avionics sensors and loop/physics rates
-  load_retention: Nonconducting carrier/clips/standoffs and battery restraint transfer
-    inertia into sled; exact mounting remains explicit.
+  load_retention: Nonconducting carrier/clips/standoffs and battery restraint transfer inertia into sled;
+    exact mounting remains explicit.
   indexing_identity: Board orientation and sensor axes labeled; revision recorded.
-  clearance: Sled insertion/removal, battery replacement, connector/cable bend and
-    arming access.
-  power_connectors: SPI high-g, low-g IMU retained; logic regulator, microSD and strain
-    relief.
+  clearance: Sled insertion/removal, battery replacement, connector/cable bend and arming access.
+  power_connectors: SPI high-g, low-g IMU retained; logic regulator, microSD and strain relief.
   unresolved:
   - Exact mounts/holes/connectors and service access
   - Vibration transmission/aliasing, timing and calibration
@@ -1476,8 +1547,7 @@ interfaces:
   - RT-RECOVERY-002
   - RT-ABORT-001
   - RT-LOAD-001
-  datums_axes_units: Nose/bulkhead/pack stations, free insertion/extraction path and
-    cord/connector routing.
+  datums_axes_units: Nose/bulkhead/pack stations, free insertion/extraction path and cord/connector routing.
   spec_parts:
   - parachute
   - shock_cord
@@ -1487,27 +1557,38 @@ interfaces:
   - recovery_protection
   dimensions_source:
   - shared upper geometry, recovery parameters and engineering packing inputs
-  load_retention: Harness opening loads through captive anchor/bulkhead/bonds and
-    recovered assembly, with actual aft mass below the joint.
-  indexing_identity: Independent arming and flight-state identity; safe repack/service
-    procedure.
-  clearance: Packed volume with protection/cord/anchors, no snag or blocked extraction;
-    physical deployment tests required.
-  power_connectors: Independent processor/task and isolated reserve supply required;
-    no plugged G12 motor-ejection backup.
+  load_retention: Harness opening loads through captive anchor/bulkhead/bonds and recovered assembly,
+    with actual aft mass below the joint.
+  indexing_identity: Independent arming and flight-state identity; safe repack/service procedure.
+  clearance: Packed volume with protection/cord/anchors, no snag or blocked extraction; physical deployment
+    tests required.
+  power_connectors: Independent processor/task and isolated reserve supply required; no plugged G12 motor-ejection
+    backup.
   unresolved:
-  - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only load credit
-  - C1 mass balance is positive only in specified calculations; thinner body/local socket and higher fin loads require actual strength/thermal/flutter/service checks and confirmed guide setup
-  - S3 defines matched end faces and positive cap/key/fin connections but fails full-growth stability and motor-removal service; cap reaction signs, body path, hot finished eyes and contact remain unresolved
-  - Integrated additive receiver is rejected on stock mass and unclosed joints; replace duplicated wood frame and carrier/collars with one common positive aft receiver before another physical iteration
-  - S2 requires one positive carrier-to-fin-frame/body receiver, actual motor thermal capture and serviceable harness closure; diagnostic foot gap cannot be a fixed support
-  - S1 aft termination and foot must be redesigned with load-spreading contact, valid fastener grip and finished-eye capacity; recalculate unchanged opening cases at complete full-growth mass, not frozen1782N
+  - C1/R1 fin-to-socket bridge, finite receiver/end/body and cap/recovery demands remain unqualified;
+    R1 is stopped before detailed CAD, not a replacement active interface. New keys/skins/wider socket
+    require actual hot fit and service geometry.
+  - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only
+    load credit
+  - C1 mass balance is positive only in specified calculations; thinner body/local socket and higher fin
+    loads require actual strength/thermal/flutter/service checks and confirmed guide setup
+  - S3 defines matched end faces and positive cap/key/fin connections but fails full-growth stability
+    and motor-removal service; cap reaction signs, body path, hot finished eyes and contact remain unresolved
+  - Integrated additive receiver is rejected on stock mass and unclosed joints; replace duplicated wood
+    frame and carrier/collars with one common positive aft receiver before another physical iteration
+  - S2 requires one positive carrier-to-fin-frame/body receiver, actual motor thermal capture and serviceable
+    harness closure; diagnostic foot gap cannot be a fixed support
+  - S1 aft termination and foot must be redesigned with load-spreading contact, valid fastener grip and
+    finished-eye capacity; recalculate unchanged opening cases at complete full-growth mass, not frozen1782N
   - Actual deployment/separation mechanism and pressure isolation compatible with tether passages
   - Bends, abrasion, hot terminations and module/motor service; straight envelope is not installed clearance
   - Packed-volume/cord/connector envelope and extraction measurements
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
@@ -1527,8 +1608,8 @@ interfaces:
   - RT-POWER-001
   - RT-RECOVERY-002
   - RT-ABORT-001
-  datums_axes_units: Electrical volts/amps/joules and timing seconds; mechanical connector
-    envelopes in part SI.
+  datums_axes_units: Electrical volts/amps/joules and timing seconds; mechanical connector envelopes in
+    part SI.
   spec_parts:
   - battery
   - regulator_5v
@@ -1539,17 +1620,15 @@ interfaces:
   dimensions_source:
   - electrical and netlist blocks
   - configs/engineering/wo03.yaml:power
-  load_retention: Strain relief and keyed/polarized connectors; no single control
-    fuse/connector/rail may silently disable claimed independent recovery.
-  indexing_identity: Label circuits/polarity and arming state; record component/circuit
-    revisions.
+  load_retention: Strain relief and keyed/polarized connectors; no single control fuse/connector/rail
+    may silently disable claimed independent recovery.
+  indexing_identity: Label circuits/polarity and arming state; record component/circuit revisions.
   clearance: Connector insertion/removal, harness slack/bend, accessible isolation/arming.
-  power_connectors: Bound simultaneous servo stalls and logic peaks; regulate with
-    loss/thermal margin. Dedicated recovery pulse/supply is a separate circuit requirement.
+  power_connectors: Bound simultaneous servo stalls and logic peaks; regulate with loss/thermal margin.
+    Dedicated recovery pulse/supply is a separate circuit requirement.
   unresolved:
   - Current shared supply common cause in initial netlist
-  - Exact regulator, reserve battery, protection/boost/initiator and wire/connector
-    ratings
+  - Exact regulator, reserve battery, protection/boost/initiator and wire/connector ratings
   - Brownout/short/thermal/isolation tests
   evidence:
   - runs/wo03-20261030T205235088123Z/record.json
@@ -1561,18 +1640,16 @@ interfaces:
   - RT-GUIDE-001
   - RT-LOAD-002
   - RT-OPS-001
-  datums_axes_units: Guide lug centerline and separation from source CAD; usable travel
-    and departure direction in SI.
+  datums_axes_units: Guide lug centerline and separation from source CAD; usable travel and departure
+    direction in SI.
   spec_parts:
   - rail_guides
   - body_upper
   dimensions_source:
   - rail guide CAD parameters
   - design.rail_length_m
-  load_retention: Guide side reactions and local shell crushing/bond/fastener load
-    transfer.
-  indexing_identity: Match actual guide/rail hardware and field setup, not a nominal
-    diameter alone.
+  load_retention: Guide side reactions and local shell crushing/bond/fastener load transfer.
+  indexing_identity: Match actual guide/rail hardware and field setup, not a nominal diameter alone.
   clearance: Fit, straightness, insertion path, exit and binding under side load.
   power_connectors: Ignition/arming cable routing must clear the guide.
   unresolved:
@@ -1592,26 +1669,30 @@ interfaces:
   - RT-DATA-001
   - RT-ABORT-001
   - RT-AERO-001
-  datums_axes_units: Resolved-spec SHA256, generator/part shape hashes, analysis mesh
-    registration, SI/internal frames and recorded display transforms.
+  datums_axes_units: Resolved-spec SHA256, generator/part shape hashes, analysis mesh registration, SI/internal
+    frames and recorded display transforms.
   spec_parts:
   - all
   dimensions_source:
   - resolved YAML and source hashes
   - analysis manifest identity
-  load_retention: Software cannot compensate for wrong hardware or certify an unverified
-    load path.
-  indexing_identity: Mode/motor/avionics/policy/lot revisions and exact hashes checked
-    before arming; signed-off as-flown record in later stages.
-  clearance: Not a mechanical clearance; reject stale/missing/mismatched identity
-    and incompatible overlays.
-  power_connectors: Real-time timing, sensor range/validity, actuator mapping and
-    recovery independence cross the software boundary.
+  load_retention: Software cannot compensate for wrong hardware or certify an unverified load path.
+  indexing_identity: Mode/motor/avionics/policy/lot revisions and exact hashes checked before arming;
+    signed-off as-flown record in later stages.
+  clearance: Not a mechanical clearance; reject stale/missing/mismatched identity and incompatible overlays.
+  power_connectors: Real-time timing, sensor range/validity, actuator mapping and recovery independence
+    cross the software boundary.
   unresolved:
+  - C1/R1 fin-to-socket bridge, finite receiver/end/body and cap/recovery demands remain unqualified;
+    R1 is stopped before detailed CAD, not a replacement active interface. New keys/skins/wider socket
+    require actual hot fit and service geometry.
   - Embedded identity/fault implementation is WO-10
   - Source/lot/site updates before procurement/flight
   - Measured as-built identity and calibration separate from evaluation
   evidence:
+  - docs/wo03-c1-fin-attachment.md
+  - runs/wo03-c1-fin-attachment-20261102-v1/record.json
+  - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
   - https://github.com/kudratsingh/rocket-twin/pull/5
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
@@ -1621,19 +1702,17 @@ fmea:
   applicable_configurations:
   - G12-F
   - G12-L
-  cause: Interference, hot softening, misalignment, worn bearing or stalled/overloaded
-    actuator.
+  cause: Interference, hot softening, misalignment, worn bearing or stalled/overloaded actuator.
   local_system_effect: Lost or stuck thrust-vector command; possible control loss.
   severity: S4 finless; S3/S4 finned depending recovery and loads
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Command/response, rate/current and estimator residual; exact feedback
-    capability unresolved.
-  mitigation_design_change: Swept/tolerance/load/thermal corrections, positive retention,
-    loaded actuator model, jam detection and qualified recovery.
-  residual_risk: Center command cannot move a jam; cannot shut off the solid motor
-    or stabilize an unstable coast.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Command/response, rate/current and estimator residual; exact feedback capability unresolved.
+  mitigation_design_change: Swept/tolerance/load/thermal corrections, positive retention, loaded actuator
+    model, jam detection and qualified recovery.
+  residual_risk: Center command cannot move a jam; cannot shut off the solid motor or stabilize an unstable
+    coast.
   verification_test: Hot/loaded range and injected jam through burnout/recovery.
   requirements:
   - RT-MOTION-001
@@ -1644,23 +1723,21 @@ fmea:
 - id: FMEA-002
   failure_mode: Brownout/common supply failure
   applicable_configurations: *id001
-  cause: Simultaneous servo stalls, regulator droop, cell/connector short or control
-    reset; initial reserve unit shares source battery.
+  cause: Simultaneous servo stalls, regulator droop, cell/connector short or control reset; initial reserve
+    unit shares source battery.
   local_system_effect: Control and supposedly independent recovery can fail together.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
   detection: Voltage/current/reset monitoring; blackout may prevent logging/detection.
-  mitigation_design_change: Isolated reserve recovery source/driver/arming and fault
-    containment; rail/connector budget. Integrated mode override was corrected; all
-    six resolved recovery networks are regressed for dedicated battery/switch/return
-    and separation from the main graph. Physical continuity, EMC and common-cause
+  mitigation_design_change: Isolated reserve recovery source/driver/arming and fault containment; rail/connector
+    budget. Integrated mode override was corrected; all six resolved recovery networks are regressed for
+    dedicated battery/switch/return and separation from the main graph. Physical continuity, EMC and common-cause
     faults remain unqualified.
-  residual_risk: Common harness, thermal, arming and physical damage can remain common
-    causes; separation must be demonstrated.
-  verification_test: Loaded brownout, short, unplug, reset and independent deployment
-    tests.
+  residual_risk: Common harness, thermal, arming and physical damage can remain common causes; separation
+    must be demonstrated.
+  verification_test: Loaded brownout, short, unplug, reset and independent deployment tests.
   requirements:
   - RT-POWER-001
   - RT-RECOVERY-002
@@ -1671,20 +1748,17 @@ fmea:
 - id: FMEA-003
   failure_mode: Sensor saturation/dropout/misalignment
   applicable_configurations: *id001
-  cause: Low-g IMU clips at predicted acceleration; gyro saturation, aliasing, transport
-    loss, wrong axis/calibration.
+  cause: Low-g IMU clips at predicted acceleration; gyro saturation, aliasing, transport loss, wrong axis/calibration.
   local_system_effect: Estimator bias/loss; unsafe controller or missed recovery state.
   severity: S4 for uncontained control/recovery dependence
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Range/age/self-test and cross-sensor plausibility; high-g does not fix
-    gyro saturation.
-  mitigation_design_change: High-g path plus retained low-g gyro, timestamp/health
-    handling and independent recovery sensing.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Range/age/self-test and cross-sensor plausibility; high-g does not fix gyro saturation.
+  mitigation_design_change: High-g path plus retained low-g gyro, timestamp/health handling and independent
+    recovery sensing.
   residual_risk: Unmeasured bandwidth/delay, vibration and shared bus/power remain.
-  verification_test: Clip/dropout/axis/latency and vibration aliasing injection/bench
-    tests.
+  verification_test: Clip/dropout/axis/latency and vibration aliasing injection/bench tests.
   requirements:
   - RT-SENSOR-001
   - RT-VIB-001
@@ -1696,21 +1770,18 @@ fmea:
 - id: FMEA-004
   failure_mode: Connector/channel/polarity fault
   applicable_configurations: *id001
-  cause: Swapped yaw/pitch, partial mating, strain, loose wire, reversed power or
-    servo/pyro connector confusion.
-  local_system_effect: Wrong/absent actuation, shorts or recovery loss/inadvertent
-    initiation.
+  cause: Swapped yaw/pitch, partial mating, strain, loose wire, reversed power or servo/pyro connector
+    confusion.
+  local_system_effect: Wrong/absent actuation, shorts or recovery loss/inadvertent initiation.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Continuity, polarity/channel tests, sensor/actuator response; some faults
-    intermittent.
-  mitigation_design_change: Keyed/polarized labeled connectors, strain relief, service
-    access and safe arming procedure.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Continuity, polarity/channel tests, sensor/actuator response; some faults intermittent.
+  mitigation_design_change: Keyed/polarized labeled connectors, strain relief, service access and safe
+    arming procedure.
   residual_risk: Keying does not prove internal pinout or field assembly correctness.
-  verification_test: Pull/flex/vibration, channel/sign, polarity and armed-state fault
-    tests.
+  verification_test: Pull/flex/vibration, channel/sign, polarity and armed-state fault tests.
   requirements:
   - RT-CONFIG-001
   - RT-POWER-001
@@ -1722,34 +1793,35 @@ fmea:
 - id: FMEA-005
   failure_mode: Structural load path/bond/retention failure
   applicable_configurations: *id001
-  cause: Fin/root buckling, tube crushing, incomplete bond, weak print/grain direction
-    or loose retention.
-  local_system_effect: Loss of motor/fin/module/recovery attachment; trajectory or
-    recovery failure.
+  cause: Fin/root buckling, tube crushing, incomplete bond, weak print/grain direction or loose retention.
+  local_system_effect: Loss of motor/fin/module/recovery attachment; trajectory or recovery failure.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Inspection, dimensional/proof tests; hidden bond defects may escape visual
-    inspection.
-  mitigation_design_change: Close load paths, reinforced interfaces, orientation and
-    cure specification; verified/converged analyses. Separate G80 keeper/through-bolt
-    geometry and staged service studies are proposed in docs/wo03-g80-keeper-service.md;
-    no active adoption or strength pass follows from nominal restraints.
-  residual_risk: Estimated properties and assembly workmanship remain unqualified.
-    C1 preserves those unresolved connection findings; swept tapered fins increase root moment to8.830Nm and new thin-shell/local-socket strength is unverified despite1.319cal calculated static margin.
-    S3 continuous end joints are dimensioned but not qualified; severe recovery cap sensitivity exceeds provisional screens, body serial cut and service fail, and full-growth stability is0.205cal. Longer guide does not mitigate those failures.
-    The additive S2 receiver is also rejected; partial stock exceeds formal guide mass ceiling, while shell/fin/pin/hot-contact capacity remains unverified. No rigid support or unmodeled clipping closes a joint.
-    S2 is not admitted; its independent carrier has no accepted positive fin-frame/body receiver, and its recorded foot gap is3.8mm. No loop preload or rigid support supplies that missing connection.
-    The isolated G80 fixed-support mean shear exceeds its provisional hot screen;
-    a positive load-path correction is required before acceptance.
-    The bounded B/C proposals remain rejected at preflight; B moves force into
-    unverified rail/pin joints; C conflicts with the coupler and hot-section screen.
-    Short captured aft subframe plus aramid backbone is only the next direction.
-    G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Inspection, dimensional/proof tests; hidden bond defects may escape visual inspection.
+  mitigation_design_change: Close load paths, reinforced interfaces, orientation and cure specification;
+    verified/converged analyses. Separate G80 keeper/through-bolt geometry and staged service studies
+    are proposed in docs/wo03-g80-keeper-service.md; no active adoption or strength pass follows from
+    nominal restraints.
+  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
+    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
+    unavailable thermal or inherited panel/flutter credit. Estimated properties and assembly workmanship
+    remain unqualified. C1 preserves those unresolved connection findings; swept tapered fins increase
+    root moment to8.830Nm and new thin-shell/local-socket strength is unverified despite1.319cal calculated
+    static margin. S3 continuous end joints are dimensioned but not qualified; severe recovery cap sensitivity
+    exceeds provisional screens, body serial cut and service fail, and full-growth stability is0.205cal.
+    Longer guide does not mitigate those failures. The additive S2 receiver is also rejected; partial
+    stock exceeds formal guide mass ceiling, while shell/fin/pin/hot-contact capacity remains unverified.
+    No rigid support or unmodeled clipping closes a joint. S2 is not admitted; its independent carrier
+    has no accepted positive fin-frame/body receiver, and its recorded foot gap is3.8mm. No loop preload
+    or rigid support supplies that missing connection. The isolated G80 fixed-support mean shear exceeds
+    its provisional hot screen; a positive load-path correction is required before acceptance. The bounded
+    B/C proposals remain rejected at preflight; B moves force into unverified rail/pin joints; C conflicts
+    with the coupler and hot-section screen. Short captured aft subframe plus aramid backbone is only
+    the next direction. G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness
     is not zero physical reaction. Installed load paths and later owner proof remain open.
-  verification_test: Coupons, pull/bending/bearing, buckling and recovery opening
-    proof tests.
+  verification_test: Coupons, pull/bending/bearing, buckling and recovery opening proof tests.
   requirements:
   - RT-LOAD-001
   - RT-LOAD-002
@@ -1762,21 +1834,22 @@ fmea:
 - id: FMEA-006
   failure_mode: Thermal degradation/heat soak
   applicable_configurations: *id001
-  cause: Long G12 exposure or unknown case temperature, insufficient insulation/spacing,
-    hot adhesive or wiring.
-  local_system_effect: Mount/gimbal softening/jam, bond/structural failure or simultaneous
-    electronics/recovery loss.
+  cause: Long G12 exposure or unknown case temperature, insufficient insulation/spacing, hot adhesive
+    or wiring.
+  local_system_effect: Mount/gimbal softening/jam, bond/structural failure or simultaneous electronics/recovery
+    loss.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Temperature instrumentation and post-test inspection; in-flight response
-    may be too late.
-  mitigation_design_change: Bounded heat analysis, shield/air-gap/material revisions
-    and temperature derating.
-  residual_risk: External case histories and property/contact bounds unmeasured; direct
-    S2 case/carrier expansion and connector/strap temperature remain unqualified; case endplay can close in the stated sensitivity, making the commercial case an unintended structural strut.
-    plume/hot gas not cleared by current lumped model.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Temperature instrumentation and post-test inspection; in-flight response may be too late.
+  mitigation_design_change: Bounded heat analysis, shield/air-gap/material revisions and temperature derating.
+  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
+    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
+    unavailable thermal or inherited panel/flutter credit. External case histories and property/contact
+    bounds unmeasured; direct S2 case/carrier expansion and connector/strap temperature remain unqualified;
+    case endplay can close in the stated sensitivity, making the commercial case an unintended structural
+    strut. plume/hot gas not cleared by current lumped model.
   verification_test: Instrumented exact-motor burn/soak and hot-load/adhesive tests.
   requirements:
   - RT-THERM-001
@@ -1789,19 +1862,17 @@ fmea:
 - id: FMEA-007
   failure_mode: Wrong module/configuration pairing
   applicable_configurations: *id001
-  cause: Threefold indexing ambiguity, stale policy/spec/motor hash, wrong fin state
-    or incorrect mount/lot.
-  local_system_effect: Wrong axes/mass/aero/control authority; invalid evidence and
-    potential loss of control.
+  cause: Threefold indexing ambiguity, stale policy/spec/motor hash, wrong fin state or incorrect mount/lot.
+  local_system_effect: Wrong axes/mass/aero/control authority; invalid evidence and potential loss of
+    control.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
   detection: Pre-arm identity, presence/sign tests and physical markings.
-  mitigation_design_change: Unique angular key, durable mode ID and firmware mismatch
-    rejection; exact as-flown record.
-  residual_risk: Angular indexing alone cannot identify every module type or prove
-    motor lot.
+  mitigation_design_change: Unique angular key, durable mode ID and firmware mismatch rejection; exact
+    as-flown record.
+  residual_risk: Angular indexing alone cannot identify every module type or prove motor lot.
   verification_test: Deliberate wrong-module/axis/motor/policy/firmware mismatch tests.
   requirements:
   - RT-CONFIG-001
@@ -1813,22 +1884,26 @@ fmea:
 - id: FMEA-008
   failure_mode: Recovery extraction/inflation/anchor failure
   applicable_configurations: *id001
-  cause: Packing snag, crowded wiring, damaged protection, anchor pull-out, failed
-    initiator/driver or incorrect state logic.
+  cause: Packing snag, crowded wiring, damaged protection, anchor pull-out, failed initiator/driver or
+    incorrect state logic.
   local_system_effect: Ballistic/unsafe return even if control task aborts correctly.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Ground extraction/deployment/continuity/proof; flight sensing does not
-    guarantee inflation.
-  mitigation_design_change: Independent qualified recovery, protected snag-free pack
-    and load-qualified attachments. Historical all-mode demand reaches1831.7N; the new isolated G80 probe is1782.3N, already DF3. Its serial paper-body cut exceeds the estimated screen. A continuous protected backbone is only a layout candidate; actual nose/payload/aft joints, separation mechanism, pressure isolation, switch access, board retention and routing remain open WO-03 design items.
-  residual_risk: Plugged G12 has no motor-ejection backup; redundant triggers cannot
-    release a jammed pack.
-    S2 finished loop/eye, multi-leg connector, closed-loop service and actual receiver remain unavailable. Recalculate the same opening case at full new mass; diagnostic S2 demand is1968.154N, not a measured peak or frozen1782N.
-  verification_test: Repeated repacking, cold/hot extraction, deployment and opening-load
-    proof.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Ground extraction/deployment/continuity/proof; flight sensing does not guarantee inflation.
+  mitigation_design_change: Independent qualified recovery, protected snag-free pack and load-qualified
+    attachments. Historical all-mode demand reaches1831.7N; the new isolated G80 probe is1782.3N, already
+    DF3. Its serial paper-body cut exceeds the estimated screen. A continuous protected backbone is only
+    a layout candidate; actual nose/payload/aft joints, separation mechanism, pressure isolation, switch
+    access, board retention and routing remain open WO-03 design items.
+  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
+    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
+    unavailable thermal or inherited panel/flutter credit. Plugged G12 has no motor-ejection backup; redundant
+    triggers cannot release a jammed pack. S2 finished loop/eye, multi-leg connector, closed-loop service
+    and actual receiver remain unavailable. Recalculate the same opening case at full new mass; diagnostic
+    S2 demand is1968.154N, not a measured peak or frozen1782N.
+  verification_test: Repeated repacking, cold/hot extraction, deployment and opening-load proof.
   requirements:
   - RT-RECOVERY-001
   - RT-RECOVERY-002
@@ -1840,20 +1915,18 @@ fmea:
   applicable_configurations:
   - G12-F
   - G12-L
-  cause: Assuming centering is stabilizing without thrust; finless vehicle enters
-    uncontrolled coast or deploys outside qualified state.
-  local_system_effect: Uncontrolled attitude/recovery transition despite a centered
-    command.
+  cause: Assuming centering is stabilizing without thrust; finless vehicle enters uncontrolled coast or
+    deploys outside qualified state.
+  local_system_effect: Uncontrolled attitude/recovery transition despite a centered command.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Thrust/time/attitude/rate state; estimator or timing error can defeat
-    detection.
-  mitigation_design_change: Qualify explicit powered-to-recovery transition per actual
-    finless configuration and reject unqualified flight.
-  residual_risk: No solid-motor shutdown or post-burn TVC authority; detection alone
-    is not a safe recovery strategy.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Thrust/time/attitude/rate state; estimator or timing error can defeat detection.
+  mitigation_design_change: Qualify explicit powered-to-recovery transition per actual finless configuration
+    and reject unqualified flight.
+  residual_risk: No solid-motor shutdown or post-burn TVC authority; detection alone is not a safe recovery
+    strategy.
   verification_test: Loss-of-thrust/timing/state/abort HIL and staged qualification.
   requirements:
   - RT-CONTROL-001
@@ -1867,20 +1940,17 @@ fmea:
 - id: FMEA-010
   failure_mode: Software/timing/model-domain error
   applicable_configurations: *id001
-  cause: Overrun, stale samples, policy/config error, arithmetic fault or unmodeled
-    large-angle dynamics.
+  cause: Overrun, stale samples, policy/config error, arithmetic fault or unmodeled large-angle dynamics.
   local_system_effect: Bad or late commands; common control/recovery task lockup.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
   detection: Watchdog/timing/validity monitors, independent state/health and logs.
-  mitigation_design_change: Bounded embedded policy, validity-aware shared model,
-    isolated recovery and verified fault responses.
-  residual_risk: Unmodeled coupling and outside-domain operation cannot count as qualified
-    success.
-  verification_test: HIL overrun/dropout/invalid output/config/domain faults; WO-10
-    owner review.
+  mitigation_design_change: Bounded embedded policy, validity-aware shared model, isolated recovery and
+    verified fault responses.
+  residual_risk: Unmodeled coupling and outside-domain operation cannot count as qualified success.
+  verification_test: HIL overrun/dropout/invalid output/config/domain faults; WO-10 owner review.
   requirements:
   - RT-AERO-001
   - RT-ABORT-001
@@ -1892,24 +1962,23 @@ fmea:
 - id: FMEA-011
   failure_mode: Vibration/resonance/flutter
   applicable_configurations: *id001
-  cause: Flexible root/joint/gimbal, temperature-softened structure, unknown propulsion
-    spectrum or servo excitation; sensor mount resonance.
+  cause: Flexible root/joint/gimbal, temperature-softened structure, unknown propulsion spectrum or servo
+    excitation; sensor mount resonance.
   local_system_effect: Fin/structure failure or aliased sensor/controller instability.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
-  detection: Modal/torsion/vibration tests and high-rate logs; flutter onset may be
-    abrupt.
-  mitigation_design_change: "Executed modal/flutter screens, stiffening/attachment\
-    \ corrections, damping/alias limits and operating envelope. Current body first\
-    \ modes16\u201326Hz and gross gimbal32.6\u201351.6Hz identify WO-06 coupled actuator/body/sensor\
-    \ risks. Root stiffness/peel and large-angle flutter remain open; component numerical\
-    \ agreement is not hardware qualification."
-  residual_risk: "Crude bending\u2013torsion criterion does not clear stall flutter,\
-    \ body/control coupling or unknown damping."
-  verification_test: Known-case/convergence, hot modal/torsion and loaded vibration;
-    staged envelope expansion.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
+  detection: Modal/torsion/vibration tests and high-rate logs; flutter onset may be abrupt.
+  mitigation_design_change: Executed modal/flutter screens, stiffening/attachment corrections, damping/alias
+    limits and operating envelope. Current body first modes16–26Hz and gross gimbal32.6–51.6Hz identify
+    WO-06 coupled actuator/body/sensor risks. Root stiffness/peel and large-angle flutter remain open;
+    component numerical agreement is not hardware qualification.
+  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
+    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
+    unavailable thermal or inherited panel/flutter credit. Crude bending–torsion criterion does not clear
+    stall flutter, body/control coupling or unknown damping.
+  verification_test: Known-case/convergence, hot modal/torsion and loaded vibration; staged envelope expansion.
   requirements:
   - RT-VIB-001
   - RT-FLUTTER-001
@@ -1922,19 +1991,21 @@ fmea:
 - id: FMEA-012
   failure_mode: Operating/supplier/equipment mismatch
   applicable_configurations: *id001
-  cause: Unverified guide/site/wind, wrong certified hardware/delay/lot, assembly
-    error or damaged/wet parts.
+  cause: Unverified guide/site/wind, wrong certified hardware/delay/lot, assembly error or damaged/wet
+    parts.
   local_system_effect: Poor departure, structural/control excursion or recovery failure.
   severity: S4
   likelihood: unknown
-  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism
-    and current unresolved interfaces, not a numeric probability.
+  likelihood_basis: No component/flight failure-rate data. Credibility follows mechanism and current unresolved
+    interfaces, not a numeric probability.
   detection: Owner/club/RSO checks, inspection and exact equipment/source record.
-  mitigation_design_change: Resolve supplier/site/equipment, operating limits and
-    staged procedures; reject out-of-envelope launch.
-  residual_risk: No current launch authorization or exact purchasable-hardware freeze.
-  verification_test: Preflight dry run, guide fit/friction and source/lot/configuration
-    audit.
+  mitigation_design_change: Resolve supplier/site/equipment, operating limits and staged procedures; reject
+    out-of-envelope launch.
+  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
+    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
+    unavailable thermal or inherited panel/flutter credit. No current launch authorization or exact purchasable-hardware
+    freeze.
+  verification_test: Preflight dry run, guide fit/friction and source/lot/configuration audit.
   requirements:
   - RT-OPS-001
   - RT-GUIDE-001

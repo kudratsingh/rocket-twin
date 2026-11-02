@@ -1815,3 +1815,27 @@ reference mass/inertia do not validate the candidate's full vehicle. Exact sourc
 hashes and separate evidence scope are in the saved v2records; no stoppedS3 or
 12-combination motorstudy was repeated. G80first,G54upgrade,G12/PID-RL and all
 physical/purchase/paid/WO10/flight-release gates preserved.
+
+## 2026-11-02 C1 installed-fin preflight
+
+**Current C1 attachment checkpoint (2026-11-02):**
+[C1 source identity](wo03-c1-attachment-source-lock.md) is frozen at1079.807g
+nominal + separate50g =1129.807g. The one [R1 installed-fin reinforcement
+preflight](wo03-c1-fin-attachment.md) is stopped before CAD/native analysis:
++70.111g, bridge mean hot shear4.756MPa>estimated1MPa, corrected ideal aggregate
+movement1.039mm>1mm, adverse static margin0.991984cal<1.0. Nominal/adverse
+masses1199.918/1219.918g miss conditional15.5m/s planning by47.602/67.602g.
+Adverse formal speed15.000251870m/s on illustrative1.971m has only0.035501g
+headroom and is not useful margin. C1 remains selected preliminary; no active
+change or installed/thermal/flutter acceptance. The one next construction
+preflight is a lightweight sandwich fin/dense captured root and mechanically
+closed socket, with complete replacement mass and finite end/body connections.
+Keep1.5m baseline, full50g,15m/s formal and separate15.5 planning unchanged;
+all equipment remains unconfirmed. G54 and G12/PID-to-RL stay separate.
+
+Known rectangular-beam final error0.0000391%; three-level strip-integration
+final change0.0005064%. Contact equilibrium closes arithmetic, not installed
+strength. Packet0.400CPU/0.478wall seconds within20/30s; no native/CAD/thermal
+or free flight. The read-only connection audit corrects receiver torque
+reference without rewriting or rerunning the original packet. Full inertia,
+actual C1/R1 CAD, thermal fields and installed flutter remain unavailable.

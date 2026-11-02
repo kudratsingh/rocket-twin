@@ -1,0 +1,117 @@
+{
+  "inherited_clearance_sensitivities": {
+    "R1_inner_radius_reduction_mm": 0.2,
+    "R1_outer_radius_unchanged": true,
+    "motor_relative_axial_closure_bound_mm": 2.0352,
+    "nominal_floating_travel_less_manufacturing_mm": 2.7,
+    "outer_receiver_to_body_G11_150C_min_mm": 0.108,
+    "outer_receiver_to_body_cold_min_mm": 0.2,
+    "remaining_axial_travel_mm": 0.6648000000000001,
+    "required_min_mm": 0.1,
+    "status": "Inherited source bounded-input sensitivities only. New root/shim/key/contact paths, purchased nozzle/case, radial inner clearances and service need actual geometry and hot properties. No new fit/thermal acceptance."
+  },
+  "receiver_motion_correction": "v1 receiver-only elastic term used body-root moment, and first audit used socket-center moment. Receiver/end torsion must use rocket-axis moment including F times full 33 mm root radius. Both prior records are preserved; only torque-dependent proxies are superseded. Decisions unchanged.",
+  "scope": "Derived joint demands and corrected receiver-only torque reference, not installed acceptance or another physics campaign",
+  "source_record_sha256": "0af4cc8a52bf68feb5a7e69f3af2f39333894272389c6b28d47e1f5b76b7bd5b",
+  "structures": {
+    "C1": {
+      "axis_torque_transport_residual_Nm": 0.0,
+      "body_bond_peel_local_crushing_and_paper_capacity": null,
+      "corrected_1mm_remaining_m": -0.0021791788394317385,
+      "corrected_hot_panel_play_and_ideal_receiver_motion_m": 0.0031791788394317385,
+      "corrected_receiver_only_service_motion_m": 7.72952011972023e-05,
+      "end_joint_demands": [
+        {
+          "R1_key_36mm2_mean_shear_or_bearing_pa": 5898990.508783362,
+          "capacity_status": "Demand only; actual hot bearing/interlaminar/fastener allowable, cap pocket ligaments and attachment stiffness unavailable",
+          "end": "fore",
+          "ideal_share_torque_DF3_Nm": 5.733818774537427,
+          "one_R1_key_full_end_torque_N": 212.36365831620103,
+          "single_M3_shear_pa": 33798725.95410168,
+          "single_M3_tangential_DF3_N": 238.90911560572613,
+          "single_end_barrel_mean_bearing_pa": 6345527.638930309,
+          "single_end_barrel_two_ligament_mean_shear_pa": 1746475.496953296,
+          "transverse_DF3_N": 78.54546266489625
+        },
+        {
+          "R1_key_36mm2_mean_shear_or_bearing_pa": 10680623.483869595,
+          "capacity_status": "Demand only; actual hot bearing/interlaminar/fastener allowable, cap pocket ligaments and attachment stiffness unavailable",
+          "end": "aft",
+          "ideal_share_torque_DF3_Nm": 10.381566026321247,
+          "one_R1_key_full_end_torque_N": 384.50244541930545,
+          "single_M3_shear_pa": 61195464.819404155,
+          "single_M3_tangential_DF3_N": 432.5652510967186,
+          "single_end_barrel_mean_bearing_pa": 11489116.894999167,
+          "single_end_barrel_two_ligament_mean_shear_pa": 7034153.201019897,
+          "transverse_DF3_N": 142.2132332372774
+        }
+      ],
+      "finite_joint_sensitivities_not_validated_bounds": null,
+      "fore_skirt_aero_torque_mean_shear_pa": 46597.50820877989,
+      "fore_skirt_effective_bond_area_m2": 0.0038453094079939068,
+      "fore_skirt_transverse_mean_shear_pa": 20426.304968232274,
+      "multi_fin_validity": "Single-fin envelope establishes local demands. Three same-sign full moments are not this symmetric steady case; asymmetric gust/fault roll, pitch and recovery cases remain to resolve with actual flexible supports.",
+      "rocket_axis_torque_DF3_once_Nm": 16.115384800858674,
+      "socket_bridge_hot_1MPa_shear_estimate_ratio": 0.14018825171145605,
+      "three_fins_small_angle_equal_geometry_roll_torque_sum_residual": 3.3306690738754696e-16
+    },
+    "R1": {
+      "axis_torque_transport_residual_Nm": 0.0,
+      "body_bond_peel_local_crushing_and_paper_capacity": null,
+      "corrected_1mm_remaining_m": -3.8934240287954726e-05,
+      "corrected_hot_panel_play_and_ideal_receiver_motion_m": 0.0010389342402879547,
+      "corrected_receiver_only_service_motion_m": 6.242122385276397e-05,
+      "end_joint_demands": [
+        {
+          "R1_key_36mm2_mean_shear_or_bearing_pa": 5898990.508783362,
+          "capacity_status": "Demand only; actual hot bearing/interlaminar/fastener allowable, cap pocket ligaments and attachment stiffness unavailable",
+          "end": "fore",
+          "ideal_share_torque_DF3_Nm": 5.733818774537427,
+          "one_R1_key_full_end_torque_N": 212.36365831620103,
+          "single_M3_shear_pa": 33798725.95410168,
+          "single_M3_tangential_DF3_N": 238.90911560572613,
+          "single_end_barrel_mean_bearing_pa": 6345527.638930309,
+          "single_end_barrel_two_ligament_mean_shear_pa": 1746475.496953296,
+          "transverse_DF3_N": 78.54546266489625
+        },
+        {
+          "R1_key_36mm2_mean_shear_or_bearing_pa": 10680623.483869595,
+          "capacity_status": "Demand only; actual hot bearing/interlaminar/fastener allowable, cap pocket ligaments and attachment stiffness unavailable",
+          "end": "aft",
+          "ideal_share_torque_DF3_Nm": 10.381566026321247,
+          "one_R1_key_full_end_torque_N": 384.50244541930545,
+          "single_M3_shear_pa": 61195464.819404155,
+          "single_M3_tangential_DF3_N": 432.5652510967186,
+          "single_end_barrel_mean_bearing_pa": 11489116.894999167,
+          "single_end_barrel_two_ligament_mean_shear_pa": 7034153.201019897,
+          "transverse_DF3_N": 142.2132332372774
+        }
+      ],
+      "finite_joint_sensitivities_not_validated_bounds": [
+        {
+          "effective_key_contact_E_pa_unvalidated": 100000000.0,
+          "elastic_tip_motion_m": 0.000673589357478125,
+          "key_per_flank_gap_only_tip_motion_m": 7.311111111111111e-05,
+          "single_key_rotational_stiffness_Nm_rad": 437.4,
+          "total_panel_socket_key_gap_finite_receiver_motion_m": 0.0017232134850244268,
+          "two_finite_end_branches_Nm_rad": 787.1207495517306
+        },
+        {
+          "effective_key_contact_E_pa_unvalidated": 1000000000.0,
+          "elastic_tip_motion_m": 0.00012569594712787282,
+          "key_per_flank_gap_only_tip_motion_m": 7.311111111111111e-05,
+          "single_key_rotational_stiffness_Nm_rad": 4374.0,
+          "total_panel_socket_key_gap_finite_receiver_motion_m": 0.0011753200746741747,
+          "two_finite_end_branches_Nm_rad": 4218.084767752074
+        }
+      ],
+      "fore_skirt_aero_torque_mean_shear_pa": 46597.50820877989,
+      "fore_skirt_effective_bond_area_m2": 0.0038453094079939068,
+      "fore_skirt_transverse_mean_shear_pa": 20426.304968232274,
+      "multi_fin_validity": "Single-fin envelope establishes local demands. Three same-sign full moments are not this symmetric steady case; asymmetric gust/fault roll, pitch and recovery cases remain to resolve with actual flexible supports.",
+      "rocket_axis_torque_DF3_once_Nm": 16.115384800858674,
+      "socket_bridge_hot_1MPa_shear_estimate_ratio": 0.21028237756718407,
+      "three_fins_small_angle_equal_geometry_roll_torque_sum_residual": 3.3306690738754696e-16
+    }
+  }
+}

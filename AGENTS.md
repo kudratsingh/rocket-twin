@@ -62,6 +62,16 @@ Preview simulations are preliminary and unguided where applicable; PID and
 reinforcement-learning controllers remain in their assigned later work orders.
 See ADR-0009 and the current work-order/status records.
 
+The C1 attachment source identity is now frozen. The one R1 reinforcement
+preflight in `docs/wo03-c1-fin-attachment.md` is stopped: bridge hot shear,
+installed movement, conditional planning mass and adverse stability fail.
+Do not run detailed CAD/FEA or adopt it. One next preflight direction is a
+lightweight sandwich fin with dense positively captured root and mechanically
+closed socket, including complete replacement mass and real end/body joints.
+Keep nominal C1 planning headroom22.509g distinct from adverse2.509g, both
+conditional on illustrative1.971m equipment that remains unconfirmed. No
+longer launch baseline or material/load/allowance relaxation is authorized.
+
 ## Git workflow and autonomy
 
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the
