@@ -21,6 +21,10 @@ separate concept studies, not changes to C1 or the active vehicle.
 A saves161.498 g from C1 but still needs29.911 g additional saving for the
 adverse **formal15 m/s** case on the unchanged1.5 m guide. Separate15.5 planning
 needs84.455 g. Longer usable travel remains unconfirmed and conditional.
+The retained-upper interface audit also fails the proposed A/B cold-fit stack:
+64.0mm model coupler /64.4mm bore gives0mm worst-case radial clearance under
+the declared bounds, versus0.1mm required. [Audit](wo03-architecture-interface-audit.md)
+records the issue without resizing a part or changing frozen mass results.
 The other controlling items are finished hot root/recovery joints, finite
 cap/body load spreading, exact G80/retainer fit, heat and installed stiffness.
 Full rotational inertia is unavailable. **No installed engineering requirement

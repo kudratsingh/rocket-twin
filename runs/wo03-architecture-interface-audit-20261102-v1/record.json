@@ -1,0 +1,39 @@
+{
+  "id": "retained_upper_joint_A_B_read_only_audit",
+  "status": "calculated_cold_fit_screen_failed_no_geometry_changed",
+  "input_sha256": {
+    "configs/studies/wo03-architecture-space-mass.yaml": "336d79130931012710155ab8777cfe439afddf51f3b1c688637d41b8e90ce137",
+    "runs/wo03-architecture-space-mass-20261102-v1/record.json": "7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2",
+    "web/public/engineering-workbench/g80-c1.json": "1481b5fb7f18b8fa39aea5aa2db0491d6828da28eccf3729f81abf550eaf288f",
+    "configs/studies/wo03-c2-sandwich-socket.yaml": "426f5e5742dac146315b196cd4f54b79e297de846fdc091641832b02d435fad4",
+    "scripts/wo03_architecture_interface_audit.py": "1b97464821b3c98ab29dae650686e5bcecec4f28a04f20b087e36c502fec15c7"
+  },
+  "arrangements": [
+    "A_motor_fin_can",
+    "B_outer_captured_roots"
+  ],
+  "source_coupler_id": "interface_coupler",
+  "source_coupler_maturity": "envelope",
+  "nominal_coupler_od_mm": 64.0,
+  "proposed_bore_diameter_mm": 64.4,
+  "nominal_radial_gap_mm": 0.20000000000000284,
+  "screening_radial_tolerance_each_mm": 0.1,
+  "minimum_radial_gap_mm": 2.831068712794149e-15,
+  "required_radial_gap_mm": 0.1,
+  "deficit_mm": 0.09999999999999717,
+  "maximum_nominal_coupler_od_for_same_bore_and_bounds_mm": 63.8,
+  "hot_fit_and_actual_supplier_or_manufacturing_tolerances": null,
+  "joint_stop_envelope": {
+    "radius_mm": 33.2,
+    "start_mm": 918.0,
+    "length_mm": 29.0,
+    "actual_CAD_interference": null,
+    "note": "Source envelope includes stops/keys; cannot treat it as a complete solid collision result."
+  },
+  "decision": "Hold_A_B_admission. Specify_a_compatible_shared_upper_mating_interface_before_next_CAD;_63p8mm_is_a_dimensional_bound_not_an_adopted_or_strength_qualified_coupler. No_third_variant_or_new_mass_flight_run.",
+  "engineering_or_geometry_changed": false,
+  "previous_stopped_calculation_repeated": false,
+  "cpu_s": 0.013128,
+  "cpu_limit_s": 1,
+  "wall_limit_s": 5
+}
