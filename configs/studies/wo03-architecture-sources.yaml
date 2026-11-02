@@ -1,0 +1,195 @@
+schema_version: '1.0'
+id: wo03_architecture_sources_20261102
+status: research_only_no_architecture_adopted
+retrieved_date_utc: '2026-11-02'
+research_bounds:
+  maximum_primary_source_urls: 20
+  attempted_unique_primary_source_urls: 20
+  readable_primary_source_urls: 16
+  unavailable_primary_source_urls: 4
+  active_research_limit_minutes: 20
+  research_stopped: source_url_budget_reached
+  counting_basis: Unique primary web documents or landing pages; repeat section reads do not add URLs
+  raw_page_archive: null
+  content_hashes: null
+  provenance_limit: Dated live extraction and exact URLs; not a byte-pinned copy or supplier revision agreement
+  no_engineering_calculation_or_native_execution: true
+  no_contact_purchase_physical_or_paid_run: true
+unchanged_project_inputs:
+  dynamic_pressure_pa: 40000
+  angle_of_attack_deg: 5
+  design_factor_applied_once: 3
+  fin_root_factored_moment_nm_rounded: 8.830
+  hot_bond_screen_pa: 1000000
+  hot_g11_bending_scalar_pa: 25000000
+  g11_scalar_is_bearing_allowable: false
+  substrate_screen_c: 45
+  required_thermal_matrix: unchanged_including_300C_case_contaminated_foil_35C_ambient_burn_and_soak
+  separate_growth_g: 50
+  separate_additional_adverse_g: 20
+  formal_guide_speed_mps: 15
+  separate_planning_guide_speed_mps: 15.5
+  baseline_usable_guide_m: 1.5
+  equipment_confirmed: false
+architecture_directions:
+  - id: A_motor_fin_can
+    status: source_informed_direction_not_executed_or_accepted
+    topology: Through-body sandwich fins with dense full roots into a structural motor-fin tube; broad centering-ring/body load transfer; retained closed-section torsion; independent removable motor retention
+    source_ids: [apogee_ttw, gurit_core, easycell75, carbon_sheet, g11_tube, g80_instructions]
+    unresolved: Hot root/tube/ring/body joint capacity and stiffness; complete mass and recovery routing; thermal occupancy; actual motor envelope
+  - id: B_captured_roots_closed_shell
+    status: engineering_inference_not_a_documented_qualified_kit
+    topology: Dense captured roots joined to a closed load-bearing sleeve and distributed diaphragms; continuous recovery backbone on broad rounded interfaces; motor service volume kept separate
+    source_ids: [apogee_ttw, gurit_core, samson_rope, g11_tube]
+    unresolved: Actual positive joints and local shell/diaphragm transfer; finished hot harness/end capacity; installation and complete mass
+sources:
+  - id: roc_home
+    publisher: Rocketry Organization of California
+    url: https://rocstock.org/
+    access: readable
+    locator: Remaining2026LaunchSchedule; CancellationPolicy
+    demonstrates: Published November13-15 and December12 dates; weather decision normally3-4days beforehand
+    missing: Project booking, event-specific pad, measured rail length and project wind envelope
+  - id: roc_rules
+    publisher: Rocketry Organization of California
+    url: https://rocstock.org/flying-with-roc-2/
+    access: readable
+    locator: ROCProvisions; RocketryRulesAndSafetyRegulations
+    demonstrates: Rod sizes1/8,3/16,1/4inch and1010/1515rails; inspection/pad assignment and motor-evidence process
+    missing: Rail overall lengths, supported spans, clear release geometry and exact-project acceptance
+  - id: mdars_home
+    publisher: Mojave Desert Advanced Rocket Society
+    url: https://www.mojavedesertrocketry.org/
+    access: readable
+    locator: UpcomingLaunches2026; August22Headline
+    demonstrates: Published November28 and December26 dates; Tripoli standards statement
+    missing: NovemberGO, confirmed range hours and project access
+  - id: mdars_equipment
+    publisher: Mojave Desert Advanced Rocket Society
+    url: https://www.mojavedesertrocketry.org/club-equipment
+    access: readable
+    locator: LaunchPadsRailsAndRods
+    demonstrates: Approximately10ft1010 and1515;1010 attaches to1515;1515 angle adjustment; rods listed
+    missing: Actual usable travel, clamps/support stiffness, rod sizes and event availability
+  - id: rcs_resources
+    publisher: RCS Rocket Motor Components
+    url: https://www.rocketmotorparts.com/page/aerotech-resources
+    access: readable
+    locator: AeroTechInstructionsLink
+    demonstrates: Manufacturer provenance for linked instructions
+    missing: Exact current G80SKU mechanical drawing and tolerance agreement
+  - id: apogee_hiroc_unavailable
+    publisher: Apogee Components
+    url: https://www.apogeerockets.com/downloads/PDFs/05068-Hiroc-instructions.pdf
+    access: fetch_timeout
+    demonstrates: null
+    missing: Full instruction contents were not retrieved and are not used as evidence
+  - id: dupont_us_guide_unavailable
+    publisher: DuPont
+    url: https://www.dupont.com/content/dam/dupont/amer/us/en/safety/public/documents/en/Kevlar_Technical_Guide_0319.pdf
+    access: fetch_timeout
+    demonstrates: null
+    missing: Yarn guide contents not retrieved; no numerical hot/moisture values adopted
+  - id: apogee_ttw
+    publisher: Apogee Components
+    url: https://www.apogeerockets.com/Advanced_Construction_Videos/all?acv_id=105
+    access: readable
+    locator: BuildingALevel2FiberglassRocketPart5; summary and transcript
+    demonstrates: Through-wall fins seat on motor tube; bonded centering rings connect motor assembly to body; preparation and harness snag/contamination considerations
+    differs: Larger54mmfiberglass/HPR construction; adhesive kit method, not a captured removable root or tested RocketTwin joint
+    missing: Hot/wet directional joint capacities, installed stiffness and same-geometry proof
+  - id: dupont_properties
+    publisher: DuPont
+    url: https://www.dupont.ca/en/news/kevlar-properties.html
+    access: readable
+    revision: Article2019-03-11
+    demonstrates: Linked technical guide primarily concerns industrial yarns
+    missing: Finished webbing seam, bend, hot/wet dynamic and contact capacities
+  - id: samson_rope
+    publisher: Samson Rope
+    url: https://www.samsonrope.com/warning-statement
+    access: readable
+    locator: PublishedStrengthsAndTesting; Temperature; Splices; Knots; BendingRadius
+    demonstrates: Published strengths generally use spliced rope; tight bends, knots, heat and construction affect system strength
+    differs: Round-rope and application-specific guidance, not the selected flat aramid webbing/saddle
+    missing: Exact finished12.7mmwebbing/eye/stitch/connector system under prescribed hot dynamic load
+  - id: west_gflex
+    publisher: Gougeon Brothers WEST SYSTEM
+    url: https://www.westsystem.com/app/uploads/2023/05/655-G-flexTechnical-Data-Sheet.pdf
+    access: readable
+    revision: October2014
+    locator: PhysicalPropertiesOfCuredEpoxy
+    demonstrates: Bulk cured-resin properties; heat-deflection127F, DSC onsetTg138F and ultimateTg154F; full-load cure guidance
+    differs: Toughened marine adhesive; these bulk temperatures/strengths are not hot lap-joint capacities
+    missing: Actual G11/paper/plywood/carbon bond-line thickness, moisture, peel and cyclic hot shear values
+  - id: gurit_core
+    publisher: Gurit
+    url: https://www.gurit.com/wp-content/uploads/2025/12/Structural-Core-Processing-Guide-2025.pdf
+    access: readable
+    revision: December2025
+    locator: Pages2,10-12; storage, representative panel, core bonding and resin uptake
+    demonstrates: Dry storage, compatible resin/process and representative bond quality matter; resin uptake and grooves add mass
+    differs: Gurit core families/process guidance; no transfer of their numerical uptake to EasyCell75
+    missing: Exact EasyCell/carbon/dense-root hot/wet strengths and installed root stiffness
+  - id: easycell75
+    publisher: Easy Composites
+    url: https://media.easycomposites.co.uk/datasheets/EC-TDS-Easy-Cell-75-Closed-Cell-PVC-Foam.pdf
+    access: readable
+    revision: Version1.0_2025-07-15
+    locator: PropertiesAndDisclaimer
+    demonstrates: Nominal75kg/m3 core and typical mechanical/process data; supplier explicitly excludes minimum/maximum specification use
+    missing: Hot/wet statistical allowables, skin/core peel, inserts, finished seam and wrinkling capacities
+  - id: carbon_sheet
+    publisher: Easy Composites
+    url: https://media.easycomposites.co.uk/datasheets/EC-TDS-Double-Sided-High-Strength-Carbon-Sheet.pdf
+    access: readable
+    revision: Version1.2_2026-04-02
+    locator: Pages1-2; laminate table and typical mechanical properties
+    demonstrates: '0.5mm product actual0.44+/-0.10mm,0.74kg/m2;55.9GPa0/90tensile modulus;0.5mm flexural strength/modulus bothTBC;80Cservice/Tg statement'
+    missing: Exact skin hot compression/bending, wrinkling, interlaminar and bonded-root design allowables
+  - id: g11_tube
+    publisher: Accurate Plastics Acculam
+    url: https://acculam.com/images/ecommerce/Product/Files/AcculamG11NonFRTube.pdf
+    access: readable
+    revision: '11.06.24 as printed; date format not resolved'
+    locator: TypicalPropertiesAndInformationOnlyDisclaimer
+    demonstrates: Typical tube axial compression, water absorption and temperature-index information
+    differs: Woven laminate tube; not machined slotted pocket/end-joint capacity
+    missing: Hot directional bearing, interlaminar shear, pocket tear-out, peel, thin slotted-shell buckling and joint stiffness
+  - id: pml_phobos_unavailable
+    publisher: Public Missiles Ltd
+    url: https://publicmissiles.com/secure/images/Phobosinstructionbooklet.pdf
+    access: inaccessible
+    demonstrates: null
+    missing: Full instructions were not retrieved and are not used to qualify an attachment
+  - id: rcs_instructions_index
+    publisher: RCS Rocket Motor Components
+    url: https://www.rocketmotorparts.com/page/instructions
+    access: readable
+    locator: SingleUseModelRocketMotorInstructions
+    demonstrates: Links the NewG80T137Nsec instruction document
+    missing: Current SKU/lot dimensional tolerances and measured service envelope
+  - id: dupont_ca_guide_unavailable
+    publisher: DuPont
+    url: https://www.dupont.ca/content/dam/aramids/amer/us/en/safety/public/documents/en/Kevlar_Technical_Guide_0319.pdf
+    access: fetch_timeout
+    demonstrates: null
+    missing: Alternate official guide retrieval failed; no numerical property claim from it
+  - id: g80_2007_release
+    publisher: AeroTech RCS Rocket Motor Components
+    url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/info101807_1644882520055.pdf
+    access: readable
+    revision: '2007-10-18'
+    locator: Page2
+    demonstrates: Historical molded-case/thrust-ring design; stated casing1.125inchdiameter4.88inchlength and molded ring1.25inchdiameter0.25inchlong
+    differs: Historical release, not current-lot drawing or certification/classification proof
+    missing: Nozzle projection and contour, dimensional tolerances, CTE/hot growth, contact temperatures and allowable clamping loads
+  - id: g80_instructions
+    publisher: AeroTech RCS Rocket Motor Components
+    url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/g80t_new_su_in_21003-1_1642626256946.pdf
+    access: readable
+    revision: PN21003-1_2007-12-11
+    locator: StorageAndHandling; IgnitionAndLaunching5And7; PostOperationCaution
+    demonstrates: No motor alteration; retention against ejection, friction-only fitting discouraged; prescribed guide minimum; hot nozzle/casing and removal caution
+    differs: Currently linked historical instruction; not a current-lot tolerance or RocketTwin structural analysis
+    missing: Exact SKU/nozzle geometry, expansion, hot-fit limit and retainer compatibility

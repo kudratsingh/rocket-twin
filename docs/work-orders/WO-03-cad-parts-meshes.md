@@ -336,3 +336,15 @@ travel from end-fastener stock and combine body-support/torsion functions;
 do not restart a local-pad or unchanged-channel variant. G80 stays first,
 G54/G12 remain separate,1.5m baseline and all gates unchanged.
 
+
+
+## Architecture-first A/B checkpoint
+
+[Current decision](../wo03-architecture-decision.md) compares exactly two
+complete function/space/mass arrangements with the same full-growth ledger,
+source loads and guide model. A is preferred for joint-demand development;
+neither is admitted to complete detailed CAD/FEA. The fore-cuff windows and
+motor/recovery reservations are explicit; physical capacity, installed
+stiffness/heat, supplier fit and the baseline guide budget remain open. This
+checkpoint closes a bounded study, not an engineering requirement or WO-03.
+Continue the authorized workbench/source/launch preparation in parallel.

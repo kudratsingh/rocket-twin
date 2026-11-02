@@ -1,5 +1,15 @@
 # Status
 
+**Current decision and usable artifacts:** see [CURRENT](CURRENT.md) and the
+[bounded work list](wo03-current-worklist.md). A/B function/space/mass screening
+is complete: A is preferred only for the next connection study, neither is
+admitted. A saves161.498g but adverse1.5m formal headroom is−29.911g; no longer
+baseline is adopted. Six additional source-linked workbench views and actual
+offline drawing images are implemented; browser acceptance remains pending.
+No installed engineering requirement closed. Historical checkpoints below are
+preserved; use CURRENT for the present picture.
+
+
 **Walkthrough export delivery (2026-11-02):**25 standalone source-linked SVGs
 and an accessible local index are available via `make workbench-drawings` and
 [the export guide](wo04-offline-drawings.md). Arrangement/internal sections,

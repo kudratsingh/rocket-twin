@@ -96,6 +96,15 @@ end-fastener and motor-retention volumes and combine body support/torsional
 functions with a complete mass ledger. No geometry or material/load threshold
 is silently changed. Keep C1 preliminary and all physical/release gates intact.
 
+The owner's subsequent architecture-first packet is recorded in
+`docs/CURRENT.md` and `docs/wo03-current-worklist.md`. Exactly two source-informed
+arrangements A/B were screened. A integrated motor/fin can is preferred only for
+a bounded connection study; neither passes complete admission. Keep1.5m,
+formal15/separate15.5/full50g; A adverse still needs29.911g for formal baseline.
+No automatic third arrangement, detailed rejected CAD/FEA or changed allowable.
+Continue independent source-linked frontend work; offline AppKit image-document
+rendering is permitted and executed, distinct from restricted browser use.
+
 ## Git workflow and autonomy
 
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the

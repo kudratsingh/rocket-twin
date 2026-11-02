@@ -1,0 +1,38 @@
+{
+  "browser_verified": false,
+  "elapsed_s": 37.43083037500037,
+  "engineering_calculation_executed": false,
+  "id": "wo03-architecture-drawings-20261102-v1",
+  "input_sha256": {
+    "configs/studies/wo03-architecture-space-mass.yaml": "336d79130931012710155ab8777cfe439afddf51f3b1c688637d41b8e90ce137",
+    "runs/wo03-architecture-space-mass-20261102-v1/record.json": "7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2",
+    "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931",
+    "scripts/wo03_architecture_drawings.py": "941e5bf2003f9086173adcfcf374b52b2afd0c91b138108012d5983f5022b68b"
+  },
+  "outputs_sha256": {
+    "output/wo03-architecture/architecture-A-motor-fin-can.png": "5cd36e9bd619c60aec79aaf26a76c5c1068580ed1c469d141c60cf7286211f32",
+    "output/wo03-architecture/architecture-A-motor-fin-can.svg": "5236faf637aca72cd9e88017b0946846a2518771aef12e7780a767d4618a7dd7",
+    "output/wo03-architecture/architecture-B-outer-captured-roots.png": "c9998a16e1978f9d3534a72cddc99670176768a8c1acfb6d11888dfc8ef694fa",
+    "output/wo03-architecture/architecture-B-outer-captured-roots.svg": "bf8dc66881191d41584ab4db39578100bf8ccfd334378721ec9e8b0ffb003a0d"
+  },
+  "render": {
+    "combined_limit_s": 120,
+    "observations": [
+      {
+        "exit_code": 0,
+        "input": "output/wo03-architecture/architecture-A-motor-fin-can.svg",
+        "stderr": "",
+        "stdout": "SVG_registered=true\nPNG_dimensions=1600x1440"
+      },
+      {
+        "exit_code": 0,
+        "input": "output/wo03-architecture/architecture-B-outer-captured-roots.svg",
+        "stderr": "",
+        "stdout": "SVG_registered=true\nPNG_dimensions=1600x1440"
+      }
+    ],
+    "renderer": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "requested": true
+  },
+  "status": "presentation_only_both_architectures_not_admitted"
+}
