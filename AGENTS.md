@@ -87,6 +87,15 @@ transfer and recovery-route compatibility must be established before another
 construction variant; no next candidate is admitted by this stop. Preserve
 corrected123mm axis-radius scalar conversion and the superseded prior records.
 
+The subsequent C3 continuous-channel packet is also stopped before detailed
+CAD/FEA. See `docs/wo03-c3-continuous-connection.md`: the central aft barrel
+node overlaps independent motor arms, the bounded harness corridor fails, the
+complete mass misses guide departure and adverse stability falls below1cal.
+Do not rerun/adopt unchanged C2 or C3. A next interface preflight must separate
+end-fastener and motor-retention volumes and combine body support/torsional
+functions with a complete mass ledger. No geometry or material/load threshold
+is silently changed. Keep C1 preliminary and all physical/release gates intact.
+
 ## Git workflow and autonomy
 
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the
