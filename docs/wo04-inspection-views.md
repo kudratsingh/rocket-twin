@@ -25,7 +25,8 @@ identities are retained. No new dependency, physical model or CAD generation.
 - **Wireframe** shows the triangles of the display mesh. These are not a
   finite-element analysis mesh or a statement about numerical convergence.
 - The **X/Y/Z orientation widget** follows the camera. The source mesh frame
-  remains unchanged, with Y pointing toward the nose.
+  remains unchanged, with Y pointing toward the nose. It is an indicator;
+  use the named view buttons to change viewing direction.
 
 Orbit, zoom, pan, section cut, hide/isolate, exploded view, source CG/CP markers
 and recorded experiments/replay are retained. Ghost styling, wireframe and part
@@ -70,7 +71,7 @@ computer-use attempt or headless workaround is used by this increment.
 Pending designated-window checks: all four active models and the archived
 candidate; camera presets, focus after hide/explosion, internal selection through
 the shell, wireframe/section combinations, label readability, narrow desktop
-scrolling, orientation interaction and unchanged Analysis/replay. These remain
+scrolling, orientation tracking and unchanged Analysis/replay. These remain
 unobserved runtime behavior; the local tests do not replace visual inspection.
 
 ## Open on this Mac

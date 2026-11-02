@@ -488,7 +488,11 @@ export function Viewer({
           {!overlay && <Markers length={length} mass={mass} />}
           <CameraFit group={group} length={overallLength} loadedToken={loadedIds.length} />
           <GizmoHelper alignment="bottom-right" margin={[65, 65]}>
-            <GizmoViewport axisColors={['#bc6c68', '#69b7aa', '#719dbd']} labelColor="#15212a" />
+            <GizmoViewport
+              disabled
+              axisColors={['#bc6c68', '#69b7aa', '#719dbd']}
+              labelColor="#15212a"
+            />
           </GizmoHelper>
         </Canvas>
         <div className="viewport-scale">
