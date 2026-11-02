@@ -47,6 +47,15 @@ complete mass ledger, recalculate the same recovery cases at that mass, and
 retain guide speed/thermal/structural criteria. This changes the next design
 interface, not the formal work-order sequence or acceptance requirements.
 
+The following bounded [S2 study](../wo03-g80-saddle-study.md) preserves the
+required20.4m/s/.3m/DF3 case and recalculates it at full new mass. S2 is not
+admitted; it misses the declared useful guide margin and lacks a positive
+carrier/fin-frame/body receiver, qualified soft/contact capacity and motor
+thermal clearance. The initial output stop and failed adjacent integration
+check are preserved. No third concept or automatic refinement follows. The
+next design must close those physical interfaces and coupled mass/balance
+before detailed CAD; no work-order sequence or acceptance gate is removed.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete

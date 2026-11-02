@@ -3,6 +3,18 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-g80-saddle-study.md
+  scope: One S2 coupled recovery saddle/strap and mass/balance/guide admission decision.
+  limitation: Not admitted; diagnostic mass integration gate fails, useful departure margin missing, and receiver/soft/contact/keeper/thermal stack unclosed. No active or G54/G12 transfer.
+- path: docs/wo03-recovery-load-assumptions.md
+  scope: Required nominal/severe speeds, stopping travel, participating mass, units and DF3 classification.
+  limitation: Mean energy-equivalent case, not measured peak or proven stopping stroke. Keep20.4m/s/.3m/DF3 and recalculate full new mass plus50g.
+- path: runs/wo03-g80-saddle-study-20261102-v2/quadrature-review.json
+  scope: Preserved first-adjacent-pair volume-integration failure despite passing final pair.
+  limitation: No numerical mass/geometry acceptance; no extra refinement or native analysis.
+- path: runs/wo03-g80-saddle-connections-20261102-v1/record.json
+  scope: Read-only saved-data connection, guide target, CG proxy and axial-expansion sensitivities.
+  limitation: Inputs and capacities unqualified; not actual fixed-point reaction, geometry or transient thermal validation.
 - path: docs/wo03-g80-short-subframe-decision.md
   scope: One G80 S1 subframe admission with explicit connection hypotheses, recovery mass feedback and shared guide screens.
   limitation: Not admitted; clevis scalar bearing, guide mass and heel screw lengths fail. No CAD/FEA, installed strength or temperature result; G54/G12 separate.
@@ -476,6 +488,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - runs/wo02-20261030T173859843386Z/record.json
   - runs/wo02-20261030T204849990760Z/record.json
@@ -510,6 +523,7 @@ requirements:
   - '06'
   - '11'
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - runs/wo02-20261030T173859843386Z/record.json
   - runs/wo03-fin-design-20261030T184422172911Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
@@ -576,6 +590,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-staged-retention-20261101-v1/record.json
@@ -604,6 +619,7 @@ requirements:
   - 09
   - '12'
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-staged-retention-20261101-v1/record.json
@@ -634,6 +650,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-bridge-elmer-results.md
@@ -739,6 +756,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-elmer-classic-decision-20261101T093000Z/record.json
@@ -800,6 +818,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-20261030T180113490389Z/record.json
@@ -873,6 +892,7 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-recovery-branch-loads.md
@@ -1258,6 +1278,7 @@ interfaces:
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-tolerances-20261030T205656390867Z/record.json
@@ -1294,6 +1315,7 @@ interfaces:
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - docs/wo03-g80-bridge-support-traction.md
@@ -1405,6 +1427,7 @@ interfaces:
     no plugged G12 motor-ejection backup.
   unresolved:
   - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only load credit
+  - S2 requires one positive carrier-to-fin-frame/body receiver, actual motor thermal capture and serviceable harness closure; diagnostic foot gap cannot be a fixed support
   - S1 aft termination and foot must be redesigned with load-spreading contact, valid fastener grip and finished-eye capacity; recalculate unchanged opening cases at complete full-growth mass, not frozen1782N
   - Actual deployment/separation mechanism and pressure isolation compatible with tether passages
   - Bends, abrasion, hot terminations and module/motor service; straight envelope is not installed clearance
@@ -1412,6 +1435,7 @@ interfaces:
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-g80-saddle-study.md
   - docs/wo03-g80-short-subframe-decision.md
   - docs/wo03-g80-capture-decision.md
   - runs/wo03-g80-recovery-path-20261101-v1/record.json

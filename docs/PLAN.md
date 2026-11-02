@@ -40,6 +40,15 @@ material limit or active vehicle change is adopted. See
 [current closure](wo03-g80-current-closure.md). Complete-package revalidation
 remains mandatory; no completion gate is removed.
 
+The next bounded IF-RECOVERY-001 saddle/strap study (S2) is also not admitted.
+Its reduced diagnostic mass still misses the internal15.5m/s planning margin,
+and actual foot/case/keeper/contact and conditional balance findings remain.
+Formal15m/s, full50g, required opening cases and thermal/strength limits are
+unchanged. A common positive carrier/fin-frame/body receiver and independent
+motor thermal capture must be defined before another physical revision; no
+isolated pin/saddle sweep or native refinement is admitted. See
+[S2 decision](wo03-g80-saddle-study.md).
+
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
 assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case
 envelope and 1,212 mm overall retention/hardware envelope. The original 800 mm

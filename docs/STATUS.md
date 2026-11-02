@@ -15,7 +15,32 @@ See [G80 intake](wo03-g80-package-intake.md) and
 passes the in-domain stack at 0.12102 mm and remains a separate engineering
 candidate pending its complete load/heat/recovery/flutter integration.
 
-**Latest G80 structural-concept decision — S1 not admitted:** the single short
+**Latest IF-RECOVERY-001 study — S2 not admitted:** one closed-strap/saddle and
+independent-carrier concept gives diagnostic932.677g including separate50g,
+15.230m/s guide departure and1968.154N in the unchanged severe opening case.
+It is124.740g lighter than S1, but misses the declared15.5m/s study planning target
+by0.270m/s and needs28.823g reduction to that source-model target. The formal15m/s
+requirement is unchanged. Receiver contact is incomplete (3.8mm aft foot gap),
+keeper tolerance stack fails, finished loop/hot contact capacity is unavailable,
+and motor-case expansion can close the intended clearance. A source-CP proxy
+also gives0.959cal at the stated partial aft-CG sensitivity. No fixed support,
+equal sharing or generic G11 value qualifies the attachment.
+
+The0.052988g first-pair volume change exceeds the declared0.05g gate; S2 numbers
+remain diagnostic. Preserve the initial output-serialization stop and the one
+output-only retry; no further refinement/CAD/FEA/free flight is admitted. The
+required interface change is a common positive recovery-carrier/fin-frame/body
+receiver with independent motor thermal capture, not another isolated saddle.
+See [S2 decision/connections](wo03-g80-saddle-study.md) and
+[opening assumptions](wo03-recovery-load-assumptions.md). Working vehicle and
+G54/G12/PID-to-RL tracks remain unchanged.
+
+Independent frontend [PR #44](https://github.com/kudratsingh/rocket-twin/pull/44)
+is merged after both required jobs passed in run41366658113: graph labels,
+source and units now come from the run actually displayed. Nine frontend tests
+and the production build passed; no new browser verification is claimed.
+
+**Previous G80 structural-concept decision — S1 not admitted:** the single short
 G11 cassette/clevis budget is1057.417g including separate50g, and the same severe
 recovery screen rises to2231.382N. Its clevis bearing reaches28.607MPa versus
 estimated25MPa; even its937.673g mandatory-solid floor gives25.368MPa. The source

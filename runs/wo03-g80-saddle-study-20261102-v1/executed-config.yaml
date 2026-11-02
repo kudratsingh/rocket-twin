@@ -1,0 +1,188 @@
+status: S2_single_concept_preliminary_admission_only
+source_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+source_72_spec: runs/wo03-g80-staged-retention-20261101-v1/resolved-candidate.yaml
+source_S1: runs/wo03-g80-short-subframe-20261101-v1/record.json
+staged_checkout: build/wo03-g80-integration-staging/checkout
+materials: configs/engineering/wo03.yaml
+growth_kg: 0.05
+growth_station_m: 1.221
+planning_target_guide_mps: 15.5
+required_guide_mps: 15
+guide_length_m: 1.5
+recovery:
+  speeds_mps: [5, 20.4]
+  stopping_distance_m: 0.3
+  design_factor: 3
+  required_prior_factored_floor_N: 1782.253
+  include_full_loaded_mass_and_growth: true
+  note: Energy-equivalent mean screen, not a peak prediction; unchanged severe case.
+carrier:
+  id: S2_compression_carrier
+  material: G11
+  source: https://acculam.com/images/ecommerce/Product/Files/AcculamG11NonFRTube.pdf
+  inner_radius_mm: 15.8
+  outer_radius_mm: 17.6
+  length_mm: 134.8
+  station_mm: 1069
+  density_kg_m3: 1850
+  youngs_range_Pa: [5000000000, 10000000000]
+  axial_scalar_screen_MPa: 25
+  note: Separate machined G11 tube; exact stock dimensions and hot/lot values unconfirmed. Never assign tube load to motor case.
+collars:
+  ids: [S2_fore_saddle_collar, S2_aft_saddle_collar]
+  material: G11
+  density_kg_m3: 1850
+  scalar_screen_MPa: 25
+  core_inner_radius_mm: 12
+  core_outer_radius_mm: 18
+  axial_height_mm: 16
+  clip_outer_radius_mm: 32.2
+  spoke_inner_x_mm: 12
+  spoke_outer_x_mm: 31.6
+  saddle_axes_deg: [60, 180, 300]
+  saddle_radius_mm: 8
+  saddle_base_axial_mm: 8
+  fore_contact_plane_mm: 1069
+  aft_contact_plane_mm: 1203.8
+  fore_arm_axes_deg: [0, 120, 240]
+  fore_arm_inner_x_mm: 18
+  fore_arm_outer_x_mm: 31.6
+  fore_arm_width_mm: 8
+  fore_arm_height_mm: 11
+  aft_foot_axes_deg: [0, 120, 240]
+  aft_foot_inner_x_mm: 18
+  aft_foot_outer_x_mm: 31.6
+  aft_foot_width_mm: 12
+  aft_foot_height_mm: 16
+  fore_fingers_count: 6
+  fore_finger_axial_radial_tangent_mm: [18, 7, 2]
+  fore_finger_station_mm: 1069
+  fore_finger_radius_mm: 28.5
+  fore_finger_tangent_center_mm: 7.2
+  strap_slot_radial_mm: 13.1
+  strap_slot_tangent_mm: 1.2
+  strap_slot_centers_x_y_mm: [[22.95, -8], [22.95, 8]]
+  strap_slot_axial_depth_mm: 8
+  keeper_holes_per_collar: 6
+  keeper_hole_d_mm: 2.2
+  keeper_counterbore_d_mm: 4.2
+  keeper_counterbore_depth_mm: 2.3
+  note: CNC monolithic G11 collars, rounded saddle surfaces and integral feet; cut union estimates, not CAD. Full geometry/laminate directions and local stresses unvalidated.
+straps:
+  id: S2_three_closed_loops
+  source: https://www.ballyribbon.com/mil-spec/kevlar-webbing
+  manufacturer_pattern: Bally Ribbon Mil-T-87130 Type1 Class6 pattern2745
+  count: 3
+  width_mm: 12.7
+  thickness_estimate_mm: 0.8
+  thickness_range_mm: [0.4, 1.2]
+  maximum_weight_oz_per_yard: 0.56
+  raw_tensile_lbf: 3500
+  sewn_overlap_mm_per_loop: 50
+  saddle_axes_deg: [60, 180, 300]
+  center_x_mm: 22.95
+  straight_legs_tangent_mm: [-8, 8]
+  seam_center_station_mm: 1094
+  combined_finished_hot_efficiency_sensitivity: [0.1, 0.2, 0.5]
+  accepted_finished_capacity_N: null
+  note: Raw manufacturer tensile is not loop/seam/bend/thermal assembly capacity. Thickness and finished loop are unverified; no equal sharing credit.
+primary_connector:
+  id: S2_primary_softlink
+  source: https://marine.wichard.com/en/stainless-steel-hardware/shackles/soft-shackles/soft-shackles/part-21223
+  exact_part: Wichard21223_Softlink3.0
+  mass_kg: 0.012
+  nominal_core_d_mm: 3
+  loop_length_mm: 70
+  manufacturer_breaking_load_kg: 2000
+  planning_station_mm: 1010
+  planning_radius_mm: 24
+  planning_azimuth_deg: 60
+  actual_connector_body_envelope: unavailable
+  temperature_rating: unavailable
+  note: Assembly breaking load only in stated direction; no rocket/hot/multileg qualification. Final outer diameter exceeds nominal core, per manual. 70mm loop cannot be treated as a 3mm connector envelope.
+backbone:
+  id: S2_continuous_backbone_and_branches
+  source: https://www.apogeerockets.com/Building_Supplies/Parachutes_Recovery_Equipment/Shock_Cord/Kevlar_Cord_1500
+  exact_part: Apogee30327
+  diameter_mm: 3.5
+  raw_tensile_lbf: 1500
+  assumed_grams_per_foot: 2
+  primary_length_m: 1.2
+  branch_lengths_m: [0.1, 0.1, 0.1]
+  note: New backbone/three bridle branches additional to retained shock_cord and5g connector allocation. No physical topology/termination strength credit.
+frame_modifications:
+  remove_ids:
+  - service_guide_0
+  - service_guide_1
+  - service_guide_2
+  - service_keeper
+  - service_bridge
+  - service_m2_screw_0
+  - service_m2_screw_1
+  - service_m2_screw_2
+  - service_m2_nut_0
+  - service_m2_nut_1
+  - service_m2_nut_2
+  - service_m3_screw_0
+  - service_m3_screw_1
+  - service_m3_screw_2
+  - service_m3_nut_0
+  - service_m3_nut_1
+  - service_m3_nut_2
+  - service_m3_washer_0
+  - service_m3_washer_1
+  - service_m3_washer_2
+  - retention
+  - aft_retainer
+  ring_bore_old_radius_mm: 15.8
+  ring_bore_new_radius_mm: 17.8
+  ring_bore_length_mm: 3
+  ring_bore_stations_mm: [1100, 1177]
+  plywood_density_kg_m3: 715
+  rail_end_area_each_mm2: 84
+  rail_count: 3
+  hot_plywood_scalar_sensitivity_MPa: [5, 10]
+  finger_bond_projected_area_mm2: 690.512
+  shell_end_bond_area_mm2: 541.1142
+  note: Keep motor_mount except two bore cuts; retain fins, body, finish12g, fin_bonds8g, gap4.620g, locking1g and canopy5g once. Outbound frame/body load sharing stays open.
+motor_stack:
+  motor_length_nominal_mm: 128
+  motor_length_tolerance_mm: 0.25
+  pad_pair_nominal_mm: 6
+  pad_pair_tolerance_mm: 0.2
+  cold_endplay_target_mm: 0.2
+  cold_endplay_tolerance_mm: 0.1
+  selectable_mica_shim_mm: [0, 1.2]
+  case_CTE_estimate_range_per_K: [0.000005, 0.000060]
+  carrier_CTE_estimate_range_per_K: [0.000005, 0.000025]
+  ambient_C: 35
+  required_case_upper_C: 300
+  carrier_temperature_sensitivity_C: [35, 150]
+  note: Case material/CTE and simultaneous temperature histories unverified. Keep required heat case; detect case becoming unqualified structural strut if endplay closes.
+keeper_fasteners:
+  count: 12
+  diameter_mm: 2
+  nut_thickness_mm: 1.6
+  washer_thickness_mm: 0.4
+  measured_saddle_grip_max_mm: 8
+  remaining_base_web_mm: 8
+  finished_length_mm: 16.1
+  length_tolerance_mm: 0.1
+  thread_protrusion_mm: 0.4
+  note: Trim/deburr standard M2 bolts; shoe keepers are not credited for primary axial pull. Counterbore and motor clearance still require actual geometry/tolerances.
+budget_parts:
+- {id: S2_keeper_fasteners_nuts_washers, mass_kg: 0.006, station_m: 1.135}
+- {id: S2_primary_junction_stitch_chafe, mass_kg: 0.003, station_m: 1.010}
+- {id: S2_extra_joint_adhesive, mass_kg: 0.002, station_m: 1.110}
+- {id: S2_adjustment_shims, mass_kg: 0.0005, station_m: 1.2038}
+- {id: S2_abrasion_heat_sleeves, mass_kg: 0.003, station_m: 1.135}
+- {id: S2_indexing_keys_and_markers, mass_kg: 0.0015, station_m: 1.200}
+budget:
+  hand_packet_cpu_s: 10
+  hand_packet_wall_s: 20
+  requested_threads: 1
+  geometry_quadrature_orders: [32, 64, 128]
+  maximum_volume_mass_change_g: 0.05
+  native_CAD_FEA_thermal_freeflight_calls: 0
+  maximum_revisions: 1
+  stop: No variants or increased resource limits; admit only complete credible arrangement. Preserve S1 and earlier failures.

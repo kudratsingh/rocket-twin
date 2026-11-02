@@ -1630,3 +1630,48 @@ longer guide or raised property limit is adopted. Active vehicle and separate
 G54/G12/RL gates remain unchanged. PR41 and independent replay-race fix PR42
 are merged after both required jobs passed (41359972531/41361056195). Browser
 runtime ownership remains unresolved; code tests are not visual verification.
+
+
+## WO-03 IF-RECOVERY-001 S2 coupled admission — 2026-11-02 UTC
+
+**Not admitted.** [S2 diagram, dimensions and joint/mass decision](wo03-g80-saddle-study.md)
+records one closed-strap/G11-saddle and independent compression-carrier concept.
+[Load audit](wo03-recovery-load-assumptions.md) keeps5/20.4m/s, required.3m and
+DF3, identifies mean energy-equivalent force versus unmeasured opening peak,
+and recalculates complete participating mass plus separate50g. No force, stroke
+or factor was reduced for the design.
+
+Diagnostic S2 full mass932.677g (882.677+50) is124.740g below S1. Guide15.230m/s
+passes formal15 but misses the predeclared15.5 planning margin by.270; its
+source-model mass target is903.854g, needing28.823g reduction. Severe demand is
+1968.154N. CG estimate836.297mm with partial±6.522mm cut/backbone sensitivity;
+old-source CP proxy gives1.058/0.959cal nominal/aft, not a new aero benchmark.
+No full inertia/CAD or physical mass qualification follows.
+
+Tube whole-force mean10.421MPa/scalar ratio2.399 does not establish contact.
+At25% effective contact it is41.682MPa versus estimated25. Point-junction saddle
+pressure24.775MPa has only1.009 scalar ratio and requires an unprovided lateral
+reaction or free-motion assessment. Finished hot loops and eye capacity remain
+unavailable. Nominal16.1mm keeper grip grows to16.65mm under stated assumptions
+versus16.0 minimum; as-run aft foot has3.8mm gap to rail ends. Motor/carrier
+expansion sensitivities can close case endplay; they are not temperature results.
+Required300C/dirtyfoil/35C and45C substrate matrix remains.
+
+V1 output stopped on NumPy-boolean JSON serialization; one output-only retry
+preserved computational AST/config equality. V2 final pair is small, but first
+fore-collar32to64 change.052988g exceeds declared.05g. Original records remain;
+maintained code now checks every adjacent pair and regression tests enforce it.
+No criterion relaxation, another grid, CAD/FEA/heat or free flight followed.
+[Two-attempt packet](../runs/wo03-g80-saddle-study-20261102-v2/manifest.json)
+records.921CPU/1.123wall direct-child total; parent/setup CPU unmeasured.
+[Read-only connection audit](../runs/wo03-g80-saddle-connections-20261102-v1/record.json)
+used.371CPU under3CPU/5wall after those observed totals. S2 outputs remain
+unqualified diagnostics; all three saved levels miss the planning target.
+
+Required interface reconsideration is a common positive recovery carrier /
+fin-frame / body receiver with independent motor thermal capture and service.
+The retained modified wood frame is about34.39g, not a free removal credit.
+No next prototype or native analysis is admitted. Active designs, separate
+G54/G12/PID-RL and physical/purchase/paid/WO10/flight gates are preserved.
+Independent frontend graph-provenance PR44 merged after both required jobs
+passed in41366658113; browser runtime ownership remains blocked, without retry.
