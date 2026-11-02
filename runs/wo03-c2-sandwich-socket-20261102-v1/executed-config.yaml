@@ -1,0 +1,90 @@
+id: C2_sandwich_integral_triangular_socket
+status: one_preliminary_candidate_not_active
+source_c1: runs/wo03-g80-mass-balance-revision-20261102-v2/record.json
+source_sha256: a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276
+source_r1: runs/wo03-c1-fin-attachment-20261102-v1/record.json
+source_config: configs/studies/wo03-g80-mass-balance-revision.yaml
+source_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+budget: {packets: 1, construction_candidates: 1, mass_cases: 2, guide_m: [1.5, 1.8, 1.971], integration_points: [101, 401, 1601], cpu_s: 20, wall_s: 30, threads: 1}
+stop: First_failed_or_capped_packet_preserved_no_automatic_variant_CAD_FEA_heat_or_flight
+criteria: {separate_growth_g: 50, extra_aft_g: 20, extra_aft_station_mm: 1227, motor_cg_probe_mm: 12.8, formal_mps: 15, planning_mps: 15.5, static_cal: 1, service_tip_mm: 1, substrate_c: 45, hot_bond_pa: 1000000, G11_hot_bending_pa: 25000000}
+fin:
+  count: 3
+  span_root_tip_sweep_station_mm: [90, 120, 60, 40, 1080]
+  core_nominal_tolerance_mm: [8, 0.3]
+  core_density_kg_m3: 75
+  core_hot_shear_modulus_pa: 15000000
+  core_hot_shear_strength_pa: 600000
+  core_hot_compression_strength_pa: 800000
+  core_basis: Supplier_typical_30MPa_G_1p2MPa_shear_1p6MPa_compression_halved_as_existing_study_estimate_not_hot_allowable
+  dense_root_band_mm: 10
+  dense_tab_axial_radial_mm: [100, 14.7]
+  dense_root_nominal_tolerance_mm: [8, 0.1]
+  dense_density_kg_m3: 715
+  dense_hot_E_pa: 1000000000
+  dense_hot_strength_pa: 5000000
+  dense_basis: Same_unmeasured_weak_direction_plywood_estimates_8mm_finished_root_requires_supplier_layup_stock_and_machining_confirmation
+  skin_actual_nominal_min_max_mm: [0.44, 0.34, 0.54]
+  skin_areal_mass_kg_m2: 0.74
+  skin_hot_E_pa: 20000000000
+  skin_strength_estimate_pa: 100000000
+  skin_basis: Supplier0p5_product_actual0p44_plusminus0p1_areal0p74_0_90_layup_typical_E55p9GPa_not_hot_bending_compression_or_wrinkling_allowable
+  face_bond_nominal_min_max_mm: [0.05, 0.025, 0.075]
+  adhesive_density_kg_m3: 1100
+  finish_seal_g: 2
+  sources: [https://media.easycomposites.co.uk/datasheets/EC-TDS-Easy-Cell-75-Closed-Cell-PVC-Foam.pdf, https://media.easycomposites.co.uk/datasheets/EC-TDS-Double-Sided-High-Strength-Carbon-Sheet.pdf]
+socket:
+  axial_start_length_mm: [1090, 100]
+  contact_radius_depth_mm: [18.3, 12]
+  channel_nominal_tolerance_mm: [9.5, 0.05]
+  cheek_thickness_nominal_tolerance_mm: [3, 0.2]
+  floor_radial_start_width_thickness_mm: [16.8, 20, 1.5]
+  brace_axial_width_thickness_tolerance_mm: [100, 2.4, 0.2]
+  brace_outer_radial_tangential_mm: [30.3, 6.25]
+  brace_inner_radial_tangential_mm: [18.3, 10]
+  G11_density_kg_m3: 1850
+  G11_hot_E_pa: 5000000000
+  construction: Three_machined_G11_integral_floor_cheeks_diagonals_no_structural_cheek_bridge_glue_joint
+  positive_retention: Retain_source5mm_tangential_fin_pin_washers_cotter_and_select_spacers_normal_airforce_uses_contacts_not_pin_shear
+  pin_shaft_mm: 26
+  pin_hole_mm: 5.3
+  paper_slot_nominal_tolerance_mm: [9.7, 0.1]
+  added_pin_spacer_nominal_tolerance_mm: [1.5, 0.05]
+  retained_original_process_reserve_g: 0
+receiver_connections:
+  retain_closed_receiver: true
+  end_stations_mm: [1087, 1193]
+  link_count: 12
+  link_radial_interval_tangential_axial_mm: [19, 28.4, 6, 3]
+  boss_axial_tangential_radial_mm: [12, 6, 8]
+  boss_radial_interval_mm: [20.4, 28.4]
+  doubler_count: 12
+  doubler_axial_tangential_radial_mm: [12, 12, 2.5]
+  doubler_radial_interval_mm: [28.4, 30.9]
+  receiver_radial_interval_mm: [31.2, 32]
+  doubler_bond_nominal_mm: 0.3
+  bolt_count: 12
+  bolt_shaft_diameter_finished_length_tolerance_mm: [3, 17.5, 0.1]
+  bolt_head_diameter_thickness_mm: [5.5, 1.8]
+  washer_count_per_set: 2
+  washer_outer_inner_thickness_mm: [7, 3.4, 0.5]
+  nut_across_flats_height_mm: [5.5, 2.4]
+  steel_density_kg_m3: 7850
+  steel_tensile_estimate_pa: 200000000
+  extra_locking_service_reserve_g: 3
+  hole_diameter_mm: 3.4
+  single_joint_torque_case: Whole_single_fin_axis_torque_at_one_joint_explicit_unequal_load_sensitivity_not_equal_sharing
+  manufacturing: Finished17p5mm_screws_from_longer_stock_deburr_and_verify_full_nut_engagement_and_case_tip_clearance_no_purchases_or_physical_work_now
+clearance:
+  source_liner_foil_outer_radius_mm: 15.12
+  source_outer_body_radius_mm: 33
+  radial_tolerance_each_mm: 0.1
+  relative_case_growth_bound_mm: 0.04
+  paper_receiver_gap_mm: 0.5
+  minimum_mm: 0.1
+  harness_axes_deg: [60, 180, 300]
+  harness_center_radius_mm: 24
+  harness_tangent_offsets_mm: [-9, 9]
+  harness_radial_width_tangent_thickness_mm: [12.7, 0.55]
+  harness_motion_allowance_mm: 0.5
+thermal: {required_cases_unchanged: true, substrate_screen_c: 45, G11_support_sensitivity_c: 150, combined_case: 300C_case_contaminated_foil_35C_ambient_burn_plus_soak, no_new_temperature_result: true}
