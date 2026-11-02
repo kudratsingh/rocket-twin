@@ -1,0 +1,193 @@
+{
+  "status": "completed_preliminary_not_qualified",
+  "limits": {
+    "packet_cpu_s": 10,
+    "wall_s": 20,
+    "requested_threads": 1,
+    "native_calls": 0
+  },
+  "input_sha256_before": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-saddle-study.yaml": "3573ef9ba8b87fd13980ba11fd014770c2bc2c185dd135298e24a6bd51395e79",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_saddle_study.py": "25788eee4683620412afa3ce61ba780882b3987c001001ff9fb24cb2d8a13932",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-staged-retention-20261101-v1/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-short-subframe-20261101-v1/record.json": "54f382f982619e3d98304e1d1a3d0492443bfc44cad929067f3df55007f87f6e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c"
+  },
+  "quadrature": {
+    "32": {
+      "fore": {
+        "volume_mm3": 22280.990823673317,
+        "axial_distance_from_plane_mm": 7.264436174437699
+      },
+      "aft": {
+        "volume_mm3": 26551.59837105835,
+        "axial_distance_from_plane_mm": 7.717728852301612
+      }
+    },
+    "64": {
+      "fore": {
+        "volume_mm3": 22309.63300511442,
+        "axial_distance_from_plane_mm": 7.26319858198177
+      },
+      "aft": {
+        "volume_mm3": 26555.64969544616,
+        "axial_distance_from_plane_mm": 7.719057291931537
+      }
+    },
+    "128": {
+      "fore": {
+        "volume_mm3": 22312.24428598647,
+        "axial_distance_from_plane_mm": 7.26273425589806
+      },
+      "aft": {
+        "volume_mm3": 26560.638885719836,
+        "axial_distance_from_plane_mm": 7.718546921915053
+      }
+    }
+  },
+  "quadrature_64_128_mass_change_g": {
+    "fore": 0.004830869613292452,
+    "aft": 0.009230002006297764
+  },
+  "source_73_mass_kg": 0.7945817122770563,
+  "source_73_cg_station_m": 0.787361408435493,
+  "removed_items_kg": {
+    "service_guide_0": 0.0017171369863605355,
+    "service_guide_1": 0.001717136986360536,
+    "service_guide_2": 0.001717136986360536,
+    "service_keeper": 0.015409674768023069,
+    "service_bridge": 0.01017684659284994,
+    "service_m2_screw_0": 0.0003,
+    "service_m2_screw_1": 0.0003,
+    "service_m2_screw_2": 0.0003,
+    "service_m2_nut_0": 0.00014000000000000001,
+    "service_m2_nut_1": 0.00014000000000000001,
+    "service_m2_nut_2": 0.00014000000000000001,
+    "service_m3_screw_0": 0.00211,
+    "service_m3_screw_1": 0.00211,
+    "service_m3_screw_2": 0.00211,
+    "service_m3_nut_0": 0.00038,
+    "service_m3_nut_1": 0.00038,
+    "service_m3_nut_2": 0.00038,
+    "service_m3_washer_0": 0.00035,
+    "service_m3_washer_1": 0.00035,
+    "service_m3_washer_2": 0.00035,
+    "retention": 0.04292932739783429,
+    "aft_retainer": 0.020256493058707727
+  },
+  "removed_total_kg": 0.10376375277649663,
+  "ring_bore": {
+    "each_volume_mm3": 633.3450789637025,
+    "each_mass_kg": 0.00045284173145904725,
+    "stations_assumed_centers_mm": [
+      1101.5,
+      1178.5
+    ]
+  },
+  "carrier": {
+    "volume_mm3": 25460.01978499873,
+    "mass_kg": 0.04710103660224766
+  },
+  "collar_independent_cut": {
+    "slot_mm3": 754.56,
+    "through_hole_mm3": 364.9274026409904,
+    "counterbore_additional_mm3": 138.73273158252525,
+    "total_mm3_each": 1258.2201342235155,
+    "net_mass_kg": {
+      "fore": 0.03894994468076146,
+      "aft": 0.046809474690268194
+    },
+    "gross_mass_kg": {
+      "fore": 0.04127765192907497,
+      "aft": 0.049137181938581694
+    },
+    "centroid_note": "gross axial centroid used after conservative cut; exact cut positions and overlap absent"
+  },
+  "fore_fingers": {
+    "mass_kg": 0.0027971999999999997,
+    "direction_assumption": "aft from fore plane; no union intersection counted"
+  },
+  "strap": {
+    "loop_length_m": 0.3698654824574366,
+    "max_linear_g_per_m": 17.36191267497813,
+    "three_loop_mass_kg": 0.01926471662374401
+  },
+  "backbone_mass_kg": 0.00984251968503937,
+  "new_mass_items_kg": {
+    "carrier": 0.04710103660224766,
+    "fore_collar_independent_cut_lower": 0.03894994468076146,
+    "aft_collar_independent_cut_lower": 0.046809474690268194,
+    "fingers_untrimmed": 0.0027971999999999997,
+    "three_loops_max_raw_weight": 0.01926471662374401,
+    "backbone_assumed": 0.00984251968503937,
+    "connector": 0.012,
+    "S2_keeper_fasteners_nuts_washers": 0.006,
+    "S2_primary_junction_stitch_chafe": 0.003,
+    "S2_extra_joint_adhesive": 0.002,
+    "S2_adjustment_shims": 0.0005,
+    "S2_abrasion_heat_sleeves": 0.003,
+    "S2_indexing_keys_and_markers": 0.0015
+  },
+  "station_assumptions_m": {
+    "carrier": 1.1364,
+    "fore_collar_independent_cut_lower": 1.061737265744102,
+    "aft_collar_independent_cut_lower": 1.211518546921915,
+    "fingers_untrimmed": 1.078,
+    "three_loops_max_raw_weight": 1.1364,
+    "backbone_assumed": 0.6105,
+    "connector": 1.01,
+    "S2_keeper_fasteners_nuts_washers": 1.135,
+    "S2_primary_junction_stitch_chafe": 1.01,
+    "S2_extra_joint_adhesive": 1.11,
+    "S2_adjustment_shims": 1.2038,
+    "S2_abrasion_heat_sleeves": 1.135,
+    "S2_indexing_keys_and_markers": 1.2
+  },
+  "full_mass_with_growth_kg": 0.9326771683197024,
+  "axial_cg_estimate_m": 0.8362968384492958,
+  "axial_cg_uncertainty_from_backbone_and_cut_station_m": 0.006522455042640568,
+  "full_tensor": null,
+  "guide": {
+    "worst_case_mass_kg": 0.9326771683197024,
+    "rail_exit_time_s": 0.2093775504302335,
+    "rail_exit_speed_mps": 15.230491490374288,
+    "rail_screen_pass": true,
+    "longest_useful_control_interval_s": 1.4674608029494138,
+    "control_time_screen_pass": true,
+    "control_time_target_met": true,
+    "control_threshold_source_thrust_n": 12.912619133226931,
+    "screening_wind_mps": 2.0,
+    "kinematic_crosswind_angle_rad": 0.1305684488100686,
+    "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+  },
+  "required_15_margin_mps": 0.23049149037428762,
+  "planning_15p5_margin_mps": -0.2695085096257124,
+  "recovery_factored_N": {
+    "5": 144.02396169807005,
+    "20.4": 1968.1539674977441
+  },
+  "recovery_design_floor_N": 1968.1539674977441,
+  "prior_recovery_floor_N": 1782.253,
+  "S1_full_mass_kg": 1.057416813485438,
+  "source_plus_growth_kg": 0.8445817122770564,
+  "qualification": false,
+  "input_sha256_after": {
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/studies/wo03-g80-saddle-study.yaml": "3573ef9ba8b87fd13980ba11fd014770c2bc2c185dd135298e24a6bd51395e79",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_saddle_study.py": "25788eee4683620412afa3ce61ba780882b3987c001001ff9fb24cb2d8a13932",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-staged-retention-20261101-v1/resolved-candidate.yaml": "767b45cbd02eb728b1859e92e103f36ad1fa4660bc1f01ad76864ff1cf35f57a",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo03-g80-short-subframe-20261101-v1/record.json": "54f382f982619e3d98304e1d1a3d0492443bfc44cad929067f3df55007f87f6e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c"
+  },
+  "source_unchanged": true,
+  "cpu_s": 0.43396699999999994,
+  "wall_s": 0.4210548750124872,
+  "peak_rss_bytes": 56557568
+}

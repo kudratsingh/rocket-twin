@@ -1,0 +1,17 @@
+{
+  "status": "stopped_quadrature_adjacent_pair_exceeds_0p05g",
+  "source_worker_raw_status": "completed_preliminary_not_qualified",
+  "declared_limit_g": 0.05,
+  "adjacent_pair_mass_change_g": {
+    "32_to_64": {
+      "fore": 0.052988035666042745,
+      "aft": 0.007494950117452572
+    },
+    "64_to_128": {
+      "fore": 0.004830869613292452,
+      "aft": 0.009230002006297764
+    }
+  },
+  "note": "worker tested only 64 to128; absent explicit final-pair-only criteria, all reported adjacent pairs considered. Original worker record preserved; no re-execution or geometry fix.",
+  "worker_results": "preliminary numerical evidence, not quadrature-accepted or engineering-qualified"
+}

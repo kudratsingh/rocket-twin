@@ -1,5 +1,15 @@
 # G80 package closure — isolated integrated candidate, acceptance open
 
+**Latest bounded admission:** [S2 saddle/strap study](wo03-g80-saddle-study.md)
+is not admitted. Diagnostic mass932.677g with full50g gives15.230m/s against the
+formal15 and internal15.5 planning target. The3.8mm receiver gap, keeper-length
+stack, hot endplay/contact/finished-loop uncertainty and conditional stability
+remain adverse/open. Numerical volume-refinement acceptance also fails.
+The existing severe recovery case remains; force is recalculated at new mass.
+A common positive carrier/fin-frame/body receiver and independent motor capture
+are required before another physical revision. No active geometry or result is
+promoted, and no whole-package strength/thermal requirement closes.
+
 **Subsequent one-concept decision:** [S1 short-frame connections and margins](wo03-g80-short-subframe-decision.md)
 rejects admission before native work. Its added mass raises the unchanged
 recovery-opening demand; clevis bearing, guide mass and heel length fail.

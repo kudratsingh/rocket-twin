@@ -1,0 +1,168 @@
+{
+  "status": "S2_not_admitted_no_new_geometry_or_solver",
+  "input_sha256": {
+    "configs/studies/wo03-g80-saddle-study.yaml": "3573ef9ba8b87fd13980ba11fd014770c2bc2c185dd135298e24a6bd51395e79",
+    "scripts/wo03_g80_saddle_connections.py": "402e33e71b00b116049c591cd99e6e1040ec3bbac92f43b85853f6f537c7f796",
+    "runs/wo03-g80-saddle-study-20261102-v2/record.json": "5cb27e5a77392817dd271155bc51a5640e81e704ac2c95c03eb51f41031add7c",
+    "runs/wo03-g80-saddle-study-20261102-v2/quadrature-review.json": "e6b8e49fb5394fafa1a4962a7f78c3da1b05c0e855a6c97fa1bfb42785631617",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c"
+  },
+  "raw_mass_result_unqualified": true,
+  "full_mass_kg": 0.9326771683197024,
+  "growth_kg_separate": 0.05,
+  "recovery_factored_N": 1968.1539674977441,
+  "tube_and_end_contact": {
+    "area_mm2": 188.87255033381845,
+    "whole_force_mean_MPa": 10.420540009753537,
+    "scalar_axial_ratio": 2.3991079134670765,
+    "contact_fraction_needed_at_scalar_screen": 0.41682160039014154,
+    "mean_contact_MPa_by_effective_fraction": {
+      "0.25": 41.68216003901415,
+      "0.5": 20.841080019507075,
+      "1": 10.420540009753537
+    },
+    "Euler_pinned_diagnostic_N": [
+      71733.3776601792,
+      143466.7553203584
+    ],
+    "note": "Global ideal-column diagnostic only; local wall/end bearing, anisotropy, partial contact and installed capacity unverified."
+  },
+  "bridle_point_geometry_sensitivity": [
+    {
+      "angle_deg": 60,
+      "point_junction_amp": 1.0002119152622237,
+      "whole_axial_force_in_one_branch_tension_N": 1968.571049361863,
+      "fixed_point_lateral_reaction_N": 40.520816977894846
+    },
+    {
+      "angle_deg": 180,
+      "point_junction_amp": 1.2789519119496184,
+      "whole_axial_force_in_one_branch_tension_N": 2517.174279742467,
+      "fixed_point_lateral_reaction_N": 1569.2470534686045
+    },
+    {
+      "angle_deg": 300,
+      "point_junction_amp": 1.2789519119496184,
+      "whole_axial_force_in_one_branch_tension_N": 2517.174279742467,
+      "fixed_point_lateral_reaction_N": 1569.2470534686045
+    }
+  ],
+  "point_geometry_not_an_installed_reaction_model": true,
+  "saddle_mean_curvature_pressure_MPa_full_force": 19.371594168284883,
+  "saddle_point_geometry_curvature_pressure_MPa": 24.775337399040033,
+  "provisional_scalar_comparison_ratio": 1.0090679935995008,
+  "soft_assembly": {
+    "raw_webbing_tensile_N": 15568.775653411749,
+    "combined_efficiency_needed_whole_force": 0.12641674665447708,
+    "combined_efficiency_needed_point_geometry": 0.16168093983619403,
+    "finished_strength_sensitivity_ratios": {
+      "0.1": 0.6185020949365728,
+      "0.2": 1.2370041898731456,
+      "0.5": 3.0925104746828644
+    },
+    "backbone_finished_efficiency_needed": 0.29497240886044657,
+    "connector_raw_assembly_breaking_ratio": 9.965328080981287,
+    "accepted_finished_loop_capacity_N": null,
+    "note": "No raw tensile or marine connector ratio qualifies hot sewn loops, loaded bends, multi-leg direction or rocket use."
+  },
+  "motor_thermal_endplay_sensitivity_mm": [
+    -1.9352,
+    0.5179500000000001
+  ],
+  "actual_case_CTE_and_temperature_history": "unavailable",
+  "nominal_keeper_length_needed_mm": 16.099999999999998,
+  "assumed_tolerance_keeper_length_needed_mm": 16.650000000000002,
+  "minimum_specified_keeper_length_mm": 16.0,
+  "keeper_grip_sensitivity_pass": false,
+  "planning_guide_mass_ceiling_kg_interval": [
+    0.9038541316986084,
+    0.9038543701171875
+  ],
+  "excess_above_planning_ceiling_kg": 0.028822798202514877,
+  "source_CP_proxy_m": 0.906139607881506,
+  "preliminary_CG_m": 0.8362968384492958,
+  "partial_CG_sensitivity_m": 0.006522455042640568,
+  "source_CP_proxy_stability_cal": [
+    1.0582237792759126,
+    0.9593987028722677
+  ],
+  "stability_note": "Uses retained source aero only, not a complete new-geometry benchmark; CG range covers only named cut/backbone-location assumptions.",
+  "all_saved_geometry_levels_guide": {
+    "32": {
+      "diagnostic_full_mass_kg": 0.9326026244622992,
+      "guide": {
+        "worst_case_mass_kg": 0.9326026244622992,
+        "rail_exit_time_s": 0.20936865695885426,
+        "rail_exit_speed_mps": 15.231173258042528,
+        "rail_screen_pass": true,
+        "longest_useful_control_interval_s": 1.4674706757540035,
+        "control_time_screen_pass": true,
+        "control_time_target_met": true,
+        "control_threshold_source_thrust_n": 12.91158709719982,
+        "screening_wind_mps": 2.0,
+        "kinematic_crosswind_angle_rad": 0.13056267058555285,
+        "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+      }
+    },
+    "64": {
+      "diagnostic_full_mass_kg": 0.9326631074480828,
+      "guide": {
+        "worst_case_mass_kg": 0.9326631074480828,
+        "rail_exit_time_s": 0.20937587288086865,
+        "rail_exit_speed_mps": 15.230620080772503,
+        "rail_screen_pass": true,
+        "longest_useful_control_interval_s": 1.467462665225985,
+        "control_time_screen_pass": true,
+        "control_time_target_met": true,
+        "control_threshold_source_thrust_n": 12.912424464925751,
+        "screening_wind_mps": 2.0,
+        "kinematic_crosswind_angle_rad": 0.13056735892159882,
+        "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+      }
+    },
+    "128": {
+      "diagnostic_full_mass_kg": 0.9326771683197024,
+      "guide": {
+        "worst_case_mass_kg": 0.9326771683197024,
+        "rail_exit_time_s": 0.2093775504302335,
+        "rail_exit_speed_mps": 15.230491490374288,
+        "rail_screen_pass": true,
+        "longest_useful_control_interval_s": 1.4674608029494138,
+        "control_time_screen_pass": true,
+        "control_time_target_met": true,
+        "control_threshold_source_thrust_n": 12.912619133226931,
+        "screening_wind_mps": 2.0,
+        "kinematic_crosswind_angle_rad": 0.1305684488100686,
+        "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+      }
+    }
+  },
+  "all_adjacent_quadrature_pass": false,
+  "refinement_review": {
+    "status": "stopped_quadrature_adjacent_pair_exceeds_0p05g",
+    "source_worker_raw_status": "completed_preliminary_not_qualified",
+    "declared_limit_g": 0.05,
+    "adjacent_pair_mass_change_g": {
+      "32_to_64": {
+        "fore": 0.052988035666042745,
+        "aft": 0.007494950117452572
+      },
+      "64_to_128": {
+        "fore": 0.004830869613292452,
+        "aft": 0.009230002006297764
+      }
+    },
+    "note": "worker tested only 64 to128; absent explicit final-pair-only criteria, all reported adjacent pairs considered. Original worker record preserved; no re-execution or geometry fix.",
+    "worker_results": "preliminary numerical evidence, not quadrature-accepted or engineering-qualified"
+  },
+  "aft_foot_one_sided_envelope_to_rail_end_gap_mm": 3.7999999999999545,
+  "foot_contact_note": "As-run collar axial convention leaves a gap to retained rail ends; no accepted spacer, fore-extending foot or pocket geometry exists. Not a fixed support.",
+  "outbound_body_fin_strength": "unavailable; no bypass strength from tube average",
+  "thermal_matrix_and_45C": "unchanged; temperatures unavailable",
+  "native_calls": 0,
+  "cpu_s": 0.370982,
+  "wall_s": 0.37411887501366436,
+  "input_unchanged": true
+}

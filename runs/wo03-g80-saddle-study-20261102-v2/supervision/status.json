@@ -1,0 +1,182 @@
+{
+  "argv": [
+    "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python",
+    "-c",
+    "import resource,os;resource.setrlimit(resource.RLIMIT_CPU,(9,9));os.execv('/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python',['/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/bin/python','/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_g80_saddle_study.py'])"
+  ],
+  "cleanup_errors": [],
+  "cleanup_outcomes": [],
+  "cpu_accounting": {
+    "child_system_s_delta": 0.045668,
+    "child_user_s_delta": 0.40624099999999996,
+    "children_rusage_sampled_after_reap": true,
+    "supervisor_system_s_delta": 0.002131000000000001,
+    "supervisor_user_s_delta": 0.0010640000000000024
+  },
+  "cpu_samples": [
+    {
+      "elapsed_wall_s": 0.001496042008511722,
+      "supervisor_cpu_system_s": 0.0008480000000000015,
+      "supervisor_cpu_user_s": 0.00016700000000000048
+    },
+    {
+      "elapsed_wall_s": 0.057102875027339906,
+      "supervisor_cpu_system_s": 0.0010320000000000017,
+      "supervisor_cpu_user_s": 0.0002610000000000043
+    },
+    {
+      "elapsed_wall_s": 0.11106687501887791,
+      "supervisor_cpu_system_s": 0.0012090000000000017,
+      "supervisor_cpu_user_s": 0.0004299999999999998
+    },
+    {
+      "elapsed_wall_s": 0.16363245900720358,
+      "supervisor_cpu_system_s": 0.0013120000000000007,
+      "supervisor_cpu_user_s": 0.0005070000000000005
+    },
+    {
+      "elapsed_wall_s": 0.2239218750037253,
+      "supervisor_cpu_system_s": 0.001451000000000001,
+      "supervisor_cpu_user_s": 0.0006289999999999976
+    },
+    {
+      "elapsed_wall_s": 0.28176979202544317,
+      "supervisor_cpu_system_s": 0.0015480000000000008,
+      "supervisor_cpu_user_s": 0.000684000000000004
+    },
+    {
+      "elapsed_wall_s": 0.3397348750149831,
+      "supervisor_cpu_system_s": 0.0016910000000000015,
+      "supervisor_cpu_user_s": 0.0007740000000000039
+    },
+    {
+      "elapsed_wall_s": 0.3921162920014467,
+      "supervisor_cpu_system_s": 0.0017710000000000017,
+      "supervisor_cpu_user_s": 0.0008360000000000034
+    },
+    {
+      "elapsed_wall_s": 0.44648950002738275,
+      "supervisor_cpu_system_s": 0.0018780000000000012,
+      "supervisor_cpu_user_s": 0.000903000000000001
+    },
+    {
+      "elapsed_wall_s": 0.5039156670100056,
+      "supervisor_cpu_system_s": 0.0019470000000000008,
+      "supervisor_cpu_user_s": 0.0009549999999999975
+    }
+  ],
+  "descendant_pid_samples": [
+    {
+      "elapsed_wall_s": 0.001496042008511722,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.057102875027339906,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.11106687501887791,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.16363245900720358,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.2239218750037253,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.28176979202544317,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.3397348750149831,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.3921162920014467,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.44648950002738275,
+      "pids": []
+    },
+    {
+      "elapsed_wall_s": 0.5039156670100056,
+      "pids": []
+    }
+  ],
+  "error": null,
+  "finished_utc": "2026-11-02T00:27:19.017129+00:00",
+  "guard_failure": null,
+  "historical_descendant_checks": [],
+  "known_descendant_pids": [],
+  "launch_wall_s": 0.0014896670181769878,
+  "log_path": "build/wo03-g80-saddle-supervisor-v2/worker.log",
+  "pid": 92265,
+  "returncode": 0,
+  "rss_limit_bytes": null,
+  "rss_samples_bytes": [
+    {
+      "bytes": 737280,
+      "elapsed_wall_s": 0.001496042008511722
+    },
+    {
+      "bytes": 19578880,
+      "elapsed_wall_s": 0.057102875027339906
+    },
+    {
+      "bytes": 28491776,
+      "elapsed_wall_s": 0.11106687501887791
+    },
+    {
+      "bytes": 36995072,
+      "elapsed_wall_s": 0.16363245900720358
+    },
+    {
+      "bytes": 44269568,
+      "elapsed_wall_s": 0.2239218750037253
+    },
+    {
+      "bytes": 47284224,
+      "elapsed_wall_s": 0.28176979202544317
+    },
+    {
+      "bytes": 49659904,
+      "elapsed_wall_s": 0.3397348750149831
+    },
+    {
+      "bytes": 52215808,
+      "elapsed_wall_s": 0.3921162920014467
+    },
+    {
+      "bytes": 56328192,
+      "elapsed_wall_s": 0.44648950002738275
+    },
+    {
+      "bytes": 51003392,
+      "elapsed_wall_s": 0.5039156670100056
+    }
+  ],
+  "started_utc": "2026-11-02T00:27:18.455026+00:00",
+  "status": "completed",
+  "status_path": "build/wo03-g80-saddle-supervisor-v2/status.json",
+  "status_write_error": null,
+  "success": true,
+  "timed_out": false,
+  "total_wall_s": 0.5620187090244144,
+  "wall_limit_s": 19,
+  "wall_samples": [
+    0.001496042008511722,
+    0.057102875027339906,
+    0.11106687501887791,
+    0.16363245900720358,
+    0.2239218750037253,
+    0.28176979202544317,
+    0.3397348750149831,
+    0.3921162920014467,
+    0.44648950002738275,
+    0.5039156670100056
+  ]
+}
