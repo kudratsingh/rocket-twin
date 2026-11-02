@@ -1,0 +1,127 @@
+id: C1_closed_receiver_mass_balance
+status: preliminary_mass_balance_only_not_active_not_structurally_accepted
+source_s3: runs/wo03-g80-connected-receiver-20261102-v2/record.json
+source_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+staged_checkout: build/wo03-g80-integration-staging/checkout
+separate_full_growth_g: 50
+growth_station_mm: 1227
+formal_static_margin_cal: 1
+formal_departure_mps: 15
+separate_planning_mps: 15.5
+usable_probes_m: [1.5, 1.8, 1.971]
+equipment_status: Nothing_confirmed_ROC_and_MDARS_conditional_no_10ft_or_usable_travel_assumed_available
+budget:
+  new_mass_scenarios: 4
+  guide_probes_per_scenario: 3
+  selected_configuration_required_travel_roots: [15, 15.5]
+  root_bracket_m: [0.5, 3.0]
+  requested_threads: 1
+  cpu_s: 20
+  wall_s: 30
+  no_CAD_FEA_thermal_free_flight_or_dependency_changes: true
+  stop: Preserve_first_invalid_or_capped_attempt_no_automatic_retry_or_geometry_search
+receiver_replacement:
+  remove_s3_component_id_prefix: S3_channel_
+  all_removed_functions_must_be_replaced: true
+  material: G11_same1850kg_m3_estimated_profile_no_new_allowable
+  density_kg_m3: 1850
+  closed_body:
+    start_end_mm: [1010, 1211.8]
+    inner_outer_radius_mm: [31.2, 32]
+    thickness_mm: 0.8
+    mass_basis: Gross_full_annulus_no_fin_slot_cut_credit
+    functions: [primary_continuous_receiver_end_to_end, body_support, fin_socket_foundation, independent_motor_capture_foundation]
+  local_fin_sockets:
+    centers_station_mm: [1140, 1140, 1140]
+    azimuths_deg: [0, 120, 240]
+    side_plate_count: 6
+    side_plate_axial_radial_tangential_mm: [100, 12, 2]
+    floors_count: 3
+    floor_axial_tangential_radial_mm: [100, 10.95, 2]
+    outer_bridge_count: 6
+    bridge_axial_radial_tangential_mm: [100, 2, 2]
+    radial_mount_pad_count: 3
+    mount_pad_axial_tangential_radial_mm: [100, 10.95, 0.9]
+    functions: [fin_side_contacts, axial_pins, through_body_tabs, local_frame_load_transfer]
+    unresolved: Actual_closed_socket_support_bond_peel_local_buckling_root_stiffness_and_flutter_no_new_rigid_support_credit
+  integral_end_hardpoints:
+    total_mass_g: 25
+    count: 6
+    stations_mm: [1024, 1203.8]
+    basis: Geometry_budget_for_six20x12x6.275mm_local_nodes_and_integral_wall_transitions_no_secondary_bond_capacity_credit
+    functions: [six_original_M3_barrel_nut_anchors, end_contact_load_spreading]
+    remaining_strength_findings: Retain_S3_full_recovery_cap_tension_barrel_and_tearout_unqualified_or_adverse
+  forward_motor_key_carriers:
+    total_mass_g: 12
+    count: 3
+    station_mm: 1057
+    basis: Three18x12x6.6mm_G11_carriers_plus_wall_transition_stock
+    functions: [three_source5mm_key_pins, forward_thrust_transfer_to_continuous_receiver]
+  new_joint_process_and_hardware:
+    mass_g: 8
+    station_mm: 1110
+    functions: [socket_bonding_and_secondary_retention, thread_locks, local_strain_relief]
+    basis: Additional_to_all_retained_S3_source_bond_and_hardware_allocations
+independent_motor_service:
+  replace_s3_aft_cap_bore_radius_mm: 15.8
+  retained_cap_outer_radius_mm: 32
+  retained_cap_thickness_mm: 6
+  source_bore_radius_mm: 12
+  remove_s3_motor_aft_annulus_and_prongs: true
+  separate_retainer_arms_count: 3
+  arm_radial_length_tangential_width_axial_thickness_mm: [18.3, 6.6, 4]
+  ring_radial_passage_width_mm: 6.95
+  extra_captive_keeper_budget_g: 3
+  station_mm: 1205
+  functions: [motor_aft_capture_independent_of_harness, source3p2mm_floating_travel, remove_arms_then_motor_through31p6mm_bore]
+  limitations: Proposed_geometric_interface_only_no_CAD_sweep_nozzle_or_hot_arm_strength_acceptance_preserve_original_S3_service_failure
+fin_option:
+  source_geometry: {span_mm: 70, root_mm: 120, tip_mm: 120, sweep_mm: 0, station_mm: 1080, thickness_mm: 6.35}
+  proposed_geometry: {span_mm: 90, root_mm: 120, tip_mm: 60, sweep_mm: 40, station_mm: 1080, thickness_mm: 6.35}
+  count: 3
+  density_kg_m3: 715
+  mass_accounting: Replace_only_source_rectangular_panel_mass_and_first_moment_keep_gusset_residual_and_deeper_S3_tabs_once
+  no_drag_performance_or_flutter_pass_claim: true
+  force_case: {dynamic_pressure_pa: 40000, alpha_deg: 5, design_factor: 3}
+  remaining: New_panel_root_socket_and_flutter_loads_need_actual_geometry_and_applicable_validation
+equipment_relocation:
+  selected_moves: []
+  main_sled_and_equipment_mass_g: 84.045
+  illustration_forward_shift_mm: 5
+  reason: Bulkhead225to230mm_sled_front240mm_keep5mm_service_gap_no_empty_nose_or_shared_recovery_power_assumed
+  source_inventory_basis: Source73_and_primary_readonly_equipment_audit
+  upper_bound_all_identified_equipment_at225mm_kg_m: 0.01428
+  upper_bound_status: Unpackable_co_location_bound_not_a_design_or_movement_authorization
+nose_ballast_comparison:
+  target_static_margin_cal: 1
+  material: Nonmetal_ceramic_epoxy_or_clay_density_bound_not_lead_or_metal_nose
+  slug_station_mm: 75
+  cylinder_diameter_length_mm: [24, 45]
+  density_upper_kg_m3: 2400
+  carrier_and_restraint_mass_g: 8
+  carrier_station_mm: 100
+  basis: Complete_added_mount_plus_analytic_ballast_demand_source_nose_cavity_geometry_check_only_packing_and_retention_not_verified
+  recovery_capacity: Unqualified_actual_nose_anchor_and_ballast_restraint_need_own_load_path
+scenarios:
+  - id: C1_original_external_fins
+    fins: source
+    ballast: false
+    extra_aft_mass_g: 0
+  - id: C1_original_fins_with_required_ballast
+    fins: source
+    ballast: analytic_to_1cal_plus_8g_carrier
+    extra_aft_mass_g: 0
+  - id: C1_clipped_fins_no_ballast
+    fins: proposed
+    ballast: false
+    extra_aft_mass_g: 0
+  - id: C1_clipped_fins_plus20g_and_motorCG_probe
+    fins: proposed
+    ballast: false
+    extra_aft_mass_g: 20
+    motor_cg_aft_shift_mm: 12.8
+    uncertainty_status: Illustrative_additional20g_beyond_separate50g_and_source12p8mm_motorCG_probe_not_manufacturer_tolerances_or_validated_bound
+selected_preliminary_scenario: C1_clipped_fins_no_ballast
+required_travel_case: C1_clipped_fins_no_ballast
+recovery: {nominal_mps: 5, severe_mps: 20.4, stopping_m: 0.3, design_factor: 3}
+acceptance: Mass_balance_and_conditional_guide_only_no_structural_thermal_recovery_flight_equipment_or_active_adoption

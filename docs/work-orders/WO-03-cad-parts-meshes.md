@@ -78,6 +78,15 @@ Guide-model mass ceilings are configuration-specific, never universal≈1kg limi
 Preserve15m/s formal, separate15.5 planning and full separate50g, unchanged
 thermal/structural criteria and independent G54/G12 evidence.
 
+Owner-authorized [C1 mass/balance study](../wo03-g80-mass-balance-revision.md)
+is the next pre-geometry checkpoint. Its calculated1.319cal loaded margin with
+full50g addresses balance by a counted receiver plus changed fin planform,
+not an unmodeled ballast/forward move. Existing cap/body/harness/contact and
+new thin-body/socket/fin strength/flutter remain acceptance items. Recompute
+mass/static/guide/recovery when those corrections change the ledger. Current
+1.8m departure14.975m/s fails15; actual guide/button/support/site confirmation
+is a dependency, not an assumption erased by numerical travel roots.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete

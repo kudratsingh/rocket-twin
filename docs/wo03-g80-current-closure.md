@@ -1,5 +1,15 @@
 # G80 package closure — isolated integrated candidate, acceptance open
 
+**Current mass/balance preflight:** [C1](wo03-g80-mass-balance-revision.md)
+calculates1129.807g with full50g and1.319cal loaded/1.546 burnout; the stated
+additional20g/motor-CG probe gives1.206cal loaded. No ballast/equipment move
+is selected. The chosen direction is a closed receiver/local supports plus
+swept/tapered fins. It clears the specified calculation of static balance,
+not actual thin-shell/socket/cap/body/harness strength, thermal, installed fin
+stiffness/flutter, full inertia, exact motor or launch acceptance.1.8m guide
+still fails at14.975; nominal15.5 target needs1.927373m usable, unconfirmed.
+The1.5m baseline and owner physical/release gates remain unchanged.
+
 **Latest connected construction / launch screen:**
 [S3](wo03-g80-connected-receiver.md) replaces the disconnected receiver with
 continuous201.8mm channels, face-matched caps and positive connections, but is

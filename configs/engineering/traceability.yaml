@@ -3,6 +3,15 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   linked; expanded acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-g80-mass-balance-revision.md
+  scope: Four bounded C1 mass/balance, placement/ballast, revised-fin and conditional-guide scenarios with full separate growth.
+  limitation: Calculated static balance positive for selected case; no structural, heat, flutter, full inertia, actual equipment, motor or flight acceptance.
+- path: runs/wo03-g80-mass-balance-revision-20261102-v2/record.json
+  scope: Preserved one executed mass/CP/CG/guide/recovery packet after an input-key guard correction.
+  limitation: Material/hardware allocations and aerodynamic hypotheses remain unmeasured; additional20g/motor-CG scenario is illustrative not validated uncertainty coverage.
+- path: docs/wo03-launch-equipment-confirmation.md
+  scope: Short official ROC/MDARS types, inventory lengths, support, dates and confirmation questions.
+  limitation: Owner confirmed nothing booked; no actual rail/button/start/release travel or motor/RSO approval confirmed.
 - path: docs/wo03-g80-connected-receiver.md
   scope: One S3 dimensioned continuous receiver with cap, motor, fin, body and recovery paths; complete preliminary mass and guide/static admission.
   limitation: Not admitted; planning/departure and stability adverse, cap/contact/body/service unresolved; no CAD, installed strength, thermal or flight acceptance.
@@ -511,6 +520,7 @@ requirements:
   evidence:
   - docs/wo03-launch-guide-motor-trade.md
   - docs/adr/0012-conditional-launch-guide-options.md
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -548,6 +558,7 @@ requirements:
   - '06'
   - '11'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -617,6 +628,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -648,6 +660,7 @@ requirements:
   - 09
   - '12'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -681,6 +694,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -736,6 +750,7 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - runs/wo03-engineering-20261030T175947969565Z/record.json
@@ -791,6 +806,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -855,6 +871,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -931,6 +948,7 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -1136,6 +1154,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - runs/wo03-vibration-20261030T175839356500Z/record.json
@@ -1321,6 +1340,7 @@ interfaces:
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -1362,6 +1382,7 @@ interfaces:
   evidence:
   - docs/wo03-launch-guide-motor-trade.md
   - docs/adr/0012-conditional-launch-guide-options.md
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -1476,6 +1497,7 @@ interfaces:
     no plugged G12 motor-ejection backup.
   unresolved:
   - G80 continuous protected backbone, forward/nose/payload and independent aft attachment; no paper-wall-only load credit
+  - C1 mass balance is positive only in specified calculations; thinner body/local socket and higher fin loads require actual strength/thermal/flutter/service checks and confirmed guide setup
   - S3 defines matched end faces and positive cap/key/fin connections but fails full-growth stability and motor-removal service; cap reaction signs, body path, hot finished eyes and contact remain unresolved
   - Integrated additive receiver is rejected on stock mass and unclosed joints; replace duplicated wood frame and carrier/collars with one common positive aft receiver before another physical iteration
   - S2 requires one positive carrier-to-fin-frame/body receiver, actual motor thermal capture and serviceable harness closure; diagnostic foot gap cannot be a fixed support
@@ -1486,6 +1508,7 @@ interfaces:
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-g80-mass-balance-revision.md
   - docs/wo03-g80-connected-receiver.md
   - docs/wo03-integrated-aft-proposal.md
   - docs/wo03-g80-saddle-study.md
@@ -1714,6 +1737,7 @@ fmea:
     geometry and staged service studies are proposed in docs/wo03-g80-keeper-service.md;
     no active adoption or strength pass follows from nominal restraints.
   residual_risk: Estimated properties and assembly workmanship remain unqualified.
+    C1 preserves those unresolved connection findings; swept tapered fins increase root moment to8.830Nm and new thin-shell/local-socket strength is unverified despite1.319cal calculated static margin.
     S3 continuous end joints are dimensioned but not qualified; severe recovery cap sensitivity exceeds provisional screens, body serial cut and service fail, and full-growth stability is0.205cal. Longer guide does not mitigate those failures.
     The additive S2 receiver is also rejected; partial stock exceeds formal guide mass ceiling, while shell/fin/pin/hot-contact capacity remains unverified. No rigid support or unmodeled clipping closes a joint.
     S2 is not admitted; its independent carrier has no accepted positive fin-frame/body receiver, and its recorded foot gap is3.8mm. No loop preload or rigid support supplies that missing connection.
