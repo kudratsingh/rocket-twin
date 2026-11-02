@@ -1,0 +1,73 @@
+# Presentation/source mapping only. No new physical input or active configuration.
+schema_version: 1.0.0
+id: g80-c1-engineering-walkthrough-v1
+label: C1 fixed-motor G80 engineering walkthrough
+# Location links only: these identify affected C1 components, not adopted R1 geometry.
+revision_part_links:
+  R1_carbon_panel_faces: [c1_fin_panels]
+  R1_panel_face_bond: [c1_fin_panels]
+  R1_carbon_tab_faces: [fin_source_cad_residual, fin_tab_depth_delta_0, fin_tab_depth_delta_1, fin_tab_depth_delta_2]
+  R1_tab_face_bond: [fin_source_cad_residual, fin_tab_depth_delta_0, fin_tab_depth_delta_1, fin_tab_depth_delta_2]
+  R1_face_finish: [c1_fin_panels]
+  R1_six_cheek_thickness_increments: [C1_fin_socket_side_plate_1, C1_fin_socket_side_plate_2, C1_fin_socket_side_plate_3, C1_fin_socket_side_plate_4, C1_fin_socket_side_plate_5, C1_fin_socket_side_plate_6]
+  R1_three_wider_floors: [C1_fin_socket_floor_1, C1_fin_socket_floor_2, C1_fin_socket_floor_3]
+  R1_three_wider_pads: [C1_radial_mount_pad_1, C1_radial_mount_pad_2, C1_radial_mount_pad_3]
+  R1_six_wider_outer_bridges: [C1_fin_socket_outer_bridge_1, C1_fin_socket_outer_bridge_2, C1_fin_socket_outer_bridge_3, C1_fin_socket_outer_bridge_4, C1_fin_socket_outer_bridge_5, C1_fin_socket_outer_bridge_6]
+  R1_closed_receiver_thickness_increment: [C1_closed_G11_body_annulus]
+  R1_three_end_keys_0: []
+  R1_three_end_keys_1: []
+  R1_added_key_retention_bond: []
+  R1_selectable_shim_stock: [c1_fin_panels, C1_fin_socket_side_plate_1, C1_fin_socket_side_plate_2, C1_fin_socket_side_plate_3, C1_fin_socket_side_plate_4, C1_fin_socket_side_plate_5, C1_fin_socket_side_plate_6]
+sources:
+  source_lock:
+    path: configs/studies/wo03-c1-attachment-source-lock.json
+    sha256: b90ced9757330494f593867cd8fc88be58c68a77619c2e1e00cc717fc19c4100
+    description: source lock
+  c1_record:
+    path: runs/wo03-g80-mass-balance-revision-20261102-v2/record.json
+    sha256: a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276
+    description: c1 record
+  source_spec:
+    path: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+    sha256: 6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967
+    description: source spec
+  s3_record:
+    path: runs/wo03-g80-connected-receiver-20261102-v2/record.json
+    sha256: 0686d2f4603847c12e12a4e0aceb81f18e3c9993c36650a8a8dacd5fdeb456c7
+    description: s3 record
+  s3_config:
+    path: configs/studies/wo03-g80-connected-receiver.yaml
+    sha256: 14f7b125dc4b32e0a1bde0b115d24f22d17f852c090348d0bf8306b372998a78
+    description: s3 config
+  attachment_record:
+    path: runs/wo03-c1-fin-attachment-20261102-v1/record.json
+    sha256: 0af4cc8a52bf68feb5a7e69f3af2f39333894272389c6b28d47e1f5b76b7bd5b
+    description: attachment record
+  connection_audit:
+    path: runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
+    sha256: 7ae31e129db12a049150be84c05b446851bb8ec7396db328f890a5cf783586bf
+    description: connection audit
+  attachment_config:
+    path: configs/studies/wo03-c1-fin-attachment.yaml
+    sha256: cbbfb78d5ccf3c81ebadfbb01638c9662a38bd4e7d7e72186e1be88326451238
+    description: attachment config
+  c1_config:
+    path: configs/studies/wo03-g80-mass-balance-revision.yaml
+    sha256: d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228
+    description: c1 config
+  source_lock_report:
+    path: docs/wo03-c1-attachment-source-lock.md
+    sha256: 27f1de0c416bcaa93c2cab2de37fd39a9856cf245c7300b434af26a066084b9a
+    description: source lock report
+  attachment_report:
+    path: docs/wo03-c1-fin-attachment.md
+    sha256: 113d05c44da45440fbb018172293b4c2b77c3f243cf09445a39046fd4a2667cf
+    description: attachment report
+  c1_report:
+    path: docs/wo03-g80-mass-balance-revision.md
+    sha256: b5c736fe5ac11e18296b428c5342e184f61184ace638ed32df3323e83defe019
+    description: c1 report
+  c2_record:
+    path: runs/wo03-c2-sandwich-socket-20261102-v2/record.json
+    sha256: c67d16a49378e6b462bec66c689c414750cf5e9a61f4524785d0ffa198e2eac3
+    description: Rejected C2 preflight and prior C1/R1 receiver radius datum correction

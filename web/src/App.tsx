@@ -7,9 +7,10 @@ import { Viewer } from './components/Viewer';
 import { useInspection } from './store';
 import type { Catalog, InspectionDocument, MassSample } from './types';
 
-type Mode = 'inspect' | 'analysis' | 'experiment';
+type Mode = 'inspect' | 'analysis' | 'experiment' | 'workbench';
 const Experiment = lazy(() => import('./experiments/Experiment'));
 const AnalysisWorkspace = lazy(() => import('./analysis/AnalysisWorkspace'));
+const EngineeringWorkbench = lazy(() => import('./workbench/EngineeringWorkbench'));
 
 export default function App() {
   const [catalog, setCatalog] = useState<Catalog | null>(null);
@@ -21,7 +22,12 @@ export default function App() {
   const [mass, setMass] = useState<MassSample | null>(null);
   const [burn, setBurn] = useState(0);
   const [massLoading, setMassLoading] = useState(false);
-  const [mode, setMode] = useState<Mode>('inspect');
+  const [mode, setMode] = useState<Mode>(() =>
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('workspace') === 'engineering'
+      ? 'workbench'
+      : 'inspect',
+  );
   const [retry, setRetry] = useState(0);
   const resetVehicle = useInspection((s) => s.resetVehicle);
 
@@ -103,7 +109,7 @@ export default function App() {
         return;
       const state = useInspection.getState();
       if (event.key === 'Escape') state.select(null);
-      if (mode === 'experiment') return;
+      if (mode === 'experiment' || mode === 'workbench') return;
       if (event.key.toLowerCase() === 'r') state.resetCamera();
       if (event.key.toLowerCase() === 'f' && state.selectedId) {
         const selected = vehicle?.parts.find((part) => part.id === state.selectedId);
@@ -137,7 +143,10 @@ export default function App() {
           </span>
         </a>
         <span className="topbar-divider" />
-        <div className="vehicle-picker">
+        <div
+          className="vehicle-picker"
+          style={{ display: mode === 'workbench' ? 'none' : undefined }}
+        >
           <label htmlFor="vehicle">Configuration</label>
           <select
             id="vehicle"
@@ -164,6 +173,12 @@ export default function App() {
           </select>
         </div>
         <nav className="mode-tabs" aria-label="Workspace mode">
+          <button
+            className={mode === 'workbench' ? 'active' : ''}
+            onClick={() => setMode('workbench')}
+          >
+            Engineering
+          </button>
           <button className={mode === 'inspect' ? 'active' : ''} onClick={() => setMode('inspect')}>
             Inspect
           </button>
@@ -243,14 +258,34 @@ export default function App() {
       <div className="workspace-context">
         <div>
           <span className="context-dot" />
-          <strong>{selectedEntry?.label || vehicle?.label || 'Vehicle inspection'}</strong>
-          <span>{selectedEntry?.description || 'Source-linked geometry and evidence'}</span>
+          <strong>
+            {mode === 'workbench'
+              ? 'G80 / C1 engineering walkthrough'
+              : selectedEntry?.label || vehicle?.label || 'Vehicle inspection'}
+          </strong>
+          <span>
+            {mode === 'workbench'
+              ? 'Separate preliminary study · linked construction and evidence'
+              : selectedEntry?.description || 'Source-linked geometry and evidence'}
+          </span>
         </div>
         <span className="context-status">
-          {selectedEntry?.design_status || 'Integrated design · acceptance open'}
+          {mode === 'workbench'
+            ? 'Concept presentation · engineering acceptance open'
+            : selectedEntry?.design_status || 'Integrated design · acceptance open'}
         </span>
       </div>
-      {catalogError || vehicleError ? (
+      {mode === 'workbench' ? (
+        <Suspense
+          fallback={
+            <main className="center-state" role="status">
+              Loading engineering walkthrough…
+            </main>
+          }
+        >
+          <EngineeringWorkbench />
+        </Suspense>
+      ) : catalogError || vehicleError ? (
         <main className="center-state">
           <Icon name="warning" size={30} />
           <h1>Inspection data unavailable</h1>
