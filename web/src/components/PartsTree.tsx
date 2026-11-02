@@ -3,6 +3,7 @@ import { grams, partName, title } from '../format';
 import { useInspection } from '../store';
 import type { Part } from '../types';
 import { Icon } from './Icons';
+import { matchesPartSearch } from './partSearch';
 
 export function PartsTree({
   parts,
@@ -30,7 +31,12 @@ export function PartsTree({
   }, [parts, ids]);
   const filtered = query.trim().toLowerCase();
   const matches = (part: Part) =>
-    `${partName(part)} ${part.type} ${part.material}`.toLowerCase().includes(filtered);
+    matchesPartSearch(filtered, {
+      id: part.id,
+      name: partName(part),
+      type: part.type,
+      material: part.material,
+    });
   const hasMatch = (part: Part): boolean =>
     matches(part) || (children.get(part.id) || []).some(hasMatch);
   function renderPart(part: Part, level: number) {
@@ -116,7 +122,7 @@ export function PartsTree({
         <input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Find a part…"
+          placeholder="Find name or part ID…"
           aria-label="Search parts"
         />
         <kbd>/</kbd>
