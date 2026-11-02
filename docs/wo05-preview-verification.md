@@ -8,3 +8,9 @@ The search does not change the configuration, geometry, or analysis evidence.
 The search behavior has a frontend unit test. Browser verification of this
 change is pending resolution of designated-window runtime ownership; it is not
 a new visual acceptance result.
+
+Run comparison lists unavailable required wind settings and unavailable case or
+input-hash records even if both runs omit the same information. The match message
+is limited to available recorded fields; unrecorded fields cannot be compared. Synthetic
+frontend tests cover missing data, equal zeros and changed wind settings; this
+later change has not been browser verified.
