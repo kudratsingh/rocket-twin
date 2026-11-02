@@ -192,17 +192,28 @@ function AxialDrawing({
           finite(part.root_chord_mm) &&
           finite(part.tip_chord_mm) &&
           finite(part.sweep_mm);
+        const finAzimuths = part.azimuth_deg?.filter(finite) ?? [];
         return (
           <g key={part.id} {...selectable(part, selection)} style={style}>
             <PartTitle part={part} />
             {finKnown ? (
               <>
-                {[1, -1].map((sign) => (
-                  <path
-                    key={sign}
-                    d={`M${px},${y(sign * radius)}l${part.sweep_mm! * scale},${-sign * part.span_mm! * radialScale}h${part.tip_chord_mm! * scale}L${px + part.root_chord_mm! * scale},${y(sign * radius)}Z`}
-                  />
-                ))}
+                {finAzimuths.map((angle, index) => {
+                  const projection = Math.cos((angle * Math.PI) / 180);
+                  return (
+                    <path
+                      key={`${angle}-${index}`}
+                      data-fin-azimuth-deg={angle}
+                      data-radial-projection={projection}
+                      d={`M${px},${y(projection * radius)}l${part.sweep_mm! * scale},${-projection * part.span_mm! * radialScale}h${part.tip_chord_mm! * scale}L${px + part.root_chord_mm! * scale},${y(projection * radius)}Z`}
+                    />
+                  );
+                })}
+                {!finAzimuths.length && (
+                  <text x={px} y={axis - 20} className="wb-geometry-small">
+                    Fin azimuth unavailable: projection omitted
+                  </text>
+                )}
               </>
             ) : section && (part.shape === 'shell' || part.shape === 'ring') && inner != null ? (
               <>
@@ -227,6 +238,12 @@ function AxialDrawing({
           </text>
         </g>
       ))}
+      {visible.some((part) => part.shape === 'fin') && (
+        <text x={left} y={347} className="wb-geometry-small">
+          Fin centerplanes projected onto the axial / 0° radial plane; coincident projections
+          overlap.
+        </text>
+      )}
       <text x={left} y={362} className="wb-geometry-small">
         Axial station (mm), increasing aft ·{' '}
         {region
@@ -666,7 +683,7 @@ export function GeometryViews({ document: doc, selectedPartId, onSelectPart }: P
       </div>
       <Figure
         title="General arrangement · side"
-        note={`${doc.arrangement.reference} The nose outline is an envelope, not a manufactured profile. Near and far fin silhouettes are overlaid for planform readability.`}
+        note={`${doc.arrangement.reference} The nose outline is an envelope, not a manufactured profile. Fin centerplanes use recorded azimuths projected onto the axial plane containing the 0° radial direction; near/far fins may overlap. Panel thickness is not resolved in this projection.`}
         document={doc}
         svgRef={sideRef}
       >
@@ -716,7 +733,7 @@ export function GeometryViews({ document: doc, selectedPartId, onSelectPart }: P
       </div>
       <Figure
         title="Full longitudinal internal section"
-        note="The section exposes recorded shells, rings, internal envelopes and fin planform. Solid rectangles with no inner radius are component envelopes; they do not imply solid material or resolved internals."
+        note="The section exposes recorded shells, rings and internal envelopes, with fin centerplanes projected from their recorded azimuths onto the axial / 0° radial plane. Solid rectangles with no inner radius are component envelopes; they do not imply solid material or resolved internals."
         document={doc}
         svgRef={sectionRef}
       >

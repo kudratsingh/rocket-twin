@@ -30,6 +30,10 @@
     {
       "command": "npm --prefix web run format:check",
       "result": "passed after primary formatted optional revision schema in types.ts; whitespace only; no SSR repeat needed"
+    },
+    {
+      "command": "GeometryViews actual-document Vite SSR projection check",
+      "result": "passed; 0/120/240-degree source fins project to +1/-0.5/-0.5 in all3 axial views; finite output/7SVGs/selection retained"
     }
   ],
   "input": {
@@ -139,7 +143,7 @@
     },
     {
       "path": "web/src/workbench/GeometryViews.tsx",
-      "sha256": "21ed4b7e3019d854f385c14c9d54dec00cb219545283321df50545b4043b2e77"
+      "sha256": "46df0d87b52e0818c01dce8eec3b0dc4bb2beeb637cceea1025bd1ba6e0fe83f"
     },
     {
       "path": "web/src/workbench/LoadPathViews.tsx",
@@ -234,5 +238,27 @@
   "build_warnings": [
     "Vite production bundle contains a chunk larger than500kB; build succeeded. No bundle rearchitecture in this bounded increment."
   ],
-  "final_check_status": "passed; final source data SSR, lint, typechecking/production build, format and all24 frontend tests complete"
+  "final_check_status": "passed; final source data SSR, lint, typechecking/production build, format and all24 frontend tests complete",
+  "axial_fin_projection_check": {
+    "result": "passed",
+    "meaning": "Fin centerplane orthographic projection onto axial plane containing source0-degree radial direction; panel thickness not resolved. Coincident far-fin projections overlap.",
+    "source_azimuth_deg": [
+      0,
+      120,
+      240
+    ],
+    "projected_radial_factors": [
+      1,
+      -0.5,
+      -0.5
+    ],
+    "rendered_fin_path_count": 9,
+    "svg_count": 7,
+    "selection_preserved": true,
+    "physical_inputs_unchanged": true,
+    "missing_azimuth_behavior": "Projection omitted with visible unavailable label",
+    "warnings": [
+      "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+    ]
+  }
 }
