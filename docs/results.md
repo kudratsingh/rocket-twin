@@ -1675,3 +1675,44 @@ No next prototype or native analysis is admitted. Active designs, separate
 G54/G12/PID-RL and physical/purchase/paid/WO10/flight gates are preserved.
 Independent frontend graph-provenance PR44 merged after both required jobs
 passed in41366658113; browser runtime ownership remains blocked, without retry.
+
+
+## Integrated G80 aft admission — 2026-11-01 local / 2026-11-02 UTC
+
+**Decision: no credible complete arrangement selected.** S2 evidence is now
+published in merged PR45 after both required jobs passed in41370492131.
+Its stopped output attempt, failed0.05g adjacent-pair volume check and unresolved
+physical interfaces remain unchanged; no stopped calculation was repeated.
+
+The [integrated aft decision](wo03-integrated-aft-proposal.md) evaluates one
+additive receiver sketch jointly with fin/body capture and motor retention.
+Six cheeks span the3.8mm receiver gap on paper, but the complete joint is not
+accepted. Additional named stock44.812g gives927.490g nominal partial stock
+plus separate50g =977.490g. This is not complete installed mass or a bound.
+It exceeds the saved source-guide15m/s mass ceiling958.398g by19.092g and the
+separate15.5 planning ceiling903.854g by73.636g. No exact new guide speed or
+complete inertia is claimed. The same20.4m/s/.3m/DF3 opening screen at that
+subtotal is2062.718N; nominal5m/s gives150.944N. Conditional point-junction
+curvature pressure25.966MPa exceeds the unchanged provisional25MPa screen;
+finished hot harness/contact capacity and actual reactions remain unavailable.
+
+A partial station sensitivity gives CG840.742–860.157mm and old-source-CP
+margin0.991–0.697cal; it is not a full uncertainty bound or new static/aero
+benchmark. Motor thermal endplay remains unqualified, including the saved
+negative-gap sensitivity. Required thermal cases and45C substrate screen remain.
+
+The specific architecture direction replaces duplicated wood frame/carrier/
+collars with one positively connected aft receiver. Removing the named139.061g
+source bundle once leaves705.521g including growth; all replacement functions
+and hardware must fit a gross198.333g at15.5 planning or252.877g at formal15
+under the same guide-model hypothesis. These are admission ceilings, not free
+credits or an accepted design. No further physical variant, CAD, native stress/
+heat or free-flight campaign was admitted. Body/fin/harness/motor joints,
+service, thermal and installed flutter stay open. Active vehicle, preview CAD,
+G54 upgrade and G12/PID-to-RL evidence remain separate and unchanged.
+
+[One saved-data arithmetic packet](../runs/wo03-g80-integrated-aft-decision-20261102-v1/record.json)
+completed within its declared2CPU/5wall-seconds allowance; after-import work
+was0.003919CPU/0.004183wall seconds, with setup/earlier hand work unmeasured.
+This closes the bounded admission decision, not an engineering acceptance
+requirement or physical verification gate.

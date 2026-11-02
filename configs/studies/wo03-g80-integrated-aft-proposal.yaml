@@ -1,0 +1,88 @@
+status: no_credible_integrated_aft_architecture_selected
+scope: decision_only_no_cad_no_fea_no_thermal_no_flight
+source:
+  s2_config: configs/studies/wo03-g80-saddle-study.yaml
+  s2_config_sha256: 4d66a29f6b7f0e182bceea8ea572f5bed00216445943b8b358b27350ba3aabfa
+  s2_record: runs/wo03-g80-saddle-study-20261102-v2/record.json
+  s2_record_sha256: 5cb27e5a77392817dd271155bc51a5640e81e704ac2c95c03eb51f41031add7c
+  s2_quadrature_review: runs/wo03-g80-saddle-study-20261102-v2/quadrature-review.json
+  s2_quadrature_review_sha256: e6b8e49fb5394fafa1a4962a7f78c3da1b05c0e855a6c97fa1bfb42785631617
+  s2_connections_record: runs/wo03-g80-saddle-connections-20261102-v1/record.json
+  s2_connections_record_sha256: dc7de094dbc1640334be088afb5e57b448ad843f86c115f19f690394fe91aa6f
+  staged_vehicle_identity: 90b2a9ad780fc81d11171363432c46088531817ddb6570fe9f800429bde2bdfc
+  canopy_metadata_corrected_identity: 6b0577cef1256065f27dc79bb494a89e6c1f0c90703c9815f47c7ae7910d1dc4
+limits:
+  required_guide_mps: 15.0
+  planning_guide_mps: 15.5
+  separate_growth_kg: 0.05
+  formal_guide_full_mass_ceiling_g: 958.398
+  planning_guide_full_mass_ceiling_g: 903.854
+  hot_g11_scalar_screen_MPa: 25
+  hot_epoxy_shear_screen_MPa: 1
+  note: estimates_not_joint_allowables_no_temperature_acceptance
+arithmetic_budget:
+  packets: 1
+  cpu_limit_s: 2
+  wall_limit_s: 5
+  scope: read_saved_results_and_algebra_only_no_geometry_refinement_or_simulator
+  on_failure: preserve_record_and_stop_no_automatic_retry
+additive_receiver_screen_rejected:
+  note: dimensional_screen_only_not_selected_or_installed
+  fore_plane_station_mm: 1069
+  aft_plane_station_mm: 1203.8
+  source_rail_end_station_mm: 1200
+  gap_mm: 3.8
+  rail_axes_deg: [0, 120, 240]
+  six_aft_integral_cheeks_axial_radial_tangent_mm: [134.8, 7, 2]
+  cheek_tangent_centers_mm: [-7.2, 7.2]
+  nominal_side_gap_mm: 0.2
+  fore_collar_six_inboard_tongues_axial_radial_tangent_mm: [18, 7, 2]
+  fore_tongue_tangent_centers_mm: [-5, 5]
+  fore_pin_station_mm: 1078
+  aft_pin_station_mm: 1195
+  receiver_through_fasteners_count: 6
+  proposed_m3_thread_length_mm: 22
+  assumed_m3_clearance_hole_mm: 3.2
+  nominal_grip_mm: 16.4
+  nominal_two_washers_total_mm: 1.8
+  nominal_nut_height_mm: 2.4
+  minimum_thread_projection_mm: 0.4
+  fin_shear_keys_count: 3
+  fin_shear_key_diameter_length_mm: [3, 15]
+  fin_shear_key_start_end_station_mm: [1185, 1200]
+  fin_key_radial_mm: 28.5
+  fin_key_rear_stops_count: 3
+  fin_key_stop_blank_dimensions_mm: null
+  fin_key_stop_note: 0.15692g_placeholder_is_unverified_no_installed_geometry_credit
+  shell_attachment_count: 12
+  shell_fastener_type: proposed_radial_M2_through_bolts
+  shell_fastener_axial_stations_mm: [1110, 1165]
+  shell_washer_blank_count: 12
+  shell_washer_blank_mm: [6, 6, 1]
+  no_verified_contact_stiffness_or_friction_credit: true
+mass_screen_g:
+  s2_diagnostic_including_growth: 932.677168
+  extra_six_full_length_g11_cheeks_unclipped: 20.94792
+  extra_six_M3_fastener_sets_source_weight_placeholder: 17.04
+  extra_three_g11_shear_key_blanks: 0.58843
+  extra_three_g11_stop_blanks: 0.15692
+  extra_twelve_M2_sets_source_weight_placeholder: 5.28
+  extra_twelve_g11_shell_washer_blanks: 0.7992
+  additive_partial_subtotal_including_growth: 977.48964
+  incomplete_unpriced_unmeasured: [ring_reliefs, real_fastener_weights, reinforcements, adhesive_process, thermal_shields, service_access]
+  note: stock_only_no_double_count_assumed_not_installed_mass_or_a_bound
+next_required_architecture:
+  decision: replace_duplicate_wood_frame_and_carrier_with_one_positive_integrated_receiver
+  no_geometry_selected: true
+  preserve_functions: [fin_capture, body_attachment, independent_motor_retention, recovery_load_path, service, thermal_isolation, maximum_performance]
+  connection_and_mass_basis: unresolved
+  no_credible_candidate_claim: true
+  retained_source_budget_record: runs/wo03-g80-short-subframe-20261101-v1/record.json
+  budget_note: Gross_replacement_budget_only_remove_source_bundle_once_only_after_all_functions_replaced
+acceptance_and_available_properties:
+  complete_installed_mass_kg: null
+  complete_installed_cg_m: null
+  full_installed_inertia_kg_m2: null
+  same_configuration_static_benchmark: unavailable
+  exact_guide_departure_speed_mps: unavailable
+  no_strength_fit_thermal_or_flight_requirement_closed: true
