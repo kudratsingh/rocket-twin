@@ -1,0 +1,17 @@
+{
+  "first_attempt": "runs/wo03-c2-sandwich-socket-20261102-v1/failure.json",
+  "reason": "Source Vehicle cached CAD identity belongs to frozen source generator, not current CAD code; source context was initially wrong.",
+  "correction": "Use same archived source checkout as C1; source scalar guide helpers are byte-identical. No geometry, mass, loads or thresholds changed. No cached-property validator bypass/regeneration.",
+  "second_attempt_limits_cpu_wall_s": [
+    10,
+    15
+  ],
+  "second_actual_cpu_wall_s": [
+    0.341837,
+    0.38308737499755807
+  ],
+  "first_actual_cpu_s": null,
+  "first_cpu_status": "Not instrumented in failure output; do not invent measured CPU. Initial process had20CPU/30wall hard caps and exited on source validation.",
+  "no_automatic_next_attempt": true,
+  "source_dependencies_manifest": "source-dependencies/manifest.json"
+}

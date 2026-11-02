@@ -3,6 +3,12 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-c2-sandwich-socket.md
+  scope: One bounded C2 sandwich/captured-socket complete mass/force/guide/static/recovery preflight with
+    finite brace/floor/receiver path.
+  limitation: 'Rejected before CAD/native work: receiver bond, floor, movement, harness interference and
+    planning mass fail. No installed acceptance; earlier C1/R1 receiver-radius proxies superseded only
+    in scalar conversion.'
 - path: docs/wo03-c1-fin-attachment.md
   scope: Frozen C1 installed-fin load path and one counted R1 preflight, finite support and same-package
     guide/recovery/static cases.
@@ -553,6 +559,8 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -568,12 +576,14 @@ requirements:
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   - runs/wo03-recovery-budget-20261030T230910555661Z/record.json
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Current active G12 5 m usable-guide assumption is unconfirmed.
-    Exact budget root retains 10 m/s, lower thrust/friction/drag and full 50 g growth: current dedicated111.034g,
-    maximum119.767g. Candidate construction trades are not adopted.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Current active G12 5 m usable-guide
+    assumption is unconfirmed. Exact budget root retains 10 m/s, lower thrust/friction/drag and full 50
+    g growth: current dedicated111.034g, maximum119.767g. Candidate construction trades are not adopted.'
 - id: RT-STAB-001
   applies_to:
   - G80
@@ -596,6 +606,8 @@ requirements:
   - '06'
   - '11'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -609,11 +621,13 @@ requirements:
   - docs/wo03-integrated-vehicle.md
   - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
-    explicitly establishes otherwise.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Provisional design/specification
+    unless an evidence record explicitly establishes otherwise.'
 - id: RT-CONTROL-001
   applies_to:
   - G12-F
@@ -668,6 +682,8 @@ requirements:
   - 09
   - '11'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -683,13 +699,15 @@ requirements:
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   - docs/wo03-package-closure-progress.md
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Active designs remain unchanged. Isolated 72-part G80
-    bookkeeping and same-identity static/ascent checks pass with full 50 g retained. Larger-canopy sensitivity
-    separately adds 5 g; supplier masses, packing, end attachments and unpriced entries remain unresolved.
-    G54/G12 evidence is separate.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Active designs remain unchanged.
+    Isolated 72-part G80 bookkeeping and same-identity static/ascent checks pass with full 50 g retained.
+    Larger-canopy sensitivity separately adds 5 g; supplier masses, packing, end attachments and unpriced
+    entries remain unresolved. G54/G12 evidence is separate.'
 - id: RT-MASS-002
   applies_to: *id001
   purpose_source: WO-03 mass/CG/inertia consistency
@@ -707,6 +725,8 @@ requirements:
   - 09
   - '12'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -722,13 +742,15 @@ requirements:
   - runs/wo03-20261030T205235088123Z/record.json
   - runs/wo03-integrated-20261030T211523356909Z/record.json
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Isolated G80 manufactured solids, full centroid/tensor
-    and exact source identity reconciled; no adoption. Canopy metadata-only copy has bitwise-identical
-    shared builder inputs, not a new benchmark. Flexible envelope inertia, measured mass and installed
-    recovery remain open.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Isolated G80 manufactured
+    solids, full centroid/tensor and exact source identity reconciled; no adoption. Canopy metadata-only
+    copy has bitwise-identical shared builder inputs, not a new benchmark. Flexible envelope inertia,
+    measured mass and installed recovery remain open.'
 - id: RT-LOAD-001
   applies_to: *id001
   purpose_source: Structural adequacy and acceleration
@@ -748,6 +770,8 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -777,15 +801,17 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Exact clipped sections and internal bracing are calculated;
-    G54 eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint strength remains open; ideal
-    strip-end restraints are rejected as load-path proof. The original G80 CCX fields fail force/reciprocity.
-    Separate recovered Elmer coarse fields pass those numerical checks, but fixed-support face-average
-    DF3 shear exceeds the estimated hot bond screen. Material-local sampled stresses and refinement remain
-    unqualified for strength; no installed acceptance follows.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Exact clipped sections and
+    internal bracing are calculated; G54 eigenvalue factor3.7439>DF3 is frame-only. Coupled bond/shell/joint
+    strength remains open; ideal strip-end restraints are rejected as load-path proof. The original G80
+    CCX fields fail force/reciprocity. Separate recovered Elmer coarse fields pass those numerical checks,
+    but fixed-support face-average DF3 shear exceeds the estimated hot bond screen. Material-local sampled
+    stresses and refinement remain unqualified for strength; no installed acceptance follows.'
 - id: RT-LOAD-002
   applies_to: *id001
   purpose_source: Fin/guide/servo loads and joints
@@ -861,6 +887,8 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -904,14 +932,16 @@ requirements:
   - docs/wo03-ccx-thermal-comparison.md
   - runs/wo03-external-thermal-tools-20261031T083118518450Z/record.json
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Unchanged45C substrate and required combined300C/epsilon0.9/35C
-    case. Candidate69df actual burn/soak debug completed; complete source gas operator has nonphysical
-    nodal/group undershoots and is failed. Stable local heat ledger verified separately without changing
-    fields. Relevant spatial/time/optical/material quadrature and required matrix remain unresolved; no
-    adoption.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Unchanged45C substrate and
+    required combined300C/epsilon0.9/35C case. Candidate69df actual burn/soak debug completed; complete
+    source gas operator has nonphysical nodal/group undershoots and is failed. Stable local heat ledger
+    verified separately without changing fields. Relevant spatial/time/optical/material quadrature and
+    required matrix remain unresolved; no adoption.'
 - id: RT-FIT-001
   applies_to: *id001
   purpose_source: Manufacturing/thermal tolerance and service
@@ -932,6 +962,8 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -948,12 +980,14 @@ requirements:
   - runs/wo03-recovery-packaging-20261031T003400482420Z/record.json
   - runs/wo03-thermal-layout-20261031T042330617623Z/record.json
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. PackageA interval calculations pass, but geometry adoption
-    awaits complete structural path. Pin/bore sizes are spec-owned; positive axial retention and purchased
-    articulation remain open.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. PackageA interval calculations
+    pass, but geometry adoption awaits complete structural path. Pin/bore sizes are spec-owned; positive
+    axial retention and purchased articulation remain open.'
 - id: RT-MOTION-001
   applies_to:
   - G12-F
@@ -1010,6 +1044,8 @@ requirements:
   - '10'
   - '11'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -1037,15 +1073,17 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Latest isolated G80 canopy passes five modeled vertical-descent
-    screens under unmeasured drag assumptions. Serial paper-body recovery cut exceeds its estimated screen
-    in existing off-nominal probes. Selected 60-degree straight backbone envelope has 0.45 mm inflated
-    coupler clearance; end attachments, bends, packing, pressure isolation, extraction, hot/termination
-    capacity and service remain open. G54/G12 requirements are unchanged; industrial lifting hardware
-    remains rejected.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Latest isolated G80 canopy
+    passes five modeled vertical-descent screens under unmeasured drag assumptions. Serial paper-body
+    recovery cut exceeds its estimated screen in existing off-nominal probes. Selected 60-degree straight
+    backbone envelope has 0.45 mm inflated coupler clearance; end attachments, bends, packing, pressure
+    isolation, extraction, hot/termination capacity and service remain open. G54/G12 requirements are
+    unchanged; industrial lifting hardware remains rejected.'
 - id: RT-RECOVERY-002
   applies_to: *id001
   purpose_source: Plugged G12 and common-cause failures
@@ -1179,6 +1217,8 @@ requirements:
   - '10'
   - '12'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -1187,11 +1227,13 @@ requirements:
   - docs/wo03-fin-load-routing.md
   - runs/wo03-load-routing-cutloads-20261031T093433446466Z/record.json
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
-    explicitly establishes otherwise.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Provisional design/specification
+    unless an evidence record explicitly establishes otherwise.'
 - id: RT-FLUTTER-001
   applies_to:
   - G80
@@ -1219,6 +1261,8 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -1240,11 +1284,13 @@ requirements:
   - docs/wo03-support-closure-audit.md
   - docs/wo03-installed-fin-closure-audit.md
   status: open
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
-    explicitly establishes otherwise.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Provisional design/specification
+    unless an evidence record explicitly establishes otherwise.'
 - id: RT-AERO-001
   applies_to: *id001
   purpose_source: WO-02 small-angle bounds and G12 large-angle results
@@ -1309,6 +1355,8 @@ requirements:
   - '05'
   - '12'
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -1337,11 +1385,13 @@ requirements:
   - docs/wo03-robin-lumped-trial.md
   - docs/wo03-robin-hybrid-trial.md
   status: export_contract_verified
-  evidence_basis: 'C1/R1 G80-only preliminary attachment screen: source lock complete; R1 adds70.111g,
-    bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse margin0.991984cal<1.0,
-    and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed flutter/thermal unavailable.
-    No accepted active change; G54/G12 separate. Provisional design/specification unless an evidence record
-    explicitly establishes otherwise.'
+  evidence_basis: 'C2 not admitted; complete net+53.929g, receiver-pad hot bond/floor/motion/harness and
+    planning fail. Current scalar axis-tip conversion123mm gives R1 1.054mm; prior1.039 preserved superseded.
+    No active/G54/G12 transfer. C1/R1 G80-only preliminary attachment screen: source lock complete; R1
+    adds70.111g, bridge hot mean shear4.756MPa>estimated1MPa, ideal aggregate motion1.039mm>1mm, adverse
+    margin0.991984cal<1.0, and conditional15.5 planning budget fails. Full intrinsic inertia/CAD/installed
+    flutter/thermal unavailable. No accepted active change; G54/G12 separate. Provisional design/specification
+    unless an evidence record explicitly establishes otherwise.'
 - id: RT-ABORT-001
   applies_to: *id001
   purpose_source: Independent abort and WO-10 owner review
@@ -1400,6 +1450,9 @@ interfaces:
   power_connectors: TVC servo harness disconnected before aft exchange; keyed/labeled channel/polarity
     and strain relief.
   unresolved:
+  - C2 integral socket removes narrow bridge adhesive but shifts force into inadequate local receiver-pad
+    bond; actual harness overlap and finite-floor motion remain failed. Need continuous structural moment
+    transfer compatible with recovery routing; no next variant admitted.
   - C1/R1 fin-to-socket bridge, finite receiver/end/body and cap/recovery demands remain unqualified;
     R1 is stopped before detailed CAD, not a replacement active interface. New keys/skins/wider socket
     require actual hot fit and service geometry.
@@ -1407,6 +1460,8 @@ interfaces:
   - Measured manufacturing/thermal dimensions and repeated assembly
   - As-built identity markings and locked arming procedure
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -1565,6 +1620,9 @@ interfaces:
   power_connectors: Independent processor/task and isolated reserve supply required; no plugged G12 motor-ejection
     backup.
   unresolved:
+  - C2 integral socket removes narrow bridge adhesive but shifts force into inadequate local receiver-pad
+    bond; actual harness overlap and finite-floor motion remain failed. Need continuous structural moment
+    transfer compatible with recovery routing; no next variant admitted.
   - C1/R1 fin-to-socket bridge, finite receiver/end/body and cap/recovery demands remain unqualified;
     R1 is stopped before detailed CAD, not a replacement active interface. New keys/skins/wider socket
     require actual hot fit and service geometry.
@@ -1586,6 +1644,8 @@ interfaces:
   - Isolated recovery battery/driver/arming architecture and exact initiator
   - Opening transient, attachment proof and burnout transition
   evidence:
+  - docs/wo03-c2-sandwich-socket.md
+  - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json
   - runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json
@@ -1804,23 +1864,25 @@ fmea:
     verified/converged analyses. Separate G80 keeper/through-bolt geometry and staged service studies
     are proposed in docs/wo03-g80-keeper-service.md; no active adoption or strength pass follows from
     nominal restraints.
-  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
-    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
-    unavailable thermal or inherited panel/flutter credit. Estimated properties and assembly workmanship
-    remain unqualified. C1 preserves those unresolved connection findings; swept tapered fins increase
-    root moment to8.830Nm and new thin-shell/local-socket strength is unverified despite1.319cal calculated
-    static margin. S3 continuous end joints are dimensioned but not qualified; severe recovery cap sensitivity
-    exceeds provisional screens, body serial cut and service fail, and full-growth stability is0.205cal.
-    Longer guide does not mitigate those failures. The additive S2 receiver is also rejected; partial
-    stock exceeds formal guide mass ceiling, while shell/fin/pin/hot-contact capacity remains unverified.
-    No rigid support or unmodeled clipping closes a joint. S2 is not admitted; its independent carrier
-    has no accepted positive fin-frame/body receiver, and its recorded foot gap is3.8mm. No loop preload
-    or rigid support supplies that missing connection. The isolated G80 fixed-support mean shear exceeds
-    its provisional hot screen; a positive load-path correction is required before acceptance. The bounded
-    B/C proposals remain rejected at preflight; B moves force into unverified rail/pin joints; C conflicts
-    with the coupler and hot-section screen. Short captured aft subframe plus aramid backbone is only
-    the next direction. G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness
-    is not zero physical reaction. Installed load paths and later owner proof remain open.
+  residual_risk: 'C2 rejected: local receiver-pad bond, floor/movement and actual2D harness interference
+    fail. Isolated sandwich-panel improvement is not installed acceptance; no next candidate admitted.
+    C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance open; bridge
+    shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing, unavailable thermal
+    or inherited panel/flutter credit. Estimated properties and assembly workmanship remain unqualified.
+    C1 preserves those unresolved connection findings; swept tapered fins increase root moment to8.830Nm
+    and new thin-shell/local-socket strength is unverified despite1.319cal calculated static margin. S3
+    continuous end joints are dimensioned but not qualified; severe recovery cap sensitivity exceeds provisional
+    screens, body serial cut and service fail, and full-growth stability is0.205cal. Longer guide does
+    not mitigate those failures. The additive S2 receiver is also rejected; partial stock exceeds formal
+    guide mass ceiling, while shell/fin/pin/hot-contact capacity remains unverified. No rigid support
+    or unmodeled clipping closes a joint. S2 is not admitted; its independent carrier has no accepted
+    positive fin-frame/body receiver, and its recorded foot gap is3.8mm. No loop preload or rigid support
+    supplies that missing connection. The isolated G80 fixed-support mean shear exceeds its provisional
+    hot screen; a positive load-path correction is required before acceptance. The bounded B/C proposals
+    remain rejected at preflight; B moves force into unverified rail/pin joints; C conflicts with the
+    coupler and hot-section screen. Short captured aft subframe plus aramid backbone is only the next
+    direction. G80 bridge, keeper pads and M2 closures may share force; noncredited stiffness is not zero
+    physical reaction. Installed load paths and later owner proof remain open.'
   verification_test: Coupons, pull/bending/bearing, buckling and recovery opening proof tests.
   requirements:
   - RT-LOAD-001
@@ -1897,12 +1959,14 @@ fmea:
     DF3. Its serial paper-body cut exceeds the estimated screen. A continuous protected backbone is only
     a layout candidate; actual nose/payload/aft joints, separation mechanism, pressure isolation, switch
     access, board retention and routing remain open WO-03 design items.
-  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
-    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
-    unavailable thermal or inherited panel/flutter credit. Plugged G12 has no motor-ejection backup; redundant
-    triggers cannot release a jammed pack. S2 finished loop/eye, multi-leg connector, closed-loop service
-    and actual receiver remain unavailable. Recalculate the same opening case at full new mass; diagnostic
-    S2 demand is1968.154N, not a measured peak or frozen1782N.
+  residual_risk: 'C2 rejected: local receiver-pad bond, floor/movement and actual2D harness interference
+    fail. Isolated sandwich-panel improvement is not installed acceptance; no next candidate admitted.
+    C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance open; bridge
+    shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing, unavailable thermal
+    or inherited panel/flutter credit. Plugged G12 has no motor-ejection backup; redundant triggers cannot
+    release a jammed pack. S2 finished loop/eye, multi-leg connector, closed-loop service and actual receiver
+    remain unavailable. Recalculate the same opening case at full new mass; diagnostic S2 demand is1968.154N,
+    not a measured peak or frozen1782N.'
   verification_test: Repeated repacking, cold/hot extraction, deployment and opening-load proof.
   requirements:
   - RT-RECOVERY-001
@@ -1974,10 +2038,12 @@ fmea:
     limits and operating envelope. Current body first modes16–26Hz and gross gimbal32.6–51.6Hz identify
     WO-06 coupled actuator/body/sensor risks. Root stiffness/peel and large-angle flutter remain open;
     component numerical agreement is not hardware qualification.
-  residual_risk: C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance
-    open; bridge shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing,
-    unavailable thermal or inherited panel/flutter credit. Crude bending–torsion criterion does not clear
-    stall flutter, body/control coupling or unknown damping.
+  residual_risk: 'C2 rejected: local receiver-pad bond, floor/movement and actual2D harness interference
+    fail. Isolated sandwich-panel improvement is not installed acceptance; no next candidate admitted.
+    C1/R1 bounded preflight in docs/wo03-c1-fin-attachment.md leaves installed acceptance open; bridge
+    shear/movement and R1 mass/adverse stability fail. No rigid-ground, generic bearing, unavailable thermal
+    or inherited panel/flutter credit. Crude bending–torsion criterion does not clear stall flutter, body/control
+    coupling or unknown damping.'
   verification_test: Known-case/convergence, hot modal/torsion and loaded vibration; staged envelope expansion.
   requirements:
   - RT-VIB-001
