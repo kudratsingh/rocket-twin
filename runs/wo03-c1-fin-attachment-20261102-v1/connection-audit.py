@@ -13,12 +13,18 @@ r = json.loads(original)
 out = {
     "source_record_sha256": hashlib.sha256(original).hexdigest(),
     "scope": "Derived joint demands and corrected receiver-only torque reference, not installed acceptance or another physics campaign",
-    "receiver_motion_correction": "v1 receiver-only elastic term used body-root moment; use socket-center moment including the 8.7 mm transfer arm. Preserve v1; corrected terms below supersede only that proxy and its aggregate. Decisions unchanged.",
+    "receiver_motion_correction": "v1 receiver-only elastic term used body-root moment, and first audit used socket-center moment. Receiver/end torsion must use rocket-axis moment including F times full 33 mm root radius. Both prior records are preserved; only torque-dependent proxies are superseded. Decisions unchanged.",
     "structures": {},
 }
 for name, structure in r["structures"].items():
     p = structure["attachment"]
-    service_torque = p["socket_center_moment_DF3_Nm"] / 3
+    axis_torque = p["reference_root_moment_DF3_Nm"] + r["load_case"]["force_DF3_once_N"] * 0.033
+    transported_axis_torque = (
+        p["socket_center_moment_DF3_Nm"] + r["load_case"]["force_DF3_once_N"] * 0.0243
+    )
+    if not math.isclose(axis_torque, transported_axis_torque, abs_tol=1e-12):
+        raise ValueError("Force/couple transport changed axis torque")
+    service_torque = axis_torque / 3
     lever = 0.0987
     corrected_receiver_motion = service_torque / p["receiver_hot_upper_stiffness_Nm_rad"] * lever
     panel = structure["panel_states"][1]["levels"][-1]["tip_m"]
@@ -42,10 +48,8 @@ for name, structure in r["structures"].items():
                 + service_torque / sum(branches) * lever,
             }
         )
-    torque, transverse = (
-        p["single_fin_end_torques_ideal_stiffness_share_Nm"],
-        p["single_fin_factored_transverse_end_reactions_N"],
-    )
+    torque = [axis_torque * 0.0718 / 0.2018, axis_torque * 0.13 / 0.2018]
+    transverse = p["single_fin_factored_transverse_end_reactions_N"]
     joint = []
     area = 0.75 * 2 * math.pi * 0.032 * 0.0255
     for i in range(2):
@@ -70,6 +74,8 @@ for name, structure in r["structures"].items():
     # Net torque sum_i sin(alpha_direction-phi_i) is zero, not three same-sign maxima.
     residual = sum(math.sin(math.radians(phi)) for phi in (0, 120, 240))
     out["structures"][name] = {
+        "rocket_axis_torque_DF3_once_Nm": axis_torque,
+        "axis_torque_transport_residual_Nm": axis_torque - transported_axis_torque,
         "corrected_receiver_only_service_motion_m": corrected_receiver_motion,
         "corrected_hot_panel_play_and_ideal_receiver_motion_m": panel
         + p["socket_play_only_tip_motion_m"]

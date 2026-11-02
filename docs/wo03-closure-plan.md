@@ -16,7 +16,7 @@ design acceptance and owner qualification remain separate.
 nominal + separate50g =1129.807g. The one [R1 installed-fin reinforcement
 preflight](wo03-c1-fin-attachment.md) is stopped before CAD/native analysis:
 +70.111g, bridge mean hot shear4.756MPa>estimated1MPa, corrected ideal aggregate
-movement1.018mm>1mm, adverse static margin0.991984cal<1.0. Nominal/adverse
+movement1.039mm>1mm, adverse static margin0.991984cal<1.0. Nominal/adverse
 masses1199.918/1219.918g miss conditional15.5m/s planning by47.602/67.602g.
 Adverse formal speed15.000251870m/s on illustrative1.971m has only0.035501g
 headroom and is not useful margin. C1 remains selected preliminary; no active

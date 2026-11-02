@@ -70,6 +70,12 @@ def test_known_answer_refinement_does_not_turn_failed_installed_screen_into_pass
             assert state["final_relative_change"] < 0.0001
         assert audit["structures"][key]["corrected_1mm_remaining_m"] < 0
         assert audit["structures"][key]["socket_bridge_hot_1MPa_shear_estimate_ratio"] < 1
+        axis = audit["structures"][key]["rocket_axis_torque_DF3_once_Nm"]
+        expected_axis = (
+            r["load_case"]["moment_DF3_once_Nm"] + r["load_case"]["force_DF3_once_N"] * 0.033
+        )
+        assert axis == pytest.approx(expected_axis)
+        assert abs(audit["structures"][key]["axis_torque_transport_residual_Nm"]) < 1e-12
 
 
 def test_added_mass_recovery_and_conditional_guides_use_same_complete_case():

@@ -96,20 +96,23 @@ accurate local contact-pressure distribution.
 | Cheek bending with ideal simple supports at both edges |48.150MPa |21.400MPa |Estimated hot25MPa: ratios0.519 /1.168; ideal supports are not the installed assembly |
 | Cheek bending if outer support is lost |256.798MPa |114.132MPa |Both exceed25MPa; the outer bridge is structurally essential |
 | Outer bridge reaction / minimal mean bond shear |1426.653N /7.133MPa |1426.653N /4.756MPa |Existing hot1MPa estimated shear screen: both fail; peel/edge stress unavailable |
-| Panel + socket play + ideal receiver service motion |3.153mm |1.018mm |Both exceed1mm even before unknown local support flexibility |
-| R1 with finite end-contact sensitivity |— |1.133–1.499mm |Effective contact modulus0.1–1GPa is an explicitly unvalidated sensitivity; no rigid-ground pass |
+| Panel + socket play + ideal receiver service motion |3.179mm |1.039mm |Both exceed1mm even before unknown local support flexibility |
+| R1 with finite end-contact sensitivity |— |1.175–1.723mm |Effective contact modulus0.1–1GPa is an explicitly unvalidated sensitivity; no rigid-ground pass |
 
-The receiver-only motion initially used the external-root torque. The preserved
-v1 record is corrected in the read-only connection audit to use the full socket
-torque; only that proxy and its aggregate are superseded. No guide or native
-calculation was repeated. The reported table uses the correction.
+The receiver-only motion initially used the external-root torque; the first
+read-only audit then used socket-centre torque. Receiver/end torsion is about
+the rocket axis:8.83035 +220.759×0.033 = **16.11538N·m**, equal to
+10.75095 +220.759×0.0243 after transporting the force/couple. The corrected
+audit verifies this invariance. Both earlier records/audits are preserved as
+superseded torque-dependent proxies. No guide or native calculation was repeated;
+the table and end demands below use the rocket-axis correction.
 
 For a single-fin envelope, ideal end reactions are78.545/142.213N transverse
-and3.825/6.926N·m torque fore/aft. An end joint carrying its entire torque through
-one M3 screw needs159.382/288.574N tangential force and22.55/40.82MPa pin shear;
-barrel mean bearing is4.23/7.66MPa, two-ligament shear1.17/4.69MPa. These are
+and5.734/10.382N·m torque fore/aft. An end joint carrying its entire torque through
+one M3 screw needs238.909/432.565N tangential force and33.80/61.20MPa pin shear;
+barrel mean bearing is6.35/11.49MPa, two-ligament shear1.75/7.03MPa. These are
 **demands**, not passes from a generic G11 tensile property. R1 one-key demands
-are141.673/256.511N, or3.94/7.13MPa across36mm². Unequal contact, local cap
+are212.364/384.502N, or5.90/10.68MPa across36mm². Unequal contact, local cap
 bending, key/pocket tear-out and real fastener grades remain open.
 
 The uncut receiver's ideal hot torsion stiffness is an upper bound. Putting
@@ -122,7 +125,7 @@ gap still contributes0.073mm. Actual body bending/socket indentation add motion.
 The fin's severe recovery inertia rises from98.05N to115.46N with its faces.
 The5mm double-shear pin, tab bearing and axial tear-out demands are saved;
 tab bearing3.11→3.67MPa and tear-out1.06→1.25MPa remain unqualified without hot
-directional data. Fore-skirt mean aero shear31.1kPa torsional/20.4kPa transverse
+directional data. Fore-skirt mean aero shear46.6kPa torsional/20.4kPa transverse
 does not settle peel, local paper crushing, radial-retainer strength or upper-joint
 flexibility. Full recovery in a single M3 cap joint exceeds the provisional
 200MPa tensile screen. Equal sharing or an all-compression reaction is unproven.
