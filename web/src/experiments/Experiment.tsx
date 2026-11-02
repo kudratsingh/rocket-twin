@@ -1,5 +1,6 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
+import { comparisonDifferences, comparisonValue } from './comparison';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Line, OrbitControls, useGLTF } from '@react-three/drei';
 import { Matrix4, Quaternion, Vector3 } from 'three';
@@ -295,34 +296,7 @@ function RunDetails({ run, label }: { run: Loaded; label: string }) {
   );
 }
 function ComparisonDifferences({ a, b }: { a: RecordRun; b: RecordRun }) {
-  const rows: [string, unknown, unknown][] = [
-    ['Configuration', a.configuration, b.configuration],
-    ...Array.from(new Set([...Object.keys(a.settings), ...Object.keys(b.settings)]))
-      .sort()
-      .map((key): [string, unknown, unknown] => [
-        key,
-        a.settings[key as keyof typeof a.settings],
-        b.settings[key as keyof typeof b.settings],
-      ]),
-    ...Array.from(new Set([...Object.keys(a.case ?? {}), ...Object.keys(b.case ?? {})]))
-      .sort()
-      .map((key): [string, unknown, unknown] => [`case: ${key}`, a.case?.[key], b.case?.[key]]),
-    ['Simulation code SHA-256', a.code_sha256, b.code_sha256],
-    ['Resolved specification SHA-256', a.resolved_sha256, b.resolved_sha256],
-    ['CAD generator SHA-256', a.cad_revision_sha256, b.cad_revision_sha256],
-    ...Array.from(
-      new Set([...Object.keys(a.input_sha256 ?? {}), ...Object.keys(b.input_sha256 ?? {})]),
-    )
-      .sort()
-      .map((key): [string, unknown, unknown] => [
-        `input: ${key}`,
-        a.input_sha256?.[key],
-        b.input_sha256?.[key],
-      ]),
-  ];
-  const differences = rows.filter(
-    ([, left, right]) => left !== right || left == null || right == null,
-  );
+  const differences = comparisonDifferences(a, b);
   return (
     <details open>
       <summary>Differences and unavailable settings ({differences.length})</summary>
@@ -331,13 +305,15 @@ function ComparisonDifferences({ a, b }: { a: RecordRun; b: RecordRun }) {
           <p key={label}>
             <strong>{label}</strong>
             <br />
-            A: {String(left ?? 'unavailable')}
+            A: {comparisonValue(left)}
             <br />
-            B: {String(right ?? 'unavailable')}
+            B: {comparisonValue(right)}
           </p>
         ))
       ) : (
-        <p>Recorded settings and identities match.</p>
+        <p>
+          Available recorded settings and identities match; unrecorded fields cannot be compared.
+        </p>
       )}
     </details>
   );
