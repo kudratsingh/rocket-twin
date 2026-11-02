@@ -74,3 +74,13 @@ Expose linked stable-ID requirements, interfaces, FMEA mitigations and unresolve
 ## Engineering-workbench increment (owner2026-11-02)
 
 Implement WB-01–05 in `docs/UI.md` and the [A–L inventory](../wo04-engineering-view-inventory.md). First deliver linked C1 arrangement/internal sections, fin/recovery connections, actual load-path/free-body diagrams, C1/R1 mass/balance and conditional launch graphics. Later increments expose source-identified heat/netlist/compatible result fields and verification maps. No frontend physical calculations or invented analysis fields. Retain full benchmarks, earlier viewer/experiments/replay, exact identity/maturity, browser evidence boundaries and every engineering/build/flight gate.
+
+## Offline inspection exports (first walkthrough increment)
+
+`make workbench-drawings` now exports25 standalone SVGs and a local HTML index
+from the existing C1/R1 graphics. See [export guide](../wo04-offline-drawings.md).
+XML/source/style/header checks are executed; image rendering and browser
+interaction remain unverified. Preserve C1 concept/envelope maturity, unavailable
+current CAD,135 source rows rather than a manufacturing assembly, failed scalar
+connections and missing fields. Generated drawing bulk stays local; source,
+manifests and small records are published. This is not WO-04 completion.

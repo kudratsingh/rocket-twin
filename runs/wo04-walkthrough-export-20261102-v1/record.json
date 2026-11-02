@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "created_at_utc": "2026-11-02T14:07:40.392Z",
+  "command": "node scripts/wo04_export_walkthrough_drawings.mjs",
+  "result": "portable_svg_exports_complete_png_rendering_blocked",
+  "artifact_count": 25,
+  "output_directory": "output/engineering-walkthrough",
+  "manifest_path": "output/engineering-walkthrough/source-manifest.json",
+  "sources_verified": 15,
+  "physical_calculations_performed": false,
+  "cad_generated": false,
+  "browser_used": false,
+  "browser_acceptance": false,
+  "visual_png_inspection": false,
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "renderer_attempts": [
+    {
+      "command": "sips -s format png output/engineering-walkthrough/renderer-check.svg --out output/engineering-walkthrough/renderer-check.png",
+      "exit_code": 13,
+      "error": "Cannot extract image from file. Error13: an unknown error occurred."
+    },
+    {
+      "command": "qlmanage -t -s1800 -o output/engineering-walkthrough output/engineering-walkthrough/renderer-check.svg",
+      "exit_code": 255,
+      "error": "sandbox_extension_issue_file failed: Operation not permitted; sandbox initialization failed: invalid data type of path filter; expected pattern, got boolean"
+    }
+  ],
+  "renderer_dependency_check": {
+    "cairosvg": false,
+    "resvg": false,
+    "imagemagick": false,
+    "sips_svg_input_advertised_but_test_failed": true
+  },
+  "stop_condition": "One native renderer fallback exhausted. No installs, upgrades, browser, headless renderer or further native workaround attempted.",
+  "limitations": [
+    "No PNG previews or image observations were produced by this script because available native rendering failed. SVG source/metadata checks are not visual acceptance.",
+    "Figure styles are resolved from existing CSS using a small presentation-only matcher; hover/focus and responsive HTML layout are deliberately absent.",
+    "Case-comparison SVG is a direct rendering of the UI saved case fields; no mass, balance, force, speed or margin is recomputed.",
+    "All drawings retain preliminary, unresolved and failed statuses. C1 complete detailed CAD, installed joints/contact/thermal/fin/flutter, actual motor/guide/site and release gates remain open."
+  ],
+  "offline_artifact_checks": {
+    "result": "passed",
+    "svg_xml_parsed": 25,
+    "accessible_title_description_metadata": true,
+    "all15_source_hashes_verified": true,
+    "all_artifact_hashes_verified": true,
+    "export_implementation_hashes_verified": true,
+    "no_unresolved_css_vars_or_currentColor": true,
+    "no_external_svg_dependencies": true,
+    "png_visual_inspection": false
+  }
+}
