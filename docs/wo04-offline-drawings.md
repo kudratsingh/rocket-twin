@@ -1,5 +1,14 @@
 # Reviewable walkthrough drawings
 
+**Current image checkpoint:** native offline rendering is now available. The
+installed documented AppKit image-document API rendered25pages; actual image
+review found and corrected exported marker-arrow portability. Original failures
+remain historical below. See [connections workbench](wo04-workbench-connections.md)
+for new11-page graphics, image evidence and the still-pending browser checklist.
+Native images/contact sheet are in `output/engineering-walkthrough-rendered/`.
+No browser, WebView/window, new dependency or physical solver was used.
+
+
 The first walkthrough now has **25 standalone SVG exports** and a local HTML
 index at `output/engineering-walkthrough/index.html`. These are presentation
 exports of the existing source-linked React graphics, with recorded dimensions,
@@ -35,7 +44,7 @@ These URLs describe the saved implementation; this agent has not verified host
 browser reachability. No existing inspection, experiment, simulator or replay
 source was replaced by the offline-export increment.
 
-## Exact identity and limits
+## Exact identity and historical export limits
 
 Configuration: `C1_closed_receiver_mass_balance`; specification SHA-256
 `d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228`.

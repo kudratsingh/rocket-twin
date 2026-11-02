@@ -14,7 +14,12 @@ def test_frozen_sources_and_export_implementation_match_portable_artifact_manife
     assert manifest["identity"]["cad_revision"] is None
     assert manifest["source_count"] == 15
     for row in manifest["sources"] + manifest["export_implementation"]:
-        assert hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["sha256"]
+        path = ROOT / row["path"]
+        if row["path"] == "scripts/wo04_export_walkthrough_drawings.mjs":
+            # The original v2 exporter is archived; later portability fixes
+            # must not rewrite this historical execution identity.
+            path = RUN / "executed-script.mjs"
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"]
     assert len(manifest["artifacts"]) == 25
     assert len({r["path"] for r in manifest["artifacts"]}) == 25
     for drawing in manifest["artifacts"]:

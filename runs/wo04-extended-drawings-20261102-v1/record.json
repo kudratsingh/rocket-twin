@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0.0",
+  "result": "complete_representative_offline_visual_checks_passed",
+  "command": "node scripts/wo04_export_extended_drawings.mjs",
+  "artifact_count": 11,
+  "source_count": 29,
+  "data_bytes": 227355,
+  "graph_data_bytes": 55605,
+  "graph_node_count": 80,
+  "graph_edge_count": 103,
+  "ssr": [
+    {
+      "mode": "comparison",
+      "elapsed_ms": 41.65529200000003,
+      "markup_bytes": 11315,
+      "svg_count": 1
+    },
+    {
+      "mode": "recovery",
+      "elapsed_ms": 7.0820000000000505,
+      "markup_bytes": 28851,
+      "svg_count": 3
+    },
+    {
+      "mode": "thermal",
+      "elapsed_ms": 31.89179200000001,
+      "markup_bytes": 118347,
+      "svg_count": 2
+    },
+    {
+      "mode": "electrical",
+      "elapsed_ms": 6.965416000000005,
+      "markup_bytes": 34532,
+      "svg_count": 2
+    },
+    {
+      "mode": "assembly",
+      "elapsed_ms": 4.982082999999989,
+      "markup_bytes": 25182,
+      "svg_count": 2
+    },
+    {
+      "mode": "requirements",
+      "elapsed_ms": 4.873250000000041,
+      "markup_bytes": 49845,
+      "svg_count": 1
+    }
+  ],
+  "ssr_elapsed_total_ms": 97.44983300000013,
+  "native": {
+    "result": "native_render_complete_pending_visual_inspection",
+    "rendered": 11,
+    "elapsed_seconds": 7.179534416995011
+  },
+  "canonical_v4_exporter_unchanged": true,
+  "canonical_v4_sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3",
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/contact-sheet.png",
+      "observation": "All11 pages visible in overview, covering comparison/recovery/thermal/electrical/assembly/requirements. Overview does not verify every annotation."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/comparison-01.png",
+      "observation": "C1/R1/C2/C3 nominal/probe rows, supplied loaded masses and filled/hollow static-margin dots readable; criterion line and preliminary boundary present."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/recovery-01.png",
+      "observation": "Backbone/loop/end topology labels and failed/unavailable states readable, arrowheads visible. Dense crossing connections require numbered edge legend to trace; no physical layout is established."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "observation": "Source circuit node labels, separate recovery power branches, gauge/unavailable edge labels and arrowheads visible. Crossing lines require numbered source-net legend; no missing pins invented."
+    }
+  ],
+  "limits": [
+    "Static offline selection states only, not browser runtime/interaction/FPS measurements.",
+    "No physical calculations, current temperature curves or fields, guessed pins or new inertia tensors.",
+    "Known extension triangle/cubic pattern only; unsupported patterns stop explicitly.",
+    "Contact sheet is an overview; representative full-size image observations are recorded separately.",
+    "Native elapsed time uses the existing warmed Swift module cache, not a fresh-machine or browser performance measurement."
+  ],
+  "artifact_checks": {
+    "svg_count": 11,
+    "png_count": 11,
+    "source_hashes_verified": 29,
+    "implementation_hashes_verified": true,
+    "svg_png_sidecar_hashes_verified": true,
+    "explicit_marker_head_counts_verified": true,
+    "accessible_titles_descriptions": true,
+    "no_unresolved_CSSvars_or_marker_references": true,
+    "canonical_v4_exporter_unchanged": true
+  },
+  "fps_measured": false,
+  "runtime_dependency": {
+    "native_helper": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "canonical_generator": "scripts/wo04_render_walkthrough.py",
+    "note": "This packet reuses the existing generated helper and warmed Swift module cache. A fresh checkout needs that small helper regenerated or retained; no separate renderer implementation is embedded."
+  },
+  "graph_data_scope": "All six supplied topology graphs, including the historical thermal graph available behind the UI toggle. The11drawings preserve default selections: current thermal interfaces, scalar history matrix, first assembly joint and source-selected first storyboard steps. They do not cover every toggle/joint state."
+}

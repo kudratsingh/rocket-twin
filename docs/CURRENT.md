@@ -38,7 +38,7 @@ Run `make preview` at the repository root, then open:
 
 `http://127.0.0.1:5173/?workspace=engineering`
 
-The companion frontend increment is locally implemented and published separately through its focused PR; local image files are accessible now. The preserved arrangement/section/force/mass views now have companion graphical
+The preserved arrangement/section/force/mass views now have companion graphical
 views selected with `&view=comparison`, `recovery`, `thermal`, `electrical`,
 `assembly` or `requirements`. They display versioned backend data and link
 selection to the current C1 inspector when a valid part mapping exists.

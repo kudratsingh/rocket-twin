@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0.0",
+  "result": "native_offline_render_complete_markers_not_visible",
+  "elapsed_seconds": 49.81048070799443,
+  "attempts": [
+    {
+      "candidate": "documented_AppKit_NSImage_document_snapshot",
+      "command": [
+        "/usr/bin/swift",
+        "-module-cache-path",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo04-offline-render-feasibility-20261102-v2/swift-module-cache",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo04-offline-render-feasibility-20261102-v2/native_image_document.swift",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/output/engineering-walkthrough/01-arrangement-side.svg",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/output/engineering-walkthrough-rendered/01-arrangement-side.png"
+      ],
+      "timeout_seconds": 120,
+      "exit_code": 0,
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1320\n",
+      "stderr": ""
+    }
+  ],
+  "candidate_count": 1,
+  "budget": {
+    "maximum_discovery_minutes": 10,
+    "maximum_distinct_candidates": 2,
+    "maximum_seconds_per_attempt": 120
+  },
+  "documented_api_sources": [
+    "https://developer.apple.com/documentation/appkit/nsimage/init(contentsoffile:)",
+    "https://developer.apple.com/documentation/appkit/nsimagerep/cgimage(forproposedrect:context:hints:)",
+    "https://developer.apple.com/documentation/appkit/nsbitmapimagerep"
+  ],
+  "historical_diagnosis": {
+    "sips13": "Advertised SVG UTI did not establish a decodable SVG representation; cannot extract image. Not repeated.",
+    "QuickLook255": "QuickLook sandbox-extension/path-filter initialization failed before image generation. Not repeated."
+  },
+  "excluded_options": [
+    "Private CoreSVG/OTSVG APIs are undocumented and not an authorized supported renderer path",
+    "WebKit/WebView is excluded because it would establish a browser document context",
+    "No installed CairoSVG/resvg/ImageMagick was found in the prior dependency record; none installed or upgraded"
+  ],
+  "rendered": [
+    {
+      "id": "01-arrangement-side",
+      "path": "output/engineering-walkthrough-rendered/01-arrangement-side.png",
+      "sha256": "412915af6dc78c14d7d0170cdf3739675da1ee7297f201427025c25074ca4372"
+    },
+    {
+      "id": "02-front-projection",
+      "path": "output/engineering-walkthrough-rendered/02-front-projection.png",
+      "sha256": "e244fae48b7dbd1f38fa9122ab7771cc7b2b55ede0dbcf9665e54c33190a9325"
+    },
+    {
+      "id": "03-motor-end-projection",
+      "path": "output/engineering-walkthrough-rendered/03-motor-end-projection.png",
+      "sha256": "8ef6713979ca654cb916ed5fa8e062f5167ee2124d687fb59d351c4d56b52362"
+    },
+    {
+      "id": "04-internal-section",
+      "path": "output/engineering-walkthrough-rendered/04-internal-section.png",
+      "sha256": "3eee5c108cd683c985ba508c1b62a15502e2b5117dd83defbec01edffadddfe2"
+    },
+    {
+      "id": "joint-fin_root-section",
+      "path": "output/engineering-walkthrough-rendered/joint-fin_root-section.png",
+      "sha256": "b4f974be99f88cb3215363ae8c40f926b3cbc61e9cba4850aff2b307eac34004"
+    },
+    {
+      "id": "joint-fin_root-layers",
+      "path": "output/engineering-walkthrough-rendered/joint-fin_root-layers.png",
+      "sha256": "5310b9cf491693e17cfbc73eee2fa5f5de4c56aa6a49cb40e5de78087e0eebdc"
+    },
+    {
+      "id": "joint-receiver_end-section",
+      "path": "output/engineering-walkthrough-rendered/joint-receiver_end-section.png",
+      "sha256": "2260ab19172c21326f136e9015e6100287363e72e5ed4f8b17c6a7beb5ef7766"
+    },
+    {
+      "id": "joint-receiver_end-layers",
+      "path": "output/engineering-walkthrough-rendered/joint-receiver_end-layers.png",
+      "sha256": "8acc525bf5f48221a692d6835501a7c848525a749d8efe4aaec585978408974c"
+    },
+    {
+      "id": "load-fin_bending",
+      "path": "output/engineering-walkthrough-rendered/load-fin_bending.png",
+      "sha256": "9f2d343a9685540664311d47190270c6d25dacc32f45b434a3aa4725f15b05ec"
+    },
+    {
+      "id": "fbd-fin_bending",
+      "path": "output/engineering-walkthrough-rendered/fbd-fin_bending.png",
+      "sha256": "38c318a256a7ec766283b83f1d07f2452101a0850cc68728ac21c6293d9039f1"
+    },
+    {
+      "id": "load-recovery",
+      "path": "output/engineering-walkthrough-rendered/load-recovery.png",
+      "sha256": "b221df41828242a4cad0e5758277c3a8db3215c4e749f75ac4927277ec1ce08c"
+    },
+    {
+      "id": "fbd-recovery",
+      "path": "output/engineering-walkthrough-rendered/fbd-recovery.png",
+      "sha256": "f4d4a6495c92a54a2bf4ec4bad13b45930222228c300c40105713a9fa3d3d56d"
+    },
+    {
+      "id": "load-motor_forward",
+      "path": "output/engineering-walkthrough-rendered/load-motor_forward.png",
+      "sha256": "40c6ac75b925186c7359bf38eff4399a905e951c7baa6bcdbc66f4a95a4b5f4a"
+    },
+    {
+      "id": "fbd-motor_forward",
+      "path": "output/engineering-walkthrough-rendered/fbd-motor_forward.png",
+      "sha256": "b136013ac08da28a09dcb61adbf9674a02a58060d982870d2a9d8a56c098743f"
+    },
+    {
+      "id": "load-motor_reverse",
+      "path": "output/engineering-walkthrough-rendered/load-motor_reverse.png",
+      "sha256": "b6b3686ec2dcb690ff22e4ac5d90cd025c806a8535e82e9925d7f7ebb67379a3"
+    },
+    {
+      "id": "fbd-motor_reverse",
+      "path": "output/engineering-walkthrough-rendered/fbd-motor_reverse.png",
+      "sha256": "cb7aed01ce81f03354f935748f97b887e5710e6eece47efa282c1b122d288083"
+    },
+    {
+      "id": "load-guide",
+      "path": "output/engineering-walkthrough-rendered/load-guide.png",
+      "sha256": "4c61999c227255f83930973c9e1f0cdff277545ef19742b372eb9b91208c2856"
+    },
+    {
+      "id": "fbd-guide",
+      "path": "output/engineering-walkthrough-rendered/fbd-guide.png",
+      "sha256": "4eca7d6aef01ee0ed500d32c9cac4e0e90b88e0a5c7bd5ed5869b8a9f8d8d4d6"
+    },
+    {
+      "id": "mass-c1-balance",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-balance.png",
+      "sha256": "dd35b8d61b294525c6990901331c3549f52c8b2fc3e87cad4022b1145b724838"
+    },
+    {
+      "id": "mass-c1-distribution",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-distribution.png",
+      "sha256": "75aa9858ae904729c040c866a6a1fb9ef747f8ed1ae8b6c6bac6f0623937b7df"
+    },
+    {
+      "id": "mass-c1-groups",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-groups.png",
+      "sha256": "1f55b5e98f23f707cc4ed922160d3514dcdd503c63cdfdf5bf8e0f3da82d5b93"
+    },
+    {
+      "id": "mass-r1-additions",
+      "path": "output/engineering-walkthrough-rendered/mass-r1-additions.png",
+      "sha256": "9fa79e4998f9a3b83faa9aabd9499c5063b2f99bc1c3a2c3021685cb1c13426a"
+    },
+    {
+      "id": "launch-guide-speed",
+      "path": "output/engineering-walkthrough-rendered/launch-guide-speed.png",
+      "sha256": "7f710ec853225991dc669f36f8ad4dbb0129df44eaa40840dc69fad01959f4fe"
+    },
+    {
+      "id": "launch-overall-usable",
+      "path": "output/engineering-walkthrough-rendered/launch-overall-usable.png",
+      "sha256": "ee63fe2c8484156b05ba81d0a5e4ae8571e51a8cda3d7c30b41cbf918e179df8"
+    },
+    {
+      "id": "mass-c1-r1-case-comparison",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-r1-case-comparison.png",
+      "sha256": "ba78b57306d1e69b7e4c14af8eec3476b0dccc8f25abf12025c3d6154e7263d0"
+    }
+  ],
+  "input_manifest_sha256": "0f13d94b08c728f452589a6cc1f96d0af1bcd597ebba949152d1f175c935adec",
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-walkthrough-rendered/fbd-fin_bending.png",
+      "observation": "At v3export review, marker references resolved in XML but native PNG arrowheads were absent; this observation triggered separately authorized v4 explicit-path portability packet."
+    }
+  ],
+  "browser_used": false,
+  "ui_window_created": false,
+  "new_dependencies": false,
+  "physics_or_cad_run": false,
+  "limits": "Native image-document rasterization, even if successful, is not browser acceptance or engineering qualification. No automatic repeat of an unsupported method."
+}

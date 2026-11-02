@@ -1,0 +1,131 @@
+{
+  "result": "electrical_only_layout_correction_complete_visual_check_passed",
+  "render_elapsed_seconds": 38.70536770898616,
+  "maximum_full_render_seconds": 120,
+  "renderer": "Existing documented AppKit image-document snapshot helper",
+  "renderer_helper_path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+  "renderer_helper_sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931",
+  "renderer_attempts": 1,
+  "rendered": [
+    {
+      "id": "comparison-01",
+      "path": "output/engineering-workbench-extended/comparison-01.png",
+      "sha256": "f0974f3faef7abad5d184e98c24858a0b569d8444d468a6e64d43993f61086b5",
+      "dimensions": [
+        1100,
+        2361
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2361\n"
+    },
+    {
+      "id": "recovery-01",
+      "path": "output/engineering-workbench-extended/recovery-01.png",
+      "sha256": "b95672cd6e979b819ddbbde3c4da8af5d76f2988ad858ba5fe598b46f36c49e9",
+      "dimensions": [
+        1100,
+        3044
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x3044\n"
+    },
+    {
+      "id": "recovery-02",
+      "path": "output/engineering-workbench-extended/recovery-02.png",
+      "sha256": "3d1e7319b505d6626b0cefeebabf0da473db1f29cec3b3ccaefa0d62feaa1f28",
+      "dimensions": [
+        1100,
+        1598
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1598\n"
+    },
+    {
+      "id": "recovery-03",
+      "path": "output/engineering-workbench-extended/recovery-03.png",
+      "sha256": "b2ca8d052ddd8eb05752874dddc713e15a2382e908f51c645dad6740534d5d0f",
+      "dimensions": [
+        1100,
+        1598
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1598\n"
+    },
+    {
+      "id": "thermal-01",
+      "path": "output/engineering-workbench-extended/thermal-01.png",
+      "sha256": "6599f511077c1fbf0469813d9f7c651ab712cbe956e732abca14f032a07dabfc",
+      "dimensions": [
+        1100,
+        2562
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2562\n"
+    },
+    {
+      "id": "thermal-02",
+      "path": "output/engineering-workbench-extended/thermal-02.png",
+      "sha256": "57bf3c906c231fe93be434fbb08ec7a8cbc8cb30e1399bddcb429a387c6cb2a2",
+      "dimensions": [
+        1100,
+        7797
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x7797\n"
+    },
+    {
+      "id": "electrical-01",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "sha256": "7d753aab9d207b39e4fb182cb1a6b995561fc82435b4f07f6ba19d8a645d0203",
+      "dimensions": [
+        1100,
+        2973
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2973\n"
+    },
+    {
+      "id": "electrical-02",
+      "path": "output/engineering-workbench-extended/electrical-02.png",
+      "sha256": "e14e22b230fafbebc0e4f54723c43389f06f3b95bf35b36c79b8d4dfb5432cf0",
+      "dimensions": [
+        1100,
+        2101
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2101\n"
+    },
+    {
+      "id": "assembly-01",
+      "path": "output/engineering-workbench-extended/assembly-01.png",
+      "sha256": "38f6fe5a1dc17a41a612f5427593d63e8172261f45ed0a6922797b35352271bd",
+      "dimensions": [
+        1100,
+        1814
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1814\n"
+    },
+    {
+      "id": "assembly-02",
+      "path": "output/engineering-workbench-extended/assembly-02.png",
+      "sha256": "e109b88fca69e6888cc2c666e41fae5379c10ac2af7f7aa202d1fe1dc9d1cbfd",
+      "dimensions": [
+        1100,
+        2626
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x2626\n"
+    },
+    {
+      "id": "requirements-01",
+      "path": "output/engineering-workbench-extended/requirements-01.png",
+      "sha256": "f6731ba95c549e8dd7423fdef953e106e2ea4a8735590ba1a2d0491966fb6b4a",
+      "dimensions": [
+        1100,
+        4623
+      ],
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x4623\n"
+    }
+  ],
+  "xml_and_portability_checks": "passed11SVGs",
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "output/engineering-workbench-extended/electrical-01.png",
+      "observation": "Main avionics and independent recovery are visibly separated into labeled lanes. Main battery follows regulator to flight computer; no power arrow runs through IMU or recovery-battery boxes. Recovery return is routed beside its own switch. Source labels, net-index legend and arrowheads readable."
+    }
+  ],
+  "browser_used": false,
+  "physics_run": false
+}

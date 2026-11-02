@@ -1,0 +1,647 @@
+{
+  "schema_version": "1.0.0",
+  "created_at_utc": "2026-11-02T15:34:33.634Z",
+  "document_id": "g80-c1-engineering-walkthrough-v1",
+  "input": {
+    "path": "web/public/engineering-workbench/g80-c1.json",
+    "sha256": "1481b5fb7f18b8fa39aea5aa2db0491d6828da28eccf3729f81abf550eaf288f"
+  },
+  "identity": {
+    "configuration_id": "C1_closed_receiver_mass_balance",
+    "specification_sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+    "cad_revision": null,
+    "frame": "Axial station mm increases aft from nose tip; radius from rocket centreline; source body +X points toward nose (station = -body X). Display schematic only.",
+    "units": "mm, g, N, N m, m/s; any other quantity has explicit unit",
+    "status": "frozen_reference_for_selected_preliminary_C1_mass_balance_only_not_active_not_accepted"
+  },
+  "source_count": 15,
+  "source_hashes_verified": true,
+  "sources": [
+    {
+      "id": "source_lock",
+      "path": "configs/studies/wo03-c1-attachment-source-lock.json",
+      "sha256": "b90ced9757330494f593867cd8fc88be58c68a77619c2e1e00cc717fc19c4100",
+      "description": "source lock"
+    },
+    {
+      "id": "c1_record",
+      "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json",
+      "sha256": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276",
+      "description": "c1 record"
+    },
+    {
+      "id": "source_spec",
+      "path": "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml",
+      "sha256": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+      "description": "source spec"
+    },
+    {
+      "id": "s3_record",
+      "path": "runs/wo03-g80-connected-receiver-20261102-v2/record.json",
+      "sha256": "0686d2f4603847c12e12a4e0aceb81f18e3c9993c36650a8a8dacd5fdeb456c7",
+      "description": "s3 record"
+    },
+    {
+      "id": "s3_config",
+      "path": "configs/studies/wo03-g80-connected-receiver.yaml",
+      "sha256": "14f7b125dc4b32e0a1bde0b115d24f22d17f852c090348d0bf8306b372998a78",
+      "description": "s3 config"
+    },
+    {
+      "id": "attachment_record",
+      "path": "runs/wo03-c1-fin-attachment-20261102-v1/record.json",
+      "sha256": "0af4cc8a52bf68feb5a7e69f3af2f39333894272389c6b28d47e1f5b76b7bd5b",
+      "description": "attachment record"
+    },
+    {
+      "id": "connection_audit",
+      "path": "runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json",
+      "sha256": "7ae31e129db12a049150be84c05b446851bb8ec7396db328f890a5cf783586bf",
+      "description": "connection audit"
+    },
+    {
+      "id": "attachment_config",
+      "path": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "sha256": "cbbfb78d5ccf3c81ebadfbb01638c9662a38bd4e7d7e72186e1be88326451238",
+      "description": "attachment config"
+    },
+    {
+      "id": "c1_config",
+      "path": "configs/studies/wo03-g80-mass-balance-revision.yaml",
+      "sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+      "description": "c1 config"
+    },
+    {
+      "id": "source_lock_report",
+      "path": "docs/wo03-c1-attachment-source-lock.md",
+      "sha256": "27f1de0c416bcaa93c2cab2de37fd39a9856cf245c7300b434af26a066084b9a",
+      "description": "source lock report"
+    },
+    {
+      "id": "attachment_report",
+      "path": "docs/wo03-c1-fin-attachment.md",
+      "sha256": "113d05c44da45440fbb018172293b4c2b77c3f243cf09445a39046fd4a2667cf",
+      "description": "attachment report"
+    },
+    {
+      "id": "c1_report",
+      "path": "docs/wo03-g80-mass-balance-revision.md",
+      "sha256": "b5c736fe5ac11e18296b428c5342e184f61184ace638ed32df3323e83defe019",
+      "description": "c1 report"
+    },
+    {
+      "id": "c2_record",
+      "path": "runs/wo03-c2-sandwich-socket-20261102-v2/record.json",
+      "sha256": "c67d16a49378e6b462bec66c689c414750cf5e9a61f4524785d0ffa198e2eac3",
+      "description": "Rejected C2 preflight and prior C1/R1 receiver radius datum correction"
+    },
+    {
+      "id": "presentation_mapping",
+      "path": "configs/engineering/workbench.yaml",
+      "sha256": "5bdbc7ffa6950fcd9992ff426527d414b7146724f7eef3034b49c88dc76fdeed",
+      "description": "Versioned presentation mapping; no new physical data"
+    },
+    {
+      "id": "exporter",
+      "path": "src/api/workbench.py",
+      "sha256": "1551b2c3a0ea3142b9ebe54aeec1ec78d45f0fced180bde59784d41d722967c4",
+      "description": "Read-only exporter implementation"
+    }
+  ],
+  "export_implementation": [
+    {
+      "path": "web/src/workbench/geometryViews.css",
+      "sha256": "1daef07cba7f7ae7e25007c928e1261667a0f96da04a3c90b4b32b1324aa0c0a"
+    },
+    {
+      "path": "web/src/workbench/massLaunchViews.css",
+      "sha256": "57f9e1c6899a6b71735d07b7d2fddddada7a05a0bf55bb370f09e190bdf438e1"
+    },
+    {
+      "path": "web/src/workbench/loadPathViews.css",
+      "sha256": "d4cd32a0d159c95af86db69aa0ad999d0b410df059f5f7beb8e22990d7eb8f31"
+    },
+    {
+      "path": "web/src/workbench/GeometryViews.tsx",
+      "sha256": "46df0d87b52e0818c01dce8eec3b0dc4bb2beeb637cceea1025bd1ba6e0fe83f"
+    },
+    {
+      "path": "web/src/workbench/MassLaunchViews.tsx",
+      "sha256": "ab6fa79daa9b82ba52e87ae02117e4f1a9af0375d45a65c479a5c5561ccd168c"
+    },
+    {
+      "path": "web/src/workbench/LoadPathViews.tsx",
+      "sha256": "49d35cf0c8cb81d046ee62ed1da93d6085386db3719c9937b55e6be57fa59282"
+    },
+    {
+      "path": "web/src/workbench/loadPathDisplay.ts",
+      "sha256": "f428e9e24e0941db62fc20e36bab18138ed96a3d572e4788e5dce9644349850c"
+    },
+    {
+      "path": "web/src/workbench/types.ts",
+      "sha256": "f3a2c574ab586158087382c80ed0b0d823825dfe2cc296f06f047b144add4782"
+    },
+    {
+      "path": "web/src/workbench/exportSvg.ts",
+      "sha256": "a8f63643490583e976ad9f627cc25233542c612df09cb502fe2fbb5badf52176"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "cebb7d5949acaf35ced8b7784d49f266f8812353e5d1f1f94e1d5a5715d7d45d"
+    },
+    {
+      "path": "scripts/wo04_export_walkthrough_drawings.mjs",
+      "sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "01-arrangement-side",
+      "title": "General arrangement · source-projected side",
+      "group": "Arrangement",
+      "path": "output/engineering-walkthrough/01-arrangement-side.svg",
+      "width": 1100,
+      "height": 1319.8181818181818,
+      "sha256": "d054af56154954ec75e526697d102a07830c649f3287e1c147a34a2d549e2a7e",
+      "view": {
+        "component": "GeometryViews",
+        "svg_index": 0
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "02-front-projection",
+      "title": "Front view · axial-station projection",
+      "group": "Arrangement",
+      "path": "output/engineering-walkthrough/02-front-projection.svg",
+      "width": 1100,
+      "height": 1321,
+      "sha256": "fb82cb33c038aaac067ea56e05b2c40830e541bd349c5475e11a3b32a7cd8b80",
+      "view": {
+        "component": "GeometryViews",
+        "svg_index": 1
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "03-motor-end-projection",
+      "title": "Motor-end view · aft projection",
+      "group": "Arrangement",
+      "path": "output/engineering-walkthrough/03-motor-end-projection.svg",
+      "width": 1100,
+      "height": 1321,
+      "sha256": "454e72b457abb34377a0306445bc6a2839822100194f795164b230f16c297f96",
+      "view": {
+        "component": "GeometryViews",
+        "svg_index": 2
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "04-internal-section",
+      "title": "Full longitudinal internal section",
+      "group": "Arrangement",
+      "path": "output/engineering-walkthrough/04-internal-section.svg",
+      "width": 1100,
+      "height": 1319.8181818181818,
+      "sha256": "cfc77df3516867f837383157e0f8326c756fbb5a993e91924269d25ae6762d80",
+      "view": {
+        "component": "GeometryViews",
+        "svg_index": 3
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "joint-fin_root-section",
+      "title": "Fin tab, shims and closed socket · focused section",
+      "group": "Construction sections",
+      "path": "output/engineering-walkthrough/joint-fin_root-section.svg",
+      "width": 1100,
+      "height": 1877.8181818181818,
+      "sha256": "d07865849a0dbe5118b6b60e355e999fd8558fca4bc8fec377263a52b5396dde",
+      "view": {
+        "component": "GeometryViews",
+        "joint_id": "fin_root",
+        "representation": "concept/envelope axial section; interfaces unresolved"
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "joint-fin_root-layers",
+      "title": "Fin tab, shims and closed socket · separated layers",
+      "group": "Construction sections",
+      "path": "output/engineering-walkthrough/joint-fin_root-layers.svg",
+      "width": 1100,
+      "height": 1936,
+      "sha256": "0817629741ea8b9ce1503a163144446f88b270faeb12633e8701cc96e0707395",
+      "view": {
+        "component": "GeometryViews",
+        "joint_id": "fin_root",
+        "representation": "schematic exploded layer illustration; gaps not physical clearances"
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "joint-receiver_end-section",
+      "title": "Receiver ends, cap joints and windowed body skirt · focused section",
+      "group": "Construction sections",
+      "path": "output/engineering-walkthrough/joint-receiver_end-section.svg",
+      "width": 1100,
+      "height": 1589.8181818181818,
+      "sha256": "637b1ee457ca50dc182c8d11169f88801a8e15c9b63baa4de59892a5e96bdf89",
+      "view": {
+        "component": "GeometryViews",
+        "joint_id": "receiver_end",
+        "representation": "concept/envelope axial section; interfaces unresolved"
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "joint-receiver_end-layers",
+      "title": "Receiver ends, cap joints and windowed body skirt · separated layers",
+      "group": "Construction sections",
+      "path": "output/engineering-walkthrough/joint-receiver_end-layers.svg",
+      "width": 1100,
+      "height": 1584,
+      "sha256": "f9b3e18daff7e11e746af2096638f178c2c72f98ab266284a33513ed557b4aa3",
+      "view": {
+        "component": "GeometryViews",
+        "joint_id": "receiver_end",
+        "representation": "schematic exploded layer illustration; gaps not physical clearances"
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "load-fin_bending",
+      "title": "Fin normal force and bending · load-transfer topology",
+      "group": "Force paths",
+      "path": "output/engineering-walkthrough/load-fin_bending.svg",
+      "width": 1100,
+      "height": 2552,
+      "sha256": "acaf9d81ec418beb3054ab573fc429602cd776fad22a7729dd2d54fda8ebbb1f",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "fin_bending",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 6,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "fbd-fin_bending",
+      "title": "Fin normal force and bending · free-body diagram",
+      "group": "Free-body diagrams",
+      "path": "output/engineering-walkthrough/fbd-fin_bending.svg",
+      "width": 1100,
+      "height": 1558,
+      "sha256": "0c24048c30684bd34730da25a092fa3916b9488c44c1d3a725d75353b41096c5",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "fin_bending",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 4,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "load-recovery",
+      "title": "Recovery opening to retained components · load-transfer topology",
+      "group": "Force paths",
+      "path": "output/engineering-walkthrough/load-recovery.svg",
+      "width": 1100,
+      "height": 2534,
+      "sha256": "7f0f5154ba568ff938e4a64be3f745007ec9872aef60bec42d02870a081b42ed",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "recovery",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 6,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "fbd-recovery",
+      "title": "Recovery opening to retained components · free-body diagram",
+      "group": "Free-body diagrams",
+      "path": "output/engineering-walkthrough/fbd-recovery.svg",
+      "width": 1100,
+      "height": 1352,
+      "sha256": "59abc914315212c18a223ed79d84e5928e6b3e3aff5f1d68125307957081f3eb",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "recovery",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 2,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "load-motor_forward",
+      "title": "Motor forward thrust path · load-transfer topology",
+      "group": "Force paths",
+      "path": "output/engineering-walkthrough/load-motor_forward.svg",
+      "width": 1100,
+      "height": 2316,
+      "sha256": "ce496501f5413f7f58a77c77f62367a1a0c0ed7f0a360be12479a09e2b9e89e4",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "motor_forward",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 5,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "fbd-motor_forward",
+      "title": "Motor forward thrust path · free-body diagram",
+      "group": "Free-body diagrams",
+      "path": "output/engineering-walkthrough/fbd-motor_forward.svg",
+      "width": 1100,
+      "height": 1334,
+      "sha256": "3aedf255dd30fe11898e5de3cd6c9b738d2a22385253bd48ca3b00aec74853b6",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "motor_forward",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 2,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "load-motor_reverse",
+      "title": "Independent aft motor capture and service · load-transfer topology",
+      "group": "Force paths",
+      "path": "output/engineering-walkthrough/load-motor_reverse.svg",
+      "width": 1100,
+      "height": 2316,
+      "sha256": "0441e86395f4ee64d51c8cadd52f8486a6b6bdf72ceab0f0f105c98c809df4ff",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "motor_reverse",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 5,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "fbd-motor_reverse",
+      "title": "Independent aft motor capture and service · free-body diagram",
+      "group": "Free-body diagrams",
+      "path": "output/engineering-walkthrough/fbd-motor_reverse.svg",
+      "width": 1100,
+      "height": 1334,
+      "sha256": "ca4e37aeb4d3d97c35d590be3289d0a02933ddb8b1cd442eefe4304d9ee20c9e",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "motor_reverse",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 2,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "load-guide",
+      "title": "Launch guide reaction and attachments · load-transfer topology",
+      "group": "Force paths",
+      "path": "output/engineering-walkthrough/load-guide.svg",
+      "width": 1100,
+      "height": 1934,
+      "sha256": "0aeda89f91e2082760deeb78060bd48336fc6fad43b3695e69207a7fdb16bb5c",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "guide",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 3,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "fbd-guide",
+      "title": "Launch guide reaction and attachments · free-body diagram",
+      "group": "Free-body diagrams",
+      "path": "output/engineering-walkthrough/fbd-guide.svg",
+      "width": 1100,
+      "height": 1352,
+      "sha256": "cbfadff1e334c947cae2fedbc0e2f4b37ce0ceb895ea81fd0a672a99067573a3",
+      "view": {
+        "component": "LoadPathViews",
+        "path_id": "guide",
+        "case_id": "C1_nominal"
+      },
+      "explicit_arrowhead_count": 2,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "mass-c1-balance",
+      "title": "C1 loaded balance · recorded CG and CP",
+      "group": "Mass and balance",
+      "path": "output/engineering-walkthrough/mass-c1-balance.svg",
+      "width": 1100,
+      "height": 1123.5454545454545,
+      "sha256": "1fb4e54f3f77595754670ba2f83a3444acb04e3e170f8710041c50470a7cabe5",
+      "view": {
+        "component": "MassLaunchViews",
+        "svg_index": 0
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "mass-c1-distribution",
+      "title": "C1 frozen ledger · mass by station",
+      "group": "Mass and balance",
+      "path": "output/engineering-walkthrough/mass-c1-distribution.svg",
+      "width": 1100,
+      "height": 1301.8181818181818,
+      "sha256": "b92ae1d5db5ae1df5806b8b52d5555041596c42cc45341effd05fdac23541402",
+      "view": {
+        "component": "MassLaunchViews",
+        "svg_index": 1
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "mass-c1-groups",
+      "title": "C1 recorded group masses",
+      "group": "Mass and balance",
+      "path": "output/engineering-walkthrough/mass-c1-groups.svg",
+      "width": 1100,
+      "height": 1379.2181818181818,
+      "sha256": "2e865ea5facec91fc1a7353c11b60bdf192e48c71e51970043faaf56810552f7",
+      "view": {
+        "component": "MassLaunchViews",
+        "svg_index": 2
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "mass-r1-additions",
+      "title": "R1 estimated mass-addition ledger",
+      "group": "Mass and balance",
+      "path": "output/engineering-walkthrough/mass-r1-additions.svg",
+      "width": 1100,
+      "height": 1921.4363636363637,
+      "sha256": "3782b4d1e4f6d3f5e9e8ef29e62e9c1ef540ca75c9ab5f5b3718d531e329b18b",
+      "view": {
+        "component": "MassLaunchViews",
+        "svg_index": 3
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "launch-guide-speed",
+      "title": "Conditional guide departure · recorded samples",
+      "group": "Conditional launch guide",
+      "path": "output/engineering-walkthrough/launch-guide-speed.svg",
+      "width": 1100,
+      "height": 1894.8181818181818,
+      "sha256": "cf658409a38150c4debfd57413f52f1ce38e74576e36e1f8ec03e500189a38b5",
+      "view": {
+        "component": "MassLaunchViews",
+        "svg_index": 4
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "launch-overall-usable",
+      "title": "Illustrative overall guide versus usable travel",
+      "group": "Conditional launch guide",
+      "path": "output/engineering-walkthrough/launch-overall-usable.svg",
+      "width": 1100,
+      "height": 1332.7272727272727,
+      "sha256": "6297727b45e425727808ebeda9f6e6ab6d02275a06b7db186564d82b179a25da",
+      "view": {
+        "component": "MassLaunchViews",
+        "svg_index": 5
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    },
+    {
+      "id": "mass-c1-r1-case-comparison",
+      "title": "C1 versus stopped R1 · complete recorded cases",
+      "group": "Mass and balance",
+      "path": "output/engineering-walkthrough/mass-c1-r1-case-comparison.svg",
+      "width": 1200,
+      "height": 1721.6666666666665,
+      "sha256": "ef662a65af049b85c4b6c0aceb24be9d190209f5c6ee9c45f6a2369c1abbc5f8",
+      "view": {
+        "representation": "SVG text table of the same saved case fields shown in the frontend"
+      },
+      "explicit_arrowhead_count": 0,
+      "portable_style_attributes": true,
+      "browser_verified": false,
+      "header_line_count": 7,
+      "header_max_characters": 117,
+      "drawing_y": 204
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "schema_version": "1.0.0",
+  "created_at_utc": "2026-11-02T15:44:25.413Z",
+  "id": "g80-engineering-extended-v1",
+  "identity": {
+    "configuration_id": "C1_closed_receiver_mass_balance",
+    "specification_sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+    "cad_revision": null,
+    "frame": "Axial station mm increases aft from nose tip; radius from rocket centreline; source body +X points toward nose (station = -body X). Display schematic only.",
+    "units": "mm, g, N, N m, m/s; any other quantity has explicit unit",
+    "status": "frozen_reference_for_selected_preliminary_C1_mass_balance_only_not_active_not_accepted"
+  },
+  "sources": [
+    {
+      "id": "source_lock",
+      "path": "configs/studies/wo03-c1-attachment-source-lock.json",
+      "sha256": "b90ced9757330494f593867cd8fc88be58c68a77619c2e1e00cc717fc19c4100",
+      "description": "source lock"
+    },
+    {
+      "id": "c1_record",
+      "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json",
+      "sha256": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276",
+      "description": "c1 record"
+    },
+    {
+      "id": "source_spec",
+      "path": "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml",
+      "sha256": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+      "description": "source spec"
+    },
+    {
+      "id": "s3_record",
+      "path": "runs/wo03-g80-connected-receiver-20261102-v2/record.json",
+      "sha256": "0686d2f4603847c12e12a4e0aceb81f18e3c9993c36650a8a8dacd5fdeb456c7",
+      "description": "s3 record"
+    },
+    {
+      "id": "s3_config",
+      "path": "configs/studies/wo03-g80-connected-receiver.yaml",
+      "sha256": "14f7b125dc4b32e0a1bde0b115d24f22d17f852c090348d0bf8306b372998a78",
+      "description": "s3 config"
+    },
+    {
+      "id": "attachment_record",
+      "path": "runs/wo03-c1-fin-attachment-20261102-v1/record.json",
+      "sha256": "0af4cc8a52bf68feb5a7e69f3af2f39333894272389c6b28d47e1f5b76b7bd5b",
+      "description": "attachment record"
+    },
+    {
+      "id": "connection_audit",
+      "path": "runs/wo03-c1-fin-attachment-20261102-v1/connection-audit.json",
+      "sha256": "7ae31e129db12a049150be84c05b446851bb8ec7396db328f890a5cf783586bf",
+      "description": "connection audit"
+    },
+    {
+      "id": "attachment_config",
+      "path": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "sha256": "cbbfb78d5ccf3c81ebadfbb01638c9662a38bd4e7d7e72186e1be88326451238",
+      "description": "attachment config"
+    },
+    {
+      "id": "c1_config",
+      "path": "configs/studies/wo03-g80-mass-balance-revision.yaml",
+      "sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+      "description": "c1 config"
+    },
+    {
+      "id": "source_lock_report",
+      "path": "docs/wo03-c1-attachment-source-lock.md",
+      "sha256": "27f1de0c416bcaa93c2cab2de37fd39a9856cf245c7300b434af26a066084b9a",
+      "description": "source lock report"
+    },
+    {
+      "id": "attachment_report",
+      "path": "docs/wo03-c1-fin-attachment.md",
+      "sha256": "113d05c44da45440fbb018172293b4c2b77c3f243cf09445a39046fd4a2667cf",
+      "description": "attachment report"
+    },
+    {
+      "id": "c1_report",
+      "path": "docs/wo03-g80-mass-balance-revision.md",
+      "sha256": "b5c736fe5ac11e18296b428c5342e184f61184ace638ed32df3323e83defe019",
+      "description": "c1 report"
+    },
+    {
+      "id": "c2_record",
+      "path": "runs/wo03-c2-sandwich-socket-20261102-v2/record.json",
+      "sha256": "c67d16a49378e6b462bec66c689c414750cf5e9a61f4524785d0ffa198e2eac3",
+      "description": "Rejected C2 preflight and prior C1/R1 receiver radius datum correction"
+    },
+    {
+      "id": "presentation_mapping",
+      "path": "configs/engineering/workbench.yaml",
+      "sha256": "5bdbc7ffa6950fcd9992ff426527d414b7146724f7eef3034b49c88dc76fdeed",
+      "description": "Versioned presentation mapping; no new physical data"
+    },
+    {
+      "id": "exporter",
+      "path": "src/api/workbench.py",
+      "sha256": "1551b2c3a0ea3142b9ebe54aeec1ec78d45f0fced180bde59784d41d722967c4",
+      "description": "Read-only exporter implementation"
+    },
+    {
+      "id": "base_exporter",
+      "path": "src/api/workbench.py",
+      "sha256": "1551b2c3a0ea3142b9ebe54aeec1ec78d45f0fced180bde59784d41d722967c4",
+      "description": "base exporter"
+    },
+    {
+      "id": "base_mapping",
+      "path": "configs/engineering/workbench.yaml",
+      "sha256": "5bdbc7ffa6950fcd9992ff426527d414b7146724f7eef3034b49c88dc76fdeed",
+      "description": "base mapping"
+    },
+    {
+      "id": "source_c3",
+      "path": "runs/wo03-c3-continuous-connection-20261102-v1/record.json",
+      "sha256": "f639e82bdd2b6872fbe2437454c4703a09ef5b4f8864ca96ff24b29916952afc",
+      "description": "source c3"
+    },
+    {
+      "id": "c3_config",
+      "path": "configs/studies/wo03-c3-continuous-connection.yaml",
+      "sha256": "7798d7eea36e48dc2af5690bf8cb94f80dd44f291b3713c4d5a7ef543306926a",
+      "description": "c3 config"
+    },
+    {
+      "id": "historical_thermal_topology",
+      "path": "configs/studies/wo03-thermal-topology.yaml",
+      "sha256": "cd5d8ca2553048205ed2b9432740e151c933ddeccb3e44076a7f60ae1d1d882a",
+      "description": "historical thermal topology"
+    },
+    {
+      "id": "historical_thermal_layout",
+      "path": "runs/wo03-thermal-layout-20261031T042330617623Z/record.json",
+      "sha256": "79331f5dc0eb18e3645d31ade0f37583fdcb4e74806d3151009fdaec9323ecc0",
+      "description": "historical thermal layout"
+    },
+    {
+      "id": "historical_thermal_campaign",
+      "path": "runs/wo03-elmer-campaign-20261101T054800Z/record.json",
+      "sha256": "28a31d6975ac1bd0d4a2128ec8be0e42288f0089c94d29821a614e9a9e7ba7d2",
+      "description": "historical thermal campaign"
+    },
+    {
+      "id": "historical_thermal_materials",
+      "path": "configs/engineering/wo03.yaml",
+      "sha256": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+      "description": "historical thermal materials"
+    },
+    {
+      "id": "historical_thermal_acceptance",
+      "path": "configs/engineering/wo03-thermal-acceptance.yaml",
+      "sha256": "855dd95f5bd57f9257257e97e3f87b362ec947288bd268d07a29f968bc23e40d",
+      "description": "historical thermal acceptance"
+    },
+    {
+      "id": "pid_work_order",
+      "path": "docs/work-orders/WO-06-avionics-pid-baseline.md",
+      "sha256": "6a6a6b695447650d7877e0d52872f98b24237e9c4fb7524acdaeb05e19bb3e57",
+      "description": "pid work order"
+    },
+    {
+      "id": "rl_work_order",
+      "path": "docs/work-orders/WO-07-rl-ascent.md",
+      "sha256": "7bc67d8d17e23592ab33c86ec86c72957a67e2d4a5e980ba59f22e517b10fd78",
+      "description": "rl work order"
+    },
+    {
+      "id": "firmware_work_order",
+      "path": "docs/work-orders/WO-10-firmware-hil.md",
+      "sha256": "d8b229636e7617761d9e3c16ef14e41f469411bf3728f1349d33fec1962feba3",
+      "description": "firmware work order"
+    },
+    {
+      "id": "extended_mapping",
+      "path": "configs/engineering/workbench-extended.yaml",
+      "sha256": "16e7fa9595e56ec4481ff58a53d2a24a3bd462fb035aa1919819dfc91b40c86d",
+      "description": "Versioned separate extension presentation mapping"
+    },
+    {
+      "id": "extended_exporter",
+      "path": "src/api/workbench_extended.py",
+      "sha256": "759ab51867e06010afb62a1436b466a3fa2fafaa6f1d629735c0e5b912e683bc",
+      "description": "Read-only extension exporter implementation"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "web/public/engineering-workbench/g80-c1.json",
+      "sha256": "1481b5fb7f18b8fa39aea5aa2db0491d6828da28eccf3729f81abf550eaf288f",
+      "bytes": 239848
+    },
+    {
+      "path": "web/public/engineering-workbench/g80-extended.json",
+      "sha256": "8e6c14cbc9c01e99553514bfae647a0395f403db5781532b8a206894df069a2c",
+      "bytes": 227355
+    }
+  ],
+  "graph_data_bytes": 55605,
+  "graph_node_count": 80,
+  "graph_edge_count": 103,
+  "implementation": [
+    {
+      "path": "scripts/wo04_export_extended_drawings.mjs",
+      "sha256": "7b4dc4cfa4489a01d91b0b6b4d9082c0e4043d294f9fe1a2b58283408c485b2e"
+    },
+    {
+      "path": "web/src/workbench/ExtensionViews.tsx",
+      "sha256": "eba2b3e720bac556bcdba3073dfb04950d130b8240c458997c11be7dcfc5ea2b"
+    },
+    {
+      "path": "web/src/workbench/extensionViews.css",
+      "sha256": "9960fc76f1932c1ba408be56a84961cb08d48ad227e7513b7be599382e2ea219"
+    },
+    {
+      "path": "web/src/workbench/extendedTypes.ts",
+      "sha256": "4b0473873d4536cfab4addd4a9e8712eb17add9856cfc9d65a55c777ffb25fec"
+    }
+  ],
+  "copied_helper_source": {
+    "path": "scripts/wo04_export_walkthrough_drawings.mjs",
+    "sha256": "62085e1ce6eb0f1d21415ce34885cd0c4e6a2e850ae2147a7246bb5e20e698b3"
+  },
+  "ssr": [
+    {
+      "mode": "comparison",
+      "elapsed_ms": 41.65529200000003,
+      "markup_bytes": 11315,
+      "svg_count": 1
+    },
+    {
+      "mode": "recovery",
+      "elapsed_ms": 7.0820000000000505,
+      "markup_bytes": 28851,
+      "svg_count": 3
+    },
+    {
+      "mode": "thermal",
+      "elapsed_ms": 31.89179200000001,
+      "markup_bytes": 118347,
+      "svg_count": 2
+    },
+    {
+      "mode": "electrical",
+      "elapsed_ms": 6.965416000000005,
+      "markup_bytes": 34532,
+      "svg_count": 2
+    },
+    {
+      "mode": "assembly",
+      "elapsed_ms": 4.982082999999989,
+      "markup_bytes": 25182,
+      "svg_count": 2
+    },
+    {
+      "mode": "requirements",
+      "elapsed_ms": 4.873250000000041,
+      "markup_bytes": 49845,
+      "svg_count": 1
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "comparison-01",
+      "title": "Recorded candidates · no adoption or qualification",
+      "mode": "comparison",
+      "path": "output/engineering-workbench-extended/comparison-01.svg",
+      "sha256": "6b0bb4639ad6273dcc45aeb3fd11f252d43e51b386df292703d5c02f15aacfa6",
+      "width": 1100,
+      "height": 1947.4,
+      "svg_bytes": 48060,
+      "explicit_arrowhead_count": 0,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": "C1",
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "recovery-01",
+      "title": "Recovery backbone, three loop branches and packing envelopes · unavailable · preliminary schematic",
+      "mode": "recovery",
+      "path": "output/engineering-workbench-extended/recovery-01.svg",
+      "sha256": "6619f7334ddf4a640e0a4c7e16d382d61e6302c078fb1df396646d76f36d0deb",
+      "width": 1100,
+      "height": 2931.48,
+      "svg_bytes": 86094,
+      "explicit_arrowhead_count": 15,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "recovery-02",
+      "title": "Packing illustration · service and extraction unverified",
+      "mode": "recovery",
+      "path": "output/engineering-workbench-extended/recovery-02.svg",
+      "sha256": "c87fecea1ead2b1503e3111cc416cad7a468b92a4f10d4f74e78661694b416d5",
+      "width": 1100,
+      "height": 1485.2,
+      "svg_bytes": 31004,
+      "explicit_arrowhead_count": 0,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "recovery-03",
+      "title": "Extraction illustration · service and extraction unverified",
+      "mode": "recovery",
+      "path": "output/engineering-workbench-extended/recovery-03.svg",
+      "sha256": "9e4dedb797b9e23044f45e5405d828dc8c20cfccd2772d55ee0485b77c62a35d",
+      "width": 1100,
+      "height": 1485.2,
+      "svg_bytes": 28557,
+      "explicit_arrowhead_count": 0,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "thermal-01",
+      "title": "C1 interfaces requiring heat-path qualification · unavailable · preliminary schematic",
+      "mode": "thermal",
+      "path": "output/engineering-workbench-extended/thermal-01.svg",
+      "sha256": "d3d2c38f62e064542b84ca43c83756787b70c1ce09363b7943ce8d882c910a4b",
+      "width": 1100,
+      "height": 2449.1800000000003,
+      "svg_bytes": 60437,
+      "explicit_arrowhead_count": 6,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": "current_interfaces_and_scalar_history"
+      }
+    },
+    {
+      "id": "thermal-02",
+      "title": "Historical thermal evidence · not current C1 results",
+      "mode": "thermal",
+      "path": "output/engineering-workbench-extended/thermal-02.svg",
+      "sha256": "60a72ec9e86c83c7aa60da1434eacafccfe120a48ea5fab066f36eb318b88a9a",
+      "width": 1100,
+      "height": 7684.272727272727,
+      "svg_bytes": 118096,
+      "explicit_arrowhead_count": 0,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": "current_interfaces_and_scalar_history"
+      }
+    },
+    {
+      "id": "electrical-01",
+      "title": "Source netlist and separate recovery power · estimated · preliminary schematic",
+      "mode": "electrical",
+      "path": "output/engineering-workbench-extended/electrical-01.svg",
+      "sha256": "768941ca0e2481522be319910045e725d9a818ce38b60c0289a80f2699914815",
+      "width": 1100,
+      "height": 2609.2799999999997,
+      "svg_bytes": 74550,
+      "explicit_arrowhead_count": 11,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "electrical-02",
+      "title": "Planned PID-to-RL / abort blocks; separate G12 modes · unavailable · preliminary schematic",
+      "mode": "electrical",
+      "path": "output/engineering-workbench-extended/electrical-02.svg",
+      "sha256": "e41ddd70832f0f232b9b6f30c1d93029cfb834846d8e79b6858fe283989929f3",
+      "width": 1100,
+      "height": 1988.12,
+      "svg_bytes": 50194,
+      "explicit_arrowhead_count": 5,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "assembly-01",
+      "title": "Fin tab, shims and closed socket · schematic separated layers",
+      "mode": "assembly",
+      "path": "output/engineering-workbench-extended/assembly-01.svg",
+      "sha256": "bad989efd242ef23651f9fd99efd7bf56168c0e1efafdab915a00cc6026ca598",
+      "width": 1100,
+      "height": 1701.4,
+      "svg_bytes": 32171,
+      "explicit_arrowhead_count": 0,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": "fin_root",
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "assembly-02",
+      "title": "Recorded assembly / service sequence · service and extraction unverified",
+      "mode": "assembly",
+      "path": "output/engineering-workbench-extended/assembly-02.svg",
+      "sha256": "2ad5bfc4fcfcd2e0546262e035ed9da37b55df7d9f5e3865c6290c90877990dc",
+      "width": 1100,
+      "height": 2513.8,
+      "svg_bytes": 71102,
+      "explicit_arrowhead_count": 0,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": "fin_root",
+        "thermal_view": null
+      }
+    },
+    {
+      "id": "requirements-01",
+      "title": "Physical requirements, components and recorded findings · unavailable · preliminary schematic",
+      "mode": "requirements",
+      "path": "output/engineering-workbench-extended/requirements-01.svg",
+      "sha256": "6ee86d5c0f3627b8b973eab367faaa7c2ddfa3961ac7c006ea1c807e839eee05",
+      "width": 1100,
+      "height": 4510.84,
+      "svg_bytes": 177200,
+      "explicit_arrowhead_count": 46,
+      "selection_state": {
+        "selected_part_id": null,
+        "candidate_id": null,
+        "assembly_joint_id": null,
+        "thermal_view": null
+      }
+    }
+  ]
+}

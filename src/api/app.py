@@ -629,6 +629,17 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
                 409, f"Engineering walkthrough source unavailable: {error}"
             ) from error
 
+    @app.get("/api/engineering/workbench-extended")
+    def engineering_workbench_extended() -> dict[str, Any]:
+        from src.api.workbench_extended import build_workbench_extended
+
+        try:
+            return build_workbench_extended(root)
+        except (OSError, ValueError, KeyError) as error:
+            raise HTTPException(
+                409, f"Engineering extension source unavailable: {error}"
+            ) from error
+
     @app.get("/api/vehicles")
     def vehicles() -> dict[str, Any]:
         rows = []

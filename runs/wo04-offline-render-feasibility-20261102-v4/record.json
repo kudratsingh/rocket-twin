@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0.0",
+  "result": "native_offline_render_complete_representative_visual_checks_passed",
+  "elapsed_seconds": 43.94093154100119,
+  "attempts": [
+    {
+      "candidate": "documented_AppKit_NSImage_document_snapshot",
+      "command": [
+        "/usr/bin/swift",
+        "-module-cache-path",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo04-offline-render-feasibility-20261102-v4/swift-module-cache",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/output/engineering-walkthrough/01-arrangement-side.svg",
+        "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/output/engineering-walkthrough-rendered/01-arrangement-side.png"
+      ],
+      "timeout_seconds": 120,
+      "exit_code": 0,
+      "stdout": "SVG_registered=true\nPNG_dimensions=1100x1320\n",
+      "stderr": ""
+    }
+  ],
+  "candidate_count": 1,
+  "budget": {
+    "maximum_discovery_minutes": 10,
+    "maximum_full_render_seconds": 120,
+    "maximum_distinct_candidates": 2,
+    "maximum_seconds_per_attempt": 120
+  },
+  "documented_api_sources": [
+    "https://developer.apple.com/documentation/appkit/nsimage/init(contentsoffile:)",
+    "https://developer.apple.com/documentation/appkit/nsimagerep/cgimage(forproposedrect:context:hints:)",
+    "https://developer.apple.com/documentation/appkit/nsbitmapimagerep"
+  ],
+  "historical_diagnosis": {
+    "sips13": "Advertised SVG UTI did not establish a decodable SVG representation; cannot extract image. Not repeated.",
+    "QuickLook255": "QuickLook sandbox-extension/path-filter initialization failed before image generation. Not repeated."
+  },
+  "excluded_options": [
+    "Private CoreSVG/OTSVG APIs are undocumented and not an authorized supported renderer path",
+    "WebKit/WebView is excluded because it would establish a browser document context",
+    "No installed CairoSVG/resvg/ImageMagick was found in the prior dependency record; none installed or upgraded"
+  ],
+  "rendered": [
+    {
+      "id": "01-arrangement-side",
+      "path": "output/engineering-walkthrough-rendered/01-arrangement-side.png",
+      "sha256": "412915af6dc78c14d7d0170cdf3739675da1ee7297f201427025c25074ca4372"
+    },
+    {
+      "id": "02-front-projection",
+      "path": "output/engineering-walkthrough-rendered/02-front-projection.png",
+      "sha256": "e244fae48b7dbd1f38fa9122ab7771cc7b2b55ede0dbcf9665e54c33190a9325"
+    },
+    {
+      "id": "03-motor-end-projection",
+      "path": "output/engineering-walkthrough-rendered/03-motor-end-projection.png",
+      "sha256": "8ef6713979ca654cb916ed5fa8e062f5167ee2124d687fb59d351c4d56b52362"
+    },
+    {
+      "id": "04-internal-section",
+      "path": "output/engineering-walkthrough-rendered/04-internal-section.png",
+      "sha256": "3eee5c108cd683c985ba508c1b62a15502e2b5117dd83defbec01edffadddfe2"
+    },
+    {
+      "id": "joint-fin_root-section",
+      "path": "output/engineering-walkthrough-rendered/joint-fin_root-section.png",
+      "sha256": "b4f974be99f88cb3215363ae8c40f926b3cbc61e9cba4850aff2b307eac34004"
+    },
+    {
+      "id": "joint-fin_root-layers",
+      "path": "output/engineering-walkthrough-rendered/joint-fin_root-layers.png",
+      "sha256": "5310b9cf491693e17cfbc73eee2fa5f5de4c56aa6a49cb40e5de78087e0eebdc"
+    },
+    {
+      "id": "joint-receiver_end-section",
+      "path": "output/engineering-walkthrough-rendered/joint-receiver_end-section.png",
+      "sha256": "2260ab19172c21326f136e9015e6100287363e72e5ed4f8b17c6a7beb5ef7766"
+    },
+    {
+      "id": "joint-receiver_end-layers",
+      "path": "output/engineering-walkthrough-rendered/joint-receiver_end-layers.png",
+      "sha256": "8acc525bf5f48221a692d6835501a7c848525a749d8efe4aaec585978408974c"
+    },
+    {
+      "id": "load-fin_bending",
+      "path": "output/engineering-walkthrough-rendered/load-fin_bending.png",
+      "sha256": "6fa053768cdd3e5d98edb7b61324778300550f7d2a2c847fa1db9312f3b3fb65"
+    },
+    {
+      "id": "fbd-fin_bending",
+      "path": "output/engineering-walkthrough-rendered/fbd-fin_bending.png",
+      "sha256": "b3b9a30394254676fa30e0a6e29fe29b232ee381f9bbd648eb8edabc3e462688"
+    },
+    {
+      "id": "load-recovery",
+      "path": "output/engineering-walkthrough-rendered/load-recovery.png",
+      "sha256": "9c7aad0170343486341bd0f4a9f6dc9ee8c2ca0e69b80eb319db7e72e5883641"
+    },
+    {
+      "id": "fbd-recovery",
+      "path": "output/engineering-walkthrough-rendered/fbd-recovery.png",
+      "sha256": "1ec95221ff7c7b05ac96b1b9ed153d8fca42a192ba08494900254ea08738aaf0"
+    },
+    {
+      "id": "load-motor_forward",
+      "path": "output/engineering-walkthrough-rendered/load-motor_forward.png",
+      "sha256": "990dcc3f8875a731c8c1862bb50bef769022dce92a5b7947eeedbfd5058383b4"
+    },
+    {
+      "id": "fbd-motor_forward",
+      "path": "output/engineering-walkthrough-rendered/fbd-motor_forward.png",
+      "sha256": "a64cc787e04c10806ec3e0b40b5441706e10196f9f7ae7fab5a0283f785e89ea"
+    },
+    {
+      "id": "load-motor_reverse",
+      "path": "output/engineering-walkthrough-rendered/load-motor_reverse.png",
+      "sha256": "02348d3510589e01dc9893531392b90a3e8f4fe28d1c228ace1113f3c4ef955f"
+    },
+    {
+      "id": "fbd-motor_reverse",
+      "path": "output/engineering-walkthrough-rendered/fbd-motor_reverse.png",
+      "sha256": "9efb08f81ac408e738689c779f67d294588cfb2a3549bf57c7a7e9d009754a99"
+    },
+    {
+      "id": "load-guide",
+      "path": "output/engineering-walkthrough-rendered/load-guide.png",
+      "sha256": "610f30ac41ea5f8179ac288e780c8f9f34a7597339f526369496d14aec704e19"
+    },
+    {
+      "id": "fbd-guide",
+      "path": "output/engineering-walkthrough-rendered/fbd-guide.png",
+      "sha256": "708a5e9f13c819959315f1015c31b36f2d66aaad6f877aa7db3aa2948ef28f0c"
+    },
+    {
+      "id": "mass-c1-balance",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-balance.png",
+      "sha256": "dd35b8d61b294525c6990901331c3549f52c8b2fc3e87cad4022b1145b724838"
+    },
+    {
+      "id": "mass-c1-distribution",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-distribution.png",
+      "sha256": "75aa9858ae904729c040c866a6a1fb9ef747f8ed1ae8b6c6bac6f0623937b7df"
+    },
+    {
+      "id": "mass-c1-groups",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-groups.png",
+      "sha256": "1f55b5e98f23f707cc4ed922160d3514dcdd503c63cdfdf5bf8e0f3da82d5b93"
+    },
+    {
+      "id": "mass-r1-additions",
+      "path": "output/engineering-walkthrough-rendered/mass-r1-additions.png",
+      "sha256": "9fa79e4998f9a3b83faa9aabd9499c5063b2f99bc1c3a2c3021685cb1c13426a"
+    },
+    {
+      "id": "launch-guide-speed",
+      "path": "output/engineering-walkthrough-rendered/launch-guide-speed.png",
+      "sha256": "7f710ec853225991dc669f36f8ad4dbb0129df44eaa40840dc69fad01959f4fe"
+    },
+    {
+      "id": "launch-overall-usable",
+      "path": "output/engineering-walkthrough-rendered/launch-overall-usable.png",
+      "sha256": "ee63fe2c8484156b05ba81d0a5e4ae8571e51a8cda3d7c30b41cbf918e179df8"
+    },
+    {
+      "id": "mass-c1-r1-case-comparison",
+      "path": "output/engineering-walkthrough-rendered/mass-c1-r1-case-comparison.png",
+      "sha256": "ba78b57306d1e69b7e4c14af8eec3476b0dccc8f25abf12025c3d6154e7263d0"
+    }
+  ],
+  "input_manifest_sha256": "2219fabe5caeaa864b88af75fe0647e561eb1100ef3d53fa7a20219e1c08fa45",
+  "visual_inspection": [
+    {
+      "method": "view_image",
+      "path": "runs/wo04-walkthrough-export-20261102-v4/known-arrow-portability.png",
+      "observation": "Known straight and circular source arrows visibly retain their arrowheads after template-to-path conversion; no physical sign inferred."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-walkthrough-rendered/fbd-fin_bending.png",
+      "observation": "Straight right/left tips and curved moment-symbol tip visibly present. Load labels and source footer readable at full-page view. Moment sign remains unspecified as stated."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-walkthrough-rendered/load-fin_bending.png",
+      "observation": "Downstream topology arrowheads visibly present between root/socket/bridge/receiver/end/body nodes; failed versus unresolved borders and quantity labels readable."
+    },
+    {
+      "method": "view_image",
+      "path": "output/engineering-walkthrough-rendered/contact-sheet.png",
+      "observation": "All25 refreshed pages visible in overview. Contact sheet confirms page presence/layout only; not a complete full-size inspection of every annotation."
+    }
+  ],
+  "browser_used": false,
+  "ui_window_created": false,
+  "new_dependencies": false,
+  "physics_or_cad_run": false,
+  "limits": "Native image-document rasterization, even if successful, is not browser acceptance or engineering qualification. No automatic repeat of an unsupported method.",
+  "export_portability_packet": "runs/wo04-walkthrough-export-20261102-v4",
+  "renderer_script_sha256": "b5e265b5b593985639d264b97c781fa883deb682537498fcb84f426bb7607e85",
+  "full_render_within_120_seconds": true
+}

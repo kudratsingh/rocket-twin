@@ -1,0 +1,307 @@
+.wb-extension {
+  color: #dce9f1;
+  min-width: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.wb-extension * {
+  box-sizing: border-box;
+}
+.wb-extension h2,
+.wb-extension h3,
+.wb-extension h4,
+.wb-extension p {
+  margin: 0;
+}
+.wb-extension h2 {
+  font-size: 1.35rem;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+.wb-extension h3 {
+  font-size: 1rem;
+  margin: 18px 0 10px;
+}
+.wb-extension h4 {
+  font-size: 0.9rem;
+  margin-bottom: 7px;
+}
+.wb-extension button {
+  font: inherit;
+  cursor: pointer;
+}
+.wb-extension button:focus-visible,
+.wb-extension summary:focus-visible {
+  outline: 2px solid #d5efff;
+  outline-offset: 3px;
+}
+.wb-ext-banner {
+  border: 1px solid #725a38;
+  border-radius: 5px;
+  background: #30291f;
+  color: #e4c08a;
+  padding: 9px 12px;
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+}
+.wb-extension .wb-ext-lead {
+  color: #b6cbd9;
+  max-width: 108ch;
+  margin-bottom: 18px;
+}
+.wb-extension .wb-ext-help,
+.wb-extension .wb-ext-muted {
+  color: #a8c0d0;
+  font-size: 0.75rem;
+  margin: 12px 0 18px;
+}
+.wb-ext-state {
+  display: inline-block;
+  font-size: 0.69rem;
+  margin-left: 8px;
+}
+.wb-ext-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+.wb-ext-tabs button {
+  text-align: left;
+  border: 1px solid #456277;
+  background: #192f40;
+  color: #bdd6e6;
+  border-radius: 5px;
+  padding: 8px 11px;
+  font-size: 0.75rem;
+}
+.wb-ext-tabs button[aria-pressed='true'] {
+  border-color: #a1d2ef;
+  background: #2b5069;
+  color: #effaff;
+}
+.wb-ext-tabs button .wb-ext-state {
+  display: block;
+  margin: 4px 0 0;
+}
+.wb-ext-figure {
+  background: #111f2b;
+  border: 1px solid #3c5669;
+  border-radius: 7px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+.wb-ext-figure-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 15px 17px 8px;
+}
+.wb-ext-figure-heading h3 {
+  margin: 0;
+}
+.wb-ext-figure-heading button {
+  color: #d4e8f5;
+  border: 1px solid #5a7b91;
+  background: #203b50;
+  padding: 5px 9px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+}
+.wb-ext-figure > p {
+  padding: 0 17px 8px;
+  color: #a9c1d1;
+  font-size: 0.75rem;
+}
+.wb-ext-scroll {
+  overflow-x: auto;
+}
+.wb-extension svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 800px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.wb-extension svg text {
+  fill: #d4e4ef;
+  font-size: 14px;
+  pointer-events: none;
+}
+.wb-extension svg .wb-ext-svg-small {
+  fill: #a9c3d5;
+  font-size: 12px;
+}
+.wb-extension svg .wb-ext-svg-kicker {
+  fill: #91bfd8;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.wb-ext-svg-action {
+  cursor: pointer;
+  outline: none;
+}
+.wb-ext-svg-action:hover > rect,
+.wb-ext-svg-action:focus-visible > rect,
+.wb-ext-svg-action.is-selected > rect {
+  stroke: #f2fbff;
+  stroke-width: 2.5;
+}
+.wb-ext-stamp {
+  border-top: 1px solid #304857;
+  padding: 8px 17px;
+  color: #d6b98c;
+  background: #172a37;
+  font-size: 0.69rem;
+}
+.wb-ext-selection {
+  border-left: 3px solid #a6cfe9;
+  background: #1b3344;
+  padding: 14px 16px;
+  margin: 12px 0 20px;
+}
+.wb-ext-selection p {
+  margin: 8px 0;
+}
+.wb-ext-quantities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 20px;
+  margin: 12px 0;
+}
+.wb-ext-quantities > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid #355265;
+}
+.wb-ext-quantities dt {
+  color: #b5cedf;
+}
+.wb-ext-quantities dd {
+  color: #ebf7ff;
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wb-ext-quantities .wb-ext-state {
+  display: block;
+  margin: 3px 0 0;
+}
+.wb-ext-sources {
+  font-size: 0.71rem;
+  margin-top: 12px;
+  color: #a7c0d1;
+  overflow-wrap: anywhere;
+}
+.wb-ext-sources summary {
+  color: #c3deef;
+  cursor: pointer;
+}
+.wb-ext-sources > div {
+  border-top: 1px solid #3a5263;
+  padding: 10px 0;
+  margin-top: 8px;
+}
+.wb-ext-sources p {
+  margin: 3px 0;
+}
+.wb-ext-sources code {
+  display: block;
+  font-size: 0.66rem;
+  margin-top: 4px;
+}
+.wb-ext-part-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+.wb-ext-part-links button {
+  border: 1px solid #4b6e87;
+  background: #203e54;
+  color: #d8edf9;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.wb-ext-part-links > span {
+  color: #d8b88d;
+  font-size: 0.7rem;
+}
+.wb-ext-record {
+  background: #172b3a;
+  border: 1px solid #3d586d;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+.wb-ext-record summary {
+  cursor: pointer;
+  color: #c9e2f2;
+}
+.wb-ext-record p {
+  color: #afc6d7;
+  margin: 9px 0;
+}
+.wb-ext-record-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+.wb-ext-record-grid .wb-ext-record {
+  margin: 0;
+}
+.wb-ext-table {
+  overflow-x: auto;
+  margin: 16px 0;
+  border: 1px solid #39566d;
+  border-radius: 6px;
+}
+.wb-ext-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.73rem;
+}
+.wb-ext-table caption {
+  text-align: left;
+  color: #c0dbea;
+  background: #192f40;
+  padding: 12px;
+}
+.wb-ext-table td,
+.wb-ext-table th {
+  border-top: 1px solid #365366;
+  vertical-align: top;
+  padding: 10px;
+}
+.wb-ext-table td {
+  color: #bbd2e1;
+}
+.wb-ext-table th {
+  color: #d9ebf6;
+  font-weight: 500;
+}
+.wb-ext-table p {
+  min-width: 220px;
+  margin-top: 5px;
+}
+.wb-extension ul {
+  color: #b8cddb;
+  padding-left: 20px;
+}
+.wb-extension li + li {
+  margin-top: 7px;
+}
+.wb-extension .wb-ext-loading {
+  border: 1px solid #3b596e;
+  padding: 18px;
+  border-radius: 7px;
+  color: #bfd7e7;
+}

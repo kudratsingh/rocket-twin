@@ -84,3 +84,15 @@ interaction remain unverified. Preserve C1 concept/envelope maturity, unavailabl
 current CAD,135 source rows rather than a manufacturing assembly, failed scalar
 connections and missing fields. Generated drawing bulk stays local; source,
 manifests and small records are published. This is not WO-04 completion.
+
+
+## Source-linked A–F engineering views
+
+Implement the companion [connections workbench](../wo04-workbench-connections.md)
+from the separate versioned extension document. Candidate comparisons must
+retain complete-case settings/rejection scope; current C1 part mapping is not
+invented for A/B concepts. Recovery/electrical/thermal/service/physical-evidence
+graphics keep sources and missing values visible. Executed offline native
+images/contact sheets support visual review, not browser clicks,3D or engineering
+acceptance. Preserve the original viewer, experiments/replay, compatible-analysis
+requirements and the designated-agent browser gate.
