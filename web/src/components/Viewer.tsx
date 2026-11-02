@@ -1,7 +1,7 @@
 import { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { ComponentRef, ErrorInfo, ReactNode, RefObject } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { Grid, Html, OrbitControls, useGLTF } from '@react-three/drei';
+import { GizmoHelper, GizmoViewport, Grid, Html, OrbitControls, useGLTF } from '@react-three/drei';
 import {
   Box3,
   Color,
@@ -10,13 +10,14 @@ import {
   MeshStandardMaterial,
   PerspectiveCamera,
   Plane,
-  Sphere,
   Vector3,
 } from 'three';
 import { useInspection } from '../store';
 import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
+import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
+import './inspectionViews.css';
 
 export interface ViewOverlay {
   partColors: Record<string, string | null>;
@@ -80,6 +81,9 @@ function PartMesh({
   const hovered = useInspection((s) => s.hoveredId === part.id);
   const exploded = useInspection((s) => s.exploded);
   const section = useInspection((s) => s.section);
+  const ghostShell = useInspection((s) => s.ghostShell);
+  const wireframe = useInspection((s) => s.wireframe);
+  const partLabels = useInspection((s) => s.partLabels);
   const select = useInspection((s) => s.select);
   const hover = useInspection((s) => s.hover);
   const scene = useMemo(() => {
@@ -99,8 +103,11 @@ function PartMesh({
     });
     return copy;
   }, [gltf.scene, part.color, part.cad?.color]);
+  const bounds = useMemo(() => new Box3().setFromObject(scene), [scene]);
+  const center = useMemo(() => bounds.getCenter(new Vector3()), [bounds]);
+  const size = useMemo(() => bounds.getSize(new Vector3()), [bounds]);
+  const ghost = !analysisMode && ghostShell && outerBody(part);
   const translation = useMemo<Vector3Tuple>(() => {
-    const center = new Box3().setFromObject(scene).getCenter(new Vector3());
     const offset = part.location?.explode_offset ?? part.explode_offset ?? 0;
     // Display-only explosion: GLB coordinates already contain the physical placement.
     // Spread relative to the assembly center; do not reapply the part's spec station.
@@ -110,16 +117,18 @@ function PartMesh({
       offset || (center.y - length / 2) * 0.65,
       radial > 0.003 ? center.z * 2.8 : 0,
     ];
-  }, [scene, part.location?.explode_offset, part.explode_offset, length]);
+  }, [center, part.location?.explode_offset, part.explode_offset, length]);
   useEffect(() => {
     scene.traverse((object) => {
       if (!(object instanceof Mesh) || !(object.material instanceof MeshStandardMaterial)) return;
       object.material.color.set(
         analysisMode ? overlayColor || '#4d5b63' : part.color || part.cad?.color || '#899da5',
       );
-      object.material.opacity = baseOpacity;
-      object.material.transparent = baseOpacity < 1;
-      object.material.depthWrite = baseOpacity >= 1;
+      const opacity = ghost ? 0.14 : baseOpacity;
+      object.material.opacity = opacity;
+      object.material.transparent = opacity < 1;
+      object.material.depthWrite = opacity >= 1;
+      object.material.wireframe = !analysisMode && wireframe;
       object.material.emissive = new Color(
         analysisMode ? '#000000' : selected ? '#26b5ba' : hovered ? '#3b858b' : '#000000',
       );
@@ -135,6 +144,8 @@ function PartMesh({
     analysisMode,
     overlayColor,
     baseOpacity,
+    ghost,
+    wireframe,
     part.color,
     part.cad?.color,
   ]);
@@ -149,22 +160,39 @@ function PartMesh({
   }, [scene, part.id, onLoaded]);
   return (
     <group
+      name={`inspection-part:${part.id}`}
       position={translation.map((coordinate) => coordinate * exploded) as Vector3Tuple}
       onClick={(event) => {
+        if (ghost) return;
         event.stopPropagation();
         select(part.id);
       }}
       onPointerOver={(event) => {
+        if (ghost) return;
         event.stopPropagation();
         hover(part.id);
         document.body.style.cursor = 'pointer';
       }}
       onPointerOut={() => {
+        if (ghost) return;
         hover(null);
         document.body.style.cursor = '';
       }}
     >
       <primitive object={scene} />
+      {!analysisMode && selected && partLabels && (
+        <Html
+          position={[center.x + size.x / 2 + 0.014, center.y, center.z]}
+          zIndexRange={[12, 0]}
+          className="selected-part-anchor"
+        >
+          <div className="selected-part-label">
+            <span className="eyebrow">Selected part</span>
+            <strong>{partName(part)}</strong>
+            <span>{part.material}</span>
+          </div>
+        </Html>
+      )}
     </group>
   );
 }
@@ -178,26 +206,47 @@ function CameraFit({
   length: number;
   loadedToken: number;
 }) {
-  const { camera, invalidate } = useThree();
+  const { camera, invalidate, size } = useThree();
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
   const resetToken = useInspection((s) => s.resetToken);
+  const view = useInspection((s) => s.cameraView);
+  const focusId = useInspection((s) => s.focusId);
   useEffect(() => {
-    const bounds = group.current ? new Box3().setFromObject(group.current) : new Box3();
-    const sphere = bounds.isEmpty()
-      ? new Sphere(new Vector3(0, length / 2, 0), length / 2)
-      : bounds.getBoundingSphere(new Sphere());
+    group.current?.updateWorldMatrix(true, true);
+    const focused = focusId ? group.current?.getObjectByName(`inspection-part:${focusId}`) : null;
+    const object = focused || group.current;
+    const bounds = object ? new Box3().setFromObject(object) : new Box3();
+    // Until a real mesh is loaded, use only the recorded vehicle length as a framing fallback.
+    if (bounds.isEmpty()) bounds.set(new Vector3(0, 0, 0), new Vector3(0, length, 0));
     const perspective = camera as PerspectiveCamera;
-    const distance = (sphere.radius / Math.sin((perspective.fov * Math.PI) / 360)) * 1.18;
-    camera.position
-      .copy(sphere.center)
-      .add(new Vector3(0.8, 0.24, 1.6).normalize().multiplyScalar(distance));
-    camera.near = Math.max(0.001, sphere.radius / 100);
-    camera.far = Math.max(100, distance * 20);
+    const frame = cameraFrame(
+      { min: bounds.min.toArray(), max: bounds.max.toArray() },
+      size.width / Math.max(size.height, 1),
+      perspective.fov,
+      view,
+    );
+    camera.up.fromArray(frame.up);
+    camera.position.fromArray(frame.position);
+    // Leave room to zoom into small joints after fitting the full assembly.
+    camera.near = Math.min(0.001, frame.near);
+    camera.far = Math.max(100, frame.far);
+    camera.lookAt(new Vector3(...frame.target));
     camera.updateProjectionMatrix();
-    controls.current?.target.copy(sphere.center);
+    controls.current?.target.fromArray(frame.target);
     controls.current?.update();
     invalidate();
-  }, [camera, group, length, loadedToken, resetToken, invalidate]);
+  }, [
+    camera,
+    group,
+    length,
+    loadedToken,
+    resetToken,
+    view,
+    focusId,
+    size.width,
+    size.height,
+    invalidate,
+  ]);
   return (
     <OrbitControls
       ref={controls}
@@ -281,6 +330,16 @@ export function Viewer({
   const hideParts = useInspection((s) => s.hideParts);
   const showAll = useInspection((s) => s.showAll);
   const resetCamera = useInspection((s) => s.resetCamera);
+  const fitVisible = useInspection((s) => s.fitVisible);
+  const focusPart = useInspection((s) => s.focusPart);
+  const cameraView = useInspection((s) => s.cameraView);
+  const setCameraView = useInspection((s) => s.setCameraView);
+  const ghostShell = useInspection((s) => s.ghostShell);
+  const toggleGhostShell = useInspection((s) => s.toggleGhostShell);
+  const wireframe = useInspection((s) => s.wireframe);
+  const toggleWireframe = useInspection((s) => s.toggleWireframe);
+  const partLabels = useInspection((s) => s.partLabels);
+  const togglePartLabels = useInspection((s) => s.togglePartLabels);
   const select = useInspection((s) => s.select);
   const selectedId = useInspection((s) => s.selectedId);
   const isolate = useInspection((s) => s.isolate);
@@ -297,6 +356,8 @@ export function Viewer({
     [],
   );
   const hasNose = vehicle.parts.some(nose);
+  const hasShell = vehicle.parts.some(outerBody);
+  const selectedPart = vehicle.parts.find((part) => part.id === selectedId);
   return (
     <section className="viewport-panel" aria-label="Three-dimensional vehicle inspection">
       <div className="viewport-heading">
@@ -317,9 +378,20 @@ export function Viewer({
             <Icon name="reset" />
             Reset view
           </button>
-          <button onClick={resetCamera}>
+          <button
+            onClick={fitVisible}
+            title="Fit the currently visible parts, keeping this viewing angle"
+          >
             <Icon name="fit" />
-            Fit rocket
+            Fit visible
+          </button>
+          <button
+            onClick={() => selectedId && focusPart(selectedId)}
+            disabled={!selectedPart?.mesh_url}
+            title="Move the camera close to the selected part (F)"
+          >
+            <Icon name="target" />
+            Focus part
           </button>
         </div>
         <div className="button-group">
@@ -335,6 +407,34 @@ export function Viewer({
           )}
         </div>
       </div>
+      <div className="inspection-view-bar" aria-label="Inspection camera views">
+        <span>View</span>
+        {CAMERA_VIEWS.map((view) => (
+          <button
+            key={view.id}
+            title={view.description}
+            aria-pressed={cameraView === view.id}
+            onClick={() => setCameraView(view.id)}
+          >
+            {view.label}
+          </button>
+        ))}
+      </div>
+      {!overlay && (
+        <div className="inspection-display-bar" aria-label="Assembly display options">
+          <button onClick={toggleGhostShell} aria-pressed={ghostShell} disabled={!hasShell}>
+            <Icon name="layers" size={14} />
+            Transparent shell
+          </button>
+          <button onClick={toggleWireframe} aria-pressed={wireframe}>
+            <Icon name="cube" size={14} />
+            Wireframe
+          </button>
+          <button onClick={togglePartLabels} aria-pressed={partLabels}>
+            Selected-part label
+          </button>
+        </div>
+      )}
       <div className="canvas-wrap">
         <Canvas
           fallback={
@@ -350,6 +450,7 @@ export function Viewer({
         >
           <color attach="background" args={['#141c22']} />
           <ambientLight intensity={1.25} />
+          <hemisphereLight args={['#dbeaf0', '#23313d', 0.65]} />
           <directionalLight position={[2, 3, 3]} intensity={2.5} />
           <directionalLight position={[-2, 1, -1]} intensity={1.2} color="#66a3b8" />
           <Grid
@@ -386,6 +487,13 @@ export function Viewer({
           </group>
           {!overlay && <Markers length={length} mass={mass} />}
           <CameraFit group={group} length={overallLength} loadedToken={loadedIds.length} />
+          <GizmoHelper alignment="bottom-right" margin={[65, 65]}>
+            <GizmoViewport
+              disabled
+              axisColors={['#bc6c68', '#69b7aa', '#719dbd']}
+              labelColor="#15212a"
+            />
+          </GizmoHelper>
         </Canvas>
         <div className="viewport-scale">
           <span className="scale-line" />
@@ -393,7 +501,7 @@ export function Viewer({
         </div>
         <div className="viewport-orientation">
           <b>Y</b>
-          <span>↑ nose</span>
+          <span>axis toward nose</span>
           <small>Metres · placed CAD geometry</small>
         </div>
         {overlay && (
@@ -416,6 +524,14 @@ export function Viewer({
               <i />
               Neutral grey = unavailable / outside field coverage
             </span>
+          </div>
+        )}
+        {!overlay && (ghostShell || wireframe) && (
+          <div className="inspection-display-note" role="status">
+            {ghostShell && <span>Transparent shell: select internal parts through the body.</span>}
+            {wireframe && (
+              <span>Wireframe shows display triangles, not a stress-analysis mesh.</span>
+            )}
           </div>
         )}
         {visible.some(
@@ -518,7 +634,7 @@ export function Viewer({
               <kbd>E</kbd> explode
             </>
           )}
-          <kbd>R</kbd> reset <kbd>S</kbd> section <kbd>esc</kbd> clear
+          <kbd>F</kbd> focus <kbd>R</kbd> reset <kbd>S</kbd> section <kbd>esc</kbd> clear
         </span>
       </div>
     </section>

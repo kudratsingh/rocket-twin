@@ -94,6 +94,7 @@ export default function App() {
 
   useEffect(() => {
     function keydown(event: KeyboardEvent) {
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
       if (
         event.target instanceof HTMLElement &&
         (['INPUT', 'SELECT', 'TEXTAREA'].includes(event.target.tagName) ||
@@ -104,6 +105,10 @@ export default function App() {
       if (event.key === 'Escape') state.select(null);
       if (mode === 'experiment') return;
       if (event.key.toLowerCase() === 'r') state.resetCamera();
+      if (event.key.toLowerCase() === 'f' && state.selectedId) {
+        const selected = vehicle?.parts.find((part) => part.id === state.selectedId);
+        if (selected?.mesh_url) state.focusPart(selected.id);
+      }
       if (event.key.toLowerCase() === 'e' && mode === 'inspect')
         state.setExploded(state.exploded > 0 ? 0 : 1);
       if (event.key.toLowerCase() === 's') state.toggleSection();
@@ -114,7 +119,7 @@ export default function App() {
     }
     window.addEventListener('keydown', keydown);
     return () => window.removeEventListener('keydown', keydown);
-  }, [mode]);
+  }, [mode, vehicle]);
 
   const selectedEntry = [...(catalog?.vehicles ?? []), ...(catalog?.candidates ?? [])].find(
     (entry) => entry.id === vehicleId,
