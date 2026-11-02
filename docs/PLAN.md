@@ -75,6 +75,18 @@ Approximately1kg is not a universal limit. Guide buttons/attachments, actual
 club/rail/start/release geometry, wind and exact California motor evidence remain
 dependencies; G54 and G12/PID-to-RL tracks stay separate.
 
+The owner's next bounded [C1 mass/balance revision](wo03-g80-mass-balance-revision.md)
+selects a closed receiver with explicit local supports and swept/tapered fins,
+without ballast or equipment relocation, for further preflight. It calculates
+1129.807g including full50g and1.319cal loaded (1.206 in the stated additional
+sensitivity). Its1.8m guide screen is14.975m/s, still below15. C1 requires
+nominal1.927373m usable to meet separate15.5 planning; no equipment is confirmed
+and the1.5m baseline remains. Existing connection-strength/thermal/body/harness
+findings and increased fin/root/flutter loads stay open; no detailed CAD,
+active adoption or flight inference follows from positive mass/static balance.
+Use the [ROC/MDARS confirmation sheet](wo03-launch-equipment-confirmation.md)
+before any proposed launch-baseline decision.
+
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
 assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case
 envelope and 1,212 mm overall retention/hardware envelope. The original 800 mm

@@ -4,6 +4,42 @@ Updated: 2026-11-01 (run IDs use UTC)
 
 ## Current work order
 
+**Latest bounded mass/balance result — C1 direction selected, not accepted:**
+[C1](wo03-g80-mass-balance-revision.md) replaces S3's heavy channels with a
+counted closed receiver/local sockets and changes the fin panels to a swept,
+tapered planform. No ballast or equipment relocation is selected. Nominal mass
+1079.807g + separate50g =1129.807g;CG879.798mm /CP966.828mm gives1.319cal
+loaded and1.546cal burnout. The specified additional20g-aft/motor-CG probe
+still gives1.206cal. RequiredCGfor1cal is900.828mm with these fins, compared
+with840.140mm for the old fins. This closes the stated mass/static-balance
+calculation, not complete structural, aerodynamic, thermal or flight acceptance.
+
+Lightening alone leaves0.391cal. Old-fins ballast requires51.781g plus8g mount,
+exceeding the proposed slug's48.858g capacity; existing-equipment forward
+movement cannot supply the missing first moment. Selected replacement budget
+is424.286g,69.815g below S3. Fin force/root moment rise to220.759N/8.830Nm
+factored per fin; installed socket/root strength/stiffness/flutter stay open.
+Full intrinsic inertia remains unavailable, as do qualified thermal/contact,
+body/cap/harness, actual motor service and exact motor/club evidence.
+
+Guide1.5/1.8/1.971m gives13.663/14.975/15.676m/s. **1.8m still fails15; no
+rounding pass.** Nominal required usable travel is1.805867m for formal15 or
+1.927373m for separate15.5. Current-position/start assumptions convert these
+to2.882867/3.004373m clear overall; they are not confirmed equipment. Baseline
+1.5m remains unchanged. The owner confirms nothing booked; ROC/Lucerne and
+MDARS remain conditional. The [short confirmation sheet](wo03-launch-equipment-confirmation.md)
+records official types, approximate/unavailable lengths, support, dates and
+questions. No advertised10ft rail is treated as confirmed usable travel.
+
+Prior S3/Sol evidence is published in merged
+[PR #49](https://github.com/kudratsingh/rocket-twin/pull/49), both required jobs
+passed in41379940628. The new C1 calculation preserves its preflight-key stop
+and one explicit wiring correction; no stopped S3/native/12-combination packet
+was rerun. Continue a bounded real-construction/connection preflight before
+detailed CAD; reinforcement or hardware changes must feed back into mass,
+balance, fin loads and departure. G80 first; G54 and G12/PID-to-RL remain
+separate, with all physical/purchase/paid/WO-10/flight-release gates unchanged.
+
 **Latest coupled receiver/launch increment — S3 not admitted, baseline retained:**
 the [connected receiver](wo03-g80-connected-receiver.md) now has continuous
 channel-to-cap end datums, positive cap joints, keyed motor supports, independent

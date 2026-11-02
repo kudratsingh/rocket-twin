@@ -22,6 +22,12 @@ complete-configuration checks support an explicit revision. Guide-model mass
 ceilings are conditional, not an approximately1kg universal limit. Retain15m/s,
 separate15.5 planning and full separate50g; larger budgets clear no other gate.
 
+The subsequent C1 mass/balance candidate needs nominal1.927373m usable for
+15.5 planning; its1.8m14.975m/s result fails formal15. No ROC/MDARS equipment,
+date or usable travel is confirmed, and no longer baseline is adopted. Keep
+the positive C1 mass/static screen separate from all unresolved construction,
+thermal, fin/flutter, exact-motor and launch/flight acceptance.
+
 The owner's 2026-10-31 continuation uses `docs/wo03-closure-plan.md`: isolate
 thermal errors on known cases, qualify actual geometry or justified bounds,
 then revalidate one complete package. Follow its declared attempt budgets and

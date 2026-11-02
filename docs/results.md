@@ -1768,3 +1768,50 @@ missing metadata in both runs now remains unavailable rather than a false match.
 Twelve frontend tests and build/lint/format pass. Browserownership and agent
 port-binding blockers remain without retry/bypass. Existing preview geometry
 and all physical/purchase/paid/WO10/flight-release gates are preserved.
+
+
+## C1 coupled mass / balance revision — 2026-11-01 local
+
+[Selected preliminary direction](wo03-g80-mass-balance-revision.md): closed
+G11 receiver with counted local socket/hardpoint/key/process stock and swept,
+tapered fin panels. No ballast or equipment move is selected. Complete nominal
+1079.807g plus separate50g =1129.807g; replacement package424.286g,69.815g below
+S3. CG879.798mm, recalculated CP966.828mm give1.319cal loaded/1.546 burnout;
+requiredCGfor1cal900.828mm. With extra20g aft beyond50g and source12.8mm
+motor-CG exploratory probe, loaded mass1149.807g/CG887.264mm/margin1.206cal.
+This probe is not a validated uncertainty bound. Full intrinsic inertia unavailable.
+
+Lightening with old fins gives0.391cal, not a pass. Its8g nose carrier plus
+51.781g nonmetal slug reaches exactly1cal at1193.674g, but exceeds the proposed
+24x45mm/2400kg/m3 slug capacity48.858g. Nominal radial profile is clear; packing,
+retention and actual nose fixture remain unverified. Existing equipment cannot
+supply S3's missing0.06293kgm moment: an unbuildable all-equipment-at225mm upper
+bound is0.01428kgm, while5mm whole-main-sled move gives0.000420kgm only. No
+source equipment, independent recovery supply or aft50g reserve is relocated.
+
+SelectedC1 guide1.5/1.8/1.971m gives13.663/14.975/15.676m/s:1.8 FAILS formal15
+and is not rounded upward. Additional20g probe gives13.526/14.826/15.519.
+Required nominal usable travel1.805867m for15 or1.927373m for separate15.5;
+old-lug/start assumption gives2.882867/3.004373m clear overall, not actual
+available equipment. Owner confirms NOTHING booked at eitherROC/MDARS;
+[short confirmation sheet](wo03-launch-equipment-confirmation.md) preserves
+current official types/inventory/dates/support and missing actual geometry.
+The1.5m baseline is unchanged; advertised10ft is never accepted as usable travel.
+
+Opening mean screens atfullmass: A oldfins2392.764N, B withcarrier/ballast2518.916,
+selectedC2384.141N, Dadditionalprobe2426.345N, same20.4m/s/.3m/DF3. Fin force/
+root moment afterDF3 rise to220.759N/8.830Nm versus149.421/5.230. Those loads,
+new thin-body/socket construction and unchanged adverse cap/body/harness,
+thermal/45C/300Cmatrix, exactmotor, guide/club and installedflutter findings
+remain open. Positive mass/static screens do not qualify this construction.
+NoCAD, stressmesh, heatmethod orfreeflightcampaign ran;activevehicle/previewunchanged.
+
+Four scenario/three guide-probe packet withtwo selected-case travel roots used
+0.605CPU/.689wall under20CPU/30wall. Initialkeyvalidationstop preceded numerical
+work and is preserved in v1; one primary-authorized key-wiring correction kept
+config/numbers unchanged. Separately oneCP-only RocketPy1.13.0 comparison agrees
+atMach0 within3.33e-16m, using1.189CPU/2.045wall under20CPU/20wall. Placeholder
+reference mass/inertia do not validate the candidate's full vehicle. Exact source
+hashes and separate evidence scope are in the saved v2records; no stoppedS3 or
+12-combination motorstudy was repeated. G80first,G54upgrade,G12/PID-RL and all
+physical/purchase/paid/WO10/flight-release gates preserved.

@@ -1,0 +1,32 @@
+{
+  "status": "CP_only_comparison_complete_no_flight_or_mass_benchmark",
+  "budget": {
+    "cases": 1,
+    "cpu_s": 20,
+    "wall_s": 20,
+    "threads": 1
+  },
+  "rocketpy_version": "1.13.0",
+  "source_nose_transition_and_proposed_fin_inputs": {
+    "span_mm": 90,
+    "root_mm": 120,
+    "tip_mm": 60,
+    "sweep_mm": 40,
+    "station_mm": 1080,
+    "thickness_mm": 6.35
+  },
+  "input_sha256": {
+    "configs/studies/wo03-g80-mass-balance-revision.yaml": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276"
+  },
+  "calculated_CP_m": 0.9668275980501118,
+  "rocketpy_CP_at_Mach0_m": 0.9668275980501121,
+  "absolute_difference_m": 3.3306690738754696e-16,
+  "existing_WO01_CP_limit_m": 0.036359999999999996,
+  "CP_comparison_passed": true,
+  "complete_vehicle_mass_CG_inertia_aerodynamic_validity_and_flight_validated": false,
+  "note": "Reference mass/inertia/CG are placeholders because they do not affect CP. No reference static-margin or full-vehicle pass follows.",
+  "cpu_s_including_RocketPy_import": 1.188977,
+  "wall_s_including_RocketPy_import": 2.0445869580144063
+}

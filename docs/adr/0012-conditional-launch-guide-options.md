@@ -44,3 +44,13 @@ Evidence: [launch study](../wo03-launch-guide-motor-trade.md),
 [connected receiver](../wo03-g80-connected-receiver.md). WO-03 remains open.
 The work-order sequence, early preview exception and physical/purchase/paid/
 WO-10 owner-review/flight-release gates are unchanged.
+
+Subsequent C1 evidence, same date: the owner confirms nothing booked at ROC or
+MDARS. The mass-balanced closed-receiver/tapered-fin candidate needs nominal
+1.805867m usable for15m/s and1.927373m for the separate15.5 target. Its1.8m
+result14.975m/s fails. Therefore the earlier1.8m planning option is **not enough
+for this C1 version**; seek measured supported travel with margin beyond the
+nominal1.93m calculation, with2.0m a planning aim if actually available. No
+rail, button arrangement or longer baseline is adopted. Keep1.5m as the
+reference and all other gates. See [C1 result](../wo03-g80-mass-balance-revision.md)
+and [confirmation sheet](../wo03-launch-equipment-confirmation.md).
