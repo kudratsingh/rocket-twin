@@ -17,6 +17,9 @@ preview: ## Authorized early local inspection/experiment preview; WO-03 acceptan
 workbench: ## Prepare source-checked engineering graphics data; no solver/CAD run.
 	$(PYTHON) scripts/wo04_workbench_export.py --output web/public/engineering-workbench/g80-c1.json
 
+workbench-drawings: workbench ## Export portable C1/R1 SVG drawings without a browser or solver.
+	node scripts/wo04_export_walkthrough_drawings.mjs
+
 web-check: ## Strict TypeScript, lint and production build for the local preview.
 	npm --prefix web run typecheck
 	npm --prefix web run lint

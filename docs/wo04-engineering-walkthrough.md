@@ -8,6 +8,13 @@ functions, materials, mass bases, sources and open findings. SVG downloads inclu
 identity/source metadata; JSON has a separate source manifest. No current C1
 detailed CAD, spatial stress/temperature field or installed acceptance is supplied.
 
+The [offline drawing index and export guide](wo04-offline-drawings.md) now
+provide25 portable SVGs for direct inspection without the running app. Generate
+with `make workbench-drawings`; local drawings are under
+`output/engineering-walkthrough/`. Identity/XML/portable-style checks passed;
+image rendering and browser interaction remain unverified for the exact reasons
+recorded in that guide. These exports do not change the frozen C1 data.
+
 ## Open locally
 
 From the repository root:

@@ -1,5 +1,18 @@
 # Status
 
+**Walkthrough export delivery (2026-11-02):**25 standalone source-linked SVGs
+and an accessible local index are available via `make workbench-drawings` and
+[the export guide](wo04-offline-drawings.md). Arrangement/internal sections,
+fin/receiver details, five force/FBD paths, C1/R1 mass/balance comparison and
+conditional guide drawings retain units, status and source hashes. C1 has no
+complete current CAD;135 allocation rows are not135 CAD solids. Header wrapping
+and XML/provenance/style checks passed. Native image rendering failed and
+stopped; no actual visual observations or PNG/screenshots. Browser runtime
+ownership remains rejected/unresolved, with no retries or bypass. Existing
+inspection/experiment/replay sources are preserved; their new interaction
+acceptance remains pending. Full WO03/04/05 and release gates stay open.
+
+
 **C3 continuous-connection preflight — not admitted (2026-11-02):**
 The [one bounded packet](wo03-c3-continuous-connection.md) replaces local pad
 transfer with integral channels and positive cap pockets as design intent.
