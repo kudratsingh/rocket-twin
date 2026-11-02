@@ -1,0 +1,935 @@
+{
+  "active_spec_changed": false,
+  "body_and_paper_diagnostics": {
+    "body_skirt_full_circumferential_area_mm2": 5127.079210658542,
+    "bond_outer_radius_mm": 32,
+    "bonded_length_after_actual_windows_mm": 25.5,
+    "bonded_length_gross_mm": 30,
+    "cases": [
+      {
+        "force_case": "reverse_450N",
+        "force_n": 450,
+        "paper_annulus_area_mm2": 102.88715940506573,
+        "paper_estimated_screen_MPa": 2.0,
+        "paper_uniform_MPa_if_entire_force_enters_serial_tube": 4.373723626952849,
+        "skirt_coverage_cases": [
+          {
+            "area_mm2": 3845.3094079939065,
+            "coverage_fraction": 0.75,
+            "mean_shear_MPa": 0.11702569344992306
+          },
+          {
+            "area_mm2": 5127.079210658542,
+            "coverage_fraction": 1.0,
+            "mean_shear_MPa": 0.08776927008744229
+          }
+        ]
+      },
+      {
+        "force_case": "full_loaded_severe_recovery",
+        "force_n": 2531.4667784173175,
+        "paper_annulus_area_mm2": 102.88715940506573,
+        "paper_estimated_screen_MPa": 2.0,
+        "paper_uniform_MPa_if_entire_force_enters_serial_tube": 24.604302354688965,
+        "skirt_coverage_cases": [
+          {
+            "area_mm2": 3845.3094079939065,
+            "coverage_fraction": 0.75,
+            "mean_shear_MPa": 0.6583259004216206
+          },
+          {
+            "area_mm2": 5127.079210658542,
+            "coverage_fraction": 1.0,
+            "mean_shear_MPa": 0.4937444253162155
+          }
+        ]
+      }
+    ],
+    "do_not_assume_whole_recovery_enters_paper_or_reduce_load_to_pass": true,
+    "paper_results_are_diagnostic_only": true,
+    "windowed_bond_length_removed_mm": 4.5
+  },
+  "c_section": {
+    "I_about_radial_axis_mm4": 8376.77575,
+    "I_about_tangential_axis_mm4": 3422.4516657204395,
+    "channel_radial_inner_mm": 2.1000000000000014,
+    "channel_radial_mm": 12,
+    "channel_tangential_mm": 6.95,
+    "net_area_mm2": 191.55000000000004,
+    "no_fastener_hole_credit": true,
+    "outer_radial_mm": 14.100000000000001,
+    "outer_tangential_mm": 19.5,
+    "radial_centroid_from_inner_mm": 6.59283476898982,
+    "tangential_centroid_mm": 0.0,
+    "weak_centroidal_I_mm4": 3422.4516657204395
+  },
+  "candidate_id": "S3_connected_G11_channel_receiver",
+  "clevis_set_gross_steel_component_sum_diagnostic": {
+    "basis": "Geometric steel volume estimate only; not selected/purchased clevis hardware, tolerances, or verified assembly mass.",
+    "configured_budget_g_each": 6.5,
+    "cotter_wire_diameter_total_length_mm": [
+      1.2,
+      30
+    ],
+    "gross_steel_component_sum_g_each": 6.120503979179297,
+    "head_diameter_thickness_mm": [
+      9,
+      1.5
+    ],
+    "margin_to_budget_g_each": 0.379496020820703,
+    "shaft_diameter_length_mm": [
+      5,
+      26
+    ],
+    "shim_od_id_max_thickness_mm": [
+      8,
+      5.3,
+      2.6
+    ],
+    "two_washer_od_id_thickness_mm": [
+      9,
+      5.3,
+      0.8
+    ]
+  },
+  "complete_preliminary_budget": {
+    "burnout_cg_station_mm": 879.2204309522681,
+    "burnout_static_margin_cal": 0.40786631710966675,
+    "full_candidate_tensor": null,
+    "loaded_cg_station_mm": 892.5985783068153,
+    "loaded_full_mass_g": 1199.622237680635,
+    "loaded_source_barrowman_cp_station_mm": 906.1396078815061,
+    "loaded_static_margin_cal": 0.20516711476804259,
+    "motor_burnout_full_mass_g": 1137.122237680635,
+    "new_items_point_mass_tensor_about_loaded_candidate_cg_frame_X_radial_Y_tangential_Z_aft_kg_m2": [
+      [
+        0.030895045185618558,
+        -2.454875160333864e-06,
+        -6.484419885021757e-06
+      ],
+      [
+        -2.454875160333864e-06,
+        0.030892210539949255,
+        -1.1231344698467933e-05
+      ],
+      [
+        -6.484419885021757e-06,
+        -1.1231344698467933e-05,
+        0.00019584355512879454
+      ]
+    ],
+    "no_mass_bounds_claimed": true,
+    "tensor_status": "Full candidate tensor unavailable: new loops, custom hardware and mass allocations have point/envelope locations but no exact intrinsic inertia geometry. Added parts are represented as points only for this ledger."
+  },
+  "decision_boundary": "Preliminary hand screen only; actual geometry, joint allowables, capacity, thermal history, exact motor/nozzle fit, installed fin dynamics, and flight acceptance remain open. No automatic refinement.",
+  "fin_root_screen": {
+    "5mm_axial_pin_bearing_area_mm2": 31.75,
+    "aspect_ratio": 1.1666666666666667,
+    "average_side_contact_MPa_if_full_contact": 0.36317698524895087,
+    "axial_pin_edge_distance_mm": 10,
+    "axial_pin_hole_radius_mm": 2.5,
+    "axial_pin_net_edge_ligament_mm": 7.5,
+    "design_factor_once": 3,
+    "direct_side_contact_couple_arm_m": 0.012,
+    "external_fin_geometry_unchanged": true,
+    "geometric_tip_freeplay_mm_from_gap_over_12mm_embedment": 0.17500000000000002,
+    "maximum_finished_total_gap_mm": 0.03,
+    "no_ideal_clamp_credit": true,
+    "nominal_side_contact_area_per_face_mm2_if_full_12x100_contact": 1200,
+    "normal_force_per_fin_n_unfactored": 49.8071294055704,
+    "normal_force_slope_per_rad": 1.698653752738762,
+    "one_side_contact_force_for_moment_couple_n": 435.81238229874106,
+    "own_fin_mass_severe_inertia_force_n": 100.92051049691824,
+    "own_mass_pin_bearing_demand_MPa": 3.1785987558084483,
+    "own_mass_pin_tearout_demand_MPa": 0.4576893900086995,
+    "panel_case": {
+      "alpha_deg": 5.0,
+      "dynamic_pressure_pa": 40000.0
+    },
+    "panel_strength_flutter_and_installed_root_acceptance": "Open; no panel/flutter result transferred",
+    "planform_area_per_fin_m2": 0.008400000000000001,
+    "root_arm_m": 0.035,
+    "root_force_per_fin_N_after_DF3": 149.4213882167112,
+    "root_moment_per_fin_Nm_after_DF3": 5.229748587584893,
+    "root_moment_per_fin_Nm_unfactored": 1.7432495291949641,
+    "severe_factored_acceleration_m_s2": 2110.21995,
+    "source_fin_mass_per_fin_g": 43.874623005800466,
+    "source_fin_part_id": "fin_set",
+    "tab_depth_delta_per_fin_g": 3.950017499999999,
+    "tearout_projected_tab_depth_mm": 14.7,
+    "two_plane_tearout_area_mm2": 220.5,
+    "updated_fin_mass_per_fin_g": 47.82464050580047
+  },
+  "fore_skirt_geometry_and_windows": {
+    "axial_centroid_mm": 987.1470588235294,
+    "equivalent_full_circumference_length_mm": 25.5,
+    "inner_outer_radius_mm": [
+      31,
+      32
+    ],
+    "removed_circumference_fraction_in_window": 0.5,
+    "start_end_mm": [
+      974,
+      1004
+    ],
+    "volume_mm3_after_only_configured_window_removal": 5046.968597992003,
+    "window_start_end_mm": [
+      995,
+      1004
+    ]
+  },
+  "full_mass_roots_at_1p971m": {
+    "15": {
+      "full_mass_g_interval": [
+        1219.953265786171,
+        1219.953328371048
+      ],
+      "includes_growth_once": true,
+      "speed_bracket_mps": [
+        15.000000196620997,
+        14.999999752957626
+      ],
+      "status": "screen_root"
+    },
+    "15.5": {
+      "full_mass_g_interval": [
+        1152.3154735565186,
+        1152.3155361413956
+      ],
+      "includes_growth_once": true,
+      "speed_bracket_mps": [
+        15.50000006760661,
+        15.499999585229922
+      ],
+      "status": "screen_root"
+    }
+  },
+  "growth": {
+    "counted_once": true,
+    "mass_g": 50.0,
+    "station_mm": 1227.0
+  },
+  "guide_screens": [
+    {
+      "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+      "control_threshold_source_thrust_n": 16.608388824212888,
+      "control_time_screen_pass": true,
+      "control_time_target_met": true,
+      "kinematic_crosswind_angle_rad": 0.1503747180607484,
+      "longest_useful_control_interval_s": 1.41068020968491,
+      "rail_exit_speed_mps": 13.19970679678865,
+      "rail_exit_time_s": 0.24005877069793916,
+      "rail_screen_pass": false,
+      "screening_wind_mps": 2.0,
+      "usable_m": 1.5,
+      "worst_case_mass_kg": 1.199622237680635
+    },
+    {
+      "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+      "control_threshold_source_thrust_n": 16.608388824212888,
+      "control_time_screen_pass": true,
+      "control_time_target_met": true,
+      "kinematic_crosswind_angle_rad": 0.13735943209264542,
+      "longest_useful_control_interval_s": 1.3889945431026807,
+      "rail_exit_speed_mps": 14.468651409985982,
+      "rail_exit_time_s": 0.2617444372801684,
+      "rail_screen_pass": false,
+      "screening_wind_mps": 2.0,
+      "usable_m": 1.8,
+      "worst_case_mass_kg": 1.199622237680635
+    },
+    {
+      "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+      "control_threshold_source_thrust_n": 16.608388824212888,
+      "control_time_screen_pass": true,
+      "control_time_target_met": true,
+      "kinematic_crosswind_angle_rad": 0.13128803251294033,
+      "longest_useful_control_interval_s": 1.3774461868882468,
+      "rail_exit_speed_mps": 15.146054855042918,
+      "rail_exit_time_s": 0.2732927934946022,
+      "rail_screen_pass": true,
+      "screening_wind_mps": 2.0,
+      "usable_m": 1.971,
+      "worst_case_mass_kg": 1.199622237680635
+    }
+  ],
+  "input_sha256": {
+    "build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "build/wo03-g80-integration-staging/checkout/src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "configs/engineering/wo03.yaml": "f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678",
+    "configs/studies/wo03-g80-connected-receiver.yaml": "14f7b125dc4b32e0a1bde0b115d24f22d17f852c090348d0bf8306b372998a78",
+    "configs/studies/wo03-g80-fin-loads.yaml": "8ebabc61babedf4f52f57f84249b9e6b5e1faa1b463fb54ee1ceb5a50e806fab",
+    "configs/studies/wo03-g80-short-subframe.yaml": "0029deb510339641dc9bb03ad45770191907fefe7578a996a3644f69f489be05",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "scripts/wo03_g80_connected_receiver.py": "986abfdbe02244dcb8ce3e5f97f4125aa551dc747d23d1d8284bba9264ca5e01"
+  },
+  "motor_front_key_pin_screen": {
+    "ideal_double_shear_MPa": 11.459155902616464,
+    "ideal_double_shear_area_mm2": 39.269908169872416,
+    "no_strength_allowables": true,
+    "one_G11_key_projected_bearing_area_mm2": 33.0,
+    "one_key_mean_bearing_MPa": 13.636363636363637,
+    "one_key_pin_full_reverse_load_n": 450,
+    "pin_bending_MPa": 63.712906818547545,
+    "pin_bending_section_modulus_mm3": 12.271846303085129,
+    "pin_diameter_mm": 5,
+    "simple_center_load_bending_moment_Nmm": 781.875,
+    "unsupported_span_mm": 6.95
+  },
+  "named_source_bundle_removed_once_g": 139.06053644196052,
+  "native_or_flight_execution": false,
+  "new_component_mass_ledger": [
+    {
+      "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+      "id": "S3_channel_0_continuous_net_C_stave",
+      "mass_g": 71.51136149999999,
+      "radial_x_mm": 22.79283476898982,
+      "radial_y_mm": 0.0,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+      "id": "S3_channel_1_continuous_net_C_stave",
+      "mass_g": 71.51136149999999,
+      "radial_x_mm": -11.396417384494907,
+      "radial_y_mm": 19.739173934206402,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+      "id": "S3_channel_2_continuous_net_C_stave",
+      "mass_g": 71.51136149999999,
+      "radial_x_mm": -11.39641738449492,
+      "radial_y_mm": -19.739173934206395,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Gross annular cylinder, no hole/port/overlap deductions",
+      "id": "fore_integral_G11_annular_cap",
+      "mass_g": 30.687077040265102,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1007.0
+    },
+    {
+      "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+      "id": "fore_half_cylinder_saddle_lobe_0",
+      "mass_g": 2.989374635541733,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": 20.784609690826528,
+      "station_mm": 1000.1802813657945
+    },
+    {
+      "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+      "id": "fore_half_cylinder_saddle_lobe_1",
+      "mass_g": 2.989374635541733,
+      "radial_x_mm": -24.0,
+      "radial_y_mm": 2.9391523179536475e-15,
+      "station_mm": 1000.1802813657945
+    },
+    {
+      "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+      "id": "fore_half_cylinder_saddle_lobe_2",
+      "mass_g": 2.989374635541733,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": -20.784609690826528,
+      "station_mm": 1000.1802813657945
+    },
+    {
+      "basis": "Gross annular cylinder, no hole/port/overlap deductions",
+      "id": "aft_integral_G11_annular_cap",
+      "mass_g": 30.687077040265102,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1214.8
+    },
+    {
+      "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+      "id": "aft_half_cylinder_saddle_lobe_0",
+      "mass_g": 2.989374635541733,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": 20.784609690826528,
+      "station_mm": 1221.6197186342054
+    },
+    {
+      "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+      "id": "aft_half_cylinder_saddle_lobe_1",
+      "mass_g": 2.989374635541733,
+      "radial_x_mm": -24.0,
+      "radial_y_mm": 2.9391523179536475e-15,
+      "station_mm": 1221.6197186342054
+    },
+    {
+      "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+      "id": "aft_half_cylinder_saddle_lobe_2",
+      "mass_g": 2.989374635541733,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": -20.784609690826528,
+      "station_mm": 1221.6197186342054
+    },
+    {
+      "basis": "Annular cylinder with only configured half-circumference 995-1004 mm windows removed; equivalent full-circumference length 25.5 mm",
+      "id": "fore_integral_body_skirt",
+      "mass_g": 9.336891906285205,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 987.1470588235294
+    },
+    {
+      "basis": "Gross annular plate; notches/overlap not deducted",
+      "id": "motor_front_annulus",
+      "mass_g": 6.656654700245688,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1066.0
+    },
+    {
+      "basis": "Gross radial rectangular prong; no overlap/cut deductions",
+      "id": "motor_front_prong_0",
+      "mass_g": 0.8791199999999998,
+      "radial_x_mm": 24.3,
+      "radial_y_mm": 0.0,
+      "station_mm": 1066.0
+    },
+    {
+      "basis": "Gross radial rectangular prong; no overlap/cut deductions",
+      "id": "motor_front_prong_1",
+      "mass_g": 0.8791199999999998,
+      "radial_x_mm": -12.149999999999997,
+      "radial_y_mm": 21.044417311961862,
+      "station_mm": 1066.0
+    },
+    {
+      "basis": "Gross radial rectangular prong; no overlap/cut deductions",
+      "id": "motor_front_prong_2",
+      "mass_g": 0.8791199999999998,
+      "radial_x_mm": -12.150000000000011,
+      "radial_y_mm": -21.044417311961855,
+      "station_mm": 1066.0
+    },
+    {
+      "basis": "Gross rectangular positive stop key; no pin-hole or overlap deduction",
+      "id": "motor_front_stop_key_0",
+      "mass_g": 1.7582399999999996,
+      "radial_x_mm": 24.3,
+      "radial_y_mm": 0.0,
+      "station_mm": 1057.0
+    },
+    {
+      "basis": "Gross rectangular positive stop key; no pin-hole or overlap deduction",
+      "id": "motor_front_stop_key_1",
+      "mass_g": 1.7582399999999996,
+      "radial_x_mm": -12.149999999999997,
+      "radial_y_mm": 21.044417311961862,
+      "station_mm": 1057.0
+    },
+    {
+      "basis": "Gross rectangular positive stop key; no pin-hole or overlap deduction",
+      "id": "motor_front_stop_key_2",
+      "mass_g": 1.7582399999999996,
+      "radial_x_mm": -12.150000000000011,
+      "radial_y_mm": -21.044417311961855,
+      "station_mm": 1057.0
+    },
+    {
+      "basis": "Gross floating annular plate; no holes/overlap deductions",
+      "id": "motor_aft_floating_annulus",
+      "mass_g": 4.437769800163792,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1205.0
+    },
+    {
+      "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+      "id": "motor_aft_prong_0",
+      "mass_g": 0.5860799999999998,
+      "radial_x_mm": 24.3,
+      "radial_y_mm": 0.0,
+      "station_mm": 1205.0
+    },
+    {
+      "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+      "id": "motor_aft_prong_1",
+      "mass_g": 0.5860799999999998,
+      "radial_x_mm": -12.149999999999997,
+      "radial_y_mm": 21.044417311961862,
+      "station_mm": 1205.0
+    },
+    {
+      "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+      "id": "motor_aft_prong_2",
+      "mass_g": 0.5860799999999998,
+      "radial_x_mm": -12.150000000000011,
+      "radial_y_mm": -21.044417311961855,
+      "station_mm": 1205.0
+    },
+    {
+      "basis": "Gross 12x6.6x1.6 mm spacer at floating-plate full-aft stop position",
+      "id": "motor_aft_hard_stop_spacer_0",
+      "mass_g": 0.23443199999999997,
+      "radial_x_mm": 24.3,
+      "radial_y_mm": 0.0,
+      "station_mm": 1211.0
+    },
+    {
+      "basis": "Gross 12x6.6x1.6 mm spacer at floating-plate full-aft stop position",
+      "id": "motor_aft_hard_stop_spacer_1",
+      "mass_g": 0.23443199999999997,
+      "radial_x_mm": -12.149999999999997,
+      "radial_y_mm": 21.044417311961862,
+      "station_mm": 1211.0
+    },
+    {
+      "basis": "Gross 12x6.6x1.6 mm spacer at floating-plate full-aft stop position",
+      "id": "motor_aft_hard_stop_spacer_2",
+      "mass_g": 0.23443199999999997,
+      "radial_x_mm": -12.150000000000011,
+      "radial_y_mm": -21.044417311961855,
+      "station_mm": 1211.0
+    },
+    {
+      "basis": "Explicit mass allowance; no spring selected or temperature capability established",
+      "id": "motor_keeper_spring_locking_allocation",
+      "mass_g": 6.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1212.4
+    },
+    {
+      "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+      "id": "fore_cap_M3_complete_set_0",
+      "mass_g": 4.0,
+      "radial_x_mm": 24.0,
+      "radial_y_mm": 6.6125,
+      "station_mm": 1024.0
+    },
+    {
+      "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+      "id": "fore_cap_M3_complete_set_1",
+      "mass_g": 4.0,
+      "radial_x_mm": -17.726592982524597,
+      "radial_y_mm": 17.47835969082653,
+      "station_mm": 1024.0
+    },
+    {
+      "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+      "id": "fore_cap_M3_complete_set_2",
+      "mass_g": 4.0,
+      "radial_x_mm": -6.273407017475412,
+      "radial_y_mm": -24.090859690826523,
+      "station_mm": 1024.0
+    },
+    {
+      "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+      "id": "aft_cap_M3_complete_set_0",
+      "mass_g": 4.0,
+      "radial_x_mm": 24.0,
+      "radial_y_mm": 6.6125,
+      "station_mm": 1203.8
+    },
+    {
+      "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+      "id": "aft_cap_M3_complete_set_1",
+      "mass_g": 4.0,
+      "radial_x_mm": -17.726592982524597,
+      "radial_y_mm": 17.47835969082653,
+      "station_mm": 1203.8
+    },
+    {
+      "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+      "id": "aft_cap_M3_complete_set_2",
+      "mass_g": 4.0,
+      "radial_x_mm": -6.273407017475412,
+      "radial_y_mm": -24.090859690826523,
+      "station_mm": 1203.8
+    },
+    {
+      "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+      "id": "motor_front_key_5mm_cross_pin_complete_set_0",
+      "mass_g": 6.5,
+      "radial_x_mm": 24.3,
+      "radial_y_mm": 0.0,
+      "station_mm": 1057.0
+    },
+    {
+      "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+      "id": "motor_front_key_5mm_cross_pin_complete_set_1",
+      "mass_g": 6.5,
+      "radial_x_mm": -12.149999999999997,
+      "radial_y_mm": 21.044417311961862,
+      "station_mm": 1057.0
+    },
+    {
+      "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+      "id": "motor_front_key_5mm_cross_pin_complete_set_2",
+      "mass_g": 6.5,
+      "radial_x_mm": -12.150000000000011,
+      "radial_y_mm": -21.044417311961855,
+      "station_mm": 1057.0
+    },
+    {
+      "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+      "id": "fin_axial_retention_5mm_cross_pin_complete_set_0",
+      "mass_g": 6.5,
+      "radial_x_mm": 24.3,
+      "radial_y_mm": 0.0,
+      "station_mm": 1180.0
+    },
+    {
+      "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+      "id": "fin_axial_retention_5mm_cross_pin_complete_set_1",
+      "mass_g": 6.5,
+      "radial_x_mm": -12.149999999999997,
+      "radial_y_mm": 21.044417311961862,
+      "station_mm": 1180.0
+    },
+    {
+      "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+      "id": "fin_axial_retention_5mm_cross_pin_complete_set_2",
+      "mass_g": 6.5,
+      "radial_x_mm": -12.150000000000011,
+      "radial_y_mm": -21.044417311961855,
+      "station_mm": 1180.0
+    },
+    {
+      "basis": "Delta only: configured depth difference x 100 x 6.35 mm source fin thickness, plywood density estimate; original fins/gussets retained",
+      "id": "fin_tab_depth_delta_0",
+      "mass_g": 3.950017499999999,
+      "radial_x_mm": 25.65,
+      "radial_y_mm": 0.0,
+      "station_mm": 1140.0
+    },
+    {
+      "basis": "Delta only: configured depth difference x 100 x 6.35 mm source fin thickness, plywood density estimate; original fins/gussets retained",
+      "id": "fin_tab_depth_delta_1",
+      "mass_g": 3.950017499999999,
+      "radial_x_mm": -12.824999999999996,
+      "radial_y_mm": 22.21355160707085,
+      "station_mm": 1140.0
+    },
+    {
+      "basis": "Delta only: configured depth difference x 100 x 6.35 mm source fin thickness, plywood density estimate; original fins/gussets retained",
+      "id": "fin_tab_depth_delta_2",
+      "mass_g": 3.950017499999999,
+      "radial_x_mm": -12.82500000000001,
+      "radial_y_mm": -22.213551607070844,
+      "station_mm": 1140.0
+    },
+    {
+      "basis": "Two legs plus curved length and 50 mm sewn lap; maximum raw oz/yard converted to mass; not finished assembly rating",
+      "id": "raw_Bally_2745_loop_0",
+      "mass_g": 9.586356953341442,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": 20.784609690826528,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Two legs plus curved length and 50 mm sewn lap; maximum raw oz/yard converted to mass; not finished assembly rating",
+      "id": "raw_Bally_2745_loop_1",
+      "mass_g": 9.586356953341442,
+      "radial_x_mm": -24.0,
+      "radial_y_mm": 2.9391523179536475e-15,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Two legs plus curved length and 50 mm sewn lap; maximum raw oz/yard converted to mass; not finished assembly rating",
+      "id": "raw_Bally_2745_loop_2",
+      "mass_g": 9.586356953341442,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": -20.784609690826528,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Configured extra backbone mass; station is midpoint of primary junction and fore bight for point-mass bookkeeping",
+      "id": "recovery_backbone_extra_mass",
+      "mass_g": 9.84251968503937,
+      "radial_x_mm": 12.000000000000004,
+      "radial_y_mm": 20.784609690826528,
+      "station_mm": 947.5
+    },
+    {
+      "basis": "Explicit additional epoxy allocation for the one fore skirt/body interface",
+      "id": "fore_skirt_to_paper_extra_epoxy_budget",
+      "mass_g": 4.5,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 987.1470588235294
+    },
+    {
+      "basis": "Complete body locator/spreader assembly allowance; no primary paper-wall capacity credited",
+      "id": "fore_skirt_M2_spreader_fastener_assembly_budget",
+      "mass_g": 5.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 987.1470588235294
+    },
+    {
+      "basis": "Explicit service-port cover allowance, counted separately from other additional items",
+      "id": "service_port_covers",
+      "mass_g": 1.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1118.5
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_end_contact_shims",
+      "mass_g": 1.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1111.0
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_fin_channel_selected_shims",
+      "mass_g": 4.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1140.0
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_loop_keepers_chafe_and_stitching",
+      "mass_g": 6.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1095.0
+    },
+    {
+      "basis": "Allocation_only_no_new_thermal_solution_or_geometry_accepted",
+      "id": "S3_additional_thermal_protection",
+      "mass_g": 6.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1140.0
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_index_marks_service_locks",
+      "mass_g": 2.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1100.0
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_tail_fairing",
+      "mass_g": 2.5,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1213.5
+    },
+    {
+      "basis": "Reserve_in_addition_to_source_lugs_not_a_selected_button_or_attachment",
+      "id": "S3_future_rail_button_conversion_extra",
+      "mass_g": 5.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 346.0
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_wire_strain_relief_clearance",
+      "mass_g": 1.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 1000.0
+    },
+    {
+      "basis": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_connector",
+      "mass_g": 12.0,
+      "radial_x_mm": 0.0,
+      "radial_y_mm": 0.0,
+      "station_mm": 900.0
+    }
+  ],
+  "new_component_mass_total_g": 494.10106184553894,
+  "radial_and_motor_travel_screens": {
+    "G11_CTE_per_K": 2.5e-05,
+    "G11_radial_growth_at_150C_screen_mm": 0.092,
+    "closure_formula": "0.1 mm minimum source free clearance - (-1.9352 mm source minimum endplay) = 2.0352 mm; new usable travel 3.2-0.5=2.7 mm; conditional free gap 0.6648 mm",
+    "combined_closure_screen_mm_minimum_free_gap_preserved": 2.0352,
+    "conditional_radial_clearance_after_growth_mm": 0.10799999999999715,
+    "conditional_residual_free_gap_mm": 0.6648000000000001,
+    "configured_nominal_motor_free_travel_mm": 3.2,
+    "manufacturing_loss_mm": 0.5,
+    "minimum_cold_radial_clearance_mm": 0.19999999999999715,
+    "minimum_nominal_travel_to_cover_screen_mm": 2.5352,
+    "motor_source_interference_excursion_mm": -1.9352,
+    "mounting_eccentricity_mm": 0.1,
+    "no_temperature_prediction_or_case_compression_credit": true,
+    "nozzle_bore_radius_mm": 12,
+    "nozzle_fit": "Unavailable; exact case/nozzle/closure drawing and tolerance not in source packet",
+    "receiver_cold_max_radius_mm": 32.1,
+    "shell_inner_min_radius_mm": 32.4,
+    "source_minimum_free_clearance_mm": 0.1,
+    "source_thermal_endplay_min_mm": -1.9352,
+    "temperature_delta_K": 115,
+    "usable_free_travel_mm": 2.7
+  },
+  "rail_screens": {
+    "cap_end_contact_sensitivities": [
+      {
+        "fraction": 0.5,
+        "mean_if_all_three_are_engaged_and_force_is_distributed_mpa": 8.810464729547784,
+        "one_rail_carrying_full_recovery_mpa": 26.431394188643356,
+        "single_rail_end_area_mm2": 95.77500000000002,
+        "three_rail_geometric_area_mm2": 287.32500000000005
+      },
+      {
+        "fraction": 0.75,
+        "mean_if_all_three_are_engaged_and_force_is_distributed_mpa": 5.873643153031857,
+        "one_rail_carrying_full_recovery_mpa": 17.620929459095567,
+        "single_rail_end_area_mm2": 143.66250000000002,
+        "three_rail_geometric_area_mm2": 430.98750000000007
+      },
+      {
+        "fraction": 1.0,
+        "mean_if_all_three_are_engaged_and_force_is_distributed_mpa": 4.405232364773892,
+        "one_rail_carrying_full_recovery_mpa": 13.215697094321678,
+        "single_rail_end_area_mm2": 191.55000000000004,
+        "three_rail_geometric_area_mm2": 574.6500000000001
+      }
+    ],
+    "full_recovery_force_in_one_rail_axial_MPa": 13.215697094321678,
+    "no_equal_sharing_or_support_credit": true,
+    "one_rail_pinned_Euler_N_E_lower_5GPa_L201p8mm": 4147.29329278688
+  },
+  "recovery_demands": {
+    "formula": "DF3*m*(v^2/(2*0.3m)+9.80665); full 50g growth and all corrected source mass included once; this is a mean energy-equivalent screen, not a measured peak",
+    "motor_burnout_severe_N": 2399.578031542318,
+    "nominal_5m_s_0p3m_DF3_N": 185.24560596153177,
+    "prior_1782p253N_floor_N": null,
+    "severe_20p4m_s_0p3m_DF3_N": 2531.4667784173175
+  },
+  "removed_source_parts_g": {
+    "aft_retainer": 20.256493058707726,
+    "motor_mount": 35.296783665463856,
+    "retention": 42.92932739783429,
+    "service_bridge": 10.176846592849941,
+    "service_guide_0": 1.7171369863605355,
+    "service_guide_1": 1.717136986360536,
+    "service_guide_2": 1.717136986360536,
+    "service_keeper": 15.409674768023068,
+    "service_m2_nut_0": 0.14,
+    "service_m2_nut_1": 0.14,
+    "service_m2_nut_2": 0.14,
+    "service_m2_screw_0": 0.3,
+    "service_m2_screw_1": 0.3,
+    "service_m2_screw_2": 0.3,
+    "service_m3_nut_0": 0.38,
+    "service_m3_nut_1": 0.38,
+    "service_m3_nut_2": 0.38,
+    "service_m3_screw_0": 2.11,
+    "service_m3_screw_1": 2.11,
+    "service_m3_screw_2": 2.11,
+    "service_m3_washer_0": 0.35,
+    "service_m3_washer_1": 0.35,
+    "service_m3_washer_2": 0.35
+  },
+  "resource": {
+    "cpu_s": 0.5022490000000001,
+    "declared_cpu_limit_s": 20,
+    "declared_wall_limit_s": 30,
+    "requested_threads": 1,
+    "wall_s": 0.581098208000185
+  },
+  "retained_source_mass_properties": {
+    "burnout_cg_station_mm": 671.5236599688645,
+    "burnout_full_inertia_tensor_kg_m2_about_retained_cg": [
+      [
+        0.0008227658986172194,
+        0.00018812683254540062,
+        -0.0001021586707320125
+      ],
+      [
+        0.00018812683254540062,
+        0.10599230898735469,
+        -1.1768550332885715e-07
+      ],
+      [
+        -0.0001021586707320125,
+        -1.1768550332885715e-07,
+        0.10599439553374325
+      ]
+    ],
+    "burnout_mass_g": 593.0211758350961,
+    "loaded_cg_station_mm": 715.8086843465496,
+    "loaded_full_inertia_tensor_kg_m2_about_retained_cg": [
+      [
+        0.0008293847376755343,
+        0.00018882912876299083,
+        -0.00012647813910747575
+      ],
+      [
+        0.00018882912876299083,
+        0.11827903373853595,
+        -1.1628532381107876e-07
+      ],
+      [
+        -0.00012647813910747575,
+        -1.1628532381107876e-07,
+        0.11828107183923475
+      ]
+    ],
+    "loaded_mass_g": 655.5211758350961,
+    "source_helper": "staged checkout src.vehicle.mass.mass_properties"
+  },
+  "reverse_motor_retention_screen": {
+    "C_rail_two_ear_width_total_mm": 12.55,
+    "M3_tensile_area_mm2": 5.03,
+    "M3_tensile_demand_MPa": 89.46322067594433,
+    "barrel_diameter_mm": 6,
+    "barrel_mean_bearing_MPa": 11.95219123505976,
+    "barrel_projected_one_loaded_ear_area_mm2": 37.650000000000006,
+    "design_factor_once": 3,
+    "end_tearout_screens": [
+      {
+        "barrel_radius_mm": 3.0,
+        "edge_distance_mm": 14,
+        "end": "fore",
+        "net_edge_ligament_mm": 11.0,
+        "one_joint_full_450N_mean_tearout_mpa": 3.2596885186526623,
+        "one_joint_two_plane_tearout_area_mm2": 138.05,
+        "one_loaded_ear_width_mm": 6.275
+      },
+      {
+        "barrel_radius_mm": 3.0,
+        "edge_distance_mm": 8,
+        "end": "aft",
+        "net_edge_ligament_mm": 5.0,
+        "one_joint_full_450N_mean_tearout_mpa": 7.171314741035857,
+        "one_joint_two_plane_tearout_area_mm2": 62.75,
+        "one_loaded_ear_width_mm": 6.275
+      }
+    ],
+    "material_mode_allowables": "Unavailable; scalar demand arithmetic only",
+    "one_loaded_ear_width_mm": 6.275,
+    "service_n": 150,
+    "single_cap_single_M3_joint_demand_n": 450,
+    "washer_annulus_area_mm2": 41.18627968856219,
+    "washer_mean_bearing_MPa": 10.925968633310893
+  },
+  "source_73_nominal_mass_g": 794.5817122770563,
+  "specified_cap_strap_leg_openings_no_mass_credit": {
+    "count_per_cap": 6,
+    "nominal_removed_area_per_cap_mm2_not_subtracted_from_mass": 109.19999999999999,
+    "note": "Geometry openings are explicit; config forbids crediting their removed stock in this gross mass budget.",
+    "opening_dimensions_mm": [
+      13.0,
+      1.4
+    ],
+    "radial_center_mm": 24,
+    "tangential_centers_mm": [
+      -9,
+      9
+    ]
+  },
+  "status": "one_candidate_preliminary_hand_screen_not_accepted"
+}

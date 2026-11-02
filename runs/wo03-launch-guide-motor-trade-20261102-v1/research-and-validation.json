@@ -1,0 +1,105 @@
+{
+  "review_date_local": "2026-11-01",
+  "method": "read-only web tool; no external messages/computer use/purchase",
+  "sources": [
+    {
+      "url": "https://rocstock.org/flying-with-roc-2/",
+      "observation": "1010/1515 rails and rod sizes stated; lengths/support unavailable; exact motor OSFM and flight RSO/FSR approval required"
+    },
+    {
+      "url": "https://www.mojavedesertrocketry.org/club-equipment",
+      "observation": "approximately10ft1515 and1010 attached to1515 listed for members; actual event availability unconfirmed"
+    },
+    {
+      "url": "https://victorianrocketry.org.au/public/pages/what-launch-rails-are-available",
+      "observation": "overall1.8/2.4/2.6/3.7m1010 and3.7m1515 listed; not evidence for California equipment"
+    },
+    {
+      "url": "https://8020.net/1010.html",
+      "observation": "I0.0442in4;E10000000psi;max242in;purchase feasibility not pad qualification"
+    },
+    {
+      "url": "https://8020.net/1515.html",
+      "observation": "I0.2542in4;E10000000psi;max242in;actual support governs"
+    },
+    {
+      "url": "https://www.nar.org/content.aspx?club_id=114127&module_id=670148&page_id=22",
+      "observation": "list updated2026-08-12;AeroTechG80T7/10/13 row136.6Ns62.5g29x128;source/SKU exact reconciliation open"
+    },
+    {
+      "url": "https://www.canadianrocketry.org/en/certifications/motor-certifications",
+      "observation": "official index links Airtable;motor rows unavailable in extraction;currentCTI status not verified"
+    },
+    {
+      "url": "https://pro38.com/products/p29-3g/159g54-12a/",
+      "observation": "direct read timed out;historical saved evidence retained"
+    },
+    {
+      "url": "https://pro38.com/products/p29-3g/143g33-9a/",
+      "observation": "direct read timed out;historical saved evidence retained"
+    },
+    {
+      "url": "https://aerotech-rocketry.com/products/product_bea030f5-871e-61ef-1279-45a2bbebbd87",
+      "observation": "G80-10T SKU78010 $43.99 Add to Cart;127.9g;124mm explicitly CASING length;136.6Ns;77.6N;62.5g. Mapping to pinned128mm assembled-envelope assumption is unresolved, not a proven dimensional contradiction."
+    },
+    {
+      "url": "https://wildmanrocketry.com/products/g80-10t",
+      "observation": "$43.99SoldOut"
+    },
+    {
+      "url": "https://www.csrocketry.com/rocket-motors/cesaroni/motors/pro-29/3g-reloads/cesaroni-g54-12a-red-lightning-rocket-motor.html",
+      "observation": "product1146$40.47OutOfStock"
+    },
+    {
+      "url": "https://wildmanrocketry.com/products/pr29-3g-my",
+      "observation": "G33Mellow$39.45SoldOut"
+    },
+    {
+      "url": "https://www.csrocketry.com/rocket-motors/cesaroni/hardware/pro-29/3g-hardware/cesaroni-29-3-grain-case.html",
+      "observation": "product1104$44.66OutOfStock"
+    },
+    {
+      "url": "https://www.csrocketry.com/rocket-motors/cesaroni/hardware/pro-29/6gxl-hardware/cesaroni-29mm-rear-closure.html",
+      "observation": "product1237$33.50OutOfStock"
+    },
+    {
+      "url": "https://aerotech-rocketry.com/products/product_68ec8c32-c7c1-b48f-bee3-dfd3d69ac87c",
+      "observation": "metadata-onlyG79W-14ASKU077914RMS29/120$34.99AddtoCart;158g140mm115Ns79N59g;no curve/cases"
+    },
+    {
+      "url": "https://www.nar.org/ModelRocketSafetyCode",
+      "observation": "20mph wind code ceiling;not configuration wind acceptance"
+    },
+    {
+      "url": "https://nar.org/content.aspx?club_id=114127&module_id=667402&page_id=22",
+      "observation": "national noHPR criteria;separate from state andFAA"
+    },
+    {
+      "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-101/subpart-C/section-101.22",
+      "observation": "Class1mass/propellant/material/construction definition;not solely motor letter"
+    },
+    {
+      "url": "https://govt.westlaw.com/calregs/Document/I1AEBEB775BE511EC98C8000D3A7C4BC3?needToInjectTerms=False&originationContext=document&transitionType=StatuteNavigator&viewType=FullText",
+      "observation": "officialCCR1021classification/seal;exactG80G54G33approvaldocumentnotobtained"
+    },
+    {
+      "url": "https://www.fire.ca.gov/osfm/what-we-do/fire-engineering-and-investigations/fireworks",
+      "observation": "OSFMstateclassificationauthority"
+    }
+  ],
+  "checks": {
+    "ruff": "passed",
+    "black": "passed via python -m black;executable wrapper absent",
+    "hashes": "all final packet input hashes match",
+    "previous_guide_limit_regression": "G80formal958.398g/planning903.854gwithin0.001g",
+    "twelve_unique_combinations": "passed",
+    "growth_counted_once": "eachprobe total equals screen worst_case_mass",
+    "policy_cap": "all <=1.5kg;1.5exclusive in eligibility",
+    "no_new_flight": "true"
+  },
+  "engineering_acceptance": false,
+  "current_exact_CTI_certification": null,
+  "exact_CA_model_classification": null,
+  "confirmed_club_date": null,
+  "new_complete_receiver_mass": null
+}

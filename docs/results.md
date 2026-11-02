@@ -1716,3 +1716,55 @@ completed within its declared2CPU/5wall-seconds allowance; after-import work
 was0.003919CPU/0.004183wall seconds, with setup/earlier hand work unmeasured.
 This closes the bounded admission decision, not an engineering acceptance
 requirement or physical verification gate.
+
+
+## Coupled S3 receiver and launch-guide/motor comparison — 2026-11-01 local
+
+Owner-authorized parallel Sol HIGH launch study:12 unique motor/usable-guide
+hypotheses with formal15m/s, separate15.5 planning and full separate50g.
+G80 total formal/planning mass roots at1.5/1.8/2.4/3m are958.398/903.854,
+1126.575/1063.511,1446.649/1368.353,1745.798/1654.908g. The strict<1500g
+physical ceiling supersedes larger mathematical roots. At1.8m the complete
+source replacement budget is421.054/357.990g. These are conditional model
+ceilings, not desired mass or a universal≈1kg limit. G54 has source/data/
+certification/state/stock/integration gaps; G33 fails even at3m. G25W quarantine
+and separate G12/PID-to-RL remain. The three same-hypothesis executions total
+2.420CPU/2.528wall seconds; metadata-only provenance corrections did not rerun.
+See [comparison](wo03-launch-guide-motor-trade.md) and
+[ADR-0012](adr/0012-conditional-launch-guide-options.md).
+
+Current CAD has rod lugs, not1010/1515 buttons. ROC lists rail types without
+lengths; MDARS lists approximately10ft1515 and1010 backed by1515. Neither our
+access nor pad/start/release/wind/acceptance is confirmed. The owner explicitly
+confirmed nothing booked; both sites remain conditional. Baseline1.5m is
+unchanged. For S3's1227mm tail and old250mm upper-lug leading edge with assumed
+100mm pad offset,10ft clear overall gives only1.971m illustrative usable travel.
+
+The [S3 connected layout](wo03-g80-connected-receiver.md) gives real matching
+end datums, positive cap joints, motor stop keys, captive fin pins and explicit
+strap/skirt/service openings. It is NOT ADMITTED: new budget494.101g gives
+1149.622g nominal + separate50g =1199.622g; loaded/burnoutCG892.599/879.220mm,
+CP906.140mm and margins0.205/0.408cal versus1.0. Full intrinsic tensor unavailable.
+Guide1.5/1.8/1.971m gives13.200/14.469/15.146m/s; last passesformal15 only,
+misses15.5 planning. Severe loaded mean opening screen2531.467N, nominal185.246N;
+burnout severe2399.578N. Constant heavy channels alone214.534g dominate mass.
+Current24mm aft-cap bore also prevents29mm motor service without releasing the
+recovery cap. No CAD/FEA/heat/free flight or active adoption follows.
+
+V1 interpreter/import and input-key failure are preserved. One explicitly
+authorized input-wiring correction produced v2 at0.502CPU/0.581wall seconds;
+failedCPU unavailable, observed failed wall0.532s, not zero. A separate read-only
+primary connection audit adds full recovery cap sensitivity (M3tension503.27MPa
+versus estimated200),75%-width loop pressure33.085MPa versus25, actualhole net
+ligaments and opposing half-depth fin contacts1.577/1.328MPa. The favorable raw
+full-face0.363MPa proxy is superseded. Force/moment balance verifies arithmetic,
+not installed capacity. Serial paper/bonds/peel, contact, hot finished eyes,
+nozzle/thermal clearances, installed root/flutter and all later qualification
+remain open. New thermal6g allocation is not an accepted shield; required
+300C/dirtyfoil/35C and45C substrate cases remain unchanged.
+
+Independent frontend PR48 merged after both required jobs passed in41377369956:
+missing metadata in both runs now remains unavailable rather than a false match.
+Twelve frontend tests and build/lint/format pass. Browserownership and agent
+port-binding blockers remain without retry/bypass. Existing preview geometry
+and all physical/purchase/paid/WO10/flight-release gates are preserved.

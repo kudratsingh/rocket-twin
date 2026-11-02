@@ -1,0 +1,70 @@
+status: conditional_guide_only_no_configuration_adopted
+source_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+staged_checkout: build/wo03-g80-integration-staging/checkout
+source_bundle_config: configs/studies/wo03-g80-short-subframe.yaml
+source_nominal_kg: 0.7945817122770563
+source_bundle_removed_kg: 0.139060536
+separate_growth_kg: 0.05
+usable_travel_m: [1.5, 1.8, 2.4, 3.0]
+formal_speed_mps: 15.0
+separate_planning_speed_mps: 15.5
+policy_total_launch_mass_strictly_below_kg: 1.5
+assumptions: {thrust_scale_lower: 0.85, rail_friction_n: 0.5, drag_coefficient_upper: 0.8, body_diameter_m: 0.066, density_kg_m3: 1.225, dt_s: 0.001}
+limits:
+  combinations: 12
+  root_targets_per_combination: 2
+  root_bisection_iterations: 24
+  candidate_probes_per_combination: 2
+  individual_case_cpu_s: 120
+  packet_cpu_s: 600
+  packet_wall_s: 900
+  requested_threads: 1
+  no_flight_CAD_FEA_thermal_installs: true
+  on_invalid_changed_identity_or_limit: preserve_log_and_stop_no_automatic_retry
+root_bracket_kg: [0.2, 4.0]
+recovery: {design_factor: 3, severe_speed_mps: 20.4, nominal_speed_mps: 5.0, stopping_distance_m: 0.3}
+release_geometry:
+  aft_hardware_datum_m: 1.212
+  source_part_id: rail_guides
+  source_part_start_station_m: 0.25
+  local_lug_starts_m: [0.0, 0.18]
+  lug_axial_length_m: 0.012
+  lug_bore_diameter_m: 0.0034
+  assumed_aft_datum_height_above_rail_bottom_m: 0.10
+  status: existing_cylindrical_rod_lugs_not_1010_or_1515_buttons
+  safe_two_guide_travel: rail_top_minus_upper_guide_initial_leading_edge_no_single_guide_credit
+  button_release_geometry: unavailable_requires_matched_button_slot_and_end_clearance
+references:
+  - {id: S2_diagnostic_not_admitted, full_g80_launch_mass_kg: 0.932677168, complete_installed: false}
+  - {id: additive_incomplete_rejected, full_g80_launch_mass_kg: 0.977489638, complete_installed: false}
+motors:
+  - id: aerotech_g80_10t_source_hypothesis
+    curve: configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng
+    sha256: e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075
+    assembled_mass_kg: 0.1282
+    diameter_m: 0.029
+    length_m: 0.128
+    support_delta_reserve_kg: 0.0
+    sold_variant: AeroTech_G80-10T_SU_SKU78010
+    source_mismatch: historical_G78_label_133.2435Ns_128mm_128.2g_versus_current136.6Ns_124mm_127.9g_not_reconciled
+  - id: cti_159g54_12a_conditional
+    curve: configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng
+    sha256: 4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253
+    assembled_mass_kg: 0.1982
+    diameter_m: 0.029
+    length_m: 0.187
+    support_delta_reserve_kg: 0.020
+    sold_variant: CTI159G54-12A_Pro29-3G_standard_rear_closure_no_spacers
+    source_mismatch: propellant_header96.8g_vs86.5g_cert_summary_loaded193g_catalog_vs198.2g_manufacturer
+  - id: cti_143g33_9a_comparison_only
+    curve: configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.eng
+    sha256: a9229db79f909b6cddd606435671edf9bc46316c763a1378c2c17f5d75b96288
+    assembled_mass_kg: 0.197
+    diameter_m: 0.029
+    length_m: 0.187
+    support_delta_reserve_kg: 0.020
+    sold_variant: CTI143G33-9A_Mellow_Pro29-3G_standard_rear_closure_no_spacers
+    source_mismatch: propellant_header89g_vs79.1g_certificate_not_reconciled
+motor_CG_assumption: midpoint_of_source_motor_length_with_aft_plane_fixed_at1.200m_not_measured
+support_delta_basis: provisional20g_sensitivity_inside_complete_replacement_budget_not_a_completed_retention_design
+exclusions: [G25W_quarantine_preserved, G12_separate_controls_track, larger_diameter_separate_integration_hypothesis, three_second_preference_superseded]

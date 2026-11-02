@@ -66,6 +66,18 @@ with dimensioned mating/retention, full hardware/heat/service mass, recalculated
 opening demand and useful guide margin. No new CAD/FEA/thermal/flight campaign
 is admitted here. S2 PR45 publication preserves its failed numerical checks.
 
+The owner subsequently authorized one connected receiver and parallel bounded
+Sol HIGH launch/motor comparison. [S3](../wo03-g80-connected-receiver.md) defines
+continuous end-bearing/positive joints but fails mass/planning,1cal stability,
+independent service and recovery/body/contact admission; no CAD/FEA/flight
+follows automatically. [ADR-0012](../adr/0012-conditional-launch-guide-options.md)
+keeps1.5m usable as baseline and records conditional longer-guide options.
+Validate actual rod-lug/button compatibility, usable versus overall travel,
+support/operating conditions and counted attachments before any baseline change.
+Guide-model mass ceilings are configuration-specific, never universal≈1kg limits.
+Preserve15m/s formal, separate15.5 planning and full separate50g, unchanged
+thermal/structural criteria and independent G54/G12 evidence.
+
 ## Deliverables
 
 **Delivery priority, ADR-0011:** execute these requirements first for one complete

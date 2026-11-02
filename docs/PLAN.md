@@ -60,6 +60,21 @@ planning target,252.877g at formal15; no function may be removed for credit.
 See [integrated decision and admission conditions](wo03-integrated-aft-proposal.md).
 This is an interface requirement, not an adopted geometry or a changed WO gate.
 
+The [connected S3 layout](wo03-g80-connected-receiver.md) now defines actual
+end faces, cap joints, motor keys, fin pins and strap/service openings, but its
+constant-section construction fails coupled admission:1199.622g with50g,
+0.205cal loaded stability, inadequate planning guide margin and independent
+motor-removal/cap/body/contact issues. Keep the connection layout and replace
+heavy construction with counted, locally verified load paths before CAD/FEA.
+The parallel [launch/motor comparison](wo03-launch-guide-motor-trade.md) and
+[ADR-0012](adr/0012-conditional-launch-guide-options.md) retain the1.5m baseline
+while proposing a confirmed supported1.8m usable G80 setup as a planning option.
+This increases the conditional gross planning budget to357.990g; it clears no
+structural, thermal, stability, recovery, equipment or exact-motor gate.
+Approximately1kg is not a universal limit. Guide buttons/attachments, actual
+club/rail/start/release geometry, wind and exact California motor evidence remain
+dependencies; G54 and G12/PID-to-RL tracks stay separate.
+
 `configs/platform.yaml` identifies three resolved mode specs sharing a common upper
 assembly. The WO-03 integrated design is 66 mm diameter with a 1,200 mm tube/case
 envelope and 1,212 mm overall retention/hardware envelope. The original 800 mm

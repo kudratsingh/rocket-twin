@@ -1,5 +1,16 @@
 # G80 package closure — isolated integrated candidate, acceptance open
 
+**Latest connected construction / launch screen:**
+[S3](wo03-g80-connected-receiver.md) replaces the disconnected receiver with
+continuous201.8mm channels, face-matched caps and positive connections, but is
+not admitted:494.101g new package /1199.622g with50g;0.205cal loaded margin and
+1.971m-guide15.146m/s only formal pass. Full inertia, actual joints/contact,
+thermal/installed-fin/flutter and motor service remain open/adverse. No new
+CAD or active geometry is accepted. The [launch trade](wo03-launch-guide-motor-trade.md)
+supports a conditional confirmed1.8m usable G80 planning option, with357.990g
+gross new-package budget, while keeping the1.5m baseline unchanged. Longer
+guide access/button/support/operating/eligibility dependencies remain explicit.
+
 **Latest integrated admission:** [aft construction decision](wo03-integrated-aft-proposal.md)
 rejects the additive S2 receiver:977.490g is a partial stock subtotal with50g,
 not complete installed mass, and exceeds the formal guide-model ceiling by
