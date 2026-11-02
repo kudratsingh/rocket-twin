@@ -1,0 +1,995 @@
+{
+  "status": "completed_conditional_guide_only_not_accepted",
+  "flight_ready": false,
+  "limits": {
+    "combinations": 12,
+    "root_targets_per_combination": 2,
+    "root_bisection_iterations": 24,
+    "candidate_probes_per_combination": 2,
+    "individual_case_cpu_s": 120,
+    "packet_cpu_s": 600,
+    "packet_wall_s": 900,
+    "requested_threads": 1,
+    "no_flight_CAD_FEA_thermal_installs": true,
+    "on_invalid_changed_identity_or_limit": "preserve_log_and_stop_no_automatic_retry"
+  },
+  "combination_count": 12,
+  "inputs_sha256": {
+    "configs/studies/wo03-launch-guide-motor-trade.yaml": "15b4cbef8a685245f8236e9bacf31452dff343944acaa7044ee74c4b1123119e",
+    "scripts/wo03_launch_guide_motor_trade.py": "8407c8d805b08704abf7e0f5ec0210181b331e778606ad8d3fd5e44b5e42881c",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "configs/studies/wo03-g80-short-subframe.yaml": "0029deb510339641dc9bb03ad45770191907fefe7578a996a3644f69f489be05",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "build/wo03-g80-integration-staging/checkout/src/cad/parts.py": "0f20bed3d174951b0140773bc1fea70229bf1eb7f886446455ee57694882d973",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+    "configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.eng": "a9229db79f909b6cddd606435671edf9bc46316c763a1378c2c17f5d75b96288"
+  },
+  "source_nominal_kg": 0.7945817122770563,
+  "removed_bundle_kg": {
+    "motor_mount": 0.035296783665463856,
+    "service_guide_0": 0.0017171369863605355,
+    "service_guide_1": 0.001717136986360536,
+    "service_guide_2": 0.001717136986360536,
+    "service_keeper": 0.015409674768023069,
+    "service_bridge": 0.01017684659284994,
+    "service_m2_screw_0": 0.0003,
+    "service_m2_screw_1": 0.0003,
+    "service_m2_screw_2": 0.0003,
+    "service_m2_nut_0": 0.00014000000000000001,
+    "service_m2_nut_1": 0.00014000000000000001,
+    "service_m2_nut_2": 0.00014000000000000001,
+    "service_m3_screw_0": 0.00211,
+    "service_m3_screw_1": 0.00211,
+    "service_m3_screw_2": 0.00211,
+    "service_m3_nut_0": 0.00038,
+    "service_m3_nut_1": 0.00038,
+    "service_m3_nut_2": 0.00038,
+    "service_m3_washer_0": 0.00035,
+    "service_m3_washer_1": 0.00035,
+    "service_m3_washer_2": 0.00035,
+    "retention": 0.04292932739783429,
+    "aft_retainer": 0.020256493058707727
+  },
+  "retained_with_full_separate_growth_kg": 0.7055211758350959,
+  "motors": [
+    {
+      "id": "aerotech_g80_10t_source_hypothesis",
+      "curve": "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng",
+      "sha256": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "assembled_mass_kg": 0.1282,
+      "diameter_m": 0.029,
+      "length_m": 0.128,
+      "support_delta_reserve_kg": 0.0,
+      "sold_variant": "AeroTech_G80-10T_SU_SKU78010",
+      "source_mismatch": "historical_G78_label_133.2435Ns_128mm_128.2g_versus_current136.6Ns_124mm_127.9g_not_reconciled",
+      "curve_impulse_Ns": 133.243509636,
+      "curve_terminal_s": 1.8079,
+      "retained_with_motor_and_full_growth_kg": 0.7055211758350959,
+      "motor_CG_station_m_assumption": 1.136
+    },
+    {
+      "id": "cti_159g54_12a_conditional",
+      "curve": "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng",
+      "sha256": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+      "assembled_mass_kg": 0.1982,
+      "diameter_m": 0.029,
+      "length_m": 0.187,
+      "support_delta_reserve_kg": 0.02,
+      "sold_variant": "CTI159G54-12A_Pro29-3G_standard_rear_closure_no_spacers",
+      "source_mismatch": "propellant_header96.8g_vs86.5g_cert_summary_loaded193g_catalog_vs198.2g_manufacturer",
+      "curve_impulse_Ns": 159.54434599999996,
+      "curve_terminal_s": 3.026,
+      "retained_with_motor_and_full_growth_kg": 0.7755211758350958,
+      "motor_CG_station_m_assumption": 1.1065
+    },
+    {
+      "id": "cti_143g33_9a_comparison_only",
+      "curve": "configs/studies/wo02/motors/CTI_G33_RSE_hypothesis.eng",
+      "sha256": "a9229db79f909b6cddd606435671edf9bc46316c763a1378c2c17f5d75b96288",
+      "assembled_mass_kg": 0.197,
+      "diameter_m": 0.029,
+      "length_m": 0.187,
+      "support_delta_reserve_kg": 0.02,
+      "sold_variant": "CTI143G33-9A_Mellow_Pro29-3G_standard_rear_closure_no_spacers",
+      "source_mismatch": "propellant_header89g_vs79.1g_certificate_not_reconciled",
+      "curve_impulse_Ns": 143.298266,
+      "curve_terminal_s": 4.461,
+      "retained_with_motor_and_full_growth_kg": 0.7743211758350959,
+      "motor_CG_station_m_assumption": 1.1065
+    }
+  ],
+  "results": [
+    {
+      "motor": "aerotech_g80_10t_source_hypothesis",
+      "usable_travel_m": 1.5,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 0.9583979368209837,
+          "bracket_width_kg": 2.26497650079871e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.9583979368209837,
+          "gross_complete_replacement_assembly_budget_kg": 0.25287676098588785,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.25287676098588785,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2022.4304463184797,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 147.99576148399947
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 0.9038541316986086,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.9038541316986086,
+          "gross_complete_replacement_assembly_budget_kg": 0.19833295586351274,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.19833295586351274,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 1907.3310206003314,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 139.57310982419258
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.932677168,
+          "screen": {
+            "worst_case_mass_kg": 0.932677168,
+            "rail_exit_time_s": 0.20937755039209102,
+            "rail_exit_speed_mps": 15.230491493298022,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.4674608029917562,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 12.91261912880075,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.13056844878528784,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 0.23049149329802177,
+          "planning_margin_mps": -0.26950850670197823,
+          "factored_severe_mean_opening_N": 1968.1539668231017,
+          "factored_nominal_mean_opening_N": 144.0239616487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.977489638,
+          "screen": {
+            "worst_case_mass_kg": 0.977489638,
+            "rail_exit_time_s": 0.21468883892344917,
+            "rail_exit_speed_mps": 14.834625128537207,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 1.4615607826501653,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 13.533033541401458,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.13401167011074505,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -0.1653748714627934,
+          "planning_margin_mps": -0.6653748714627934,
+          "factored_severe_mean_opening_N": 2062.7181350258784,
+          "factored_nominal_mean_opening_N": 150.9439010254781
+        }
+      ],
+      "cpu_s": 0.029230000000000034
+    },
+    {
+      "motor": "aerotech_g80_10t_source_hypothesis",
+      "usable_travel_m": 1.8,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.1265749335289004,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.1265749335289004,
+          "gross_complete_replacement_assembly_budget_kg": 0.4210537576938045,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.4210537576938045,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2377.3208999026097,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 173.96564490678614
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.0635114192962647,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.0635114192962647,
+          "gross_complete_replacement_assembly_budget_kg": 0.3579902434611688,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.3579902434611688,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2244.243014051793,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 164.22738019215825
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.932677168,
+          "screen": {
+            "worst_case_mass_kg": 0.932677168,
+            "rail_exit_time_s": 0.22817627456518152,
+            "rail_exit_speed_mps": 16.687502533374687,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.448662078818666,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 12.91261912880075,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.11928121941000391,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 1.687502533374687,
+          "planning_margin_mps": 1.187502533374687,
+          "factored_severe_mean_opening_N": 1968.1539668231017,
+          "factored_nominal_mean_opening_N": 144.0239616487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.977489638,
+          "screen": {
+            "worst_case_mass_kg": 0.977489638,
+            "rail_exit_time_s": 0.23398867199125567,
+            "rail_exit_speed_mps": 16.25508845021926,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.4422609495823588,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 13.533033541401458,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.12242310446903197,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 1.2550884502192616,
+          "planning_margin_mps": 0.7550884502192616,
+          "factored_severe_mean_opening_N": 2062.7181350258784,
+          "factored_nominal_mean_opening_N": 150.9439010254781
+        }
+      ],
+      "cpu_s": 0.03279900000000002
+    },
+    {
+      "motor": "aerotech_g80_10t_source_hypothesis",
+      "usable_travel_m": 2.4,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.4466494083404544,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.4466494083404544,
+          "gross_complete_replacement_assembly_budget_kg": 0.7411282325053585,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.7411282325053585,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3052.748442135723,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 223.39152930346256
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.3683534741401675,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.3683534741401675,
+          "gross_complete_replacement_assembly_budget_kg": 0.6628322983050716,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.6628322983050716,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2887.5267997823903,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 211.30107505905096
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.932677168,
+          "screen": {
+            "worst_case_mass_kg": 0.932677168,
+            "rail_exit_time_s": 0.2615397108143628,
+            "rail_exit_speed_mps": 19.28144807756627,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.4152986425694847,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 12.91261912880075,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.10335702648241663,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 4.281448077566271,
+          "planning_margin_mps": 3.781448077566271,
+          "factored_severe_mean_opening_N": 1968.1539668231017,
+          "factored_nominal_mean_opening_N": 144.0239616487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.977489638,
+          "screen": {
+            "worst_case_mass_kg": 0.977489638,
+            "rail_exit_time_s": 0.2682372787623374,
+            "rail_exit_speed_mps": 18.78421906822047,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.408012342811277,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 13.533033541401458,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.10607273109317915,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 3.7842190682204695,
+          "planning_margin_mps": 3.2842190682204695,
+          "factored_severe_mean_opening_N": 2062.7181350258784,
+          "factored_nominal_mean_opening_N": 150.9439010254781
+        }
+      ],
+      "cpu_s": 0.03906599999999999
+    },
+    {
+      "motor": "aerotech_g80_10t_source_hypothesis",
+      "usable_travel_m": 3.0,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.7457979917526245,
+          "bracket_width_kg": 2.264976499688487e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.5,
+          "gross_complete_replacement_assembly_budget_kg": 0.7944788241649041,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.7944788241649041,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3165.329925,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 231.62992500000001
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.654908108711243,
+          "bracket_width_kg": 2.264976499688487e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.5,
+          "gross_complete_replacement_assembly_budget_kg": 0.7944788241649041,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.7944788241649041,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3165.329925,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 231.62992500000001
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.932677168,
+          "screen": {
+            "worst_case_mass_kg": 0.932677168,
+            "rail_exit_time_s": 0.29091332294049926,
+            "rail_exit_speed_mps": 21.573191018266474,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.3859250304433481,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 12.91261912880075,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.092443420134365,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 6.573191018266474,
+          "planning_margin_mps": 6.073191018266474,
+          "factored_severe_mean_opening_N": 1968.1539668231017,
+          "factored_nominal_mean_opening_N": 144.0239616487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 0.977489638,
+          "screen": {
+            "worst_case_mass_kg": 0.977489638,
+            "rail_exit_time_s": 0.29838642265686655,
+            "rail_exit_speed_mps": 21.019031308155064,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 1.3778631989167478,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 13.533033541401458,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.09486624912342757,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 6.019031308155064,
+          "planning_margin_mps": 5.519031308155064,
+          "factored_severe_mean_opening_N": 2062.7181350258784,
+          "factored_nominal_mean_opening_N": 150.9439010254781
+        }
+      ],
+      "cpu_s": 0.04575000000000001
+    },
+    {
+      "motor": "cti_159g54_12a_conditional",
+      "usable_travel_m": 1.5,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.1264480948448183,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.1264480948448183,
+          "gross_complete_replacement_assembly_budget_kg": 0.3509269190097225,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.3309269190097225,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2377.053242381028,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 173.9460584835321
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.0664848804473877,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.0664848804473877,
+          "gross_complete_replacement_assembly_budget_kg": 0.2909637046122918,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.2709637046122918,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2250.5176710934425,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 164.68654191444156
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.022677168,
+          "screen": {
+            "worst_case_mass_kg": 1.022677168,
+            "rail_exit_time_s": 0.20134111510729746,
+            "rail_exit_speed_mps": 15.889120779163799,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.4700490520262686,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.15864054056546,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.12521377114227494,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 0.8891207791637985,
+          "planning_margin_mps": 0.3891207791637985,
+          "factored_severe_mean_opening_N": 2158.0737623231016,
+          "factored_nominal_mean_opening_N": 157.9217571487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.067489638,
+          "screen": {
+            "worst_case_mass_kg": 1.067489638,
+            "rail_exit_time_s": 0.20597967873402057,
+            "rail_exit_speed_mps": 15.49134602415856,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.441603377387838,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.779054953166165,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.1283941282467605,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 0.49134602415855966,
+          "planning_margin_mps": -0.008653975841440342,
+          "factored_severe_mean_opening_N": 2252.6379305258783,
+          "factored_nominal_mean_opening_N": 164.8416965254781
+        }
+      ],
+      "cpu_s": 0.026742000000000044
+    },
+    {
+      "motor": "cti_159g54_12a_conditional",
+      "usable_travel_m": 1.8,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.2881397843360902,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.2881397843360902,
+          "gross_complete_replacement_assembly_budget_kg": 0.5126186085009944,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.49261860850099437,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2718.258271294715,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 198.91448109018984
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.2227188825607302,
+          "bracket_width_kg": 2.264976499688487e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.2227188825607302,
+          "gross_complete_replacement_assembly_budget_kg": 0.4471977067256344,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.4271977067256344,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 2580.20577922136,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 188.81218870908384
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.022677168,
+          "screen": {
+            "worst_case_mass_kg": 1.022677168,
+            "rail_exit_time_s": 0.21941694922636204,
+            "rail_exit_speed_mps": 17.294955007465234,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.4519732179072036,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.15864054056546,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.11512927790078409,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 2.2949550074652336,
+          "planning_margin_mps": 1.7949550074652336,
+          "factored_severe_mean_opening_N": 2158.0737623231016,
+          "factored_nominal_mean_opening_N": 157.9217571487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.067489638,
+          "screen": {
+            "worst_case_mass_kg": 1.067489638,
+            "rail_exit_time_s": 0.22452501645646072,
+            "rail_exit_speed_mps": 16.85209492458308,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.4230580396653973,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.779054953166165,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.11812707399391086,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 1.8520949245830813,
+          "planning_margin_mps": 1.3520949245830813,
+          "factored_severe_mean_opening_N": 2252.6379305258783,
+          "factored_nominal_mean_opening_N": 164.8416965254781
+        }
+      ],
+      "cpu_s": 0.03006399999999998
+    },
+    {
+      "motor": "cti_159g54_12a_conditional",
+      "usable_travel_m": 2.4,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.5633831262588505,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.5,
+          "gross_complete_replacement_assembly_budget_kg": 0.7244788241649042,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.7044788241649041,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3165.329925,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 231.62992500000001
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.4891227006912233,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.4891227006912233,
+          "gross_complete_replacement_assembly_budget_kg": 0.7136015248561275,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.6936015248561275,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3142.376430996498,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 229.95025298460368
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.022677168,
+          "screen": {
+            "worst_case_mass_kg": 1.022677168,
+            "rail_exit_time_s": 0.251828413699044,
+            "rail_exit_speed_mps": 19.711790354184878,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.4195617534345217,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.15864054056546,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.1011160835830762,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 4.711790354184878,
+          "planning_margin_mps": 4.211790354184878,
+          "factored_severe_mean_opening_N": 2158.0737623231016,
+          "factored_nominal_mean_opening_N": 157.9217571487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.067489638,
+          "screen": {
+            "worst_case_mass_kg": 1.067489638,
+            "rail_exit_time_s": 0.2577949130664571,
+            "rail_exit_speed_mps": 19.19922504850514,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.3897881430554015,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.779054953166165,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.10379649987331041,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 4.1992250485051414,
+          "planning_margin_mps": 3.6992250485051414,
+          "factored_severe_mean_opening_N": 2252.6379305258783,
+          "factored_nominal_mean_opening_N": 164.8416965254781
+        }
+      ],
+      "cpu_s": 0.035241999999999996
+    },
+    {
+      "motor": "cti_159g54_12a_conditional",
+      "usable_travel_m": 3.0,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 1.7987701296806335,
+          "bracket_width_kg": 2.264976499688487e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.5,
+          "gross_complete_replacement_assembly_budget_kg": 0.7244788241649042,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.7044788241649041,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3165.329925,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 231.62992500000001
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 1.7169997215270993,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 1.5,
+          "gross_complete_replacement_assembly_budget_kg": 0.7244788241649042,
+          "receiver_budget_after_motor_specific_support_reserve_kg": 0.7044788241649041,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 3165.329925,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 231.62992500000001
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.022677168,
+          "screen": {
+            "worst_case_mass_kg": 1.022677168,
+            "rail_exit_time_s": 0.28074051162194125,
+            "rail_exit_speed_mps": 21.779310947127666,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.390649655511625,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.15864054056546,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.09157343929868768,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 6.779310947127666,
+          "planning_margin_mps": 6.279310947127666,
+          "factored_severe_mean_opening_N": 2158.0737623231016,
+          "factored_nominal_mean_opening_N": 157.9217571487016
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.067489638,
+          "screen": {
+            "worst_case_mass_kg": 1.067489638,
+            "rail_exit_time_s": 0.287484464987029,
+            "rail_exit_speed_mps": 21.204856584858643,
+            "rail_screen_pass": true,
+            "longest_useful_control_interval_s": 2.360098591134829,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.779054953166165,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.09403981842140606,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": 6.204856584858643,
+          "planning_margin_mps": 5.704856584858643,
+          "factored_severe_mean_opening_N": 2252.6379305258783,
+          "factored_nominal_mean_opening_N": 164.8416965254781
+        }
+      ],
+      "cpu_s": 0.041757000000000044
+    },
+    {
+      "motor": "cti_143g33_9a_comparison_only",
+      "usable_travel_m": 1.5,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 0.34464955329895014,
+          "bracket_width_kg": 2.2649765013538214e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.34464955329895014,
+          "gross_complete_replacement_assembly_budget_kg": -0.4296716225361457,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.44967162253614573,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 727.2863631300329,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 53.22076678794622
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 0.32345005273818966,
+          "bracket_width_kg": 2.2649765013538214e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.32345005273818966,
+          "gross_complete_replacement_assembly_budget_kg": -0.4508711230969062,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.4708711230969062,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 682.55075411668,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 49.947140971328615
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.021477168,
+          "screen": {
+            "worst_case_mass_kg": 1.021477168,
+            "rail_exit_time_s": 0.3954681080697523,
+            "rail_exit_speed_mps": 7.975225277076603,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.5975774297124645,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.14202692174193,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.24570946135649827,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -7.024774722923397,
+          "planning_margin_mps": -7.524774722923397,
+          "factored_severe_mean_opening_N": 2155.541498383102,
+          "factored_nominal_mean_opening_N": 157.73645320870162
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.066289638,
+          "screen": {
+            "worst_case_mass_kg": 1.066289638,
+            "rail_exit_time_s": 0.40771350938973344,
+            "rail_exit_speed_mps": 7.739122383643836,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.5661529411645456,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.762441334342634,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.2528943171107789,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -7.260877616356164,
+          "planning_margin_mps": -7.760877616356164,
+          "factored_severe_mean_opening_N": 2250.105666585878,
+          "factored_nominal_mean_opening_N": 164.65639258547813
+        }
+      ],
+      "cpu_s": 0.04180000000000006
+    },
+    {
+      "motor": "cti_143g33_9a_comparison_only",
+      "usable_travel_m": 1.8,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 0.416534698009491,
+          "bracket_width_kg": 2.2649765013538214e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.416534698009491,
+          "gross_complete_replacement_assembly_budget_kg": -0.35778647782560485,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.37778647782560487,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 878.9798296068532,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 64.3212672398907
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 0.3913241505622864,
+          "bracket_width_kg": 2.2649765013538214e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.3913241505622864,
+          "gross_complete_replacement_assembly_budget_kg": -0.38299702527280943,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.40299702527280945,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 825.7800294333406,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 60.42825576362075
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.021477168,
+          "screen": {
+            "worst_case_mass_kg": 1.021477168,
+            "rail_exit_time_s": 0.43129622857994787,
+            "rail_exit_speed_mps": 8.771910066402217,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.561749309202269,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.14202692174193,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.22416853259625547,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -6.228089933597783,
+          "planning_margin_mps": -6.728089933597783,
+          "factored_severe_mean_opening_N": 2155.541498383102,
+          "factored_nominal_mean_opening_N": 157.73645320870162
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.066289638,
+          "screen": {
+            "worst_case_mass_kg": 1.066289638,
+            "rail_exit_time_s": 0.44463526739814324,
+            "rail_exit_speed_mps": 8.511950557726015,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.5292311831561363,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.762441334342634,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.23077762698438492,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -6.488049442273985,
+          "planning_margin_mps": -6.988049442273985,
+          "factored_severe_mean_opening_N": 2250.105666585878,
+          "factored_nominal_mean_opening_N": 164.65639258547813
+        }
+      ],
+      "cpu_s": 0.044842999999999966
+    },
+    {
+      "motor": "cti_143g33_9a_comparison_only",
+      "usable_travel_m": 2.4,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 0.5491388797760011,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.5491388797760011,
+          "gross_complete_replacement_assembly_budget_kg": -0.2251822960590948,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.24518229605909478,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 1158.803819423969,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 84.7979983580661
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 0.5182253479957581,
+          "bracket_width_kg": 2.26497650079871e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.5182253479957581,
+          "gross_complete_replacement_assembly_budget_kg": -0.2560958278393377,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.2760958278393377,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 1093.5694679363414,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 80.02433232623757
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.021477168,
+          "screen": {
+            "worst_case_mass_kg": 1.021477168,
+            "rail_exit_time_s": 0.49459749336952386,
+            "rail_exit_speed_mps": 10.186513680058383,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.498448044412693,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.14202692174193,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.19387196532586606,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -4.813486319941617,
+          "planning_margin_mps": -5.313486319941617,
+          "factored_severe_mean_opening_N": 2155.541498383102,
+          "factored_nominal_mean_opening_N": 157.73645320870162
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.066289638,
+          "screen": {
+            "worst_case_mass_kg": 1.066289638,
+            "rail_exit_time_s": 0.5098699938198324,
+            "rail_exit_speed_mps": 9.884732248112817,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.463996456734447,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.762441334342634,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.19963708750571374,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -5.115267751887183,
+          "planning_margin_mps": -5.615267751887183,
+          "factored_severe_mean_opening_N": 2250.105666585878,
+          "factored_nominal_mean_opening_N": 164.65639258547813
+        }
+      ],
+      "cpu_s": 0.051207
+    },
+    {
+      "motor": "cti_143g33_9a_comparison_only",
+      "usable_travel_m": 3.0,
+      "roots": {
+        "formal": {
+          "target_mps": 15.0,
+          "total_launch_mass_kg": 0.6693044900894165,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.6693044900894165,
+          "gross_complete_replacement_assembly_budget_kg": -0.10501668574567935,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.12501668574567934,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 1412.379687611264,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 103.3539658943832
+        },
+        "planning": {
+          "target_mps": 15.5,
+          "total_launch_mass_kg": 0.6334904551506042,
+          "bracket_width_kg": 2.264976501908933e-07,
+          "policy_capped_kg_exclusive_if_1p5": 0.6334904551506042,
+          "gross_complete_replacement_assembly_budget_kg": -0.14083072068449165,
+          "receiver_budget_after_motor_specific_support_reserve_kg": -0.16083072068449164,
+          "factored_severe_mean_opening_N_at_policy_capped_mass": 1336.8041965933853,
+          "factored_nominal_mean_opening_N_at_policy_capped_mass": 97.82356440983355
+        }
+      },
+      "probes": [
+        {
+          "id": "S2_diagnostic_not_admitted",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.021477168,
+          "screen": {
+            "worst_case_mass_kg": 1.021477168,
+            "rail_exit_time_s": 0.5501032679867818,
+            "rail_exit_speed_mps": 11.43399445331605,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.4429422697954353,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.14202692174193,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.1731651309996357,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -3.56600554668395,
+          "planning_margin_mps": -4.06600554668395,
+          "factored_severe_mean_opening_N": 2155.541498383102,
+          "factored_nominal_mean_opening_N": 157.73645320870162
+        },
+        {
+          "id": "additive_incomplete_rejected",
+          "complete_installed": false,
+          "total_launch_mass_kg": 1.066289638,
+          "screen": {
+            "worst_case_mass_kg": 1.066289638,
+            "rail_exit_time_s": 0.5670689158432584,
+            "rail_exit_speed_mps": 11.095832602247532,
+            "rail_screen_pass": false,
+            "longest_useful_control_interval_s": 3.406797534711021,
+            "control_time_screen_pass": true,
+            "control_time_target_met": true,
+            "control_threshold_source_thrust_n": 14.762441334342634,
+            "screening_wind_mps": 2.0,
+            "kinematic_crosswind_angle_rad": 0.1783330021041695,
+            "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model"
+          },
+          "formal_margin_mps": -3.9041673977524685,
+          "planning_margin_mps": -4.4041673977524685,
+          "factored_severe_mean_opening_N": 2250.105666585878,
+          "factored_nominal_mean_opening_N": 164.65639258547813
+        }
+      ],
+      "cpu_s": 0.05800900000000009
+    }
+  ],
+  "actual_process_cpu_s_including_imports_setup": 0.807483,
+  "actual_wall_s_including_imports_setup": 0.8127530420024414,
+  "setup_scope": "existing venv; imports plus YAML/hash validation; no install; no CAD import/solver",
+  "model_limits": "fixed full mass, 0.85 thrust, vertical, source drag/friction, no wind load or mass loss; guide only; no structural or launch approval",
+  "prior_execution": {
+    "record": "runs/wo03-launch-guide-motor-trade-20261102-v1/initial-record.json",
+    "sha256": "4a46392bb9143329d1a15a055198dc18121875ff76ce8c3164a0026a230c55ec",
+    "reason": "one code-only closure-binding and formatting correction; same 12 hypotheses; initial numerical packet succeeded",
+    "cpu_s": 0.822621,
+    "wall_s": 0.9031375420163386
+  },
+  "cumulative_numerical_process_cpu_s": 1.630104,
+  "cumulative_numerical_process_wall_s": 1.71589058401878
+}

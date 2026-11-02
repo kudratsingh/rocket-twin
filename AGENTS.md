@@ -15,6 +15,13 @@ frontend preview under ADR-0009; do not rebuild it or change graphics engines.
 Report outcomes, blockers, next bounded deliverable/stop condition and required
 owner input. Ordinary local fixes and focused PR/check/merge work remain autonomous.
 
+ADR-0012 records the owner's parallel launch-guide/motor comparison and a
+conditional G80 supported1.8m usable-guide planning option. Keep the resolved
+1.5m reference unchanged until actual equipment, guide-button geometry/mass and
+complete-configuration checks support an explicit revision. Guide-model mass
+ceilings are conditional, not an approximately1kg universal limit. Retain15m/s,
+separate15.5 planning and full separate50g; larger budgets clear no other gate.
+
 The owner's 2026-10-31 continuation uses `docs/wo03-closure-plan.md`: isolate
 thermal errors on known cases, qualify actual geometry or justified bounds,
 then revalidate one complete package. Follow its declared attempt budgets and

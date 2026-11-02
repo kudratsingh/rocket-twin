@@ -4,6 +4,44 @@ Updated: 2026-11-01 (run IDs use UTC)
 
 ## Current work order
 
+**Latest coupled receiver/launch increment — S3 not admitted, baseline retained:**
+the [connected receiver](wo03-g80-connected-receiver.md) now has continuous
+channel-to-cap end datums, positive cap joints, keyed motor supports, independent
+retention, captive fin pins and actual strap/service openings. Its494.101g
+replacement ledger gives1149.622g nominal + separate50g =1199.622g. Guide speeds
+at1.5/1.8/1.971m usable are13.200/14.469/15.146m/s; the last is only a conditional
+formal15 pass and still fails separate15.5 planning. Loaded/burnout stability
+is0.205/0.408cal versus1.0. Full intrinsic inertia is unavailable. Recovery
+mean-screen force rises to2531.467N; cap/contact/body and installed-fin evidence
+remain adverse/unqualified, and24mm cap bore prevents independent29mm motor
+removal. No detailed CAD/FEA/flight or active adoption follows this failure.
+
+The [Sol HIGH launch study](wo03-launch-guide-motor-trade.md) covers12 unique
+motor/usable-guide hypotheses. G80 source1.8m gives1126.575g formal /
+1063.511g planning total ceilings and421.054/357.990g gross replacement budgets.
+Those are conditional guide calculations, not universal≈1kg rocket limits or
+target masses. Current CAD is rod lugs, not1010/1515 buttons. ROC publishes rail
+types without lengths; MDARS publishes approximately10ft1515 and1010-on1515,
+with our access/support/operating acceptance unconfirmed. See
+[ADR-0012](adr/0012-conditional-launch-guide-options.md): prefer investigating
+G80 on confirmed supported1.8m usable equipment; fallback is a lighter G80 on
+the unchanged1.5m baseline. Full50g,15m/s formal,15.5 planning, required thermal
+cases/45°C and all other gates remain unchanged. G54 stays conditional with
+source/certification/California/hardware-stock gaps; G33 fails guide departure.
+
+Next construction work must retain the real connection graph while reducing
+the heavy channels/complete mass, correcting balance/stability, providing
+independent motor service and closing actual recovery/body contacts. Simply
+extending the guide does not do this. Earlier failures remain saved; new v1
+input failure and one targeted v2 correction are recorded separately. No
+stopped native calculations were repeated.
+
+Independent frontend [PR #48](https://github.com/kudratsingh/rocket-twin/pull/48)
+is merged after both required jobs passed in41377369956. Two runs missing the
+same metadata now display unavailable evidence rather than a false match.
+Twelve frontend tests/build/lint/format passed. Browser-runtime ownership and
+agent port-binding blockers remain; no retry/bypass or new visual verification.
+
 **Delivery priority — ADR-0011:** one complete conventional fixed-motor G80
 engineering package first. Substantial custom construction, maximum practical
 performance within the no-HPR scope and committed PID-to-RL development remain
