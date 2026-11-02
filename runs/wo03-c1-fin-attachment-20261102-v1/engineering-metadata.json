@@ -1,0 +1,292 @@
+{
+  "CAD_revision": null,
+  "active_adoption": false,
+  "analysis_identity_status": "preliminary_hand_screen_no_reconciled_CAD",
+  "candidate": "C1_R1_installed_fin_preflight",
+  "configuration_sha256": "cbbfb78d5ccf3c81ebadfbb01638c9662a38bd4e7d7e72186e1be88326451238",
+  "fields": {
+    "displacement": {
+      "field": null,
+      "reason": "1D strip plus joint proxies only; no actual geometry deformation field.",
+      "state": "failed_preliminary_scalar_screen"
+    },
+    "flutter": {
+      "state": "unavailable",
+      "value": null
+    },
+    "stress": {
+      "reason": "No compatible installed FE field; scalar demands in record are not stress overlay.",
+      "state": "unavailable"
+    },
+    "temperature": {
+      "field": null,
+      "reason": "No C1/R1 temperature field; earlier baffle failures remain failed at their original identity.",
+      "state": "unavailable"
+    }
+  },
+  "installed_acceptance": false,
+  "part_engineering_rows": [
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Two full faces; supplier typical areal mass, not a measured bound",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Two full faces; supplier typical areal mass, not a measured bound",
+      "id": "R1_carbon_panel_faces",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 17.01,
+      "material": "carbon_epoxy_or_separate_bond_finish_as_basis",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1144.4444444444443,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Separate controlled adhesive layers, no double credit of source bond allocation",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Separate controlled adhesive layers, no double credit of source bond allocation",
+      "id": "R1_panel_face_bond",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 2.6730000000000005,
+      "material": "carbon_epoxy_or_separate_bond_finish_as_basis",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1144.4444444444443,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Two full faces; supplier typical areal mass, not a measured bound",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Two full faces; supplier typical areal mass, not a measured bound",
+      "id": "R1_carbon_tab_faces",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 3.087,
+      "material": "carbon_epoxy_or_separate_bond_finish_as_basis",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Separate controlled adhesive layers, no double credit of source bond allocation",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Separate controlled adhesive layers, no double credit of source bond allocation",
+      "id": "R1_tab_face_bond",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 0.4851000000000001,
+      "material": "carbon_epoxy_or_separate_bond_finish_as_basis",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Additional sealing/finishing, original finish retained",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Additional sealing/finishing, original finish retained",
+      "id": "R1_face_finish",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 1.5,
+      "material": "carbon_epoxy_or_separate_bond_finish_as_basis",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1144.4444444444443,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Original 2 mm cheeks retained in base; charge 1 mm added",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Original 2 mm cheeks retained in base; charge 1 mm added",
+      "id": "R1_six_cheek_thickness_increments",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 13.32,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Preserve full support floor under wider socket",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Preserve full support floor under wider socket",
+      "id": "R1_three_wider_floors",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 2.553000000000001,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "No thickness reduction credit before actual geometry",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "No thickness reduction credit before actual geometry",
+      "id": "R1_three_wider_pads",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 1.1488500000000004,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Bridge footprint widened with cheek, still needs actual bending/peel solution",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Bridge footprint widened with cheek, still needs actual bending/peel solution",
+      "id": "R1_six_wider_outer_bridges",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 2.2199999999999998,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Outer radius fixed; no hole or slot mass credit",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Outer radius fixed; no hole or slot mass credit",
+      "id": "R1_closed_receiver_thickness_increment",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 14.59026376993652,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1110.9,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Three positive cap/receiver antirotation keys per end, actual attachment unqualified",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Three positive cap/receiver antirotation keys per end, actual attachment unqualified",
+      "id": "R1_three_end_keys_0",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 2.3975999999999997,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1007,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Three positive cap/receiver antirotation keys per end, actual attachment unqualified",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Three positive cap/receiver antirotation keys per end, actual attachment unqualified",
+      "id": "R1_three_end_keys_1",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 2.3975999999999997,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1214.8,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Added to existing screw and process allocations; no credit for removed holes",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Added to existing screw and process allocations; no credit for removed holes",
+      "id": "R1_added_key_retention_bond",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 2,
+      "material": "carbon_epoxy_or_separate_bond_finish_as_basis",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1110.9,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    },
+    {
+      "analysis_status": "preliminary_failed_or_unavailable_no_installed_pass",
+      "basis": "Maximum aggregate thickness at each of three roots, source shims retained without credit",
+      "critical_dimensions_source": "configs/studies/wo03-c1-fin-attachment.yaml",
+      "function": "Maximum aggregate thickness at each of three roots, source shims retained without credit",
+      "id": "R1_selectable_shim_stock",
+      "load_cases": [
+        "40kPa_5deg_DF3_once",
+        "recovery20p4m_s_0p3m_DF3_once",
+        "finite_support_and_hot_material_sensitivity"
+      ],
+      "manufacturing": "Cut_machined_laminate_or_controlled_bond_process_not_yet_qualified",
+      "mass_g": 4.7286,
+      "material": "G11",
+      "physical_verification": "Material and bond coupons, dimensions, root/end proof and hot-load/modal measurements in WO09; integrated tests/release later",
+      "station_mm": 1140,
+      "thermal_cases": "Unchanged required matrix; no executed C1/R1 temperature field"
+    }
+  ],
+  "source_staged_to_published_identical_paths": {
+    "build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng",
+    "build/wo03-g80-integration-staging/checkout/src/sim/frames.py": "src/sim/frames.py",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "src/vehicle/aero.py",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "src/vehicle/benchmark.py",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/geometry.py": "src/vehicle/geometry.py",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "src/vehicle/mass.py",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "src/vehicle/motors.py",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "src/vehicle/schema.py"
+  }
+}

@@ -1,0 +1,96 @@
+id: C1_R1_installed_fin_preflight
+status: separate_preliminary_screen_not_active
+source_record: runs/wo03-g80-mass-balance-revision-20261102-v2/record.json
+source_record_sha256: a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276
+source_lock: configs/studies/wo03-c1-attachment-source-lock.json
+source_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+staged_checkout: build/wo03-g80-integration-staging/checkout
+budget:
+  packet_count: 1
+  construction_cases: [C1, R1]
+  material_states: [cold_estimate, hot_estimate]
+  integration_points: [101, 401, 1601]
+  new_guide_cases: 2
+  guide_probes_m: [1.5, 1.8, 1.971]
+  cpu_s: 20
+  wall_s: 30
+  threads: 1
+  stop: First_invalid_or_capped_packet_no_automatic_retry_no_CAD_FEA_heat_or_flight_until_admission
+criteria:
+  growth_g: 50
+  extra_aft_sensitivity_g: 20
+  extra_aft_station_mm: 1227
+  motor_cg_probe_mm: 12.8
+  static_margin_cal: 1
+  formal_departure_mps: 15
+  separate_planning_mps: 15.5
+  total_service_tip_displacement_mm: 1
+  quadrature_final_change_fraction: 0.0001
+  known_answer_relative_error: 0.0001
+fin:
+  span_root_tip_sweep_mm: [90, 120, 60, 40]
+  root_station_mm: 1080
+  panel_thickness_nominal_min_mm: [6.35, 6.05]
+  controlled_tab_min_max_mm: [6.30, 6.40]
+  tab_axial_length_depth_mm: [100, 14.7]
+  contact_depth_mm: 12
+  force_case: {dynamic_pressure_pa: 40000, alpha_deg: 5, design_factor_once: 3}
+  plywood_E_cold_hot_pa: [2000000000, 1000000000]
+  plywood_strength_cold_hot_pa: [10000000, 5000000]
+  basis: Existing_unmeasured_weak_direction_estimates_span_grain_no_new_allowable
+socket:
+  width_mm: 100
+  depth_mm: 12
+  C1_cheek_thickness_mm: 2
+  C1_total_finished_play_mm: 0.03
+  R1_cheek_thickness_mm: 3
+  R1_total_finished_play_mm: 0.02
+  E_cold_hot_pa: [10000000000, 5000000000]
+  strength_cold_hot_pa: [50000000, 25000000]
+  G11_density_kg_m3: 1850
+  poisson: 0.25
+  bond_hot_shear_estimate_pa: 1000000
+  bond_normal_peel_allowable: unavailable
+  bearing_tearout_allowables: unavailable_direction_process_temperature_specific
+receiver:
+  radius_mm: 32
+  length_mm: 201.8
+  start_mm: 1010
+  C1_thickness_mm: 0.8
+  R1_thickness_mm: 1
+  end_station_mm: [1010, 1211.8]
+  M3_bore_shaft_mm: [3.4, 3]
+  end_bolt_radius_mm: 24
+  buckling_imperfection_factors: [0.2, 0.65]
+  buckling_basis: Exploratory_unslotted_isotropic_cylinder_sensitivity_not_a_composite_slotted_shell_allowable
+R1:
+  description: Same_plywood_and_functions_with_continuous_carbon_faces_thicker_sockets_receiver_and_positive_end_keys
+  carbon:
+    nominal_actual_min_max_mm: [0.22, 0.12, 0.32]
+    areal_mass_kg_m2: 0.35
+    E_cold_hot_estimate_pa: [40000000000, 20000000000]
+    source_typical_tensile_E_pa: 50100000000
+    strength_screen_estimate_pa: 100000000
+    source: https://www.easycomposites.co.uk/double-sided-high-strength-carbon-fibre-sheet
+    basis: Exact_0p25_product_is_0_90_single_ply_not_quasi_isotropic_80C_Tg_typical_50p1GPa_not_hot_bending_or_bond_allowable
+    applicable_screen_temperature_c: [20, 45]
+  face_bond_nominal_min_max_mm: [0.05, 0.025, 0.075]
+  adhesive_density_kg_m3: 1100
+  finish_g: 1.5
+  socket_gap_nominal_tolerance_mm: [7.25, 0.05]
+  shell_slot_nominal_tolerance_mm: [7.45, 0.10]
+  max_selectable_shim_total_mm: 0.71
+  end_keys: {count: 6, axial_radial_tangential_mm: [12, 6, 6], station_mm: [1007, 1214.8], radius_mm: 27, engagement_mm: 6, per_flank_clearance_mm: 0.02}
+  extra_key_retention_and_bond_g: 2
+  mass_credit_for_old_hardware_finish_shims_holes_or_slots_g: 0
+  unresolved: Key_to_cap_ligaments_hot_shear_peel_and_receiver_connection_not_rigid_ground
+thermal:
+  required_matrix_unchanged: true
+  substrate_screen_c: 45
+  support_sensitivity_c: 150
+  combined_required_case: 300C_case_contaminated_foil_35C_ambient_burn_plus_soak
+  no_new_temperature_result: true
+recovery: {velocity_mps: 20.4, stopping_m: 0.3, design_factor_once: 3}
+decision:
+  admission_requires: Complete_strength_stiffness_connections_and_useful_conditional_mass_margin_no_inherited_flutter_or_thermal_pass
+  if_R1_fails: Stop_R1_and_scope_one_lightweight_sandwich_fin_with_dense_root_insert_construction_revision_no_second_variant_in_this_packet

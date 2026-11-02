@@ -1,0 +1,785 @@
+{
+  "R1_added_ledger": [
+    {
+      "basis": "Two full faces; supplier typical areal mass, not a measured bound",
+      "id": "R1_carbon_panel_faces",
+      "mass_g": 17.01,
+      "station_mm": 1144.4444444444443
+    },
+    {
+      "basis": "Separate controlled adhesive layers, no double credit of source bond allocation",
+      "id": "R1_panel_face_bond",
+      "mass_g": 2.6730000000000005,
+      "station_mm": 1144.4444444444443
+    },
+    {
+      "basis": "Two full faces; supplier typical areal mass, not a measured bound",
+      "id": "R1_carbon_tab_faces",
+      "mass_g": 3.087,
+      "station_mm": 1140
+    },
+    {
+      "basis": "Separate controlled adhesive layers, no double credit of source bond allocation",
+      "id": "R1_tab_face_bond",
+      "mass_g": 0.4851000000000001,
+      "station_mm": 1140
+    },
+    {
+      "basis": "Additional sealing/finishing, original finish retained",
+      "id": "R1_face_finish",
+      "mass_g": 1.5,
+      "station_mm": 1144.4444444444443
+    },
+    {
+      "basis": "Original 2 mm cheeks retained in base; charge 1 mm added",
+      "id": "R1_six_cheek_thickness_increments",
+      "mass_g": 13.32,
+      "station_mm": 1140
+    },
+    {
+      "basis": "Preserve full support floor under wider socket",
+      "id": "R1_three_wider_floors",
+      "mass_g": 2.553000000000001,
+      "station_mm": 1140
+    },
+    {
+      "basis": "No thickness reduction credit before actual geometry",
+      "id": "R1_three_wider_pads",
+      "mass_g": 1.1488500000000004,
+      "station_mm": 1140
+    },
+    {
+      "basis": "Bridge footprint widened with cheek, still needs actual bending/peel solution",
+      "id": "R1_six_wider_outer_bridges",
+      "mass_g": 2.2199999999999998,
+      "station_mm": 1140
+    },
+    {
+      "basis": "Outer radius fixed; no hole or slot mass credit",
+      "id": "R1_closed_receiver_thickness_increment",
+      "mass_g": 14.59026376993652,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Three positive cap/receiver antirotation keys per end, actual attachment unqualified",
+      "id": "R1_three_end_keys_0",
+      "mass_g": 2.3975999999999997,
+      "station_mm": 1007
+    },
+    {
+      "basis": "Three positive cap/receiver antirotation keys per end, actual attachment unqualified",
+      "id": "R1_three_end_keys_1",
+      "mass_g": 2.3975999999999997,
+      "station_mm": 1214.8
+    },
+    {
+      "basis": "Added to existing screw and process allocations; no credit for removed holes",
+      "id": "R1_added_key_retention_bond",
+      "mass_g": 2,
+      "station_mm": 1110.9
+    },
+    {
+      "basis": "Maximum aggregate thickness at each of three roots, source shims retained without credit",
+      "id": "R1_selectable_shim_stock",
+      "mass_g": 4.7286,
+      "station_mm": 1140
+    }
+  ],
+  "R1_added_mass_g": 70.11101376993652,
+  "R1_fit": {
+    "finished_root_min_max_mm": [
+      6.59,
+      7.19
+    ],
+    "hot_and_assembly_acceptance": "Unavailable: adhesive/carbon transverse expansion, hot creep, shim retention, actual key/socket alignment and assembly not verified",
+    "maximum_cold_total_gap_mm": 0.71,
+    "minimum_cold_total_gap_mm": 0.009999999999999815,
+    "socket_min_max_mm": [
+      7.2,
+      7.3
+    ]
+  },
+  "coupled_cases": [
+    {
+      "added_item_axial_point_distribution_transverse_I_kg_m2": 0,
+      "body_0p5mm_full_load_membrane_pa": 23172383.797370058,
+      "body_path_status": "Full-load value is a conservative sensitivity; exact participating component branches and body/upper connections remain unresolved, not automatically all parachute tension in paper.",
+      "burnout_cg_mm": 864.7950738857969,
+      "burnout_static_margin_cal": 1.5459473358229523,
+      "cg_mm": 879.7979120857696,
+      "cp_mm": 966.8275980501118,
+      "extra_aft_g": 0,
+      "fin_axial_recovery_DF3_inertia_N": 98.04649888569874,
+      "fin_pin_5mm_double_shear_pa": 2496733.592082074,
+      "fin_pin_capacity": "Unavailable: direction/hot ply bearing and tearout, pin grade and finished fit are not qualified",
+      "fin_tab_axial_end_tearout_pa": 1058703.151773013,
+      "fin_tab_pin_bearing_pa": 3112587.2662126585,
+      "full_intrinsic_inertia_kg_m2": null,
+      "guide_screens": [
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "conditional_overall_rail_m_under_old_lug_start_assumption": 2.577,
+          "control_threshold_source_thrust_n": 15.641815587478698,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -1.3365372374166267,
+          "kinematic_crosswind_angle_rad": 0.14534360615859557,
+          "longest_useful_control_interval_s": 1.4293999237192727,
+          "planning_speed_margin_mps": -1.8365372374166267,
+          "rail_exit_speed_mps": 13.663462762583373,
+          "rail_exit_time_s": 0.23223734512097396,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.5,
+          "worst_case_mass_kg": 1.1298067509765393
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "conditional_overall_rail_m_under_old_lug_start_assumption": 2.877,
+          "control_threshold_source_thrust_n": 15.641815587478698,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -0.02453759673261402,
+          "kinematic_crosswind_angle_rad": 0.13276617944334834,
+          "longest_useful_control_interval_s": 1.4084488781587803,
+          "planning_speed_margin_mps": -0.524537596732614,
+          "rail_exit_speed_mps": 14.975462403267386,
+          "rail_exit_time_s": 0.25318839068146626,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.8,
+          "worst_case_mass_kg": 1.1298067509765393
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "conditional_overall_rail_m_under_old_lug_start_assumption": 3.048,
+          "control_threshold_source_thrust_n": 15.641815587478698,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": 0.6757675446774858,
+          "kinematic_crosswind_angle_rad": 0.12689986212115698,
+          "longest_useful_control_interval_s": 1.3972911725580492,
+          "planning_speed_margin_mps": 0.1757675446774858,
+          "rail_exit_speed_mps": 15.675767544677486,
+          "rail_exit_time_s": 0.2643460962821974,
+          "rail_screen_pass": true,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.971,
+          "worst_case_mass_kg": 1.1298067509765393
+        }
+      ],
+      "headroom_basis": "Reused lower-pass endpoints of saved S3/Sol same guide-model mass roots; no new rail equipment claim",
+      "id": "C1_nominal",
+      "illustrative_1p971m_formal_headroom_g": 90.14651480963175,
+      "illustrative_1p971m_planning_headroom_g": 22.508722579979803,
+      "inertia_status": "Added-item axial point contribution only; source intrinsic and radial tensors unavailable, not a full vehicle inertia",
+      "installed_acceptance": false,
+      "nominal_5m_s_recovery_DF3_mean_N": 174.46470199545968,
+      "nominal_without_growth_g": 1079.8067509765392,
+      "receiver_full_recovery_mean_axial_stress_pa": 15009801.609253792,
+      "receiver_half_effective_section_stress_pa": 30019603.218507584,
+      "separate_growth_g": 50,
+      "severe_recovery_DF3_mean_N": 2384.1407455553754,
+      "single_M3_200MPa_estimate_ratio": 0.592966961682494,
+      "single_M3_full_recovery_tensile_pa": 337286919.7172753,
+      "static_margin_cal": 1.3186316055203364,
+      "total_with_growth_g": 1129.8067509765392
+    },
+    {
+      "added_item_axial_point_distribution_transverse_I_kg_m2": 0,
+      "body_0p5mm_full_load_membrane_pa": 23582584.63529816,
+      "body_path_status": "Full-load value is a conservative sensitivity; exact participating component branches and body/upper connections remain unresolved, not automatically all parachute tension in paper.",
+      "burnout_cg_mm": 872.2309318118354,
+      "burnout_static_margin_cal": 1.4332828217920663,
+      "cg_mm": 887.2643856918718,
+      "cp_mm": 966.8275980501118,
+      "extra_aft_g": 20,
+      "fin_axial_recovery_DF3_inertia_N": 98.04649888569874,
+      "fin_pin_5mm_double_shear_pa": 2496733.592082074,
+      "fin_pin_capacity": "Unavailable: direction/hot ply bearing and tearout, pin grade and finished fit are not qualified",
+      "fin_tab_axial_end_tearout_pa": 1058703.151773013,
+      "fin_tab_pin_bearing_pa": 3112587.2662126585,
+      "full_intrinsic_inertia_kg_m2": null,
+      "guide_screens": [
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "conditional_overall_rail_m_under_old_lug_start_assumption": 2.577,
+          "control_threshold_source_thrust_n": 15.918709234537522,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -1.4735054376966694,
+          "kinematic_crosswind_angle_rad": 0.14679439534908137,
+          "longest_useful_control_interval_s": 1.4248765881959156,
+          "planning_speed_margin_mps": -1.9735054376966694,
+          "rail_exit_speed_mps": 13.52649456230333,
+          "rail_exit_time_s": 0.23449144189298302,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.5,
+          "worst_case_mass_kg": 1.1498067509765393
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "conditional_overall_rail_m_under_old_lug_start_assumption": 2.877,
+          "control_threshold_source_thrust_n": 15.918709234537522,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -0.17420931979542864,
+          "kinematic_crosswind_angle_rad": 0.1340905719926402,
+          "longest_useful_control_interval_s": 1.4037137290838078,
+          "planning_speed_margin_mps": -0.6742093197954286,
+          "rail_exit_speed_mps": 14.825790680204571,
+          "rail_exit_time_s": 0.25565430100509096,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.8,
+          "worst_case_mass_kg": 1.1498067509765393
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "conditional_overall_rail_m_under_old_lug_start_assumption": 3.048,
+          "control_threshold_source_thrust_n": 15.918709234537522,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": 0.5193609315628969,
+          "kinematic_crosswind_angle_rad": 0.12816488850015276,
+          "longest_useful_control_interval_s": 1.3924430091775284,
+          "planning_speed_margin_mps": 0.019360931562896866,
+          "rail_exit_speed_mps": 15.519360931562897,
+          "rail_exit_time_s": 0.26692502091137027,
+          "rail_screen_pass": true,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.971,
+          "worst_case_mass_kg": 1.1498067509765393
+        }
+      ],
+      "headroom_basis": "Reused lower-pass endpoints of saved S3/Sol same guide-model mass roots; no new rail equipment claim",
+      "id": "C1_plus20g_motorCG_probe",
+      "illustrative_1p971m_formal_headroom_g": 70.14651480963175,
+      "illustrative_1p971m_planning_headroom_g": 2.5087225799798034,
+      "inertia_status": "Added-item axial point contribution only; source intrinsic and radial tensors unavailable, not a full vehicle inertia",
+      "installed_acceptance": false,
+      "nominal_5m_s_recovery_DF3_mean_N": 177.55310099545963,
+      "nominal_without_growth_g": 1099.8067509765392,
+      "receiver_full_recovery_mean_axial_stress_pa": 15275507.254865842,
+      "receiver_half_effective_section_stress_pa": 30551014.509731684,
+      "separate_growth_g": 50,
+      "severe_recovery_DF3_mean_N": 2426.345144555375,
+      "single_M3_200MPa_estimate_ratio": 0.582652759558026,
+      "single_M3_full_recovery_tensile_pa": 343257620.80267316,
+      "static_margin_cal": 1.2055032175490905,
+      "total_with_growth_g": 1149.8067509765392
+    },
+    {
+      "added_item_axial_point_distribution_transverse_I_kg_m2": 0.0040345242466053996,
+      "body_0p5mm_full_load_membrane_pa": 24610363.627190884,
+      "body_path_status": "Full-load value is a conservative sensitivity; exact participating component branches and body/upper connections remain unresolved, not automatically all parachute tension in paper.",
+      "burnout_cg_mm": 881.2944873967964,
+      "burnout_static_margin_cal": 1.2959562220199297,
+      "cg_mm": 894.5613086785562,
+      "cp_mm": 966.8275980501118,
+      "extra_aft_g": 0,
+      "fin_axial_recovery_DF3_inertia_N": 115.45940084711374,
+      "fin_pin_5mm_double_shear_pa": 2940149.4993994753,
+      "fin_pin_capacity": "Unavailable: direction/hot ply bearing and tearout, pin grade and finished fit are not qualified",
+      "fin_tab_axial_end_tearout_pa": 1246727.1444456724,
+      "fin_tab_pin_bearing_pa": 3665377.8046702775,
+      "full_intrinsic_inertia_kg_m2": null,
+      "guide_screens": [
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "control_threshold_source_thrust_n": 16.612480302566155,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -1.8021774683515304,
+          "kinematic_crosswind_angle_rad": 0.15039586494094725,
+          "longest_useful_control_interval_s": 1.410568204621467,
+          "planning_speed_margin_mps": -2.3021774683515304,
+          "rail_exit_speed_mps": 13.19782253164847,
+          "rail_exit_time_s": 0.24009154311268194,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.5,
+          "worst_case_mass_kg": 1.1999177647464758
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "control_threshold_source_thrust_n": 16.612480302566155,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -0.5334018346876306,
+          "kinematic_crosswind_angle_rad": 0.1373786831715915,
+          "longest_useful_control_interval_s": 1.3888793524572607,
+          "planning_speed_margin_mps": -1.0334018346876306,
+          "rail_exit_speed_mps": 14.46659816531237,
+          "rail_exit_time_s": 0.2617803952768883,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.8,
+          "worst_case_mass_kg": 1.1999177647464758
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "control_threshold_source_thrust_n": 16.612480302566155,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": 0.1439049471266074,
+          "kinematic_crosswind_angle_rad": 0.13130645736697005,
+          "longest_useful_control_interval_s": 1.3773294223337673,
+          "planning_speed_margin_mps": -0.3560950528733926,
+          "rail_exit_speed_mps": 15.143904947126607,
+          "rail_exit_time_s": 0.27333032540038166,
+          "rail_screen_pass": true,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.971,
+          "worst_case_mass_kg": 1.1999177647464758
+        }
+      ],
+      "headroom_basis": "Reused lower-pass endpoints of saved S3/Sol same guide-model mass roots; no new rail equipment claim",
+      "id": "R1_nominal",
+      "illustrative_1p971m_formal_headroom_g": 20.03550103969519,
+      "illustrative_1p971m_planning_headroom_g": -47.60229118995676,
+      "inertia_status": "Added-item axial point contribution only; source intrinsic and radial tensors unavailable, not a full vehicle inertia",
+      "installed_acceptance": false,
+      "nominal_5m_s_recovery_DF3_mean_N": 185.29124123626255,
+      "nominal_without_growth_g": 1149.9177647464758,
+      "receiver_full_recovery_mean_axial_stress_pa": 12793482.679214306,
+      "receiver_half_effective_section_stress_pa": 25586965.358428612,
+      "separate_growth_g": 50,
+      "severe_recovery_DF3_mean_N": 2532.09040552742,
+      "single_M3_200MPa_estimate_ratio": 0.5583199916674925,
+      "single_M3_full_recovery_tensile_pa": 358217515.01800066,
+      "static_margin_cal": 1.0949437783569025,
+      "total_with_growth_g": 1199.9177647464758
+    },
+    {
+      "added_item_axial_point_distribution_transverse_I_kg_m2": 0.0038110727043665377,
+      "body_0p5mm_full_load_membrane_pa": 25020564.46511899,
+      "body_path_status": "Full-load value is a conservative sensitivity; exact participating component branches and body/upper connections remain unresolved, not automatically all parachute tension in paper.",
+      "burnout_cg_mm": 887.9948081351451,
+      "burnout_static_margin_cal": 1.1944362108328275,
+      "cg_mm": 901.3566305158042,
+      "cp_mm": 966.8275980501118,
+      "extra_aft_g": 20,
+      "fin_axial_recovery_DF3_inertia_N": 115.45940084711374,
+      "fin_pin_5mm_double_shear_pa": 2940149.4993994753,
+      "fin_pin_capacity": "Unavailable: direction/hot ply bearing and tearout, pin grade and finished fit are not qualified",
+      "fin_tab_axial_end_tearout_pa": 1246727.1444456724,
+      "fin_tab_pin_bearing_pa": 3665377.8046702775,
+      "full_intrinsic_inertia_kg_m2": null,
+      "guide_screens": [
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "control_threshold_source_thrust_n": 16.88937394962498,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -1.9279623317688337,
+          "kinematic_crosswind_angle_rad": 0.1518210070707933,
+          "longest_useful_control_interval_s": 1.4029889103563415,
+          "planning_speed_margin_mps": -2.4279623317688337,
+          "rail_exit_speed_mps": 13.072037668231166,
+          "rail_exit_time_s": 0.2423087126956113,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.5,
+          "worst_case_mass_kg": 1.2199177647464758
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "control_threshold_source_thrust_n": 16.88937394962498,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": -0.6708485398237833,
+          "kinematic_crosswind_angle_rad": 0.13867968157197233,
+          "longest_useful_control_interval_s": 1.3810913995890801,
+          "planning_speed_margin_mps": -1.1708485398237833,
+          "rail_exit_speed_mps": 14.329151460176217,
+          "rail_exit_time_s": 0.2642062234628725,
+          "rail_screen_pass": false,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.8,
+          "worst_case_mass_kg": 1.2199177647464758
+        },
+        {
+          "assumptions": "constant loaded mass plus allowance; 0.85 thrust (spec value); vertical guide; drag/friction estimates; no free flight, crosswind load or servo model",
+          "control_threshold_source_thrust_n": 16.88937394962498,
+          "control_time_screen_pass": true,
+          "control_time_target_met": true,
+          "formal_speed_margin_mps": 0.00025187039037177783,
+          "kinematic_crosswind_angle_rad": 0.13254933259156426,
+          "longest_useful_control_interval_s": 1.3694305760800343,
+          "planning_speed_margin_mps": -0.4997481296096282,
+          "rail_exit_speed_mps": 15.000251870390372,
+          "rail_exit_time_s": 0.27586704697191844,
+          "rail_screen_pass": true,
+          "screening_wind_mps": 2.0,
+          "usable_m": 1.971,
+          "worst_case_mass_kg": 1.2199177647464758
+        }
+      ],
+      "headroom_basis": "Reused lower-pass endpoints of saved S3/Sol same guide-model mass roots; no new rail equipment claim",
+      "id": "R1_plus20g_motorCG_probe",
+      "illustrative_1p971m_formal_headroom_g": 0.03550103969519114,
+      "illustrative_1p971m_planning_headroom_g": -67.60229118995676,
+      "inertia_status": "Added-item axial point contribution only; source intrinsic and radial tensors unavailable, not a full vehicle inertia",
+      "installed_acceptance": false,
+      "nominal_5m_s_recovery_DF3_mean_N": 188.3796402362626,
+      "nominal_without_growth_g": 1169.9177647464758,
+      "receiver_full_recovery_mean_axial_stress_pa": 13006722.003692804,
+      "receiver_half_effective_section_stress_pa": 26013444.007385608,
+      "separate_growth_g": 50,
+      "severe_recovery_DF3_mean_N": 2574.29480452742,
+      "single_M3_200MPa_estimate_ratio": 0.5491665879250112,
+      "single_M3_full_recovery_tensile_pa": 364188216.10339856,
+      "static_margin_cal": 0.9919843565804172,
+      "total_with_growth_g": 1219.9177647464758
+    }
+  ],
+  "decision": "STOP_R1_before_CAD_native_analysis: conditional planning budget exceeded, finite bridge/body/end and thermal/flutter evidence unresolved. One next scoped correction is a lightweight sandwich fin with dense root insert, not thinner unsupported root or relaxed loads.",
+  "flutter": "Unavailable for C1/R1 installed geometry; changed span/sweep/root/receiver and layered R1 invalidate transfer of older isolated panel/NACA screen. Need installed bending/torsion modes, root compliance, damping and speed envelope before flutter acceptance.",
+  "id": "C1_R1_installed_fin_preflight",
+  "input_sha256": {
+    "build/wo03-g80-integration-staging/checkout/configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "build/wo03-g80-integration-staging/checkout/src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/motors.py": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/schema.py": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "configs/studies/wo03-c1-attachment-source-lock.json": "b90ced9757330494f593867cd8fc88be58c68a77619c2e1e00cc717fc19c4100",
+    "configs/studies/wo03-c1-fin-attachment.yaml": "cbbfb78d5ccf3c81ebadfbb01638c9662a38bd4e7d7e72186e1be88326451238",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276",
+    "scripts/wo03_c1_fin_attachment.py": "5a861601cdfb208c104632ed5869472d4ab0cd5bcfab1c8b73606bc1d933bbc8"
+  },
+  "known_rectangular_beam": {
+    "exact_tip_m": 0.0006944444444444446,
+    "final_relative_error": 3.906250001239897e-07,
+    "levels": [
+      {
+        "points": 101,
+        "tip_m": 0.0006945138888888889
+      },
+      {
+        "points": 401,
+        "tip_m": 0.0006944487847222224
+      },
+      {
+        "points": 1601,
+        "tip_m": 0.0006944447157118058
+      }
+    ]
+  },
+  "load_case": {
+    "alpha_deg": 5,
+    "force_DF3_once_N": 220.75869590217366,
+    "force_unfactored_N": 73.58623196739121,
+    "load_validity": "Retained starting static screen, not a C1 trajectory maximum. No factor applied twice; installed gust/large-angle dynamics remain open.",
+    "moment_DF3_once_Nm": 8.830347836086943,
+    "moment_unfactored_Nm": 2.9434492786956477,
+    "q_pa": 40000
+  },
+  "resources": {
+    "CAD_FEA_heat_free_flight_executed": false,
+    "cpu_limit_s": 20,
+    "cpu_s": 0.40020599999999995,
+    "requested_threads": 1,
+    "wall_limit_s": 30,
+    "wall_s": 0.47777487500570714
+  },
+  "status": "preflight_complete_R1_not_admitted_no_active_change",
+  "structures": {
+    "C1": {
+      "attachment": {
+        "bond_peel_capacity": null,
+        "bridge_or_receiver_peel_and_bending": "Unavailable: finite attachment/contact solution needed; no grounded bridge.",
+        "cheek_hot_estimate_ratios_ss_support_lost": [
+          0.5192157470794668,
+          0.09735295257740002
+        ],
+        "cheek_ideal_simply_supported_bending_pa": 48149541.18903814,
+        "cheek_outer_support_lost_bending_pa": 256797553.00820348,
+        "cheek_to_bridge_min_mean_hot_bond_shear_pa": 7133265.361338984,
+        "contact_mean_pressures_pa": [
+          3170340.160595104,
+          2802409.000758148
+        ],
+        "contact_peak_pressure_and_directional_capacity": null,
+        "contact_positive_negative_N": [
+          1902.2040963570626,
+          1681.4454004548888
+        ],
+        "extra_root_to_contact_center_m": 0.0087,
+        "force_residual_N": 5.684341886080802e-14,
+        "half_depth_contact_area_m2": 0.0006000000000000001,
+        "hot_panel_plus_socket_play_plus_ideal_receiver_tip_m": 0.0031442371731371125,
+        "inner_floor_reaction_DF3_N": 475.55102408926564,
+        "moment_residual_Nm": 0.0,
+        "old_M3_end_freeplay_tip_motion_m": 0.0008224999999999998,
+        "old_M3_radial_freeplay_m": 0.00019999999999999996,
+        "outer_bridge_reaction_DF3_N": 1426.653072267797,
+        "receiver_hot_upper_stiffness_Nm_rad": 6859.367098295887,
+        "receiver_ideal_end_fixed_service_tip_motion_m": 4.23535349025766e-05,
+        "receiver_unslotted_torsional_J_m4": 1.5863561074205598e-07,
+        "reference_root_moment_DF3_Nm": 8.830347836086943,
+        "remaining_1mm_for_all_other_support_motion_m": -0.0021442371731371125,
+        "single_fin_end_torques_ideal_stiffness_share_Nm": [
+          3.8251640317804463,
+          6.925784458655408
+        ],
+        "single_fin_factored_transverse_end_reactions_N": [
+          78.54546266489625,
+          142.2132332372774
+        ],
+        "socket_center_moment_DF3_Nm": 10.750948490435855,
+        "socket_play_only_tip_motion_m": 0.00024674999999999995,
+        "support_flexibility": "Tube stiffness is an upper bound for uncut tube and rigid ends, not installed strength. End-joint and local ring/socket compliance remain finite and unknown."
+      },
+      "exploratory_knocked_down_buckling_pa": [
+        15095817.569618834,
+        49061407.101261206
+      ],
+      "installed_strength_deflection_and_flutter_accepted": false,
+      "panel_states": [
+        {
+          "final_relative_change": 5.0634864415810554e-06,
+          "levels": [
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 0.0,
+              "carbon_face_bond_DF3_root_sliding_pa": 0.0,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 36.90752083333333,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0014276897040411776,
+              "tip_slope_rad": 0.021522782692559198,
+              "wood_DF3_root_stress_pa": 12062492.77520244,
+              "wood_estimated_strength_ratio": 0.8290160405780781
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 0.0,
+              "carbon_face_bond_DF3_root_sliding_pa": 0.0,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 36.90752083333333,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0014275740476191025,
+              "tip_slope_rad": 0.021521964927494287,
+              "wood_DF3_root_stress_pa": 12062492.77520244,
+              "wood_estimated_strength_ratio": 0.8290160405780781
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 0.0,
+              "carbon_face_bond_DF3_root_sliding_pa": 0.0,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 36.90752083333333,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.001427566819117268,
+              "tip_slope_rad": 0.021521913816905006,
+              "wood_DF3_root_stress_pa": 12062492.77520244,
+              "wood_estimated_strength_ratio": 0.8290160405780781
+            }
+          ],
+          "state": "cold_estimate"
+        },
+        {
+          "final_relative_change": 5.0634864415810554e-06,
+          "levels": [
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 0.0,
+              "carbon_face_bond_DF3_root_sliding_pa": 0.0,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 18.453760416666665,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.002855379408082355,
+              "tip_slope_rad": 0.043045565385118396,
+              "wood_DF3_root_stress_pa": 12062492.77520244,
+              "wood_estimated_strength_ratio": 0.41450802028903905
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 0.0,
+              "carbon_face_bond_DF3_root_sliding_pa": 0.0,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 18.453760416666665,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.002855148095238205,
+              "tip_slope_rad": 0.043043929854988575,
+              "wood_DF3_root_stress_pa": 12062492.77520244,
+              "wood_estimated_strength_ratio": 0.41450802028903905
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 0.0,
+              "carbon_face_bond_DF3_root_sliding_pa": 0.0,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 18.453760416666665,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.002855133638234536,
+              "tip_slope_rad": 0.04304382763381001,
+              "wood_DF3_root_stress_pa": 12062492.77520244,
+              "wood_estimated_strength_ratio": 0.41450802028903905
+            }
+          ],
+          "state": "hot_estimate"
+        }
+      ],
+      "receiver_unslotted_ideal_axial_buckling_pa": 75479087.84809417
+    },
+    "R1": {
+      "attachment": {
+        "bond_peel_capacity": null,
+        "bridge_or_receiver_peel_and_bending": "Unavailable: finite attachment/contact solution needed; no grounded bridge.",
+        "cheek_hot_estimate_ratios_ss_support_lost": [
+          1.1682354309288006,
+          0.21904414329915006
+        ],
+        "cheek_ideal_simply_supported_bending_pa": 21399796.08401695,
+        "cheek_outer_support_lost_bending_pa": 114132245.78142375,
+        "cheek_to_bridge_min_mean_hot_bond_shear_pa": 4755510.240892656,
+        "contact_mean_pressures_pa": [
+          3170340.160595104,
+          2802409.000758148
+        ],
+        "contact_peak_pressure_and_directional_capacity": null,
+        "contact_positive_negative_N": [
+          1902.2040963570626,
+          1681.4454004548888
+        ],
+        "extra_root_to_contact_center_m": 0.0087,
+        "force_residual_N": 5.684341886080802e-14,
+        "half_depth_contact_area_m2": 0.0006000000000000001,
+        "hot_panel_plus_socket_play_plus_ideal_receiver_tip_m": 0.0010107164267654724,
+        "inner_floor_reaction_DF3_N": 475.55102408926564,
+        "moment_residual_Nm": 0.0,
+        "old_M3_end_freeplay_tip_motion_m": 0.0008224999999999998,
+        "old_M3_radial_freeplay_m": 0.00019999999999999996,
+        "outer_bridge_reaction_DF3_N": 1426.653072267797,
+        "receiver_hot_upper_stiffness_Nm_rad": 8493.84435651006,
+        "receiver_ideal_end_fixed_service_tip_motion_m": 3.420341033028162e-05,
+        "receiver_unslotted_torsional_J_m4": 1.9643593464733614e-07,
+        "reference_root_moment_DF3_Nm": 8.830347836086943,
+        "remaining_1mm_for_all_other_support_motion_m": -1.0716426765472378e-05,
+        "single_fin_end_torques_ideal_stiffness_share_Nm": [
+          3.8251640317804463,
+          6.925784458655408
+        ],
+        "single_fin_factored_transverse_end_reactions_N": [
+          78.54546266489625,
+          142.2132332372774
+        ],
+        "socket_center_moment_DF3_Nm": 10.750948490435855,
+        "socket_play_only_tip_motion_m": 0.00016450000000000001,
+        "support_flexibility": "Tube stiffness is an upper bound for uncut tube and rigid ends, not installed strength. End-joint and local ring/socket compliance remain finite and unknown."
+      },
+      "exploratory_knocked_down_buckling_pa": [
+        18929675.999998223,
+        61521446.99999422
+      ],
+      "installed_strength_deflection_and_flutter_accepted": false,
+      "panel_states": [
+        {
+          "final_relative_change": 5.063486441692078e-06,
+          "levels": [
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 71901424.61152668,
+              "carbon_face_bond_DF3_root_sliding_pa": 211621.5430995407,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 129.77120083333332,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.00040604145724989354,
+              "tip_slope_rad": 0.006121177468621339,
+              "wood_DF3_root_stress_pa": 3430627.909303915,
+              "wood_estimated_strength_ratio": 2.9149182786276087
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 71901424.61152668,
+              "carbon_face_bond_DF3_root_sliding_pa": 211621.5430995407,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 129.77120083333332,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0004060085640364546,
+              "tip_slope_rad": 0.006120944892510643,
+              "wood_DF3_root_stress_pa": 3430627.909303915,
+              "wood_estimated_strength_ratio": 2.9149182786276087
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 71901424.61152668,
+              "carbon_face_bond_DF3_root_sliding_pa": 211621.5430995407,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 129.77120083333332,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0004060065082175954,
+              "tip_slope_rad": 0.006120930356426162,
+              "wood_DF3_root_stress_pa": 3430627.909303915,
+              "wood_estimated_strength_ratio": 2.9149182786276087
+            }
+          ],
+          "state": "cold_estimate"
+        },
+        {
+          "final_relative_change": 5.063486441692078e-06,
+          "levels": [
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 71901424.61152668,
+              "carbon_face_bond_DF3_root_sliding_pa": 211621.5430995407,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 64.88560041666666,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0008120829144997871,
+              "tip_slope_rad": 0.012242354937242678,
+              "wood_DF3_root_stress_pa": 3430627.909303915,
+              "wood_estimated_strength_ratio": 1.4574591393138043
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 71901424.61152668,
+              "carbon_face_bond_DF3_root_sliding_pa": 211621.5430995407,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 64.88560041666666,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0008120171280729092,
+              "tip_slope_rad": 0.012241889785021286,
+              "wood_DF3_root_stress_pa": 3430627.909303915,
+              "wood_estimated_strength_ratio": 1.4574591393138043
+            },
+            {
+              "bond_peel_capacity": null,
+              "carbon_DF3_root_stress_pa": 71901424.61152668,
+              "carbon_face_bond_DF3_root_sliding_pa": 211621.5430995407,
+              "force_N": 73.58623196739121,
+              "rigidity_per_width_Nm": 64.88560041666666,
+              "root_moment_Nm": 2.9434492786956485,
+              "strip_limitations": "Spanwise linear beam only: sweep/two-dimensional plate coupling, skin wrinkling/delamination, shear compliance and actual root are not qualified.",
+              "tip_m": 0.0008120130164351908,
+              "tip_slope_rad": 0.012241860712852324,
+              "wood_DF3_root_stress_pa": 3430627.909303915,
+              "wood_estimated_strength_ratio": 1.4574591393138043
+            }
+          ],
+          "state": "hot_estimate"
+        }
+      ],
+      "receiver_unslotted_ideal_axial_buckling_pa": 94648379.9999911
+    }
+  },
+  "thermal_packing_motor_service": "No new temperature/clearance result. Thicker receiver moves inner wall inward 0.2 mm; wider socket, new end keys and root skins need actual motor/strap/baffle/wiring clearance. Existing required thermal matrix, 300C/dirty foil/35C and 45C screen unchanged. New glue/skin/key heat routes have no compatible overlay."
+}

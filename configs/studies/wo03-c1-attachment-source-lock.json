@@ -1,0 +1,1979 @@
+{
+  "artifact_id": "WO03-C1-attachment-source-lock",
+  "status": "frozen_reference_for_selected_preliminary_C1_mass_balance_only_not_active_not_accepted",
+  "identity": {
+    "selected_candidate_id": "C1_closed_receiver_mass_balance",
+    "selected_scenario_id": "C1_clipped_fins_no_ballast",
+    "loaded_mass_g": 1129.8067509765392,
+    "nominal_mass_excluding_separate_growth_g": 1079.8067509765392,
+    "separate_growth": {
+      "mass_g": 50,
+      "station_mm": 1227,
+      "counted_once": true
+    },
+    "loaded_cg_mm": 879.7979120857696,
+    "loaded_cp_mm": 966.8275980501118,
+    "loaded_static_margin_cal": 1.3186316055203364,
+    "motor_cg_assumption_mm": 1136.0000000000002,
+    "formal_departure_mps": 15,
+    "planning_departure_mps": 15.5,
+    "selected_scenario_mass_changes": [
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "first_moment_delta_kg_m": -0.07944197149035,
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_0_continuous_net_C_stave",
+        "mass_delta_kg": -0.0715113615,
+        "station_mm": 1110.9
+      },
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "first_moment_delta_kg_m": -0.07944197149035,
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_1_continuous_net_C_stave",
+        "mass_delta_kg": -0.0715113615,
+        "station_mm": 1110.9
+      },
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "first_moment_delta_kg_m": -0.07944197149035,
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_2_continuous_net_C_stave",
+        "mass_delta_kg": -0.0715113615,
+        "station_mm": 1110.9
+      },
+      {
+        "basis": "Gross annular cylinder, no hole/port/overlap deductions",
+        "first_moment_delta_kg_m": -0.03727866118851404,
+        "function": "S3 aft cap annulus replaced with independent-motor-service bore",
+        "id": "aft_integral_G11_annular_cap",
+        "mass_delta_kg": -0.0306870770402651,
+        "station_mm": 1214.8
+      },
+      {
+        "basis": "Gross floating annular plate; no holes/overlap deductions",
+        "first_moment_delta_kg_m": -0.00534751260919737,
+        "function": "S3 floating aft motor plate replaced by three independent keeper arms",
+        "id": "motor_aft_floating_annulus",
+        "mass_delta_kg": -0.004437769800163792,
+        "station_mm": 1205.0
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "first_moment_delta_kg_m": -0.0007062263999999998,
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_0",
+        "mass_delta_kg": -0.0005860799999999998,
+        "station_mm": 1205.0
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "first_moment_delta_kg_m": -0.0007062263999999998,
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_1",
+        "mass_delta_kg": -0.0005860799999999998,
+        "station_mm": 1205.0
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "first_moment_delta_kg_m": -0.0007062263999999998,
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_2",
+        "mass_delta_kg": -0.0005860799999999998,
+        "station_mm": 1205.0
+      },
+      {
+        "basis": "Gross annulus R31.2-32 x 0.8 mm x 201.8 mm; no fin-slot cut credit",
+        "first_moment_delta_kg_m": 0.06587563203805959,
+        "function": "Continuous end-to-end receiver, body support, fin-socket foundation, and independent-motor-capture foundation",
+        "id": "C1_closed_G11_body_annulus",
+        "mass_delta_kg": 0.05929933570803816,
+        "station_mm": 1110.9
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_1",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_2",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_3",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_4",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_5",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_6",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "first_moment_delta_kg_m": 0.00461871,
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_1",
+        "mass_delta_kg": 0.0040515,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "first_moment_delta_kg_m": 0.00461871,
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_2",
+        "mass_delta_kg": 0.0040515,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "first_moment_delta_kg_m": 0.00461871,
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_3",
+        "mass_delta_kg": 0.0040515,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_1",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_2",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_3",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_4",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_5",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_6",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0020784195,
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_1",
+        "mass_delta_kg": 0.001823175,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0020784195,
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_2",
+        "mass_delta_kg": 0.001823175,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0020784195,
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_3",
+        "mass_delta_kg": 0.001823175,
+        "station_mm": 1140
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.004266666666666667,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_1",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1024
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.004266666666666667,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_2",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1024
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.004266666666666667,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_3",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1024
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.005015833333333333,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_1",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1203.8
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.005015833333333333,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_2",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1203.8
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.005015833333333333,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_3",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1203.8
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "first_moment_delta_kg_m": 0.004228,
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_1",
+        "mass_delta_kg": 0.004,
+        "station_mm": 1057
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "first_moment_delta_kg_m": 0.004228,
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_2",
+        "mass_delta_kg": 0.004,
+        "station_mm": 1057
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "first_moment_delta_kg_m": 0.004228,
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_3",
+        "mass_delta_kg": 0.004,
+        "station_mm": 1057
+      },
+      {
+        "basis": "Additional frozen allowance; existing S3 allocations remain counted",
+        "first_moment_delta_kg_m": 0.00888,
+        "function": "Socket bonding, secondary retention, thread locks and local strain relief",
+        "id": "C1_socket_joint_process_hardware",
+        "mass_delta_kg": 0.008,
+        "station_mm": 1110
+      },
+      {
+        "basis": "Gross R15.8-32 x 6 mm annulus; no holes or overlap deductions",
+        "first_moment_delta_kg_m": 0.03280352736129288,
+        "function": "Independent motor service cap annulus, retained at S3 aft-cap station",
+        "id": "C1_aft_cap_15p8_bore",
+        "mass_delta_kg": 0.027003232928295092,
+        "station_mm": 1214.8
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "first_moment_delta_kg_m": 0.0010769952600000001,
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_1",
+        "mass_delta_kg": 0.000893772,
+        "station_mm": 1205
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "first_moment_delta_kg_m": 0.0010769952600000001,
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_2",
+        "mass_delta_kg": 0.000893772,
+        "station_mm": 1205
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "first_moment_delta_kg_m": 0.0010769952600000001,
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_3",
+        "mass_delta_kg": 0.000893772,
+        "station_mm": 1205
+      },
+      {
+        "basis": "Frozen hardware allocation; no item selected",
+        "first_moment_delta_kg_m": 0.003615,
+        "function": "Captive keeper budget for independent aft motor arms",
+        "id": "C1_captive_motor_keeper",
+        "mass_delta_kg": 0.003,
+        "station_mm": 1205
+      },
+      {
+        "basis": "3 x 120 x 70 x 6.35 mm x 715 kg/m3",
+        "first_moment_delta_kg_m": -0.13043230200000003,
+        "function": "Remove only original 3-plate rectangular fin panel mass; retain CAD residual/gussets/tabs",
+        "id": "source_rectangular_fin_panel_mass",
+        "mass_delta_kg": -0.11441430000000001,
+        "station_mm": 1140.0
+      },
+      {
+        "basis": "Existing shape_properties fin integration and 715 kg/m3; source CAD fin mass not reused",
+        "first_moment_delta_kg_m": 0.12626435249999998,
+        "function": "New 3-plate clipped/swept panel mass",
+        "id": "proposed_clipped_trapezoid_fin_panel_mass",
+        "mass_delta_kg": 0.11032807499999998,
+        "station_mm": 1144.4444444444443
+      }
+    ],
+    "separate_scenario_D": {
+      "id": "C1_clipped_fins_plus20g_and_motorCG_probe",
+      "status": "separate_illustrative_uncertainty_case_not_selected_C1",
+      "extra_aft_mass_g": 20,
+      "station_mm": 1227,
+      "motor_cg_aft_shift_mm": 12.8,
+      "uncertainty_status": "Illustrative_additional20g_beyond_separate50g_and_source12p8mm_motorCG_probe_not_manufacturer_tolerances_or_validated_bound"
+    }
+  },
+  "fin_geometry": {
+    "source_geometry_mm": {
+      "span": 70,
+      "root": 120,
+      "tip": 120,
+      "sweep": 0,
+      "station": 1080,
+      "thickness": 6.35
+    },
+    "selected_proposed_geometry_mm": {
+      "span": 90,
+      "root": 120,
+      "tip": 60,
+      "sweep": 40,
+      "station": 1080,
+      "thickness": 6.35
+    },
+    "panel_mass_accounting": "Only original rectangular panel mass/first moment removed and replacement trapezoid panel rows applied; original fin CAD residual, gussets, and S3 deeper-tab delta remain retained once.",
+    "selected_fin_screen": {
+      "DF3_once_force_per_fin_N": 220.75869590217366,
+      "DF3_once_root_moment_per_fin_Nm": 8.830347836086943,
+      "aspect_ratio": 2.0,
+      "normal_force_per_fin_unfactored_N": 73.58623196739121,
+      "normal_force_slope_per_rad": 2.602580569137146,
+      "planform_area_per_fin_m2": 0.0081,
+      "root_arm_m_existing_formula": 0.039999999999999994,
+      "root_moment_per_fin_unfactored_Nm": 2.943449278695648,
+      "strength_and_installed_root_status": "Open; load arithmetic only, no installed stiffness/strength/flutter acceptance"
+    },
+    "load_formula_context": {
+      "dynamic_pressure_pa": 40000,
+      "alpha_deg": 5,
+      "design_factor": 3,
+      "source": "Existing finite-aspect-ratio fin-force equation; reported DF3 force/moment already include DF3 once."
+    }
+  },
+  "c1_selected_dimensions_from_frozen_config": {
+    "receiver_replacement": {
+      "closed_g11_body_annulus": {
+        "start_end_mm": [
+          1010,
+          1211.8
+        ],
+        "inner_outer_radius_mm": [
+          31.2,
+          32
+        ],
+        "thickness_mm": 0.8,
+        "mass_basis": "Gross full annulus; no fin-slot cut credit."
+      },
+      "local_fin_sockets": {
+        "centers_station_mm": [
+          1140,
+          1140,
+          1140
+        ],
+        "azimuths_deg": [
+          0,
+          120,
+          240
+        ],
+        "side_plate_count": 6,
+        "side_plate_axial_radial_tangential_mm": [
+          100,
+          12,
+          2
+        ],
+        "floors_count": 3,
+        "floor_axial_tangential_radial_mm": [
+          100,
+          10.95,
+          2
+        ],
+        "outer_bridge_count": 6,
+        "bridge_axial_radial_tangential_mm": [
+          100,
+          2,
+          2
+        ],
+        "radial_mount_pad_count": 3,
+        "mount_pad_axial_tangential_radial_mm": [
+          100,
+          10.95,
+          0.9
+        ]
+      },
+      "integral_end_hardpoints": {
+        "count": 6,
+        "stations_mm": [
+          1024,
+          1203.8
+        ],
+        "budget_total_mass_g": 25,
+        "geometry_basis": "20x12x6.275 mm local nodes with integral wall transitions"
+      },
+      "forward_motor_key_carriers": {
+        "count": 3,
+        "stations_mm": [
+          1057,
+          1057,
+          1057
+        ],
+        "budget_total_mass_g": 12,
+        "geometry_basis": "18x12x6.6 mm G11 carriers plus wall-transition stock"
+      },
+      "joint_process_hardware": {
+        "mass_g": 8,
+        "station_mm": 1110
+      }
+    },
+    "independent_motor_service": {
+      "aft_cap_bore_radius_mm": 15.8,
+      "cap_outer_radius_mm": 32,
+      "cap_thickness_mm": 6,
+      "aft_cap_station_mm": 1214.8,
+      "removed_source_bore_radius_mm": 12,
+      "aft_retainer_arms_count": 3,
+      "arm_radial_tangential_axial_mm": [
+        18.3,
+        6.6,
+        4
+      ],
+      "station_mm": 1205,
+      "captive_keeper_budget_g": 3,
+      "floating_travel_mm": 3.2,
+      "hard_stop_spacers_count": 3,
+      "hard_stop_spacer_axial_mm": 1.6
+    }
+  },
+  "source_s3_dimensions_retained_or_referenced": {
+    "channel_roots": {
+      "ids": [
+        "S3_channel_0",
+        "S3_channel_1",
+        "S3_channel_2"
+      ],
+      "azimuths_deg": [
+        0,
+        120,
+        240
+      ],
+      "start_end_mm": [
+        1010,
+        1211.8
+      ],
+      "radial_inner_outer_mm": [
+        16.2,
+        30.3
+      ],
+      "outer_radial_mm": 14.1,
+      "outer_tangential_mm": 19.5,
+      "channel_radial_depth_mm": 12,
+      "channel_width_mm": 6.95,
+      "channel_inner_mm": 18.3,
+      "status": "These three C-channel staves are removed in selected C1 and replaced by continuous annulus/local socket package."
+    },
+    "caps_and_body_interfaces": {
+      "cap_ids": [
+        "S3_fore_integral_cap",
+        "S3_aft_integral_cap"
+      ],
+      "front_stations_mm": [
+        1004,
+        1211.8
+      ],
+      "thickness_mm": 6,
+      "outer_radius_mm": 32,
+      "source_bore_radius_mm": 12,
+      "saddle_radius_mm": 9,
+      "saddle_radial_center_mm": 24,
+      "saddle_radial_width_mm": 12.7,
+      "saddle_azimuths_deg": [
+        60,
+        180,
+        300
+      ],
+      "barrel_nut_stations_mm": [
+        1024,
+        1203.8
+      ],
+      "barrel_center_radial_tangential_mm": [
+        24,
+        6.6125
+      ],
+      "fore_body_skirt_start_end_mm": [
+        974,
+        1004
+      ],
+      "fore_skirt_inner_outer_radius_mm": [
+        31,
+        32
+      ],
+      "fore_skirt_window_start_end_mm": [
+        995,
+        1004
+      ]
+    },
+    "fin_root_interface": {
+      "source_fin_root_channel_mm": [
+        6.9,
+        7.0
+      ],
+      "source_fin_tab_depth_mm": 6,
+      "candidate_s3_deeper_tab_depth_mm": 14.7,
+      "tab_length_mm": 100,
+      "tab_start_end_mm": [
+        1090,
+        1190
+      ],
+      "axial_pin_stations_mm": [
+        1180,
+        1180,
+        1180
+      ],
+      "source_fin_external_geometry_mm": {
+        "span": 70,
+        "root": 120,
+        "tip": 120,
+        "sweep": 0,
+        "station": 1080,
+        "thickness": 6.35
+      }
+    },
+    "source_was_dimensioned_config_not_CAD_reconciled_or_as_built": "Dimensioned interfaces and budget source only; physical/machined fit not confirmed."
+  },
+  "resolved_mass_ledger_application": {
+    "source_s3_loaded_mass_kg": 1.199622237680635,
+    "source_s3_loaded_cg_mm": 892.5985783068153,
+    "source_73_nominal_mass_g": 794.5817122770563,
+    "source_s3_custom_component_rows_retained": [
+      {
+        "basis": "Gross annular cylinder, no hole/port/overlap deductions",
+        "id": "fore_integral_G11_annular_cap",
+        "mass_g": 30.687077040265102,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1007.0,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+        "id": "fore_half_cylinder_saddle_lobe_0",
+        "mass_g": 2.989374635541733,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": 20.784609690826528,
+        "station_mm": 1000.1802813657945,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+        "id": "fore_half_cylinder_saddle_lobe_1",
+        "mass_g": 2.989374635541733,
+        "radial_x_mm": -24.0,
+        "radial_y_mm": 2.9391523179536475e-15,
+        "station_mm": 1000.1802813657945,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+        "id": "fore_half_cylinder_saddle_lobe_2",
+        "mass_g": 2.989374635541733,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": -20.784609690826528,
+        "station_mm": 1000.1802813657945,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+        "id": "aft_half_cylinder_saddle_lobe_0",
+        "mass_g": 2.989374635541733,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": 20.784609690826528,
+        "station_mm": 1221.6197186342054,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+        "id": "aft_half_cylinder_saddle_lobe_1",
+        "mass_g": 2.989374635541733,
+        "radial_x_mm": -24.0,
+        "radial_y_mm": 2.9391523179536475e-15,
+        "station_mm": 1221.6197186342054,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross half-cylinder, 12.7 mm radial-axis width; semicircle centroid 4r/(3pi) from cap face; not CAD reconciled",
+        "id": "aft_half_cylinder_saddle_lobe_2",
+        "mass_g": 2.989374635541733,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": -20.784609690826528,
+        "station_mm": 1221.6197186342054,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Annular cylinder with only configured half-circumference 995-1004 mm windows removed; equivalent full-circumference length 25.5 mm",
+        "id": "fore_integral_body_skirt",
+        "mass_g": 9.336891906285205,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 987.1470588235294,
+        "source_config_field": "source_s3_config.end_caps.fore_integral_body_skirt"
+      },
+      {
+        "basis": "Gross annular plate; notches/overlap not deducted",
+        "id": "motor_front_annulus",
+        "mass_g": 6.656654700245688,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1066.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross radial rectangular prong; no overlap/cut deductions",
+        "id": "motor_front_prong_0",
+        "mass_g": 0.8791199999999998,
+        "radial_x_mm": 24.3,
+        "radial_y_mm": 0.0,
+        "station_mm": 1066.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross radial rectangular prong; no overlap/cut deductions",
+        "id": "motor_front_prong_1",
+        "mass_g": 0.8791199999999998,
+        "radial_x_mm": -12.149999999999997,
+        "radial_y_mm": 21.044417311961862,
+        "station_mm": 1066.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross radial rectangular prong; no overlap/cut deductions",
+        "id": "motor_front_prong_2",
+        "mass_g": 0.8791199999999998,
+        "radial_x_mm": -12.150000000000011,
+        "radial_y_mm": -21.044417311961855,
+        "station_mm": 1066.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross rectangular positive stop key; no pin-hole or overlap deduction",
+        "id": "motor_front_stop_key_0",
+        "mass_g": 1.7582399999999996,
+        "radial_x_mm": 24.3,
+        "radial_y_mm": 0.0,
+        "station_mm": 1057.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross rectangular positive stop key; no pin-hole or overlap deduction",
+        "id": "motor_front_stop_key_1",
+        "mass_g": 1.7582399999999996,
+        "radial_x_mm": -12.149999999999997,
+        "radial_y_mm": 21.044417311961862,
+        "station_mm": 1057.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross rectangular positive stop key; no pin-hole or overlap deduction",
+        "id": "motor_front_stop_key_2",
+        "mass_g": 1.7582399999999996,
+        "radial_x_mm": -12.150000000000011,
+        "radial_y_mm": -21.044417311961855,
+        "station_mm": 1057.0,
+        "source_config_field": "source_s3_config.motor_front"
+      },
+      {
+        "basis": "Gross 12x6.6x1.6 mm spacer at floating-plate full-aft stop position",
+        "id": "motor_aft_hard_stop_spacer_0",
+        "mass_g": 0.23443199999999997,
+        "radial_x_mm": 24.3,
+        "radial_y_mm": 0.0,
+        "station_mm": 1211.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross 12x6.6x1.6 mm spacer at floating-plate full-aft stop position",
+        "id": "motor_aft_hard_stop_spacer_1",
+        "mass_g": 0.23443199999999997,
+        "radial_x_mm": -12.149999999999997,
+        "radial_y_mm": 21.044417311961862,
+        "station_mm": 1211.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross 12x6.6x1.6 mm spacer at floating-plate full-aft stop position",
+        "id": "motor_aft_hard_stop_spacer_2",
+        "mass_g": 0.23443199999999997,
+        "radial_x_mm": -12.150000000000011,
+        "radial_y_mm": -21.044417311961855,
+        "station_mm": 1211.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Explicit mass allowance; no spring selected or temperature capability established",
+        "id": "motor_keeper_spring_locking_allocation",
+        "mass_g": 6.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1212.4,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+        "id": "fore_cap_M3_complete_set_0",
+        "mass_g": 4.0,
+        "radial_x_mm": 24.0,
+        "radial_y_mm": 6.6125,
+        "station_mm": 1024.0,
+        "source_config_field": "source_s3_config.cap_connections"
+      },
+      {
+        "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+        "id": "fore_cap_M3_complete_set_1",
+        "mass_g": 4.0,
+        "radial_x_mm": -17.726592982524597,
+        "radial_y_mm": 17.47835969082653,
+        "station_mm": 1024.0,
+        "source_config_field": "source_s3_config.cap_connections"
+      },
+      {
+        "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+        "id": "fore_cap_M3_complete_set_2",
+        "mass_g": 4.0,
+        "radial_x_mm": -6.273407017475412,
+        "radial_y_mm": -24.090859690826523,
+        "station_mm": 1024.0,
+        "source_config_field": "source_s3_config.cap_connections"
+      },
+      {
+        "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+        "id": "aft_cap_M3_complete_set_0",
+        "mass_g": 4.0,
+        "radial_x_mm": 24.0,
+        "radial_y_mm": 6.6125,
+        "station_mm": 1203.8,
+        "source_config_field": "source_s3_config.cap_connections"
+      },
+      {
+        "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+        "id": "aft_cap_M3_complete_set_1",
+        "mass_g": 4.0,
+        "radial_x_mm": -17.726592982524597,
+        "radial_y_mm": 17.47835969082653,
+        "station_mm": 1203.8,
+        "source_config_field": "source_s3_config.cap_connections"
+      },
+      {
+        "basis": "Complete unselected set allocation from study config, 4 g each; not supplier verified",
+        "id": "aft_cap_M3_complete_set_2",
+        "mass_g": 4.0,
+        "radial_x_mm": -6.273407017475412,
+        "radial_y_mm": -24.090859690826523,
+        "station_mm": 1203.8,
+        "source_config_field": "source_s3_config.cap_connections"
+      },
+      {
+        "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+        "id": "motor_front_key_5mm_cross_pin_complete_set_0",
+        "mass_g": 6.5,
+        "radial_x_mm": 24.3,
+        "radial_y_mm": 0.0,
+        "station_mm": 1057.0,
+        "source_config_field": "source_s3_config.cross_pins"
+      },
+      {
+        "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+        "id": "motor_front_key_5mm_cross_pin_complete_set_1",
+        "mass_g": 6.5,
+        "radial_x_mm": -12.149999999999997,
+        "radial_y_mm": 21.044417311961862,
+        "station_mm": 1057.0,
+        "source_config_field": "source_s3_config.cross_pins"
+      },
+      {
+        "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+        "id": "motor_front_key_5mm_cross_pin_complete_set_2",
+        "mass_g": 6.5,
+        "radial_x_mm": -12.150000000000011,
+        "radial_y_mm": -21.044417311961855,
+        "station_mm": 1057.0,
+        "source_config_field": "source_s3_config.cross_pins"
+      },
+      {
+        "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+        "id": "fin_axial_retention_5mm_cross_pin_complete_set_0",
+        "mass_g": 6.5,
+        "radial_x_mm": 24.3,
+        "radial_y_mm": 0.0,
+        "station_mm": 1180.0,
+        "source_config_field": "source_s3_config.cross_pins"
+      },
+      {
+        "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+        "id": "fin_axial_retention_5mm_cross_pin_complete_set_1",
+        "mass_g": 6.5,
+        "radial_x_mm": -12.149999999999997,
+        "radial_y_mm": 21.044417311961862,
+        "station_mm": 1180.0,
+        "source_config_field": "source_s3_config.cross_pins"
+      },
+      {
+        "basis": "Complete pin/washer/cotter/shim allowance 6.5 g; exact hardware grade/mass unselected",
+        "id": "fin_axial_retention_5mm_cross_pin_complete_set_2",
+        "mass_g": 6.5,
+        "radial_x_mm": -12.150000000000011,
+        "radial_y_mm": -21.044417311961855,
+        "station_mm": 1180.0,
+        "source_config_field": "source_s3_config.cross_pins"
+      },
+      {
+        "basis": "Delta only: configured depth difference x 100 x 6.35 mm source fin thickness, plywood density estimate; original fins/gussets retained",
+        "id": "fin_tab_depth_delta_0",
+        "mass_g": 3.950017499999999,
+        "radial_x_mm": 25.65,
+        "radial_y_mm": 0.0,
+        "station_mm": 1140.0,
+        "source_config_field": "source_s3_config.fins.source_tab_depth_mm/new_tab_depth_mm/tab_length_mm/tab_start_end_mm"
+      },
+      {
+        "basis": "Delta only: configured depth difference x 100 x 6.35 mm source fin thickness, plywood density estimate; original fins/gussets retained",
+        "id": "fin_tab_depth_delta_1",
+        "mass_g": 3.950017499999999,
+        "radial_x_mm": -12.824999999999996,
+        "radial_y_mm": 22.21355160707085,
+        "station_mm": 1140.0,
+        "source_config_field": "source_s3_config.fins.source_tab_depth_mm/new_tab_depth_mm/tab_length_mm/tab_start_end_mm"
+      },
+      {
+        "basis": "Delta only: configured depth difference x 100 x 6.35 mm source fin thickness, plywood density estimate; original fins/gussets retained",
+        "id": "fin_tab_depth_delta_2",
+        "mass_g": 3.950017499999999,
+        "radial_x_mm": -12.82500000000001,
+        "radial_y_mm": -22.213551607070844,
+        "station_mm": 1140.0,
+        "source_config_field": "source_s3_config.fins.source_tab_depth_mm/new_tab_depth_mm/tab_length_mm/tab_start_end_mm"
+      },
+      {
+        "basis": "Two legs plus curved length and 50 mm sewn lap; maximum raw oz/yard converted to mass; not finished assembly rating",
+        "id": "raw_Bally_2745_loop_0",
+        "mass_g": 9.586356953341442,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": 20.784609690826528,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.recovery"
+      },
+      {
+        "basis": "Two legs plus curved length and 50 mm sewn lap; maximum raw oz/yard converted to mass; not finished assembly rating",
+        "id": "raw_Bally_2745_loop_1",
+        "mass_g": 9.586356953341442,
+        "radial_x_mm": -24.0,
+        "radial_y_mm": 2.9391523179536475e-15,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.recovery"
+      },
+      {
+        "basis": "Two legs plus curved length and 50 mm sewn lap; maximum raw oz/yard converted to mass; not finished assembly rating",
+        "id": "raw_Bally_2745_loop_2",
+        "mass_g": 9.586356953341442,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": -20.784609690826528,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.recovery"
+      },
+      {
+        "basis": "Configured extra backbone mass; station is midpoint of primary junction and fore bight for point-mass bookkeeping",
+        "id": "recovery_backbone_extra_mass",
+        "mass_g": 9.84251968503937,
+        "radial_x_mm": 12.000000000000004,
+        "radial_y_mm": 20.784609690826528,
+        "station_mm": 947.5,
+        "source_config_field": "source_s3_config.recovery"
+      },
+      {
+        "basis": "Explicit additional epoxy allocation for the one fore skirt/body interface",
+        "id": "fore_skirt_to_paper_extra_epoxy_budget",
+        "mass_g": 4.5,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 987.1470588235294,
+        "source_config_field": "source_s3_config.body_connection"
+      },
+      {
+        "basis": "Complete body locator/spreader assembly allowance; no primary paper-wall capacity credited",
+        "id": "fore_skirt_M2_spreader_fastener_assembly_budget",
+        "mass_g": 5.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 987.1470588235294,
+        "source_config_field": "source_s3_config.body_connection"
+      },
+      {
+        "basis": "Explicit service-port cover allowance, counted separately from other additional items",
+        "id": "service_port_covers",
+        "mass_g": 1.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1118.5,
+        "source_config_field": "source_s3_config.service_ports"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_end_contact_shims",
+        "mass_g": 1.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1111.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_fin_channel_selected_shims",
+        "mass_g": 4.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1140.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_loop_keepers_chafe_and_stitching",
+        "mass_g": 6.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1095.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Allocation_only_no_new_thermal_solution_or_geometry_accepted",
+        "id": "S3_additional_thermal_protection",
+        "mass_g": 6.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1140.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_index_marks_service_locks",
+        "mass_g": 2.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1100.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_tail_fairing",
+        "mass_g": 2.5,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1213.5,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Reserve_in_addition_to_source_lugs_not_a_selected_button_or_attachment",
+        "id": "S3_future_rail_button_conversion_extra",
+        "mass_g": 5.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 346.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_wire_strain_relief_clearance",
+        "mass_g": 1.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1000.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      },
+      {
+        "basis": "Explicit planning allocation from connected-receiver config",
+        "id": "S3_connector",
+        "mass_g": 12.0,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 900.0,
+        "source_config_field": "source_s3_config.additional_items[] (match exact stable id)"
+      }
+    ],
+    "source_s3_custom_component_ids_removed": [
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_0_continuous_net_C_stave",
+        "mass_g": 71.51136149999999,
+        "radial_x_mm": 22.79283476898982,
+        "radial_y_mm": 0.0,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.rails"
+      },
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_1_continuous_net_C_stave",
+        "mass_g": 71.51136149999999,
+        "radial_x_mm": -11.396417384494907,
+        "radial_y_mm": 19.739173934206402,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.rails"
+      },
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_2_continuous_net_C_stave",
+        "mass_g": 71.51136149999999,
+        "radial_x_mm": -11.39641738449492,
+        "radial_y_mm": -19.739173934206395,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.rails"
+      },
+      {
+        "basis": "Gross annular cylinder, no hole/port/overlap deductions",
+        "function": "S3 aft cap annulus replaced with independent-motor-service bore",
+        "id": "aft_integral_G11_annular_cap",
+        "mass_g": 30.687077040265102,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1214.8,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross floating annular plate; no holes/overlap deductions",
+        "function": "S3 floating aft motor plate replaced by three independent keeper arms",
+        "id": "motor_aft_floating_annulus",
+        "mass_g": 4.437769800163792,
+        "radial_x_mm": 0.0,
+        "radial_y_mm": 0.0,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_0",
+        "mass_g": 0.5860799999999998,
+        "radial_x_mm": 24.3,
+        "radial_y_mm": 0.0,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_1",
+        "mass_g": 0.5860799999999998,
+        "radial_x_mm": -12.149999999999997,
+        "radial_y_mm": 21.044417311961862,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_2",
+        "mass_g": 0.5860799999999998,
+        "radial_x_mm": -12.150000000000011,
+        "radial_y_mm": -21.044417311961855,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      }
+    ],
+    "c1_added_component_rows": [
+      {
+        "basis": "Gross annulus R31.2-32 x 0.8 mm x 201.8 mm; no fin-slot cut credit",
+        "function": "Continuous end-to-end receiver, body support, fin-socket foundation, and independent-motor-capture foundation",
+        "id": "C1_closed_G11_body_annulus",
+        "mass_g": 59.29933570803816,
+        "station_mm": 1110.9,
+        "source_config_field": "receiver_replacement.closed_body"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_1",
+        "mass_g": 4.44,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_2",
+        "mass_g": 4.44,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_3",
+        "mass_g": 4.44,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_4",
+        "mass_g": 4.44,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_5",
+        "mass_g": 4.44,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_6",
+        "mass_g": 4.44,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_1",
+        "mass_g": 4.051500000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.floor_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_2",
+        "mass_g": 4.051500000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.floor_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_3",
+        "mass_g": 4.051500000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.floor_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_1",
+        "mass_g": 0.7400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_2",
+        "mass_g": 0.7400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_3",
+        "mass_g": 0.7400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_4",
+        "mass_g": 0.7400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_5",
+        "mass_g": 0.7400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_6",
+        "mass_g": 0.7400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_1",
+        "mass_g": 1.823175,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.mount_pad_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_2",
+        "mass_g": 1.823175,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.mount_pad_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_3",
+        "mass_g": 1.823175,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.mount_pad_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_1",
+        "mass_g": 4.166666666666667,
+        "station_mm": 1024,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_2",
+        "mass_g": 4.166666666666667,
+        "station_mm": 1024,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_3",
+        "mass_g": 4.166666666666667,
+        "station_mm": 1024,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_1",
+        "mass_g": 4.166666666666667,
+        "station_mm": 1203.8,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_2",
+        "mass_g": 4.166666666666667,
+        "station_mm": 1203.8,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_3",
+        "mass_g": 4.166666666666667,
+        "station_mm": 1203.8,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_1",
+        "mass_g": 4.0,
+        "station_mm": 1057,
+        "source_config_field": "receiver_replacement.forward_motor_key_carriers"
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_2",
+        "mass_g": 4.0,
+        "station_mm": 1057,
+        "source_config_field": "receiver_replacement.forward_motor_key_carriers"
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_3",
+        "mass_g": 4.0,
+        "station_mm": 1057,
+        "source_config_field": "receiver_replacement.forward_motor_key_carriers"
+      },
+      {
+        "basis": "Additional frozen allowance; existing S3 allocations remain counted",
+        "function": "Socket bonding, secondary retention, thread locks and local strain relief",
+        "id": "C1_socket_joint_process_hardware",
+        "mass_g": 8.0,
+        "station_mm": 1110,
+        "source_config_field": "receiver_replacement.new_joint_process_and_hardware"
+      },
+      {
+        "basis": "Gross R15.8-32 x 6 mm annulus; no holes or overlap deductions",
+        "function": "Independent motor service cap annulus, retained at S3 aft-cap station",
+        "id": "C1_aft_cap_15p8_bore",
+        "mass_g": 27.00323292829509,
+        "station_mm": 1214.8,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_1",
+        "mass_g": 0.893772,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_2",
+        "mass_g": 0.893772,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_3",
+        "mass_g": 0.893772,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Frozen hardware allocation; no item selected",
+        "function": "Captive keeper budget for independent aft motor arms",
+        "id": "C1_captive_motor_keeper",
+        "mass_g": 3.0,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      }
+    ],
+    "selected_c1_all_mass_change_rows": [
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "first_moment_delta_kg_m": -0.07944197149035,
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_0_continuous_net_C_stave",
+        "mass_delta_kg": -0.0715113615,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.rails"
+      },
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "first_moment_delta_kg_m": -0.07944197149035,
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_1_continuous_net_C_stave",
+        "mass_delta_kg": -0.0715113615,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.rails"
+      },
+      {
+        "basis": "Net uniform C section from outer rectangle minus open channel; no fastener-hole mass credit; source-config density estimate",
+        "first_moment_delta_kg_m": -0.07944197149035,
+        "function": "removed S3 continuous channel, replaced by C1 closed receiver and local socket structure",
+        "id": "S3_channel_2_continuous_net_C_stave",
+        "mass_delta_kg": -0.0715113615,
+        "station_mm": 1110.9,
+        "source_config_field": "source_s3_config.rails"
+      },
+      {
+        "basis": "Gross annular cylinder, no hole/port/overlap deductions",
+        "first_moment_delta_kg_m": -0.03727866118851404,
+        "function": "S3 aft cap annulus replaced with independent-motor-service bore",
+        "id": "aft_integral_G11_annular_cap",
+        "mass_delta_kg": -0.0306870770402651,
+        "station_mm": 1214.8,
+        "source_config_field": "source_s3_config.end_caps"
+      },
+      {
+        "basis": "Gross floating annular plate; no holes/overlap deductions",
+        "first_moment_delta_kg_m": -0.00534751260919737,
+        "function": "S3 floating aft motor plate replaced by three independent keeper arms",
+        "id": "motor_aft_floating_annulus",
+        "mass_delta_kg": -0.004437769800163792,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "first_moment_delta_kg_m": -0.0007062263999999998,
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_0",
+        "mass_delta_kg": -0.0005860799999999998,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "first_moment_delta_kg_m": -0.0007062263999999998,
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_1",
+        "mass_delta_kg": -0.0005860799999999998,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross radial rectangular prong with configured 4 mm axial thickness; exact CAD omitted",
+        "first_moment_delta_kg_m": -0.0007062263999999998,
+        "function": "S3 aft plate radial prong removed",
+        "id": "motor_aft_prong_2",
+        "mass_delta_kg": -0.0005860799999999998,
+        "station_mm": 1205.0,
+        "source_config_field": "source_s3_config.motor_aft"
+      },
+      {
+        "basis": "Gross annulus R31.2-32 x 0.8 mm x 201.8 mm; no fin-slot cut credit",
+        "first_moment_delta_kg_m": 0.06587563203805959,
+        "function": "Continuous end-to-end receiver, body support, fin-socket foundation, and independent-motor-capture foundation",
+        "id": "C1_closed_G11_body_annulus",
+        "mass_delta_kg": 0.05929933570803816,
+        "station_mm": 1110.9,
+        "source_config_field": "receiver_replacement.closed_body"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_1",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_2",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_3",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_4",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_5",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular plate from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0050616,
+        "function": "Fin side contact, axial pin, and through-body tab socket",
+        "id": "C1_fin_socket_side_plate_6",
+        "mass_delta_kg": 0.00444,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.side_plate_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "first_moment_delta_kg_m": 0.00461871,
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_1",
+        "mass_delta_kg": 0.0040515,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.floor_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "first_moment_delta_kg_m": 0.00461871,
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_2",
+        "mass_delta_kg": 0.0040515,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.floor_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular floor from frozen dimensions",
+        "first_moment_delta_kg_m": 0.00461871,
+        "function": "Fin socket floor and local frame transfer",
+        "id": "C1_fin_socket_floor_3",
+        "mass_delta_kg": 0.0040515,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.floor_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_1",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_2",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_3",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_4",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_5",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular bridge from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0008436,
+        "function": "Fin socket outer bridge / local frame transfer",
+        "id": "C1_fin_socket_outer_bridge_6",
+        "mass_delta_kg": 0.0007400000000000001,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.bridge_axial_radial_tangential_mm"
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0020784195,
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_1",
+        "mass_delta_kg": 0.001823175,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.mount_pad_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0020784195,
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_2",
+        "mass_delta_kg": 0.001823175,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.mount_pad_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Gross rectangular pad from frozen dimensions",
+        "first_moment_delta_kg_m": 0.0020784195,
+        "function": "Radial through-body tab contact pad",
+        "id": "C1_radial_mount_pad_3",
+        "mass_delta_kg": 0.001823175,
+        "station_mm": 1140,
+        "source_config_field": "receiver_replacement.local_fin_sockets.mount_pad_axial_tangential_radial_mm"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.004266666666666667,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_1",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1024,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.004266666666666667,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_2",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1024,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.004266666666666667,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_0_3",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1024,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.005015833333333333,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_1",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1203.8,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.005015833333333333,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_2",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1203.8,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "Budgeted geometry; equal mass per node; local transitions included, no second bond capacity",
+        "first_moment_delta_kg_m": 0.005015833333333333,
+        "function": "Integral node and wall transition for one original M3 barrel nut / end contact",
+        "id": "C1_integral_end_hardpoint_1_3",
+        "mass_delta_kg": 0.004166666666666667,
+        "station_mm": 1203.8,
+        "source_config_field": "receiver_replacement.integral_end_hardpoints"
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "first_moment_delta_kg_m": 0.004228,
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_1",
+        "mass_delta_kg": 0.004,
+        "station_mm": 1057,
+        "source_config_field": "receiver_replacement.forward_motor_key_carriers"
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "first_moment_delta_kg_m": 0.004228,
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_2",
+        "mass_delta_kg": 0.004,
+        "station_mm": 1057,
+        "source_config_field": "receiver_replacement.forward_motor_key_carriers"
+      },
+      {
+        "basis": "18x12x6.6 mm G11 carrier plus wall-transition stock allocation",
+        "first_moment_delta_kg_m": 0.004228,
+        "function": "One original 5 mm motor key pin carrier into closed receiver",
+        "id": "C1_forward_motor_key_carrier_3",
+        "mass_delta_kg": 0.004,
+        "station_mm": 1057,
+        "source_config_field": "receiver_replacement.forward_motor_key_carriers"
+      },
+      {
+        "basis": "Additional frozen allowance; existing S3 allocations remain counted",
+        "first_moment_delta_kg_m": 0.00888,
+        "function": "Socket bonding, secondary retention, thread locks and local strain relief",
+        "id": "C1_socket_joint_process_hardware",
+        "mass_delta_kg": 0.008,
+        "station_mm": 1110,
+        "source_config_field": "receiver_replacement.new_joint_process_and_hardware"
+      },
+      {
+        "basis": "Gross R15.8-32 x 6 mm annulus; no holes or overlap deductions",
+        "first_moment_delta_kg_m": 0.03280352736129288,
+        "function": "Independent motor service cap annulus, retained at S3 aft-cap station",
+        "id": "C1_aft_cap_15p8_bore",
+        "mass_delta_kg": 0.027003232928295092,
+        "station_mm": 1214.8,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "first_moment_delta_kg_m": 0.0010769952600000001,
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_1",
+        "mass_delta_kg": 0.000893772,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "first_moment_delta_kg_m": 0.0010769952600000001,
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_2",
+        "mass_delta_kg": 0.000893772,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Gross G11 rectangular arm; no pin-hole/cut deductions",
+        "first_moment_delta_kg_m": 0.0010769952600000001,
+        "function": "One independent aft motor capture arm",
+        "id": "C1_independent_motor_retainer_arm_3",
+        "mass_delta_kg": 0.000893772,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "Frozen hardware allocation; no item selected",
+        "first_moment_delta_kg_m": 0.003615,
+        "function": "Captive keeper budget for independent aft motor arms",
+        "id": "C1_captive_motor_keeper",
+        "mass_delta_kg": 0.003,
+        "station_mm": 1205,
+        "source_config_field": "independent_motor_service"
+      },
+      {
+        "basis": "3 x 120 x 70 x 6.35 mm x 715 kg/m3",
+        "first_moment_delta_kg_m": -0.13043230200000003,
+        "function": "Remove only original 3-plate rectangular fin panel mass; retain CAD residual/gussets/tabs",
+        "id": "source_rectangular_fin_panel_mass",
+        "mass_delta_kg": -0.11441430000000001,
+        "station_mm": 1140.0,
+        "source_config_field": "fin_option.mass_accounting; source_geometry_mm/proposed_geometry_mm"
+      },
+      {
+        "basis": "Existing shape_properties fin integration and 715 kg/m3; source CAD fin mass not reused",
+        "first_moment_delta_kg_m": 0.12626435249999998,
+        "function": "New 3-plate clipped/swept panel mass",
+        "id": "proposed_clipped_trapezoid_fin_panel_mass",
+        "mass_delta_kg": 0.11032807499999998,
+        "station_mm": 1144.4444444444443,
+        "source_config_field": "fin_option.mass_accounting; source_geometry_mm/proposed_geometry_mm"
+      }
+    ],
+    "retained_s3_mass_ledger_component_ids": [
+      "fore_integral_G11_annular_cap",
+      "fore_half_cylinder_saddle_lobe_0",
+      "fore_half_cylinder_saddle_lobe_1",
+      "fore_half_cylinder_saddle_lobe_2",
+      "aft_half_cylinder_saddle_lobe_0",
+      "aft_half_cylinder_saddle_lobe_1",
+      "aft_half_cylinder_saddle_lobe_2",
+      "fore_integral_body_skirt",
+      "motor_front_annulus",
+      "motor_front_prong_0",
+      "motor_front_prong_1",
+      "motor_front_prong_2",
+      "motor_front_stop_key_0",
+      "motor_front_stop_key_1",
+      "motor_front_stop_key_2",
+      "motor_aft_hard_stop_spacer_0",
+      "motor_aft_hard_stop_spacer_1",
+      "motor_aft_hard_stop_spacer_2",
+      "motor_keeper_spring_locking_allocation",
+      "fore_cap_M3_complete_set_0",
+      "fore_cap_M3_complete_set_1",
+      "fore_cap_M3_complete_set_2",
+      "aft_cap_M3_complete_set_0",
+      "aft_cap_M3_complete_set_1",
+      "aft_cap_M3_complete_set_2",
+      "motor_front_key_5mm_cross_pin_complete_set_0",
+      "motor_front_key_5mm_cross_pin_complete_set_1",
+      "motor_front_key_5mm_cross_pin_complete_set_2",
+      "fin_axial_retention_5mm_cross_pin_complete_set_0",
+      "fin_axial_retention_5mm_cross_pin_complete_set_1",
+      "fin_axial_retention_5mm_cross_pin_complete_set_2",
+      "fin_tab_depth_delta_0",
+      "fin_tab_depth_delta_1",
+      "fin_tab_depth_delta_2",
+      "raw_Bally_2745_loop_0",
+      "raw_Bally_2745_loop_1",
+      "raw_Bally_2745_loop_2",
+      "recovery_backbone_extra_mass",
+      "fore_skirt_to_paper_extra_epoxy_budget",
+      "fore_skirt_M2_spreader_fastener_assembly_budget",
+      "service_port_covers",
+      "S3_end_contact_shims",
+      "S3_fin_channel_selected_shims",
+      "S3_loop_keepers_chafe_and_stitching",
+      "S3_additional_thermal_protection",
+      "S3_index_marks_service_locks",
+      "S3_tail_fairing",
+      "S3_future_rail_button_conversion_extra",
+      "S3_wire_strain_relief_clearance",
+      "S3_connector"
+    ],
+    "ledger_rule": "Use the saved S3 source mass-property aggregate and exactly these 50 retained S3 custom ledger rows; remove exactly the eight listed S3 custom rows; then apply the saved selected-C1 mass change rows (including fin-panel replacement) exactly once. The saved scenario result is the authoritative resolved total; this lock does not independently recompute it.",
+    "classification": "Geometric estimates, config allowances and source CAD mass-property inputs as identified by the linked S3 record; not a measured, purchased, machined or CAD-reconciled C1 bill of materials.",
+    "stable_part_id_to_config_field_rule": "Each row includes source_config_field. C1 rows map to selected C1 config paths; retained/removed S3 rows map to the source S3 config paths and use their stable IDs where they originate in additional_items[]."
+  },
+  "version_identity": {
+    "files": {
+      "selected_config": {
+        "path": "configs/studies/wo03-g80-mass-balance-revision.yaml",
+        "sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228"
+      },
+      "selected_record": {
+        "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json",
+        "sha256": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276"
+      },
+      "executed_script": {
+        "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/executed-script.py",
+        "sha256": "7584ae51560f768e7dd8eb6c5ca2ea4b30b9a3dc5a8168f7ae0a0bb024d3bfd3"
+      },
+      "executed_config": {
+        "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/executed-config.yaml",
+        "sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228"
+      },
+      "canonical_script": {
+        "path": "scripts/wo03_g80_mass_balance_revision.py",
+        "sha256": "8117e3405b2c7c5bafdf83288ecff03dab5c31a8e8bdb384f348c649709d1052"
+      },
+      "maintenance_formatting": {
+        "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/maintenance-formatting.json",
+        "sha256": "7675763dbfef12dfec59522147ad285c0c3b8a1007b1fec94e9c8244033e1ff0"
+      },
+      "cp_reference": {
+        "path": "runs/wo03-g80-mass-balance-revision-20261102-v2/cp-reference.json",
+        "sha256": "835f21ee3187b25f4c1cd4ec7f9069ea3001a4b8b7abc48ee6348f1f16cbf740"
+      },
+      "source_s3_record": {
+        "path": "runs/wo03-g80-connected-receiver-20261102-v2/record.json",
+        "sha256": "0686d2f4603847c12e12a4e0aceb81f18e3c9993c36650a8a8dacd5fdeb456c7"
+      },
+      "source_s3_config": {
+        "path": "configs/studies/wo03-g80-connected-receiver.yaml",
+        "sha256": "14f7b125dc4b32e0a1bde0b115d24f22d17f852c090348d0bf8306b372998a78"
+      },
+      "source_spec": {
+        "path": "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml",
+        "sha256": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967"
+      }
+    },
+    "canonical_script_path": "scripts/wo03_g80_mass_balance_revision.py",
+    "canonical_script_sha256": "8117e3405b2c7c5bafdf83288ecff03dab5c31a8e8bdb384f348c649709d1052",
+    "exact_executed_script_path": "runs/wo03-g80-mass-balance-revision-20261102-v2/executed-script.py",
+    "exact_executed_script_sha256": "7584ae51560f768e7dd8eb6c5ca2ea4b30b9a3dc5a8168f7ae0a0bb024d3bfd3",
+    "exact_executed_config_path": "runs/wo03-g80-mass-balance-revision-20261102-v2/executed-config.yaml",
+    "exact_executed_config_sha256": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+    "canonical_script_is_not_executed_source": "Maintenance metadata records Black whitespace-only formatting after execution; AST equal; saved numerical record hash unchanged; no packet rerun.",
+    "cp_reference": {
+      "status": "CP_only_comparison_complete_no_flight_or_mass_benchmark",
+      "budget": {
+        "cases": 1,
+        "cpu_s": 20,
+        "wall_s": 20,
+        "threads": 1
+      },
+      "rocketpy_version": "1.13.0",
+      "source_nose_transition_and_proposed_fin_inputs": {
+        "span_mm": 90,
+        "root_mm": 120,
+        "tip_mm": 60,
+        "sweep_mm": 40,
+        "station_mm": 1080,
+        "thickness_mm": 6.35
+      },
+      "input_sha256": {
+        "configs/studies/wo03-g80-mass-balance-revision.yaml": "d76c34c69c64b9281d0e945643b95d79385393ab7d40156c7cdbc6a601f15228",
+        "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+        "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276"
+      },
+      "calculated_CP_m": 0.9668275980501118,
+      "rocketpy_CP_at_Mach0_m": 0.9668275980501121,
+      "absolute_difference_m": 3.3306690738754696e-16,
+      "existing_WO01_CP_limit_m": 0.036359999999999996,
+      "CP_comparison_passed": true,
+      "complete_vehicle_mass_CG_inertia_aerodynamic_validity_and_flight_validated": false,
+      "note": "Reference mass/inertia/CG are placeholders because they do not affect CP. No reference static-margin or full-vehicle pass follows.",
+      "cpu_s_including_RocketPy_import": 1.188977,
+      "wall_s_including_RocketPy_import": 2.0445869580144063
+    },
+    "maintenance_formatting": {
+      "status": "black_whitespace_only_no_reexecution",
+      "executed_script_sha256": "7584ae51560f768e7dd8eb6c5ca2ea4b30b9a3dc5a8168f7ae0a0bb024d3bfd3",
+      "maintained_script_sha256": "8117e3405b2c7c5bafdf83288ecff03dab5c31a8e8bdb384f348c649709d1052",
+      "python_AST_equal": true,
+      "numerical_record_sha256_unchanged": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276",
+      "note": "The agent formatter differed from required Black. Preserve exact executed source; canonical source is formatting-only and no numerical packet was repeated."
+    }
+  },
+  "evidence_boundary": {
+    "cp_check": "CP-only comparison; this does not validate complete vehicle mass/inertia/aerodynamics or flight.",
+    "load_note": "Selected candidate root moment of 8.830347836 Nm per fin and force of 220.758695902 N per fin are already DF3 once for q=40 kPa, alpha=5 degrees, using the existing finite-aspect-ratio formula.",
+    "not_established": [
+      "CAD-reconciled geometry or mass",
+      "purchased/measured component mass",
+      "structural/joint/thermal/recovery qualification",
+      "installed fin stiffness/flutter",
+      "motor fit/hot retainer capacity",
+      "rail equipment availability",
+      "flight acceptance",
+      "active-spec adoption"
+    ]
+  }
+}
