@@ -214,3 +214,28 @@
     line-height: 1.7;
   }
 }
+
+/* Both workspaces keep the same mounted replay and run state. */
+.experiment--experiments {
+  grid-template-columns: minmax(240px, 1fr) minmax(280px, 1fr);
+}
+.experiment--experiments > main {
+  display: none;
+}
+.exp-setup > summary {
+  cursor: pointer;
+  color: #e0f2f1;
+  font-weight: 600;
+}
+.experiment--replay .exp-replay {
+  height: max(440px, 58vh);
+}
+@media (max-width: 700px) {
+  .experiment--experiments {
+    grid-template-columns: minmax(0, 1fr);
+    overflow: auto;
+  }
+  .experiment--experiments aside {
+    overflow: visible;
+  }
+}

@@ -33,6 +33,22 @@ and source/API checks are distinct from pending browser verification.
 G80 first, custom fabrication and practical performance remain core goals;
 G54 upgrade and G12 PID-to-RL keep their separate committed requirements.
 
+## Frontend delivery checkpoint
+
+The owner-supplied43-task kit is now tracked in
+[the backlog](frontend-workbench-backlog.md), with focused workspaces under
+[ADR0014](adr/0014-focused-engineering-workspaces.md). Astra MEDIUM implemented
+shell/source isolation and linked2D; Terra HIGH delivered camera controls,
+replay status and a four-sample saved-record audit. Primary integrated shared
+routes/state. [Current usable-code handoff](wo04-focused-preview-20261103.md)
+records exact pages, startup and pending browser tests.
+
+F2 engineering PR66 merged after both required jobs passed at55599a2370962f195dea31faee49fb825c7646fe.
+The focused UI follow-up is being published separately. Launcher preparation
+passes, but Vite cannot bind127.0.0.1:5173 in the sandbox (`listen EPERM`).
+No live app or browser acceptance is claimed. The original designated-browser
+ownership rejection remains unresolved and was not retried/bypassed.
+
 ## Historical checkpoints below
 
 **Active follow-up: G80-F2**, [bounded packet](wo03-g80-f2-packet.md). Keep F1 frozen. Use obtainable stock, one fixed bonded splice, connected recovery/fin joints and coupled forward-placement/ballast comparison. G54/G12 remain separate; no new platform architecture. F1 numbers below are historical input, not F2 results.

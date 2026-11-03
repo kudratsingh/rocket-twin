@@ -15,11 +15,20 @@ if [[ ! -d web/node_modules ]]; then
   echo "Missing locked web dependencies. In a normal terminal run npm --prefix web ci, then retry." >&2
   exit 1
 fi
-.venv/bin/python scripts/wo04_workbench_export.py --output web/public/engineering-workbench/g80-c1.json
-.venv/bin/python scripts/wo04_workbench_extended_export.py --output web/public/engineering-workbench/g80-extended.json
-.venv/bin/python scripts/wo04_workbench_a1_export.py --output web/public/engineering-workbench/g80-a1.json
-.venv/bin/python scripts/wo04_g80_fixed_export.py --output web/public/engineering-workbench/preparedg80-fixed-f1.json
-.venv/bin/python scripts/wo04_f2_export.py --output web/public/engineering-workbench/preparedg80-fixed-f2.json
+prepare_snapshot() {
+  local producer="$1"
+  local target="$2"
+  if ! .venv/bin/python "$producer" --output "$target"; then
+    echo "Unavailable prepared snapshot: $target (other workspaces remain available)." >&2
+    # Only an ignored generated export is removed; never retain it as current.
+    rm -f -- "$target"
+  fi
+}
+prepare_snapshot scripts/wo04_workbench_export.py web/public/engineering-workbench/g80-c1.json
+prepare_snapshot scripts/wo04_workbench_extended_export.py web/public/engineering-workbench/g80-extended.json
+prepare_snapshot scripts/wo04_workbench_a1_export.py web/public/engineering-workbench/g80-a1.json
+prepare_snapshot scripts/wo04_g80_fixed_export.py web/public/engineering-workbench/preparedg80-fixed-f1.json
+prepare_snapshot scripts/wo04_f2_export.py web/public/engineering-workbench/preparedg80-fixed-f2.json
 .venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
 preview_api_pid=$!
 cleanup() {

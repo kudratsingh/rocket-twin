@@ -1,4 +1,36 @@
-# Frontend spec (frozen before WO-04; changes are their own work order)
+# Frontend specification — focused engineering workspaces
+
+## Active owner-authorized frontend direction — 2026-11-03
+
+The owner supplied `output/frontend-planning-kit-20261103/` and explicitly
+requested implementation, beginning with usable inspection while replay/data
+work proceeds independently. [The tracked43-task ledger](frontend-workbench-backlog.md)
+records scope, dependencies and evidence. [ADR-0014](adr/0014-focused-engineering-workspaces.md)
+supersedes the dense universal-shell layout below where they differ.
+
+Use five focused, addressable workspaces: **Design, Engineering, Experiments,
+Flight Replay, Analysis**. A dense Mission Control is optional. Preserve the
+existing React/Three.js/Python/JAX architecture and all recorded source boundaries.
+The first code increment makes the model dominant, adds explicit zoom/fit/focus,
+collapsible secondary panels, one reachable scroll region, compact source status,
+and Back/Forward-aware navigation. F1/F2/A1 drawings load independently of C1.
+Current G80-F2 construction is a separately identified concept/local-joint snapshot;
+archived detailed CAD is never relabelled as a complete F2 rocket.
+
+Experiments and Replay use the same retained component/run state, with focused
+presentation rather than two numerical implementations. Replay uses recorded
+positions/quaternions; nose-up descent remains source behavior with its recovery
+model limitation explained. No cosmetic attitude correction. Candidate full
+inertia and compatible spatial analysis are unavailable where not recorded.
+Source/scalar graphics must not invent stress, pressure or temperature fields.
+
+The first code slice is not browser acceptance. Only the previously designated
+frontend agent/window may verify after its runtime-ownership prerequisite is
+resolved; no retry/bypass of the recorded automatic rejection. Keep pending
+scroll/zoom/history/WebGL/run tests explicit. Full WO-03/04/05 completion,
+physical-build, purchase, paid-run, firmware-review and flight gates remain.
+
+## Preserved baseline and detailed requirements
 
 A1 connection follow-up is a separate versioned early-workbench snapshot
 (`view=a1`), with source-defined concept interface/root diagrams, historical

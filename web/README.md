@@ -1,5 +1,16 @@
 # Rocket Twin inspection workspace
 
+Latest2026-11-03 preview uses focused **Design, Engineering, Experiments,
+Flight Replay and Analysis** workspaces. Start with `make preview` from the
+repository root. Engineering defaults to the separate G80-F2 construction
+snapshot; the CAD selector contains recorded reference assemblies, not a
+complete F2 vehicle. Design has explicit camera controls, collapsible panels
+and linked2D source-dimension envelopes. Experiments/Replay retain real backend
+runs, saved poses and source limitations. Missing spatial analysis stays
+unavailable. See `docs/wo04-focused-preview-20261103.md` for source identities,
+URLs, runtime blockers and unexecuted browser checks. Source/build verification
+is not observed WebGL/interaction acceptance.
+
 Read-only local inspection of the actual resolved vehicle specifications and
 CAD-derived part meshes. This is a limited early WO-04 increment authorized while
 WO-03 engineering acceptance remains open. A rendered model is not hardware or

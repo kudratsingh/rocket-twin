@@ -1,5 +1,16 @@
 # Current bounded work list
 
+## Focused frontend implementation in parallel
+
+| Deliverable / responsible | Identity and acceptance | Budget / actual | Stop/dependency |
+| --- | --- | --- | --- |
+| Focused shell + isolated sources / Astra MEDIUM, primary integration | Five workspaces, legacy links/history, per-source errors, compact status | Bounded35min shell +15min isolation packets; implemented and code-checked | Browser history/scroll remains pending designated owner |
+| Camera usability / Terra HIGH | Orbit-preserving fit/focus; reset/preset separate, shared store | One30min slice; camera mathematics/state tests passed; primary corrected StrictMode token handling | Real delayed-mesh/orbit observation pending |
+| Replay validity + ledger / Terra HIGH | Record identity/event gaps/model limits;43-task exact backlog | One25min slice +10min ledger +10min focused presentation; implemented | No cosmetic pose/physics change; missing telemetry stays unavailable |
+| Source2D / Astra MEDIUM | Selected source dimensions only, linked selection, layers/pan/zoom/export | One20min slice; source/SSR checked, integrated alongside3D | Not CAD projection; actual interactions/export download unobserved |
+| Saved-data diagnostic / Terra HIGH | One oldG80 run, four raw samples, no sim |0.47s wall; defaultPyArrow threading not verified against single-CPU plan; no repeat | Recorded nose-up descent confirmed; real suspended orientation unvalidated |
+| Integration/publication / primary | Required local/hosted checks and private focusedPR | See current handoff; first engineeringPR66 merged | Sandbox Vite listenEPERM and prior browser ownership gate unresolved; no bypass |
+
 ## G80-F2 completed bounded packet — admission held
 
 | Deliverable / owner | Source and acceptance | Budget / actual outcome | Next dependency |
@@ -9,7 +20,7 @@
 | Local joint CAD / primary | Pinned selected source; blind notches and permanent splice | Two bounded local outputs, final0.313s; zero nominal solid intersections | Installed strengths, conditioned fits/service paths remain unverified |
 | Ring diagnostic / primary | Actual notched local ring, finite axial supports, unequal/single-eye loads | Three meshes66.518s; invalid middle quadratic cell found; packet stopped | No three-grid/installed strength acceptance; a separately declared method correction required |
 | Drawings / Sol HIGH |10 source hashes; separate F2 selection, no archived CAD overlay | Three final native PNGs2.084s; offline inspection recorded | Browser interaction acceptance blocked by unchanged ownership prerequisite |
-| Publication / primary | Source dependencies, focused PR, both hosted jobs | Local source/API checks; publication in progress | Merge only exact final checks pass; no owner review added |
+| Publication / primary | Source dependencies, focused PR, both hosted jobs | PR66 merged; both required jobs passed at55599a2370962f195dea31faee49fb825c7646fe | Installed design admission remains held; no owner review added |
 
 F1 and earlier entries below are frozen historical context. No physical build,
 purchase, paid compute or flight release follows from completion of a study.

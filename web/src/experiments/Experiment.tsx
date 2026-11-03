@@ -1,5 +1,6 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
+import { replayValidity } from './replayValidity';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
@@ -24,6 +25,7 @@ type RecordRun = {
   progress: string;
   error?: string;
   configuration: string;
+  controller?: string;
   vehicle_id?: string;
   resolved_sha256?: string;
   cad_revision_sha256?: string;
@@ -296,6 +298,45 @@ function RunDetails({ run, label }: { run: Loaded; label: string }) {
     </section>
   );
 }
+function ReplayValidity({ run, time, label }: { run: Loaded; time: number; label: string }) {
+  const validity = replayValidity(run.record, time);
+  return (
+    <section aria-label={`${label} replay validity`}>
+      <h3>{label} · replay validity</h3>
+      <p>
+        {validity.identity} · Controller: {validity.controller}
+      </p>
+      <p>
+        {validity.phase} (inferred from event times, not a recorded phase channel).{' '}
+        {validity.completion}
+      </p>
+      <p>
+        The assembly follows the recorded body-to-world quaternion, normalized and interpolated for
+        display; its orientation is not inferred from velocity. Current simulator recovery uses
+        point drag with modeled inflation and angular-rate damping. Recovery attitude is approximate
+        and does not establish a suspended-body orientation; canopy, lines and separation are not
+        replayed.
+      </p>
+      <p>
+        Missing event times:{' '}
+        {validity.missingEvents.length
+          ? validity.missingEvents.join(', ')
+          : 'none among the listed events'}
+        . Deployment is a modeled time derived from the apogee trigger and lag, not a recorded
+        opening state.
+      </p>
+      <details>
+        <summary>Source identity</summary>
+        <p>Simulation code SHA-256: {validity.sourceIdentity.simulationCode}</p>
+        <p>Resolved specification SHA-256: {validity.sourceIdentity.resolvedSpecification}</p>
+        <p>
+          Model description reflects current source; the saved code hash identifies the run and must
+          be checked for historical correspondence.
+        </p>
+      </details>
+    </section>
+  );
+}
 function ComparisonDifferences({ a, b }: { a: RecordRun; b: RecordRun }) {
   const differences = comparisonDifferences(a, b);
   return (
@@ -442,10 +483,14 @@ export default function Experiment({
   configurationId,
   vehicle,
   onConfigurationChange,
+  workspace,
+  onOpenReplay,
 }: {
   configurationId: string;
   vehicle: InspectionDocument | null;
   onConfigurationChange: (id: string) => void;
+  workspace?: 'experiments' | 'replay';
+  onOpenReplay?: () => void;
 }) {
   const [wind, setWind] = useState(0),
     [direction, setDirection] = useState(0),
@@ -463,6 +508,7 @@ export default function Experiment({
     [fitToken, setFitToken] = useState(0),
     [resetPreview, setResetPreview] = useState(0),
     [plotChannels, setPlotChannels] = useState(defaultChannels);
+  const supportedChoice = choices.some(([id]) => id === configurationId);
   const loadOrder = useRef({ primary: requestOrder(), comparison: requestOrder() });
   useEffect(() => {
     const order = loadOrder.current;
@@ -579,6 +625,10 @@ export default function Experiment({
   async function start() {
     try {
       setError('');
+      if (!supportedChoice || configurationId === 'modular-tvc-finless-v1')
+        throw new Error(
+          'Select a supported complete flight configuration; inspection candidates and finless unguided flight cannot run.',
+        );
       const r = await json<{ run_id: string }>('/api/experiments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -597,75 +647,90 @@ export default function Experiment({
     }
   }
   return (
-    <div className="experiment">
+    <div className={`experiment${workspace ? ` experiment--${workspace}` : ''}`}>
       <aside>
-        <h2>Run an experiment</h2>
-        <p>
-          Simulated, preliminary, unguided flights using complete configurations. Finless unguided
-          flight is unsupported. Proportional–integral–derivative (PID) and reinforcement learning
-          (RL) controllers are later work.
-        </p>
-        <label>
-          Vehicle and motor
-          <select
-            value={configurationId}
-            onChange={(e) => {
-              loadOrder.current.primary.cancel();
-              loadOrder.current.comparison.cancel();
-              setPlaying(false);
-              onConfigurationChange(e.target.value);
-            }}
-          >
-            {choices.map(([id, label]) => (
-              <option value={id} key={id}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Steady wind (m/s)
-          <input
-            type="number"
-            min="0"
-            max="10"
-            step="0.1"
-            value={wind}
-            onChange={(e) => setWind(Number(e.target.value))}
-          />
-        </label>
-        <label>
-          Wind direction toward (° clockwise from north)
-          <input
-            type="number"
-            min="0"
-            max="359"
-            value={direction}
-            onChange={(e) => setDirection(Number(e.target.value))}
-          />
-        </label>
-        <label>
-          Gust amplitude (m/s)
-          <input
-            type="number"
-            min="0"
-            max="5"
-            step="0.1"
-            value={gust}
-            onChange={(e) => setGust(Number(e.target.value))}
-          />
-        </label>
-        <button
-          disabled={!!pending || configurationId === 'modular-tvc-finless-v1'}
-          onClick={() => void start()}
-        >
-          Run on CPU
-        </button>
-        {configurationId === 'modular-tvc-finless-v1' && (
+        <h2>{workspace === 'replay' ? 'Flight replay' : 'Run an experiment'}</h2>
+        <details className="exp-setup" open={workspace !== 'replay'}>
+          <summary>Experiment setup</summary>
           <p>
-            Finless unguided simulation is unsupported. The actual design is shown for inspection.
+            Simulated, preliminary, unguided flights using complete configurations. Finless unguided
+            flight is unsupported. Proportional–integral–derivative (PID) and reinforcement learning
+            (RL) controllers are later work.
           </p>
-        )}
+          <label>
+            Vehicle and motor
+            <select
+              value={configurationId}
+              onChange={(e) => {
+                loadOrder.current.primary.cancel();
+                loadOrder.current.comparison.cancel();
+                setPlaying(false);
+                onConfigurationChange(e.target.value);
+              }}
+            >
+              {!supportedChoice && (
+                <option value={configurationId} disabled>
+                  Unsupported inspection design — choose a flight configuration
+                </option>
+              )}
+              {choices.map(([id, label]) => (
+                <option value={id} key={id}>
+                  {label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Steady wind (m/s)
+            <input
+              type="number"
+              min="0"
+              max="10"
+              step="0.1"
+              value={wind}
+              onChange={(e) => setWind(Number(e.target.value))}
+            />
+          </label>
+          <label>
+            Wind direction toward (° clockwise from north)
+            <input
+              type="number"
+              min="0"
+              max="359"
+              value={direction}
+              onChange={(e) => setDirection(Number(e.target.value))}
+            />
+          </label>
+          <label>
+            Gust amplitude (m/s)
+            <input
+              type="number"
+              min="0"
+              max="5"
+              step="0.1"
+              value={gust}
+              onChange={(e) => setGust(Number(e.target.value))}
+            />
+          </label>
+          <button
+            disabled={!!pending || !supportedChoice || configurationId === 'modular-tvc-finless-v1'}
+            onClick={() => void start()}
+          >
+            Run on CPU
+          </button>
+          {!supportedChoice && (
+            <p role="status">
+              This inspection candidate has no supported complete flight configuration. Choose one
+              of the recorded G80/G54/G12 reference configurations above; no candidate is silently
+              substituted.
+            </p>
+          )}
+          {configurationId === 'modular-tvc-finless-v1' && (
+            <p>
+              Finless unguided simulation is unsupported. The actual design is shown for inspection.
+            </p>
+          )}
+        </details>
         {pending && (
           <p role="status">
             {status} · {pending}
@@ -677,6 +742,12 @@ export default function Experiment({
           </p>
         )}
         <h3>Saved runs</h3>
+        {workspace === 'experiments' && onOpenReplay && (
+          <button type="button" onClick={onOpenReplay}>
+            Open flight replay
+          </button>
+        )}
+        {runs.length === 0 && <p>No saved runs are available.</p>}
         {runs.map((r) => (
           <div key={r.run_id} className="exp-run">
             <button disabled={r.status !== 'complete'} onClick={() => void load(r.run_id)}>
@@ -745,11 +816,14 @@ export default function Experiment({
               {other && ` · Gold: ${other.record.run_id}`}
               {other && ' · A finished run remains at its last recorded pose.'}
             </p>
-            <p>
-              {shown.record.trajectory_complete
-                ? 'Landing recorded.'
-                : 'Trajectory incomplete: landing was not recorded within the simulated horizon.'}
-            </p>
+            <ReplayValidity run={shown} time={time} label="A · teal" />
+            {other && (
+              <ReplayValidity
+                run={other}
+                time={Math.min(time, other.telemetry.columns.time_s.at(-1) ?? time)}
+                label="B · gold"
+              />
+            )}
             <div className="exp-events">
               {Object.entries(shown.record.events ?? {}).map(([k, v]) => (
                 <button key={k} disabled={v === null} onClick={() => setTime(v!)}>
@@ -825,6 +899,8 @@ export default function Experiment({
                     Clear comparison
                   </button>
                   <p>
+                    The runs share elapsed time from ignition; this is not event alignment.
+                    Differences or missing assumptions prevent attributing a result to one change.
                     Compare complete configurations, not motors alone: mounting, mass, geometry and
                     recovery may also differ. Match wind, gust and other case settings to
                     investigate a motor change; model and input identities still matter.

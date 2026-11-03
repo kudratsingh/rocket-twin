@@ -1,6 +1,6 @@
 import { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { ComponentRef, ErrorInfo, ReactNode, RefObject } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { GizmoHelper, GizmoViewport, Grid, Html, OrbitControls, useGLTF } from '@react-three/drei';
 import {
   Box3,
@@ -17,6 +17,7 @@ import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
+import { fitOrbitFrame } from './inspectionCamera';
 import './inspectionViews.css';
 
 export interface ViewOverlay {
@@ -197,56 +198,127 @@ function PartMesh({
   );
 }
 
+type CameraCommand = { id: number; kind: 'fit' | 'zoom-in' | 'zoom-out' };
+
 function CameraFit({
   group,
   length,
-  loadedToken,
+  complete,
+  command,
 }: {
   group: RefObject<Group | null>;
   length: number;
-  loadedToken: number;
+  complete: boolean;
+  command: CameraCommand | null;
 }) {
   const { camera, invalidate, size } = useThree();
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
+  const interacted = useRef(false);
+  const initialComplete = useRef(false);
+  const lastStoreCommand = useRef<number | null>(null);
+  const pendingFocus = useRef<string | null>(null);
+  const pendingFit = useRef(false);
   const resetToken = useInspection((s) => s.resetToken);
+  const cameraAction = useInspection((s) => s.cameraAction);
   const view = useInspection((s) => s.cameraView);
   const focusId = useInspection((s) => s.focusId);
-  useEffect(() => {
+
+  function frame(mode: 'preset' | 'orbit', selectedId: string | null) {
     group.current?.updateWorldMatrix(true, true);
-    const focused = focusId ? group.current?.getObjectByName(`inspection-part:${focusId}`) : null;
+    const focused = selectedId
+      ? group.current?.getObjectByName(`inspection-part:${selectedId}`)
+      : null;
+    // A hidden or unavailable selected mesh cannot be focused yet.
+    if (selectedId && !focused) return false;
     const object = focused || group.current;
     const bounds = object ? new Box3().setFromObject(object) : new Box3();
-    // Until a real mesh is loaded, use only the recorded vehicle length as a framing fallback.
     if (bounds.isEmpty()) bounds.set(new Vector3(0, 0, 0), new Vector3(0, length, 0));
     const perspective = camera as PerspectiveCamera;
-    const frame = cameraFrame(
-      { min: bounds.min.toArray(), max: bounds.max.toArray() },
-      size.width / Math.max(size.height, 1),
-      perspective.fov,
-      view,
-    );
-    camera.up.fromArray(frame.up);
-    camera.position.fromArray(frame.position);
-    // Leave room to zoom into small joints after fitting the full assembly.
-    camera.near = Math.min(0.001, frame.near);
-    camera.far = Math.max(100, frame.far);
-    camera.lookAt(new Vector3(...frame.target));
+    const aspect = size.width / Math.max(size.height, 1);
+    const result =
+      mode === 'preset'
+        ? cameraFrame(
+            { min: bounds.min.toArray(), max: bounds.max.toArray() },
+            aspect,
+            perspective.fov,
+            view,
+          )
+        : fitOrbitFrame(
+            bounds,
+            aspect,
+            perspective.fov,
+            camera.position,
+            controls.current?.target ?? new Vector3(),
+            camera.up,
+          );
+    camera.up.fromArray(result.up);
+    camera.position.fromArray(result.position);
+    camera.near = Math.min(0.001, result.near);
+    camera.far = Math.max(100, result.far);
+    controls.current?.target.fromArray(result.target);
+    camera.lookAt(new Vector3(...result.target));
     camera.updateProjectionMatrix();
-    controls.current?.target.fromArray(frame.target);
     controls.current?.update();
     invalidate();
-  }, [
-    camera,
-    group,
-    length,
-    loadedToken,
-    resetToken,
-    view,
-    focusId,
-    size.width,
-    size.height,
-    invalidate,
-  ]);
+    return true;
+  }
+
+  useFrame(() => {
+    if (pendingFocus.current && frame('orbit', pendingFocus.current)) pendingFocus.current = null;
+  });
+
+  // Store commands cover presets, keyboard reset and focus from the inspector.
+  // Do not reframe on resize, selection changes, or each individual mesh load.
+  useEffect(() => {
+    // StrictMode repeats mount effects with the same token. Only a genuinely
+    // new command suppresses the one initial fit after delayed meshes settle.
+    if (lastStoreCommand.current !== null && lastStoreCommand.current !== resetToken)
+      interacted.current = true;
+    lastStoreCommand.current = resetToken;
+    pendingFit.current = false;
+    pendingFocus.current = cameraAction === 'focus' ? focusId : null;
+    const mode = cameraAction === 'focus' || cameraAction === 'fit' ? 'orbit' : 'preset';
+    if (frame(mode, pendingFocus.current)) pendingFocus.current = null;
+    // This token intentionally identifies explicit store commands.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resetToken]);
+
+  useEffect(() => {
+    if (complete && !initialComplete.current) {
+      initialComplete.current = true;
+      if (!interacted.current) frame('preset', null);
+    }
+    if (complete && pendingFit.current) {
+      pendingFit.current = false;
+      frame('orbit', null);
+    }
+    // A single initial fit is allowed once all available meshes settle.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [complete]);
+
+  useEffect(() => {
+    if (!command) return;
+    interacted.current = true;
+    pendingFocus.current = null;
+    pendingFit.current = false;
+    if (command.kind === 'fit') {
+      if (complete) frame('orbit', null);
+      else pendingFit.current = true;
+    } else {
+      const target = controls.current?.target ?? new Vector3();
+      const offset = camera.position.clone().sub(target);
+      const distance = Math.min(
+        20,
+        Math.max(0.03, offset.length() * (command.kind === 'zoom-in' ? 0.8 : 1.25)),
+      );
+      camera.position.copy(target).add(offset.setLength(distance));
+      controls.current?.update();
+      invalidate();
+    }
+    // A command ID changes only for explicit toolbar actions.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [command]);
+
   return (
     <OrbitControls
       ref={controls}
@@ -256,6 +328,11 @@ function CameraFit({
       minDistance={0.03}
       maxDistance={20}
       screenSpacePanning
+      onStart={() => {
+        interacted.current = true;
+        pendingFocus.current = null;
+        pendingFit.current = false;
+      }}
     />
   );
 }
@@ -320,6 +397,9 @@ export function Viewer({
   const group = useRef<Group>(null);
   const [loadedIds, setLoadedIds] = useState<string[]>([]);
   const [meshErrors, setMeshErrors] = useState<string[]>([]);
+  const [cameraCommand, setCameraCommand] = useState<CameraCommand | null>(null);
+  const commandCamera = (kind: CameraCommand['kind']) =>
+    setCameraCommand((previous) => ({ id: (previous?.id ?? 0) + 1, kind }));
   const exploded = useInspection((s) => s.exploded);
   const setExploded = useInspection((s) => s.setExploded);
   const section = useInspection((s) => s.section);
@@ -330,7 +410,6 @@ export function Viewer({
   const hideParts = useInspection((s) => s.hideParts);
   const showAll = useInspection((s) => s.showAll);
   const resetCamera = useInspection((s) => s.resetCamera);
-  const fitVisible = useInspection((s) => s.fitVisible);
   const focusPart = useInspection((s) => s.focusPart);
   const cameraView = useInspection((s) => s.cameraView);
   const setCameraView = useInspection((s) => s.setCameraView);
@@ -378,12 +457,27 @@ export function Viewer({
             <Icon name="reset" />
             Reset view
           </button>
+          <button onClick={() => commandCamera('zoom-in')} title="Zoom in">
+            + Zoom in
+          </button>
+          <button onClick={() => commandCamera('zoom-out')} title="Zoom out">
+            − Zoom out
+          </button>
           <button
-            onClick={fitVisible}
+            onClick={() => commandCamera('fit')}
             title="Fit the currently visible parts, keeping this viewing angle"
           >
             <Icon name="fit" />
             Fit visible
+          </button>
+          <button
+            onClick={() => {
+              showAll();
+              commandCamera('fit');
+            }}
+            title="Show all parts and fit the entire assembly, keeping this viewing angle"
+          >
+            Fit entire rocket
           </button>
           <button
             onClick={() => selectedId && focusPart(selectedId)}
@@ -486,7 +580,17 @@ export function Viewer({
             {overlay?.surface}
           </group>
           {!overlay && <Markers length={length} mass={mass} />}
-          <CameraFit group={group} length={overallLength} loadedToken={loadedIds.length} />
+          <CameraFit
+            group={group}
+            length={overallLength}
+            complete={visible.every(
+              (part) =>
+                !part.mesh_url ||
+                loadedIds.includes(part.id) ||
+                meshErrors.includes(partName(part)),
+            )}
+            command={cameraCommand}
+          />
           <GizmoHelper alignment="bottom-right" margin={[65, 65]}>
             <GizmoViewport
               disabled
@@ -542,6 +646,17 @@ export function Viewer({
             <span className="spinner" />
             Loading CAD-derived part meshes… {loadedIds.length}/
             {vehicle.parts.filter((part) => part.mesh_url).length}
+          </div>
+        )}
+        {visible.length === 0 && (
+          <div className="canvas-loading" role="status">
+            All parts are hidden. Use Show all to restore the assembly.
+          </div>
+        )}
+        {visible.length > 0 && visible.every((part) => !part.mesh_url) && (
+          <div className="canvas-loading" role="status">
+            No 3D meshes are available for the visible parts. Use the parts tree to inspect their
+            recorded specifications.
           </div>
         )}
         {(meshErrors.length > 0 || unavailable > 0) && (
