@@ -1,5 +1,6 @@
 export const engineeringTopics = [
   ['g80-f2', 'G80-F2 stock construction'],
+  ['g80-f2-c1', 'F2-C1 connection proposal'],
   ['g80-fixed', 'G80-F1 fixed candidate'],
   ['a1', 'A1 upper connection'],
   ['geometry', 'Arrangement & sections'],
@@ -32,7 +33,7 @@ export function engineeringHref(href: string, view: EngineeringTopic): string {
   return `${url.pathname}${url.search}${url.hash}`;
 }
 export function isConstructionTopic(view: EngineeringTopic): boolean {
-  return view === 'a1' || view === 'g80-fixed' || view === 'g80-f2';
+  return view === 'a1' || view === 'g80-fixed' || view === 'g80-f2' || view === 'g80-f2-c1';
 }
 
 /** Only a recognized missing API route permits a prepared export, never missing source. */

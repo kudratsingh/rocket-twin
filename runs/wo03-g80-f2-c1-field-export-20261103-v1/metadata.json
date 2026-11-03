@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "identity": "G80-F2-C1-pressure-footprint-v1",
+  "component_fixture": "hypothetical finite-support notched forward ring; 2.0 mm pressure-footprint grid",
+  "status": "diagnostic; required three-grid convergence unavailable",
+  "active_vehicle_compatible": false,
+  "installed_strength_accepted": false,
+  "geometry": "Frozen F2 ring from local STEP (32.3 mm outer radius), not proposed F2-C1-fit 32.2 mm radius.",
+  "frame": "local X/Y transverse, Z positive aft; station_m = 1.075 + Z_mm/1000",
+  "units": {
+    "coordinates": "mm",
+    "displacement": "mm",
+    "stress": "MPa"
+  },
+  "phases": [
+    "seventy_thirty",
+    "single_anchor"
+  ],
+  "stress_components": [
+    "sxx",
+    "syy",
+    "szz",
+    "sxy",
+    "sxz",
+    "syz"
+  ],
+  "integration_points": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "array_shapes": {
+    "node_ids": [
+      80858
+    ],
+    "coordinates_mm": [
+      80858,
+      3
+    ],
+    "element_ids": [
+      51503
+    ],
+    "connectivity_node_ids": [
+      51503,
+      10
+    ],
+    "displacement_mm": [
+      2,
+      80858,
+      3
+    ],
+    "stress_mpa": [
+      2,
+      51503,
+      4,
+      6
+    ]
+  },
+  "connectivity": "C3D10 node IDs as stored in CalculiX deck; no reordering",
+  "stress_location": "per-element four solver integration points; no averaging or interpolation",
+  "inputs": {
+    "spec": {
+      "path": "configs/vehicle/candidates/g80-f2-ballast.yaml",
+      "sha256": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78"
+    },
+    "local_step": {
+      "path": "build/wo03-g80-f2-local-cad-v2/notched_forward_ring.step",
+      "sha256": "7de1c2cbd7ecbad28f1a10aa3f80ca5be5ab3a330c4cbacc5e427a32ddce786c"
+    },
+    "mesh": {
+      "path": "build/wo03-f2-c1-pressure-footprint-v1/2.0/mesh.msh",
+      "sha256": "b5f6d3e994ca43aa9990128e6e892999a4d3eb35e8c445d5d58bf2417fe4a862"
+    },
+    "deck": {
+      "path": "build/wo03-f2-c1-pressure-footprint-v1/2.0/case.inp",
+      "sha256": "4f6e35cf7dc06f7b991f9ace1cfe4ef3de21331f6686563bb6de647190730655"
+    },
+    "dat": {
+      "path": "build/wo03-f2-c1-pressure-footprint-v1/2.0/case.dat",
+      "sha256": "c006eef6769871b51b5bd02137b2807da8eef9335593904be5658430be3dc5dd"
+    },
+    "grid_report": {
+      "path": "build/wo03-f2-c1-pressure-footprint-v1/2.0/report.json",
+      "sha256": "6eb2d2cd57db35919934c27513ff885fe488fd7a350279b1d5ad0f0824ea4a59"
+    },
+    "campaign_record": {
+      "path": "runs/wo03-g80-f2-c1-method-20261103-v1/record.json",
+      "sha256": "525c38ad3897f0b7b54ecb15f36e83f6ad15916a4cbc91ac1fcbb1a4151f91bc"
+    }
+  },
+  "output": {
+    "path": "build/wo03-f2-c1-diagnostic-fields-v1/fields.npz",
+    "sha256": "82ae0585a197304471c992a14ed7a88763c7b07de9fddfa963d214febc3cb6e0"
+  },
+  "export_wall_s": 5.619195916980971
+}

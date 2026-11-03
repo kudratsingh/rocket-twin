@@ -1,0 +1,42 @@
+/Users/kudratsingh/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/s4/pt6slb0903z429c5g1lbk8d40000gn/T/matplotlib-8pluou9b because there was an issue with the default path (/Users/kudratsingh/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_f2_c1_load_path.py", line 374, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_f2_c1_load_path.py", line 348, in main
+    "static_rocketpy": compare_rocketpy(candidate),
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/vehicle/reference.py", line 156, in compare_rocketpy
+    rocket, mode = build_reference(vehicle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/src/vehicle/reference.py", line 35, in build_reference
+    from rocketpy import Function, GenericMotor, Rocket
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/rocketpy/__init__.py", line 1, in <module>
+    from . import utilities
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/rocketpy/utilities.py", line 11, in <module>
+    import matplotlib.pyplot as plt
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/pyplot.py", line 61, in <module>
+    import matplotlib.image
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/image.py", line 24, in <module>
+    from matplotlib.backend_bases import FigureCanvasBase
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/backend_bases.py", line 49, in <module>
+    from matplotlib import (
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/text.py", line 18, in <module>
+    from .font_manager import FontProperties, fontManager, get_font
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/font_manager.py", line 1852, in <module>
+    fontManager = _load_fontmanager()
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/font_manager.py", line 1846, in _load_fontmanager
+    fm = FontManager()
+         ^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/font_manager.py", line 1257, in __init__
+    *findSystemFonts(fontext=fontext)]:
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/font_manager.py", line 313, in findSystemFonts
+    installed_fonts += _get_macos_fonts()
+                       ^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/matplotlib/font_manager.py", line 275, in _get_macos_fonts
+    return [Path(entry["path"]) for entry in d["_items"]]
+                                             ~^^^^^^^^^^
+KeyError: '_items'

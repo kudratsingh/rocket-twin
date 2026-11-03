@@ -1,0 +1,79 @@
+version: wo03-g80-f2-c1-verification-v1
+scope: Separate dedicated G80-F2-C1 fit proposal; no G54/G12 or old modular acceptance transfer.
+configuration: G80-F2-C1-fit-proposal-v2
+adopted: false
+expanded_wo03_acceptance: open
+base_matrix: configs/engineering/traceability.yaml
+specification: configs/vehicle/candidates/g80-f2-c1-fit-proposal.yaml
+results: runs/wo03-g80-f2-c1-definition-20261103-v1/record.json
+requirements:
+- id: RT-FIT-001
+  status: conditional_calculated_only
+  criterion: Min0.1mm clearance; manufacturing/environment/insertion/service also verified before adoption.
+  result: Seven proposed stack minima0.125–0.250mm under unverified receiving/conditioning bounds.
+  parts: [forward_ring, aft_ring, nose_anchor_plate, fin_tabs, motor_tube]
+  interfaces: [IF-MOTOR-001, IF-RECOVERY-001]
+  evidence: [docs/wo03-g80-f2-c1-decision.md]
+  remaining: Actual stock/hot-wet properties, finished hardware, local CAD, installed strength and access.
+- id: RT-LOAD-001
+  status: open
+  criterion: Actual load paths, strength/deflection and verified/converged targeted methods.
+  result: Blind-notch recovery force is adhesive tension/side shear; two valid grids; fine139953node budget stop.
+  parts: [forward_ring, fin_tabs, ring_bonds, body, motor_tube]
+  evidence: [runs/wo03-g80-f2-c1-method-20261103-v1/record.json, runs/wo03-g80-f2-c1-boundary-20261103-v1/record.json]
+  remaining: Three-grid accuracy, actual global support/inertia, mixed-mode joint/orthotropic material capacity.
+- id: RT-RECOVERY-001
+  status: open
+  criterion: Complete retained branches, packing/extraction/access and verified anchors.
+  result: Nose/body/soft groups distinct; inherited single box is not a two-eye CAD assembly.
+  parts: [body_recovery_eye, nose_recovery_eye, nose_anchor_plate, shock_cord, parachute]
+  evidence: [docs/wo03-g80-f2-c1-supplier-evidence.md, docs/wo03-g80-f2-c1-decision.md]
+  remaining: Exact finished hardware/harness; carrier, extraction, strain-relief and owner proof/deployment tests.
+- id: RT-RECOVERY-002
+  status: open
+  criterion: Required severe20.4m/s/.3m/DF3 retained until separately justified requirement revision.
+  result: Proposal wholemean1938.765/1980.969N. Free-section snatch and canopy comparisons are additional mechanisms, not replacements or peaks.
+  evidence: [docs/wo03-f2-c1-recovery-mechanisms.md, runs/wo03-g80-f2-c1-definition-20261103-v1/record.json]
+  remaining: Relative separation velocity, harness compliance/end strength, canopy inflation and transient peaks.
+- id: RT-MASS-001
+  status: calculated_screen_pass_only
+  criterion: Loaded ceiling1500g; full separate50g and adverse20g retained; all correction mass counted.
+  result: 918.750/938.750g; three added epoxy rows1.190022g; zero removal credit.
+  evidence: [runs/wo03-g80-f2-c1-definition-20261103-v1/record.json]
+  remaining: Finished component/process masses and growth placement proof.
+- id: RT-MASS-002
+  status: open
+  criterion: CAD/spec mass and complete CG/full inertia reconciliation.
+  result: Proposed53allocationrows; own-envelope inertia diagnostic only, physical full inertia unavailable.
+  evidence: [configs/vehicle/candidates/g80-f2-c1-fit-proposal.yaml]
+  remaining: Admitted actual assembly and measured mass properties.
+- id: RT-GUIDE-001
+  status: conditional_formal_pass_planning_miss
+  criterion: 15m/s formal,15.5m/s separate planning target;1.5m usable reference.
+  result: Proposal15.359/15.175m/s; adverse formal19.594g headroom, planning34.951g deficit.
+  evidence: [runs/wo03-g80-f2-c1-definition-20261103-v1/record.json]
+  remaining: Actual launch equipment/buttons/start/release/wind; no longer rail adopted.
+- id: RT-STAB-001
+  status: calculated_screen_pass_only
+  criterion: Loaded/burnout stability and uncertainty according to actual geometry;1cal loaded minimum retained.
+  result: Proposal loaded1.283/1.105cal and burnout1.701/1.501cal under existing aero hypothesis; metadata reconciliation does not change numeric geometry.
+  evidence: [runs/wo03-g80-f2-c1-definition-20261103-v1/record.json]
+  remaining: Complete installed geometry/inertia and affected flight/aero validation before acceptance.
+- id: RT-THERM-001
+  status: open
+  criterion: Unchanged45C substrate screen and required thermal matrix including burn/postburn.
+  result: 10g sector reserve has no resolved geometry; inherited full-annulus envelope intersects tube.
+  evidence: [docs/wo03-g80-f2-c1-decision.md]
+  remaining: Exact motor/contact/shield/adhesive/openings before any F2 thermal acceptance run; stopped solvers preserved.
+- id: RT-FLUTTER-001
+  status: open
+  criterion: Installed fin/root stiffness and flutter screening valid for actual configuration/envelope.
+  result: No isolated panel or old vehicle flight transfers to changed tab fit;8.83Nm existing factored screen retained once.
+  evidence: [docs/wo03-g80-f2-c1-decision.md]
+  remaining: Installed joint stiffness/damping, applicable aerodynamics/loads and later measurements.
+- id: RT-CONFIG-001
+  status: source_definition_partial
+  criterion: Spec/CAD/analysis/run/frontend identities consistent; missing/incompatible fields unavailable.
+  result: Final source explicitly records cut/notch/tab parameters; stopped old-ring fields cannot attach to proposal.
+  evidence: [src/api/workbench_f2_c1.py, runs/wo03-g80-f2-c1-field-export-20261103-v1/metadata.json]
+  remaining: No admitted full CAD, flight configuration or browser acceptance.

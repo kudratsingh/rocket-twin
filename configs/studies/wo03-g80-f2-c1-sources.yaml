@@ -1,0 +1,164 @@
+schema_version: 1
+identity: G80-F2-C1-supplier-evidence
+date_checked_local: 2026-11-03
+status: closed_exact_fit_and_finished_recovery_hardware_held
+frozen_source_identity: G80-F2-fixed-stock-ballast-v2
+distinct_from_historical_G80_C1: true
+scope:
+  source_research_only: true
+  contact_purchase_hardware_paid_runs: false
+  active_spec_or_prior_record_edits: false
+  new_CAD_FEA_or_engineering_calculations: false
+research_budget:
+  declared_before_browsing: true
+  max_unique_source_urls: 12
+  max_minutes: 15
+  started_utc: '2026-11-03 09:57:15 UTC'
+  closed_utc: '2026-11-03 10:01:54 UTC'
+  attempted_unique_urls: 11
+  failed_access_attempts: 3
+  failed_attempt_definition: initial_Vital_product_access_plus_data_sheet_403_plus_repeat_retainer_terminal_DNS
+  initially_failed_but_recovered_urls: 1
+  urls_with_a_failed_attempt_in_any_access_method: 3
+  final_unreadable_urls: 1
+  search_discovery_counts_as_source_url_attempt: false
+  repeat_same_url_adds_unique_count: false
+  automatic_extension: false
+source_register:
+  - id: aerotech_resource_entry
+    url: https://aerotech-rocketry.com/pages/aerotech-resources
+    result: readable
+    type: manufacturer_index
+    supports: official_link_to_RCS_resource_library
+  - id: vital_m4_stock_eye
+    url: https://www.vital-parts.co.uk/screw-eyes-metric/54718-mseye-m4-30-a2
+    result: initially_inaccessible_then_readable_same_URL
+    failed_access_attempts: 1
+    type: seller_first_party_own_SKU_specification_and_inventory_snapshot
+    supports: M4x0.7_27mm_thread_30mm_listed_length_6mm_eye_ID_A2_available_dispatch_claim
+    unavailable: length_datums_eye_OD_section_bend_closure_weld_mass_tolerances_finished_capacity_US_delivery
+  - id: rcs_resource_library
+    url: https://www.rocketmotorparts.com/page/aerotech-resources
+    result: readable
+    type: manufacturer_index
+    supports: official_instruction_kit_and_drawing_resource_categories
+  - id: huaxin_welded_eye_comparator
+    url: https://www.cntzhuaxin.com/en/products/welded-eye-bolt.html
+    result: readable
+    type: manufacturer_catalogue
+    supports: family_521_M4_H51_L30_F10mm_5g_304_or_316_welded_label
+    unavailable: usable_thread_datums_finished_capacity_exact_stock_US_checkout
+    selected: false
+  - id: rcs_instruction_index
+    url: https://www.rocketmotorparts.com/page/instructions
+    result: readable
+    type: manufacturer_index
+    supports: official_linked_G80T_Initiator_Arreaux_manuals
+  - id: rcs_rocksim_kit_data
+    url: https://www.rocketmotorparts.com/page/rocksim--kit-data
+    result: readable
+    type: manufacturer_index
+    supports: simulation_file_links_only_in_exposed_content
+    unavailable: controlled_current_motor_retainer_mating_drawing
+  - id: initiator_manual
+    url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/initiator_in_8-04_1674501193528.pdf
+    result: readable
+    type: manufacturer_document_officially_linked
+    document: 19911-8091
+    revision: '8/12/04'
+    pages: 7
+    supports: 12912_12in_tube_part_ID_historical_hook_baffle_screw_eye_topology
+    unavailable: current_78010_19002_mating_dimensions_and_finished_recovery_capacity
+  - id: g80t_manual
+    url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/g80t_new_su_in_21003-1_1642626256946.pdf
+    result: readable
+    type: manufacturer_document_officially_linked_historical_revision
+    document: 21003-1
+    revision: '12/11/07'
+    pages: 1
+    supports: historical_molded_thrust_ring_G80T_handling_and_retention_instructions
+    unavailable: current_78010_case_ring_nozzle_full_assembled_dimensions_tolerances_and_operating_thermal_field
+  - id: retainer_19002_instructions_mirror
+    url: https://pages.hmc.edu/spjut/NewE80/PDFs/Aerotech29mmMotorRetainerInstructions.pdf
+    result: web_readable_repeat_terminal_download_DNS_failed
+    failed_access_attempts: 1
+    type: manufacturer_authored_instruction_scan_on_academic_mirror
+    revision: unavailable
+    pages: 2
+    supports: exact_19002_ID_kit_mount_and_ring_class_fit_test_roughen_collar_no_epoxy_threads_24h_cure
+    unavailable: current_revision_controlled_dimensions_contact_capacity_adhesive_type_and_temperature
+  - id: arreaux_manual_and_upgrade
+    url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/arreaux_in_8-04_1674501620003.pdf
+    result: readable
+    type: manufacturer_document_officially_linked
+    pages: 8
+    upgrade_notice: 19913UN_05_15_page_8
+    supports: screw_on_retainer_upgrade_removes_old_hook_and_internal_ring_install_after_rear_ring_kit_quarter_inch_tube_projection
+    unavailable: exact_78010_19002_mating_drawing_or_F2_installed_capacity
+  - id: vital_m4_datasheet
+    url: https://www.vital-parts.co.uk/tools/datasheet/MSEYE-M4-30-A2
+    result: HTTP_403_unreadable
+    failed_access_attempts: 1
+    type: exact_product_linked_data_sheet_endpoint
+    supports: nothing_from_unreadable_contents
+prior_local_evidence_not_reopened:
+  register: configs/studies/wo03-g80-f2-suppliers.yaml
+  snapshot_date_local: 2026-11-02
+  items: [AeroTech_78010_product_summary, AeroTech_12912_product_summary, AeroTech_19002_product_summary, Initiator_G80_10T_aluminum_retainer_package_precedent]
+  use: nominal_family_context_only_not_controlled_fit
+motor_fit:
+  exact_ids: [AeroTech_78010_G80_10T, AeroTech_12912, AeroTech_19002]
+  compatible_class_precedent: true
+  current_controlled_mating_drawing_found: false
+  missing:
+    motor: [case_OD_bounds, thrust_ring_OD_thickness_fillets_axial_datum, nozzle_projection, forward_projection, full_assembled_length, hot_expansion_tolerance, allowable_contact_load]
+    tube: [controlled_ID_OD_wall_ovality_straightness_tolerances, actual_cut_mass, temperature_moisture_behavior]
+    retainer: [collar_ID_insertion_depth_tolerances, cap_lip_ID_width_thickness, cap_depth_seat_contact_datum, thread_form_engagement, axial_clearance_preload, nozzle_clearance, removal_tool_envelope, adhesive_specification, hot_reverse_load_capacity]
+  manual_hot_handling_guidance_is_operating_thermal_acceptance: false
+recovery:
+  unchanged_requirements:
+    eye_count: 2
+    thread: M4
+    minimum_usable_thread_mm: 25
+    ring_thickness_mm: 12.2
+    washer_OD_ID_mm: [14, 4.5]
+    complete_paired_hardware_budget_g: 18
+    load_sharing: separate_70_30_and_single_eye_checks
+  one_small_stock_lead:
+    id: Vital_Parts_MSEYE_M4_30_A2
+    seller_thread: M4x0.70
+    seller_threaded_length_mm: 27
+    seller_listed_length_mm: 30
+    seller_eye_ID_mm: 6
+    seller_material: A2_stainless
+    seller_description: enclosed_eye_for_light_duty_attachment
+    usable_thread_after_runout_measured: false
+    published_finished_capacity: unavailable
+    closure_or_weld_detail: unavailable
+    complete_eye_envelope_and_mass: unavailable
+    stock_snapshot:
+      GBP_each_ex_VAT: 0.22
+      GBP_each_inc_VAT: 0.26
+      add_to_cart: true
+      page_available_up_to_units: 79000
+      dispatch_within_days: 5
+      variant_table_state: Checking
+      exact_US_deliverability: unconfirmed
+    suggested_nut_height_and_AF_mm: [3.2, 7]
+    suggested_washer_OD_ID_thickness_mm: [9, 4.3, 0.8]
+    suggested_washer_matches_required: false
+    admitted: false
+  exact_required_washer_stock_and_capacity: unavailable
+  complete_18g_budget_verified: false
+  generic_steel_or_G11_strength_as_finished_allowable: false
+  larger_hardware_or_architecture_substitution: false
+  hardware_selection: held
+smallest_owner_measurement_groups_if_items_already_available:
+  - exact_packaged_motor_identity_lot_case_ring_nozzle_forward_and_full_envelope
+  - actual_tube_retainer_revisions_dimensions_contact_engagement_and_aft_service_space
+  - exact_eye_washer_nut_geometry_runout_complete_paired_mass_ring_engagement_and_harness_bends
+physical_capacity_evidence_separate_from_dimensions:
+  - finished_eye_closure_weld_and_off_axis_shock_capacity
+  - conditioned_hot_ring_washer_bearing_peel_locking_and_installed_load_transfer
+  - operating_motor_mount_thermal_field_and_cold_hot_fit
+next_stop: no_fit_or_finished_capacity_admission_without_missing_exact_stock_evidence_and_separate_installed_qualification

@@ -1,0 +1,1 @@
+Stopped at fine-mesh node budget before solver. Two valid completed grids retained; no3-grid convergence or installed strength. Exact executed producer and known-answer/small reports are archived; meshes/solver logs stay ignored under build/. See separately declared boundary-only replan; do not rerun this stopped volume-partition approach.

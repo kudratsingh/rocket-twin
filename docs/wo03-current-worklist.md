@@ -1,5 +1,19 @@
 # Current bounded work list
 
+## F2-C1 bounded packet — adoption held
+
+| Deliverable / responsible | Source/criterion | Actual outcome and stop |
+| --- | --- | --- |
+| Source/finished hardware / Sol HIGH |12URL/15min, exact current motor and light closed eye |11URLs closed; contact/finished capacity unknown. Separate recovery-source3URL/8min note keeps required case unchanged |
+| Method correction / primary | OneCPU180CPU/300wall aggregate,100000nodes; known cases,3grids | Two valid10.906/52.378CPU solves; fine cap. One boundary-only replan139953nodes capped before solver. No more attempts |
+| Load direction/fit definition / primary | Actual blindweb tension/shear, declared0.1mm stacks,53allocations | Seven conditional fit screens pass;1.190g added epoxy; 918.750/938.750g; formal guide/static pass, planning miss; installed strength/adoption held |
+| Diagnostic field export / Terra HIGH | Existing2mm results only, no solver;10CPU/20wall |5.62wall/2.61CPU;80,858nodes/51,503C3D10s/two phases, source/frame/coverage metadata. Active compatibilityfalse |
+| Inspection refinement / Astra MEDIUM + Terra HIGH | Labels/visibility/preflight; actual offline images | PR68 merged; both required jobs passed at798d20ae722549f90648f5a2d709066156630c0b. Two native1200x560 images75.045s, inspected; no browser acceptance |
+| New connection graphics / Astra MEDIUM + primary | Separate source graph/cut and local inspector, not old CAD | First native graph issue corrected once; final native graph/section inspected, source hashes retained. Coupled loaded/burnout table and seven conditional fits exposed; browser remains blocked |
+
+See `wo03-g80-f2-c1-decision.md` for the complete coupled table and specific next
+connection/input decision. No automatic new bracket/whole-vehicle solver follows.
+
 ## Focused frontend implementation in parallel
 
 | Deliverable / responsible | Identity and acceptance | Budget / actual | Stop/dependency |

@@ -1,0 +1,112 @@
+{
+  "status": "offline_render_complete_pending_visual_inspection",
+  "identity": {
+    "candidate_id": "G80-F2-C1",
+    "source_identity": "G80-F2-C1-fit-proposal-v2",
+    "specification_sha256": "f4f62b8c2051bc1f50bad5738ad8597d63671d953a1da2a70c18ec6f8bd75201",
+    "cad_revision": null
+  },
+  "prepared_sha256": "e1136423a928c691871ce04196ae93e712807c1d7a036db0fe44009a41191490",
+  "sources": [
+    {
+      "id": "spec",
+      "path": "configs/vehicle/candidates/g80-f2-c1-fit-proposal.yaml",
+      "sha256": "f4f62b8c2051bc1f50bad5738ad8597d63671d953a1da2a70c18ec6f8bd75201"
+    },
+    {
+      "id": "definition",
+      "path": "runs/wo03-g80-f2-c1-definition-20261103-v1/record.json",
+      "sha256": "c04b69bbc753f929cff179ec3a38db4bc19dd653fd9d2d3b092d6b2d82493ed9"
+    },
+    {
+      "id": "numeric_record",
+      "path": "runs/wo03-g80-f2-c1-load-path-20261103-v2/record.json",
+      "sha256": "3cb96887ac78aa5531544f8c9eddb828d7f057d05ce1b20183510b06abc7d4dd"
+    },
+    {
+      "id": "numeric_spec",
+      "path": "runs/wo03-g80-f2-c1-load-path-20261103-v2/specification.yaml",
+      "sha256": "e38b7028550ab4da61d54f9490a8c36784d3ead086ebf5fb334631ed310a3532"
+    },
+    {
+      "id": "frozen_f2",
+      "path": "configs/vehicle/candidates/g80-f2-ballast.yaml",
+      "sha256": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78"
+    },
+    {
+      "id": "method",
+      "path": "runs/wo03-g80-f2-c1-method-20261103-v1/record.json",
+      "sha256": "525c38ad3897f0b7b54ecb15f36e83f6ad15916a4cbc91ac1fcbb1a4151f91bc"
+    },
+    {
+      "id": "boundary",
+      "path": "runs/wo03-g80-f2-c1-boundary-20261103-v1/record.json",
+      "sha256": "383f0d78de1a91c5434be9c5d01c931a30e37082754c4f436f1f4f939f967058"
+    },
+    {
+      "id": "node_stop",
+      "path": "runs/wo03-g80-f2-c1-boundary-20261103-v1/node-budget-stop.json",
+      "sha256": "d767b59ff344d037a8f1aa3fc5b234f92bb854e939d37c1c48acd0e86488bdbf"
+    },
+    {
+      "id": "field_export",
+      "path": "runs/wo03-g80-f2-c1-field-export-20261103-v1/metadata.json",
+      "sha256": "ab860609b2e445641825f8a8a16bc6ef3c138c6b3cf5c7394f0194cebe746c6d"
+    },
+    {
+      "id": "decision",
+      "path": "docs/wo03-g80-f2-c1-decision.md",
+      "sha256": "6fee7d4c983be041ab00ae114c8ebba7deb7456975bd606cfb7949e728902d0c"
+    },
+    {
+      "id": "suppliers",
+      "path": "docs/wo03-g80-f2-c1-supplier-evidence.md",
+      "sha256": "bfe00f5ec96f9d4f82c4fea72578f100f7b55197e8c0aa5a72e1a37e8edd0f27"
+    },
+    {
+      "id": "mechanisms",
+      "path": "docs/wo03-f2-c1-recovery-mechanisms.md",
+      "sha256": "8222bc0adafb17654eeb8a9f877cf77de9487dde4784449f657d9967ccc7dd20"
+    }
+  ],
+  "rendered_sources": [
+    {
+      "path": "web/src/workbench/F2ConnectionStudy.tsx",
+      "sha256": "798fc931f1a168053cb54b52d91bed7415b0a806fec57b4a8e478b8d8f5eb588"
+    },
+    {
+      "path": "web/src/workbench/f2ConnectionStudyTypes.ts",
+      "sha256": "8d818b1fef7c7055cdc6d5f2228a9b7fda959bb21f90f4e7a6aeb05401165754"
+    },
+    {
+      "path": "web/src/workbench/f2ConnectionStudy.css",
+      "sha256": "f1c031a85c77b9392134a2c4e43e9629e899f5f193e71c31034380b54c420528"
+    },
+    {
+      "path": "scripts/wo04_export_f2_c1_drawings.mjs",
+      "sha256": "52a84e0086c333da61c5717262c4e8de207dac5654d3862ab9bf345dee2ccab1"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "connection-route",
+      "svg": "output/engineering-f2-c1/connection-route.svg",
+      "svg_sha256": "395afaab2a321a95a1b82fe6ebec748abdd672f3f6858b8084316b10b190060d",
+      "png": "output/engineering-f2-c1/connection-route.png",
+      "png_sha256": "2834e37740a4e88ec82630e2791b50f59e11cad2caeba1bb8563f8ccc0b18035",
+      "renderer_output": "SVG_registered=true\nPNG_dimensions=1200x1080\n"
+    },
+    {
+      "name": "blind-notch-section",
+      "svg": "output/engineering-f2-c1/blind-notch-section.svg",
+      "svg_sha256": "d82f62b2b6f8a04f65cb3646dd6d79189f75a6c5cdf4f938951cd4a00f79d2ec",
+      "png": "output/engineering-f2-c1/blind-notch-section.png",
+      "png_sha256": "9f579dd2c72ceb4ed81afaa12ee921b4d8e85e312b417786b107bdd7da8a5da0",
+      "renderer_output": "SVG_registered=true\nPNG_dimensions=1200x430\n"
+    }
+  ],
+  "wall_s": 1.10648475,
+  "wall_budget_s": 120,
+  "browser_verified": false,
+  "engineering_accepted": false
+}

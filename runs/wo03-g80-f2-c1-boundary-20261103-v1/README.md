@@ -1,0 +1,1 @@
+One boundary-only mesh replan stopped at139953nodes before solver. No resource increase or further retry. Prior valid grids and known cases reused; required three-grid and installed strength remain unavailable.

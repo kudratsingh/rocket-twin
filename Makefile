@@ -20,9 +20,14 @@ workbench: ## Prepare source-checked engineering graphics data; no solver/CAD ru
 	$(PYTHON) scripts/wo04_workbench_a1_export.py --output web/public/engineering-workbench/g80-a1.json
 	$(PYTHON) scripts/wo04_g80_fixed_export.py --output web/public/engineering-workbench/preparedg80-fixed-f1.json
 	$(PYTHON) scripts/wo04_f2_export.py --output web/public/engineering-workbench/preparedg80-fixed-f2.json
+	$(PYTHON) scripts/wo04_f2_c1_export.py --output web/public/engineering-workbench/f2-c1.json
 
 workbench-drawings: workbench ## Export portable C1/R1 SVG drawings without a browser or solver.
 	node scripts/wo04_export_walkthrough_drawings.mjs
+
+.PHONY: workbench-f2-c1
+workbench-f2-c1: ## Prepare only the separate recorded F2-C1 study; no solver or CAD.
+	$(PYTHON) scripts/wo04_f2_c1_export.py --output web/public/engineering-workbench/f2-c1.json
 
 web-check: ## Strict TypeScript, lint and production build for the local preview.
 	npm --prefix web run typecheck
