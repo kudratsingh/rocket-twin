@@ -107,6 +107,14 @@ rendering is permitted and executed, distinct from restricted browser use.
 
 ## Git workflow and autonomy
 
+The owner-authorized A1 connection follow-up is separately recorded in
+`docs/wo03-a1-connection-decision.md`. It defines local sleeve/stop/key/bolt,
+root/motor/harness interfaces, but complete baseline mass and conservative bolt
+screens fail. Bounded0.1171mm fit is not manufactured/hot-wet qualification.
+Keep C1/A/B frozen; no detailed whole-vehicle CAD/FEA or automatic A2/bracket
+variant follows. A1 workbench is a separate recorded concept snapshot. Preserve
+unknown new CP/full inertia and all G54/G12/shared-interface and release gates.
+
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the
 previous local-only restriction on GitHub changes. The repository is
 `kudratsingh/rocket-twin`; keep it private until the owner explicitly requests

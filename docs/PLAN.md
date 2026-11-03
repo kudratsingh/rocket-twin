@@ -1,5 +1,10 @@
 # Plan — modular custom rocket and digital twin
 
+Current A1 connection follow-up is separately [recorded](wo03-a1-connection-decision.md).
+It defines local physical joints but fails complete mass/connection admission;
+bounded fit is not installed acceptance. No whole-vehicle CAD/FEA or automatic
+variant follows. G80 first, other tracks and all work-order/release gates remain.
+
 Current delivery checkpoint: [CURRENT.md](CURRENT.md) and
 [work list](wo03-current-worklist.md). The two source-informed A/B architecture
 screens are stopped before full CAD admission; A is the preferred joint-study

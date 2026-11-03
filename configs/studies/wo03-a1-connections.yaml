@@ -1,0 +1,155 @@
+id: G80_A1_connections_20261102_v1
+status: selected_single_connection_packet_not_active
+source_a: runs/wo03-architecture-space-mass-20261102-v1/record.json
+source_c1: runs/wo03-g80-mass-balance-revision-20261102-v2/record.json
+source_c2: runs/wo03-c2-sandwich-socket-20261102-v2/record.json
+source_parts: web/public/engineering-workbench/g80-c1.json
+source_launch: runs/wo03-launch-guide-motor-trade-20261102-v1/record.json
+source_spec: runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml
+source_research: configs/studies/wo03-a1-connection-sources.yaml
+budget: {packets: 1, cpu_s: 20, wall_s: 30, threads: 1, cases: 2, guide_m: [1.5, 1.8, 1.971]}
+criteria:
+  radial_min_mm: 0.1
+  separate_growth_g: 50
+  extra_aft_g: 20
+  formal_mps: 15
+  planning_mps: 15.5
+  static_cal: 1
+  hot_G11_axial_bending_pa: 25000000
+  hot_bond_mean_shear_pa: 1000000
+  hot_steel_estimate_pa: 200000000
+  root_peel_bearing_allowable_pa: null
+  upper_paper_bond_capacity_pa: null
+  substrate_screen_c: 45
+materials:
+  G11_rho: 1850
+  adhesive_rho: 1100
+  steel_rho: 7850
+  hot_G11_E_pa: 5000000000
+  cte_bound_per_k: 0.000025
+  moisture_sleeve_radial_growth_mm: 0.05
+  ovality_radial_reserve_mm: 0.05
+  basis: Existing_estimates_and_explicit_new_dimensional_bounds_not_measured_tube_or_joint_properties
+interface:
+  sleeve: {ri_mm: 30.7, ro_mm: 31.7, z_mm: [842, 962], radial_tolerance_mm: 0.1}
+  source_sleeve: {ri_mm: 30.5, ro_mm: 32, z_mm: [868, 972]}
+  upper_body: {ri_mm: 32.5, ro_mm: 33, z_mm: [140, 918], radial_tolerance_mm: 0.1}
+  aft_can: {ri_mm: 32.2, ro_mm: 33, z_mm: [922, 1212], radial_tolerance_mm: 0.1}
+  stop: {ri_mm: 31.7, ro_mm: 33, z_mm: [918, 922], integral: true}
+  index:
+    z_mm: [922, 942]
+    ri_mm: 31.7
+    ro_mm: 32.5
+    axes_deg: [0, 120, 240]
+    widths_mm: [6, 4, 4]
+    slots_mm: [6.6, 4.6, 4.6]
+    width_tolerance_mm: 0.1
+    key_moisture_width_growth_mm: 0.1
+    carries_primary_axial_load: false
+  collar: {ri_mm: 33.2, ro_mm: 35.2, z_mm: [937, 967], bond_mm: 0.2, coverage: 0.75}
+  sleeve_inner_doublers:
+    count: 3
+    axes_deg: [0, 120, 240]
+    axial_arc_radial_mm: [30, 25, 2]
+    z_mm: [937, 967]
+  bolts:
+    count: 3
+    axes_deg: [0, 120, 240]
+    station_mm: 952
+    diameter_mm: 5
+    hole_mm: 5.4
+    length_mm: 16
+    head_diameter_height_mm: [8.5, 5]
+    washer_OD_ID_thickness_mm: [10, 5.4, 1]
+    nut_across_flats_thickness_mm: [8, 4]
+    plain_shank_min_mm: 8
+    source: Custom_specified_partial_thread_M5_not_selected_SKU_or_proof
+    one_bolt_whole_force_and_torque_bound: true
+  crush_spacers:
+    OD_ID_mm: [8, 5.4]
+    length_mm: 0.5
+    count: 3
+    material: G11
+    basis: Individually_fitted_sleeve_to_can_gap_minus_adhesive_no_preload_through_empty_gap
+  upper_bond:
+    z_mm: [842, 918]
+    nominal_mm: 0.8
+    coverage: 0.75
+    wet_mix_process_extra_fraction: 0.25
+    peel_capacity_pa: null
+    paper_strength_pa: null
+  cold_c: 20
+  sleeve_hot_bound_c: 150
+  can_hot_bound_c: 45
+  temperature_basis: Differential_fit_bound_only_not_predicted_required_matrix_result
+harness:
+  axes_deg: [60, 180, 300]
+  start_mm: 900
+  sleeve_exit_mm: 962
+  cap_front_mm: 1004
+  saddle_end_mm: 1016
+  centre_radius_in_sleeve_mm: 21
+  centre_radius_at_saddle_mm: 24
+  radial_width_mm: 12.7
+  tangent_offsets_mm: [-6, 6]
+  tangent_thickness_mm: 0.55
+  motion_mm: 0.5
+  manufacturing_mm: 0.2
+  seam_mm: 50
+  saddle_radius_mm: 6
+  linear_oz_yard_max: 0.56
+  extra_chafe_guide_mass_g: 2
+  additional_service_slack_mm: 100
+  chafe_guide_geometry: Split_flexible_sleeve_edge_guard_reserved_2g_dimensions_and_temperature_capacity_unknown
+root:
+  axial_contact_mm: [1090, 1190]
+  inner_outer_r_mm: [17.2, 32.2]
+  bond_patch_each_mm: [100, 12]
+  bond_nominal_mm: 0.2
+  fillet_leg_mm: 3
+  normal_and_peel_strength_pa: null
+  tabs_core_thickness_mm: 8
+  tab_finished_thickness_mm: 8.98
+  tab_material: Same_C2_plywood_dense_root_and_carbon_skins_not_G11
+  toe_z_mm: [1073.5, 1090]
+  heel_z_mm: [1190, 1190.5]
+  stop_radial_tangential_mm: [15, 8.98]
+  radial_withdrawal: Bonded_TTW_root_not_demonstrated_positive_radial_capture
+  remove_unresolved_A_4g_pin_allocation: true
+  replaced_function: Defined_toe_heel_stops_and_continuous_root_bonds_for_axial_location_no_new_radial_capture_claim
+rings:
+  source_ri_ro_mm: [17.2, 32.2]
+  ri_ro_mm: [17.5, 31.9]
+  stations_mm: [1072, 1192]
+  thickness_mm: 3
+  radial_tolerance_each_mm: 0.1
+  bond_mm: 0.3
+  fillet_leg_mm: 3
+  thermal_bond_strain_capacity: null
+motor:
+  fixed_body_reservation: {radius_mm: 15.8, z_mm: [1069, 1195]}
+  retainer_reservation: {radius_mm: 23, z_mm: [1195, 1227]}
+  independent_retainer_mass_g: 20
+  adapter_and_bond_mass_g: 5
+  reverse_factored_N: 450
+  thrust_factored_N: 450
+  shortened_structural_tube_z_mm: [1069, 1193]
+  seat_insert: {ri_mm: 14.6, ro_mm: 17.2, z_mm: [1193, 1195]}
+  primary_thrust_path: Seat_to_tube_end_to_continuous_fin_root_web_bonds_to_outer_can_not_unbraced_ring_cantilever
+  current_product_nominal_diameter_mm: 28.575
+  historical_ring_outer_radius_mm: 15.875
+  current_ring_and_nozzle_geometry_verified: false
+  current_case_material: Manufacturer_current_78010_polymer_not_2007_phenolic
+  external_dimensions_cte_hot_retention_capacity: null
+process:
+  collar_doubler_bond_g: 3
+  source_A_root_ring_bond_g_retained: 20
+  finish_locks_and_service_allocations_retained: true
+  additional_joint_process_mass_g: 3
+admission:
+  no_CAD_FEA_heat_or_freeflight: true
+  missing_full_inertia: null
+  external_collar_changes_CP_drag: true
+  CP_and_guide_are_reference_hypotheses_only: true
+  no_shared_G54_G12_adoption: true
+  stop: Failed_or_unknown_essential_connection_clearance_or_complete_mass_holds_admission_no_auto_variant

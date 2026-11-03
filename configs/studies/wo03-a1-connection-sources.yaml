@@ -1,0 +1,124 @@
+schema_version: '1.0'
+id: wo03_a1_connection_sources_20261102
+status: research_only_a1_not_admitted
+read_date_utc: '2026-11-02'
+research_bounds:
+  maximum_new_unique_primary_source_urls: 10
+  attempted_new_unique_primary_source_urls: 10
+  readable_new_unique_primary_source_urls: 10
+  unavailable_new_unique_primary_source_urls: 0
+  active_research_limit_minutes: 15
+  research_stopped: new_source_url_cap_reached
+  counting_basis: Unique opened official manufacturer or original NASA source URL; search discovery and repeat reads excluded
+  raw_page_archive: null
+  content_hashes: null
+  no_engineering_solve_cad_browser_contact_purchase_or_physical_work: true
+prior_source_register: configs/studies/wo03-architecture-sources.yaml
+frozen_context:
+  a_direction: preferred_for_bounded_connection_study_only
+  c1: preliminary_unchanged
+  r1_c2_c3: stopped_unchanged
+  g80_first: true
+  g54_g12_independent: true
+  baseline_usable_guide_m: 1.5
+  formal_guide_speed_mps: 15
+  separate_planning_speed_mps: 15.5
+  separate_growth_g: 50
+  additional_adverse_g: 20
+  estimated_hot_bond_screen_mpa: 1
+  hot_bond_screen_validated_by_this_packet: false
+  g11_bending_scalar_is_hole_bearing_allowable: false
+  substrate_screen_c: 45
+  full_burn_soak_matrix: unchanged
+  equipment_or_exact_motor_fit_confirmed: false
+decision_gaps:
+  - Selected tube product and lot, form/layup, actual dimensions, wall/ovality, directional thermal and moisture growth
+  - Drilled or slotted tube hole bearing, edge shear-out, net tension, delamination, local shell stiffness and hot/wet capacity
+  - Installed root-to-tube-to-ring-to-body and retained-upper bond shear/peel, process, finite compliance and hot/wet capacity
+  - Finished 12.7 mm recovery eye/seam/connector and approximately 6 mm saddle bend/chafe under complete demand
+  - Current SKU 78010 thrust-ring/nozzle/retainer drawing, tolerances and hot extraction envelope
+sources:
+  - id: acculam_tube_tolerances
+    publisher: Accurate Plastics / Acculam
+    url: https://acculam.com/resource-center/quality-info/laminate-tube-tolerances
+    access: readable
+    locator: ID_OD_and_all_glass_wall_concentricity_tables
+    demonstrates: Catalog tube ID OD and wall tolerances vary by diameter, construction and grade; TIR defined from wall variation
+    differs: Generic catalog chart, not ordered tube inspection or hot expansion; HTML extraction flattens numeric table columns
+    missing: Agreed product drawing, roundness/coaxiality, machined hole and hot fit
+  - id: atlas_g11_sheet_2024
+    publisher: Atlas Fibre
+    url: https://www.atlasfibre.com/wp-content/uploads/2023/04/G11_DataSheet-2024.pdf
+    access: readable
+    revision: 2024_in_title
+    locator: page_1_physical_data_and_supplier_disclaimer
+    demonstrates: Sheet CTE 1.10e-5 per C and 24 hour water absorption 0.20; batch data require specific written request/agreement
+    differs: Flat sheet; CTE row does not specify axis, cannot transfer to wound tube
+    missing: Tube directional CTE, wet dimensions, drilled bearing or installed bond data
+  - id: norplex_tube_grade_limitation
+    publisher: Norplex-Micarta
+    url: https://www.norplex-micarta.com/electrical-materials/electrical-industry-standards/astm/
+    access: readable
+    locator: Convolute_Wound_Tube_Grades_note
+    demonstrates: Legacy NEMA LI1 ASTM D709 and MIL-I-24768 do not recognize high-temperature epoxy-glass convolute rolled tube form
+    differs: Norplex product families, not the chosen Acculam tube; standards statement is form-specific
+    missing: Chosen tube lot and structural joint characterization
+  - id: atlas_g11_machining
+    publisher: Atlas Fibre
+    url: https://www.atlasfibre.com/capabilities/precision-fabrication/composite-machining-of-precision-parts/
+    access: readable
+    locator: Composite_Machining_and_G11_FR5_Machining
+    demonstrates: Thin-wall slots and holes require machining control; edge damage, chipping and delamination are possible
+    differs: General process guidance, no accepted defect limits or A1 test
+    missing: Hole quality acceptance and retained strength after machining
+  - id: nasa_textile_bolt_bearing_1995
+    publisher: NASA Technical Reports Server / Lockheed Martin Engineering and Sciences
+    url: https://ntrs.nasa.gov/search.jsp?R=19960029069
+    access: readable_abstract
+    revision: 1995-12-01
+    locator: abstract_NASA_CR_198266
+    demonstrates: Bearing response changes with fixture type and geometric ratios; tested textiles favored edge distance to hole diameter at least 3
+    differs: Three braided composites, not A1 G11 tube; no e_over_D rule or strength transferred
+    missing: Chosen tube hot/wet pin, edge and combined load tests
+  - id: three_m_joint_design_2017
+    publisher: 3M
+    url: https://multimedia.3m.com/mws/media/79082O/joint-design-for-structural-adhesives-technical-bulletin.pdf?fn=Joint-Design-for-Structural-Adhesive-Technical-Bulletin.pdf
+    access: readable
+    revision: 2017-11
+    locator: pages_1_2_lap_and_cylindrical_joints
+    demonstrates: Offset lap peel/cleavage and nonuniform load transfer need explicit joint design; cylindrical overlap is a topology
+    differs: Generic adhesive examples, not selected A1 adhesive/substrates or process
+    missing: Installed hot/wet G11 sleeve ring body lap-and-peel allowable
+  - id: nasa_composite_adhesive_joint_1989
+    publisher: NASA Technical Reports Server
+    url: https://ntrs.nasa.gov/search.jsp?R=19890016677
+    access: readable_abstract
+    revision: 1989-02-01
+    locator: abstract_NASA_TM_102120
+    demonstrates: Composite joint design checks peak shear and peel; unsymmetry, hygrothermal and cyclic exposure affect integrity
+    differs: General report specimens and assumptions, not A1 installed geometry
+    missing: Selected process, conditioned joint capacity and movement
+  - id: giant_leap_finished_shockloop
+    publisher: Giant Leap Rocketry
+    url: https://giantleaprocketry.com/products/15-foot-shockloop-1-4-tubular-kevlar
+    access: readable
+    locator: Laboratory_tested_and_sewn_loop_claim
+    demonstrates: Seller describes sewn Kevlar-thread loops and claims loops stronger than cord
+    differs: Product claim without disclosed test protocol, selected size or saddle setup; tubular cord, not A1 flat webbing
+    missing: Finished 12.7 mm eye seam bend connector hot/wet dynamic report
+  - id: giant_leap_raw_kevlar_cord
+    publisher: Giant Leap Rocketry
+    url: https://giantleaprocketry.com/products/kevlar%C2%AE-tubular-shock-cord
+    access: readable
+    locator: 1_2_inch_cord_claim_and_application_caveat
+    demonstrates: Seller lists a 1/2 inch 6000 lb test cord and warns suggestions may not fit application
+    differs: Raw tubular cord product, not finished flat-webbing endpoint
+    missing: Seam bend connector chafe thermal moisture dynamic capacity
+  - id: aerotech_current_78010
+    publisher: AeroTech/Quest Division RCS Rocket Motor Components
+    url: https://aerotech-rocketry.com/products/product_bea030f5-871e-61ef-1279-45a2bbebbd87
+    access: readable
+    locator: SKU_78010_description_and_specifications
+    demonstrates: Current product page says polymer case bulkhead and nozzle; nominal 1.125 inch diameter and 4.875 inch casing length
+    differs: Historical 2007 manufacturer release in prior register described phenolic case and integral ring
+    missing: Current-lot drawing, ring/nozzle geometry, dimensional tolerance, hot growth, case-contact load and retainer mating approval

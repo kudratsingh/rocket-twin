@@ -1,5 +1,16 @@
 # Status
 
+**A1 connection follow-up,2026-11-02:** [complete report](wo03-a1-connection-decision.md).
+Local sleeve/stop/key/bolts/bonds/harness are dimensioned; one bounded packet
+executed without old-run repeats. Aft minimum0.1171mm is a conditional calculation,
+not measured fit. Full nominal/adverse masses1074.762/1094.762g include separate50g;
+baseline1.5m speeds14.059/13.912 fail15. Conservative one-bolt combined463.661MPa
+exceeds estimated200MPa. No installed requirement or detailed admission closes;
+physical recovery/body/peel, hot materials, motor, thermal and flutter remain open.
+C1/A/B frozen; A1 separate; G80 first/G54/G12 separate. Source packet and ledger
+audit complete; independent graphical snapshot/offline inspection in progress.
+Use CURRENT for this picture rather than historical statuses below.
+
 **Retained-upper A/B follow-up:** the [interface audit](wo03-architecture-interface-audit.md)
 adds a cold-fit blocker without another construction case:64.0mm model coupler
 in64.4mm bore, using declared±0.1mm radial bounds, yields0mm minimum versus0.1mm.

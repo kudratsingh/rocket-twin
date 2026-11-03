@@ -1,0 +1,1210 @@
+{
+  "A1_removed_from_A_ids": [
+    "interface_coupler",
+    "joint_stop",
+    "aft_interface_hardware",
+    "A_root_axial_pins_and_washers",
+    "A_three_forward_bridle_eyes",
+    "A_centering_ring_0",
+    "A_centering_ring_1",
+    "A_structural_motor_tube"
+  ],
+  "A_removed_C1_ids": [
+    "C1_aft_cap_15p8_bore",
+    "C1_captive_motor_keeper",
+    "C1_closed_G11_body_annulus",
+    "C1_fin_socket_floor_1",
+    "C1_fin_socket_floor_2",
+    "C1_fin_socket_floor_3",
+    "C1_fin_socket_outer_bridge_1",
+    "C1_fin_socket_outer_bridge_2",
+    "C1_fin_socket_outer_bridge_3",
+    "C1_fin_socket_outer_bridge_4",
+    "C1_fin_socket_outer_bridge_5",
+    "C1_fin_socket_outer_bridge_6",
+    "C1_fin_socket_side_plate_1",
+    "C1_fin_socket_side_plate_2",
+    "C1_fin_socket_side_plate_3",
+    "C1_fin_socket_side_plate_4",
+    "C1_fin_socket_side_plate_5",
+    "C1_fin_socket_side_plate_6",
+    "C1_forward_motor_key_carrier_1",
+    "C1_forward_motor_key_carrier_2",
+    "C1_forward_motor_key_carrier_3",
+    "C1_independent_motor_retainer_arm_1",
+    "C1_independent_motor_retainer_arm_2",
+    "C1_independent_motor_retainer_arm_3",
+    "C1_integral_end_hardpoint_0_1",
+    "C1_integral_end_hardpoint_0_2",
+    "C1_integral_end_hardpoint_0_3",
+    "C1_integral_end_hardpoint_1_1",
+    "C1_integral_end_hardpoint_1_2",
+    "C1_integral_end_hardpoint_1_3",
+    "C1_radial_mount_pad_1",
+    "C1_radial_mount_pad_2",
+    "C1_radial_mount_pad_3",
+    "C1_socket_joint_process_hardware",
+    "S3_end_contact_shims",
+    "S3_fin_channel_selected_shims",
+    "S3_loop_keepers_chafe_and_stitching",
+    "adhesive_finish",
+    "aft_cap_M3_complete_set_0",
+    "aft_cap_M3_complete_set_1",
+    "aft_cap_M3_complete_set_2",
+    "aft_half_cylinder_saddle_lobe_0",
+    "aft_half_cylinder_saddle_lobe_1",
+    "aft_half_cylinder_saddle_lobe_2",
+    "aft_shell",
+    "c1_fin_panels",
+    "fin_axial_retention_5mm_cross_pin_complete_set_0",
+    "fin_axial_retention_5mm_cross_pin_complete_set_1",
+    "fin_axial_retention_5mm_cross_pin_complete_set_2",
+    "fin_bonds",
+    "fin_source_cad_residual",
+    "fin_tab_depth_delta_0",
+    "fin_tab_depth_delta_1",
+    "fin_tab_depth_delta_2",
+    "fore_cap_M3_complete_set_0",
+    "fore_cap_M3_complete_set_1",
+    "fore_cap_M3_complete_set_2",
+    "fore_half_cylinder_saddle_lobe_0",
+    "fore_half_cylinder_saddle_lobe_1",
+    "fore_half_cylinder_saddle_lobe_2",
+    "fore_integral_G11_annular_cap",
+    "fore_integral_body_skirt",
+    "fore_skirt_M2_spreader_fastener_assembly_budget",
+    "fore_skirt_to_paper_extra_epoxy_budget",
+    "incremental_mount_gap_epoxy_upper_budget",
+    "motor_aft_hard_stop_spacer_0",
+    "motor_aft_hard_stop_spacer_1",
+    "motor_aft_hard_stop_spacer_2",
+    "motor_front_annulus",
+    "motor_front_key_5mm_cross_pin_complete_set_0",
+    "motor_front_key_5mm_cross_pin_complete_set_1",
+    "motor_front_key_5mm_cross_pin_complete_set_2",
+    "motor_front_prong_0",
+    "motor_front_prong_1",
+    "motor_front_prong_2",
+    "motor_front_stop_key_0",
+    "motor_front_stop_key_1",
+    "motor_front_stop_key_2",
+    "motor_keeper_spring_locking_allocation",
+    "raw_Bally_2745_loop_0",
+    "raw_Bally_2745_loop_1",
+    "raw_Bally_2745_loop_2",
+    "retention_locking_materials_reserve"
+  ],
+  "additional_adverse_aft_g": 20,
+  "adverse_motor_CG_probe": "Inherited A1 case; no physical component or intrinsic inertia inferred",
+  "adverse_total_g": 1094.7624351942488,
+  "component_count": 90,
+  "components": [
+    {
+      "first_moment_kg_m": 0.03925490894990709,
+      "function": "76mm bonded upper overlap and40mm removable aft overlap",
+      "id": "A1_G11_sleeve",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 43.51985471164866,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 902.0
+    },
+    {
+      "first_moment_kg_m": 0.002856,
+      "function": "Additional joint adhesive/finish/locking process",
+      "id": "A1_additional_joint_process_mass_g",
+      "mass_basis": "Explicit additional allocation, not growth allowance",
+      "mass_g": 3,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952
+    },
+    {
+      "first_moment_kg_m": 0.013296186011502903,
+      "function": "Resized ring provides real0.3mm nominal inner/outer bond regions; lateral alignment, not rigid ground",
+      "id": "A1_centering_ring_0",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 12.403158592819873,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 1072.0
+    },
+    {
+      "first_moment_kg_m": 0.014784565042641288,
+      "function": "Resized ring provides real0.3mm nominal inner/outer bond regions; lateral alignment, not rigid ground",
+      "id": "A1_centering_ring_1",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 12.403158592819873,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 1192.0
+    },
+    {
+      "first_moment_kg_m": 0.0013067386784205662,
+      "function": "Real collar-can annular bond, no air path through adhesive",
+      "id": "A1_collar_bond",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 1.372624662206477,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952.0
+    },
+    {
+      "first_moment_kg_m": 0.002856,
+      "function": "Additional joint adhesive/finish/locking process",
+      "id": "A1_collar_doubler_bond_g",
+      "mass_basis": "Explicit additional allocation, not growth allowance",
+      "mass_g": 3,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952
+    },
+    {
+      "first_moment_kg_m": 0.001614657878772966,
+      "function": "100mm additional extraction/connector access slack; retained connector mass counted already",
+      "id": "A1_extra_service_slack",
+      "mass_basis": "Extra to original retained backbone mass",
+      "mass_g": 1.736191267497813,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 930
+    },
+    {
+      "first_moment_kg_m": 7.22882920033281e-05,
+      "function": "Fitted radial sleeves bridge actual gap; avoid tightening across empty gap",
+      "id": "A1_fitted_crush_spacers",
+      "mass_basis": "Nominal mass; actual gap fit requires measurement",
+      "mass_g": 0.07593307983542869,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952
+    },
+    {
+      "first_moment_kg_m": 0.001924,
+      "function": "Sleeve exit chafe protection; geometry/heat qualification remains open",
+      "id": "A1_harness_edge_protection",
+      "mass_basis": "2g separate allocation, no free service hardware",
+      "mass_g": 2,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 962
+    },
+    {
+      "first_moment_kg_m": 0.00038622080000000027,
+      "function": "Unequal key widths prevent120degree pairing; primary forces use bolts/bond",
+      "id": "A1_integral_keys",
+      "mass_basis": "Gross keys, common integral tube stock, no overlap/hole credits",
+      "mass_g": 0.4144000000000003,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 932.0
+    },
+    {
+      "first_moment_kg_m": 0.0017989415499001227,
+      "function": "Axial assembly datum, integral with sleeve; no ASA stop",
+      "id": "A1_integral_stop",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 1.9553712498914377,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 920.0
+    },
+    {
+      "first_moment_kg_m": 0.0011475097691093963,
+      "function": "Independent annular thrust seat, motor rear ring dimension remains historical hypothesis",
+      "id": "A1_motor_thrust_seat",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 0.9610634582155748,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 1194.0
+    },
+    {
+      "first_moment_kg_m": 0.022707321116085605,
+      "function": "Finite external can reinforcement; changes external aero envelope",
+      "id": "A1_outer_G11_load_collar",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 23.852228063115135,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952.0
+    },
+    {
+      "first_moment_kg_m": 0.014453845754749497,
+      "function": "Six legs atR21 in sleeve fan toR24 at cap; finished eye/seam/bend capacity unknown",
+      "id": "A1_routed_three_bridles",
+      "mass_basis": "Raw maximum linear density, full seams and curvature counted",
+      "mass_g": 15.056089327864061,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 960
+    },
+    {
+      "first_moment_kg_m": 0.037657186283805676,
+      "function": "Seat bears on tube end; motor thrust may transfer through continuous root webs",
+      "id": "A1_shortened_motor_tube",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 33.2954785886876,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 1131.0
+    },
+    {
+      "first_moment_kg_m": 0.01962711265674895,
+      "function": "ThreeM5x16 partial-thread bolts, six washers, three full nuts; actual supplier SKU/locking proof pending",
+      "id": "A1_three_M5_complete_sets",
+      "mass_basis": "Gross nominal steel volume, no thread removal credit",
+      "mass_g": 20.616714975576627,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952
+    },
+    {
+      "first_moment_kg_m": 0.007925399999999999,
+      "function": "Bearing spreaders bonded to sleeve at bolts; curved stock, not flat overlapping boxes",
+      "id": "A1_three_curved_inner_doublers",
+      "mass_basis": "Gross3x30axialx25arcx2radialmm",
+      "mass_g": 8.325,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 952
+    },
+    {
+      "first_moment_kg_m": 0.000444906523125,
+      "function": "Actual axial root stop contacts centering ring and dense root; bonded TTW fin not proven radial capture",
+      "id": "A1_three_fin_heel_stops",
+      "mass_basis": "Gross stock, no slot/holes credited",
+      "mass_g": 0.37379249999999997,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 1190.25
+    },
+    {
+      "first_moment_kg_m": 0.013343551216875001,
+      "function": "Actual axial root stop contacts centering ring and dense root; bonded TTW fin not proven radial capture",
+      "id": "A1_three_fin_toe_stops",
+      "mass_basis": "Gross stock, no slot/holes credited",
+      "mass_g": 12.335152500000001,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 1081.75
+    },
+    {
+      "first_moment_kg_m": 0.01483794819138267,
+      "function": "Full annular adhesive mass plus25percent process; capacity uses75percent coverage",
+      "id": "A1_upper_bond_and_process",
+      "mass_basis": "Gross source-defined volume/density; no holes/slots credited",
+      "mass_g": 16.861304762934854,
+      "source_ids": [
+        "runs/wo03-a1-connections-20261102-v1/record.json"
+      ],
+      "station_mm": 880.0
+    },
+    {
+      "first_moment_kg_m": 0.00684,
+      "function": "Complete replacement added thermal isolation",
+      "id": "A_added_thermal_isolation",
+      "mass_basis": "Explicit allocation including finishing, joint/process/hardware; full separate50g is additional",
+      "mass_g": 6,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.00684,
+      "function": "Complete replacement body and retainer service hardware",
+      "id": "A_body_and_retainer_service_hardware",
+      "mass_basis": "Explicit allocation including finishing, joint/process/hardware; full separate50g is additional",
+      "mass_g": 6,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.00515,
+      "function": "Complete replacement cap cuff bond",
+      "id": "A_cap_cuff_bond",
+      "mass_basis": "Explicit allocation including finishing, joint/process/hardware; full separate50g is additional",
+      "mass_g": 5,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1030
+    },
+    {
+      "first_moment_kg_m": 0.014290844444444444,
+      "function": "Light core separates and supports faces",
+      "id": "A_fin_PVC_core",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 12.479999999999999,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1145.0997150997152
+    },
+    {
+      "first_moment_kg_m": 0.041158799999999995,
+      "function": "Continuous0/90 carbon faces on both sides",
+      "id": "A_fin_carbon_panel",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 35.964,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1144.4444444444443
+    },
+    {
+      "first_moment_kg_m": 0.007997328,
+      "function": "Continuous0/90 carbon faces on both sides",
+      "id": "A_fin_carbon_tab",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 7.0152,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.022833816296296296,
+      "function": "Full dense plywood root band distributes skin force",
+      "id": "A_fin_dense_root_band",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 20.02,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140.5502645502645
+    },
+    {
+      "first_moment_kg_m": 0.030908592,
+      "function": "Dense root through body and existing captive5mm pin",
+      "id": "A_fin_dense_through_body_tabs",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 27.1128,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.0022888888888888885,
+      "function": "Cut edge sealing and finishing",
+      "id": "A_fin_edge_finish",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 2,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1144.4444444444443
+    },
+    {
+      "first_moment_kg_m": 0.0030591,
+      "function": "Explicit new skin/core and skin/dense-root adhesive",
+      "id": "A_fin_face_bond_panel",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 2.673,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1144.4444444444443
+    },
+    {
+      "first_moment_kg_m": 0.000594396,
+      "function": "Explicit new skin/core and skin/dense-root adhesive",
+      "id": "A_fin_face_bond_tab",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 0.5214,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.00034125263915343906,
+      "function": "Root-band/core butt-face glue",
+      "id": "A_fin_root_band_core_butt_bonds",
+      "mass_basis": "Same saved panel/core/skin; tab depth scaled geometrically, no installed strength transfer",
+      "mass_g": 0.29919999999999997,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140.5502645502645
+    },
+    {
+      "first_moment_kg_m": 0.00912,
+      "function": "Complete replacement finish and locks",
+      "id": "A_finish_and_locks",
+      "mass_basis": "Explicit allocation including finishing, joint/process/hardware; full separate50g is additional",
+      "mass_g": 8,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.030901886579546956,
+      "function": "Recovery load introduction at three real slots and aft rounded saddles; finite annular plate, not fixed ground",
+      "id": "A_fore_recovery_cap",
+      "mass_basis": "Gross G11 estimate, no hole/slot/window machining credit",
+      "mass_g": 30.687077040265102,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1007.0
+    },
+    {
+      "first_moment_kg_m": 0.00618,
+      "function": "Complete replacement harness chafe stitch reserve",
+      "id": "A_harness_chafe_stitch_reserve",
+      "mass_basis": "Explicit allocation including finishing, joint/process/hardware; full separate50g is additional",
+      "mass_g": 6,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1030
+    },
+    {
+      "first_moment_kg_m": 0.0242,
+      "function": "Threaded body/cap retains motor against ejection; no recovery-strap credit; cap removed before motor",
+      "id": "A_independent_threaded_retainer",
+      "mass_basis": "20g allocation, exact product mass/fit/hot capacity unavailable; reservation is not supplier geometry",
+      "mass_g": 20,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1210
+    },
+    {
+      "first_moment_kg_m": 0.014989707222744016,
+      "function": "Monolithic cap/cuff to distributed body lap; real bight windows reduce section/bond area, fully counted stock",
+      "id": "A_integral_fore_cuff",
+      "mass_basis": "Gross G11 estimate, no hole/slot/window machining credit",
+      "mass_g": 14.553113808489337,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1030.0
+    },
+    {
+      "first_moment_kg_m": 0.09380405251616848,
+      "function": "Replaces paper aft shell and old thin receiver with continuous structural body; slotted installed torsion remains unqualified",
+      "id": "A_loadbearing_outer_can",
+      "mass_basis": "Gross G11 estimate, no hole/slot/window machining credit",
+      "mass_g": 87.91382616323195,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1067.0
+    },
+    {
+      "first_moment_kg_m": 0.00599,
+      "function": "Actual mating adapter and retainer bond, fully charged",
+      "id": "A_retainer_adapter_and_bond",
+      "mass_basis": "5g allocation, supplier OD/thread/nozzle/endseat dimensions unresolved",
+      "mass_g": 5,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1198
+    },
+    {
+      "first_moment_kg_m": 0.022799999999999997,
+      "function": "Complete replacement root and ring bonds",
+      "id": "A_root_and_ring_bonds",
+      "mass_basis": "Explicit allocation including finishing, joint/process/hardware; full separate50g is additional",
+      "mass_g": 20,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1140
+    },
+    {
+      "first_moment_kg_m": 0.0040358410158628675,
+      "function": "Rounded rear-face bights react directly into fore cap; three forward bridles replace aft-running loop topology",
+      "id": "A_three_integral_recovery_saddles",
+      "mass_basis": "Changed9mm to6mm bend radius; no finished hot capacity claimed",
+      "mass_g": 3.9858328473889775,
+      "source_ids": [
+        "runs/wo03-architecture-space-mass-20261102-v1/record.json"
+      ],
+      "station_mm": 1012.5464790894704
+    },
+    {
+      "first_moment_kg_m": 0.00684,
+      "function": "Allocation_only_no_new_thermal_solution_or_geometry_accepted",
+      "id": "S3_additional_thermal_protection",
+      "mass_basis": "Allocation_only_no_new_thermal_solution_or_geometry_accepted",
+      "mass_g": 6.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 1140.0
+    },
+    {
+      "first_moment_kg_m": 0.010799999999999999,
+      "function": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_connector",
+      "mass_basis": "Explicit planning allocation from connected-receiver config",
+      "mass_g": 12.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 900.0
+    },
+    {
+      "first_moment_kg_m": 0.00173,
+      "function": "Reserve_in_addition_to_source_lugs_not_a_selected_button_or_attachment",
+      "id": "S3_future_rail_button_conversion_extra",
+      "mass_basis": "Reserve_in_addition_to_source_lugs_not_a_selected_button_or_attachment",
+      "mass_g": 5.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 346.0
+    },
+    {
+      "first_moment_kg_m": 0.0021999999999999997,
+      "function": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_index_marks_service_locks",
+      "mass_basis": "Explicit planning allocation from connected-receiver config",
+      "mass_g": 2.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 1100.0
+    },
+    {
+      "first_moment_kg_m": 0.00303375,
+      "function": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_tail_fairing",
+      "mass_basis": "Explicit planning allocation from connected-receiver config",
+      "mass_g": 2.5,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 1213.5
+    },
+    {
+      "first_moment_kg_m": 0.001,
+      "function": "Explicit planning allocation from connected-receiver config",
+      "id": "S3_wire_strain_relief_clearance",
+      "mass_basis": "Explicit planning allocation from connected-receiver config",
+      "mass_g": 1.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 1000.0
+    },
+    {
+      "first_moment_kg_m": 0.0003596442481997397,
+      "function": "Three mica compression spacers isolate the motor aft bearing shoulder from the removable G11 retention plate. Bolts provide tensile capture; mica carries compression only. Exact case shoulder/nozzle/plume clearance, preload and hot compression must be verified.",
+      "id": "aft_thrust_pads",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.29932937844339547,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 1201.5000000000002
+    },
+    {
+      "first_moment_kg_m": 0.001323,
+      "function": "The arming switch gives an explicit hardware enable state.",
+      "id": "arming_switch",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 441.0
+    },
+    {
+      "first_moment_kg_m": 0.00312038896449013,
+      "function": "Custom removable sled establishes the sensor reference frame and service access.",
+      "id": "avionics_bay",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 9.04460569417429,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 345.0
+    },
+    {
+      "first_moment_kg_m": 0.0003255,
+      "function": "Ambient pressure provides a height estimate through an atmosphere model.",
+      "id": "baro",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 1.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 325.5
+    },
+    {
+      "first_moment_kg_m": 0.008175,
+      "function": "A 2S pack supplies regulator headroom through discharge.",
+      "id": "battery",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 30.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 272.5
+    },
+    {
+      "first_moment_kg_m": 0.029645234720650403,
+      "function": "Thin kraft tube provides efficient axial and bending stiffness.",
+      "id": "body_upper",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 56.03234701199932,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 529.0735851971698
+    },
+    {
+      "first_moment_kg_m": 0.0008874999999999999,
+      "function": "Estimated 5 g line and connector bookkeeping sensitivity only, not measured hardware. Existing mathematical envelope is reused for mass distribution, not a packed shape or CAD claim.",
+      "id": "canopy_line_connector_sensitivity",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 5.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 177.5
+    },
+    {
+      "first_moment_kg_m": 0.003305999999999999,
+      "function": "The Cortex-M7 FPU supports estimation and small policies at 250 Hz.",
+      "id": "flight_computer",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 12.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 275.49999999999994
+    },
+    {
+      "first_moment_kg_m": 0.00462,
+      "function": "The harness accounts for wires, connectors and strain relief.",
+      "id": "harness",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 12.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 385.0
+    },
+    {
+      "first_moment_kg_m": 0.0003577999999999999,
+      "function": "ADXL375 +/-200 g accelerometer records launch acceleration that clips the low-g IMU.",
+      "id": "high_g_accel",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 1.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 357.79999999999995
+    },
+    {
+      "first_moment_kg_m": 0.00065,
+      "function": "Gyros track angular rates; accelerometers measure specific force, not gravity alone during thrust.",
+      "id": "imu",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 2.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 325.0
+    },
+    {
+      "first_moment_kg_m": 0.0011971500000000001,
+      "function": "Altus Metrum EasyMini v3.0 independent barometric recovery controller envelope with its published four-hole board pattern.",
+      "id": "independent_recovery",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 399.05
+    },
+    {
+      "first_moment_kg_m": 0.0012450000000000002,
+      "function": "The log card records raw sensors, estimates, commands, fault state and supply voltage.",
+      "id": "micro_sd",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 415.00000000000006
+    },
+    {
+      "first_moment_kg_m": 0.14563520000000005,
+      "function": "The full commercial motor mass is counted exactly once.",
+      "id": "motor",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 128.20000000000002,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 1136.0000000000002
+    },
+    {
+      "first_moment_kg_m": 0.01143493562087603,
+      "function": "Nonstructural mica thermal barrier; deliberately excluded from motor thrust and reverse retention load paths.",
+      "id": "motor_liner",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 10.065964454996504,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 1136.0000000000002
+    },
+    {
+      "first_moment_kg_m": 0.0007454635163388264,
+      "function": "Nonstructural reflective foil reduces radiant heat from the liner to surrounding mechanisms.",
+      "id": "motor_radiant_shield",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.6562178841010795,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 1136.0000000000002
+    },
+    {
+      "first_moment_kg_m": 0.0034692731438086214,
+      "function": "Custom printed ogive and shoulder align recovery separation.",
+      "id": "nose_cone",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 33.01727368705547,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 105.07448848415251
+    },
+    {
+      "first_moment_kg_m": 0.009158999999999999,
+      "function": "A purchased 750 mm parachute is a preliminary budget for a 6 m/s descent screen at rho=1.1 kg/m3 and Cd=0.75.",
+      "id": "parachute",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 51.6,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 177.5
+    },
+    {
+      "first_moment_kg_m": 0.00132,
+      "function": "This board reserves the later electronic recovery channel in the netlist.",
+      "id": "pyro_mosfet",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 440.0
+    },
+    {
+      "first_moment_kg_m": 0.00021555771055666132,
+      "function": "Two purchased or custom rail guides maintain attitude during initial acceleration.",
+      "id": "rail_guides",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.6229991634585588,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 346.0
+    },
+    {
+      "first_moment_kg_m": 0.0008846357711803041,
+      "function": "Purchased M3 recovery eye and washer envelope: 3 mm shank passes through a 3.4 mm bulkhead hole, with eye forward and washer aft.",
+      "id": "recovery_anchor",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 4.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 221.15894279507603
+    },
+    {
+      "first_moment_kg_m": 0.009325787401574803,
+      "function": "Configured extra backbone mass; station is midpoint of primary junction and fore bight for point-mass bookkeeping",
+      "id": "recovery_backbone_extra_mass",
+      "mass_basis": "Configured extra backbone mass; station is midpoint of primary junction and fore bight for point-mass bookkeeping",
+      "mass_g": 9.84251968503937,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 947.5
+    },
+    {
+      "first_moment_kg_m": 0.0012528,
+      "function": "Dedicated 1S 120 mAh LiPo envelope for the recovery controller; no connection to the flight-computer battery net.",
+      "id": "recovery_battery",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.6,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 348.00000000000006
+    },
+    {
+      "first_moment_kg_m": 0.00011794999999999998,
+      "function": "8 mm woven nylon retaining band over the cell. Band path/closure remains an estimated flexible restraint.",
+      "id": "recovery_battery_band",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.35,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 337.0
+    },
+    {
+      "first_moment_kg_m": 0.00023109913499999997,
+      "function": "Printed cradle floor and three perimeter rails for the dedicated 1S cell; open at JST lead end.",
+      "id": "recovery_battery_tray",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.6636675,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 348.21523579201937
+    },
+    {
+      "first_moment_kg_m": 0.006878177037630102,
+      "function": "Custom plywood bulkhead transfers parachute loads into the upper tube rather than electronics.",
+      "id": "recovery_bulkhead",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 30.2337452203521,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 227.5
+    },
+    {
+      "first_moment_kg_m": 0.0013966749999999998,
+      "function": "Estimated 4.4 mm component keepout over the EasyMini PCB; only the four 5.4 mm reliefs are represented, exact component locations require board revision drawing/inspection.",
+      "id": "recovery_easymini_components",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.5,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 399.05
+    },
+    {
+      "first_moment_kg_m": 0.000272654385449683,
+      "function": "Four nylon M3 x 12 screws; 5.5 mm head and shank geometry is estimated, exact head/thread fit and preload unknown.",
+      "id": "recovery_fasteners",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.683258703043937,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 399.05
+    },
+    {
+      "first_moment_kg_m": 0.0016267229122820166,
+      "function": "G11 mounting plate, 92 x 26 x 1 mm, with EasyMini/standoff and six sled fastener clearance holes.",
+      "id": "recovery_mount_carrier",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 4.297337178998893,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 378.5420702456906
+    },
+    {
+      "first_moment_kg_m": 0.0011803849725428432,
+      "function": "Residual of the active 6.283 g generic mount allowance after subtracting explicit CAD-derived replacement cradle, restraint and fastener masses.",
+      "id": "recovery_mount_hardware_allowance",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.139321735486285,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 376.0
+    },
+    {
+      "first_moment_kg_m": 9.783550821567573e-05,
+      "function": "Four nylon square-nut envelopes behind carrier plate; captive geometry and thread engagement not specified.",
+      "id": "recovery_nuts",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.2451710517871839,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 399.05
+    },
+    {
+      "first_moment_kg_m": 0.0016799999999999999,
+      "function": "Estimated service wiring and connector allowance for the recovery controller's own output bundle.",
+      "id": "recovery_output_harness",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 4.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 420.0
+    },
+    {
+      "first_moment_kg_m": 0.001739,
+      "function": "Separate external positive-line rotary arming switch for the dedicated recovery battery.",
+      "id": "recovery_power_switch",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 3.7,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 470.00000000000006
+    },
+    {
+      "first_moment_kg_m": 0.0012599999999999998,
+      "function": "A flame-resistant blanket isolates the packed parachute from ejection gas.",
+      "id": "recovery_protection",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 6.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 210.0
+    },
+    {
+      "first_moment_kg_m": 0.0002481685063164798,
+      "function": "Six nylon M2.5 x 12 fastener envelopes through G11 plate and three sled crossbars; estimated 4.6 mm head radius leaves 0.6 mm nominal axial clearance to the controller aft end at station 0.421 m.",
+      "id": "recovery_sled_fasteners",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.6357860964555416,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 390.33333333333337
+    },
+    {
+      "first_moment_kg_m": 7.591054414385948e-05,
+      "function": "Four nylon nut envelopes at the far side of the sled crossbars; crossbar reinforcement and captive retention are proposed, not active geometry.",
+      "id": "recovery_sled_nuts",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.1944762019057032,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 390.3333333333333
+    },
+    {
+      "first_moment_kg_m": 0.00014494978031909985,
+      "function": "Six 8 x 8 x 1 mm ASA pads proposed on the sled underside at three crossbars to spread M2.5 clamping load; active sled is unchanged.",
+      "id": "recovery_sled_reinforcement",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.3713487113213489,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 390.33333333333337
+    },
+    {
+      "first_moment_kg_m": 4.255899671359266e-05,
+      "function": "Four nylon M3 spacers, 5 mm OD x 3.2 mm bore x 6.4 mm long, with 5.4 x 4.4 mm component-side reliefs.",
+      "id": "recovery_standoffs",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.10665078740406629,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 399.05
+    },
+    {
+      "first_moment_kg_m": 0.0009767161543279535,
+      "function": "30 x 30 x 1.6 mm G11 switch doubler envelope bonded over the radial panel port; local curved fit is not developed.",
+      "id": "recovery_switch_g11_doubler",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 2.078119477293518,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 470.00000000000006
+    },
+    {
+      "first_moment_kg_m": 0.00334,
+      "function": "The regulator supplies logic and servos from the 2S battery.",
+      "id": "regulator_5v",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 8.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 417.50000000000006
+    },
+    {
+      "first_moment_kg_m": 0.0011185,
+      "function": "Explicit service-port cover allowance, counted separately from other additional items",
+      "id": "service_port_covers",
+      "mass_basis": "Explicit service-port cover allowance, counted separately from other additional items",
+      "mass_g": 1.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_lock"
+      ],
+      "station_mm": 1118.5
+    },
+    {
+      "first_moment_kg_m": 0.00212,
+      "function": "A heat-resistant recovery harness gives separation travel and transfers opening load.",
+      "id": "shock_cord",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 10.0,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 212.0
+    },
+    {
+      "first_moment_kg_m": 0.00032043209962365486,
+      "function": "Three nonstructural mica compression pads separate the commercial case forward bearing face from the G11 thrust stop. Compression area, heat flow and case-shoulder compatibility are explicit checks; mica is not a tension or retention member.",
+      "id": "thrust_pads",
+      "mass_basis": "Frozen source-73 mass input; estimate/CAD-derived input, not measured C1",
+      "mass_g": 0.29932937844339547,
+      "source_ids": [
+        "web/public/engineering-workbench/g80-c1.json",
+        "source_spec",
+        "source_lock"
+      ],
+      "station_mm": 1070.5000000000002
+    }
+  ],
+  "full_intrinsic_inertia": null,
+  "id": "G80_A1_nonnegative_component_bookkeeping_20261102_v1",
+  "input_sha256": {
+    "runs/wo03-a1-connections-20261102-v1/record.json": "7cf1284d869e217d5bede026f54f798fb928d9aa1d47b343642c3d3c7777627c",
+    "runs/wo03-architecture-space-mass-20261102-v1/record.json": "7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2",
+    "scripts/wo03_a1_resolved_ledger.py": "460e23fb63a735fbaa292b6c6706234e272de3e116addbd98d89b294adce3313",
+    "web/public/engineering-workbench/g80-c1.json": "1481b5fb7f18b8fa39aea5aa2db0491d6828da28eccf3729f81abf550eaf288f"
+  },
+  "nominal_first_moment_kg_m": 0.917096150448376,
+  "nominal_total_g": 1074.7624351942488,
+  "resources": {
+    "cpu_limit_s": 1,
+    "cpu_s": 0.001799000000000002,
+    "engineering_or_guide_rerun": false,
+    "wall_limit_s": 5,
+    "wall_s": 0.0018158340244553983
+  },
+  "separate_growth": {
+    "first_moment_kg_m": 0.061349999999999995,
+    "mass_g": 50.0,
+    "station_mm": 1227.0
+  },
+  "source_component_count": 135,
+  "status": "accounting_export_only_A1_not_admitted",
+  "subtotal_first_moment_kg_m": 0.855746150448376,
+  "subtotal_without_separate_growth_g": 1024.7624351942488,
+  "validated_new_CP_mm": null
+}

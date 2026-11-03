@@ -1,5 +1,11 @@
 # Current G80 architecture decision
 
+The published A/B numbers below are frozen. The separately executed
+[A1 connection follow-up](wo03-a1-connection-decision.md) is not admitted:
++106.454g, complete1074.762/1094.762g with50g, failed baseline guide and
+conservative bolt screen. Its bounded aft gap passes only under stated inputs.
+It defines real joints, not installed qualification, and does not alter this study.
+
 **Prefer A, the integrated through-body motor/fin can, for the next bounded
 connection study. Neither arrangement is admitted to detailed vehicle CAD or
 finite-element analysis.** A removes161.498 g from C1 and removes the C3

@@ -1897,3 +1897,20 @@ inertia remain unavailable. The single20CPU/30wall-second packet used0.431/
 0.507seconds, without CAD/FEA/thermal/free-flight or repeated stopped runs.
 Actual offline concept drawings and expanded workbench graphics are separate
 presentation evidence, not engineering qualification or browser acceptance.
+
+
+## A1 local connections —2026-11-02
+
+One bounded packet `runs/wo03-a1-connections-20261102-v1/record.json` completed
+in0.326CPU/0.372wall seconds below20/30s, no old-run repeat/CAD/FEA/heat/free flight.
+New sleeve/stop/index/retention/routed harness is explicit. Bounded aft radial
+gap minimum0.1171mm exceeds0.1 only under proposed unmeasured bounds.
+Complete +106.453572g versus A gives1074.762435/1094.762435g including separate50g;
+1.5m speeds14.059073/13.912018 fail15. Adverse formal/planning deficits
+136.364498/190.908303g. Conservative one-bolt combined463.661MPa exceeds
+200MPa estimated hot screen. Qualified bearing, peel, paper, finite stiffness,
+thermal/current motor and flutter remain open. CP/drag are reference hypotheses
+because collar/heads change aero; new CP and full inertia null. No installed
+requirement closes; no detailed admission. See `docs/wo03-a1-connection-decision.md`.
+The separate resolved accounting export has90 unique nonnegative rows, including
+reserves, not90 proven installed parts. Historical C1/A/B and R1/C2/C3 preserved.
