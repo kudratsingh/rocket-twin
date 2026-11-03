@@ -1,5 +1,25 @@
 # Current bounded work list
 
+## Current G80-F1 packet
+
+| Deliverable / owner | Identity and criterion | Budget / stop | Actual status |
+| --- | --- | --- | --- |
+| Conventional architecture / primary |ADR0013,42-part standalone candidate; complete connections,50g/20g separate |One architecture,one correction,30CPU/60wall each; no detailed CAD until admission |v1/v2 complete; stability/severe ring fail,exact supplier fit unknown. No automatic revision |
+| Manufacturer/recovery sources / Sol HIGH |Two manufacturer manuals,property/finished joint boundaries |15URLs/20min + separately declared4URL/5min supply hold |References complete; no kit capacity transferred |
+| Exact-once inventory/recovery review / Sol HIGH |A1 function audit,20.4/.3/DF3 origins/mechanisms |Local bounded audit; no physical tests |Complete; no recovery criterion reduced |
+| New F1 graphics / Sol HIGH |Separate source-hashed snapshot; existing inspector/replay preserved |45min+one correction,offline120s; no browser retry |Implemented; final offline image/interaction status in walkthrough note |
+| Prototype/build definition / primary |Spec/BOM/critical joints/assembly/test plan |Stop at failed/unknown admission |Preliminary definitions delivered; not released to manufacture |
+| Publication / primary |Focused PR and both required jobs; private repo |No independent review gate,no force push |Publication/checkpoint follows current head |
+
+Older worklist below is frozen historical context.
+
+
+**Now: G80-F1 simplification** [packet](wo03-g80-fixed-packet.md), primary owns
+selection/acceptance; Sol HIGH agents own manufacturer/recovery/material evidence,
+function/ledger bookkeeping and separate F1 graphical view. One architecture,
+one scoped correction, no automatic bracket sequence. A2 research/inventory
+retained but no A2 design run; A1 table below is frozen history.
+
 Additional source-layout check: [A1 occupancy audit](wo03-a1-occupancy-audit.md),
 one1CPU/5wall analytic packet, no old-run repetition. It finds seat/retained
 mica/foil overlap. No design correction adopted; graphics/evidence refresh only.

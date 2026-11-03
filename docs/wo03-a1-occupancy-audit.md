@@ -1,5 +1,8 @@
 # A1 retained material occupancy — declared read-only audit
 
+Historical frozen failure. Dedicated G80-F1 replaces A1 as the active study;
+no A1 liner trim, seat shift or rerun follows from the owner simplification.
+
 One1CPU/5wall-second annular interval audit, no design iteration, CAD, heat,
 guide or structural solve. Source A1 seat and retained C1 liner/shield dimensions
 are compared as concentric annuli. Preserve the result, refuse overwrite and

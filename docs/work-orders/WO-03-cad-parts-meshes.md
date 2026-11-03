@@ -1,5 +1,11 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+Current delivery: dedicated fixed G80-F1 under[ADR-0013](../adr/0013-dedicated-conventional-g80.md)
+and[bounded packet](../wo03-g80-fixed-packet.md). Physical interchangeability is
+optional for first G80. Deliver one coherent specification/CAD/mass/construction
+package after feasibility, with mechanism-based recovery review and explicit
+prototype versus physical/flight gates. G54/G12 and aggregate criteria remain.
+
 Latest local connection decision: [A1](../wo03-a1-connection-decision.md), separate
 from frozen C1/A/B. Actual joint dimensions and complete mass are now recorded,
 but baseline guide/bolt screens fail and installed/hot/source evidence is open.

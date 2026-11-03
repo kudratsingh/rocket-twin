@@ -1,5 +1,7 @@
 # Status
 
+**Current priority: G80-F1 dedicated conventional design, ADR-0013.** See [CURRENT](CURRENT.md) and [F1 decision](wo03-g80-f1-decision.md). One correction complete,817.506/837.506g with growth; guide passes, static/recovery/fit/installed/thermal admission stays open. WO03 remains open; full WO04/05 and release gates unchanged. Earlier A1/A/B statements below are historical.
+
 **A1 seat/liner layout audit:** [separate read-only record](wo03-a1-occupancy-audit.md)
 finds declared solid overlap atz1193–1195, with retained mica/foil continuing1200.
 Original A1 results stay frozen; no thermal-barrier trim, motor move or rerun.

@@ -1,5 +1,39 @@
 # Current engineering and inspection checkpoint
 
+**G80-F1 dedicated fixed conventional rocket is the delivery direction.**
+[Current decision and complete budget](wo03-g80-f1-decision.md),
+[bounded packet](wo03-g80-fixed-packet.md), [ADR-0013](adr/0013-dedicated-conventional-g80.md).
+Physical interchangeability is optional; no future gimbal/servo hardware in G80.
+G54 upgrade and G12/PID-to-RL remain committed separate tracks.
+
+One correction finished: continuous body1060mm,1250mm overall, fixed TTW fins,
+fixed paper motor mount and laminated forward ring. Nominal/adverse totals
+**817.506/837.506g including separate full50g**, reference1.5m departure
+**16.388/16.170m/s**. Both guide thresholds pass, but static margins
+**.743/.556cal fail1.0**. The severe recovery ring strip still fails; actual
+motor/retainer fit, installed root stiffness/flutter, hot/wet properties and
+thermal matrix remain unresolved. A matching one-piece1060mm tube is not sourced; LOC stock is shorter with different bore/OD. **Not admitted to detailed vehicle CAD or
+manufacture; no installed engineering requirement closes.** No third revision
+or failed/stopped old campaign was started.
+
+The new source-linked graphical snapshot is separate from old C1/A1 assemblies:
+`make preview`, then `http://127.0.0.1:5173/?workspace=engineering&view=g80-fixed`.
+It shows the42-row concept/envelope ledger, fixed construction/assembly,
+recovery/motor/fin routes and failed current/first geometry comparisons. It is
+not manufacturing-ready CAD. Backend GETs display saved calculations only.
+Offline images and browser interaction acceptance are separately recorded in
+[the walkthrough note](wo04-conventional-g80-walkthrough.md).
+
+## Frozen historical checkpoints
+
+
+**Current priority: G80-F1 dedicated conventional rocket**, under
+[ADR-0013](adr/0013-dedicated-conventional-g80.md) and the
+[bounded simplification packet](wo03-g80-fixed-packet.md). Physical aft/upper
+interchangeability is optional. One fixed paper/plywood architecture is selected;
+no G80 control/gimbal provisions. A2 intake stopped before numerical execution.
+The A1 and earlier results below are historical, not the design to refine now.
+
 **Current A1 decision: hold detailed admission.** The [connection report](wo03-a1-connection-decision.md)
 includes a new [seat/liner occupancy failure](wo03-a1-occupancy-audit.md): proposed
 seatz1193–1195 overlaps retained mica/foil ending1200. No automatic trim or move.

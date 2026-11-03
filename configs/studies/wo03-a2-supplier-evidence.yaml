@@ -1,0 +1,166 @@
+schema_version: '1.0'
+id: wo03_a2_supplier_evidence_20261102
+status: research_only_a2_motor_interface_and_recovery_unresolved
+access_date_local: '2026-11-02'
+research_bounds:
+  maximum_new_unique_official_technical_urls: 10
+  opened_new_unique_official_technical_urls: 10
+  readable_new_unique_official_technical_urls: 9
+  failed_new_unique_official_technical_urls: 1
+  active_research_limit_minutes: 15
+  stop_reason: new_source_url_cap_reached_with_motor_mating_and_finished_harness_evidence_open
+  counting_basis: Unique newly opened official manufacturer/technical URLs; search discovery and prior-source rereads excluded
+  raw_page_archive: null
+  content_hashes: null
+  no_browser_scripts_solves_contact_purchase_or_physical_work: true
+prior_registers:
+  - configs/studies/wo03-architecture-sources.yaml
+  - configs/studies/wo03-a1-connection-sources.yaml
+unchanged_project_context:
+  a1_frozen_and_stopped: true
+  a2_admitted_to_detailed_cad_or_fea: false
+  active_configuration_changed: false
+  baseline_usable_guide_m: 1.5
+  formal_guide_departure_mps: 15
+  separate_planning_guide_departure_mps: 15.5
+  separate_growth_g: 50
+  additional_adverse_g: 20
+  g80_first: true
+  g54_g12_shared_findings_cleared: false
+motor_interface:
+  current_sku: AeroTech_G80-10T_78010
+  current_case_bulkhead_nozzle_material: polymer_as_current_manufacturer_page
+  manufacturer_nominal_case_od_in: 1.125
+  manufacturer_nominal_casing_length_in: 4.875
+  current_case_od_tolerance: null
+  current_ring_od_thickness_and_axial_datum: null
+  current_nozzle_projection_and_contour: null
+  current_forward_end_and_ejection_clearance: null
+  current_hot_growth_and_case_contact_limit: null
+  current_installed_retention_capacity: null
+  historical_2007_phenolic_ring_od_in: 1.25
+  historical_2007_phenolic_ring_length_in: 0.25
+  historical_ring_transfer_to_current_sku_permitted: false
+  separate_DMS_G80T-14A_drawing_transfer_permitted: false
+  NAR_family_assembled_length_mm_from_prior_packet: 128
+  casing_124_assembled_128_datum_reconciled: false
+retainer_interface:
+  proposed_sku: Estes_009750
+  product_material: heat_resistant_ABS_as_manufacturer_says
+  product_type: threaded
+  manufacturer_compatibility_words: most_29mm_composites
+  explicit_78010_pairing_approved: false
+  cap_skirt_lip_thread_and_seat_dimensions: null
+  mount_tube_OD_overhang_and_adhesive_requirements: null
+  hot_limit_and_reverse_load_capacity: null
+  related_009743_kit_mount_tube_id_in: 1.140
+  related_009743_kit_mount_tube_od_in: 1.210
+  related_009743_tube_dimensions_transfer_to_a2: false
+existing_a1_occupancy_failure:
+  seat_z_mm: [1193, 1195]
+  seat_radius_mm: [14.6, 17.2]
+  mica_and_foil_z_mm: [1072, 1200]
+  mica_radius_mm: [14.7, 15.1]
+  foil_radius_mm: [15.1, 15.12]
+  axial_intersection_mm: 2
+  analytic_not_full_cad_collision: true
+  automatic_barrier_trim_or_seat_move_permitted: false
+recovery_interface:
+  continuous_backbone_topology_source_informed: true
+  finished_assembly_qualified_by_sources: false
+  effective_main_backbone_length_m: 2.5
+  approximate_upper_branch_length_m: 1.8
+  approximate_nose_branch_length_m: 0.6
+  prior_12p7mm_flat_bally_linear_mass_g_per_m: 17.36
+  prior_flat_bally_is_interchangeable_with_round_cord: false
+  lighter_round_cord_selected: false
+  apogee_storefront_weight_is_verified_g_per_foot: false
+  finished_harness_linear_or_assembly_mass: null
+  exact_webbing_cord_eye_seam_thread_connector: null
+  bend_radius_contact_width_chafe_and_route: null
+  conditioned_asymmetric_dynamic_system_capacity: null
+  ring_bond_body_and_upper_transfer_capacity: null
+sources_new:
+  - id: estes_009750_current
+    publisher: Estes Rockets
+    url: https://estesrockets.com/products/pro-series-ii-29-mm-motor-retainer-set
+    access: readable
+    locator: SKU_009750_Details_and_Features
+    supports: Threaded heat-resistant ABS retainer; Estes E16 F15 and most 29mm composite compatibility claim
+    missing: Dimensioned mating drawing, explicit 78010 fit, mount-tube/adhesive instructions, hot and reverse-load limits
+  - id: rcs_dms_design_index
+    publisher: RCS Rocket Motor Components
+    url: https://www.rocketmotorparts.com/page/single-use-motor-designs
+    access: readable
+    locator: DMS_29mm_G80T-14A_link
+    supports: Offered G80 motor-design drawing is DMS G80T-14A
+    missing: Enerjet SKU78010 drawing; DMS identity is not interchangeable
+  - id: rcs_molded_phenolic_casing
+    publisher: RCS Rocket Motor Components
+    url: https://www.rocketmotorparts.com/browse/cat1577810_4154613.aspx
+    access: readable
+    locator: 29_X_124mm_Molded_Casing
+    supports: Separate glass-phenolic casing listed with nominal 1.125in OD and 4.875in length and a thrust ring
+    missing: Current polymer SKU78010 assembled ring/nozzle and tolerance; separate casing is not sold-lot proof
+  - id: estes_009743_mount_kit
+    publisher: Estes Rockets
+    url: https://estesrockets.com/products/bt-80-29mm-engine-mount-kit
+    access: readable
+    locator: SKU_009743_Details_and_Features
+    supports: Related kit has 1.140in ID 1.210in OD 8in tube and included 29mm retainer
+    missing: Explicit 009750 component identity, A2 structural-tube fit, dimensions and tolerances of retainer
+  - id: apogee_level2_instructions
+    publisher: Apogee Components
+    url: https://www.apogeerockets.com/downloads/PDFs/07230-Level-2-Instructions.pdf
+    access: readable
+    locator: Assembly_steps_1_to_5_and_13_to_16
+    supports: Conventional 54mm motor-tube/centering-ring/forged-eye/washer-nut route to lower shock cord and upper bulkhead
+    missing: A2 finished continuous-backbone, ring/bond/body, eye/bend/connector conditioned dynamic capacity
+  - id: apogee_shock_cord_anchor_article
+    publisher: Apogee Components
+    url: https://www.apogeerockets.com/Peak-of-Flight/Newsletter573
+    access: readable
+    locator: Installing_a_Shock_Cord_on_the_Engine_Mount
+    supports: Documents tube/ring shock-cord anchor and removable-route construction concepts
+    missing: A2 specific hardware geometry and finished installed capacity
+  - id: apogee_shock_cord_comparison
+    publisher: Apogee Components
+    url: https://apogeerockets.com/Building_Supplies/Parachutes_Recovery_Equipment/Shock_Cord
+    access: readable
+    locator: Comparison_Shock_Cord_table
+    supports: Lists raw Kevlar cord diameters and storefront Weight figures alongside per-foot sold product listings
+    missing: Explicit grams-per-foot attribution, finished length-plus-mass, eye/bend/installed capacities
+  - id: onebadhawk_3_16_two_loop
+    publisher: Onebadhawk Recovery Harnesses
+    url: https://onebadhawk.com/316-tubular-kevlar--2-loop.html
+    access: fetch_timeout
+    supports: null
+    missing: Page contents unavailable; search snippet not promoted to finished-loop mass or capacity evidence
+  - id: apogee_750_kevlar_cord
+    publisher: Apogee Components
+    url: https://www.apogeerockets.com/Building-Supplies/Shock-Cord/Kevlar-Cord-750
+    access: readable
+    locator: Model_29507_weight_outer_diameter_additional_info
+    supports: Lists raw braided Kevlar cord 0.070in OD, 0.8g storefront Weight, 750lb test claim and per-foot pricing
+    missing: Weight is not explicitly grams-per-foot rather than storefront unit/shipping mass; finished eye bend hot/wet dynamic rating
+  - id: apogee_1500_kevlar_cord
+    publisher: Apogee Components
+    url: https://www.apogeerockets.com/Building_Supplies/Parachutes_Recovery_Equipment/Shock_Cord/Kevlar_Cord_1500
+    access: readable
+    locator: Model_30327_weight_outer_diameter_additional_info
+    supports: Lists raw braided Kevlar cord 0.137in OD, 2g storefront Weight, 1500lb test claim and per-foot pricing
+    missing: Weight is not explicitly grams-per-foot rather than storefront unit/shipping mass; finished eye bend hot/wet dynamic rating
+sources_reused_not_counted:
+  - id: aerotech_current_78010
+    register: configs/studies/wo03-a1-connection-sources.yaml
+    url: https://aerotech-rocketry.com/products/product_bea030f5-871e-61ef-1279-45a2bbebbd87
+  - id: g80_2007_release_and_instructions
+    register: configs/studies/wo03-architecture-sources.yaml
+  - id: nar_g80_family_certification
+    register: docs/wo03-launch-guide-motor-trade.md
+  - id: samson_rope_warning
+    register: configs/studies/wo03-architecture-sources.yaml
+owner_request_after_source_exhaustion:
+  - Identify intended 78010 lot and 009750 revision; provide controlled current mating/installation drawings or later permit measurement of identified unmodified hardware.
+  - Identify exact finished harness, eye, connector and bend/contact geometry plus verified linear or finished assembly mass and available manufacturer conditioned system capacities.
+stop_condition: Unknown_or_failed_motor_barrier_retainer_recovery_occupancy_or_complete_mass_prevents_detailed_A2_admission

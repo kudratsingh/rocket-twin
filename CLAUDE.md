@@ -27,8 +27,11 @@ must not select the design. Use certified commercial motors and appropriate purc
 components, with meaningful custom structures, mechanisms and integration.
 
 The physical platform has three explicit configurations: conventional fixed-motor
-finned performance, finned TVC trainer, and eventual finless TVC. Share the upper
-airframe, avionics and recovery where sensible; aft modules and motors may differ.
+finned performance, finned TVC trainer, and eventual finless TVC. For the first G80, ADR-0013 makes physical interchangeability optional: use a
+dedicated fixed conventional airframe when that removes duplicated structure.
+Do not include future gimbal/servo hardware. Share software, instrumentation,
+specification methods and frontend; G54/G12 own physical checks. Other tracks
+may share upper hardware where justified; aft modules and motors may differ.
 `configs/platform.yaml` identifies the active modes and common YAML assembly. Every
 resolved mode owns its actual parts, mass/CG/inertia, fins, aerodynamics and evidence.
 Never remove fins with an aerodynamic flag while retaining their mass or reuse a
