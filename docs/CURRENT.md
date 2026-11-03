@@ -1,6 +1,9 @@
 # Current engineering and inspection checkpoint
 
 **Current A1 decision: hold detailed admission.** The [connection report](wo03-a1-connection-decision.md)
+includes a new [seat/liner occupancy failure](wo03-a1-occupancy-audit.md): proposed
+seatz1193–1195 overlaps retained mica/foil ending1200. No automatic trim or move.
+The remainder of the report
 defines a sleeve, stop, keys, bolts, actual upper bond and routed harness. Bounded
 aft clearance0.1171mm passes0.1 only within unmeasured inputs. Full added
 hardware/mass is+106.454g versus frozen A:1074.762/1094.762g including separate50g.

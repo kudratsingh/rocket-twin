@@ -1,5 +1,10 @@
 # Status
 
+**A1 seat/liner layout audit:** [separate read-only record](wo03-a1-occupancy-audit.md)
+finds declared solid overlap atz1193–1195, with retained mica/foil continuing1200.
+Original A1 results stay frozen; no thermal-barrier trim, motor move or rerun.
+This is another failed admission item, not merely missing supplier evidence.
+
 **A1 connection follow-up,2026-11-02:** [complete report](wo03-a1-connection-decision.md).
 Local sleeve/stop/key/bolts/bonds/harness are dimensioned; one bounded packet
 executed without old-run repeats. Aft minimum0.1171mm is a conditional calculation,

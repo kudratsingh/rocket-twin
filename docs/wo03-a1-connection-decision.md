@@ -1,5 +1,10 @@
 # A1 connection decision — hold detailed admission
 
+**Additional source-layout failure:** the [read-only occupancy audit](wo03-a1-occupancy-audit.md)
+finds the proposed thrust seat intersects the unchanged mica liner and foil
+atz1193–1195. They extend toz1200. No liner trimming or motor relocation is
+adopted; old seat strip arithmetic is not a geometrical acceptance result.
+
 **A1 makes the local interface explicit but is not a buildable accepted vehicle.**
 The bounded aft fit screen passes within its stated inputs. The complete mass
 and conservative radial-bolt connection screens fail. No whole-vehicle CAD,

@@ -1914,3 +1914,14 @@ because collar/heads change aero; new CP and full inertia null. No installed
 requirement closes; no detailed admission. See `docs/wo03-a1-connection-decision.md`.
 The separate resolved accounting export has90 unique nonnegative rows, including
 reserves, not90 proven installed parts. Historical C1/A/B and R1/C2/C3 preserved.
+
+
+### A1 retained-material occupancy follow-up
+
+The separately bounded read-only audit
+`runs/wo03-a1-occupancy-audit-20261102-v1/record.json` finds proposed
+seatz1193–1195/R14.6–17.2 intersects retained mica and foil continuing to1200.
+Declared coaxial intersections are74.895569 and3.797557mm³. No original A1
+run, design/mass/thermal correction, liner trim or motor relocation occurred.
+This adds a failed geometric admission item; it does not close a requirement.
+The v5 separate graphical snapshot exposes the failed path with8 pinned sources.

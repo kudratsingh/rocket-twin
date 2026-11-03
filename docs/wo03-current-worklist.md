@@ -1,5 +1,9 @@
 # Current bounded work list
 
+Additional source-layout check: [A1 occupancy audit](wo03-a1-occupancy-audit.md),
+one1CPU/5wall analytic packet, no old-run repetition. It finds seat/retained
+mica/foil overlap. No design correction adopted; graphics/evidence refresh only.
+
 **Current task:** separately identified [A1 packet](wo03-a1-connection-packet.md)
 and [executed decision](wo03-a1-connection-decision.md). One0.326CPU/0.372wall
 packet completed: bounded local fit passes, full baseline mass and conservative

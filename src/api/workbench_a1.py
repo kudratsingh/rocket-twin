@@ -234,11 +234,11 @@ def build_workbench_a1(root: Path = ROOT) -> dict[str, Any]:
             "Motor forward thrust —450N case",
             [
                 "Current G80 ring/nozzle geometry UNKNOWN",
-                "Defined2mm seat / shortened structural tube",
+                "Proposed2mm seat overlaps liner/foil",
                 "Continuous root-web bonds / outer can",
                 "Finite can / actual upper connection",
             ],
-            "450N factored forward and reverse are separate motor cases, not parachute load. Seat16.318MPa strip screen is conditional; ring cantilever alternative78.577MPa exceeds25, not adopted as a rigid support.",
+            "450N forward case. The source-layout audit finds a2mm axial seat overlap with retained mica/foil, so the seat is not geometrically admissible. Original16.318MPa strip arithmetic cannot close that conflict. Reverse retention is a separate path.",
         ),
         (
             "motor_reverse",
@@ -268,7 +268,7 @@ def build_workbench_a1(root: Path = ROOT) -> dict[str, Any]:
             "id": pid,
             "label": label,
             "sequence": sequence,
-            "state": "failed" if pid == "upper" else "unavailable",
+            "state": "failed" if pid in ("upper", "motor_forward") else "unavailable",
             "note": note,
             "source_ids": src,
         }
@@ -399,6 +399,13 @@ def build_workbench_a1(root: Path = ROOT) -> dict[str, Any]:
         },
         "cases": cases,
         "findings": [
+            {
+                "id": "seat_liner_overlap",
+                "label": "Thrust seat intersects retained thermal barrier",
+                "state": "failed",
+                "note": "Declared coaxial annuli overlap atz1193–1195: micaR14.7–15.1 and foilR15.1–15.12 both intersect proposed seatR14.6–17.2. Liner/foil endz1200. No trimming, motor shift, mass or thermal correction was adopted.",
+                "source_ids": ["a1_occupancy"],
+            },
             finding(
                 "bolt",
                 "Combined radial-bolt screen failed",
