@@ -10,10 +10,12 @@ test('focusing a hidden part restores just that part and retains the viewing ang
   state().focusPart('motor');
   assert.equal(state().selectedId, 'motor');
   assert.equal(state().focusId, 'motor');
+  assert.equal(state().cameraAction, 'focus');
   assert.equal(state().cameraView, 'aft');
   assert.deepEqual(state().hiddenIds, ['shell', 'battery']);
   state().fitVisible();
   assert.equal(state().focusId, null);
+  assert.equal(state().cameraAction, 'fit');
   assert.equal(state().cameraView, 'aft');
   assert.deepEqual(state().hiddenIds, ['shell', 'battery']);
 });
@@ -32,6 +34,7 @@ test('switching designs clears display modes and focus so candidate settings do 
   assert.equal(state().selectedId, null);
   assert.equal(state().focusId, null);
   assert.equal(state().cameraView, 'overview');
+  assert.equal(state().cameraAction, 'reset');
   assert.equal(state().ghostShell, false);
   assert.equal(state().wireframe, false);
   assert.equal(state().partLabels, true);

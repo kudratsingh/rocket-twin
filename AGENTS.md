@@ -1,5 +1,15 @@
 # Agent entry point
 
+2026-11-03 frontend direction: execute the supplied43-task planning kit through
+focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
+(ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex
+workspace code; Terra HIGH owns bounded camera/replay/bookkeeping slices;
+primary owns shared integration and engineering acceptance. Preserve existing
+features and exact source identities. Early preview remains authorized while
+WO-03 stays open. Browser verification remains blocked by the original
+designated-agent ownership prerequisite; source/build/offline checks do not
+clear it or any physical/flight gate.
+
 G80-F2 is the separate actual-stock construction follow-up to frozen F1. See `docs/wo03-g80-f2-decision.md` (relative to repository root). Only local joint CAD is executed; static/formal-guide passes do not close installed recovery/fin, thermal, exact motor fit, planning-speed or full WO-03 gates. Preserve G54 and G12/PID-to-RL separately.
 
 **Latest owner direction: dedicated conventional G80 simplification.** Read

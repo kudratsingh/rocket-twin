@@ -1,0 +1,1336 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-11-03",
+  "scope": "Conservative planning and partial implementation ledger; task acceptance is not inferred from code checks.",
+  "source_kit": {
+    "path": "output/frontend-planning-kit-20261103",
+    "manifest_sha256": "4e2c647017b36ed5368ac757e873fe30d9f314f5e02fc01cf98943432ce93010",
+    "backlog_json_sha256": "e0a717dabaf59794841861fd6febd8999e4bbec23464e1cd6e7e247840c0d20c",
+    "hash_note": "Hashes identify the named files; manifest lists individual kit file hashes and excludes itself."
+  },
+  "source_context": [
+    "docs/wo03-g80-f2-decision.md",
+    "docs/wo03-g80-f2-coupled-accounting.md",
+    "docs/wo03-g80-f2-cost-and-placement.md",
+    "docs/wo04-f2-construction-walkthrough.md"
+  ],
+  "evidence_policy": "False browserObserved means no current increment observation is asserted, not that historical observations cannot exist. Every accepted field remains false pending the task-specific acceptance evidence.",
+  "tasks": [
+    {
+      "id": "FT-001",
+      "phase": "P0",
+      "title": "Record source and configuration identity baseline",
+      "owner_role": "primary_integrator",
+      "dependencies": [],
+      "status": "partial",
+      "deliverables": [
+        "Versioned source/run/CAD inventory",
+        "Current-index reconciliation note"
+      ],
+      "acceptance": [
+        "F1, F2 and archived modular records remain separately identified; active default is resolved from owner direction",
+        "Missing Git metadata or CAD revisions are recorded, not inferred"
+      ],
+      "estimate_class": "S",
+      "browser_required": false,
+      "risk": "Current indexes conflict; an incorrect default could silently relabel evidence.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "docs/CURRENT.md",
+            "docs/wo04-focused-preview-20261103.md"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-002",
+      "phase": "P0",
+      "title": "Define focused page and selection contracts",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-001"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Page responsibility map",
+        "Route, selection and drawer contracts"
+      ],
+      "acceptance": [
+        "Design, Engineering, Experiments, Flight Replay and Analysis each have one primary workspace; Mission Control is optional",
+        "Compact maturity indicator persists; detailed evidence is contextual"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "Shared route/state churn can create overlapping edits.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "docs/UI.md",
+            "docs/adr/0014-focused-engineering-workspaces.md",
+            "web/src/workspaces/navigation.ts"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-003",
+      "phase": "P0",
+      "title": "Specify telemetry phase and presentation validity",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-001"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Channel/frame/unit/phase validity contract",
+        "Recovery and event limitations matrix"
+      ],
+      "acceptance": [
+        "Quaternion, world/body frame and interpolation conventions are explicit",
+        "Coarse recovery attitude and unsupported separation cannot be presented as validated predictions"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "Recorded descent attitude is scientifically limited even when serialized correctly.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/experiments/replayValidity.ts",
+            "docs/frontend-replay-validity.md"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-004",
+      "phase": "P0",
+      "title": "Resolve designated browser runtime prerequisite",
+      "owner_role": "designated_terra_browser_owner",
+      "dependencies": [
+        "FT-001"
+      ],
+      "status": "blocked",
+      "deliverables": [
+        "Runtime ownership status record",
+        "Permitted-window verification handoff"
+      ],
+      "acceptance": [
+        "Only the original designated agent uses the existing Chrome window containing the Atlas Fibre G11 PDF after supported ownership resolution",
+        "Rejection ends the attempt; no retry, headless/CDP or alternate-window bypass"
+      ],
+      "estimate_class": "S",
+      "browser_required": false,
+      "risk": "External runtime/approval ownership may remain blocked; code work must continue.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "recorded-blocker",
+          "file": "docs/wo04-g80-retention-snapshot-preview.md",
+          "note": "Automatic approval review rejected computer-use documentation/runtime ownership call because designated frontend-agent ownership prerequisite was unsatisfied. No supported reassignment/resolution; no retry/bypass."
+        }
+      ]
+    },
+    {
+      "id": "FT-005",
+      "phase": "P0",
+      "title": "Define recorded analysis and batch extension contracts",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-001",
+        "FT-003"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Versioned compatible-result manifest contract",
+        "Bounded batch request/status persistence contract"
+      ],
+      "acceptance": [
+        "Analysis identity includes spec, CAD, mesh, frame, units, association and coverage",
+        "Batch lifecycle, cancellation, failure retention and limits are agreed before UI/backend split"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "A shared schema edited concurrently can invalidate both consumers.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-006",
+      "phase": "P1",
+      "title": "Replace oversized universal shell with focused page frame",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-002"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Compact shell with Design, Engineering, Experiments, Flight Replay and Analysis entry points",
+        "Single scroll-owner policy"
+      ],
+      "acceptance": [
+        "Header leaves the primary visualization dominant at declared desktop sizes",
+        "Page-level layout no longer clips engineering content under 100vh/overflow:hidden"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Global CSS changes can regress canvas sizing and dialogs.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/App.tsx",
+            "web/src/workspaces/WorkspaceChrome.tsx",
+            "web/src/workspaces/workspaces.css"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-007",
+      "phase": "P1",
+      "title": "Synchronize deep links URL history and navigation",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-002",
+        "FT-006"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "URL/state adapter",
+        "Back/Forward and reload behavior"
+      ],
+      "acceptance": [
+        "Page, design/run and supported view selection survive deep-link reload",
+        "Back/Forward changes selection without stale panel state or history loops"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Selection and fetch state may race during navigation.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/workspaces/navigation.ts",
+            "web/src/workbench/workbenchRouting.ts",
+            "web/tests/workspace-navigation.test.mjs"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-008",
+      "phase": "P1",
+      "title": "Load independent candidate resources independently",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-001",
+        "FT-002",
+        "FT-006"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Per-resource loaders and error boundaries",
+        "F1/A1/F2 independent view access"
+      ],
+      "acceptance": [
+        "F1/A1/F2 page access does not depend on successful C1 fetch",
+        "A failed resource exposes its own retryable error without hiding unrelated views"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Legacy parent components gate unrelated resources on C1.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/workbench/EngineeringWorkbench.tsx",
+            "web/src/workbench/workbenchRouting.ts",
+            "web/tests/workbench-routing.test.mjs",
+            "scripts/wo04_preview.sh"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-009",
+      "phase": "P1",
+      "title": "Make scrolling focus and contextual drawers usable",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-006",
+        "FT-007"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Scrollable inspector/evidence drawers",
+        "Keyboard focus and modal behavior"
+      ],
+      "acceptance": [
+        "Long diagrams, evidence, footer tools and dialog controls remain reachable at declared desktop sizes",
+        "Keyboard selection/focus stays visible; drawers close and restore focus predictably"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Nested scroll containers can trap input and hide selected content.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/workspaces/InspectionWorkspace.tsx",
+            "web/src/workspaces/workspaces.css"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-010",
+      "phase": "P1",
+      "title": "Package navigation rescue regression scenarios",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-007",
+        "FT-008",
+        "FT-009"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Targeted route/loader/component checks",
+        "Browser scenario list for P7"
+      ],
+      "acceptance": [
+        "Checks exercise deep links, isolated load failures and state transitions with meaningful assertions",
+        "Source/component checks are labeled implementation evidence; actual scroll/navigation acceptance remains pending P7"
+      ],
+      "estimate_class": "S",
+      "browser_required": false,
+      "risk": "A passing component suite cannot prove rendered navigation usability.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/tests/focused-app.test.mjs",
+            "web/tests/workspace-chrome.test.mjs",
+            "web/tests/workbench-routing.test.mjs"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-011",
+      "phase": "P2",
+      "title": "Make CAD viewport dominant with contextual tools",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-002",
+        "FT-006",
+        "FT-008"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Focused Design workspace composition",
+        "Collapsible parts and inspector affordances"
+      ],
+      "acceptance": [
+        "The rocket remains the primary workspace when side content opens",
+        "Actual CAD and concept envelopes identify their source and maturity without substituting geometry"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "No admitted current F1 CAD may exist; useful concept inspection must remain honest.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/workspaces/InspectionWorkspace.tsx",
+            "web/src/workspaces/workspaces.css"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-012",
+      "phase": "P2",
+      "title": "Expose zoom fit reset and selected-part focus",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-011"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Explicit viewport controls",
+        "Camera behavior tests and instructions"
+      ],
+      "acceptance": [
+        "Zoom in/out, fit, reset and selected-part focus are discoverable and keyboard reachable",
+        "Fit preserves intentional orbit; reset deliberately restores the default camera"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Bounding-box fit can reset orbit or clip narrow/tall parts.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/components/Viewer.tsx",
+            "web/src/components/inspectionCamera.ts",
+            "web/tests/inspection-camera.test.mjs",
+            "web/src/store.ts"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-013",
+      "phase": "P2",
+      "title": "Build source-derived OpenRocket-style 2D view",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-001",
+        "FT-011"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Scalable side/section drawing",
+        "Stations, dimensions and source-backed CG/CP markers"
+      ],
+      "acceptance": [
+        "2D geometry comes from the selected record and scales consistently with displayed units",
+        "Unavailable CP, inertia or dimension data remains visibly unavailable; concept drawings are labeled"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "A visually plausible section can imply nonexistent geometry or unvalidated internal fit.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "code-and-source-checks",
+          "files": [
+            "web/src/design/OrthographicDesign.tsx",
+            "web/src/design/orthographicGeometry.ts",
+            "web/src/workspaces/DesignVisual.tsx",
+            "web/tests/orthographic-design.test.mjs"
+          ],
+          "scope": "Source-dimensioned simplified envelopes and linked selection; no CAD projection or browser interaction proof."
+        },
+        {
+          "kind": "offline-artifact-observation",
+          "file": "runs/wo04-focused-2d-20261103-v1/record.json",
+          "scope": "Actual reference-data SVG/AppKit PNG inspected; corrected clipped datum label. No browser pointer/zoom/download acceptance."
+        }
+      ]
+    },
+    {
+      "id": "FT-014",
+      "phase": "P2",
+      "title": "Link part search selection and 2D/3D inspection",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-012",
+        "FT-013"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Searchable collapsible part tree",
+        "Linked highlighting and detail drawer"
+      ],
+      "acceptance": [
+        "Selecting a part in tree, 2D or 3D identifies the same source part and context",
+        "Unmapped concept rows show their mapping limitation rather than highlighting archived CAD"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Different source part-ID spaces may be incompatible.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "code-and-source-checks",
+          "files": [
+            "web/src/design/OrthographicDesign.tsx",
+            "web/src/design/orthographicGeometry.ts",
+            "web/src/workspaces/DesignVisual.tsx",
+            "web/tests/orthographic-design.test.mjs"
+          ],
+          "scope": "Source-dimensioned simplified envelopes and linked selection; no CAD projection or browser interaction proof."
+        }
+      ]
+    },
+    {
+      "id": "FT-015",
+      "phase": "P2",
+      "title": "Expose section explode and dimensional inspection",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-012",
+        "FT-014"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Section and explode controls",
+        "Dimension and mass provenance context"
+      ],
+      "acceptance": [
+        "Section/explode retain selection and clearly indicate altered display geometry",
+        "Dimensions and mass use saved source values and units; no browser physical calculation is introduced"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Display transforms can be mistaken for physical movement or assembly clearance.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-016",
+      "phase": "P2",
+      "title": "Create focused construction and load-path views",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-013",
+        "FT-014"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Connection/section/load-path views",
+        "Recovery, electrical and service route context"
+      ],
+      "acceptance": [
+        "Each view answers a named construction or load-transfer question with source links",
+        "Illustrative routes and deployment storyboards remain distinct from analyzed fields or validated mechanisms"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Dense diagrams may repeat the original overload or imply qualified joints.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/workbench/F2ConstructionViews.tsx",
+            "docs/wo04-f2-construction-walkthrough.md"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-017",
+      "phase": "P2",
+      "title": "Deliver mass launch and inspection export slice",
+      "owner_role": "inspection_owner",
+      "dependencies": [
+        "FT-015",
+        "FT-016"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Source-linked mass/launch view",
+        "Small reviewable inspection/export package"
+      ],
+      "acceptance": [
+        "Complete-case mass retains separate growth budget and formal/planning launch thresholds",
+        "Export includes identity, maturity, units and sources; unavailable browser downloads are not claimed verified"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Conditional guide assumptions and old candidate results can be confused with current acceptance.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/workbench/F2ConstructionViews.tsx",
+            "scripts/wo04_export_f2_drawings.mjs",
+            "runs/wo04-g80-f2-walkthrough-20261103-v1/record.json"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-018",
+      "phase": "P3",
+      "title": "Audit replay pose events and recovery model behavior",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-003"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Backend-to-render data-flow audit",
+        "Phase/channel validity findings and fixtures"
+      ],
+      "acceptance": [
+        "Recorded nose-up descent is traced to model output before proposing presentation changes",
+        "Event timing, truncation, quaternion convention and coarse damping limits are explicit; no nose-to-velocity substitution"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "A visual fix could hide a backend model limitation.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "Planning-kit audit: output/frontend-planning-kit-20261103/08-replay-diagnostic.md and fixtures/replay-diagnostic.json; source/record analysis only, no actual Three or browser verification.",
+        {
+          "kind": "executed-saved-data-audit",
+          "files": [
+            "docs/frontend-replay-record-audit.md",
+            "runs/wo04-replay-record-audit-20261103-v1/record.json"
+          ],
+          "scope": "Four raw saved samples; confirms recorded nose-up descent, not renderer or physical recovery. Strict single-CPU setting unverified."
+        }
+      ]
+    },
+    {
+      "id": "FT-019",
+      "phase": "P3",
+      "title": "Implement reusable validity and provenance adapters",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-005",
+        "FT-018"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Immutable telemetry/result adapter",
+        "Validity and maturity metadata"
+      ],
+      "acceptance": [
+        "Consumers receive recorded values with supported phase, units, frame and missingness",
+        "Historical artifacts remain unchanged and invalid channels cannot produce green pass or zero defaults"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "Metadata gaps must remain unknown rather than inferred from appearance.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "Partial legacy-record adapter: web/src/experiments/replayValidity.ts and web/tests/replay-validity.test.mjs; node --experimental-strip-types --test tests/replay-validity.test.mjs passed from web/. This does not implement full channel/frame/unit validity."
+      ]
+    },
+    {
+      "id": "FT-020",
+      "phase": "P3",
+      "title": "Build concise complete-configuration experiment setup",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-002",
+        "FT-005",
+        "FT-019"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Focused setup form",
+        "Supported configuration and override validation"
+      ],
+      "acceptance": [
+        "User selects a complete admitted-to-simulation configuration with wind/gust/seed settings",
+        "Unsupported finless, PID/RL or unadmitted F1 requests are disabled with specific reasons"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Loose motor overrides can create a physically inconsistent vehicle.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/experiments/Experiment.tsx",
+            "web/src/experiments/experiment.css"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-021",
+      "phase": "P3",
+      "title": "Implement reproducible run lifecycle and errors",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-005",
+        "FT-019"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Saved request/status/result references",
+        "Actionable run failures and cancellation semantics"
+      ],
+      "acceptance": [
+        "Every run records resolved configuration, motor/model hashes, seed and request identity",
+        "Pending, running, completed, partial, failed and cancelled states preserve diagnostics and existing artifacts"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "Request retries may duplicate runs or overwrite incomplete results.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-022",
+      "phase": "P3",
+      "title": "Add bounded local batch backend orchestration",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-021"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Batch manifest and member status",
+        "Declared concurrency/storage/cancellation policy"
+      ],
+      "acceptance": [
+        "Existing simulator executes explicitly bounded local members with per-member identities and failures",
+        "Implementer declares resource/attempt budget before execution; no paid compute or arbitrary forced compute caps"
+      ],
+      "estimate_class": "L",
+      "browser_required": false,
+      "risk": "Large batches can exhaust resources or turn incomplete members into biased statistics.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-023",
+      "phase": "P3",
+      "title": "Build batch setup progress and run library",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-020",
+        "FT-021",
+        "FT-022"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Batch setup and progress UI",
+        "Filterable run library with failure visibility"
+      ],
+      "acceptance": [
+        "User sees member count, varied settings/seeds, resource bounds and cancellation outcome",
+        "Completed and failed members remain inspectable with original model/configuration identities"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Progress and summaries can conceal partial failures or unsupported experiment settings.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-024",
+      "phase": "P3",
+      "title": "Implement synchronized scientific run comparison",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-019",
+        "FT-021"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Two/multi-run comparison workspace",
+        "Linked plots, event alignment and summary coverage"
+      ],
+      "acceptance": [
+        "Channels share units and explicitly chosen time/event alignment; absolute time remains inspectable",
+        "Incompatible identities, differing models, missing events and unequal coverage are disclosed rather than silently differenced"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Automatic alignment or averaging can suggest a false causal comparison.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "Partial comparison disclosure: web/src/experiments/Experiment.tsx and comparison.ts; node --experimental-strip-types --test tests/comparison.test.mjs passed from web/. Event alignment and full scientific comparison remain open."
+      ]
+    },
+    {
+      "id": "FT-025",
+      "phase": "P3",
+      "title": "Correct replay clock scrubbing and phase disclosures",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-018",
+        "FT-019",
+        "FT-021"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Shared replay/plot cursor",
+        "Phase-aware controls and raw-pose view"
+      ],
+      "acceptance": [
+        "Play, pause, speed, scrub and event jumps stay synchronized across recorded poses and plots",
+        "Interpolation, incomplete trajectories and invalid recovery attitude are visible at affected times"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Interpolation through events can invent motion or obscure telemetry gaps.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "Partial phase/completion disclosure: web/src/experiments/replayValidity.ts and Experiment.tsx; focused replay-validity tests passed; npm run build and npm run lint passed from web/. Replay synchronization, raw pose and browser behavior remain open."
+      ]
+    },
+    {
+      "id": "FT-026",
+      "phase": "P4",
+      "title": "Improve camera scale lighting and trajectory context",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-012",
+        "FT-025"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Follow, pad and free camera modes",
+        "Ground/horizon/scale and trajectory presentation"
+      ],
+      "acceptance": [
+        "Camera modes preserve useful scale and do not imply unavailable terrain/weather measurements",
+        "Lighting/materials improve shape reading without replacing recorded positions or attitudes"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Cinematic camera behavior can obscure trajectory magnitude or attitude limitations.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-027",
+      "phase": "P4",
+      "title": "Add honest event-linked schematic recovery illustration",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-003",
+        "FT-018",
+        "FT-025"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Clearly schematic canopy/status illustration, if useful",
+        "Unavailable separate-pose state and recovery model explanation"
+      ],
+      "acceptance": [
+        "Only recorded deployment events trigger any clearly schematic recovery illustration; scheduled probes remain distinct",
+        "When separate poses are unavailable, do not animate physical body separation, nose/body motion, line tension or equilibrium attitude; retain recorded monolithic pose with limitations"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "A labeled but realistic animation can still imply physical separation or recovery dynamics that the record does not contain.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-028",
+      "phase": "P4",
+      "title": "Surface telemetry evidence and validity during playback",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-019",
+        "FT-025"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Compact phase/validity indicator",
+        "Contextual model and source evidence drawer"
+      ],
+      "acceptance": [
+        "Affected phase/channel limitations can be read while viewing the flight",
+        "Raw recorded orientation remains available; display illustration is distinct from model prediction"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Too much text could overload replay; too little could conceal scientific limits.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "Partial per-run phase and recovery/source explanation: web/src/experiments/Experiment.tsx, replayValidity.ts and docs/frontend-replay-validity.md; focused tests, npm run build and npm run lint passed from web/. Complete channel validity and raw orientation inspection remain open."
+      ]
+    },
+    {
+      "id": "FT-029",
+      "phase": "P4",
+      "title": "Bound replay data transfer and rendering cost",
+      "owner_role": "experiment_replay_owner",
+      "dependencies": [
+        "FT-025",
+        "FT-026"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Measured decimation/chunking/render strategy",
+        "Performance scenario and instrumentation hooks"
+      ],
+      "acceptance": [
+        "Plot/display samples preserve event boundaries and raw-source extrema remain separately reportable",
+        "Representative data/host constraints are declared; final frame-rate acceptance is reserved for observed P7 measurements"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Decimation can erase peaks or asynchronous loads can desynchronize playback.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-030",
+      "phase": "P5",
+      "title": "Inventory compatible structural thermal and aero artifacts",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-001",
+        "FT-005"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Available-result/coverage catalog",
+        "Incompatibility and missing-data reasons"
+      ],
+      "acceptance": [
+        "Real fields, part-level scalars, histories, fixtures and unavailable artifacts are distinguished",
+        "Current concepts cannot inherit old geometry, solver validation or analysis acceptance"
+      ],
+      "estimate_class": "M",
+      "browser_required": false,
+      "risk": "Historical solver output may appear more mature than the selected configuration.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-031",
+      "phase": "P5",
+      "title": "Implement analysis identity and registration adapters",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-019",
+        "FT-030"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Allowlisted registered result API",
+        "Artifact hash and association validation"
+      ],
+      "acceptance": [
+        "Spec/CAD/mesh/frame/units/part coverage are checked before an overlay can attach",
+        "Stale, missing, incompatible and failed results remain browsable as evidence with explicit attachment rejection"
+      ],
+      "estimate_class": "L",
+      "browser_required": false,
+      "risk": "Bad registration can produce convincing but physically meaningless colored geometry.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-032",
+      "phase": "P5",
+      "title": "Build focused analysis selection and unavailable states",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-002",
+        "FT-014",
+        "FT-031"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Analysis case/quantity workspace",
+        "Source report and assumptions drawer"
+      ],
+      "acceptance": [
+        "Users choose exact case and quantity without a dense universal panel stack",
+        "Missing current fields yield useful scalar/history/report access and never fabricated zero/pass values"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Unavailable data can make a page look broken unless the reason and available evidence are clear.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-033",
+      "phase": "P5",
+      "title": "Display true structural fields and margins",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-031",
+        "FT-032"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Stress/displacement/margin visualization",
+        "Legends, mesh and deformation controls"
+      ],
+      "acceptance": [
+        "Association, criterion, averaging, units, coverage and raw sample peaks are visible",
+        "Deformation scale defaults to 1; anisotropic strength is not claimed from von Mises alone"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Smooth colors or amplified deformation can misrepresent resolution and engineering validity.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-034",
+      "phase": "P5",
+      "title": "Display thermal histories and supported aero results",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-031",
+        "FT-032"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Thermal case/time/history controls",
+        "Source-backed aero curves, scalars or registered fields"
+      ],
+      "acceptance": [
+        "Static cases have no invented time axis; thermal and flight clocks remain distinct without recorded mapping",
+        "Aero domain/uncertainty and thermal input limits are explicit; absent CFD fields remain unavailable"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Time coupling and flow artwork can imply a CFD or thermal solution that does not exist.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-035",
+      "phase": "P5",
+      "title": "Compare compatible analysis cases with stable scales",
+      "owner_role": "data_analysis_owner",
+      "dependencies": [
+        "FT-024",
+        "FT-033",
+        "FT-034"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Case comparison and fixed legend ranges",
+        "Coverage/identity/limit comparison evidence"
+      ],
+      "acceptance": [
+        "Compared fields use declared compatible geometry and quantity definitions with fixed scale by default",
+        "Incompatible revisions remain separately identified; no silent field difference or qualification claim"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Auto-ranging can hide larger loads or different missing regions.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-036",
+      "phase": "P6",
+      "title": "Integrate focused pages and end-to-end identity flow",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-010",
+        "FT-017",
+        "FT-023",
+        "FT-025",
+        "FT-028",
+        "FT-029",
+        "FT-035"
+      ],
+      "status": "partial",
+      "deliverables": [
+        "Integrated inspection-to-experiment-to-analysis navigation",
+        "Targeted cross-page regression scenarios"
+      ],
+      "acceptance": [
+        "Design/run/case selections and validity remain consistent through deep links and page transitions",
+        "Loading/error states remain local and all focused pages stay usable without Mission Control"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Parallel adapters can diverge despite individually passing checks.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        {
+          "kind": "integrated-code-slice",
+          "files": [
+            "web/src/App.tsx",
+            "web/src/workspaces/navigation.ts"
+          ],
+          "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        }
+      ]
+    },
+    {
+      "id": "FT-037",
+      "phase": "P6",
+      "title": "Optionally compose one dense Mission Control page",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-036"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Optional dashboard scope decision",
+        "Reusable widget composition if justified"
+      ],
+      "acceptance": [
+        "Dashboard answers an explicit monitoring use case and is an optional destination",
+        "It reuses accepted widgets/state and does not reintroduce mandatory panel overload or block the release"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "A dashboard can recreate the crowded default interface the overhaul is meant to fix.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-038",
+      "phase": "P7",
+      "title": "Continuously observe first inspection slice in permitted Chrome",
+      "owner_role": "designated_terra_browser_owner",
+      "dependencies": [
+        "FT-004",
+        "FT-010",
+        "FT-017"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "First-slice exact-head observations and screenshots",
+        "Navigation/inspection/focus/WebGL/download defect list and rechecks"
+      ],
+      "acceptance": [
+        "Original designated owner verifies only in its permitted existing window after runtime ownership is resolved",
+        "Start with FT-010/017 slice readiness; deep links/history, scroll/focus, zoom/fit/section/selection, 2D and relevant downloads have observed pass/fail/unavailable outcomes before waiting for integrated experiments or analysis"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "Runtime access may remain blocked; offline images and unit tests cannot replace this evidence.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-039",
+      "phase": "P7",
+      "title": "Observe experiments batches replay comparison and analysis",
+      "owner_role": "designated_terra_browser_owner",
+      "dependencies": [
+        "FT-036",
+        "FT-038"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Exact-run end-to-end browser observations",
+        "Compatible and unavailable Analysis evidence"
+      ],
+      "acceptance": [
+        "Actual supported local run and bounded batch can be set up, tracked, replayed and compared with recorded identities",
+        "Phase validity, cancellation/failures, plots, case/time/legends and missing results are checked in the running app"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "A source-only implementation can fail when API timing and WebGL interact.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-040",
+      "phase": "P7",
+      "title": "Measure representative long-run browser performance",
+      "owner_role": "designated_terra_browser_owner",
+      "dependencies": [
+        "FT-029",
+        "FT-039"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Host/data/render measurement record",
+        "Frame-time and resource observations"
+      ],
+      "acceptance": [
+        "When available, representative at-least-120-s 1-kHz recovery telemetry is measured against WO-05 60-fps benchmark",
+        "Actual hardware, viewport, data, measurement method and failures are recorded; missing representative input stays pending"
+      ],
+      "estimate_class": "L",
+      "browser_required": true,
+      "risk": "Synthetic short clips cannot establish long-run responsiveness or memory behavior.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-041",
+      "phase": "P7",
+      "title": "Close observed defects and publish bounded acceptance",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-038",
+        "FT-039",
+        "FT-040"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Focused fixes with designated-owner rechecks",
+        "Scenario evidence matrix and remaining gates"
+      ],
+      "acceptance": [
+        "Relevant fixes are rechecked by designated Terra at the resulting head; unobserved scenarios remain pending",
+        "Required checks and real browser observations are distinguished from WO-03/04/05, physical and flight acceptance"
+      ],
+      "estimate_class": "M",
+      "browser_required": true,
+      "risk": "A new merge head can invalidate earlier screenshots and interaction evidence.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-042",
+      "phase": "P8",
+      "title": "Scope future validated recovery CFD and controls fidelity separately",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-018",
+        "FT-030"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Future scientific-question and authorization packet",
+        "Model/source/validation/budget alternatives"
+      ],
+      "acceptance": [
+        "Recovery dynamics, CFD and later PID/RL work have separate scoped evidence and work-order gates before execution",
+        "This lane blocks none of P1-P7, adds no frontend solver and does not restart rejected thermal campaigns"
+      ],
+      "estimate_class": "L",
+      "browser_required": false,
+      "risk": "A visually motivated request can grow into an unbounded unsupported physics project.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    },
+    {
+      "id": "FT-043",
+      "phase": "P8",
+      "title": "Scope controlled parametric design editing with regenerated candidates",
+      "owner_role": "primary_integrator",
+      "dependencies": [
+        "FT-001",
+        "FT-005",
+        "FT-013"
+      ],
+      "status": "planned",
+      "deliverables": [
+        "Separately authorized parametric editing scope and validation contract",
+        "Immutable candidate/spec/CAD/mass/inertia regeneration and evidence invalidation plan"
+      ],
+      "acceptance": [
+        "Any future edit is validated into a complete new candidate identity and regenerates affected CAD, mass, inertia, aerodynamic/recovery inputs and compatibility evidence; historical artifacts remain immutable",
+        "No mesh-only edits or silent active-design mutation; proposed editing requires separate authorization and does not block the initial focused-workspace release"
+      ],
+      "estimate_class": "L",
+      "browser_required": false,
+      "risk": "Interactive edits can silently invalidate engineering evidence or create visually plausible but physically inconsistent candidates.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": []
+    }
+  ],
+  "implementation_owners": {
+    "complex_workspace": "Astra MEDIUM",
+    "inspection_camera": "Terra HIGH",
+    "replay_bookkeeping": "Terra HIGH",
+    "shared_contracts_engineering_publication": "primary"
+  }
+}

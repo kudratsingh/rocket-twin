@@ -12,6 +12,7 @@ interface InspectionState {
   wireframe: boolean;
   partLabels: boolean;
   cameraView: InspectionView;
+  cameraAction: 'reset' | 'fit' | 'focus' | 'preset';
   focusId: string | null;
   resetToken: number;
   select: (id: string | null) => void;
@@ -44,6 +45,7 @@ export const useInspection = create<InspectionState>((set) => ({
   wireframe: false,
   partLabels: true,
   cameraView: 'overview',
+  cameraAction: 'reset',
   focusId: null,
   resetToken: 0,
   select: (selectedId) => set({ selectedId }),
@@ -63,17 +65,30 @@ export const useInspection = create<InspectionState>((set) => ({
   toggleGhostShell: () => set((s) => ({ ghostShell: !s.ghostShell })),
   toggleWireframe: () => set((s) => ({ wireframe: !s.wireframe })),
   togglePartLabels: () => set((s) => ({ partLabels: !s.partLabels })),
-  setCameraView: (cameraView) => set((s) => ({ cameraView, resetToken: s.resetToken + 1 })),
+  setCameraView: (cameraView) =>
+    set((s) => ({
+      cameraView,
+      cameraAction: 'preset',
+      focusId: null,
+      resetToken: s.resetToken + 1,
+    })),
   focusPart: (focusId) =>
     set((s) => ({
       focusId,
+      cameraAction: 'focus',
       selectedId: focusId,
       hiddenIds: s.hiddenIds.filter((id) => id !== focusId),
       resetToken: s.resetToken + 1,
     })),
-  fitVisible: () => set((s) => ({ focusId: null, resetToken: s.resetToken + 1 })),
+  fitVisible: () =>
+    set((s) => ({ focusId: null, cameraAction: 'fit', resetToken: s.resetToken + 1 })),
   resetCamera: () =>
-    set((s) => ({ focusId: null, cameraView: 'overview', resetToken: s.resetToken + 1 })),
+    set((s) => ({
+      focusId: null,
+      cameraView: 'overview',
+      cameraAction: 'reset',
+      resetToken: s.resetToken + 1,
+    })),
   resetVehicle: () =>
     set((s) => ({
       selectedId: null,
@@ -86,6 +101,7 @@ export const useInspection = create<InspectionState>((set) => ({
       partLabels: true,
       markers: true,
       cameraView: 'overview',
+      cameraAction: 'reset',
       focusId: null,
       resetToken: s.resetToken + 1,
     })),

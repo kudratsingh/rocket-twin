@@ -1,5 +1,15 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+2026-11-03 frontend direction: execute the supplied43-task planning kit through
+focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
+(ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex
+workspace code; Terra HIGH owns bounded camera/replay/bookkeeping slices;
+primary owns shared integration and engineering acceptance. Preserve existing
+features and exact source identities. Early preview remains authorized while
+WO-03 stays open. Browser verification remains blocked by the original
+designated-agent ownership prerequisite; source/build/offline checks do not
+clear it or any physical/flight gate.
+
 G80-F1/ADR-0013: first conventional G80 may use a dedicated fixed physical
 vehicle. Add its separately versioned source-linked construction/recovery/mass
 snapshot; never substitute archived CAD or candidate inertia. F1 flight runs

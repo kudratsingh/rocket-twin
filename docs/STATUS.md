@@ -1,5 +1,15 @@
 # Status
 
+2026-11-03 frontend direction: execute the supplied43-task planning kit through
+focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
+(ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex
+workspace code; Terra HIGH owns bounded camera/replay/bookkeeping slices;
+primary owns shared integration and engineering acceptance. Preserve existing
+features and exact source identities. Early preview remains authorized while
+WO-03 stays open. Browser verification remains blocked by the original
+designated-agent ownership prerequisite; source/build/offline checks do not
+clear it or any physical/flight gate.
+
 Latest G80-F2 construction follow-up: selected stock/ballast-v2 passes calculated static and formal1.5m guide screens, misses15.5m/s planning; ring diagnostic stopped for invalid middle mesh. Installed recovery/fin, thermal, exact motor/retainer and physical gates remain open. See `CURRENT.md` and `wo03-g80-f2-decision.md`. F1 remains frozen; WO-03 stays open.
 
 **Current priority: G80-F1 dedicated conventional design, ADR-0013.** See [CURRENT](CURRENT.md) and [F1 decision](wo03-g80-f1-decision.md). One correction complete,817.506/837.506g with growth; guide passes, static/recovery/fit/installed/thermal admission stays open. WO03 remains open; full WO04/05 and release gates unchanged. Earlier A1/A/B statements below are historical.

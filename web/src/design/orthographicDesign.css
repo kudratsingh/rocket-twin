@@ -1,0 +1,84 @@
+.orthographic-design {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #111d26;
+  color: #d8e8ef;
+}
+.ortho-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+}
+.ortho-toolbar summary,
+.orthographic-design details > summary {
+  cursor: pointer;
+  padding: 5px;
+  color: #8cdbd4;
+}
+.orthographic-design summary:focus-visible,
+.ortho-stage g[role='button']:focus-visible {
+  outline: 2px solid #8cdbd4;
+  outline-offset: 3px;
+}
+.ortho-pan-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 8px;
+}
+.ortho-layers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0 10px;
+  padding: 6px 10px;
+  border: 1px solid #344a57;
+}
+.ortho-layers label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+}
+.ortho-help {
+  color: #a5bac5;
+  font-size: 12px;
+  padding: 10px 14px;
+  line-height: 1.5;
+}
+.ortho-stage {
+  min-height: 330px;
+  height: clamp(330px, 51vh, 620px);
+  width: 100%;
+}
+.ortho-stage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.ortho-stage svg:active {
+  cursor: grabbing;
+}
+.ortho-stage g[role='button'] {
+  cursor: pointer;
+}
+.ortho-selection,
+.ortho-unavailable {
+  padding: 12px 16px;
+  border-top: 1px solid #30434e;
+  line-height: 1.6;
+}
+.orthographic-design pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  margin: 8px 0;
+}
+.ortho-unavailable p {
+  margin-bottom: 8px;
+}

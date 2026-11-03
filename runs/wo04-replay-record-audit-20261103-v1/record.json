@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "method": "One existing Parquet; nearest raw rows, normalized recorded quaternion and body +x rotated into NED; no rollout or resampling.",
+  "run_id": "exp-cf9e47a650074144856caf50775846d2",
+  "configuration": "modular-performance-v1",
+  "controller": "locked, unguided",
+  "flight_ready": false,
+  "trajectory_complete": true,
+  "telemetry_rows": 116029,
+  "events_s": {
+    "ignition": 0.0,
+    "guide_exit": 0.17000000000000012,
+    "burnout": 1.8079,
+    "apogee": 10.394999999999678,
+    "deployment": 10.694999999999679,
+    "landing": 116.02900000018997
+  },
+  "artifact_sha256": {
+    "runs/exp-cf9e47a650074144856caf50775846d2/record.json": "c52dbc2829b1d8e30b3fef1d411eb0ca07afc04cf6d62fb80a63f1715bcc5997",
+    "runs/exp-cf9e47a650074144856caf50775846d2/resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f",
+    "runs/exp-cf9e47a650074144856caf50775846d2/telemetry.parquet": "ce81a775e824239e9587b95b932c5385834f56e2a2616ff73069b240d95bf5ae"
+  },
+  "source_sha256": {
+    "src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "scripts/wo02_sim.py": "b5a3389f961f7398e6e0ccaad694451b5a79c25fc56ad57178480911777eb811"
+  },
+  "saved_code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+  "current_code_digest_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+  "resolved_spec_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+  "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+  "samples": [
+    {
+      "target_s": 0.17,
+      "row_index_zero_based": 169,
+      "recorded_time_s": 0.17000000000000012,
+      "height_agl_m": 1.502683382391062,
+      "velocity_ned_mps": [
+        -5.2069291738471734e-18,
+        0.0,
+        -19.08421241662905
+      ],
+      "recorded_quaternion_wxyz": [
+        0.7071067811865476,
+        0.0,
+        0.7071067811865476,
+        0.0
+      ],
+      "nose_axis_ned": [
+        -2.220446049250313e-16,
+        0.0,
+        -1.0000000000000002
+      ],
+      "nose_to_velocity_deg": 0.0,
+      "nose_from_up_deg": 0.0,
+      "landed": 0.0
+    },
+    {
+      "target_s": 10.395,
+      "row_index_zero_based": 10394,
+      "recorded_time_s": 10.394999999999678,
+      "height_agl_m": 635.1872907963474,
+      "velocity_ned_mps": [
+        0.3615008691335863,
+        -0.03647956499079539,
+        0.0011939899439430523
+      ],
+      "recorded_quaternion_wxyz": [
+        0.7260348448383978,
+        0.002247390041520006,
+        0.6876289427272405,
+        -0.005898342335152057
+      ],
+      "nose_axis_ned": [
+        0.054263293363029486,
+        -0.005474063247919491,
+        -0.9985116572303782
+      ],
+      "nose_to_velocity_deg": 87.06189470160838,
+      "nose_from_up_deg": 3.1263888334261902,
+      "landed": 0.0
+    },
+    {
+      "target_s": 11.15,
+      "row_index_zero_based": 11149,
+      "recorded_time_s": 11.14999999999926,
+      "height_agl_m": 632.675945383719,
+      "velocity_ned_mps": [
+        0.2141624709838991,
+        -0.02161155054022147,
+        5.456038811777479
+      ],
+      "recorded_quaternion_wxyz": [
+        0.7316788979028216,
+        0.002962110943286286,
+        0.6816002378544718,
+        -0.0076375401275380495
+      ],
+      "nose_axis_ned": [
+        0.07072556747505554,
+        -0.007138502839420698,
+        -0.9974702681697051
+      ],
+      "nose_to_velocity_deg": 173.664451222118,
+      "nose_from_up_deg": 4.07630310217863,
+      "landed": 0.0
+    },
+    {
+      "target_s": 116.029,
+      "row_index_zero_based": 116028,
+      "recorded_time_s": 116.02900000018997,
+      "height_agl_m": -0.0,
+      "velocity_ned_mps": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "recorded_quaternion_wxyz": [
+        0.7319646122778672,
+        0.0029986330148532134,
+        0.6812922479838136,
+        -0.0077257627529977
+      ],
+      "nose_axis_ned": [
+        0.07156237085409245,
+        -0.007224079020961847,
+        -0.9974099657412895
+      ],
+      "nose_to_velocity_deg": null,
+      "nose_from_up_deg": 4.1246221106110506,
+      "landed": 1.0
+    }
+  ]
+}

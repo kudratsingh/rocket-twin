@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { getJson } from '../api';
 import { GeometryViews } from './GeometryViews';
 import { LoadPathViews } from './LoadPathViews';
 import { MassLaunchViews } from './MassLaunchViews';
@@ -8,18 +7,25 @@ import { A1ConnectionViews } from './A1ConnectionViews';
 import { ConventionalG80Views } from './ConventionalG80Views';
 import { F2ConstructionViews } from './F2ConstructionViews';
 import type { A1Snapshot } from './a1Types';
-import { isMissingA1Route, validateA1Snapshot } from './a1Types';
+import { validateA1Snapshot } from './a1Types';
 import type { ConventionalSnapshot } from './conventionalG80Types';
-import { isMissingConventionalRoute, validateConventionalSnapshot } from './conventionalG80Types';
+import { validateConventionalSnapshot } from './conventionalG80Types';
 import type { F2Snapshot } from './f2Types';
-import { isMissingF2Route, validateF2Snapshot } from './f2Types';
+import { validateF2Snapshot } from './f2Types';
 import type { ExtendedDocument, ExtensionMode } from './extendedTypes';
 import { compatibleExtension } from './extendedTypes';
 import type { WorkbenchDocument } from './types';
 import './workbench.css';
 
-type View =
-  'geometry' | 'forces' | 'mass' | 'evidence' | 'a1' | 'g80-fixed' | 'g80-f2' | ExtensionMode;
+import {
+  engineeringTopics,
+  engineeringRoute,
+  engineeringHref,
+  isConstructionTopic,
+  loadRecordedSource,
+} from './workbenchRouting';
+import type { EngineeringTopic as View } from './workbenchRouting';
+
 const extensionModes: ExtensionMode[] = [
   'comparison',
   'recovery',
@@ -46,218 +52,213 @@ export default function EngineeringWorkbench() {
   const [f2Prepared, setF2Prepared] = useState(false);
   const [selectedJointId, setSelectedJointId] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
-  const [view, setView] = useState<View>(() => {
-    const requested =
-      typeof window === 'undefined' ? '' : new URLSearchParams(window.location.search).get('view');
-    return requested === 'forces' ||
-      requested === 'mass' ||
-      requested === 'evidence' ||
-      requested === 'a1' ||
-      requested === 'g80-fixed' ||
-      requested === 'g80-f2' ||
-      extensionModes.includes(requested as ExtensionMode)
-      ? (requested as View)
-      : 'geometry';
-  });
+  const [route, setRoute] = useState(() =>
+    engineeringRoute(typeof window === 'undefined' ? '' : window.location.search),
+  );
+  const view = route.view;
+  const construction = isConstructionTopic(view);
+  const needsExtension = extensionModes.includes(view as ExtensionMode);
+  useEffect(() => {
+    const changed = () => setRoute(engineeringRoute(window.location.search));
+    window.addEventListener('popstate', changed);
+    return () => window.removeEventListener('popstate', changed);
+  }, []);
+  const setView = (next: View) => {
+    const href = engineeringHref(window.location.href, next);
+    window.history.pushState(null, '', href);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
   const [prepared, setPrepared] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   useEffect(() => {
+    if (construction) return;
     const controller = new AbortController();
-    void getJson<WorkbenchDocument>('/api/engineering/workbench', controller.signal)
-      .catch(async (reason: unknown) => {
-        if (
-          controller.signal.aborted ||
-          !(reason instanceof Error) ||
-          !reason.message.startsWith('404')
-        )
-          throw reason;
-        const saved = await getJson<WorkbenchDocument>(
-          '/engineering-workbench/g80-c1.json',
-          controller.signal,
-        );
-        setPrepared(true);
-        return saved;
-      })
-      .then((value) => {
-        setDocument(value);
-        setError('');
+    setDocument(null);
+    setError('');
+    setPrepared(false);
+    void loadRecordedSource(
+      '/api/engineering/workbench',
+      '/engineering-workbench/g80-c1.json',
+      controller.signal,
+    )
+      .then(({ value, prepared }) => {
+        if (controller.signal.aborted) return;
+        setDocument(value as WorkbenchDocument);
+        setPrepared(prepared);
       })
       .catch((reason: unknown) => {
         if (!controller.signal.aborted)
-          setError(
-            reason instanceof Error ? reason.message : 'Engineering walkthrough unavailable.',
-          );
+          setError(reason instanceof Error ? reason.message : 'Recorded source unavailable.');
       });
     return () => controller.abort();
-  }, [retry]);
+  }, [retry, construction]);
   useEffect(() => {
+    if (view !== 'g80-fixed') return;
     const controller = new AbortController();
+    setFixed(null);
+    setFixedError('');
     setFixedPrepared(false);
-    const request = async (): Promise<unknown> => {
-      const response = await fetch('/api/engineering/workbench-g80-fixed', {
-        signal: controller.signal,
-        headers: { Accept: 'application/json' },
-      });
-      if (response.ok) return response.json();
-      let detail = response.statusText;
-      let apiDetail = '';
-      try {
-        const body = (await response.json()) as { detail?: unknown };
-        if (typeof body.detail === 'string') {
-          detail = body.detail;
-          apiDetail = body.detail;
-        }
-      } catch {
-        // Preserve the HTTP status for non-JSON responses.
-      }
-      if (isMissingConventionalRoute(response.status, apiDetail)) {
-        const saved = await getJson<unknown>(
-          '/engineering-workbench/preparedg80-fixed-f1.json',
-          controller.signal,
-        );
-        setFixedPrepared(true);
-        return saved;
-      }
-      throw new Error(`${response.status} ${detail}`);
-    };
-    void request()
-      .then((value) => {
-        if (!controller.signal.aborted) {
-          setFixed(validateConventionalSnapshot(value));
-          setFixedError('');
-        }
+    void loadRecordedSource(
+      '/api/engineering/workbench-g80-fixed',
+      '/engineering-workbench/preparedg80-fixed-f1.json',
+      controller.signal,
+    )
+      .then(({ value, prepared }) => {
+        if (controller.signal.aborted) return;
+        setFixed(validateConventionalSnapshot(value));
+        setFixedPrepared(prepared);
       })
       .catch((reason: unknown) => {
         if (!controller.signal.aborted)
-          setFixedError(
-            reason instanceof Error ? reason.message : 'G80-F1 source snapshot unavailable.',
-          );
+          setFixedError(reason instanceof Error ? reason.message : 'Recorded source unavailable.');
       });
     return () => controller.abort();
-  }, [retry]);
+  }, [retry, view]);
   useEffect(() => {
+    if (view !== 'g80-f2') return;
     const controller = new AbortController();
+    setF2(null);
+    setF2Error('');
     setF2Prepared(false);
-    const request = async (): Promise<unknown> => {
-      const response = await fetch('/api/engineering/workbench-g80-f2', {
-        signal: controller.signal,
-        headers: { Accept: 'application/json' },
-      });
-      if (response.ok) return response.json();
-      let detail = response.statusText;
-      let apiDetail = '';
-      try {
-        const body = (await response.json()) as { detail?: unknown };
-        if (typeof body.detail === 'string') {
-          detail = body.detail;
-          apiDetail = body.detail;
-        }
-      } catch {
-        // Preserve the HTTP status for non-JSON responses.
-      }
-      if (isMissingF2Route(response.status, apiDetail)) {
-        const saved = await getJson<unknown>(
-          '/engineering-workbench/preparedg80-fixed-f2.json',
-          controller.signal,
-        );
-        setF2Prepared(true);
-        return saved;
-      }
-      throw new Error(`${response.status} ${detail}`);
-    };
-    void request()
-      .then((value) => {
-        if (!controller.signal.aborted) {
-          setF2(validateF2Snapshot(value));
-          setF2Error('');
-        }
+    void loadRecordedSource(
+      '/api/engineering/workbench-g80-f2',
+      '/engineering-workbench/preparedg80-fixed-f2.json',
+      controller.signal,
+    )
+      .then(({ value, prepared }) => {
+        if (controller.signal.aborted) return;
+        setF2(validateF2Snapshot(value));
+        setF2Prepared(prepared);
       })
       .catch((reason: unknown) => {
         if (!controller.signal.aborted)
-          setF2Error(
-            reason instanceof Error ? reason.message : 'G80-F2 source snapshot unavailable.',
-          );
+          setF2Error(reason instanceof Error ? reason.message : 'Recorded source unavailable.');
       });
     return () => controller.abort();
-  }, [retry]);
+  }, [retry, view]);
   useEffect(() => {
+    if (view !== 'a1') return;
     const controller = new AbortController();
+    setA1(null);
+    setA1Error('');
     setA1Prepared(false);
-    const request = async (): Promise<unknown> => {
-      const response = await fetch('/api/engineering/workbench-a1', {
-        signal: controller.signal,
-        headers: { Accept: 'application/json' },
-      });
-      if (response.ok) return response.json();
-      let detail = response.statusText;
-      let apiDetail = '';
-      try {
-        const body = (await response.json()) as { detail?: unknown };
-        if (typeof body.detail === 'string') {
-          detail = body.detail;
-          apiDetail = body.detail;
-        }
-      } catch {
-        // Keep the HTTP status for a non-JSON response.
-      }
-      if (isMissingA1Route(response.status, apiDetail)) {
-        const saved = await getJson<unknown>(
-          '/engineering-workbench/g80-a1.json',
-          controller.signal,
-        );
-        setA1Prepared(true);
-        return saved;
-      }
-      throw new Error(`${response.status} ${detail}`);
-    };
-    void request()
-      .then((value) => {
-        if (!controller.signal.aborted) {
-          setA1(validateA1Snapshot(value));
-          setA1Error('');
-        }
+    void loadRecordedSource(
+      '/api/engineering/workbench-a1',
+      '/engineering-workbench/g80-a1.json',
+      controller.signal,
+    )
+      .then(({ value, prepared }) => {
+        if (controller.signal.aborted) return;
+        setA1(validateA1Snapshot(value));
+        setA1Prepared(prepared);
       })
       .catch((reason: unknown) => {
         if (!controller.signal.aborted)
-          setA1Error(reason instanceof Error ? reason.message : 'A1 source snapshot unavailable.');
+          setA1Error(reason instanceof Error ? reason.message : 'Recorded source unavailable.');
       });
     return () => controller.abort();
-  }, [retry]);
+  }, [retry, view]);
   useEffect(() => {
+    if (!needsExtension) return;
     const controller = new AbortController();
-    void getJson<ExtendedDocument>('/api/engineering/workbench-extended', controller.signal)
-      .catch(async (reason: unknown) => {
-        if (
-          controller.signal.aborted ||
-          !(reason instanceof Error) ||
-          !reason.message.startsWith('404')
-        )
-          throw reason;
-        const saved = await getJson<ExtendedDocument>(
-          '/engineering-workbench/g80-extended.json',
-          controller.signal,
-        );
-        setExtensionPrepared(true);
-        return saved;
-      })
-      .then((value) => {
-        if (!controller.signal.aborted) {
-          setExtended(value);
-          setExtensionError('');
-        }
+    setExtended(null);
+    setExtensionError('');
+    setExtensionPrepared(false);
+    void loadRecordedSource(
+      '/api/engineering/workbench-extended',
+      '/engineering-workbench/g80-extended.json',
+      controller.signal,
+    )
+      .then(({ value, prepared }) => {
+        if (controller.signal.aborted) return;
+        setExtended(value as ExtendedDocument);
+        setExtensionPrepared(prepared);
       })
       .catch((reason: unknown) => {
         if (!controller.signal.aborted)
           setExtensionError(
-            reason instanceof Error ? reason.message : 'Extended engineering records unavailable.',
+            reason instanceof Error ? reason.message : 'Recorded source unavailable.',
           );
       });
     return () => controller.abort();
-  }, [retry]);
+  }, [retry, needsExtension]);
+  const topicNavigation = (
+    <>
+      {route.notice && (
+        <p className="wb-notice" role="status">
+          {route.notice}
+        </p>
+      )}
+      <nav className="wb-tabs" aria-label="Engineering views">
+        {engineeringTopics.map(([id, label]) => (
+          <button
+            key={id}
+            aria-current={view === id ? 'page' : undefined}
+            className={view === id ? 'active' : ''}
+            onClick={() => setView(id)}
+          >
+            {label}
+          </button>
+        ))}
+      </nav>
+    </>
+  );
+  if (construction) {
+    const snapshot = view === 'a1' ? a1 : view === 'g80-fixed' ? fixed : f2;
+    const sourceError = view === 'a1' ? a1Error : view === 'g80-fixed' ? fixedError : f2Error;
+    const label = engineeringTopics.find(([id]) => id === view)![1];
+    return (
+      <main className="engineering-workbench">
+        {topicNavigation}
+        <section className="wb-introduction">
+          <div>
+            <span className="wb-eyebrow">Independent recorded construction snapshot</span>
+            <h1>{snapshot?.label ?? label}</h1>
+            <p>
+              {sourceError
+                ? 'Requested source unavailable'
+                : (snapshot?.status ?? 'Loading requested source')}
+            </p>
+          </div>
+          {snapshot && !sourceError && (
+            <div className="wb-identity">
+              <strong>{snapshot.identity.candidate_id}</strong>
+              <span>Source {snapshot.identity.source_identity}</span>
+              <span>
+                CAD: {snapshot.identity.cad_revision ?? 'No same-design detailed assembly'}
+              </span>
+            </div>
+          )}
+        </section>
+        <div className="wb-notice">
+          Separate concept snapshot. Engineering acceptance and physical qualification remain open;
+          historical records and archived CAD are distinct.
+        </div>
+        {sourceError ? (
+          <section className="wb-ext-loading">
+            <h2>{label} source unavailable</h2>
+            <p>{sourceError}</p>
+            <button onClick={() => setRetry((value) => value + 1)}>Retry requested source</button>
+          </section>
+        ) : view === 'a1' && a1 ? (
+          <A1ConnectionViews snapshot={a1} prepared={a1Prepared} />
+        ) : view === 'g80-fixed' && fixed ? (
+          <ConventionalG80Views snapshot={fixed} prepared={fixedPrepared} />
+        ) : view === 'g80-f2' && f2 ? (
+          <F2ConstructionViews snapshot={f2} prepared={f2Prepared} />
+        ) : (
+          <p className="wb-ext-loading" role="status">
+            Loading {label} source snapshot.
+          </p>
+        )}
+      </main>
+    );
+  }
   if (error)
     return (
-      <main className="center-state">
+      <main className="engineering-workbench">
+        {topicNavigation}
         <h1>Engineering source data unavailable</h1>
         <p>{error}</p>
         <p>
@@ -268,7 +269,8 @@ export default function EngineeringWorkbench() {
     );
   if (!document)
     return (
-      <main className="center-state" role="status">
+      <main className="engineering-workbench">
+        {topicNavigation}
         <span className="spinner" />
         <h1>Loading the recorded engineering walkthrough</h1>
       </main>
@@ -302,135 +304,58 @@ export default function EngineeringWorkbench() {
   );
   return (
     <main className="engineering-workbench">
+      {topicNavigation}
       <section className="wb-introduction">
         <div>
-          <span className="wb-eyebrow">Engineering walkthrough · G80 first</span>
-          <h1>
-            {view === 'a1'
-              ? (a1?.label ?? 'Separate A1 connection snapshot')
-              : view === 'g80-fixed'
-                ? (fixed?.label ?? 'Separate G80-F1 fixed candidate')
-                : view === 'g80-f2'
-                  ? (f2?.label ?? 'Separate G80-F2 stock construction candidate')
-                  : document.label}
-          </h1>
-          <p>
-            {view === 'a1'
-              ? (a1?.status ?? 'Loading source identity')
-              : view === 'g80-fixed'
-                ? (fixed?.status ?? 'Loading source identity')
-                : view === 'g80-f2'
-                  ? (f2?.status ?? 'Loading source identity')
-                  : document.status}
-          </p>
+          <span className="wb-eyebrow">Historical engineering walkthrough</span>
+          <h1>{document.label}</h1>
+          <p>{document.status}</p>
         </div>
         <div className="wb-identity">
-          {view === 'a1' || view === 'g80-fixed' || view === 'g80-f2' ? (
-            <>
-              <strong>
-                {view === 'a1'
-                  ? (a1?.identity.candidate_id ?? 'A1')
-                  : view === 'g80-fixed'
-                    ? (fixed?.identity.candidate_id ?? 'G80-F1')
-                    : (f2?.identity.candidate_id ?? 'G80-F2')}
-              </strong>
-              <span>
-                Source{' '}
-                {view === 'a1'
-                  ? (a1?.identity.source_identity ?? 'loading')
-                  : view === 'g80-fixed'
-                    ? (fixed?.identity.source_identity ?? 'loading')
-                    : (f2?.identity.source_identity ?? 'loading')}
-              </span>
-              <span>
-                CAD:{' '}
-                {view === 'a1'
-                  ? 'no detailed A1 assembly'
-                  : view === 'g80-fixed'
-                    ? (fixed?.identity.cad_revision ?? 'no same-design F1 assembly')
-                    : (f2?.identity.cad_revision ?? 'no same-design F2 assembly')}
-              </span>
-            </>
-          ) : (
-            <>
-              <strong>{document.identity.configuration_id}</strong>
-              <span>Source {document.identity.specification_sha256.slice(0, 16)}</span>
-              <span>
-                CAD:{' '}
-                {document.identity.cad_revision ?? 'No complete C1 assembly — concept drawings'}
-              </span>
-            </>
-          )}
+          <strong>{document.identity.configuration_id}</strong>
+          <span>Source {document.identity.specification_sha256.slice(0, 16)}</span>
+          <span>
+            CAD: {document.identity.cad_revision ?? 'No complete C1 assembly — concept drawings'}
+          </span>
         </div>
       </section>
       <div className="wb-notice">
-        {view === 'a1'
-          ? 'A1 is a separate concept snapshot for one bounded upper connection study. C1, the A/B screen and archived CAD remain distinct; engineering and physical-flight acceptance remain open.'
-          : view === 'g80-fixed'
-            ? 'G80-F1 is a separate conventional fixed-motor candidate with one continuous body. It does not reuse C1/A1 CAD or physical G12 interfaces; engineering and physical-flight acceptance remain open.'
-            : view === 'g80-f2'
-              ? 'G80-F2 is a separate supplier-stock fixed-motor construction candidate. F1 remains frozen; local joint geometry does not establish whole-vehicle CAD or installed qualification.'
-              : 'C1 is the selected preliminary study. The archived 72-part retention CAD is a different historical candidate. Drawings explain the design; engineering and physical-flight acceptance remain open.'}
+        Frozen historical C1 study. The archived 72-part retention CAD is a different candidate.
+        Drawings explain recorded design evidence; engineering and physical-flight acceptance remain
+        open.
       </div>
-      {prepared && view !== 'a1' && view !== 'g80-fixed' && view !== 'g80-f2' && (
+      {prepared && (
         <div className="wb-notice">
           Displaying the prepared offline export with the source identity below. The current API
           does not have the workbench route; restart it to use its source-checked live export.
         </div>
       )}
-      <nav className="wb-tabs" aria-label="Engineering views">
-        {(
-          [
-            ['geometry', 'Arrangement & sections'],
-            ['forces', 'Forces & connections'],
-            ['mass', 'Mass, balance & launch'],
-            ['comparison', 'Candidate comparisons'],
-            ['recovery', 'Recovery & extraction'],
-            ['thermal', 'Thermal connections'],
-            ['electrical', 'Electrical nets'],
-            ['assembly', 'Assembly & service'],
-            ['requirements', 'Physical verification'],
-            ['a1', 'A1 upper connection'],
-            ['g80-fixed', 'G80-F1 fixed candidate'],
-            ['g80-f2', 'G80-F2 stock construction'],
-            ['evidence', 'Evidence & next views'],
-          ] as [View, string][]
-        ).map(([id, label]) => (
-          <button key={id} className={view === id ? 'active' : ''} onClick={() => setView(id)}>
-            {label}
+      <div className="wb-layout">
+        <aside className="wb-part-list">
+          <h2>Linked components</h2>
+          <p>Select here or in a drawing. Selection follows you between views.</p>
+          <input
+            aria-label="Search engineering components"
+            placeholder="Find a part or material…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button className="wb-clear" onClick={() => setSelected(null)}>
+            Clear selection
           </button>
-        ))}
-      </nav>
-      <div
-        className={`wb-layout ${view === 'a1' ? 'a1-layout' : view === 'g80-fixed' ? 'g80-fixed-layout' : view === 'g80-f2' ? 'g80-f2-layout' : ''}`}
-      >
-        {view !== 'a1' && view !== 'g80-fixed' && view !== 'g80-f2' && (
-          <aside className="wb-part-list">
-            <h2>Linked components</h2>
-            <p>Select here or in a drawing. Selection follows you between views.</p>
-            <input
-              aria-label="Search engineering components"
-              placeholder="Find a part or material…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button className="wb-clear" onClick={() => setSelected(null)}>
-              Clear selection
+          {visible.map((item) => (
+            <button
+              key={item.id}
+              className={`wb-part ${selected === item.id ? 'selected' : ''}`}
+              onClick={() => setSelected(item.id)}
+            >
+              <strong>{item.label}</strong>
+              <span>
+                {item.subsystem} · {item.geometry_maturity.replaceAll('_', ' ')}
+              </span>
             </button>
-            {visible.map((item) => (
-              <button
-                key={item.id}
-                className={`wb-part ${selected === item.id ? 'selected' : ''}`}
-                onClick={() => setSelected(item.id)}
-              >
-                <strong>{item.label}</strong>
-                <span>
-                  {item.subsystem} · {item.geometry_maturity.replaceAll('_', ' ')}
-                </span>
-              </button>
-            ))}
-          </aside>
-        )}
+          ))}
+        </aside>
         <section className="wb-graphics" aria-label="Engineering graphics">
           {view === 'geometry' ? (
             <GeometryViews {...props} />
@@ -438,66 +363,6 @@ export default function EngineeringWorkbench() {
             <LoadPathViews {...props} />
           ) : view === 'mass' ? (
             <MassLaunchViews {...props} />
-          ) : view === 'a1' ? (
-            a1Error ? (
-              <div className="wb-extension">
-                <div className="wb-ext-loading">
-                  <h2>A1 source snapshot unavailable</h2>
-                  <p>{a1Error}</p>
-                  <button type="button" onClick={() => setRetry(retry + 1)}>
-                    Retry A1 source
-                  </button>
-                </div>
-              </div>
-            ) : a1 ? (
-              <A1ConnectionViews snapshot={a1} prepared={a1Prepared} />
-            ) : (
-              <div className="wb-extension">
-                <p className="wb-ext-loading" role="status">
-                  Loading separate A1 source snapshot.
-                </p>
-              </div>
-            )
-          ) : view === 'g80-fixed' ? (
-            fixedError ? (
-              <div className="wb-extension">
-                <div className="wb-ext-loading">
-                  <h2>G80-F1 source snapshot unavailable</h2>
-                  <p>{fixedError}</p>
-                  <button type="button" onClick={() => setRetry(retry + 1)}>
-                    Retry G80-F1 source
-                  </button>
-                </div>
-              </div>
-            ) : fixed ? (
-              <ConventionalG80Views snapshot={fixed} prepared={fixedPrepared} />
-            ) : (
-              <div className="wb-extension">
-                <p className="wb-ext-loading" role="status">
-                  Loading separate G80-F1 source snapshot.
-                </p>
-              </div>
-            )
-          ) : view === 'g80-f2' ? (
-            f2Error ? (
-              <div className="wb-extension">
-                <div className="wb-ext-loading">
-                  <h2>G80-F2 source snapshot unavailable</h2>
-                  <p>{f2Error}</p>
-                  <button type="button" onClick={() => setRetry(retry + 1)}>
-                    Retry G80-F2 source
-                  </button>
-                </div>
-              </div>
-            ) : f2 ? (
-              <F2ConstructionViews snapshot={f2} prepared={f2Prepared} />
-            ) : (
-              <div className="wb-extension">
-                <p className="wb-ext-loading" role="status">
-                  Loading separate G80-F2 source snapshot.
-                </p>
-              </div>
-            )
           ) : extensionModes.includes(view as ExtensionMode) ? (
             extensionError || (extended && !extendedCompatible) ? (
               <div className="wb-extension">
@@ -574,76 +439,74 @@ export default function EngineeringWorkbench() {
             </>
           )}
         </section>
-        {view !== 'a1' && view !== 'g80-fixed' && view !== 'g80-f2' && (
-          <aside className="wb-inspector" aria-label="Engineering part inspector">
-            {part ? (
-              <>
-                <span className={`wb-state ${part.state}`}>
-                  {part.state} · {part.geometry_maturity.replaceAll('_', ' ')}
-                </span>
-                <h2>{part.label}</h2>
-                <p>{part.function}</p>
-                <dl>
-                  <dt>Material</dt>
-                  <dd>{part.material}</dd>
-                  <dt>Manufacturing</dt>
-                  <dd>{part.manufacturing}</dd>
-                  <dt>Mass</dt>
-                  <dd>{part.mass_g === null ? 'Unavailable' : `${part.mass_g.toFixed(3)} g`}</dd>
-                  <dt>Mass basis</dt>
-                  <dd>{part.mass_basis}</dd>
-                  <dt>Position from nose tip</dt>
-                  <dd>{part.start_mm === null ? 'Undefined' : `${part.start_mm} mm`}</dd>
-                  <dt>Length</dt>
-                  <dd>{part.length_mm === null ? 'Undefined' : `${part.length_mm} mm`}</dd>
-                  <dt>Source part identities</dt>
-                  <dd>{part.source_part_ids.join(', ') || 'No detailed-CAD identity'}</dd>
-                </dl>
-                <h3>Connections</h3>
-                {part.connections.map((text, i) => (
-                  <p key={i}>{text}</p>
-                ))}
-                <h3>Open findings / failure modes</h3>
-                {part.findings.map((text, i) => (
-                  <p className="wb-finding" key={i}>
-                    {text}
-                  </p>
-                ))}
-                <h3>Evidence</h3>
-                {part.source_ids.map((id) => (
-                  <p key={id}>
-                    {document.generated_from.find((s) => s.id === id)?.description ?? id}
-                  </p>
-                ))}
-              </>
-            ) : (
-              <>
-                <h2>Explore the construction</h2>
-                <p>
-                  Click a colored component or connection in a drawing to inspect its function,
-                  material, source and open findings.
+        <aside className="wb-inspector" aria-label="Engineering part inspector">
+          {part ? (
+            <>
+              <span className={`wb-state ${part.state}`}>
+                {part.state} · {part.geometry_maturity.replaceAll('_', ' ')}
+              </span>
+              <h2>{part.label}</h2>
+              <p>{part.function}</p>
+              <dl>
+                <dt>Material</dt>
+                <dd>{part.material}</dd>
+                <dt>Manufacturing</dt>
+                <dd>{part.manufacturing}</dd>
+                <dt>Mass</dt>
+                <dd>{part.mass_g === null ? 'Unavailable' : `${part.mass_g.toFixed(3)} g`}</dd>
+                <dt>Mass basis</dt>
+                <dd>{part.mass_basis}</dd>
+                <dt>Position from nose tip</dt>
+                <dd>{part.start_mm === null ? 'Undefined' : `${part.start_mm} mm`}</dd>
+                <dt>Length</dt>
+                <dd>{part.length_mm === null ? 'Undefined' : `${part.length_mm} mm`}</dd>
+                <dt>Source part identities</dt>
+                <dd>{part.source_part_ids.join(', ') || 'No detailed-CAD identity'}</dd>
+              </dl>
+              <h3>Connections</h3>
+              {part.connections.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+              <h3>Open findings / failure modes</h3>
+              {part.findings.map((text, i) => (
+                <p className="wb-finding" key={i}>
+                  {text}
                 </p>
-                <h3>Representation key</h3>
-                <p>
-                  <b>Detailed CAD:</b> existing engineering solid.
+              ))}
+              <h3>Evidence</h3>
+              {part.source_ids.map((id) => (
+                <p key={id}>
+                  {document.generated_from.find((s) => s.id === id)?.description ?? id}
                 </p>
-                <p>
-                  <b>Envelope:</b> a simplified space reservation.
-                </p>
-                <p>
-                  <b>Concept:</b> a sourced preliminary arrangement.
-                </p>
-                <p>
-                  <b>Undefined:</b> geometry or a connection still needs design evidence.
-                </p>
-                <p>
-                  Blue is calculated evidence, amber is estimated or unresolved, red identifies
-                  failed screens. None of these colors grants build or flight approval.
-                </p>
-              </>
-            )}
-          </aside>
-        )}
+              ))}
+            </>
+          ) : (
+            <>
+              <h2>Explore the construction</h2>
+              <p>
+                Click a colored component or connection in a drawing to inspect its function,
+                material, source and open findings.
+              </p>
+              <h3>Representation key</h3>
+              <p>
+                <b>Detailed CAD:</b> existing engineering solid.
+              </p>
+              <p>
+                <b>Envelope:</b> a simplified space reservation.
+              </p>
+              <p>
+                <b>Concept:</b> a sourced preliminary arrangement.
+              </p>
+              <p>
+                <b>Undefined:</b> geometry or a connection still needs design evidence.
+              </p>
+              <p>
+                Blue is calculated evidence, amber is estimated or unresolved, red identifies failed
+                screens. None of these colors grants build or flight approval.
+              </p>
+            </>
+          )}
+        </aside>
       </div>
     </main>
   );
