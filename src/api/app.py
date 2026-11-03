@@ -640,6 +640,15 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
                 409, f"Engineering extension source unavailable: {error}"
             ) from error
 
+    @app.get("/api/engineering/workbench-a1")
+    def engineering_workbench_a1() -> dict[str, Any]:
+        from src.api.workbench_a1 import build_workbench_a1
+
+        try:
+            return build_workbench_a1(root)
+        except (OSError, ValueError, KeyError) as error:
+            raise HTTPException(409, f"A1 connection snapshot unavailable: {error}") from error
+
     @app.get("/api/vehicles")
     def vehicles() -> dict[str, Any]:
         rows = []

@@ -1,5 +1,12 @@
 # Frontend spec (frozen before WO-04; changes are their own work order)
 
+A1 connection follow-up is a separate versioned early-workbench snapshot
+(`view=a1`), with source-defined concept interface/root diagrams, historical
+coupler failure, fit/mass/guide records and separate motor load cases. It does
+not map concept geometry onto C1 or archived CAD, run physics in the browser or
+clear full WO/release gates. Offline rendered images are separate from browser
+verification. See [A1 walkthrough](wo04-a1-connection-walkthrough.md).
+
 Single-page web app. Vite + React + TypeScript, react-three-fiber for 3D, uPlot for plots,
 zustand for state, FastAPI backend at `/api`. Desktop-first; no mobile layout required.
 Dark theme, one accent colour, system font. No design system library.

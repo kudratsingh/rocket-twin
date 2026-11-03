@@ -14,6 +14,15 @@ Published C1/A/B below remain frozen history. A1 is a separate snapshot and
 changes no active or shared G54/G12 assembly. New external collar/head geometry
 makes reused C1 CP/drag only reference hypotheses; full inertia/new CP unavailable.
 
+The separate graphical A1 snapshot is now implemented at
+`http://127.0.0.1:5173/?workspace=engineering&view=a1` after `make preview`.
+[Offline A1 gallery](../output/engineering-a1-connection/index.html) provides
+two actual inspected PNG/SVG drawings: sleeve/stop/key/harness/service and five
+separate load paths, plus radial bolt stack/upper bond/root detail. These are
+concept graphics, not CAD or browser screenshots. Current snapshot includes the
+previously missing historical0mm fit finding; browser interaction stays blocked
+by the designated-agent runtime-ownership prerequisite, with no retry/bypass.
+
 **G80 first. C1 is preliminary. R1/C2/C3 remain rejected.** Substantial custom
 construction, maximum practical performance and committed G12 PID-to-RL remain
 core goals; G54 remains a separate upgrade. Expanded WO-03 and every build,
