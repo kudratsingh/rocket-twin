@@ -11,8 +11,10 @@ import { createServer } from '../web/node_modules/vite/dist/node/index.js';
 
 const root = resolve(import.meta.dirname, '..');
 const input = resolve(root, process.argv[2] || 'build/wo04-focused-2d-v1/inspection.json');
-const out = resolve(root, 'output/focused-design-2d');
-const recordDir = resolve(root, 'build/wo04-focused-2d-v1');
+const selectedPart = process.argv[3] || 'fin_set';
+assert.match(selectedPart, /^[a-zA-Z0-9_-]+$/);
+const out = resolve(root, 'output/focused-design-2d-v2', selectedPart);
+const recordDir = resolve(root, 'build/wo04-focused-2d-v2', selectedPart);
 const helper = resolve(root, 'runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift');
 const sha = (data) => createHash('sha256').update(data).digest('hex');
 const raw = readFileSync(input);
@@ -26,7 +28,7 @@ const server = await createServer({ configFile: false, root: resolve(root, 'web'
 let markup;
 try {
   const { OrthographicDesign } = await server.ssrLoadModule('/src/design/OrthographicDesign.tsx');
-  markup = renderToStaticMarkup(React.createElement(OrthographicDesign, { vehicle, selectedPartId: 'fin_set', onSelectPart() {} }));
+  markup = renderToStaticMarkup(React.createElement(OrthographicDesign, { vehicle, selectedPartId: selectedPart, onSelectPart() {} }));
 } finally {
   await server.close();
 }
@@ -35,11 +37,13 @@ assert.ok(svg, 'Actual React drawing absent');
 assert.doesNotMatch(svg, /(?:="(?:NaN|Infinity|undefined)"|<script\b|<foreignObject\b)/);
 const svgPath = resolve(out, 'g80-reference-source-dimensions.svg');
 const pngPath = resolve(out, 'g80-reference-source-dimensions.png');
-writeFileSync(svgPath, svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" ') + '\n');
+const dimensions = svg.match(/viewBox="0 0 ([0-9.]+) ([0-9.]+)"/);
+assert.ok(dimensions, 'Drawing viewBox unavailable');
+writeFileSync(svgPath, svg.replace('<svg ', `<svg xmlns="http://www.w3.org/2000/svg" width="${dimensions[1]}" height="${dimensions[2]}" `) + '\n');
 const remaining = 120000 - (performance.now() - started);
 assert.ok(remaining > 1000);
-const result = execFileSync('/usr/bin/swift', ['-module-cache-path', resolve(recordDir, 'swift-module-cache'), helper, svgPath, pngPath], { timeout: Math.floor(remaining), encoding: 'utf8' });
-const paths = ['web/src/design/OrthographicDesign.tsx', 'web/src/design/orthographicGeometry.ts', 'scripts/wo04_export_design_2d.mjs'];
-const record = { status: 'offline_render_complete_pending_visual_inspection', configuration: vehicle.id, identity: vehicle.identity, source_input: { path: relative(root, input), sha256: sha(raw) }, rendered_sources: paths.map(path => ({ path, sha256: sha(readFileSync(resolve(root, path))) })), svg: { path: relative(root, svgPath), sha256: sha(readFileSync(svgPath)) }, png: { path: relative(root, pngPath), sha256: sha(readFileSync(pngPath)) }, runtime_s: (performance.now() - started) / 1000, budget: { attempts: 1, wall_limit_s: 120, installation: false }, renderer_output: result, browser_verified: false, engineering_accepted: false };
+const result = execFileSync('/usr/bin/swift', ['-module-cache-path', resolve(root, 'build/wo04-focused-2d-v2/swift-module-cache'), helper, svgPath, pngPath], { timeout: Math.floor(remaining), encoding: 'utf8' });
+const paths = ['web/src/design/OrthographicDesign.tsx', 'web/src/design/orthographicGeometry.ts', 'web/src/design/designPresentation.ts', 'scripts/wo04_export_design_2d.mjs'];
+const record = { status: 'offline_render_complete_pending_visual_inspection', configuration: vehicle.id, selected_part: selectedPart, identity: vehicle.identity, source_input: { path: relative(root, input), sha256: sha(raw) }, rendered_sources: paths.map(path => ({ path, sha256: sha(readFileSync(resolve(root, path))) })), svg: { path: relative(root, svgPath), sha256: sha(readFileSync(svgPath)) }, png: { path: relative(root, pngPath), sha256: sha(readFileSync(pngPath)) }, runtime_s: (performance.now() - started) / 1000, budget: { attempts: 1, wall_limit_s: 120, installation: false }, renderer_output: result, browser_verified: false, engineering_accepted: false };
 writeFileSync(resolve(recordDir, 'record.json'), JSON.stringify(record, null, 2) + '\n');
 console.log(JSON.stringify({ configuration: record.configuration, runtime_s: record.runtime_s, result }));
