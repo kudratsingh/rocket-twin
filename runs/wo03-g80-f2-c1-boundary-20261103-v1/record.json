@@ -1,0 +1,200 @@
+{
+  "identity": "G80-F2-C1-boundary-only-replan-v1",
+  "source_spec_sha256": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78",
+  "source_STEP_sha256": "7de1c2cbd7ecbad28f1a10aa3f80ca5be5ab3a330c4cbacc5e427a32ddce786c",
+  "source_sha256": {
+    "scripts/wo03_f2_c1_boundary_pilot.py": "b7f920a6c8ea97030eabae504287b8e95ed2b5106030e541efdcb2550dd10707",
+    "scripts/wo03_f2_c1_ring.py": "f77b123a171068e3e79684d27764abbc6a68d3d4cb620c0350605722e4b2f4ae",
+    "runs/wo03-g80-f2-c1-method-20261103-v1/record.json": "525c38ad3897f0b7b54ecb15f36e83f6ad15916a4cbc91ac1fcbb1a4151f91bc",
+    "docs/wo03-g80-f2-c1-method-replan.md": "24fbaf65ceac3e29c334d671039ec1747a5d8f00f744e5ad6f55af019d82592e"
+  },
+  "known_answer": {
+    "triangle_area_mm2": 0.499999999999998,
+    "nodal_loads": [
+      1.986258379993444e-16,
+      2.255140518769849e-16,
+      2.3332030751888055e-16,
+      0.16666666666666574,
+      0.16666666666666594,
+      0.16666666666666574
+    ],
+    "max_absolute_error": 1.9984014443252818e-15,
+    "reused_axial": {
+      "path": "build/wo03-vibration-20261030T205443545391Z/known-axial/1.5/report.json",
+      "sha256": "cb4c7de03a8e1203ac9d2713e840c9effc6b011142db11950583d87f8370ef18",
+      "record": {
+        "fixture": "axial bar; no rocket geometry",
+        "gmsh_version": "4.15.2",
+        "mesh_size_mm": 1.5,
+        "node_count": 4452,
+        "element_count": 2373,
+        "load_n": 0.9999999999999999,
+        "expected_displacement_mm": 0.0013333333333333333,
+        "expected_stress_mpa": 0.04,
+        "mesh_generated": true,
+        "solver_executed": true,
+        "ccx_version": "This is Version 2.23",
+        "displacement_mm": 0.0013333329999999995,
+        "regional_stress_mpa": 0.039999999999999994,
+        "support_reaction_n": -1.0000000030000027,
+        "errors": {
+          "displacement_relative": 2.500000003680114e-07,
+          "stress_relative": 2.220446049250313e-16,
+          "equilibrium_n": 3.000002690711767e-09
+        },
+        "passed": true
+      }
+    },
+    "spring_fixture": "reused runs/wo03-g80-f2-ring-20261103-v1/record.json known_spring",
+    "passed": true
+  },
+  "reports": [
+    {
+      "cpu_s": 10.906476,
+      "h_mm": 3.0,
+      "quality": {
+        "nodes": 30144,
+        "elements": 18145,
+        "minimum_scaled_Jacobian": 0.9999999999996841,
+        "maximum_midpoint_deviation_mm": 0.0,
+        "Jacobian_scope": "affine each tetra; positive throughout, not only sampled",
+        "CAD_volume_mm3": 27550.910142441684,
+        "mesh_volume_mm3": 27562.449852769492,
+        "surface_area_mm2": {
+          "load0": 137.14849637733766,
+          "load1": 137.14849637733764,
+          "outer": 2330.8471765908907,
+          "inner": 1071.3322895184413,
+          "tabs": 321.42867350025716
+        },
+        "analytic_footprint_area_mm2": 138.03372721710153,
+        "minimum_circle_nodes": 32
+      },
+      "cases": [
+        {
+          "load_N": 100,
+          "reaction_N": {
+            "outer": 30.655244551874326,
+            "inner": 8.779448526362264,
+            "tabs": 60.56530709872973
+          },
+          "force_error": 1.7696636689379374e-09,
+          "moment_error": 3.0345321149092747e-09,
+          "energy_error": 9.919276511283215e-10,
+          "external_half_work_Nmm": 3.3224429195736183,
+          "solid_energy_Nmm": 1.0212763862851766,
+          "spring_energy_Nmm": 2.3011665365840646,
+          "maximum_displacement_mm": 0.1130762,
+          "VM_max_MPa": 2.5524365447240642,
+          "VM_volume_p95_MPa": 0.580340469928538,
+          "absolute_principal_max_MPa": 2.8615388483589017,
+          "absolute_principal_volume_p95_MPa": 0.5822813850041162
+        },
+        {
+          "load_N": 100,
+          "reaction_N": {
+            "outer": 30.64983788636855,
+            "inner": 8.781426108648855,
+            "tabs": 60.56873631014722
+          },
+          "force_error": 3.0516446258843643e-09,
+          "moment_error": 5.424484948065538e-09,
+          "energy_error": 1.466867738386668e-09,
+          "external_half_work_Nmm": 5.83226253520864,
+          "solid_energy_Nmm": 1.6366933749176344,
+          "spring_energy_Nmm": 4.195569168846164,
+          "maximum_displacement_mm": 0.1659558,
+          "VM_max_MPa": 3.4643159071181886,
+          "VM_volume_p95_MPa": 0.777511687715663,
+          "absolute_principal_max_MPa": 3.81140123561382,
+          "absolute_principal_volume_p95_MPa": 0.7737887597480463
+        }
+      ],
+      "reciprocal_work_error": 5.453070740654216e-09,
+      "support_stiffness_N_mm": {
+        "outer": 920.4341357806054,
+        "inner": 316.976226771698,
+        "tabs": 2871.5573770491806
+      },
+      "wall_s": 11.256027667026501,
+      "installed_strength_accepted": false
+    },
+    {
+      "cpu_s": 52.378364999999995,
+      "h_mm": 2.0,
+      "quality": {
+        "nodes": 80858,
+        "elements": 51503,
+        "minimum_scaled_Jacobian": 0.9999999999993475,
+        "maximum_midpoint_deviation_mm": 0.0,
+        "Jacobian_scope": "affine each tetra; positive throughout, not only sampled",
+        "CAD_volume_mm3": 27550.910142441684,
+        "mesh_volume_mm3": 27557.58090329419,
+        "surface_area_mm2": {
+          "load0": 137.63986969604383,
+          "load1": 137.6398696960438,
+          "outer": 2331.148474694863,
+          "inner": 1071.8376353171254,
+          "tabs": 321.35501373198133
+        },
+        "analytic_footprint_area_mm2": 138.03372721710153,
+        "minimum_circle_nodes": 48
+      },
+      "cases": [
+        {
+          "load_N": 100,
+          "reaction_N": {
+            "outer": 30.755040484989806,
+            "inner": 8.791689922124732,
+            "tabs": 60.453269817460445
+          },
+          "force_error": 2.245749328722013e-09,
+          "moment_error": 1.6642038814468241e-09,
+          "energy_error": 5.9955874709416435e-09,
+          "external_half_work_Nmm": 3.3353016002887768,
+          "solid_energy_Nmm": 1.0251187070284904,
+          "spring_energy_Nmm": 2.310182873263194,
+          "maximum_displacement_mm": 0.1134624,
+          "VM_max_MPa": 2.446872809468853,
+          "VM_volume_p95_MPa": 0.5820545746596901,
+          "absolute_principal_max_MPa": 2.8008143049161545,
+          "absolute_principal_volume_p95_MPa": 0.5821956392663129
+        },
+        {
+          "load_N": 100,
+          "reaction_N": {
+            "outer": 30.755570208261783,
+            "inner": 8.792189224492974,
+            "tabs": 60.45224091610986
+          },
+          "force_error": 3.4886436139913713e-09,
+          "moment_error": 2.4017779783841817e-09,
+          "energy_error": 1.5872548830841993e-08,
+          "external_half_work_Nmm": 5.852062034987717,
+          "solid_energy_Nmm": 1.644990046318156,
+          "spring_energy_Nmm": 4.207072081556701,
+          "maximum_displacement_mm": 0.1664268,
+          "VM_max_MPa": 3.3298747965547664,
+          "VM_volume_p95_MPa": 0.782953830696223,
+          "absolute_principal_max_MPa": 3.767865634204448,
+          "absolute_principal_volume_p95_MPa": 0.7841209743373568
+        }
+      ],
+      "reciprocal_work_error": 1.4065711715067172e-08,
+      "support_stiffness_N_mm": {
+        "outer": 920.4341357806054,
+        "inner": 316.976226771698,
+        "tabs": 2871.5573770491806
+      },
+      "wall_s": 53.829798292019404,
+      "installed_strength_accepted": false
+    }
+  ],
+  "failure": "ValueError('node budget exceeded before solver')",
+  "refinement": {},
+  "wall_s": 1.6690268340171315,
+  "prior_wall_s": 67.26370316598332,
+  "installed_strength_accepted": false,
+  "method_refinement_pass": false,
+  "scope": "same hypothetical component fixture on independently generated non-nested grids; no physical joint capacity or actual vehicle load allocation"
+}

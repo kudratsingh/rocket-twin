@@ -5,6 +5,7 @@ import { MassLaunchViews } from './MassLaunchViews';
 import { ExtensionViews } from './ExtensionViews';
 import { A1ConnectionViews } from './A1ConnectionViews';
 import { ConventionalG80Views } from './ConventionalG80Views';
+import F2ConnectionStudy from './F2ConnectionStudy';
 import { F2ConstructionViews } from './F2ConstructionViews';
 import type { A1Snapshot } from './a1Types';
 import { validateA1Snapshot } from './a1Types';
@@ -204,6 +205,14 @@ export default function EngineeringWorkbench() {
       </nav>
     </>
   );
+  if (view === 'g80-f2-c1') {
+    return (
+      <main className="engineering-workbench">
+        {topicNavigation}
+        <F2ConnectionStudy />
+      </main>
+    );
+  }
   if (construction) {
     const snapshot = view === 'a1' ? a1 : view === 'g80-fixed' ? fixed : f2;
     const sourceError = view === 'a1' ? a1Error : view === 'g80-fixed' ? fixedError : f2Error;

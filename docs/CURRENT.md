@@ -1,5 +1,34 @@
 # Current engineering and inspection checkpoint
 
+**Current connection decision: [G80-F2-C1](wo03-g80-f2-c1-decision.md), not adopted.**
+Frozen F2 remains the working reference below. The new proposal defines seven
+conditional fit stacks and adds1.190g epoxy with zero wood-removal credit.
+Nominal/adverse918.750/938.750g, static1.283/1.105cal, reference1.5m
+15.359/15.175m/s. Formal speed passes; planning misses. No longer rail adopted.
+
+The critical recovery pull **opens the blind-notch floor gap**, leaving adhesive
+tension/side shear as the load route. Finished eyes, actual body/tab/mount support,
+peel/wood strength and motor contact remain unresolved. Two numerical grids are
+valid; the fine mesh and one defined replan stopped at the unchanged node cap
+(last139953>100000). Required3-grid convergence is unavailable; no further retry.
+
+[Verification supplement](../configs/engineering/g80-f2-c1-verification.yaml)
+keeps existing requirement IDs and independent G54/G12 tracks. CurrentF2-C1
+geometry remains a proposal; its generators are explicitly unadmitted and the
+old32.3mm ring fields do not apply to new32.2mm geometry. No prototype/flight gate
+or installed strength/thermal requirement closes.
+
+Inspection refinement [PR68](https://github.com/kudratsingh/rocket-twin/pull/68)
+is merged; both required jobs passed at `798d20ae722549f90648f5a2d709066156630c0b`.
+The new [connection-study handoff](wo04-f2-c1-walkthrough-20261103.md) records
+separate source-linked graphics, a dimensioned section, the complete coupled
+table and offline image observations. Open
+`http://127.0.0.1:5173/?workspace=engineering&view=g80-f2-c1` after `make preview`.
+The study is not a new flight configuration or a compatible stress overlay.
+Browser runtime ownership remains unresolved; read-only host diagnostics do not
+bypass it. The only pending owner question is whether exact hardware is already
+on hand for the missing external dimensions; no purchase/physical work requested.
+
 **Current selected G80 follow-up: G80-F2-fixed-stock-ballast-v2.**
 [Construction decision](wo03-g80-f2-decision.md) and
 [exact-once coupled audit](wo03-g80-f2-coupled-accounting.md).
@@ -44,7 +73,7 @@ routes/state. [Current usable-code handoff](wo04-focused-preview-20261103.md)
 records exact pages, startup and pending browser tests.
 
 F2 engineering PR66 merged after both required jobs passed at55599a2370962f195dea31faee49fb825c7646fe.
-The focused UI follow-up is being published separately. Launcher preparation
+Inspection refinement PR68 is merged as recorded above. Launcher preparation
 passes, but Vite cannot bind127.0.0.1:5173 in the sandbox (`listen EPERM`).
 No live app or browser acceptance is claimed. The original designated-browser
 ownership rejection remains unresolved and was not retried/bypassed.

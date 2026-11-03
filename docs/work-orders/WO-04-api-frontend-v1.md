@@ -1,5 +1,13 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+The separate F2-C1 connection preview is recorded in
+`docs/wo04-f2-c1-walkthrough-20261103.md`. Its source-linked force graph, local
+section, fit and loaded/burnout tables explain an unadopted proposal. They do
+not register a flight configuration, whole-vehicle CAD or diagnostic field as
+active analysis. Offline images were inspected; browser acceptance remains
+blocked by the unchanged ownership prerequisite. Full completion criteria below
+remain in force.
+
 2026-11-03 frontend direction: execute the supplied43-task planning kit through
 focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
 (ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex

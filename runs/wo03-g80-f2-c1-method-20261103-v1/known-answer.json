@@ -1,0 +1,40 @@
+{
+  "triangle_area_mm2": 0.499999999999998,
+  "nodal_loads": [
+    1.986258379993444e-16,
+    2.255140518769849e-16,
+    2.3332030751888055e-16,
+    0.16666666666666574,
+    0.16666666666666594,
+    0.16666666666666574
+  ],
+  "max_absolute_error": 1.9984014443252818e-15,
+  "reused_axial": {
+    "path": "build/wo03-vibration-20261030T205443545391Z/known-axial/1.5/report.json",
+    "sha256": "cb4c7de03a8e1203ac9d2713e840c9effc6b011142db11950583d87f8370ef18",
+    "record": {
+      "fixture": "axial bar; no rocket geometry",
+      "gmsh_version": "4.15.2",
+      "mesh_size_mm": 1.5,
+      "node_count": 4452,
+      "element_count": 2373,
+      "load_n": 0.9999999999999999,
+      "expected_displacement_mm": 0.0013333333333333333,
+      "expected_stress_mpa": 0.04,
+      "mesh_generated": true,
+      "solver_executed": true,
+      "ccx_version": "This is Version 2.23",
+      "displacement_mm": 0.0013333329999999995,
+      "regional_stress_mpa": 0.039999999999999994,
+      "support_reaction_n": -1.0000000030000027,
+      "errors": {
+        "displacement_relative": 2.500000003680114e-07,
+        "stress_relative": 2.220446049250313e-16,
+        "equilibrium_n": 3.000002690711767e-09
+      },
+      "passed": true
+    }
+  },
+  "spring_fixture": "reused runs/wo03-g80-f2-ring-20261103-v1/record.json known_spring",
+  "passed": true
+}

@@ -1,0 +1,142 @@
+.f2c-study {
+  padding: 18px;
+  color: #deebf0;
+  min-width: 0;
+  line-height: 1.55;
+}
+.f2c-study h1 {
+  font-size: 24px;
+  margin: 4px 0 10px;
+}
+.f2c-study h2 {
+  margin: 22px 0 10px;
+}
+.f2c-study h3 {
+  margin: 14px 0 8px;
+}
+.f2c-study p {
+  margin: 8px 0;
+}
+.f2c-kicker {
+  color: #e6bf83;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+.f2c-warning {
+  padding: 10px 12px;
+  border-left: 3px solid #dfb77e;
+  background: #2b2821;
+  color: #e3cfad;
+}
+.f2c-study details {
+  margin: 8px 0;
+  padding: 8px 10px;
+  border: 1px solid #344952;
+  border-radius: 5px;
+}
+.f2c-study summary {
+  cursor: pointer;
+  color: #b1d5dd;
+}
+.f2c-study summary:focus-visible,
+.f2c-study svg g[role='button']:focus-visible {
+  outline: 2px solid #a1e2d7;
+  outline-offset: 3px;
+}
+.f2c-study pre,
+.f2c-study code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+.f2c-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+}
+.f2c-study label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.f2c-study select {
+  max-width: 100%;
+  min-width: 0;
+  padding: 6px;
+}
+.f2c-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.f2c-graphics,
+.f2c-inspector {
+  min-width: 0;
+}
+.f2c-graph,
+.f2c-cut {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #344952;
+  border-radius: 6px;
+}
+.f2c-graph g[role='button'] {
+  cursor: pointer;
+}
+.f2c-inspector {
+  background: #182832;
+  border: 1px solid #344952;
+  padding: 12px;
+  border-radius: 6px;
+}
+.f2c-inspector h2 {
+  margin-top: 0;
+}
+.f2c-inspector dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+}
+.f2c-inspector dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.f2c-cut {
+  margin-top: 18px;
+}
+.f2c-table {
+  overflow-x: auto;
+  margin: 12px 0;
+}
+.f2c-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+.f2c-table th,
+.f2c-table td {
+  border: 1px solid #344952;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+.f2c-table th {
+  background: #20343e;
+}
+.f2c-table small {
+  display: block;
+  min-width: 170px;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1100px) {
+  .f2c-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

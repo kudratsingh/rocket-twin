@@ -1,5 +1,7 @@
 # Plan — modular custom rocket and digital twin
 
+F2-C1 connection packet is recorded in `docs/wo03-g80-f2-c1-decision.md` and `configs/engineering/g80-f2-c1-verification.yaml` (repository-relative). Seven proposed fits and coupled mass are calculated; installed recovery/motor/thermal/fin gates and3-grid accuracy remain open. Fine node-capped attempts stopped without resource increases; no full-WO or physical adoption. Source-linked frontend study is independent of the active design.
+
 2026-11-03 frontend direction: execute the supplied43-task planning kit through
 focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
 (ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex

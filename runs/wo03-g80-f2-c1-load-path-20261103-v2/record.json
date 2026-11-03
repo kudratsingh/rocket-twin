@@ -1,0 +1,326 @@
+{
+  "identity": "G80-F2-C1-fit-proposal-v1",
+  "status": "proposed fits pass declared windows; installed recovery/motor/thermal/fin and adoption held",
+  "source_spec_sha256": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78",
+  "proposal_spec_sha256": "e38b7028550ab4da61d54f9490a8c36784d3ead086ebf5fb334631ed310a3532",
+  "producer_sha256": "48bce52c49c57fe18f1d93f5a1975ecabc7afe717241f92365abb80c4a3206bb",
+  "cases": [
+    {
+      "identity": "G80-F2-fixed-stock-ballast-v2",
+      "variant": "frozen_F2",
+      "case": "nominal",
+      "total_mass_kg": 0.9175599814666081,
+      "parts_mass_kg": 0.8675599814666081,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0,
+      "motor_cg_probe_m": 0,
+      "cg_m": 0.7735592085636195,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.2856364304622165,
+      "guide_mps": {
+        "1.5": 15.369785231297065,
+        "1.8": 16.839538038655395
+      },
+      "formal_mass_headroom_g": 40.78357207648264,
+      "planning_mass_headroom_g": -13.760686041193072,
+      "required_whole_mean_proxy_N": 1936.253378212467,
+      "common_acceleration_partition_N": {
+        "nose": 409.2877124482608,
+        "soft": 160.37671620000003,
+        "body": 1366.5889495642061
+      },
+      "two_free_body_comparison": {
+        "nose_mass_kg": 0.19395500096957227,
+        "body_mass_kg": 0.6476049804970359,
+        "reduced_mass_kg": 0.14925403701029752,
+        "relative_speed_hypothesis_mps": 20.4,
+        "stroke_hypothesis_m": 0.3,
+        "factored_mean_tension_N": 310.5678002110271,
+        "scope": "derived relative-motion energy comparison, not replacement requirement or peak; soft goods omitted/engagement unknown"
+      },
+      "point_drag_model_full_canopy_comparison_N": 253.37359539606726
+    },
+    {
+      "identity": "G80-F2-fixed-stock-ballast-v2",
+      "variant": "frozen_F2",
+      "case": "adverse",
+      "total_mass_kg": 0.9375599814666081,
+      "parts_mass_kg": 0.8675599814666081,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "motor_cg_probe_m": 0.0128,
+      "cg_m": 0.7854728738752029,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.1072934869637667,
+      "guide_mps": {
+        "1.5": 15.185577065301842,
+        "1.8": 16.638290590013867
+      },
+      "formal_mass_headroom_g": 20.783572076482628,
+      "planning_mass_headroom_g": -33.76068604119309,
+      "required_whole_mean_proxy_N": 1978.457777212467,
+      "common_acceleration_partition_N": {
+        "nose": 409.2877124482608,
+        "soft": 160.37671620000003,
+        "body": 1408.793348564206
+      },
+      "two_free_body_comparison": {
+        "nose_mass_kg": 0.19395500096957227,
+        "body_mass_kg": 0.6676049804970359,
+        "reduced_mass_kg": 0.1502917120397988,
+        "relative_speed_hypothesis_mps": 20.4,
+        "stroke_hypothesis_m": 0.3,
+        "factored_mean_tension_N": 312.7269944124133,
+        "scope": "derived relative-motion energy comparison, not replacement requirement or peak; soft goods omitted/engagement unknown"
+      },
+      "point_drag_model_full_canopy_comparison_N": 253.37359539606726
+    },
+    {
+      "identity": "G80-F2-C1-fit-proposal-v1",
+      "variant": "C1_fit_proposal",
+      "case": "nominal",
+      "total_mass_kg": 0.9187500030845739,
+      "parts_mass_kg": 0.8687500030845738,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0,
+      "motor_cg_probe_m": 0,
+      "cg_m": 0.7737070939508978,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.283422643640291,
+      "guide_mps": {
+        "1.5": 15.358668043388118,
+        "1.8": 16.827374083934572
+      },
+      "formal_mass_headroom_g": 39.593550458516866,
+      "planning_mass_headroom_g": -14.950707659158846,
+      "required_whole_mean_proxy_N": 1938.7645855716296,
+      "common_acceleration_partition_N": {
+        "nose": 409.8807195360347,
+        "soft": 160.37671620000003,
+        "body": 1368.5071498355946
+      },
+      "two_free_body_comparison": {
+        "nose_mass_kg": 0.19423601768907295,
+        "body_mass_kg": 0.6485139853955009,
+        "reduced_mass_kg": 0.14946873150737983,
+        "relative_speed_hypothesis_mps": 20.4,
+        "stroke_hypothesis_m": 0.3,
+        "factored_mean_tension_N": 311.0145365205559,
+        "scope": "derived relative-motion energy comparison, not replacement requirement or peak; soft goods omitted/engagement unknown"
+      },
+      "point_drag_model_full_canopy_comparison_N": 253.37359539606726
+    },
+    {
+      "identity": "G80-F2-C1-fit-proposal-v1",
+      "variant": "C1_fit_proposal",
+      "case": "adverse",
+      "total_mass_kg": 0.9387500030845739,
+      "parts_mass_kg": 0.8687500030845738,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "motor_cg_probe_m": 0.0128,
+      "cg_m": 0.7856025060247085,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.1053529440233523,
+      "guide_mps": {
+        "1.5": 15.174782613300481,
+        "1.8": 16.626533074598637
+      },
+      "formal_mass_headroom_g": 19.59355045851685,
+      "planning_mass_headroom_g": -34.950707659158866,
+      "required_whole_mean_proxy_N": 1980.9689845716296,
+      "common_acceleration_partition_N": {
+        "nose": 409.8807195360347,
+        "soft": 160.37671620000003,
+        "body": 1410.7115488355946
+      },
+      "two_free_body_comparison": {
+        "nose_mass_kg": 0.19423601768907295,
+        "body_mass_kg": 0.6685139853955009,
+        "reduced_mass_kg": 0.1505065126959429,
+        "relative_speed_hypothesis_mps": 20.4,
+        "stroke_hypothesis_m": 0.3,
+        "factored_mean_tension_N": 313.17395161771793,
+        "scope": "derived relative-motion energy comparison, not replacement requirement or peak; soft goods omitted/engagement unknown"
+      },
+      "point_drag_model_full_canopy_comparison_N": 253.37359539606726
+    }
+  ],
+  "fits": [
+    {
+      "id": "outer_ring_body",
+      "minimum_mm": 0.17500000000000143,
+      "nominal_mm": 0.3119999999999976,
+      "maximum_mm": 0.4500000000000057,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "proposed incoming bodyID/cutOD/environment bounds",
+      "measured": false,
+      "environmental_bounds_verified": false
+    },
+    {
+      "id": "inner_ring_mount",
+      "minimum_mm": 0.15000000000000108,
+      "nominal_mm": 0.2654999999999994,
+      "maximum_mm": 0.39999999999999963,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "proposed incoming mountOD31.25\u201331.45; not supplier tolerance",
+      "measured": false,
+      "environmental_bounds_verified": false
+    },
+    {
+      "id": "nose_plate_shoulder",
+      "minimum_mm": 0.17500000000000143,
+      "nominal_mm": 0.3000000000000007,
+      "maximum_mm": 0.425,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "proposed printed bore61.5\u201361.7/cutplate/environment",
+      "measured": false,
+      "environmental_bounds_verified": false
+    },
+    {
+      "id": "tab_inner_flat",
+      "minimum_mm": 0.15000000000000108,
+      "nominal_mm": 0.2654999999999994,
+      "maximum_mm": 0.39999999999999963,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "proposed tab-cut and receivingOD ranges",
+      "measured": false,
+      "environmental_bounds_verified": false
+    },
+    {
+      "id": "notch_per_flank",
+      "minimum_mm": 0.12499999999999982,
+      "nominal_mm": 0.2999999999999998,
+      "maximum_mm": 0.47500000000000026,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "perflank;2flanks sum is total clearance",
+      "measured": false,
+      "environmental_bounds_verified": false
+    },
+    {
+      "id": "front_tab_end",
+      "minimum_mm": 0.2500000000001819,
+      "nominal_mm": 0.4,
+      "maximum_mm": 0.55,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "tabfront/notchfloor axial setup\u00b1.05 and differential\u00b1.05",
+      "measured": false,
+      "environmental_bounds_verified": false
+    },
+    {
+      "id": "aft_tab_end",
+      "minimum_mm": 0.24999999999995454,
+      "nominal_mm": 0.4,
+      "maximum_mm": 0.55,
+      "criterion_mm": 0.1,
+      "conditional_screen_pass": true,
+      "basis": "aftringfront/tabend axial setup\u00b1.05 and differential\u00b1.05",
+      "measured": false,
+      "environmental_bounds_verified": false
+    }
+  ],
+  "new_adhesive_mass_g": 1.1900216179657548,
+  "wood_removal_mass_credit_g": 0,
+  "stock_removal_credit_basis": "original conservative allocations retained pending structural function verification",
+  "audit": {
+    "fore_paper_branch": {
+      "known_mass_kg": 0.14826732161134518,
+      "uncertain_additional_mass_kg": [
+        0,
+        0.038000000000000006
+      ],
+      "force_N_bounds": [
+        312.8766599973268,
+        393.0650180973268
+      ],
+      "mean_axial_paper_stress_MPa_bounds": [
+        1.6996146048624143,
+        2.13521534468066
+      ],
+      "branch_definition": "retained upper paper/attached hardware into outer ring bond; excludes nose/soft goods/eyes and front motor-tube stub. Distributed finish/service/bond/shield ownership unresolved.",
+      "paper_scalar_screen_MPa": 2,
+      "moment_note": "eccentric recovery produces angular acceleration/internal bending; complete inertia/load sharing unresolved. Axial mean alone is not acceptance."
+    },
+    "provisional_washer": {
+      "contact_area_mm2": 138.03372721710153,
+      "body_adverse_force_N": 1408.793348564206,
+      "mean_pressure_MPa_70percent": 7.144307147802394,
+      "mean_pressure_MPa_single": 10.206153068289133,
+      "required_contact_area_mm2_at5MPa": 281.7586697128412,
+      "scope": "geometric mean lower bound on max contact pressure, not an orthotropic compression allowable or finished washer capacity"
+    },
+    "joint_direction": {
+      "recovery": "ring pulled noseward; blind notchfrontweb moves away from aft tab, so it cannot provide direct compression bearing for that pull direction. Side/floor adhesive tension/shear transfers it.",
+      "motor": "forward thrust and reverse retention need exact motor shoulder/cap contacts; no confirmed liner termination or generic flange credit.",
+      "fin": "8.83Nm factored moment retained once; root/bond flexibility and installed flutter unresolved."
+    },
+    "fit_source_conflicts": [
+      "generic0.1mm tolerance has no diameter/radius datum; original conditioned outerring gap can fall below0.1mm under either interpretation",
+      "forward_ring learn narrative says two6.5mm/13mm while actualgeometry/buildnotes say two6mm+.2/12.2mm",
+      "paired eye has one purchased-envelope box/offset; it is not an accepted two-instance hardwareCAD assembly",
+      "10g shield is a sector reserve; inherited full-annulus display envelope intersects tube and must not be treated as resolved material occupancy"
+    ]
+  },
+  "static_rocketpy": {
+    "reference": "RocketPy",
+    "version": "1.13.0",
+    "motor_mode": "source curve; static endpoints only",
+    "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+    "rows": [
+      {
+        "state": "liftoff",
+        "rocket_twin": {
+          "mass_kg": 0.8687500030845738,
+          "cg_m": 0.7462945526928845,
+          "cp_m": 0.8594422933913565,
+          "stability_margin_cal": 1.6937777416615072
+        },
+        "rocketpy": {
+          "mass_kg": 0.8687500030845735,
+          "cg_m": 0.7462945526928848,
+          "cp_m": 0.8594422933913552,
+          "stability_margin_cal": 1.6937777416614839
+        },
+        "absolute_delta": {
+          "mass_kg": 3.3306690738754696e-16,
+          "cg_m": 3.3306690738754696e-16,
+          "cp_m": 1.2212453270876722e-15,
+          "stability_margin_cal": 2.3314683517128287e-14
+        },
+        "passed": true
+      },
+      {
+        "state": "burnout",
+        "rocket_twin": {
+          "mass_kg": 0.8062500030845738,
+          "cg_m": 0.7145344406200429,
+          "cp_m": 0.8594422933913565,
+          "stability_margin_cal": 2.1692142865679704
+        },
+        "rocketpy": {
+          "mass_kg": 0.8062500030845735,
+          "cg_m": 0.7145344406200435,
+          "cp_m": 0.8594422933913552,
+          "stability_margin_cal": 2.169214286567944
+        },
+        "absolute_delta": {
+          "mass_kg": 3.3306690738754696e-16,
+          "cg_m": 5.551115123125783e-16,
+          "cp_m": 1.2212453270876722e-15,
+          "stability_margin_cal": 2.6645352591003757e-14
+        },
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "physical_full_inertia": null,
+  "adopted": false,
+  "runtime_wall_s": 1.483124999969732
+}

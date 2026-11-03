@@ -1,5 +1,12 @@
 # WO-05 — Experiments, 3D replay, telemetry, compare
 
+F2-C1 is an inspection-only connection proposal, not a supported experiment
+configuration. Its recorded guide/static/burnout comparisons are exposed in
+`docs/wo04-f2-c1-walkthrough-20261103.md` without creating new flight results.
+Keep the existing simulator/replay paths and source identities unchanged;
+unavailable physical inertia and installed evidence do not become substitute
+zeros or inherited flight qualification. Full WO-05 acceptance remains open.
+
 2026-11-03 frontend direction: execute the supplied43-task planning kit through
 focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
 (ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex

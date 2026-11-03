@@ -29,6 +29,7 @@ prepare_snapshot scripts/wo04_workbench_extended_export.py web/public/engineerin
 prepare_snapshot scripts/wo04_workbench_a1_export.py web/public/engineering-workbench/g80-a1.json
 prepare_snapshot scripts/wo04_g80_fixed_export.py web/public/engineering-workbench/preparedg80-fixed-f1.json
 prepare_snapshot scripts/wo04_f2_export.py web/public/engineering-workbench/preparedg80-fixed-f2.json
+prepare_snapshot scripts/wo04_f2_c1_export.py web/public/engineering-workbench/f2-c1.json
 .venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
 preview_api_pid=$!
 cleanup() {

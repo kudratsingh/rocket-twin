@@ -1,0 +1,63 @@
+{
+  "id": "G80-F2-C1-burnout-v1",
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-ballast.yaml": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78",
+    "configs/vehicle/candidates/g80-f2-c1-fit-proposal.yaml": "f4f62b8c2051bc1f50bad5738ad8597d63671d953a1da2a70c18ec6f8bd75201"
+  },
+  "cases": [
+    {
+      "identity": "G80-F2-fixed-stock-ballast-v2",
+      "variant": "frozen_F2",
+      "case": "nominal",
+      "burnout_mass_kg": 0.8550599814666081,
+      "burnout_cg_m": 0.7456049714541058,
+      "burnout_cp_m": 0.8594422933913565,
+      "burnout_margin_cal": 1.7041005050335425,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0,
+      "probe_m": 0
+    },
+    {
+      "identity": "G80-F2-fixed-stock-ballast-v2",
+      "variant": "frozen_F2",
+      "case": "adverse",
+      "burnout_mass_kg": 0.8750599814666081,
+      "burnout_cg_m": 0.7590084647223732,
+      "burnout_cp_m": 0.8594422933913565,
+      "burnout_margin_cal": 1.503455415541201,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "probe_m": 0.0128
+    },
+    {
+      "identity": "G80-F2-C1-fit-proposal-v2",
+      "variant": "C1_fit_proposal",
+      "case": "nominal",
+      "burnout_mass_kg": 0.8562500030845739,
+      "burnout_cg_m": 0.7458025023690055,
+      "burnout_cp_m": 0.8594422933913565,
+      "burnout_margin_cal": 1.7011435439410647,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0,
+      "probe_m": 0
+    },
+    {
+      "identity": "G80-F2-C1-fit-proposal-v2",
+      "variant": "C1_fit_proposal",
+      "case": "adverse",
+      "burnout_mass_kg": 0.8762500030845739,
+      "burnout_cg_m": 0.7591832840082019,
+      "burnout_cp_m": 0.8594422933913565,
+      "burnout_margin_cal": 1.5008384387167237,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "probe_m": 0.0128
+    }
+  ],
+  "criterion_cal": 1,
+  "calculated_screen_pass": true,
+  "probe_basis": "Retains saved loaded-motor mass times12.8mm moment probe at burnout, conservative versus translating dry motor alone; actual motorCG remains unverified.",
+  "scope": "static hypothesis only; no aerodynamic/flight/physical validation",
+  "wall_s": 0.16234433400677517,
+  "producer_sha256": "c6ed7d1f4ad3aa6a2cb83687007b97a30cf31fe76212c7cc0197b26c7d5b6417"
+}

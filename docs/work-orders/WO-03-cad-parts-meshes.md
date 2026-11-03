@@ -1,5 +1,7 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+F2-C1 connection packet is recorded in `docs/wo03-g80-f2-c1-decision.md` and `configs/engineering/g80-f2-c1-verification.yaml` (repository-relative). Seven proposed fits and coupled mass are calculated; installed recovery/motor/thermal/fin gates and3-grid accuracy remain open. Fine node-capped attempts stopped without resource increases; no full-WO or physical adoption. Source-linked frontend study is independent of the active design.
+
 G80-F2 is the separate actual-stock construction follow-up to frozen F1. See `docs/wo03-g80-f2-decision.md` (relative to repository root). Only local joint CAD is executed; static/formal-guide passes do not close installed recovery/fin, thermal, exact motor fit, planning-speed or full WO-03 gates. Preserve G54 and G12/PID-to-RL separately.
 
 Current delivery: dedicated fixed G80-F1 under[ADR-0013](../adr/0013-dedicated-conventional-g80.md)

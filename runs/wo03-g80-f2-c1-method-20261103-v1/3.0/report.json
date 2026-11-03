@@ -1,0 +1,70 @@
+{
+  "cpu_s": 10.906476,
+  "h_mm": 3.0,
+  "quality": {
+    "nodes": 30144,
+    "elements": 18145,
+    "minimum_scaled_Jacobian": 0.9999999999996841,
+    "maximum_midpoint_deviation_mm": 0.0,
+    "Jacobian_scope": "affine each tetra; positive throughout, not only sampled",
+    "CAD_volume_mm3": 27550.910142441684,
+    "mesh_volume_mm3": 27562.449852769492,
+    "surface_area_mm2": {
+      "load0": 137.14849637733766,
+      "load1": 137.14849637733764,
+      "outer": 2330.8471765908907,
+      "inner": 1071.3322895184413,
+      "tabs": 321.42867350025716
+    },
+    "analytic_footprint_area_mm2": 138.03372721710153,
+    "minimum_circle_nodes": 32
+  },
+  "cases": [
+    {
+      "load_N": 100,
+      "reaction_N": {
+        "outer": 30.655244551874326,
+        "inner": 8.779448526362264,
+        "tabs": 60.56530709872973
+      },
+      "force_error": 1.7696636689379374e-09,
+      "moment_error": 3.0345321149092747e-09,
+      "energy_error": 9.919276511283215e-10,
+      "external_half_work_Nmm": 3.3224429195736183,
+      "solid_energy_Nmm": 1.0212763862851766,
+      "spring_energy_Nmm": 2.3011665365840646,
+      "maximum_displacement_mm": 0.1130762,
+      "VM_max_MPa": 2.5524365447240642,
+      "VM_volume_p95_MPa": 0.580340469928538,
+      "absolute_principal_max_MPa": 2.8615388483589017,
+      "absolute_principal_volume_p95_MPa": 0.5822813850041162
+    },
+    {
+      "load_N": 100,
+      "reaction_N": {
+        "outer": 30.64983788636855,
+        "inner": 8.781426108648855,
+        "tabs": 60.56873631014722
+      },
+      "force_error": 3.0516446258843643e-09,
+      "moment_error": 5.424484948065538e-09,
+      "energy_error": 1.466867738386668e-09,
+      "external_half_work_Nmm": 5.83226253520864,
+      "solid_energy_Nmm": 1.6366933749176344,
+      "spring_energy_Nmm": 4.195569168846164,
+      "maximum_displacement_mm": 0.1659558,
+      "VM_max_MPa": 3.4643159071181886,
+      "VM_volume_p95_MPa": 0.777511687715663,
+      "absolute_principal_max_MPa": 3.81140123561382,
+      "absolute_principal_volume_p95_MPa": 0.7737887597480463
+    }
+  ],
+  "reciprocal_work_error": 5.453070740654216e-09,
+  "support_stiffness_N_mm": {
+    "outer": 920.4341357806054,
+    "inner": 316.976226771698,
+    "tabs": 2871.5573770491806
+  },
+  "wall_s": 11.256027667026501,
+  "installed_strength_accepted": false
+}
