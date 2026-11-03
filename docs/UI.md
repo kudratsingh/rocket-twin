@@ -30,6 +30,11 @@ resolved; no retry/bypass of the recorded automatic rejection. Keep pending
 scroll/zoom/history/WebGL/run tests explicit. Full WO-03/04/05 completion,
 physical-build, purchase, paid-run, firmware-review and flight gates remain.
 
+The next inspection refinement adds an export-safe source legend, selected-part
+annotation, linked hidden states, selection-only/context and local keyboard
+navigation. See `wo04-inspection-refinement-20261103.md`. A read-only host
+preflight is available; it neither starts a server nor resolves browser ownership.
+
 ## Preserved baseline and detailed requirements
 
 A1 connection follow-up is a separate versioned early-workbench snapshot

@@ -14,9 +14,18 @@ export function DesignVisual({
 }) {
   const [representation, setRepresentation] = useState<'3d' | '2d'>('3d');
   const selected = useInspection((s) => s.selectedId);
+  const hiddenIds = useInspection((s) => s.hiddenIds);
   const select = useInspection((s) => s.select);
   return (
-    <section className="research-design-visual" aria-label="Design representations">
+    <section
+      className="research-design-visual"
+      aria-label="Design representations"
+      onKeyDown={(event) => {
+        // Drawing controls own these keys; do not command the retained, hidden 3D camera.
+        if (representation === '2d' && ['f', 'r', 'e', 's'].includes(event.key.toLowerCase()))
+          event.stopPropagation();
+      }}
+    >
       <div className="research-representation-controls" aria-label="Drawing representation">
         <button
           type="button"
@@ -38,7 +47,16 @@ export function DesignVisual({
         {meshView}
       </div>
       <div className="research-representation" hidden={representation !== '2d'}>
-        <OrthographicDesign vehicle={vehicle} selectedPartId={selected} onSelectPart={select} />
+        <OrthographicDesign
+          vehicle={vehicle}
+          selectedPartId={selected}
+          onSelectPart={select}
+          hiddenPartIds={hiddenIds}
+          onRevealPart={(id) => {
+            const state = useInspection.getState();
+            if (state.hiddenIds.includes(id)) state.togglePart(id);
+          }}
+        />
       </div>
     </section>
   );

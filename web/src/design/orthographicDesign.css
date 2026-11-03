@@ -49,6 +49,23 @@
   padding: 10px 14px;
   line-height: 1.5;
 }
+.ortho-component-picker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 12px 10px;
+}
+.ortho-component-picker select {
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px;
+  flex: 1;
+}
+.ortho-stage svg:focus-visible {
+  outline: 2px solid #8cdbd4;
+  outline-offset: -3px;
+}
 .ortho-stage {
   min-height: 330px;
   height: clamp(330px, 51vh, 620px);
