@@ -1,0 +1,418 @@
+{
+  "complete_cases": [
+    {
+      "baseline_formal_headroom_g": -116.36449837326496,
+      "baseline_planning_headroom_g": -170.9083034956401,
+      "burnout_cg_mm": 835.846635251276,
+      "cg_mm": 853.3012695802146,
+      "conditional1p971_formal_headroom_g": 145.19083059192224,
+      "conditional1p971_planning_headroom_g": 77.55303836226982,
+      "extra_aft_g": 0,
+      "full_intrinsic_inertia": null,
+      "guides": [
+        {
+          "formal_margin_mps": -0.9409270558107821,
+          "planning_margin_mps": -1.440927055810782,
+          "speed_mps": 14.059072944189218,
+          "usable_m": 1.5
+        },
+        {
+          "formal_margin_mps": 0.40770563242294067,
+          "planning_margin_mps": -0.09229436757705933,
+          "speed_mps": 15.40770563242294,
+          "usable_m": 1.8
+        },
+        {
+          "formal_margin_mps": 1.1275492701106486,
+          "planning_margin_mps": 0.6275492701106486,
+          "speed_mps": 16.12754927011065,
+          "usable_m": 1.971
+        }
+      ],
+      "id": "nominal",
+      "reference_burnout_static_cal": 1.9845600424066028,
+      "reference_cp_mm": 966.8275980501118,
+      "reference_loaded_static_cal": 1.720095885907533,
+      "separate_growth_g": 50,
+      "severe_recovery_DF3_N": 2267.985132257486,
+      "total_g": 1074.7624351942488,
+      "validated_new_cp_mm": null
+    },
+    {
+      "baseline_formal_headroom_g": -136.36449837326495,
+      "baseline_planning_headroom_g": -190.9083034956401,
+      "burnout_cg_mm": 844.2398761555079,
+      "cg_mm": 861.6272171240562,
+      "conditional1p971_formal_headroom_g": 125.19083059192222,
+      "conditional1p971_planning_headroom_g": 57.55303836226982,
+      "extra_aft_g": 20,
+      "full_intrinsic_inertia": null,
+      "guides": [
+        {
+          "formal_margin_mps": -1.0879821538580963,
+          "planning_margin_mps": -1.5879821538580963,
+          "speed_mps": 13.912017846141904,
+          "usable_m": 1.5
+        },
+        {
+          "formal_margin_mps": 0.2470650412282609,
+          "planning_margin_mps": -0.2529349587717391,
+          "speed_mps": 15.247065041228261,
+          "usable_m": 1.8
+        },
+        {
+          "formal_margin_mps": 0.959642632664579,
+          "planning_margin_mps": 0.45964263266457905,
+          "speed_mps": 15.959642632664579,
+          "usable_m": 1.971
+        }
+      ],
+      "id": "additional20g_motorCG_probe",
+      "reference_burnout_static_cal": 1.8573897256758163,
+      "reference_cp_mm": 966.8275980501118,
+      "reference_loaded_static_cal": 1.5939451655462966,
+      "separate_growth_g": 50,
+      "severe_recovery_DF3_N": 2310.189531257486,
+      "total_g": 1094.7624351942488,
+      "validated_new_cp_mm": null
+    }
+  ],
+  "decision": "Hold_A1_before_detailed_vehicle_CAD_FEA: complete1p5m_mass_fails; hot_finished_joint_motor_and_stiffness_evidence_missing. No_auto_variant.",
+  "first_moment_delta_from_A_kg_m": 0.09950242115841157,
+  "hardware_stack": {
+    "actual_SKU_and_clamp_qualification": null,
+    "bolt_length_mm": 16,
+    "declared_max_mm": 13.3,
+    "minimum_thread_protrusion_mm": 2.7,
+    "nominal_grip_plus_nut_mm": 12.5,
+    "plain_shank_min_mm": 8,
+    "shear_plane_from_underhead_max_mm": 4.8
+  },
+  "id": "G80_A1_connections_20261102_v1",
+  "input_sha256": {
+    "build/wo03-g80-integration-staging/checkout/src/cad/g80_service_parts.py": "5a3c4c8cb7e5b602ed8e7da989d4908e3dc87337c9453dceadcec13af1b2b8ff",
+    "build/wo03-g80-integration-staging/checkout/src/cad/parts.py": "0f20bed3d174951b0140773bc1fea70229bf1eb7f886446455ee57694882d973",
+    "build/wo03-g80-integration-staging/checkout/src/cad/retention_parts.py": "be36d07a8bb5750c219421403ea9d12e7c3f22f8adce4336a24a0e82893e0545",
+    "build/wo03-g80-integration-staging/checkout/src/vehicle/cad_contract.py": "49dec4a88a2d65b2043a17453c19f9feeedbaa65997efd4dc83b0564ef95daf3",
+    "configs/studies/wo03-a1-connection-sources.yaml": "8ae0a2bb74d97db68f2d8b1d3de907a05427fd56c3af8db3e17cef76ff41b61b",
+    "configs/studies/wo03-a1-connections.yaml": "2994aa9e98f49f69eb9ad92190ead82fae0da31f9489e0c61081aa4a03f01435",
+    "runs/wo03-architecture-space-mass-20261102-v1/record.json": "7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2",
+    "runs/wo03-c2-sandwich-socket-20261102-v2/record.json": "c67d16a49378e6b462bec66c689c414750cf5e9a61f4524785d0ffa198e2eac3",
+    "runs/wo03-g80-canopy-stage3-20261101-v1/sensitivity.yaml": "6962dda2e123ac3528f75136f62b065d742e917712fc2dcef2dfc0a40a675967",
+    "runs/wo03-g80-mass-balance-revision-20261102-v2/record.json": "a22dc418ea4fdfb9d91f145180a0e1024f53d3b51b3d61d7d1c18b82fb960276",
+    "runs/wo03-launch-guide-motor-trade-20261102-v1/record.json": "40e224cccd16854adceddcec0b01620dcd18890d9e999914049e1cfb50160eb5",
+    "scripts/wo03_a1_connections.py": "ca54a77521588ca28817090198854b20e4748f2a154ce5b19665b3f0d67dbfe2",
+    "web/public/engineering-workbench/g80-c1.json": "1481b5fb7f18b8fa39aea5aa2db0491d6828da28eccf3729f81abf550eaf288f"
+  },
+  "interface_fit": {
+    "calculated_bounded_pass": true,
+    "manufactured_and_hot_wet_qualified": false,
+    "maximum_bounded_mm": 0.8829000000000036,
+    "maximum_cold_mm": 0.7000000000000035,
+    "minimum_bounded_mm": 0.11710000000000352,
+    "minimum_cold_mm": 0.30000000000000354,
+    "nominal_mm": 0.5000000000000036,
+    "required_minimum_mm": 0.1
+  },
+  "key_flanks": [
+    {
+      "key_mm": 6,
+      "maximum_cold_per_flank_mm": 0.3999999999999998,
+      "minimum_per_flank_mm": 0.1423124999999998,
+      "nominal_per_flank_mm": 0.2999999999999998,
+      "slot_mm": 6.6
+    },
+    {
+      "key_mm": 4,
+      "maximum_cold_per_flank_mm": 0.3999999999999998,
+      "minimum_per_flank_mm": 0.14493749999999983,
+      "nominal_per_flank_mm": 0.2999999999999998,
+      "slot_mm": 4.6
+    },
+    {
+      "key_mm": 4,
+      "maximum_cold_per_flank_mm": 0.3999999999999998,
+      "minimum_per_flank_mm": 0.14493749999999983,
+      "nominal_per_flank_mm": 0.2999999999999998,
+      "slot_mm": 4.6
+    }
+  ],
+  "net_delta_from_A_g": 106.45357190187123,
+  "replacement_ledger": [
+    {
+      "basis": "The keyed removable aft joint overlaps each shell by 50 mm.",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_interface_coupler",
+      "mass_delta_g": -21.067330493537412,
+      "station_mm": 919.7336828930504
+    },
+    {
+      "basis": "Custom keyed stop locates both shells axially.",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_joint_stop",
+      "mass_delta_g": -1.3192554674232184,
+      "station_mm": 923.4105221551881
+    },
+    {
+      "basis": "Positive axial stops, indexing keys and removable fasteners connect the aft module.",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_aft_interface_hardware",
+      "mass_delta_g": -6.0,
+      "station_mm": 941.0000000000001
+    },
+    {
+      "basis": "Complete replacement root axial pins and washers",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_A_root_axial_pins_and_washers",
+      "mass_delta_g": -4,
+      "station_mm": 1140
+    },
+    {
+      "basis": "Primary backbone reaches fore cap directly; retained body/nose branches unchanged; actual sleeve/bond carries aft components",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_A_three_forward_bridle_eyes",
+      "mass_delta_g": -15.044942298347904,
+      "station_mm": 960
+    },
+    {
+      "basis": "Finite ring transfers tube/body loads through actual bonded inner and outer circumferences",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_A_centering_ring_0",
+      "mass_delta_g": -12.919956867520707,
+      "station_mm": 1072.0
+    },
+    {
+      "basis": "Finite ring transfers tube/body loads through actual bonded inner and outer circumferences",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_A_centering_ring_1",
+      "mass_delta_g": -12.919956867520707,
+      "station_mm": 1192.0
+    },
+    {
+      "basis": "True structural motor support, independent of liner/case; shared fin load path only in A",
+      "function": "Function replaced explicitly by A1 connection parts",
+      "id": "remove_A_structural_motor_tube",
+      "mass_delta_g": -33.83250243689225,
+      "station_mm": 1132.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "76mm bonded upper overlap and40mm removable aft overlap",
+      "id": "A1_G11_sleeve",
+      "mass_delta_g": 43.51985471164866,
+      "station_mm": 902.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Axial assembly datum, integral with sleeve; no ASA stop",
+      "id": "A1_integral_stop",
+      "mass_delta_g": 1.9553712498914377,
+      "station_mm": 920.0
+    },
+    {
+      "basis": "Gross keys, common integral tube stock, no overlap/hole credits",
+      "function": "Unequal key widths prevent120degree pairing; primary forces use bolts/bond",
+      "id": "A1_integral_keys",
+      "mass_delta_g": 0.4144000000000003,
+      "station_mm": 932.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Full annular adhesive mass plus25percent process; capacity uses75percent coverage",
+      "id": "A1_upper_bond_and_process",
+      "mass_delta_g": 16.861304762934854,
+      "station_mm": 880.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Finite external can reinforcement; changes external aero envelope",
+      "id": "A1_outer_G11_load_collar",
+      "mass_delta_g": 23.852228063115135,
+      "station_mm": 952.0
+    },
+    {
+      "basis": "Gross3x30axialx25arcx2radialmm",
+      "function": "Bearing spreaders bonded to sleeve at bolts; curved stock, not flat overlapping boxes",
+      "id": "A1_three_curved_inner_doublers",
+      "mass_delta_g": 8.325,
+      "station_mm": 952
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Real collar-can annular bond, no air path through adhesive",
+      "id": "A1_collar_bond",
+      "mass_delta_g": 1.372624662206477,
+      "station_mm": 952.0
+    },
+    {
+      "basis": "Gross nominal steel volume, no thread removal credit",
+      "function": "ThreeM5x16 partial-thread bolts, six washers, three full nuts; actual supplier SKU/locking proof pending",
+      "id": "A1_three_M5_complete_sets",
+      "mass_delta_g": 20.616714975576627,
+      "station_mm": 952
+    },
+    {
+      "basis": "Nominal mass; actual gap fit requires measurement",
+      "function": "Fitted radial sleeves bridge actual gap; avoid tightening across empty gap",
+      "id": "A1_fitted_crush_spacers",
+      "mass_delta_g": 0.07593307983542869,
+      "station_mm": 952
+    },
+    {
+      "basis": "Explicit additional allocation, not growth allowance",
+      "function": "Additional joint adhesive/finish/locking process",
+      "id": "A1_collar_doubler_bond_g",
+      "mass_delta_g": 3,
+      "station_mm": 952
+    },
+    {
+      "basis": "Explicit additional allocation, not growth allowance",
+      "function": "Additional joint adhesive/finish/locking process",
+      "id": "A1_additional_joint_process_mass_g",
+      "mass_delta_g": 3,
+      "station_mm": 952
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Resized ring provides real0.3mm nominal inner/outer bond regions; lateral alignment, not rigid ground",
+      "id": "A1_centering_ring_0",
+      "mass_delta_g": 12.403158592819873,
+      "station_mm": 1072.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Resized ring provides real0.3mm nominal inner/outer bond regions; lateral alignment, not rigid ground",
+      "id": "A1_centering_ring_1",
+      "mass_delta_g": 12.403158592819873,
+      "station_mm": 1192.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Seat bears on tube end; motor thrust may transfer through continuous root webs",
+      "id": "A1_shortened_motor_tube",
+      "mass_delta_g": 33.2954785886876,
+      "station_mm": 1131.0
+    },
+    {
+      "basis": "Gross source-defined volume/density; no holes/slots credited",
+      "function": "Independent annular thrust seat, motor rear ring dimension remains historical hypothesis",
+      "id": "A1_motor_thrust_seat",
+      "mass_delta_g": 0.9610634582155748,
+      "station_mm": 1194.0
+    },
+    {
+      "basis": "Gross stock, no slot/holes credited",
+      "function": "Actual axial root stop contacts centering ring and dense root; bonded TTW fin not proven radial capture",
+      "id": "A1_three_fin_toe_stops",
+      "mass_delta_g": 12.335152500000001,
+      "station_mm": 1081.75
+    },
+    {
+      "basis": "Gross stock, no slot/holes credited",
+      "function": "Actual axial root stop contacts centering ring and dense root; bonded TTW fin not proven radial capture",
+      "id": "A1_three_fin_heel_stops",
+      "mass_delta_g": 0.37379249999999997,
+      "station_mm": 1190.25
+    },
+    {
+      "basis": "Raw maximum linear density, full seams and curvature counted",
+      "function": "Six legs atR21 in sleeve fan toR24 at cap; finished eye/seam/bend capacity unknown",
+      "id": "A1_routed_three_bridles",
+      "mass_delta_g": 15.056089327864061,
+      "station_mm": 960
+    },
+    {
+      "basis": "Extra to original retained backbone mass",
+      "function": "100mm additional extraction/connector access slack; retained connector mass counted already",
+      "id": "A1_extra_service_slack",
+      "mass_delta_g": 1.736191267497813,
+      "station_mm": 930
+    },
+    {
+      "basis": "2g separate allocation, no free service hardware",
+      "function": "Sleeve exit chafe protection; geometry/heat qualification remains open",
+      "id": "A1_harness_edge_protection",
+      "mass_delta_g": 2,
+      "station_mm": 962
+    }
+  ],
+  "resources": {
+    "CAD_FEA_heat_freeflight": false,
+    "cpu_limit_s": 20,
+    "cpu_s": 0.325548,
+    "old_solvers_repeated": false,
+    "threads": 1,
+    "wall_limit_s": 30,
+    "wall_s": 0.37206662498647347
+  },
+  "section_demands": {
+    "annular_ring_unbraced_half_circumference_strip_bending_pa": 78577069.04651287,
+    "bolt_combined_proxy_pa": 463660778.4703969,
+    "bolt_combined_screen_pass": false,
+    "bolt_simple_span_bending_pa": 414128882.77282536,
+    "bolt_single_shear_pa": 120386303.13163528,
+    "can_collar_bearing_demand_pa": 168841395.31749073,
+    "cap_actual_spread_and_joint_flexibility": null,
+    "cap_circumferential_spread_width_needed_mm": 123.21010833373259,
+    "current_motor_ring_contact_capacity": null,
+    "design_factor_applied_once": true,
+    "hot_steel_estimate_pa": 200000000.0,
+    "installed_fin_flutter": null,
+    "installed_motion_and_full_inertia": null,
+    "motor_forward_N": 450,
+    "motor_reverse_N": 450,
+    "motor_thrust_seat_halfcircumference_lip_bending_pa": 16318418.215751292,
+    "one_bolt_whole_recovery_plus_whole_torque_N": 2363.7795344448705,
+    "qualified_drilled_G11_bearing_pa": null,
+    "recovery_full_one_joint_N": 2310.189531257486,
+    "ring_strip_bound_is_not_actual_axisymmetric_solution": true,
+    "root_inner_reaction_N": -600.4636528539122,
+    "root_motor_thrust_shear_if_one_web_carries_all_pa": 501113.58574610244,
+    "root_outer_normal_demand_pa": 914501.5019555521,
+    "root_outer_reaction_N": 821.2223487560858,
+    "root_peel_allowable_pa": null,
+    "root_toe_or_heel_axial_bearing_demand_pa": 1707178.7297557353,
+    "root_true_edge_area_mm2": 898.0,
+    "sleeve_doubler_bearing_demand_pa": 157585302.2963247,
+    "sleeve_edge_shearout_demand_pa": 53967569.279563256,
+    "sleeve_hole_net_axial_pa": 12846134.675552554,
+    "upper_adhesive_slip_mm_at_explicit_G_pa": {
+      "1000000.0": 0.16278845907522393,
+      "10000000.0": 0.016278845907522394,
+      "100000000.0": 0.001627884590752239
+    },
+    "upper_lap_edge_normal_proxy_pa": 12851.720453307149,
+    "upper_lap_effective_area_mm2": 11353.087531542795,
+    "upper_lap_mean_shear_pa": 203485.5738440299,
+    "upper_paper_and_peel_capacity_pa": null,
+    "upper_paper_hot_allowable_pa": null,
+    "upper_paper_shell_axial_demand_pa": 22453623.41244443
+  },
+  "space": {
+    "actual_connector_bend_and_guard_access": null,
+    "angular_gap_between_legs_and_inner_doublers_deg": 8.934733340896909,
+    "extra_slack_mm": 100,
+    "maximum_bolt_head_radius_mm": 41.2,
+    "new_external_aero_validated": false,
+    "old_R24_harness_min_in_new_sleeve_mm": -0.9919041848028456,
+    "protected_motor_to_joint_axial_gap_mm": 102,
+    "removal_translation_required_mm": 40.5,
+    "routed_R21_harness_min_in_sleeve_mm": 1.9393848071714566,
+    "sampled_CAD_or_continuous_motion_validation": false,
+    "source_stays_body_diameter_mm": 66
+  },
+  "status": "not_admitted_complete_mass_and_connections_open",
+  "thermal": {
+    "new_temperatures": null,
+    "required_matrix_unchanged": true,
+    "routes": "New sleeve/collar/bonds/seat and changed ring gaps require compatible future thermal analysis; no glue/air overlap",
+    "substrate_c": 45
+  },
+  "upper_bond_fit": {
+    "maximum_bounded_mm": 1.2030250000000007,
+    "maximum_cold_mm": 1.0000000000000007,
+    "minimum_bounded_mm": 0.39697500000000074,
+    "minimum_cold_mm": 0.6000000000000008,
+    "nominal_mm": 0.8000000000000007
+  }
+}

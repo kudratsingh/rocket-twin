@@ -1,5 +1,14 @@
 # Current bounded work list
 
+**Current task:** separately identified [A1 packet](wo03-a1-connection-packet.md)
+and [executed decision](wo03-a1-connection-decision.md). One0.326CPU/0.372wall
+packet completed: bounded local fit passes, full baseline mass and conservative
+bolt connection screen fail. Detailed admission remains held. Source packet10
+URLs/15min and ledger audit25min are complete. New graphical A1 snapshot is
+being finalized with offline images; restricted browser remains unverified.
+Primary owns acceptance/publication, Sol HIGH agents own sources/audit/new UI.
+The earlier A/B table below is completed history, not current A1 totals.
+
 G80 engineering first; substantial custom construction, practical performance
 and G12 PID-to-RL remain core goals. G54 remains a separate upgrade track.
 **C1 is preliminary; R1/C2/C3 are rejected. No unchanged rejected calculation

@@ -1,5 +1,10 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+Latest local connection decision: [A1](../wo03-a1-connection-decision.md), separate
+from frozen C1/A/B. Actual joint dimensions and complete mass are now recorded,
+but baseline guide/bolt screens fail and installed/hot/source evidence is open.
+No detailed whole-vehicle CAD/FEA or aggregate acceptance is admitted by it.
+
 Branch: `wo-03-cad` (focused dependent PRs permitted). Tier: Mac CPU and ordinary
 repository checks; paid compute requires separate approval. ADR-0007 expands this
 work order without changing the full-milestone sequence. Full WO-04 completion

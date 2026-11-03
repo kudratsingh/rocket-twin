@@ -1,5 +1,19 @@
 # Current engineering and inspection checkpoint
 
+**Current A1 decision: hold detailed admission.** The [connection report](wo03-a1-connection-decision.md)
+defines a sleeve, stop, keys, bolts, actual upper bond and routed harness. Bounded
+aft clearance0.1171mm passes0.1 only within unmeasured inputs. Full added
+hardware/mass is+106.454g versus frozen A:1074.762/1094.762g including separate50g.
+Reference1.5m departure14.059/13.912m/s fails; adverse formal/planning deficits
+136.364/190.908g. A conservative one-bolt combined demand463.661MPa exceeds
+the existing200MPa hot-steel estimate. Paper/peel/bearing/thermal/flutter and
+current motor/retainer remain unknown. No whole-vehicle CAD/FEA or next automatic
+variant is admitted; no installed engineering requirement closed.
+
+Published C1/A/B below remain frozen history. A1 is a separate snapshot and
+changes no active or shared G54/G12 assembly. New external collar/head geometry
+makes reused C1 CP/drag only reference hypotheses; full inertia/new CP unavailable.
+
 **G80 first. C1 is preliminary. R1/C2/C3 remain rejected.** Substantial custom
 construction, maximum practical performance and committed G12 PID-to-RL remain
 core goals; G54 remains a separate upgrade. Expanded WO-03 and every build,

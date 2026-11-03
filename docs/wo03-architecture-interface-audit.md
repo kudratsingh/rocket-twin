@@ -1,5 +1,12 @@
 # Retained upper interface: calculated cold-fit blocker
 
+The frozen-A/B finding remains failed. The separately [executed A1 packet](wo03-a1-connection-decision.md)
+defines an explicit OD63.4/ID61.4 G11 sleeve,120mm length, integral stop, unequal
+keys and radial bolted retention. Cold radial clearance0.3/0.5/0.7mm and combined
+minimum0.1171mm exceed0.1 within declared bounds; actual manufacturing and hot/wet
+qualification remain unknown. A1 mass and bolt screens fail. This does not turn
+the old0mm result into a pass or adopt shared G54/G12 changes.
+
 Traceability: **IF-UPPER-AFT-001 / RT-FIT-001**; candidate G80 A/B scope only.
 
 The separate [read-only audit](../runs/wo03-architecture-interface-audit-20261102-v1/record.json)
