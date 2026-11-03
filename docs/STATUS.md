@@ -1,5 +1,7 @@
 # Status
 
+Latest G80-F2 construction follow-up: selected stock/ballast-v2 passes calculated static and formal1.5m guide screens, misses15.5m/s planning; ring diagnostic stopped for invalid middle mesh. Installed recovery/fin, thermal, exact motor/retainer and physical gates remain open. See `CURRENT.md` and `wo03-g80-f2-decision.md`. F1 remains frozen; WO-03 stays open.
+
 **Current priority: G80-F1 dedicated conventional design, ADR-0013.** See [CURRENT](CURRENT.md) and [F1 decision](wo03-g80-f1-decision.md). One correction complete,817.506/837.506g with growth; guide passes, static/recovery/fit/installed/thermal admission stays open. WO03 remains open; full WO04/05 and release gates unchanged. Earlier A1/A/B statements below are historical.
 
 **A1 seat/liner layout audit:** [separate read-only record](wo03-a1-occupancy-audit.md)

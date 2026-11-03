@@ -1,0 +1,75 @@
+.wb-layout.g80-f2-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+.g80-f2-view {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+  color: #d9e9ef;
+}
+.g80-f2-view section {
+  border: 1px solid #3b5b6a;
+  border-radius: 8px;
+  background: #172b37;
+  padding: 18px;
+}
+.g80-f2-view h2,
+.g80-f2-view h3 {
+  margin: 4px 0 10px;
+}
+.g80-f2-kicker {
+  color: #e8c48a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 700;
+}
+.g80-f2-banner {
+  border-left: 3px solid #dcaf78;
+  background: #362f25;
+  color: #f0dcc0;
+  padding: 10px 14px;
+  line-height: 1.5;
+}
+.g80-f2-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.g80-f2-heading button {
+  border: 1px solid #7db2cb;
+  background: #25485b;
+  color: #f4fafc;
+  border-radius: 5px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+.g80-f2-figure {
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #3b5b6a;
+  background: #12202a;
+  border-radius: 8px;
+}
+.g80-f2-drawing {
+  display: block;
+  width: 100%;
+  min-width: 800px;
+  height: auto;
+}
+.g80-f2-inspector p {
+  line-height: 1.5;
+}
+.g80-f2-view details {
+  border-top: 1px solid #3b5b6a;
+  padding: 10px 0;
+  overflow-wrap: anywhere;
+}
+.g80-f2-view summary {
+  cursor: pointer;
+  color: #c6e5ef;
+}
+.g80-f2-view code {
+  color: #afd3e3;
+}

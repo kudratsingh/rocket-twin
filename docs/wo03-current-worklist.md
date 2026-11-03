@@ -1,5 +1,19 @@
 # Current bounded work list
 
+## G80-F2 completed bounded packet — admission held
+
+| Deliverable / owner | Source and acceptance | Budget / actual outcome | Next dependency |
+| --- | --- | --- | --- |
+| Supplier stock / primary + Sol HIGH | Selected ballast-v2; real stock, complete once-only mass and costs | One architecture/one correction; numerical packet below30CPU/60wall; stock15+4URL research closed | Exact motor shoulder/retainer contact, supplier tolerances and finished eyes unavailable |
+| Coupled audit / Sol HIGH |50 parts, full50g separate, additional20g and motor probe |0.236s accounting;917.560/937.560g,1.286/1.107cal; formal guide pass, planning miss | No adopted longer guide or criterion relaxation |
+| Local joint CAD / primary | Pinned selected source; blind notches and permanent splice | Two bounded local outputs, final0.313s; zero nominal solid intersections | Installed strengths, conditioned fits/service paths remain unverified |
+| Ring diagnostic / primary | Actual notched local ring, finite axial supports, unequal/single-eye loads | Three meshes66.518s; invalid middle quadratic cell found; packet stopped | No three-grid/installed strength acceptance; a separately declared method correction required |
+| Drawings / Sol HIGH |10 source hashes; separate F2 selection, no archived CAD overlay | Three final native PNGs2.084s; offline inspection recorded | Browser interaction acceptance blocked by unchanged ownership prerequisite |
+| Publication / primary | Source dependencies, focused PR, both hosted jobs | Local source/API checks; publication in progress | Merge only exact final checks pass; no owner review added |
+
+F1 and earlier entries below are frozen historical context. No physical build,
+purchase, paid compute or flight release follows from completion of a study.
+
 ## Current G80-F1 packet
 
 | Deliverable / owner | Identity and criterion | Budget / stop | Actual status |

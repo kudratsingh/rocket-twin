@@ -6,16 +6,20 @@ import { MassLaunchViews } from './MassLaunchViews';
 import { ExtensionViews } from './ExtensionViews';
 import { A1ConnectionViews } from './A1ConnectionViews';
 import { ConventionalG80Views } from './ConventionalG80Views';
+import { F2ConstructionViews } from './F2ConstructionViews';
 import type { A1Snapshot } from './a1Types';
 import { isMissingA1Route, validateA1Snapshot } from './a1Types';
 import type { ConventionalSnapshot } from './conventionalG80Types';
 import { isMissingConventionalRoute, validateConventionalSnapshot } from './conventionalG80Types';
+import type { F2Snapshot } from './f2Types';
+import { isMissingF2Route, validateF2Snapshot } from './f2Types';
 import type { ExtendedDocument, ExtensionMode } from './extendedTypes';
 import { compatibleExtension } from './extendedTypes';
 import type { WorkbenchDocument } from './types';
 import './workbench.css';
 
-type View = 'geometry' | 'forces' | 'mass' | 'evidence' | 'a1' | 'g80-fixed' | ExtensionMode;
+type View =
+  'geometry' | 'forces' | 'mass' | 'evidence' | 'a1' | 'g80-fixed' | 'g80-f2' | ExtensionMode;
 const extensionModes: ExtensionMode[] = [
   'comparison',
   'recovery',
@@ -37,6 +41,9 @@ export default function EngineeringWorkbench() {
   const [fixed, setFixed] = useState<ConventionalSnapshot | null>(null);
   const [fixedError, setFixedError] = useState('');
   const [fixedPrepared, setFixedPrepared] = useState(false);
+  const [f2, setF2] = useState<F2Snapshot | null>(null);
+  const [f2Error, setF2Error] = useState('');
+  const [f2Prepared, setF2Prepared] = useState(false);
   const [selectedJointId, setSelectedJointId] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
   const [view, setView] = useState<View>(() => {
@@ -47,6 +54,7 @@ export default function EngineeringWorkbench() {
       requested === 'evidence' ||
       requested === 'a1' ||
       requested === 'g80-fixed' ||
+      requested === 'g80-f2' ||
       extensionModes.includes(requested as ExtensionMode)
       ? (requested as View)
       : 'geometry';
@@ -124,6 +132,51 @@ export default function EngineeringWorkbench() {
         if (!controller.signal.aborted)
           setFixedError(
             reason instanceof Error ? reason.message : 'G80-F1 source snapshot unavailable.',
+          );
+      });
+    return () => controller.abort();
+  }, [retry]);
+  useEffect(() => {
+    const controller = new AbortController();
+    setF2Prepared(false);
+    const request = async (): Promise<unknown> => {
+      const response = await fetch('/api/engineering/workbench-g80-f2', {
+        signal: controller.signal,
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) return response.json();
+      let detail = response.statusText;
+      let apiDetail = '';
+      try {
+        const body = (await response.json()) as { detail?: unknown };
+        if (typeof body.detail === 'string') {
+          detail = body.detail;
+          apiDetail = body.detail;
+        }
+      } catch {
+        // Preserve the HTTP status for non-JSON responses.
+      }
+      if (isMissingF2Route(response.status, apiDetail)) {
+        const saved = await getJson<unknown>(
+          '/engineering-workbench/preparedg80-fixed-f2.json',
+          controller.signal,
+        );
+        setF2Prepared(true);
+        return saved;
+      }
+      throw new Error(`${response.status} ${detail}`);
+    };
+    void request()
+      .then((value) => {
+        if (!controller.signal.aborted) {
+          setF2(validateF2Snapshot(value));
+          setF2Error('');
+        }
+      })
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted)
+          setF2Error(
+            reason instanceof Error ? reason.message : 'G80-F2 source snapshot unavailable.',
           );
       });
     return () => controller.abort();
@@ -257,35 +310,45 @@ export default function EngineeringWorkbench() {
               ? (a1?.label ?? 'Separate A1 connection snapshot')
               : view === 'g80-fixed'
                 ? (fixed?.label ?? 'Separate G80-F1 fixed candidate')
-                : document.label}
+                : view === 'g80-f2'
+                  ? (f2?.label ?? 'Separate G80-F2 stock construction candidate')
+                  : document.label}
           </h1>
           <p>
             {view === 'a1'
               ? (a1?.status ?? 'Loading source identity')
               : view === 'g80-fixed'
                 ? (fixed?.status ?? 'Loading source identity')
-                : document.status}
+                : view === 'g80-f2'
+                  ? (f2?.status ?? 'Loading source identity')
+                  : document.status}
           </p>
         </div>
         <div className="wb-identity">
-          {view === 'a1' || view === 'g80-fixed' ? (
+          {view === 'a1' || view === 'g80-fixed' || view === 'g80-f2' ? (
             <>
               <strong>
                 {view === 'a1'
                   ? (a1?.identity.candidate_id ?? 'A1')
-                  : (fixed?.identity.candidate_id ?? 'G80-F1')}
+                  : view === 'g80-fixed'
+                    ? (fixed?.identity.candidate_id ?? 'G80-F1')
+                    : (f2?.identity.candidate_id ?? 'G80-F2')}
               </strong>
               <span>
                 Source{' '}
                 {view === 'a1'
                   ? (a1?.identity.source_identity ?? 'loading')
-                  : (fixed?.identity.source_identity ?? 'loading')}
+                  : view === 'g80-fixed'
+                    ? (fixed?.identity.source_identity ?? 'loading')
+                    : (f2?.identity.source_identity ?? 'loading')}
               </span>
               <span>
                 CAD:{' '}
                 {view === 'a1'
                   ? 'no detailed A1 assembly'
-                  : (fixed?.identity.cad_revision ?? 'no same-design F1 assembly')}
+                  : view === 'g80-fixed'
+                    ? (fixed?.identity.cad_revision ?? 'no same-design F1 assembly')
+                    : (f2?.identity.cad_revision ?? 'no same-design F2 assembly')}
               </span>
             </>
           ) : (
@@ -305,9 +368,11 @@ export default function EngineeringWorkbench() {
           ? 'A1 is a separate concept snapshot for one bounded upper connection study. C1, the A/B screen and archived CAD remain distinct; engineering and physical-flight acceptance remain open.'
           : view === 'g80-fixed'
             ? 'G80-F1 is a separate conventional fixed-motor candidate with one continuous body. It does not reuse C1/A1 CAD or physical G12 interfaces; engineering and physical-flight acceptance remain open.'
-            : 'C1 is the selected preliminary study. The archived 72-part retention CAD is a different historical candidate. Drawings explain the design; engineering and physical-flight acceptance remain open.'}
+            : view === 'g80-f2'
+              ? 'G80-F2 is a separate supplier-stock fixed-motor construction candidate. F1 remains frozen; local joint geometry does not establish whole-vehicle CAD or installed qualification.'
+              : 'C1 is the selected preliminary study. The archived 72-part retention CAD is a different historical candidate. Drawings explain the design; engineering and physical-flight acceptance remain open.'}
       </div>
-      {prepared && view !== 'a1' && view !== 'g80-fixed' && (
+      {prepared && view !== 'a1' && view !== 'g80-fixed' && view !== 'g80-f2' && (
         <div className="wb-notice">
           Displaying the prepared offline export with the source identity below. The current API
           does not have the workbench route; restart it to use its source-checked live export.
@@ -327,6 +392,7 @@ export default function EngineeringWorkbench() {
             ['requirements', 'Physical verification'],
             ['a1', 'A1 upper connection'],
             ['g80-fixed', 'G80-F1 fixed candidate'],
+            ['g80-f2', 'G80-F2 stock construction'],
             ['evidence', 'Evidence & next views'],
           ] as [View, string][]
         ).map(([id, label]) => (
@@ -336,9 +402,9 @@ export default function EngineeringWorkbench() {
         ))}
       </nav>
       <div
-        className={`wb-layout ${view === 'a1' ? 'a1-layout' : view === 'g80-fixed' ? 'g80-fixed-layout' : ''}`}
+        className={`wb-layout ${view === 'a1' ? 'a1-layout' : view === 'g80-fixed' ? 'g80-fixed-layout' : view === 'g80-f2' ? 'g80-f2-layout' : ''}`}
       >
-        {view !== 'a1' && view !== 'g80-fixed' && (
+        {view !== 'a1' && view !== 'g80-fixed' && view !== 'g80-f2' && (
           <aside className="wb-part-list">
             <h2>Linked components</h2>
             <p>Select here or in a drawing. Selection follows you between views.</p>
@@ -409,6 +475,26 @@ export default function EngineeringWorkbench() {
               <div className="wb-extension">
                 <p className="wb-ext-loading" role="status">
                   Loading separate G80-F1 source snapshot.
+                </p>
+              </div>
+            )
+          ) : view === 'g80-f2' ? (
+            f2Error ? (
+              <div className="wb-extension">
+                <div className="wb-ext-loading">
+                  <h2>G80-F2 source snapshot unavailable</h2>
+                  <p>{f2Error}</p>
+                  <button type="button" onClick={() => setRetry(retry + 1)}>
+                    Retry G80-F2 source
+                  </button>
+                </div>
+              </div>
+            ) : f2 ? (
+              <F2ConstructionViews snapshot={f2} prepared={f2Prepared} />
+            ) : (
+              <div className="wb-extension">
+                <p className="wb-ext-loading" role="status">
+                  Loading separate G80-F2 source snapshot.
                 </p>
               </div>
             )
@@ -488,7 +574,7 @@ export default function EngineeringWorkbench() {
             </>
           )}
         </section>
-        {view !== 'a1' && view !== 'g80-fixed' && (
+        {view !== 'a1' && view !== 'g80-fixed' && view !== 'g80-f2' && (
           <aside className="wb-inspector" aria-label="Engineering part inspector">
             {part ? (
               <>

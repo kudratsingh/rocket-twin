@@ -1,5 +1,42 @@
 # Current engineering and inspection checkpoint
 
+**Current selected G80 follow-up: G80-F2-fixed-stock-ballast-v2.**
+[Construction decision](wo03-g80-f2-decision.md) and
+[exact-once coupled audit](wo03-g80-f2-coupled-accounting.md).
+Actual-stock body splice, blind fin notches and compact retained-nose package
+replace F1's unresolved stock/interference layout. F1 remains frozen history.
+
+| Selected case (full separate 50 g included) | Mass | CG from nose | Static margin | Reference 1.5 m speed | Formal / planning mass headroom |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Nominal |917.560 g |773.559 mm |1.286 cal |15.370 m/s |+40.784 / -13.761 g |
+| Additional 20 g aft + motor-balance probe |937.560 g |785.473 mm |1.107 cal |15.186 m/s |+20.784 / -33.761 g |
+
+The formal 15 m/s and calculated 1-calibre screens pass within the declared
+hypothesis; **both cases miss the separate 15.5 m/s planning target**. No longer
+equipment is confirmed or adopted. Costs are $458.71 before unquoted shipping/tax;
+recovery electronics are budgeted purchases, not assumed owner stock.
+
+**Not admitted for prototype fabrication or flight.** Installed recovery/fin
+joints, exact G80/retainer contact, thermal matrix, hot/wet properties and
+installed flutter remain open. The local fin/ring CAD has zero solid overlap;
+this closes that nominal geometry defect only. The ring diagnostic is stopped:
+one inverted element in the middle mesh prevents a three-grid convergence or
+strength claim. No retry/new solver or automatic construction revision follows.
+
+New separate walkthrough: `make preview`, then
+`http://127.0.0.1:5173/?workspace=engineering&view=g80-f2`.
+[Offline drawings](../output/engineering-g80-f2/index.html) include arrangement,
+splice/fin/nose layers, recovery branches and signed mass changes. Whole-vehicle
+CAD and compatible stress/temperature fields remain unavailable. Offline images
+and source/API checks are distinct from pending browser verification.
+
+G80 first, custom fabrication and practical performance remain core goals;
+G54 upgrade and G12 PID-to-RL keep their separate committed requirements.
+
+## Historical checkpoints below
+
+**Active follow-up: G80-F2**, [bounded packet](wo03-g80-f2-packet.md). Keep F1 frozen. Use obtainable stock, one fixed bonded splice, connected recovery/fin joints and coupled forward-placement/ballast comparison. G54/G12 remain separate; no new platform architecture. F1 numbers below are historical input, not F2 results.
+
 **G80-F1 dedicated fixed conventional rocket is the delivery direction.**
 [Current decision and complete budget](wo03-g80-f1-decision.md),
 [bounded packet](wo03-g80-fixed-packet.md), [ADR-0013](adr/0013-dedicated-conventional-g80.md).

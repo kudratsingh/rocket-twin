@@ -1,0 +1,1146 @@
+{
+  "id": "G80_F2_coupled_accounting_20261103_v1",
+  "status": "arithmetic/source-linked screen only; no installed or flight acceptance",
+  "source_sha256": {
+    "F1_record": "9a112ccbdee8ab0e7e4106ee4f27779ccd542ec37655ca07f80cd6bacf0bdea6",
+    "F2_record": "b64f1d98b8a63e5bdc89668bbc26bfa1b560e56dfa8ce046d7b6e8fa68bff3c3",
+    "F2_spec": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78"
+  },
+  "source_identity": {
+    "F1": "G80_F1_fixed_conventional_v2",
+    "F2": "G80-F2-fixed-stock-ballast-v2"
+  },
+  "rows": {
+    "F1": 42,
+    "F2": 50,
+    "signed_deltas": 43
+  },
+  "mass_kg": {
+    "F1_parts": 0.7675059134077413,
+    "F2_parts": 0.8675599814666081,
+    "signed_delta": 0.1000540680588668
+  },
+  "cost_usd": {
+    "F1_estimate": 333.95,
+    "F2_estimate": 458.71,
+    "signed_delta": 124.75999999999999,
+    "zero_price_rows": [
+      {
+        "id": "aft_ring",
+        "mass_kg": 0.011161819302239405,
+        "basis": "same purchased birch sheet as fin_set",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "body_splice",
+        "mass_kg": 0.012426258817849454,
+        "basis": "second LOC body-tube blank offcut charged to body",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "fin_tabs",
+        "mass_kg": 0.02591758734498647,
+        "basis": "same purchased birch sheet as fin_set",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "forward_ring",
+        "mass_kg": 0.020264537126063888,
+        "basis": "same purchased birch sheet as fin_set",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "nose_anchor_plate",
+        "mass_kg": 0.012139003898323274,
+        "basis": "same purchased birch sheet as fin_set",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "root_gussets",
+        "mass_kg": 0.026277225539013575,
+        "basis": "same purchased birch sheet as fin_set",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "splice_seam_patch",
+        "mass_kg": 0.0009334500000000001,
+        "basis": "second LOC body-tube blank offcut charged to body",
+        "owner_stock_evidenced": false
+      },
+      {
+        "id": "upper_body",
+        "mass_kg": 0.03840051214476691,
+        "basis": "second LOC body-tube blank charged to body",
+        "owner_stock_evidenced": false
+      }
+    ],
+    "owner_stock_evidence": "none in inspected F2 supplier/selection sources"
+  },
+  "signed_part_deltas": [
+    {
+      "id": "aft_ring",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.010964698741354176,
+      "F2_mass_kg": 0.011161819302239405,
+      "signed_mass_delta_kg": 0.00019712056088522917,
+      "signed_point_moment_delta_kg_m": 0.0002324236544507391,
+      "F1_cost_usd": 2.0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": -2.0
+    },
+    {
+      "id": "avionics_sled",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.011,
+      "F2_mass_kg": 0.011,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.002673,
+      "F1_cost_usd": 5.0,
+      "F2_cost_usd": 5.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "ballast_capsule",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.007,
+      "signed_mass_delta_kg": 0.007,
+      "signed_point_moment_delta_kg_m": 0.00035000000000000005,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 3.0,
+      "signed_cost_delta_usd": 3.0
+    },
+    {
+      "id": "baro",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.001,
+      "F2_mass_kg": 0.001,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.00032800000000000006,
+      "F1_cost_usd": 15.0,
+      "F2_cost_usd": 15.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "battery",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.03,
+      "F2_mass_kg": 0.03,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.008400000000000001,
+      "F1_cost_usd": 18.0,
+      "F2_cost_usd": 18.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "body",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.14592605352093976,
+      "F2_mass_kg": 0.09819191360507513,
+      "signed_mass_delta_kg": -0.04773413991586463,
+      "signed_point_moment_delta_kg_m": -0.01830596141479042,
+      "F1_cost_usd": 14.0,
+      "F2_cost_usd": 20.54,
+      "signed_cost_delta_usd": 6.539999999999999
+    },
+    {
+      "id": "body_recovery_eye",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.009,
+      "F2_mass_kg": 0.018,
+      "signed_mass_delta_kg": 0.009,
+      "signed_point_moment_delta_kg_m": 0.009621,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 4.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "body_splice",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.012426258817849454,
+      "signed_mass_delta_kg": 0.012426258817849454,
+      "signed_point_moment_delta_kg_m": 0.00569122653857505,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "electrical_harness",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.009,
+      "F2_mass_kg": 0.011,
+      "signed_mass_delta_kg": 0.002,
+      "signed_point_moment_delta_kg_m": -0.00253,
+      "F1_cost_usd": 5.0,
+      "F2_cost_usd": 5.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "fin_set",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.07722000000000001,
+      "F2_mass_kg": 0.07883167661704073,
+      "signed_mass_delta_kg": 0.0016116766170407165,
+      "signed_point_moment_delta_kg_m": 0.001846265102409969,
+      "F1_cost_usd": 9.0,
+      "F2_cost_usd": 69.75,
+      "signed_cost_delta_usd": 60.75
+    },
+    {
+      "id": "fin_tabs",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.026093166000000004,
+      "F2_mass_kg": 0.02591758734498647,
+      "signed_mass_delta_kg": -0.00017557865501353562,
+      "signed_point_moment_delta_kg_m": -0.00020187353217486145,
+      "F1_cost_usd": 0.0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "flight_computer",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.012,
+      "F2_mass_kg": 0.012,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.0034199999999999994,
+      "F1_cost_usd": 32.0,
+      "F2_cost_usd": 32.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "forward_ring",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.021929397482708352,
+      "F2_mass_kg": 0.020264537126063888,
+      "signed_mass_delta_kg": -0.0016648603566444646,
+      "signed_point_moment_delta_kg_m": -0.0018086522905614126,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": -4.0
+    },
+    {
+      "id": "high_g_accel",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.001,
+      "F2_mass_kg": 0.001,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.00039999999999999996,
+      "F1_cost_usd": 24.95,
+      "F2_cost_usd": 24.95,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "imu",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.002,
+      "F2_mass_kg": 0.002,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.0006540000000000001,
+      "F1_cost_usd": 18.0,
+      "F2_cost_usd": 18.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "independent_recovery",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.0065,
+      "F2_mass_kg": 0.005,
+      "signed_mass_delta_kg": -0.0014999999999999996,
+      "signed_point_moment_delta_kg_m": -0.0028027,
+      "F1_cost_usd": 0.0,
+      "F2_cost_usd": 15.0,
+      "signed_cost_delta_usd": 15.0
+    },
+    {
+      "id": "logger_power_switch",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.003,
+      "F2_mass_kg": 0.003,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.000837,
+      "F1_cost_usd": 3.0,
+      "F2_cost_usd": 3.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "logger_regulator",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.004,
+      "F2_mass_kg": 0.004,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.0011580000000000002,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 4.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "micro_sd",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.003,
+      "F2_mass_kg": 0.003,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.0010800000000000002,
+      "F1_cost_usd": 10.0,
+      "F2_cost_usd": 10.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "motor",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.1282,
+      "F2_mass_kg": 0.1282,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": 0.0,
+      "F1_cost_usd": 34.0,
+      "F2_cost_usd": 43.99,
+      "signed_cost_delta_usd": 9.990000000000002
+    },
+    {
+      "id": "motor_retainer",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.022,
+      "F2_mass_kg": 0.03,
+      "signed_mass_delta_kg": 0.008,
+      "signed_point_moment_delta_kg_m": 0.009819999999999999,
+      "F1_cost_usd": 18.0,
+      "F2_cost_usd": 23.99,
+      "signed_cost_delta_usd": 5.989999999999998
+    },
+    {
+      "id": "motor_tube",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.009627315425982694,
+      "F2_mass_kg": 0.024,
+      "signed_mass_delta_kg": 0.014372684574017306,
+      "signed_point_moment_delta_kg_m": 0.016348928702944684,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 7.49,
+      "signed_cost_delta_usd": 3.49
+    },
+    {
+      "id": "mount_external_shield",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.0098719497458072,
+      "F2_mass_kg": 0.01,
+      "signed_mass_delta_kg": 0.00012805025419279983,
+      "signed_point_moment_delta_kg_m": 0.00014469678723786315,
+      "F1_cost_usd": 5.0,
+      "F2_cost_usd": 5.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "nose",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.038,
+      "F2_mass_kg": 0.038,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -9.012807644084506e-08,
+      "F1_cost_usd": 5.0,
+      "F2_cost_usd": 5.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "nose_anchor_plate",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.012873332490948778,
+      "F2_mass_kg": 0.012139003898323274,
+      "signed_mass_delta_kg": -0.0007343285926255036,
+      "signed_point_moment_delta_kg_m": -9.850089630315155e-05,
+      "F1_cost_usd": 2.0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": -2.0
+    },
+    {
+      "id": "nose_ballast",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.01781599707124894,
+      "signed_mass_delta_kg": 0.01781599707124894,
+      "signed_point_moment_delta_kg_m": 0.0009798798389186918,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 3.0,
+      "signed_cost_delta_usd": 3.0
+    },
+    {
+      "id": "nose_recovery_eye",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.009,
+      "F2_mass_kg": 0.009,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -8.999999999999894e-06,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 4.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "nose_service_hardware",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.003,
+      "signed_mass_delta_kg": 0.003,
+      "signed_point_moment_delta_kg_m": 0.000552,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 2.0,
+      "signed_cost_delta_usd": 2.0
+    },
+    {
+      "id": "parachute",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.035,
+      "F2_mass_kg": 0.035,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": 0.0027125000000000014,
+      "F1_cost_usd": 30.0,
+      "F2_cost_usd": 30.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "recovery_battery",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.0036,
+      "F2_mass_kg": 0.005,
+      "signed_mass_delta_kg": 0.0014000000000000002,
+      "signed_point_moment_delta_kg_m": -0.001192,
+      "F1_cost_usd": 0.0,
+      "F2_cost_usd": 19.0,
+      "signed_cost_delta_usd": 19.0
+    },
+    {
+      "id": "recovery_carrier",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.008,
+      "F2_mass_kg": 0.008,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.0030800000000000007,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 4.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "recovery_connectors",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.009,
+      "F2_mass_kg": 0.009,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": 0.0008999999999999998,
+      "F1_cost_usd": 8.0,
+      "F2_cost_usd": 8.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "recovery_harness_wiring",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.005,
+      "F2_mass_kg": 0.005,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.0019500000000000001,
+      "F1_cost_usd": 4.0,
+      "F2_cost_usd": 4.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "recovery_output_mount",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.006,
+      "F2_mass_kg": 0.006,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": -0.00279,
+      "F1_cost_usd": 5.0,
+      "F2_cost_usd": 5.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "recovery_power_switch",
+      "action": "remove",
+      "F1_mass_kg": 0.0037,
+      "F2_mass_kg": 0,
+      "signed_mass_delta_kg": -0.0037,
+      "signed_point_moment_delta_kg_m": -0.00229136375,
+      "F1_cost_usd": 0.0,
+      "F2_cost_usd": 0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "recovery_protection",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.006,
+      "F2_mass_kg": 0.006,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": 0.00051,
+      "F1_cost_usd": 8.0,
+      "F2_cost_usd": 8.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "ring_bonds",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.009000000000000001,
+      "F2_mass_kg": 0.01,
+      "signed_mass_delta_kg": 0.0009999999999999992,
+      "signed_point_moment_delta_kg_m": 0.0011354999999999994,
+      "F1_cost_usd": 2.0,
+      "F2_cost_usd": 2.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "root_extra_bond_finish",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.004,
+      "signed_mass_delta_kg": 0.004,
+      "signed_point_moment_delta_kg_m": 0.00456,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 2.0,
+      "signed_cost_delta_usd": 2.0
+    },
+    {
+      "id": "root_gussets",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.026277225539013575,
+      "signed_mass_delta_kg": 0.026277225539013575,
+      "signed_point_moment_delta_kg_m": 0.029956037114475472,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "shock_cord",
+      "action": "change_or_relocate",
+      "F1_mass_kg": 0.018,
+      "F2_mass_kg": 0.018,
+      "signed_mass_delta_kg": 0.0,
+      "signed_point_moment_delta_kg_m": 0.0018000000000000004,
+      "F1_cost_usd": 8.0,
+      "F2_cost_usd": 8.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "splice_adhesive",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.008,
+      "signed_mass_delta_kg": 0.008,
+      "signed_point_moment_delta_kg_m": 0.0036639999999999997,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 2.0,
+      "signed_cost_delta_usd": 2.0
+    },
+    {
+      "id": "splice_seam_patch",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.0009334500000000001,
+      "signed_mass_delta_kg": 0.0009334500000000001,
+      "signed_point_moment_delta_kg_m": 0.0004275201,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": 0.0
+    },
+    {
+      "id": "upper_body",
+      "action": "add",
+      "F1_mass_kg": 0,
+      "F2_mass_kg": 0.03840051214476691,
+      "signed_mass_delta_kg": 0.03840051214476691,
+      "signed_point_moment_delta_kg_m": 0.011865758252732974,
+      "F1_cost_usd": 0,
+      "F2_cost_usd": 0.0,
+      "signed_cost_delta_usd": 0.0
+    }
+  ],
+  "physical_retained_groups": {
+    "nose_retained": {
+      "ids": [
+        "avionics_sled",
+        "ballast_capsule",
+        "baro",
+        "battery",
+        "electrical_harness",
+        "flight_computer",
+        "high_g_accel",
+        "imu",
+        "independent_recovery",
+        "logger_power_switch",
+        "logger_regulator",
+        "micro_sd",
+        "nose",
+        "nose_anchor_plate",
+        "nose_ballast",
+        "nose_recovery_eye",
+        "nose_service_hardware",
+        "recovery_battery",
+        "recovery_carrier",
+        "recovery_harness_wiring",
+        "recovery_output_mount"
+      ],
+      "row_count": 21,
+      "parts_mass_kg": 0.19395500096957224,
+      "point_first_moment_kg_m": 0.02518673905772265
+    },
+    "soft_recovery": {
+      "ids": [
+        "heat_leader",
+        "parachute",
+        "recovery_connectors",
+        "recovery_protection",
+        "shock_cord"
+      ],
+      "row_count": 5,
+      "parts_mass_kg": 0.07600000000000001,
+      "point_first_moment_kg_m": 0.0319825
+    },
+    "body_retained": {
+      "ids": [
+        "aft_ring",
+        "body",
+        "body_recovery_eye",
+        "body_splice",
+        "fin_internal_bonds",
+        "fin_set",
+        "fin_tabs",
+        "finish",
+        "forward_ring",
+        "motor",
+        "motor_retainer",
+        "motor_tube",
+        "mount_external_shield",
+        "outer_fin_fillets",
+        "rail_backers",
+        "rail_buttons",
+        "retainer_adhesive",
+        "ring_bonds",
+        "root_extra_bond_finish",
+        "root_gussets",
+        "service_allowance",
+        "splice_adhesive",
+        "splice_seam_patch",
+        "upper_body"
+      ],
+      "row_count": 24,
+      "parts_mass_kg": 0.5976049804970356,
+      "point_first_moment_kg_m": 0.5901177340152359
+    }
+  },
+  "membership_warning": "source parent field and point CG do not prove physical retention or force transfer; nose carrier/output well extend into body and need positive capture and service proof",
+  "recovery_cases": [
+    {
+      "id": "nominal_full_growth",
+      "mass_kg": 0.9175599814666081,
+      "growth_kg": 0.05,
+      "additional_aft_kg": 0,
+      "severe_factor_N_per_kg": 2110.21995,
+      "group_masses_kg": {
+        "nose_retained": 0.19395500096957224,
+        "soft_recovery": 0.07600000000000001,
+        "body_retained": 0.6476049804970356
+      },
+      "equivalent_group_inertial_demands_N": {
+        "nose_retained": 409.2877124482607,
+        "soft_recovery": 160.37671620000003,
+        "body_retained": 1366.5889495642057
+      },
+      "whole_equivalent_mean_DF3_N": 1936.253378212467,
+      "eye_sensitivities": {
+        "two_eye_radius_m": 0.023,
+        "body_branch_70_30_N": [
+          956.6122646949439,
+          409.9766848692617
+        ],
+        "body_branch_70_30_eccentric_moment_Nm": 12.572618335990692,
+        "body_branch_single_eye_N": 1366.5889495642057,
+        "body_branch_single_eye_moment_Nm": 31.43154583997673,
+        "whole_force_single_eye_sensitivity_N": 1936.253378212467,
+        "whole_force_single_eye_moment_Nm": 44.53382769888674,
+        "nose_eye_radius_m": 0.0265,
+        "nose_branch_single_eye_moment_Nm": 10.846124379878908
+      },
+      "forward_ring_paper_cut": {
+        "cut_z_m": 1.075,
+        "paper_outer_diameter_m": 0.066802,
+        "paper_inner_diameter_m": 0.065024,
+        "paper_area_m2": 0.00018408682715612137,
+        "paper_second_moment_m4": 9.998938087594018e-08,
+        "estimated_paper_axial_screen_Pa": 2000000.0,
+        "known_aft_rows": [
+          {
+            "id": "body",
+            "mass_kg": 0.01868481295634632,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "fin_set",
+            "mass_kg": 0.07883167661704073,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "fin_tabs",
+            "mass_kg": 0.02591758734498647,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "motor_tube",
+            "mass_kg": 0.021090909090909087,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "forward_ring",
+            "mass_kg": 0.020264537126063888,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "aft_ring",
+            "mass_kg": 0.011161819302239405,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "fin_internal_bonds",
+            "mass_kg": 0.014,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "outer_fin_fillets",
+            "mass_kg": 0.01,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "motor",
+            "mass_kg": 0.1282,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "motor_retainer",
+            "mass_kg": 0.03,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "retainer_adhesive",
+            "mass_kg": 0.002,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "root_gussets",
+            "mass_kg": 0.026277225539013575,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "root_extra_bond_finish",
+            "mass_kg": 0.004,
+            "basis": "source envelope wholly aft"
+          }
+        ],
+        "known_fore_rows": [
+          {
+            "id": "body",
+            "mass_kg": 0.07950710064872882,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "motor_tube",
+            "mass_kg": 0.002909090909090912,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "rail_buttons",
+            "mass_kg": 0.005,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "rail_backers",
+            "mass_kg": 0.004,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "upper_body",
+            "mass_kg": 0.03840051214476691,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "body_splice",
+            "mass_kg": 0.012426258817849454,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "splice_seam_patch",
+            "mass_kg": 0.0009334500000000001,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "splice_adhesive",
+            "mass_kg": 0.008,
+            "basis": "source envelope wholly fore"
+          }
+        ],
+        "unknown_spatial_rows": [
+          {
+            "id": "ring_bonds",
+            "mass_range_kg": [
+              0.0,
+              0.01
+            ],
+            "span_m": [
+              1.075,
+              1.196
+            ]
+          },
+          {
+            "id": "mount_external_shield",
+            "mass_range_kg": [
+              0.0,
+              0.01
+            ],
+            "span_m": [
+              1.07,
+              1.19
+            ]
+          },
+          {
+            "id": "body_recovery_eye",
+            "mass_range_kg": [
+              0.0,
+              0.018
+            ],
+            "span_m": [
+              1.054,
+              1.099
+            ]
+          },
+          {
+            "id": "finish",
+            "mass_range_kg": [
+              0.0,
+              0.012
+            ],
+            "span_m": [
+              0.45,
+              0.49
+            ]
+          },
+          {
+            "id": "service_allowance",
+            "mass_range_kg": [
+              0.0,
+              0.006
+            ],
+            "span_m": [
+              0.45,
+              0.49
+            ]
+          }
+        ],
+        "full_growth_and_extra_aft_kg": 0.05,
+        "demand_bounds": [
+          {
+            "id": "known_aft_lower",
+            "mass_kg": 0.4404285679765995,
+            "axial_force_N": 929.4011506941515,
+            "paper_axial_stress_Pa": 5048710.790728876,
+            "70_30_eccentric_moment_Nm": 8.550490586386195,
+            "70_30_bending_stress_Pa": 2856252.669773318,
+            "single_eye_moment_Nm": 21.376226465965484,
+            "single_eye_bending_stress_Pa": 7140631.674433294,
+            "axial_plus_70_30_proxy_Pa": 7904963.460502194,
+            "axial_plus_single_eye_proxy_Pa": 12189342.46516217
+          },
+          {
+            "id": "all_uncertain_aft_upper",
+            "mass_kg": 0.4964285679765995,
+            "axial_force_N": 1047.5734678941515,
+            "paper_axial_stress_Pa": 5690648.723092606,
+            "70_30_eccentric_moment_Nm": 9.637675904626194,
+            "70_30_bending_stress_Pa": 3219422.0033207373,
+            "single_eye_moment_Nm": 24.094189761565485,
+            "single_eye_bending_stress_Pa": 8048555.008301841,
+            "axial_plus_70_30_proxy_Pa": 8910070.726413343,
+            "axial_plus_single_eye_proxy_Pa": 13739203.731394447
+          }
+        ],
+        "scope": "Ideal serial axial/eccentric beam proxies; actual ring-to-paper load split, local hole/peel/buckling and hot capacity unknown"
+      }
+    },
+    {
+      "id": "adverse_20g_aft_motor_probe",
+      "mass_kg": 0.9375599814666081,
+      "growth_kg": 0.05,
+      "additional_aft_kg": 0.02,
+      "severe_factor_N_per_kg": 2110.21995,
+      "group_masses_kg": {
+        "nose_retained": 0.19395500096957224,
+        "soft_recovery": 0.07600000000000001,
+        "body_retained": 0.6676049804970356
+      },
+      "equivalent_group_inertial_demands_N": {
+        "nose_retained": 409.2877124482607,
+        "soft_recovery": 160.37671620000003,
+        "body_retained": 1408.7933485642056
+      },
+      "whole_equivalent_mean_DF3_N": 1978.457777212467,
+      "eye_sensitivities": {
+        "two_eye_radius_m": 0.023,
+        "body_branch_70_30_N": [
+          986.1553439949439,
+          422.6380045692617
+        ],
+        "body_branch_70_30_eccentric_moment_Nm": 12.960898806790691,
+        "body_branch_single_eye_N": 1408.7933485642056,
+        "body_branch_single_eye_moment_Nm": 32.40224701697673,
+        "whole_force_single_eye_sensitivity_N": 1978.457777212467,
+        "whole_force_single_eye_moment_Nm": 45.50452887588674,
+        "nose_eye_radius_m": 0.0265,
+        "nose_branch_single_eye_moment_Nm": 10.846124379878908
+      },
+      "forward_ring_paper_cut": {
+        "cut_z_m": 1.075,
+        "paper_outer_diameter_m": 0.066802,
+        "paper_inner_diameter_m": 0.065024,
+        "paper_area_m2": 0.00018408682715612137,
+        "paper_second_moment_m4": 9.998938087594018e-08,
+        "estimated_paper_axial_screen_Pa": 2000000.0,
+        "known_aft_rows": [
+          {
+            "id": "body",
+            "mass_kg": 0.01868481295634632,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "fin_set",
+            "mass_kg": 0.07883167661704073,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "fin_tabs",
+            "mass_kg": 0.02591758734498647,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "motor_tube",
+            "mass_kg": 0.021090909090909087,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "forward_ring",
+            "mass_kg": 0.020264537126063888,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "aft_ring",
+            "mass_kg": 0.011161819302239405,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "fin_internal_bonds",
+            "mass_kg": 0.014,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "outer_fin_fillets",
+            "mass_kg": 0.01,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "motor",
+            "mass_kg": 0.1282,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "motor_retainer",
+            "mass_kg": 0.03,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "retainer_adhesive",
+            "mass_kg": 0.002,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "root_gussets",
+            "mass_kg": 0.026277225539013575,
+            "basis": "source envelope wholly aft"
+          },
+          {
+            "id": "root_extra_bond_finish",
+            "mass_kg": 0.004,
+            "basis": "source envelope wholly aft"
+          }
+        ],
+        "known_fore_rows": [
+          {
+            "id": "body",
+            "mass_kg": 0.07950710064872882,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "motor_tube",
+            "mass_kg": 0.002909090909090912,
+            "basis": "uniform tube portion"
+          },
+          {
+            "id": "rail_buttons",
+            "mass_kg": 0.005,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "rail_backers",
+            "mass_kg": 0.004,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "upper_body",
+            "mass_kg": 0.03840051214476691,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "body_splice",
+            "mass_kg": 0.012426258817849454,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "splice_seam_patch",
+            "mass_kg": 0.0009334500000000001,
+            "basis": "source envelope wholly fore"
+          },
+          {
+            "id": "splice_adhesive",
+            "mass_kg": 0.008,
+            "basis": "source envelope wholly fore"
+          }
+        ],
+        "unknown_spatial_rows": [
+          {
+            "id": "ring_bonds",
+            "mass_range_kg": [
+              0.0,
+              0.01
+            ],
+            "span_m": [
+              1.075,
+              1.196
+            ]
+          },
+          {
+            "id": "mount_external_shield",
+            "mass_range_kg": [
+              0.0,
+              0.01
+            ],
+            "span_m": [
+              1.07,
+              1.19
+            ]
+          },
+          {
+            "id": "body_recovery_eye",
+            "mass_range_kg": [
+              0.0,
+              0.018
+            ],
+            "span_m": [
+              1.054,
+              1.099
+            ]
+          },
+          {
+            "id": "finish",
+            "mass_range_kg": [
+              0.0,
+              0.012
+            ],
+            "span_m": [
+              0.45,
+              0.49
+            ]
+          },
+          {
+            "id": "service_allowance",
+            "mass_range_kg": [
+              0.0,
+              0.006
+            ],
+            "span_m": [
+              0.45,
+              0.49
+            ]
+          }
+        ],
+        "full_growth_and_extra_aft_kg": 0.07,
+        "demand_bounds": [
+          {
+            "id": "known_aft_lower",
+            "mass_kg": 0.46042856797659953,
+            "axial_force_N": 971.6055496941516,
+            "paper_axial_stress_Pa": 5277974.338001638,
+            "70_30_eccentric_moment_Nm": 8.938771057186194,
+            "70_30_bending_stress_Pa": 2985956.0031831106,
+            "single_eye_moment_Nm": 22.346927642965486,
+            "single_eye_bending_stress_Pa": 7464890.007957776,
+            "axial_plus_70_30_proxy_Pa": 8263930.341184748,
+            "axial_plus_single_eye_proxy_Pa": 12742864.345959414
+          },
+          {
+            "id": "all_uncertain_aft_upper",
+            "mass_kg": 0.5164285679765995,
+            "axial_force_N": 1089.7778668941514,
+            "paper_axial_stress_Pa": 5919912.270365368,
+            "70_30_eccentric_moment_Nm": 10.025956375426194,
+            "70_30_bending_stress_Pa": 3349125.336730529,
+            "single_eye_moment_Nm": 25.064890938565483,
+            "single_eye_bending_stress_Pa": 8372813.3418263225,
+            "axial_plus_70_30_proxy_Pa": 9269037.607095897,
+            "axial_plus_single_eye_proxy_Pa": 14292725.61219169
+          }
+        ],
+        "scope": "Ideal serial axial/eccentric beam proxies; actual ring-to-paper load split, local hole/peel/buckling and hot capacity unknown"
+      }
+    }
+  ],
+  "ballast_capture": {
+    "nose_ballast_kg": 0.01781599707124894,
+    "capsule_and_fastener_budget_kg": 0.007,
+    "combined_kg": 0.02481599707124894,
+    "severe_common_acceleration_DF3_N": 52.36721209889109,
+    "required_evidence": [
+      "M5 washer/bolt material and nonstructural metal legality",
+      "retained capsule fastener/ASA/plywood bearing and pull-through",
+      "tolerance and positive anti-loosening",
+      "nose separation/ejection/shock capture",
+      "cold/hot/wet and repeated handling",
+      "actual finished washer/capsule mass"
+    ]
+  },
+  "adverse_required_usable_guide": [
+    {
+      "target_mps": 15.0,
+      "lower_usable_m": 1.463609017193317,
+      "upper_usable_m": 1.4636091197729106,
+      "lower_speed_mps": 14.999999673273328,
+      "upper_speed_mps": 15.00000019955733,
+      "screen_calls": 28,
+      "source": "src.vehicle.benchmark.screen_launch; fixed selected adverse loaded mass and full 50 g already included"
+    },
+    {
+      "target_mps": 15.5,
+      "lower_usable_m": 1.5626666430830953,
+      "upper_usable_m": 1.562666745662689,
+      "lower_speed_mps": 15.499999612581835,
+      "upper_speed_mps": 15.500000121059816,
+      "screen_calls": 28,
+      "source": "src.vehicle.benchmark.screen_launch; fixed selected adverse loaded mass and full 50 g already included"
+    }
+  ],
+  "guide_baseline_m": 1.5,
+  "limitations": [
+    "20.4 m/s and 0.3 m are prescribed historical probes, not F2 telemetry or measured stroke",
+    "DF3 applied once; common-acceleration branch demands are mass-allocation proxies, not measured simultaneous tensions or inflation/snatch peaks",
+    "paper 2 MPa is an estimated scalar screen, not installed hot/wet/bending/peel capacity",
+    "F2 motor/retainer, eyes, ballast capture, full spatial fields and owner stock remain unverified"
+  ],
+  "resources": {
+    "declared_cpu_count": 1,
+    "cpu_cap_s": 10,
+    "wall_cap_s": 20,
+    "wall_used_s": 0.23638241697335616
+  },
+  "script_sha256": "2eef2a8afbf9ed18c2140056bae14baf5738af4774e9fd5283cb8c4912d45ef9"
+}
