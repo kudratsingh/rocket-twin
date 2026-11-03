@@ -17,8 +17,9 @@ makes reused C1 CP/drag only reference hypotheses; full inertia/new CP unavailab
 The separate graphical A1 snapshot is now implemented at
 `http://127.0.0.1:5173/?workspace=engineering&view=a1` after `make preview`.
 [Offline A1 gallery](../output/engineering-a1-connection/index.html) provides
-two actual inspected PNG/SVG drawings: sleeve/stop/key/harness/service and five
-separate load paths, plus radial bolt stack/upper bond/root detail. These are
+three actual inspected PNG/SVG drawings: sleeve/stop/key/harness/service and five
+separate load paths; radial bolt stack/upper bond/root; and recorded fit, mass
+addition and separate formal/planning deficit bars. These are
 concept graphics, not CAD or browser screenshots. Current snapshot includes the
 previously missing historical0mm fit finding; browser interaction stays blocked
 by the designated-agent runtime-ownership prerequisite, with no retry/bypass.

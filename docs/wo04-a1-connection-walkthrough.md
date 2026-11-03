@@ -48,11 +48,11 @@ still applies.
 The prepared data is `web/public/engineering-workbench/g80-a1.json`, SHA-256
 `1dbab9cb2d8c010d680a379e647998337ea3b0139357a81d75abaa9e6ac6a128`.
 The [offline gallery](../output/engineering-a1-connection/index.html) contains
-the two actual React SVGs, their native PNGs and source sidecars. The final
+the three actual React SVGs, their native PNGs and source sidecars. The earlier
 [v3 archived image record](../runs/wo04-a1-drawings-20261102-v3/record.json)
 and [source manifest](../runs/wo04-a1-drawings-20261102-v3/archive-manifest.json)
 preserve the executed React/types/CSS/exporter and prepared JSON identities;
-PNG bulk stays in `output/`. The final record reports a **1.205 s** two-image
+PNG bulk stays in `output/`. The v3 record reports a **1.205 s** two-image
 native batch. The archived v1, bounded v2 and v3 native batches total **4.784 s**
 of measured rendering, below the 120 s cap; the earlier initial preview is
 recorded separately without a precise native duration. An initial overview image showed
@@ -82,6 +82,22 @@ opened and inspected after that change. It shows all five routes and all 20
 full node labels in distinct readable rows. No A1 numerical calculation was
 rerun; the separate motor cases remain recorded demand paths, not installed
 capacity or flight acceptance.
+
+The final [v4 image record](../runs/wo04-a1-drawings-20261102-v4/record.json)
+and [source manifest](../runs/wo04-a1-drawings-20261102-v4/archive-manifest.json)
+add a third source-fed SVG/PNG for graphical fit and complete mass screens.
+Actual PNG inspection found the historic A/B 0 mm and new A1 0.1171 mm
+minimum gaps, the textual 0.1 mm criterion, recorded +106.454 g delta from
+frozen A, 1074.762/1094.762 g complete cases, and separate formal 15/planning
+15.5 negative headroom bars for both cases legible. The full 50 g remains
+included in both case totals; the additional 20 g/motor-CG case stays separate.
+Bars normalize recorded values for display and compute no mass limit or physics.
+The first v4 preview shortened adverse labels before the formal/planning
+distinction; the final image places that distinction first. The previous two
+SVG graphic bodies and PNG hashes match v3 exactly. The final three-image
+native batch took **1.877 s**, with **8.398 s** total measured across the saved
+v1–v4 batches, below the 120 s cap. Earlier archives remain intact. Browser
+interactions remain unverified.
 
 The screen preserves the historic A/B 0 mm cold-gap failure. A1's **calculated
 bounded** sleeve/can minimum is 0.1171 mm versus the 0.1 mm screen; actual

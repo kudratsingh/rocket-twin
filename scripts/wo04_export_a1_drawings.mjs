@@ -43,10 +43,11 @@ let views;
 try {
   console.error = (...args) => warnings.push(args.map(String).join(' '));
   server = await createServer({ configFile: false, root: resolve(root, 'web'), server: { middlewareMode: true, hmr: false }, appType: 'custom' });
-  const { A1ConnectionDrawing, A1JointDetailDrawing } = await server.ssrLoadModule('/src/workbench/A1ConnectionViews.tsx');
+  const { A1ConnectionDrawing, A1JointDetailDrawing, A1MassScreenDrawing } = await server.ssrLoadModule('/src/workbench/A1ConnectionViews.tsx');
   views = [
     { id: 'a1-upper-connection', title: 'A1 upper sleeve, stop, index and force paths', component: A1ConnectionDrawing },
     ...(snapshot.joint_detail ? [{ id: 'a1-joint-detail', title: 'A1 radial M5 stack, upper lap and fin root', component: A1JointDetailDrawing }] : []),
+    { id: 'a1-fit-mass-screens', title: 'A1 recorded fit and complete mass screens', component: A1MassScreenDrawing },
   ].map(view => ({ ...view, markup: renderToStaticMarkup(React.createElement(view.component, { snapshot })) }));
 } finally {
   console.error = originalError;

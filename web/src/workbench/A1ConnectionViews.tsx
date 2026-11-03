@@ -504,9 +504,173 @@ export function A1JointDetailDrawing({
   );
 }
 
+/** Bar lengths are display normalization of recorded scalars, never a new mass or fit criterion. */
+export function A1MassScreenDrawing({
+  snapshot,
+  svgRef,
+}: {
+  snapshot: A1Snapshot;
+  svgRef?: RefObject<SVGSVGElement | null>;
+}) {
+  const fit = snapshot.fit_rows.filter((row) => row.id === 'historical' || row.id === 'aft_fit');
+  const massScale = Math.max(1, ...snapshot.cases.map((row) => row.total_mass_g ?? 0));
+  const deficitScale = Math.max(
+    1,
+    ...snapshot.cases.flatMap((row) => [
+      Math.abs(row.baseline_formal_headroom_g ?? 0),
+      Math.abs(row.baseline_planning_headroom_g ?? 0),
+    ]),
+  );
+  const fitScale = Math.max(0.001, ...fit.map((row) => Math.abs(row.result.value ?? 0)));
+  const width = (value: number | null | undefined, scale: number) =>
+    value === null || value === undefined || !Number.isFinite(value)
+      ? 0
+      : Math.min(580, (Math.abs(value) / scale) * 580);
+  const deficitRows = snapshot.cases.flatMap((row) => [
+    {
+      id: `${row.id}-formal`,
+      label: `Formal 15 · ${row.label}`,
+      value: row.baseline_formal_headroom_g ?? null,
+      color: '#ed9895',
+    },
+    {
+      id: `${row.id}-planning`,
+      label: `Planning 15.5 · ${row.label}`,
+      value: row.baseline_planning_headroom_g ?? null,
+      color: '#ddb877',
+    },
+  ]);
+  return (
+    <svg
+      ref={svgRef}
+      className="a1-drawing"
+      viewBox="0 0 1080 835"
+      width="1080"
+      height="835"
+      fontFamily="Helvetica,Arial,sans-serif"
+      role="img"
+      aria-labelledby="a1-mass-title a1-mass-desc"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title id="a1-mass-title">A1 recorded fit and complete mass screens</title>
+      <desc id="a1-mass-desc">
+        Read-only display of historic and A1 minimum radial gaps, the recorded net addition from
+        frozen A, two full-growth total masses, and separate formal and planning negative mass
+        headrooms. Bar lengths normalize displayed recorded values only.
+      </desc>
+      <rect width="1080" height="835" rx="12" fill="#12202a" />
+      <text x="28" y="42" fill="#eff8fb" fontSize="23" fontWeight="700">
+        A1 · recorded fit and complete mass screens
+      </text>
+      <text x="28" y="67" fill="#f0bf83" fontSize="13">
+        SEPARATE VERSION · CALCULATED/ESTIMATED BOUNDS · NOT ADMITTED
+      </text>
+      <rect x="27" y="96" width="1026" height="196" rx="8" fill="#183340" stroke="#63899b" />
+      <text x="46" y="125" fill="#e8f4f7" fontSize="16" fontWeight="700">
+        Retained-upper radial fit · recorded minimums
+      </text>
+      {fit.map((row, i) => {
+        const y = 151 + i * 63;
+        return (
+          <g key={row.id}>
+            <text x="46" y={y + 12} fill="#d6e8ef" fontSize="12">
+              {row.id === 'historical' ? 'Historical A/B coupler' : 'A1 sleeve / can bound'}
+            </text>
+            <rect x="310" y={y - 3} width="580" height="25" fill="#20303a" stroke="#567988" />
+            <rect
+              x="310"
+              y={y - 3}
+              width={width(row.result.value, fitScale)}
+              height="25"
+              fill={row.result.state === 'failed' ? '#c87574' : '#78b9d5'}
+            />
+            <text
+              x="910"
+              y={y + 16}
+              fill={row.result.state === 'failed' ? '#f2aaa6' : '#9ed8ee'}
+              fontSize="16"
+              fontWeight="700"
+            >
+              {a1ValueText(row.result)}
+            </text>
+          </g>
+        );
+      })}
+      <text x="46" y="273" fill="#b9d2dc" fontSize="11">
+        {fit.find((row) => row.id === 'aft_fit')?.criterion ?? 'Criterion unavailable'}
+      </text>
+      <rect x="27" y="310" width="1026" height="212" rx="8" fill="#183340" stroke="#63899b" />
+      <text x="46" y="340" fill="#e8f4f7" fontSize="16" fontWeight="700">
+        Complete loaded mass · separate 50 g included in each case
+      </text>
+      <text x="754" y="340" fill="#e0bd82" fontSize="14">
+        Net from frozen A: {a1ValueText(snapshot.mass.net_delta)}
+      </text>
+      {snapshot.cases.slice(0, 2).map((row, i) => {
+        const y = 375 + i * 64;
+        return (
+          <g key={row.id}>
+            <text x="46" y={y + 14} fill="#d6e8ef" fontSize="12">
+              {row.label.length > 38 ? `${row.label.slice(0, 36)}…` : row.label}
+            </text>
+            <rect x="340" y={y - 2} width="580" height="30" fill="#20303a" stroke="#567988" />
+            <rect
+              x="340"
+              y={y - 2}
+              width={width(row.total_mass_g, massScale)}
+              height="30"
+              fill={i === 0 ? '#77aabd' : '#bb9b7b'}
+            />
+            <text x="934" y={y + 20} fill="#e8f4f7" fontSize="14" fontWeight="700">
+              {numberText(row.total_mass_g, 'g')}
+            </text>
+          </g>
+        );
+      })}
+      <text x="46" y="500" fill="#b9d2dc" fontSize="11">
+        {snapshot.mass.net_delta.note}
+      </text>
+      <rect x="27" y="541" width="1026" height="260" rx="8" fill="#183340" stroke="#63899b" />
+      <text x="46" y="572" fill="#e8f4f7" fontSize="16" fontWeight="700">
+        1.5 m usable-guide mass headroom · negative = deficit
+      </text>
+      {deficitRows.map((row, i) => {
+        const y = 594 + i * 47;
+        return (
+          <g key={row.id}>
+            <text x="46" y={y + 11} fill="#d6e8ef" fontSize="11">
+              {row.label.length > 43 ? `${row.label.slice(0, 41)}…` : row.label}
+            </text>
+            <rect x="340" y={y - 4} width="580" height="22" fill="#20303a" stroke="#567988" />
+            <rect
+              x="340"
+              y={y - 4}
+              width={width(row.value, deficitScale)}
+              height="22"
+              fill={row.color}
+            />
+            <text x="934" y={y + 12} fill={row.color} fontSize="13" fontWeight="700">
+              {numberText(row.value, 'g')}
+            </text>
+          </g>
+        );
+      })}
+      <text x="46" y="787" fill="#b9d2dc" fontSize="11">
+        Formal 15 m/s and planning 15.5 m/s are separate recorded screens; bars imply no new mass
+        limit.
+      </text>
+      <text x="28" y="822" fill="#96b7c4" fontSize="11">
+        {snapshot.identity.candidate_id} · {snapshot.identity.source_identity} · no A1 CAD/flight
+        acceptance · bar scale is display only
+      </text>
+    </svg>
+  );
+}
+
 export function A1ConnectionViews({ snapshot, prepared = false }: Props) {
   const svg = useRef<SVGSVGElement>(null);
   const detailSvg = useRef<SVGSVGElement>(null);
+  const massSvg = useRef<SVGSVGElement>(null);
   const download = (target: SVGSVGElement | null, slug: string) => {
     if (!target) return;
     const clone = target.cloneNode(true) as SVGSVGElement;
@@ -601,6 +765,15 @@ export function A1ConnectionViews({ snapshot, prepared = false }: Props) {
           </section>
         </>
       )}
+      <div className="a1-detail-heading">
+        <h3>Recorded fit and complete mass screens</h3>
+        <button type="button" onClick={() => download(massSvg.current, 'fit-mass-screens')}>
+          Export fit/mass SVG
+        </button>
+      </div>
+      <div className="a1-figure">
+        <A1MassScreenDrawing snapshot={snapshot} svgRef={massSvg} />
+      </div>
       <section>
         <h3>Recorded connection dimensions</h3>
         <p>{snapshot.geometry.note}</p>

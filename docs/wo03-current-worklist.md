@@ -4,8 +4,8 @@
 and [executed decision](wo03-a1-connection-decision.md). One0.326CPU/0.372wall
 packet completed: bounded local fit passes, full baseline mass and conservative
 bolt connection screen fail. Detailed admission remains held. Source packet10
-URLs/15min and ledger audit25min are complete. The graphical A1 snapshot and two
-offline inspected images are complete; full force-node labels and separate
+URLs/15min and ledger audit25min are complete. The graphical A1 snapshot and three
+offline inspected drawings are complete; full force-node labels and separate
 forward/reverse motor cases are present. Browser remains unverified. Resolved
 accounting has90 rows including reserves, not90 qualified installed parts.
 Primary owns acceptance/publication, Sol HIGH agents own sources/audit/new UI.
