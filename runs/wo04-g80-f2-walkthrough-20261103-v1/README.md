@@ -1,0 +1,1 @@
+Final source-hashed React/SVG and offline AppKit rendering record. Generated SVG/PNG/gallery files remain in output/engineering-g80-f2/ and can be regenerated using scripts/wo04_export_f2_drawings.mjs. These are offline artifact observations, not browser or physical acceptance. The first render is retained in the output first-render subfolder.

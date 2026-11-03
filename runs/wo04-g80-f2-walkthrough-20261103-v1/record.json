@@ -1,0 +1,73 @@
+{
+  "result": "native_render_complete_visually_inspected",
+  "source_count": 10,
+  "prepared_data": {
+    "path": "web/public/engineering-workbench/preparedg80-fixed-f2.json",
+    "sha256": "bea43ee7846e1d293a462d5e9dc834d8d65ba961ad548571587e564700923b35"
+  },
+  "rendered_sources": [
+    {
+      "path": "web/src/workbench/F2ConstructionViews.tsx",
+      "sha256": "d63f0eedbcdd138ac9d861dfa645d5c29a23919263ad9ae167cd9f9ba9688afe"
+    },
+    {
+      "path": "web/src/workbench/f2Types.ts",
+      "sha256": "5ed079b7b3ec2994b6d422ab3f1c92a8734c2eaab700ac4357bd50e1bbe59229"
+    },
+    {
+      "path": "web/src/workbench/f2Construction.css",
+      "sha256": "f28b666d6347dfdee390c1c21c4dee37158107f4077bad8e958a7c16a647409a"
+    },
+    {
+      "path": "scripts/wo04_export_f2_drawings.mjs",
+      "sha256": "65908dcfa45a5bfe4ab9d5de3cb0c1d1cf6b5f1cf4bd0ff2b4592cfb95091da2"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "g80-f2-stock-arrangement",
+      "title": "G80-F2 source stock, splice and forward equipment arrangement",
+      "svg": "output/engineering-g80-f2/g80-f2-stock-arrangement.svg",
+      "svg_sha256": "f0f8f86afdf63b0e6076a1d38a90795936c36c7e86b6ecc4b69c3a70e83cf9db",
+      "png": "output/engineering-g80-f2/g80-f2-stock-arrangement.png",
+      "png_sha256": "07d99ae78aae92f6c705664a4d14b4478cd0485790d8f00262ab97701a1d9bcf"
+    },
+    {
+      "id": "g80-f2-joints",
+      "title": "G80-F2 source layer sections for permanent splice and notched fin/ring",
+      "svg": "output/engineering-g80-f2/g80-f2-joints.svg",
+      "svg_sha256": "b1bca6c29f61590439b1d3d377816d1415f0edd68f826a1e2d0fa0b82a50e929",
+      "png": "output/engineering-g80-f2/g80-f2-joints.png",
+      "png_sha256": "aa6843184e80df75f8d129adaba400cbcc8a2b7f3738a2e6572bacc29f314343"
+    },
+    {
+      "id": "g80-f2-recovery-ledger",
+      "title": "G80-F2 recovery paths and complete mass ledger",
+      "svg": "output/engineering-g80-f2/g80-f2-recovery-ledger.svg",
+      "svg_sha256": "82d9dba70dd5dad1c404d965af12b27166f09242fc0260817978655d4707d979",
+      "png": "output/engineering-g80-f2/g80-f2-recovery-ledger.png",
+      "png_sha256": "4ac0a10f0309a0666cb67f876a480735dc4a13eb4f3f5e1f1489d9e3628a272d"
+    }
+  ],
+  "native_elapsed_seconds": 2.083641791,
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "helper": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "limits": [
+    "Offline SVG and native PNG only; browser interaction and downloads remain unverified.",
+    "No fit, CAD, structural, thermal or flight computation performed in the exporter."
+  ],
+  "visual_inspection": {
+    "method": "opened final recovery/ledger AppKit PNG at original resolution and compared unchanged arrangement/joint drawings with preserved first render",
+    "passed": [
+      "red failed card explicitly shows adverse planning-speed miss",
+      "red failed card explicitly shows ring diagnostic invalid middle mesh and no convergence or strength acceptance",
+      "recovery branches, cases, ledger signs, failed cards and footer remain visible without clipping"
+    ],
+    "first_render_archive": "output/engineering-g80-f2/first-render/"
+  }
+}

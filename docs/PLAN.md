@@ -1,5 +1,7 @@
 # Plan — modular custom rocket and digital twin
 
+G80-F2 is the separate actual-stock construction follow-up to frozen F1. See `docs/wo03-g80-f2-decision.md` (relative to repository root). Only local joint CAD is executed; static/formal-guide passes do not close installed recovery/fin, thermal, exact motor fit, planning-speed or full WO-03 gates. Preserve G54 and G12/PID-to-RL separately.
+
 **Latest owner priority supersedes mandatory physical sharing for first G80:**
 [ADR-0013](adr/0013-dedicated-conventional-g80.md). Develop G80-F1 as a custom
 fixed conventional vehicle. Shared software, instrumentation and twin remain;

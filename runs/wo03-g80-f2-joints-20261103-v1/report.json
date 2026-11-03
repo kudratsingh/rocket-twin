@@ -1,0 +1,83 @@
+{
+  "identity": "G80-F2-fixed-stock-ballast-v2",
+  "spec_sha256": "7b188941de7fd4061800936c957b962d2165a5965c5cd9e46476d86242ed5a78",
+  "scope": "two local joint models and algebraic nose-envelope screen; not full rocket CAD or strength acceptance",
+  "ring": {
+    "full_unnotched_volume_mm3": 30315.949544143943,
+    "notched_holed_volume_mm3": 27550.910142440363,
+    "removed_volume_mm3": 2765.0394017035796,
+    "before_tab_overlap_mm3": 2121.422412115949,
+    "after_tab_overlap_mm3": 0.0,
+    "nominal_side_gap_mm": 0.25,
+    "front_end_gap_mm": 0.2,
+    "tab_to_tube_bond_centre_gap_mm": 0.2,
+    "tab_to_tube_bond_edge_gap_mm": 0.4808128720108584,
+    "axial_thread_requirement_mm": 19.4,
+    "fastener_status": "requires>=25mm usable thread; exact eye not selected,30mm provisional thread,45mm total envelope"
+  },
+  "splice": {
+    "overlap_each_mm": 50,
+    "radial_gap_nom_mm": 0.287,
+    "minimum_declared_conditioned_gap_mm": 0.15,
+    "maximum_declared_conditioned_gap_mm": 0.425,
+    "receiving_basis": "body ID64.9--65.15mm, fitted sleeve OD64.45\u00b1.05mm, additional differential radial envelope\u00b1.05mm; proposed incoming/conditioning acceptance, not supplier tolerances",
+    "minimum_centred_bore_mm": 60.694,
+    "adhesive_nominal_film_g": 7.0043136477157955,
+    "patch_sleeve_intersection_mm3": 0.0,
+    "tube_sleeve_intersection_mm3": 0.0,
+    "no_air_gap_parallel_to_filled_epoxy": true
+  },
+  "nose_envelope_checks": [
+    {
+      "part": "flight_computer",
+      "minimum_sampled_radial_clearance_mm": 8.462125640956774,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "battery",
+      "minimum_sampled_radial_clearance_mm": 3.535788007927022,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "high_g_accel",
+      "minimum_sampled_radial_clearance_mm": 1.1135168929232373,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "imu",
+      "minimum_sampled_radial_clearance_mm": 6.186334121356139,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "baro",
+      "minimum_sampled_radial_clearance_mm": 9.217559882058579,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "micro_sd",
+      "minimum_sampled_radial_clearance_mm": 14.398780533143276,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "logger_regulator",
+      "minimum_sampled_radial_clearance_mm": 3.015112021100393,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    },
+    {
+      "part": "logger_power_switch",
+      "minimum_sampled_radial_clearance_mm": 1.372122060875676,
+      "axial_samples": 21,
+      "scope": "axis-aligned envelope corners/ogive slices; excludes connector projections, insertion paths and wiring"
+    }
+  ],
+  "geometry_checks_pass": true,
+  "status": "local geometry only; no eye, bond, support-stiffness, thermal, flutter or flight release",
+  "wall_s": 0.31311741698300466
+}

@@ -19,6 +19,7 @@ workbench: ## Prepare source-checked engineering graphics data; no solver/CAD ru
 	$(PYTHON) scripts/wo04_workbench_extended_export.py --output web/public/engineering-workbench/g80-extended.json
 	$(PYTHON) scripts/wo04_workbench_a1_export.py --output web/public/engineering-workbench/g80-a1.json
 	$(PYTHON) scripts/wo04_g80_fixed_export.py --output web/public/engineering-workbench/preparedg80-fixed-f1.json
+	$(PYTHON) scripts/wo04_f2_export.py --output web/public/engineering-workbench/preparedg80-fixed-f2.json
 
 workbench-drawings: workbench ## Export portable C1/R1 SVG drawings without a browser or solver.
 	node scripts/wo04_export_walkthrough_drawings.mjs

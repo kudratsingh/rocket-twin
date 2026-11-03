@@ -1,0 +1,160 @@
+schema_version: 1
+identity: G80-F2
+date_checked_local: 2026-11-02
+status: provisional_supplier_intake
+frozen_prior_identity: G80-F1
+architecture: conventional_fixed_motor
+original_packet:
+  max_unique_urls: 15
+  attempted_unique_urls: 15
+  failed_urls: 2
+  max_active_minutes: 15
+  status: closed
+controller_amendment:
+  reason: home_seller_EasyMini_out_of_stock
+  authorization: primary_declared_within_owner_scope_Eggtimer_Apogee_Quark_product_and_manual_only
+  max_new_official_urls: 4
+  attempted_new_official_urls: 4
+  max_active_minutes: 5
+  status: declared_before_browsing_then_closed_at_cap
+  automatic_further_extension: false
+selected_stock_starting_points:
+  airframe:
+    id: LOC_BT-2.56
+    nominal_id_in: 2.56
+    nominal_od_in: 2.63
+    stock_length_in: 30
+    listed_available: true
+    listed_usd: 10.27
+    dimensional_tolerances: unavailable
+    finished_cut_mass: unavailable
+  coupler_if_needed:
+    id: LOC_TC-2.56
+    nominal_family: for_LOC_2.56in_tube
+    listed_available: true
+    listed_usd: 4.01
+    exact_id_od_length_tolerance: unavailable
+    installed_joint_capacity: unavailable
+  motor_mount:
+    id: AeroTech_12912
+    nominal_diameter_mm: 29
+    length_in: 12
+    wall_mm: 1.1
+    listed_usd: 7.49
+    stated_same_as_AeroTech_kit_tube: true
+    exact_id_od_tolerance: unavailable
+  retainer:
+    id: AeroTech_19002
+    material: anodized_aluminum
+    class_claim: single_use_and_RMS_motors_with_built_in_thrust_rings
+    manufacturer_kit_tube_match_claim: true
+    other_tube_od_in_for_fit: 1.235
+    listed_usd: 23.99
+    controlled_cap_lip_seat_and_reverse_load: unavailable
+  motor:
+    id: AeroTech_G80-10T_78010
+    case_material: polymer
+    nominal_diameter_in: 1.125
+    casing_length_in: 4.875
+    listed_motor_mass_g: 127.9
+    listed_delay_s: 10
+    listed_usd: 43.99
+    current_thrust_ring_nozzle_assembled_drawing: unavailable
+    explicit_78010_to_19002_controlled_mating_drawing: unavailable
+    package_precedent: AeroTech_Initiator_page_lists_G80-10T_and_29mm_aluminum_retainer
+  plywood_us_option:
+    id: Aircraft_Spruce_02-20850
+    nominal_thickness_mm: 6
+    plies: 12
+    sheet_in: [24, 48]
+    listed_usd: 69.75
+    add_to_cart: true
+    thickness_tolerance: unavailable
+    product_specific_directional_bending_shear: unavailable
+    hot_45C_allowable: unavailable
+  plywood_traceable_alternative:
+    id: Metsa_Wood_Birch_PF_6.5mm
+    nominal_thickness_mm: 6.5
+    thickness_range_mm: [6.1, 6.9]
+    plies: 5
+    sheet_mass_kg_per_m2: 4.4
+    characteristic_bending_along_across_N_per_mm2: [50.9, 29.0]
+    mean_bending_modulus_along_across_N_per_mm2: [12737, 4763]
+    characteristic_planar_shear_along_across_N_per_mm2: [3.20, 1.78]
+    UK_vendor: DHH_Panel_Products
+    UK_vendor_status: typically_ex_stock_BB_BB
+    US_availability_and_price: unavailable
+    hot_45C_allowable: unavailable
+    transferable_to_Aircraft_Spruce_02-20850: false
+recovery_electronics:
+  easymini:
+    seller: Altus_Metrum_GaG
+    listed_usd: 80.00
+    status: out_of_stock
+    seller_version_sequence_ends_at: 2.1
+    prior_v3_outline_transfer_allowed: false
+  battery_120mAh:
+    seller: Altus_Metrum_GaG
+    category_listed_usd: 7.00
+    category_shows_add_to_cart: true
+    exact_product_page: timed_out
+    exact_pack_revision_mass_size_polarity: unverified_current
+  switch:
+    id: C_and_K_T102SHZQE
+    seller: DigiKey
+    listed_usd: 14.20
+    listed_stock_at_access: 915
+    circuit: SPST_On_Off
+    rating_A_at_28VDC: 2
+    panel_cutout_mm: 4.95
+    finished_power_circuit_qualified: false
+  owner_owned_stock_evidence: none
+  zero_purchase_price_admitted: false
+  independent_controller_alternatives:
+    Eggtimer_Apogee:
+      deployment_channels: 1
+      deployment_event: apogee_nose_over
+      board_outline_in: [1.75, 0.9]
+      approximate_board_mass_g: 5
+      built_in_screw_switch: true
+      battery_required: 1S_3.7V_LiPo_JST_PH_polarity_checked
+      listed_kit_usd: 15
+      listed_starter_with_110mAh_1S_cell_charger_usd: 34
+      LiPo_shipping_ground_usd: 10
+      live_stock: unconfirmed_email_invoice_order_only
+      status: possible_one_channel_option_not_selected
+    Eggtimer_Quark:
+      deployment_channels: 2
+      board_outline_mm: [44, 17.75]
+      approximate_board_mass_g: 7
+      voltage_range_V: [6, 15]
+      preferred_battery: 2S_7.4V_LiPo
+      prior_120mAh_1S_cell_compatible: false
+      listed_basic_kit_usd: 20
+      listed_easy_kit_usd: 25
+      optional_USB_serial_test_interface_usd: 5
+      current_manual_dimensions_linked_but_not_read_within_cap: true
+      live_stock: unconfirmed_email_invoice_order_only
+      status: possible_two_channel_option_not_selected
+source_register_original:
+  - {url: "https://locprecision.com/collections/rocket-components/products/tube-coupler", result: readable, supports: TC-2.56_listed_family_price_availability, unavailable: controlled_dimensions_and_capacity}
+  - {url: "https://locprecision.com/products/loc-pro-motor-retainer", result: readable, supports: LOC_29mm_30.1mm_sleeve_comparator, unavailable: AeroTech_pairing}
+  - {url: "https://locprecision.com/products/motor-mount-tubing/", result: readable, supports: LOC_29mm_stock_length_comparator, unavailable: controlled_dimensions}
+  - {url: "https://shop.gag.com/product/easymini/", result: failed_wrong_URL, supports: nothing, unavailable: content}
+  - {url: "https://shop.gag.com/product/120mah-lipo-battery/", result: timed_out, supports: nothing_direct, unavailable: current_exact_product_details}
+  - {url: "https://www.digikey.com/en/products/detail/c-k/T102SHZQE/484203", result: readable, supports: exact_switch_price_stock_and_attributes, unavailable: finished_circuit_capacity}
+  - {url: "https://shop.gag.com/product-category/flight-computers/", result: readable, supports: EasyMini_category_price_and_Read_more, unavailable: availability_until_product_page}
+  - {url: "https://shop.gag.com/product/easymini-1/", result: readable, supports: EasyMini_price_out_of_stock_version_sequence, unavailable: delivered_board_envelope}
+  - {url: "https://shop.gag.com/product-category/parts/batteries/", result: readable, supports: 120mAh_battery_price_and_Add_to_cart, unavailable: exact_stock_count_revision_and_polarity}
+  - {url: "https://www.metsagroup.com/contentassets/2e9ddda886f04453825068d3b37afcdc/uk_doc_metsawood_birch_plywood_pf_2022-11-07.pdf", result: readable, supports: Metsa_6.5mm_directional_declared_strength_and_stiffness, unavailable: hot_motor_specific_allowable}
+  - {url: "https://www.dhhpanelproducts.co.uk/product/metsa-birch-plywood/", result: readable, supports: UK_6.5mm_BB_BB_typically_ex_stock, unavailable: US_price_and_delivery}
+  - {url: "https://www.aircraftspruce.com/catalog/pnpages/02-20850.php", result: readable, supports: exact_6mm_12ply_US_seller_stock_price, unavailable: directional_tolerance_and_hot_allowable}
+  - {url: "https://aerotech-rocketry.com/products/product_dac34e0e-147d-337a-94dc-686e877d0c2f", result: readable, supports: 19002_retainer_kit_tube_and_ring_class_claim_price, unavailable: 78010_contact_geometry}
+  - {url: "https://aerotech-rocketry.com/products/product_bba49b47-aef8-1eff-6575-e0aa8112f05d", result: readable, supports: 12912_motor_tube_kit_use_length_wall_price, unavailable: ID_OD_tolerance}
+  - {url: "https://aerotech-rocketry.com/products/product_bea030f5-871e-61ef-1279-45a2bbebbd87", result: readable, supports: 78010_current_polymer_motor_sales_nominals_and_price, unavailable: ring_nozzle_and_retainer_contact_drawing}
+source_register_controller_amendment:
+  - {url: "https://eggtimerrocketry.com/purchase/", result: readable, supports: June_2026_Apogee_Quark_prices_package_battery_and_email_invoice_order, unavailable: live_stock_count_or_checkout}
+  - {url: "https://eggtimerrocketry.com/wp-content/uploads/2020/12/Eggtimer-Apogee-Users-Guide.pdf", result: readable, supports: Apogee_outline_mass_one_channel_switch_1S_power_and_mounting, unavailable: current_delivered_revision_and_installed_capacity}
+  - {url: "https://eggtimerrocketry.com/eggtimer-quark/", result: readable, supports: Quark_two_channels_outline_mass_and_6_to_15V_power, unavailable: installed_battery_and_switch}
+  - {url: "https://eggtimerrocketry.com/eggtimer-quark-support/", result: readable, supports: D3_to_D6_manual_and_dimension_links, unavailable: unopen_manual_details_due_to_cap}
+next_stop: no_F2_CAD_or_capacity_claim_until_motor_contact_coupler_selected_plywood_hot_properties_controller_and_full_mass_recovery_guide_screen
