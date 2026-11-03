@@ -1,5 +1,12 @@
 # Agent entry point
 
+**Latest owner direction: dedicated conventional G80 simplification.** Read
+ADR-0013 and `docs/wo03-g80-fixed-packet.md`. G80-F1 need not share a physical
+airframe/removable aft with G12. Preserve custom construction, practical
+performance, shared software/instrumentation/twin and committed G54/G12 PID/RL.
+Historical modular requirements below do not override this explicit scope.
+A2 intake was interrupted before calculation; A1/earlier results stay frozen.
+
 Read `CLAUDE.md`, then `docs/PLAN.md`, `docs/ENVIRONMENT.md`, and the current
 work order named in `docs/STATUS.md`. Follow their work order sequence and
 validation benchmarks. The project is currently in WO-03, expanded by ADR-0007 to include executed

@@ -1,5 +1,13 @@
 # Plan — modular custom rocket and digital twin
 
+**Latest owner priority supersedes mandatory physical sharing for first G80:**
+[ADR-0013](adr/0013-dedicated-conventional-g80.md). Develop G80-F1 as a custom
+fixed conventional vehicle. Shared software, instrumentation and twin remain;
+G54 and G12 PID/RL stay committed separate tracks. Do not repair unnecessary
+aft joints or include future gimbal stock in G80. Review project assumptions
+explicitly with evidence, retaining historical cases. Prototype-design and
+physical/flight qualification gates are distinct; full WO03 remains open.
+
 Current A1 connection follow-up is separately [recorded](wo03-a1-connection-decision.md).
 It defines local physical joints but fails complete mass/connection admission;
 bounded fit is not installed acceptance. No whole-vehicle CAD/FEA or automatic

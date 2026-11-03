@@ -1,5 +1,9 @@
 # A1 connection decision — hold detailed admission
 
+Historical frozen candidate. Latest owner direction selects dedicated G80-F1
+simplification under[ADR-0013](adr/0013-dedicated-conventional-g80.md); this
+removable-joint architecture is not the immediate design to refine.
+
 **Additional source-layout failure:** the [read-only occupancy audit](wo03-a1-occupancy-audit.md)
 finds the proposed thrust seat intersects the unchanged mica liner and foil
 atz1193–1195. They extend toz1200. No liner trimming or motor relocation is

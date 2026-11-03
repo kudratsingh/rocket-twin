@@ -1,5 +1,13 @@
 # WO-05 — Experiments, 3D replay, telemetry, compare
 
+G80-F1/ADR-0013: first conventional G80 may use a dedicated fixed physical
+vehicle. Add its separately versioned source-linked construction/recovery/mass
+snapshot; never substitute archived CAD or candidate inertia. F1 flight runs
+require its own admitted geometry/mass/CP and motor identity. Preserve G54/G12,
+PID/RL milestones and full completion prerequisites. The early preview exception
+permits explanation graphics while WO03 stays open; no flight/build acceptance.
+
+
 Branch: `wo-05-experiments`. Tier: Mac.
 
 ## Limited early-preview authorization

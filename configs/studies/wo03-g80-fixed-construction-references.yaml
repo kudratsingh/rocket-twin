@@ -1,0 +1,212 @@
+schema_version: 1
+identity: G80-F1
+date_checked_local: 2026-11-02
+status: provisional_source_packet_only
+architecture: fixed_motor_G80_direction
+shared_physical_upper_aft_with_G12_required: false
+source_budget:
+  max_new_unique_technical_urls: 15
+  max_active_research_minutes: 20
+  attempted_new_unique_urls: 15
+  readable_urls: 14
+  failed_urls: 1
+  further_search_stopped: true
+performed:
+  source_research: true
+  new_numerical_packet: false
+  cad_or_fea: false
+  simulator_or_physical_test: false
+  browser_or_cua: false
+  supplier_contact_or_purchase: false
+  owner_approval_or_flight_release: false
+selected_candidate_geometry:
+  body_material: standard_paper_tube
+  body_outer_diameter_mm: 66.675
+  body_inner_diameter_mm: 64.77
+  body_length_mm: 760
+  nose_type: custom
+  nose_length_mm: 160
+  motor_mount: fixed_29mm_paper_tube
+  centering_rings: two_nominal_6mm_birch
+  fins:
+    count: 3
+    material: nominal_6mm_birch_plywood
+    installation: through_the_wall
+    root_chord_mm: 130
+    tip_chord_mm: 65
+    span_mm: 60
+    sweep_mm: 45
+    intended_face_grain: spanwise
+  recovery_path: forward_motor_ring_anchor_to_Kevlar_heat_leader_to_nylon_shock_cord
+  aft_service_joint: false
+  status: owner_selected_concept_geometry_not_supplier_dimensions_or_approved_capacity
+reference_manuals:
+  - id: LOC_PK16_Graduator
+    manufacturer: LOC Precision
+    current_product_page: https://locprecision.com/products/graduator
+    current_linked_pdf: https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-16-Graduator.pdf?v=1623763227
+    pdf_revision_date_known: false
+    application: D_to_G_kit_instruction_example
+    body_diameter_in: 2.56
+    booster_length_in: 20
+    payload_length_in: 10
+    motor_mount_nominal_mm: 29
+    fin_thickness_in: 0.125
+    centering_ring_thickness_in: 0.25
+    chute_diameter_in: 21
+    path: slotted_body_to_epoxy_fin_and_ring_tube_to_forward_ring_eye_to_Kevlar_to_elastic_to_payload_eye_and_chute
+    material_boundary: fin_and_ring_material_grade_not_established
+    discrepancy: PDF_elastic_shock_cord_vs_current_page_nylon_shock_cord
+    unavailable: [motor_retainer_geometry, installed_joint_capacity, finished_line_eye_capacity, exact_78010_fit, G80_F1_mass_or_guide]
+  - id: LOC_PK107_TLOC263
+    manufacturer: LOC Precision
+    current_product_page: https://locprecision.com/products/t-loc-263
+    current_linked_pdf: https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-107TLOC.pdf?v=1623503165
+    pdf_revision_date_known: false
+    application: D_to_G_kit_instruction_example
+    body_diameter_in: 2.63
+    assembled_height_in: 24
+    motor_tube_length_in: 6
+    motor_mount_nominal_mm: 29
+    fin_and_ring_thickness_in: 0.125
+    shock_cord: 3_16in_tubular_nylon_with_sewn_loops_per_current_product_page
+    chute_diameter_in: 18
+    path: slotted_body_to_epoxy_fin_and_ring_tube_to_forward_ring_eye_to_Kevlar_to_nylon_to_payload_and_chute
+    nose_warning: plastic_nose_loop_may_be_weak_for_high_thrust
+    material_boundary: fin_and_ring_material_grade_not_established
+    unavailable: [retainer_geometry, installed_joint_capacity, finished_sewn_loop_capacity, exact_78010_fit, G80_F1_mass_or_guide]
+motor_retention:
+  exact_current_motor_sku: AeroTech_G80-10T_78010
+  prior_source_register: docs/wo03-a2-supplier-evidence.md
+  current_sku_controlled_ring_nozzle_drawing_available: false
+  2007_phenolic_ring_transfer_allowed: false
+  NAR_certification_dimensions_as_mating_drawing_allowed: false
+  legacy_A1_seat_usable: false
+  legacy_A1_barrier_overlap: calculated_z1193_to1195_seat_intersects_z1072_to1200_liner_foil
+  candidate_tube:
+    id: LOC_MMT_29mm
+    offered_lengths_in: [6, 12]
+    controlled_id_od_tolerances_available: false
+    finished_cut_mass_available: false
+  candidate_retainer:
+    id: LOC_PRO_29mm_for_LOC_tube
+    nominal_sleeve_id_mm: 30.1
+    epoxied_to_aft_tube: true
+    current_78010_explicit_approval: false
+    cap_lip_contact_or_reverse_load_data: false
+  comparator_only:
+    id: Apogee_24020_Estes_29mm_chart
+    revision_controlled_Estes_009750_drawing: false
+    body_id_for_mount_tube_in: 1.220
+    tube_insertion_depth_in: 0.455
+    body_od_in: 1.460
+    cap_od_in: 1.744
+    cap_height_in: 0.741
+    assembled_height_in: 0.861
+    current_78010_explicit_approval: false
+recovery_load:
+  prior_A1_severe_nominal_N_DF3_once: 2267.985132
+  prior_A1_severe_adverse_N_DF3_once: 2310.189531
+  transfer_as_G80_F1_computed_demand: false
+  reduction_admitted: false
+  inflation_model_source: RocketPy_Knacke_style_F0_equals_Cx_CdS_half_rho_V_squared
+  typical_Cx_range_from_RocketPy: [1.2, 2.0]
+  missing_event_inputs: [complete_G80_F1_mass, chosen_canopy_CdS, ejection_delay_and_speed, early_and_late_cases, slack_and_stretch, nose_upper_aft_separation_order, snatch_or_line_stretch_model, force_path_allocation]
+  missing_installed_capacity: [finished_eyes_and_knots, screw_eyes, bends_and_chafe, ring_and_body_bond, conditioned_webbing_or_cord, canopy_shrouds, nose_retention]
+  no_transfer_from: [NASA_full_size_ringsail_peak_loads, NASA_human_rated_factors, Apogee_case_study_example, LOC_kit_mass_or_recovery_success]
+birch_stock_evidence:
+  source: Metsa_Wood_Birch_02_2023_datasheet
+  exact_selected_6mm_stock_supported: false
+  nearest_published_stock_nominal_mm: 6.5
+  nearest_stock_thickness_range_mm: [6.1, 6.9]
+  nearest_stock_sheet_mass_kg_per_m2: 4.4
+  nearest_stock_ply_count: 5
+  bond_class: EN_314_2_Class_3
+  selected_stock_spanwise_and_crosswise_bending_values_available: false
+  selected_stock_planar_shear_values_available: false
+  hot_45C_or_motor_proximate_allowable_available: false
+  cut_finished_fin_ring_mass_available: false
+  use_nearest_stock_as_selected_material_allowable: false
+source_register:
+  - id: loc_graduator_product
+    url: https://locprecision.com/products/graduator
+    result: readable
+    supports: current_kit_identity_dimensions_and_linked_pdf
+    unavailable: installed_capacity_or_finished_mass
+  - id: aerotech_initiator_product
+    url: https://aerotech-rocketry.com/products/product_6884e3bb-9375-a3f8-ab43-42d8a31ec4ee
+    result: readable
+    supports: current_29mm_G80-10T_suggested_kit_with_aluminum_retainer_and_molded_fin_lock
+    unavailable: current_assembly_pdf_or_transferable_joint_strength
+  - id: loc_graduator_manual
+    url: https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-16-Graduator.pdf?v=1623763227
+    result: readable_on_first_access_later_repeat_failed
+    supports: kit_parts_ring_fin_recovery_assembly_sequence
+    unavailable: controlled_revision_or_78010_retainer_fit
+  - id: rocketmotorparts_kit_data_failed
+    url: https://www.rocketmotorparts.com/page/rocksim-kit-data
+    result: failed
+    supports: nothing
+    unavailable: page_content
+  - id: loc_tloc_product
+    url: https://locprecision.com/products/t-loc-263
+    result: readable
+    supports: current_kit_identity_dimensions_line_and_chute
+    unavailable: finished_mass_and_strength
+  - id: loc_tloc_manual
+    url: https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-107TLOC.pdf?v=1623503165
+    result: readable_on_first_access_later_repeat_failed
+    supports: motor_tube_ring_fin_recovery_sequence_and_nose_warning
+    unavailable: controlled_revision_or_load_and_78010_fit
+  - id: rocketpy_opening_shock_docs
+    url: https://docs.rocketpy.org/en/develop/reference/classes/utils/utilities.html
+    result: readable
+    supports: Knacke_style_simplified_inflation_equation_and_typical_Cx_range
+    unavailable: specific_CdS_speed_or_line_snatch
+  - id: apogee_newsletter348
+    url: https://www.apogeerockets.com/education/downloads/Newsletter348.pdf
+    result: readable
+    supports: rocket_case_study_of_delay_elasticity_and_shock_factors
+    unavailable: project_specific_factor_or_capacity
+  - id: nasa_tm_x_1414
+    url: https://ntrs.nasa.gov/api/citations/19670022936/downloads/19670022936.pdf
+    result: readable
+    supports: instrumented_distinct_deployment_line_stretch_and_inflation_peaks
+    unavailable: hobby_rocket_numeric_transfer
+  - id: nasa_archive_arim_1
+    url: https://ntrs.nasa.gov/api/citations/19960017260/downloads/19960017260.pdf
+    result: readable_not_used_for_requirement
+    supports: student_design_example_identifies_inflation_parameters
+    unavailable: validated_G80_F1_opening_load
+  - id: nasa_nesc_soft_goods
+    url: https://ntrs.nasa.gov/api/citations/20100040275/downloads/20100040275.pdf?attachment=true
+    result: readable
+    supports: element_load_allocation_and_material_joint_conditioning_considerations
+    unavailable: transferable_human_rated_factor_or_G80_F1_capacity
+  - id: loc_pro_retainer
+    url: https://locprecision.com/products/loc-pro-motor-retainer
+    result: readable
+    supports: epoxy_installation_and_30_1mm_LOC_29mm_sleeve_id
+    unavailable: cap_lip_contact_and_78010_approval
+  - id: loc_motor_tube
+    url: https://locprecision.com/products/motor-mount-tubing/
+    result: readable
+    supports: 29mm_nominal_6in_and_12in_stock_lengths
+    unavailable: controlled_id_od_tolerance_and_cut_mass
+  - id: apogee_retainer_chart
+    url: https://www.apogeerockets.com/downloads/PDFs/Screw-on-Retainer-Chart.pdf
+    result: readable
+    supports: older_third_party_nominal_Estes_29mm_retainer_comparison_dimensions
+    unavailable: Estes_009750_controlled_revision_and_78010_pairing
+  - id: metsa_birch_datasheet_collection
+    url: https://www.metsagroup.com/contentassets/8a5519dc6e534fcfa99c06759fbb8bad/metsa_wood_birch_plywood_product_datasheets_en.pdf
+    result: readable
+    supports: standard_birch_6_5mm_nominal_five_ply_thickness_range_sheet_mass_and_exterior_bond_class
+    unavailable: selected_6mm_directional_bend_or_shear_values_hot_45C_allowable_and_finished_cut_mass
+next_bounded_deliverable: complete_fixed_body_G80_F1_mass_occupancy_recovery_preflight
+stop_condition: unresolved_motor_retainer_stack_thin_birch_hot_properties_or_complete_mass_guide_static_recovery_installed_capacity_blocks_detailed_admission
+smallest_owner_inputs:
+  - identified_78010_lot_and_retainer_tube_product_with_controlled_mating_data_or_later_measurement_permission
+  - exact_chute_cord_eye_connector_and_separation_topology_with_finished_mass_and_conditioned_capacity_if_available
+  - actual_guide_equipment_and_usable_travel_if_1_5m_reference_revision_is_requested
+  - exact_nominal_6mm_birch_product_and_directional_bend_shear_hot_properties_or_bounded_test_authorization
