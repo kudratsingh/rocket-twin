@@ -649,6 +649,15 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
         except (OSError, ValueError, KeyError) as error:
             raise HTTPException(409, f"A1 connection snapshot unavailable: {error}") from error
 
+    @app.get("/api/engineering/workbench-g80-fixed")
+    def engineering_workbench_g80_fixed() -> dict[str, Any]:
+        from src.api.workbench_g80_fixed import build_conventional_g80
+
+        try:
+            return build_conventional_g80(root)
+        except (OSError, ValueError, KeyError) as error:
+            raise HTTPException(409, f"G80-F1 snapshot unavailable: {error}") from error
+
     @app.get("/api/vehicles")
     def vehicles() -> dict[str, Any]:
         rows = []

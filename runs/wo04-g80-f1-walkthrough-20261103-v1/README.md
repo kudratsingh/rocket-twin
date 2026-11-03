@@ -1,0 +1,1 @@
+Recorded offline React SVG/AppKit PNG export. Generated images remain in output/engineering-g80-fixed-f1 and are not committed. This record is rendering evidence only; actual image observations are in docs/wo04-conventional-g80-walkthrough.md. Browser interaction and engineering/physical acceptance remain open.
