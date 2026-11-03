@@ -1,0 +1,213 @@
+.wb-layout.a1-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.a1-view {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+  color: #d9e9ef;
+}
+.a1-view section,
+.a1-sources {
+  border: 1px solid #3b5b6a;
+  border-radius: 8px;
+  background: #172b37;
+  padding: 18px;
+}
+.a1-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.a1-header h2 {
+  margin: 4px 0 8px;
+  font-size: clamp(22px, 2vw, 30px);
+}
+.a1-header p {
+  margin: 0;
+  color: #b8cfda;
+}
+.a1-header button {
+  flex: none;
+  border: 1px solid #7db2cb;
+  background: #25485b;
+  color: #f4fafc;
+  border-radius: 5px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+.a1-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.a1-detail-heading h3 {
+  margin: 0;
+}
+.a1-detail-heading button {
+  border: 1px solid #7db2cb;
+  background: #25485b;
+  color: #f4fafc;
+  border-radius: 5px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+.a1-kicker {
+  color: #e0bd82;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 12px;
+  font-weight: 700;
+}
+.a1-banner {
+  margin: 0;
+  border-left: 3px solid #dcaf78;
+  padding: 12px 15px;
+  background: #362f25;
+  color: #f0dcc0;
+  line-height: 1.5;
+}
+.a1-figure {
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #3b5b6a;
+  background: #12202a;
+  border-radius: 9px;
+}
+.a1-drawing {
+  display: block;
+  width: 100%;
+  min-width: 800px;
+  height: auto;
+  font-family: system-ui, sans-serif;
+}
+.a1-view h3 {
+  margin: 0 0 12px;
+  color: #f3f8fa;
+}
+.a1-view h4 {
+  margin: 0 0 10px;
+  color: #e8f4f8;
+}
+.a1-view section > p {
+  color: #bdcfda;
+  line-height: 1.5;
+}
+.a1-scalars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 9px;
+  margin: 0;
+}
+.a1-scalar {
+  border: 1px solid #405e6c;
+  padding: 12px;
+  border-radius: 5px;
+  min-width: 0;
+}
+.a1-scalar dt {
+  color: #adc7d2;
+  font-size: 12px;
+}
+.a1-scalar dd {
+  margin: 5px 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+.a1-scalar small,
+.a1-view article small {
+  color: #acc1cb;
+  line-height: 1.4;
+}
+.a1-state {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+.a1-failed {
+  color: #f09e9a;
+}
+.a1-unavailable {
+  color: #e0bd82;
+}
+.a1-estimated {
+  color: #e0bd82;
+}
+.a1-historical,
+.a1-superseded {
+  color: #b0b7c7;
+}
+.a1-measured {
+  color: #8fd3ce;
+}
+.a1-calculated {
+  color: #8ac6ec;
+}
+.a1-table-wrap {
+  overflow-x: auto;
+}
+.a1-view table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  line-height: 1.4;
+}
+.a1-view th,
+.a1-view td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px;
+  border-bottom: 1px solid #405e6c;
+}
+.a1-view thead th {
+  color: #9fc8d8;
+}
+.a1-view tbody th {
+  color: #eef6f8;
+}
+.a1-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+.a1-view article {
+  border: 1px solid #405e6c;
+  border-radius: 6px;
+  padding: 13px;
+  background: #1c3542;
+}
+.a1-view article p {
+  color: #c2d5dc;
+  line-height: 1.5;
+}
+.a1-view ol {
+  padding-left: 20px;
+}
+.a1-view ol li {
+  padding: 4px 0;
+}
+.a1-view code {
+  overflow-wrap: anywhere;
+  color: #a9d7e6;
+}
+.a1-sources > div {
+  border-top: 1px solid #405e6c;
+  padding: 12px 0;
+}
+@media (max-width: 650px) {
+  .a1-header {
+    display: block;
+  }
+  .a1-header button {
+    margin-top: 12px;
+  }
+  .a1-view section,
+  .a1-sources {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,1002 @@
+{
+  "schema_version": "1.0.0",
+  "id": "G80_A1_connections_20261102_v1",
+  "label": "A1 connections \u2014 separate preliminary concept",
+  "status": "NOT ADMITTED: full baseline mass and connection screens fail; thermal and installed evidence open",
+  "identity": {
+    "candidate_id": "A1",
+    "source_identity": "7cf1284d869e217d5bede026f54f798fb928d9aa1d47b343642c3d3c7777627c",
+    "cad_revision": null,
+    "frame": "z=0 nose; z increases aft; radius from centreline; diagram not to scale",
+    "units": "mm, g, N, N m, MPa, m/s; calibre uses66mm reference diameter"
+  },
+  "generated_from": [
+    {
+      "id": "a1_record",
+      "path": "runs/wo03-a1-connections-20261102-v1/record.json",
+      "sha256": "7cf1284d869e217d5bede026f54f798fb928d9aa1d47b343642c3d3c7777627c",
+      "description": "a1 record"
+    },
+    {
+      "id": "a1_config",
+      "path": "configs/studies/wo03-a1-connections.yaml",
+      "sha256": "2994aa9e98f49f69eb9ad92190ead82fae0da31f9489e0c61081aa4a03f01435",
+      "description": "a1 config"
+    },
+    {
+      "id": "a1_script",
+      "path": "runs/wo03-a1-connections-20261102-v1/executed-script.py",
+      "sha256": "ca54a77521588ca28817090198854b20e4748f2a154ce5b19665b3f0d67dbfe2",
+      "description": "a1 script"
+    },
+    {
+      "id": "historical_fit",
+      "path": "runs/wo03-architecture-interface-audit-20261102-v1/record.json",
+      "sha256": "a0abd5dc021676bb6df7b14370f6d410e98d39eb37f8040664c90653ce595bd2",
+      "description": "historical fit"
+    },
+    {
+      "id": "published_a",
+      "path": "runs/wo03-architecture-space-mass-20261102-v1/record.json",
+      "sha256": "7f4a0262a7ed5be0427bb7a1fe22c8870697014a6f2c807032091561511a82d2",
+      "description": "published a"
+    },
+    {
+      "id": "a1_research",
+      "path": "configs/studies/wo03-a1-connection-sources.yaml",
+      "sha256": "8ae0a2bb74d97db68f2d8b1d3de907a05427fd56c3af8db3e17cef76ff41b61b",
+      "description": "a1 research"
+    },
+    {
+      "id": "a1_mapping",
+      "path": "configs/engineering/workbench-a1.yaml",
+      "sha256": "99f7d565bce59e30929e8da385431782caedc4a3f85ed6f52a6d7ef25b22202c",
+      "description": "A1 display source mapping; no physics"
+    }
+  ],
+  "geometry": {
+    "sleeve_length": {
+      "value": 120,
+      "unit": "mm",
+      "note": "Explicit104-to120mm sleeve change; G80 candidate only",
+      "state": "estimated"
+    },
+    "sleeve_outer_diameter": {
+      "value": 63.4,
+      "unit": "mm",
+      "note": "Explicit64-to63.4mm change, mass/strength counted",
+      "state": "estimated"
+    },
+    "sleeve_inner_diameter": {
+      "value": 61.4,
+      "unit": "mm",
+      "note": "1mm G11 wall; original cardboard ID61mm",
+      "state": "estimated"
+    },
+    "upper_stop_station": {
+      "value": 918,
+      "unit": "mm",
+      "note": "4mm stop from918to922",
+      "state": "estimated"
+    },
+    "axial_overlap": {
+      "value": 40,
+      "unit": "mm",
+      "note": "Removable aft engagement; upper bonded overlap76mm",
+      "state": "estimated"
+    },
+    "index_feature_count": {
+      "value": 3,
+      "unit": "",
+      "note": "Unequal widths define unique orientation",
+      "state": "estimated"
+    },
+    "retention_feature_count": {
+      "value": 3,
+      "unit": "",
+      "note": "M5 bolts are independent of recovery connector and motor retainer",
+      "state": "estimated"
+    },
+    "features": [
+      {
+        "id": "sleeve",
+        "label": "New G11 sleeve",
+        "role": "sleeve",
+        "start_mm": 842,
+        "end_mm": 962,
+        "inner_radius_mm": 30.7,
+        "outer_radius_mm": 31.7,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Source-defined concept dimensions; not actual CAD or manufactured tolerance.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "stop",
+        "label": "Integral axial stop",
+        "role": "stop",
+        "start_mm": 918,
+        "end_mm": 922,
+        "inner_radius_mm": 31.7,
+        "outer_radius_mm": 33,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Source-defined concept dimensions; not actual CAD or manufactured tolerance.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "upper_body",
+        "label": "Retained paper upper body",
+        "role": "body",
+        "start_mm": 140,
+        "end_mm": 918,
+        "inner_radius_mm": 32.5,
+        "outer_radius_mm": 33,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Source-defined concept dimensions; not actual CAD or manufactured tolerance.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "aft_can",
+        "label": "Structural aft can",
+        "role": "body",
+        "start_mm": 922,
+        "end_mm": 1212,
+        "inner_radius_mm": 32.2,
+        "outer_radius_mm": 33,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Source-defined concept dimensions; not actual CAD or manufactured tolerance.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "collar",
+        "label": "External load-spreading collar",
+        "role": "collar",
+        "start_mm": 937,
+        "end_mm": 967,
+        "inner_radius_mm": 33.2,
+        "outer_radius_mm": 35.2,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Source-defined concept dimensions; not actual CAD or manufactured tolerance.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "keys",
+        "label": "Unequal indexing keys",
+        "role": "index",
+        "start_mm": 922,
+        "end_mm": 942,
+        "inner_radius_mm": 31.7,
+        "outer_radius_mm": 32.5,
+        "axes_deg": [
+          0,
+          120,
+          240
+        ],
+        "widths_mm": [
+          6,
+          4,
+          4
+        ],
+        "note": "6/4/4mm keys;6.6/4.6/4.6mm slots. Per-flank clearance; not axial retention.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "bolts",
+        "label": "Three M5x16 retention sets",
+        "role": "retention",
+        "start_mm": 952,
+        "end_mm": 952,
+        "inner_radius_mm": 20.2,
+        "outer_radius_mm": 41.2,
+        "axes_deg": [
+          0,
+          120,
+          240
+        ],
+        "widths_mm": [
+          5,
+          5,
+          5
+        ],
+        "note": "External head envelope and inner thread-tip are reservations; actual SKU/lock/preload unqualified.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "harness_sleeve",
+        "label": "Six inward-routed harness legs",
+        "role": "harness",
+        "start_mm": 900,
+        "end_mm": 962,
+        "inner_radius_mm": null,
+        "outer_radius_mm": 21,
+        "axes_deg": [
+          60,
+          180,
+          300
+        ],
+        "widths_mm": [
+          12.7
+        ],
+        "note": "21mm centre radius,12.7mm radial width, offsets\u00b16mm; fan toR24 atz1004. Width is not this centre radius.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "fixed_body_reservation",
+        "label": "fixed body reservation",
+        "role": "motor",
+        "start_mm": 1069,
+        "end_mm": 1195,
+        "inner_radius_mm": 0,
+        "outer_radius_mm": 15.8,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Protected envelope, not exact current purchased geometry.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "retainer_reservation",
+        "label": "retainer reservation",
+        "role": "motor_service",
+        "start_mm": 1195,
+        "end_mm": 1227,
+        "inner_radius_mm": 0,
+        "outer_radius_mm": 23,
+        "axes_deg": [],
+        "widths_mm": [],
+        "note": "Protected envelope, not exact current purchased geometry.",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      }
+    ],
+    "note": "Local source-defined concept geometry. No complete CAD/mesh or sharedG54/G12 adoption."
+  },
+  "fit_rows": [
+    {
+      "id": "historical",
+      "label": "Published A/B old coupler \u2014 preserved failure",
+      "result": {
+        "value": 2.831068712794149e-15,
+        "unit": "mm",
+        "note": "64.0mm old coupler/64.4mm bore; nominal0.2, minimum0, maximum0.4mm cold.",
+        "state": "failed"
+      },
+      "criterion": "At least0.1mm minimum radial clearance",
+      "source_ids": [
+        "historical_fit"
+      ]
+    },
+    {
+      "id": "aft_fit",
+      "label": "A1 sleeve/can radial clearance",
+      "result": {
+        "value": 0.11710000000000352,
+        "unit": "mm",
+        "note": "Cold minimum/nominal/maximum 0.300/0.500/0.700mm. Bounded hot/wet maximum 0.8829mm. Calculated bound only; manufacture and properties unqualified.",
+        "state": "calculated"
+      },
+      "criterion": "At least0.1mm; calculated bounded screen passes, actual acceptance unknown",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "key0",
+      "label": "Key1 per-flank clearance",
+      "result": {
+        "value": 0.1423124999999998,
+        "unit": "mm",
+        "note": "Nominal 0.300mm per flank; cold max 0.400mm. Total is twice per-flank.",
+        "state": "calculated"
+      },
+      "criterion": "At least0.1mm per flank under declared bounds; not measured",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "key1",
+      "label": "Key2 per-flank clearance",
+      "result": {
+        "value": 0.14493749999999983,
+        "unit": "mm",
+        "note": "Nominal 0.300mm per flank; cold max 0.400mm. Total is twice per-flank.",
+        "state": "calculated"
+      },
+      "criterion": "At least0.1mm per flank under declared bounds; not measured",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "key2",
+      "label": "Key3 per-flank clearance",
+      "result": {
+        "value": 0.14493749999999983,
+        "unit": "mm",
+        "note": "Nominal 0.300mm per flank; cold max 0.400mm. Total is twice per-flank.",
+        "state": "calculated"
+      },
+      "criterion": "At least0.1mm per flank under declared bounds; not measured",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "id": "fin",
+      "label": "Fin forces and turning effect",
+      "sequence": [
+        "Carbon skins / dense plywood root",
+        "Two real898mm\u00b2 root edge bonds + fillets",
+        "Structural motor tube and slotted can",
+        "Cuff / upper sleeve / actual paper body"
+      ],
+      "state": "unavailable",
+      "note": "8.830Nm and220.759N already include DF3. Outer/inner reactions821.222/-600.464N; peeling, installed movement and flutter unavailable. Toe/heel stops locate axially; no proven radial capture.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "recovery",
+      "label": "Parachute-opening pull",
+      "sequence": [
+        "Retained primary connector + routed bridles",
+        "R6 saddles / finite6mm cap",
+        "Windowed integral cuff and can lap",
+        "Bolted sleeve / upper paper bond + retained branches"
+      ],
+      "state": "unavailable",
+      "note": "Full severe demand at one endpoint. No equal strap/bolt sharing or rigid support. Finished eyes, finite cap spreading and upper paper/peel capacity unqualified.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "motor_forward",
+      "label": "Motor forward thrust \u2014450N case",
+      "sequence": [
+        "Current G80 ring/nozzle geometry UNKNOWN",
+        "Defined2mm seat / shortened structural tube",
+        "Continuous root-web bonds / outer can",
+        "Finite can / actual upper connection"
+      ],
+      "state": "unavailable",
+      "note": "450N factored forward and reverse are separate motor cases, not parachute load. Seat16.318MPa strip screen is conditional; ring cantilever alternative78.577MPa exceeds25, not adopted as a rigid support.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "motor_reverse",
+      "label": "Motor reverse retention \u2014450N case",
+      "sequence": [
+        "Motor rear contact / exact nozzle UNKNOWN",
+        "Independent threaded retainer body and cap",
+        "5g adapter/bond allocation / structural tube",
+        "Continuous root webs / finite can"
+      ],
+      "state": "unavailable",
+      "note": "Separate reverse450N case. Not serial with forward thrust or parachute loads. Exact retainer mating, installed dimensions, bond and hot capacity remain unavailable.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "upper",
+      "label": "Aft structure to upper assembly",
+      "sequence": [
+        "Finite outer can / collar",
+        "ThreeM5 sets, crush spacers and curved doublers",
+        "120mm G11 sleeve /76mm upper bonded overlap",
+        "Real0.5mm paper wall and retained-body connections"
+      ],
+      "state": "failed",
+      "note": "One-bolt whole-force/torque bound gives463.661MPa combined proxy versus estimated200MPa: failed admission screen, not measured yielding. Bearing/tear-out and paper capacity unavailable.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    }
+  ],
+  "protected_volumes": [
+    {
+      "id": "route",
+      "label": "Harness route",
+      "note": "Old R24 route in A1 sleeve gives -0.992mm clearance: fail. R21 route gives 1.939mm after0.7mm losses; sector bound 8.935deg. Connector/chafe access remains unknown.",
+      "state": "calculated",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "removal",
+      "label": "Motor and module removal",
+      "note": "Motor+liner R15.8,z1069\u20131195; retainer R23,z1195\u20131227. Upper bolts end102mm ahead. Module needs40.5mm translation;100mm extra harness slack mass counted. Storyboard only.",
+      "state": "estimated",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    }
+  ],
+  "mass": {
+    "net_delta": {
+      "value": 106.45357190187123,
+      "unit": "g",
+      "note": "All changes versus frozen A, not C1; separate50g retained",
+      "state": "calculated"
+    },
+    "ledger_rows": [
+      {
+        "id": "remove_interface_coupler",
+        "label": "remove_interface_coupler",
+        "note": "-21.067330g atz919.734mm. Function replaced explicitly by A1 connection parts. The keyed removable aft joint overlaps each shell by 50 mm.",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_joint_stop",
+        "label": "remove_joint_stop",
+        "note": "-1.319255g atz923.411mm. Function replaced explicitly by A1 connection parts. Custom keyed stop locates both shells axially.",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_aft_interface_hardware",
+        "label": "remove_aft_interface_hardware",
+        "note": "-6.000000g atz941.000mm. Function replaced explicitly by A1 connection parts. Positive axial stops, indexing keys and removable fasteners connect the aft module.",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_A_root_axial_pins_and_washers",
+        "label": "remove_A_root_axial_pins_and_washers",
+        "note": "-4.000000g atz1140.000mm. Function replaced explicitly by A1 connection parts. Complete replacement root axial pins and washers",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_A_three_forward_bridle_eyes",
+        "label": "remove_A_three_forward_bridle_eyes",
+        "note": "-15.044942g atz960.000mm. Function replaced explicitly by A1 connection parts. Primary backbone reaches fore cap directly; retained body/nose branches unchanged; actual sleeve/bond carries aft components",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_A_centering_ring_0",
+        "label": "remove_A_centering_ring_0",
+        "note": "-12.919957g atz1072.000mm. Function replaced explicitly by A1 connection parts. Finite ring transfers tube/body loads through actual bonded inner and outer circumferences",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_A_centering_ring_1",
+        "label": "remove_A_centering_ring_1",
+        "note": "-12.919957g atz1192.000mm. Function replaced explicitly by A1 connection parts. Finite ring transfers tube/body loads through actual bonded inner and outer circumferences",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "remove_A_structural_motor_tube",
+        "label": "remove_A_structural_motor_tube",
+        "note": "-33.832502g atz1132.000mm. Function replaced explicitly by A1 connection parts. True structural motor support, independent of liner/case; shared fin load path only in A",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_G11_sleeve",
+        "label": "A1_G11_sleeve",
+        "note": "+43.519855g atz902.000mm. 76mm bonded upper overlap and40mm removable aft overlap. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_integral_stop",
+        "label": "A1_integral_stop",
+        "note": "+1.955371g atz920.000mm. Axial assembly datum, integral with sleeve; no ASA stop. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_integral_keys",
+        "label": "A1_integral_keys",
+        "note": "+0.414400g atz932.000mm. Unequal key widths prevent120degree pairing; primary forces use bolts/bond. Gross keys, common integral tube stock, no overlap/hole credits",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_upper_bond_and_process",
+        "label": "A1_upper_bond_and_process",
+        "note": "+16.861305g atz880.000mm. Full annular adhesive mass plus25percent process; capacity uses75percent coverage. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_outer_G11_load_collar",
+        "label": "A1_outer_G11_load_collar",
+        "note": "+23.852228g atz952.000mm. Finite external can reinforcement; changes external aero envelope. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_three_curved_inner_doublers",
+        "label": "A1_three_curved_inner_doublers",
+        "note": "+8.325000g atz952.000mm. Bearing spreaders bonded to sleeve at bolts; curved stock, not flat overlapping boxes. Gross3x30axialx25arcx2radialmm",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_collar_bond",
+        "label": "A1_collar_bond",
+        "note": "+1.372625g atz952.000mm. Real collar-can annular bond, no air path through adhesive. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_three_M5_complete_sets",
+        "label": "A1_three_M5_complete_sets",
+        "note": "+20.616715g atz952.000mm. ThreeM5x16 partial-thread bolts, six washers, three full nuts; actual supplier SKU/locking proof pending. Gross nominal steel volume, no thread removal credit",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_fitted_crush_spacers",
+        "label": "A1_fitted_crush_spacers",
+        "note": "+0.075933g atz952.000mm. Fitted radial sleeves bridge actual gap; avoid tightening across empty gap. Nominal mass; actual gap fit requires measurement",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_collar_doubler_bond_g",
+        "label": "A1_collar_doubler_bond_g",
+        "note": "+3.000000g atz952.000mm. Additional joint adhesive/finish/locking process. Explicit additional allocation, not growth allowance",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_additional_joint_process_mass_g",
+        "label": "A1_additional_joint_process_mass_g",
+        "note": "+3.000000g atz952.000mm. Additional joint adhesive/finish/locking process. Explicit additional allocation, not growth allowance",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_centering_ring_0",
+        "label": "A1_centering_ring_0",
+        "note": "+12.403159g atz1072.000mm. Resized ring provides real0.3mm nominal inner/outer bond regions; lateral alignment, not rigid ground. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_centering_ring_1",
+        "label": "A1_centering_ring_1",
+        "note": "+12.403159g atz1192.000mm. Resized ring provides real0.3mm nominal inner/outer bond regions; lateral alignment, not rigid ground. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_shortened_motor_tube",
+        "label": "A1_shortened_motor_tube",
+        "note": "+33.295479g atz1131.000mm. Seat bears on tube end; motor thrust may transfer through continuous root webs. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_motor_thrust_seat",
+        "label": "A1_motor_thrust_seat",
+        "note": "+0.961063g atz1194.000mm. Independent annular thrust seat, motor rear ring dimension remains historical hypothesis. Gross source-defined volume/density; no holes/slots credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_three_fin_toe_stops",
+        "label": "A1_three_fin_toe_stops",
+        "note": "+12.335153g atz1081.750mm. Actual axial root stop contacts centering ring and dense root; bonded TTW fin not proven radial capture. Gross stock, no slot/holes credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_three_fin_heel_stops",
+        "label": "A1_three_fin_heel_stops",
+        "note": "+0.373792g atz1190.250mm. Actual axial root stop contacts centering ring and dense root; bonded TTW fin not proven radial capture. Gross stock, no slot/holes credited",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_routed_three_bridles",
+        "label": "A1_routed_three_bridles",
+        "note": "+15.056089g atz960.000mm. Six legs atR21 in sleeve fan toR24 at cap; finished eye/seam/bend capacity unknown. Raw maximum linear density, full seams and curvature counted",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_extra_service_slack",
+        "label": "A1_extra_service_slack",
+        "note": "+1.736191g atz930.000mm. 100mm additional extraction/connector access slack; retained connector mass counted already. Extra to original retained backbone mass",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "id": "A1_harness_edge_protection",
+        "label": "A1_harness_edge_protection",
+        "note": "+2.000000g atz962.000mm. Sleeve exit chafe protection; geometry/heat qualification remains open. 2g separate allocation, no free service hardware",
+        "state": "estimated",
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      }
+    ],
+    "note": "Signed removals/additions use one ledger for mass and balance; source service/finish/thermal/guide allocations remain unless named removed."
+  },
+  "joint_detail": {
+    "radial_stack": [
+      {
+        "label": "Outer washer",
+        "thickness_mm": 1,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "G11 collar",
+        "thickness_mm": 2,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "Collar adhesive",
+        "thickness_mm": 0.2,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "Can wall",
+        "thickness_mm": 0.8,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "Fitted gap spacer",
+        "thickness_mm": 0.5,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "G11 sleeve",
+        "thickness_mm": 1,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "Inner G11 doubler",
+        "thickness_mm": 2,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "Inner washer",
+        "thickness_mm": 1,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      },
+      {
+        "label": "Full nut",
+        "thickness_mm": 4,
+        "source_ids": [
+          "a1_config",
+          "a1_record"
+        ]
+      }
+    ],
+    "total_to_nut_end_mm": 12.5,
+    "maximum_to_nut_end_mm": 13.3,
+    "bolt_length_mm": 16,
+    "minimum_protrusion_mm": 2.7,
+    "hole_diameter_mm": 5.4,
+    "upper_bond": {
+      "length_mm": 76,
+      "radial_gap_mm": 0.8,
+      "paper_wall_mm": 0.5
+    },
+    "root": {
+      "edge_patch_mm": [
+        100,
+        8.98
+      ],
+      "fillet_leg_mm": 3,
+      "normal_outer_n": 821.2223487560858,
+      "normal_inner_n": -600.4636528539122,
+      "normal_peel_mpa": 0.9145015019555521,
+      "toe_z_mm": [
+        1073.5,
+        1090
+      ],
+      "heel_z_mm": [
+        1190,
+        1190.5
+      ],
+      "stop_radial_tangential_mm": [
+        15,
+        8.98
+      ]
+    },
+    "note": "Concept stack/demands. Source-config nominal dimensions, not selected bolt SKU, installed capacity or qualified preload. No rigid ground or equal sharing.",
+    "source_ids": [
+      "a1_config",
+      "a1_record"
+    ]
+  },
+  "cases": [
+    {
+      "id": "nominal",
+      "label": "Nominal +50g",
+      "state": "failed",
+      "total_mass_g": 1074.7624351942488,
+      "loaded_cg_mm": 853.3012695802146,
+      "burnout_cg_mm": 835.846635251276,
+      "reference_cp_mm": 966.8275980501118,
+      "loaded_margin_cal": 1.720095885907533,
+      "burnout_margin_cal": 1.9845600424066028,
+      "recovery_force_n": 2267.985132257486,
+      "guide_results": [
+        {
+          "formal_margin_mps": -0.9409270558107821,
+          "planning_margin_mps": -1.440927055810782,
+          "speed_mps": 14.059072944189218,
+          "usable_m": 1.5
+        },
+        {
+          "formal_margin_mps": 0.40770563242294067,
+          "planning_margin_mps": -0.09229436757705933,
+          "speed_mps": 15.40770563242294,
+          "usable_m": 1.8
+        },
+        {
+          "formal_margin_mps": 1.1275492701106486,
+          "planning_margin_mps": 0.6275492701106486,
+          "speed_mps": 16.12754927011065,
+          "usable_m": 1.971
+        }
+      ],
+      "baseline_formal_headroom_g": -116.36449837326496,
+      "baseline_planning_headroom_g": -170.9083034956401,
+      "note": "Full separate50g unchanged. CP and drag reuse C1/reference hypotheses; collar and bolt heads change actual aerodynamics. No stability/flight acceptance; full inertia unavailable.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "additional20g_motorCG_probe",
+      "label": "+50g and additional20g / motor-CG probe",
+      "state": "failed",
+      "total_mass_g": 1094.7624351942488,
+      "loaded_cg_mm": 861.6272171240562,
+      "burnout_cg_mm": 844.2398761555079,
+      "reference_cp_mm": 966.8275980501118,
+      "loaded_margin_cal": 1.5939451655462966,
+      "burnout_margin_cal": 1.8573897256758163,
+      "recovery_force_n": 2310.189531257486,
+      "guide_results": [
+        {
+          "formal_margin_mps": -1.0879821538580963,
+          "planning_margin_mps": -1.5879821538580963,
+          "speed_mps": 13.912017846141904,
+          "usable_m": 1.5
+        },
+        {
+          "formal_margin_mps": 0.2470650412282609,
+          "planning_margin_mps": -0.2529349587717391,
+          "speed_mps": 15.247065041228261,
+          "usable_m": 1.8
+        },
+        {
+          "formal_margin_mps": 0.959642632664579,
+          "planning_margin_mps": 0.45964263266457905,
+          "speed_mps": 15.959642632664579,
+          "usable_m": 1.971
+        }
+      ],
+      "baseline_formal_headroom_g": -136.36449837326495,
+      "baseline_planning_headroom_g": -190.9083034956401,
+      "note": "Full separate50g unchanged. CP and drag reuse C1/reference hypotheses; collar and bolt heads change actual aerodynamics. No stability/flight acceptance; full inertia unavailable.",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "bolt",
+      "label": "Combined radial-bolt screen failed",
+      "note": "463.661MPa conservative single-lap bending/shear proxy exceeds200MPa hot-steel estimate. Changing load sharing or using shear-only is not a pass.",
+      "state": "failed",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "mass",
+      "label": "Baseline guide mass failed",
+      "note": "Nominal/adverse full totals1074.762/1094.762g. Formal deficits116.364/136.364g; planning170.908/190.908g under saved reference assumptions.",
+      "state": "failed",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "materials",
+      "label": "Unqualified finished joints",
+      "note": "G11 bearing, shear-out, bond peeling and paper wall capacity unavailable; typical laminate properties do not establish them.",
+      "state": "unavailable",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "thermal",
+      "label": "Required heat cases remain open",
+      "note": "No new temperature solve.45C substrate screen;300C case+contaminated foil+35C ambient burn/soak preserved. Current polymer motor material needs matching boundary evidence.",
+      "state": "unavailable",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    },
+    {
+      "id": "next",
+      "label": "Next bounded decision",
+      "note": "No detailed CAD/FEA or next automatic bracket. Decide a recovery-force path bypassing the service bolts, keeping the full required recovery load in defined harness/anchors; resolve mass/actual guide evidence separately.",
+      "state": "estimated",
+      "source_ids": [
+        "a1_config",
+        "a1_record"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "result": "offline_a1_svg_png_export_and_visual_inspection_complete",
+  "source_count": 7,
+  "prepared_data": {
+    "path": "web/public/engineering-workbench/g80-a1.json",
+    "sha256": "6e360a9066aad4709d71fdcba80652f905117b8de6c71abae1746eed2edf2bcf"
+  },
+  "rendered_sources": [
+    {
+      "path": "web/src/workbench/A1ConnectionViews.tsx",
+      "sha256": "b7e365e86d5b8c2091fba1ac7ed7c7ded6c55cd21d28c8043e73bbf2f7847ce7"
+    },
+    {
+      "path": "web/src/workbench/a1Types.ts",
+      "sha256": "a18afa288f64051d9f94b1fd52b16e6699cbac6172f0878840cb34166a5a80a9"
+    },
+    {
+      "path": "web/src/workbench/a1ConnectionViews.css",
+      "sha256": "704ed544644bc431e971e1d3a2a0b9c7eb061f48f34a27a653786fee9736407a"
+    },
+    {
+      "path": "scripts/wo04_export_a1_drawings.mjs",
+      "sha256": "7aa0268196d7ed3bb152f93361ec1c5c88e77d2c6b7ad4985e0f0f78605190b6"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "a1-upper-connection",
+      "title": "A1 upper sleeve, stop, index and force paths",
+      "svg": "output/engineering-a1-connection/a1-upper-connection.svg",
+      "svg_sha256": "6f11bcf468132cc8a298b553d833c719a57196c8d15b03b41008d9cb7c46230a",
+      "png": "output/engineering-a1-connection/a1-upper-connection.png",
+      "png_sha256": "5a77947d75e7b150ea7ae42526bb892de44b4fe4151303169665ba2629378c18"
+    },
+    {
+      "id": "a1-joint-detail",
+      "title": "A1 radial M5 stack, upper lap and fin root",
+      "svg": "output/engineering-a1-connection/a1-joint-detail.svg",
+      "svg_sha256": "dc5724bc9dc7718db23113324f1fb686b4c6fb4f82c5d69a6f5e1c2ac239551d",
+      "png": "output/engineering-a1-connection/a1-joint-detail.png",
+      "png_sha256": "2f721fa180bb8efa2cb2a73ebb9890e894a84ea189547c01eb8c48c989f5931a"
+    }
+  ],
+  "native_elapsed_seconds": 1.2472651250000002,
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "helper": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "limits": [
+    "Offline static SVG and native PNG only; browser interaction and download remain unverified.",
+    "No geometric fit, CAD, structural or flight computation performed."
+  ],
+  "visual_inspection": [
+    {
+      "artifact": "a1-upper-connection.png",
+      "observed_dimensions_px": [
+        1080,
+        925
+      ],
+      "result": "inspected",
+      "observations": [
+        "Top section and source panel visibly label sleeve, stop, index, retention, stations and radii.",
+        "End section distinguishes protected motor corridor and R21 harness centre; historic A/B 0 mm cold gap is separately labelled failed.",
+        "Four force-path rows have visible arrows and separated path labels after the focused correction.",
+        "Long node labels are deliberately abbreviated in the SVG; full sequences remain in the UI."
+      ]
+    },
+    {
+      "artifact": "a1-joint-detail.png",
+      "observed_dimensions_px": [
+        1080,
+        880
+      ],
+      "result": "inspected",
+      "observations": [
+        "All nine outside-to-inside radial stack layers and thicknesses are legible.",
+        "12.5 mm nominal stack, 13.3 mm maximum, 16 mm bolt, 2.7 mm minimum protrusion and 5.4 mm hole labels are visible.",
+        "Upper paper/bond/sleeve lap and fin-root panel display 76 mm lap, 0.8 mm gap, 0.5 mm paper, 100 x 8.98 mm edge, 3 mm fillet, toe/heel stations and normal/peel demand.",
+        "Bottom failure sentence is intentionally shortened to fit; full note remains in the saved JSON and UI text."
+      ]
+    }
+  ],
+  "focused_correction": {
+    "initial_overview_png_sha256": "0fce41f4cc26763a0ada34603a1ffac9c3fff6b061dfa6ac543607e7f30d2641",
+    "observed_issue": "Force-path labels touched first nodes; harness callout incorrectly said radius unavailable because R21 was stored as route-centre radius.",
+    "change": "Shifted path nodes right and shortened path labels; displayed source R21 route-centre radius. Added one dimensioned joint-detail image to final native batch.",
+    "numeric_engineering_inputs_changed": false
+  },
+  "browser_verified": false,
+  "native_only": true,
+  "native_batch_limit_seconds": 120
+}

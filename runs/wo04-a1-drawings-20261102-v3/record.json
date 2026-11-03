@@ -1,0 +1,100 @@
+{
+  "result": "offline_a1_v3_five_paths_rendered_and_inspected",
+  "source_count": 7,
+  "prepared_data": {
+    "path": "web/public/engineering-workbench/g80-a1.json",
+    "sha256": "1dbab9cb2d8c010d680a379e647998337ea3b0139357a81d75abaa9e6ac6a128"
+  },
+  "rendered_sources": [
+    {
+      "path": "web/src/workbench/A1ConnectionViews.tsx",
+      "sha256": "07b42d8ac6017c21c0eacd4f52a8ef602b1f230840b9fabddb3e264103dfc03c"
+    },
+    {
+      "path": "web/src/workbench/a1Types.ts",
+      "sha256": "a18afa288f64051d9f94b1fd52b16e6699cbac6172f0878840cb34166a5a80a9"
+    },
+    {
+      "path": "web/src/workbench/a1ConnectionViews.css",
+      "sha256": "704ed544644bc431e971e1d3a2a0b9c7eb061f48f34a27a653786fee9736407a"
+    },
+    {
+      "path": "scripts/wo04_export_a1_drawings.mjs",
+      "sha256": "7aa0268196d7ed3bb152f93361ec1c5c88e77d2c6b7ad4985e0f0f78605190b6"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "a1-upper-connection",
+      "title": "A1 upper sleeve, stop, index and force paths",
+      "svg": "output/engineering-a1-connection/a1-upper-connection.svg",
+      "svg_sha256": "e00234441a37dc200e7414993f268ac614376267cfcb5f8205ef501612d9f8bd",
+      "png": "output/engineering-a1-connection/a1-upper-connection.png",
+      "png_sha256": "fd74118a38fb0b4665ee23b8528546d16a43ff6c4e2cd2ba75958df9a45a4831"
+    },
+    {
+      "id": "a1-joint-detail",
+      "title": "A1 radial M5 stack, upper lap and fin root",
+      "svg": "output/engineering-a1-connection/a1-joint-detail.svg",
+      "svg_sha256": "023c887ce56ab9eea67927c6eae9db63844ca265d17de1fb3e8020f62d96eb5d",
+      "png": "output/engineering-a1-connection/a1-joint-detail.png",
+      "png_sha256": "04aa189248c3e20a6c014b0f82ae90cc1717c4d9de87b3771ce30ab675db612d"
+    }
+  ],
+  "native_elapsed_seconds": 1.2049490420000002,
+  "warnings": [
+    "WebSocket server error:\nError: listen EPERM: operation not permitted 0.0.0.0:24678\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at Server.listen (node:net:2103:7)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24182:18)\n    at Object.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24851:27)\n    at DevEnvironment.listen (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:36374:12)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:95\n    at Array.map (<anonymous>)\n    at file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24555:82\n    at async _createServer (file:///Users/kudratsingh/Machine-Learning-Projects/rocket-twin/web/node_modules/vite/dist/node/chunks/node.js:24572:9)"
+  ],
+  "helper": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "limits": [
+    "Offline static SVG and native PNG only; browser interaction and download remain unverified.",
+    "No geometric fit, CAD, structural or flight computation performed."
+  ],
+  "id": "wo04-a1-drawings-20261102-v3",
+  "api_topology_source": {
+    "path": "src/api/workbench_a1.py",
+    "sha256": "5a3e965c64c48939372a636fc770f15800e46c3451defa253b30ccfe21a99747"
+  },
+  "visual_inspection": [
+    {
+      "artifact": "a1-upper-connection.png",
+      "observed_dimensions_px": [
+        1080,
+        1180
+      ],
+      "result": "inspected",
+      "observations": [
+        "All five arrowed source paths and twenty full node labels are legible in separate positioned lines.",
+        "Motor forward thrust \u2014450 N and motor reverse retention \u2014450 N occupy distinct rows with distinct source nodes.",
+        "Fin, recovery and aft-to-upper rows, source station/radius labels and historical fit finding remain visible. No node text crosses its box."
+      ]
+    },
+    {
+      "artifact": "a1-joint-detail.png",
+      "observed_dimensions_px": [
+        1080,
+        880
+      ],
+      "result": "inspected",
+      "observations": [
+        "Proposed fin-root connection and Mean normal demand 0.9145 MPa; local peel unavailable remain legible.",
+        "Nine-layer radial stack and upper lap dimensions remain visible. Detail PNG is visually unchanged from v2."
+      ]
+    }
+  ],
+  "correction_from_v2": {
+    "v2_record_sha256": "57f387c467239991061011bb3253c5122cffb7de72189c0978aa87cf557aa6d8",
+    "reason": "Backend v2 path topology had concatenated separate forward thrust and reverse retention in one serial arrow row.",
+    "change": "Regenerated prepared JSON has five paths; React overview renders all five with a taller canvas.",
+    "data_diff": "Only paths changed between archived v2 prepared JSON and current v3 prepared JSON.",
+    "underlying_numerical_a1_record_changed": false,
+    "v2_archive_preserved": true
+  },
+  "known_native_v1_v2_v3_batches_seconds": 4.783845084,
+  "browser_verified": false,
+  "native_only": true,
+  "native_batch_limit_seconds": 120
+}

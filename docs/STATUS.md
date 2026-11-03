@@ -7,8 +7,10 @@ not measured fit. Full nominal/adverse masses1074.762/1094.762g include separate
 baseline1.5m speeds14.059/13.912 fail15. Conservative one-bolt combined463.661MPa
 exceeds estimated200MPa. No installed requirement or detailed admission closes;
 physical recovery/body/peel, hot materials, motor, thermal and flutter remain open.
-C1/A/B frozen; A1 separate; G80 first/G54/G12 separate. Source packet and ledger
-audit complete; independent graphical snapshot/offline inspection in progress.
+C1/A/B frozen; A1 separate; G80 first/G54/G12 separate. Source packet, resolved
+ledger and graphical snapshot complete; three actual offline images inspected.
+`?workspace=engineering&view=a1` shows explicit old0mm failure, proposed joint
+details and five separate force routes. Browser interaction stays unverified.
 Use CURRENT for this picture rather than historical statuses below.
 
 **Retained-upper A/B follow-up:** the [interface audit](wo03-architecture-interface-audit.md)
