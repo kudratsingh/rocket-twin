@@ -18,6 +18,7 @@ fi
 .venv/bin/python scripts/wo04_workbench_export.py --output web/public/engineering-workbench/g80-c1.json
 .venv/bin/python scripts/wo04_workbench_extended_export.py --output web/public/engineering-workbench/g80-extended.json
 .venv/bin/python scripts/wo04_workbench_a1_export.py --output web/public/engineering-workbench/g80-a1.json
+.venv/bin/python scripts/wo04_g80_fixed_export.py --output web/public/engineering-workbench/preparedg80-fixed-f1.json
 .venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
 preview_api_pid=$!
 cleanup() {
