@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { URL } from 'node:url';
-import { readFileSync } from 'node:fs';
 import React from '../node_modules/react/index.js';
 import { renderToStaticMarkup } from '../node_modules/react-dom/server.node.js';
 import { createServer } from '../node_modules/vite/dist/node/index.js';
@@ -64,8 +63,23 @@ test('React drawings preserve source station, function and recovery uncertainty'
     assert.match(construction, /Deployment unverified/);
     assert.match(mass, /Unavailable/);
     assert.doesNotMatch(arrangement, /archived-72-part/);
-    const prepared = validateConventionalSnapshot(JSON.parse(readFileSync(
-      new URL('../public/engineering-workbench/preparedg80-fixed-f1.json', import.meta.url), 'utf8')));
+    // Self-contained display fixture: generated preview exports are intentionally absent in CI.
+    const component = (id, z_start_mm, z_end_mm, inner_radius_mm, outer_radius_mm, dimensions = {}) => ({
+      ...snapshot.components[0], id, z_start_mm, z_end_mm, inner_radius_mm, outer_radius_mm, dimensions,
+    });
+    const prepared = validateConventionalSnapshot({ ...snapshot,
+      components: [
+        component('body', 160, 1220, 32.385, 33.3375),
+        component('nose', 0, 160, 0, 33.3375),
+        component('fin_set', 1075, 1205, 0, 33.3375,
+          { span_mm: 60, root_chord_mm: 130, tip_chord_mm: 65, sweep_mm: 45, thickness_mm: 6.5 }),
+        component('forward_ring', 1075, 1088, 15.567, 32.18),
+        component('fin_tabs', 1080, 1190, 15.367, 33.3375),
+      ],
+      connections: [{ ...snapshot.connections[0], id: 'anchor-ring',
+        from_id: 'body_recovery_eye', to_id: 'forward_ring',
+        label: 'Eye → reinforced forward ring', state: 'failed' }],
+    });
     const rocket = renderToStaticMarkup(React.createElement(ConventionalRocketDrawing, { snapshot: prepared }));
     const graph = renderToStaticMarkup(React.createElement(ConventionalConnectionDrawing, { snapshot: prepared }));
     assert.match(rocket, /Source envelope overlap: z 8 mm/);

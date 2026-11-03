@@ -28,3 +28,13 @@ local. The earlier agent2.306s observation remains historical. No browser
 screenshot or interaction verification is implied. The existing host has
 listeners on5173/8000, but sandbox loopback requests cannot reach them; only
 in-process backend HTTP/source checks and offline images were verified here.
+
+
+The first hosted PR65 run41588625935 failed the F1 SSR test because the test
+read a deliberately untracked generated preview JSON. Local data had concealed
+that clean-checkout dependency. The rendering test now uses an explicitly
+synthetic self-contained fixture; the backend tests separately cover real F1
+source identity/values. A local run with the generated JSON temporarily absent
+passed, and the file was restored byte-for-byte. No generated bulk was added,
+no application behavior/engineering result changed, and no failed check bypassed.
+Replacement hosted checks are required before merge.
