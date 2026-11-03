@@ -46,7 +46,7 @@ still applies.
 ## Executed A1 snapshot and image review
 
 The prepared data is `web/public/engineering-workbench/g80-a1.json`, SHA-256
-`1dbab9cb2d8c010d680a379e647998337ea3b0139357a81d75abaa9e6ac6a128`.
+`ed163fd48c5baccb72158eacd50f30fc28af57631bc57dce83f9cb477ee55177`.
 The [offline gallery](../output/engineering-a1-connection/index.html) contains
 the three actual React SVGs, their native PNGs and source sidecars. The earlier
 [v3 archived image record](../runs/wo04-a1-drawings-20261102-v3/record.json)
@@ -83,7 +83,7 @@ full node labels in distinct readable rows. No A1 numerical calculation was
 rerun; the separate motor cases remain recorded demand paths, not installed
 capacity or flight acceptance.
 
-The final [v4 image record](../runs/wo04-a1-drawings-20261102-v4/record.json)
+The [v4 image record](../runs/wo04-a1-drawings-20261102-v4/record.json)
 and [source manifest](../runs/wo04-a1-drawings-20261102-v4/archive-manifest.json)
 add a third source-fed SVG/PNG for graphical fit and complete mass screens.
 Actual PNG inspection found the historic A/B 0 mm and new A1 0.1171 mm
@@ -98,6 +98,20 @@ SVG graphic bodies and PNG hashes match v3 exactly. The final three-image
 native batch took **1.877 s**, with **8.398 s** total measured across the saved
 v1–v4 batches, below the 120 s cap. Earlier archives remain intact. Browser
 interactions remain unverified.
+
+The final [v5 evidence refresh](../runs/wo04-a1-drawings-20261102-v5/record.json)
+and [source manifest](../runs/wo04-a1-drawings-20261102-v5/archive-manifest.json)
+add the declared-material [occupancy audit](../runs/wo03-a1-occupancy-audit-20261102-v1/record.json)
+as an eighth pinned source. That read-only audit found the proposed seat
+R14.6–17.2 at z1193–1195 intersects retained mica R14.7–15.1 and foil
+R15.1–15.12, both continuing to z1200. The A1 source data now includes a
+**failed** `seat_liner_overlap` finding. The final 1080 × 1180 overview PNG was
+opened and inspected: the motor-forward node clearly reads “Proposed2mm seat
+overlaps liner/foil.” The joint-detail and fit/mass PNG hashes match v4;
+numerical A1 cases did not change. The three-image native batch took **1.728 s**
+and known measured saved batches total **10.126 s**. No trim, motor shift,
+mass change, thermal correction or engineering rerun was made. Browser checks
+remain unavailable.
 
 The screen preserves the historic A/B 0 mm cold-gap failure. A1's **calculated
 bounded** sleeve/can minimum is 0.1171 mm versus the 0.1 mm screen; actual

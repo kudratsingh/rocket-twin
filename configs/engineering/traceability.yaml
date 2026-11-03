@@ -3,6 +3,10 @@ status: Integrated active package adopted under ADR-0008; current calculated evi
   acceptance open and physical qualification false.
 expanded_wo03_acceptance: open
 evidence_sources:
+- path: docs/wo03-a1-occupancy-audit.md
+  scope: Read-only declared coaxial seat/retained mica and foil material occupancy audit, G80 A1 only.
+  limitation: Positive2mm axial overlap fails admission; no liner trim, motor move, new mass/thermal result
+    or old-run repeat.
 - path: docs/wo03-a1-connection-decision.md
   scope: Separate G80 A1 sleeve/stop/key/bolts/harness and actual fin/motor/body connections; full coupled
     ledger and reference guide screens.
@@ -915,6 +919,7 @@ requirements:
   - '11'
   - '12'
   evidence:
+  - docs/wo03-a1-occupancy-audit.md
   - docs/wo03-c2-sandwich-socket.md
   - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
   - docs/wo03-c1-fin-attachment.md
@@ -990,6 +995,7 @@ requirements:
   - '03'
   - 09
   evidence:
+  - docs/wo03-a1-occupancy-audit.md
   - docs/wo03-a1-connection-decision.md
   - docs/wo03-c2-sandwich-socket.md
   - runs/wo03-c2-sandwich-socket-20261102-v2/record.json
@@ -1545,6 +1551,7 @@ interfaces:
   - Exact offered case/closure/nozzle/retainer geometry and lot
   - Front-stop/clamp hardware capture, proof load and hot-case data
   evidence:
+  - docs/wo03-a1-occupancy-audit.md
   - docs/wo03-a1-connection-decision.md
   - docs/wo03-c1-fin-attachment.md
   - runs/wo03-c1-fin-attachment-20261102-v1/record.json

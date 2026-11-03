@@ -19,12 +19,18 @@ def test_a1_keeps_failed_findings_and_separate_identity():
     assert "NOT ADMITTED" in d["status"]
     assert d["fit_rows"][0]["result"]["state"] == "failed"
     assert d["fit_rows"][1]["result"]["value"] == pytest.approx(0.1171)
-    assert {r["id"] for r in d["findings"] if r["state"] == "failed"} == {"bolt", "mass"}
+    assert {r["id"] for r in d["findings"] if r["state"] == "failed"} == {
+        "bolt",
+        "mass",
+        "seat_liner_overlap",
+    }
     assert len(d["cases"]) == 2
     paths = {p["id"]: p for p in d["paths"]}
     assert "motor_forward" in paths and "motor_reverse" in paths
     assert not any("Reverse" in step for step in paths["motor_forward"]["sequence"])
     assert len(paths) == 5
+    assert paths["motor_forward"]["state"] == "failed"
+    assert "overlaps liner/foil" in paths["motor_forward"]["sequence"][1]
     assert d["cases"][1]["baseline_formal_headroom_g"] < 0
     assert d["joint_detail"]["minimum_protrusion_mm"] == 2.7
     ids = {x["id"] for x in d["generated_from"]}

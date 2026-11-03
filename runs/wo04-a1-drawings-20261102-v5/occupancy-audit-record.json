@@ -1,0 +1,69 @@
+{
+  "id": "A1_retained_material_occupancy_audit_v1",
+  "status": "failed_declared_seat_liner_foil_overlap",
+  "input_sha256": {
+    "configs/studies/wo03-a1-connections.yaml": "2994aa9e98f49f69eb9ad92190ead82fae0da31f9489e0c61081aa4a03f01435",
+    "web/public/engineering-workbench/g80-c1.json": "1481b5fb7f18b8fa39aea5aa2db0491d6828da28eccf3729f81abf550eaf288f",
+    "runs/wo03-a1-connections-20261102-v1/record.json": "7cf1284d869e217d5bede026f54f798fb928d9aa1d47b343642c3d3c7777627c",
+    "scripts/wo03_a1_occupancy_audit.py": "d05da05edc17a3eecad43529ca9dd0d211ad22116e7006c0ef772e3789c0705b"
+  },
+  "seat": {
+    "ri_mm": 14.6,
+    "ro_mm": 17.2,
+    "z_mm": [
+      1193,
+      1195
+    ]
+  },
+  "intersections": [
+    {
+      "part_id": "motor_liner",
+      "source_z_mm": [
+        1072.0,
+        1200.0
+      ],
+      "source_r_mm": [
+        14.7,
+        15.100000000000001
+      ],
+      "overlap_z_mm": [
+        1193,
+        1195
+      ],
+      "overlap_r_mm": [
+        14.7,
+        15.100000000000001
+      ],
+      "intersection_mm3": 74.89556886158113,
+      "declared_coaxial_material_overlap": true
+    },
+    {
+      "part_id": "motor_radiant_shield",
+      "source_z_mm": [
+        1072.0,
+        1200.0
+      ],
+      "source_r_mm": [
+        15.100000000000001,
+        15.12
+      ],
+      "overlap_z_mm": [
+        1193,
+        1195
+      ],
+      "overlap_r_mm": [
+        15.100000000000001,
+        15.12
+      ],
+      "intersection_mm3": 3.797557199658974,
+      "declared_coaxial_material_overlap": true
+    }
+  ],
+  "geometry_basis": "Declared concentric annular material dimensions; not a full CAD or motion check",
+  "geometry_mass_or_thermal_correction_executed": false,
+  "original_A1_results_rerun": false,
+  "decision": "Hold_A1. Do_not_trim_liner_or_shift_motor_automatically; exact_supplier_thrust_interface_and_heat_barrier_termination_need_one_explicit_followup.",
+  "cpu_s": 0.007561999999999999,
+  "cpu_limit_s": 1,
+  "wall_limit_s": 5
+}
