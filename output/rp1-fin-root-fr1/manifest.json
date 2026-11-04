@@ -1,0 +1,129 @@
+{
+  "identity": "RP1-FR1-monolithic-carbon-v1",
+  "adopted": false,
+  "status": "STOP: finite-support movement fails; asymmetric mean-bond demand exceeds retained shear screen; finished hot laminate/peel/stiffness data unknown",
+  "representation": "local_concept_and_recorded_scalar_screens_not_CAD_or_field_maps",
+  "specification": {
+    "path": "configs/studies/rp1-fin-root-replacement.yaml",
+    "sha256": "5926f9ca9b9a23295d93af95642cc3bf00ee0eb2a03cf523ffb627844c9ce11d"
+  },
+  "candidate": {
+    "path": "configs/vehicle/candidates/g80-rp1-fr1.yaml",
+    "sha256": "d7d34d340a4481fd9107776d1ac44d03fd1046d3207eb4228d0f723e03586d7b"
+  },
+  "record": {
+    "path": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+    "sha256": "b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313"
+  },
+  "joint_supplement": {
+    "path": "runs/wo03-rp1-fin-root-20261104-v1/joint-supplement.json",
+    "sha256": "94da02939ae48f1d037733961f3d55a67ac64bdb7149aa2b62d9e0c5807711c8"
+  },
+  "exporter": {
+    "path": "scripts/wo03_rp1_fr1_drawings.py",
+    "sha256": "9abd97dbf4e6f40e5971e4d92bdc1162d44c08c61dc166b4760187e1a8a465c5"
+  },
+  "svg_helper": {
+    "path": "scripts/wo03_recovery_precedent_drawings.py",
+    "sha256": "0731a636128d0f14d2a674aaf1da9f341d98a22b6fdeefa45f3e7d8c573d25ca"
+  },
+  "native_renderer": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-fin-root-replacement.yaml": "5926f9ca9b9a23295d93af95642cc3bf00ee0eb2a03cf523ffb627844c9ce11d",
+    "configs/vehicle/candidates/g80-rp1-fr1.yaml": "d7d34d340a4481fd9107776d1ac44d03fd1046d3207eb4228d0f723e03586d7b",
+    "scripts/wo03_rp1_fin_root.py": "662477768f31debbf29edeb33b5fde2f9a39731e199df8fe28b75eb484726956",
+    "configs/studies/rp1-fin-input-sources.yaml": "eb841024a77cf755779c787e0eda9307c41a3c25fb7980f4167324b214b5ac76",
+    "scripts/wo03_f2_c1_load_path.py": "1f637121db92b3b315afbee8a6d844fdba575e3eb1fff7484ec1f7b6c5e5a6a8",
+    "src/vehicle/benchmark.py": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src/vehicle/mass.py": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src/vehicle/aero.py": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src/vehicle/reference.py": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "runs/wo03-g80-f2-selected-20261103-v2/record.json": "b64f1d98b8a63e5bdc89668bbc26bfa1b560e56dfa8ce046d7b6e8fa68bff3c3"
+  },
+  "units": {
+    "length": "mm",
+    "mass": "g",
+    "force": "N",
+    "moment": "N m",
+    "stress": "MPa"
+  },
+  "browser_verified": false,
+  "engineering_accepted": false,
+  "artifacts": [
+    {
+      "id": "01-fin-and-parallel-paths",
+      "svg": {
+        "path": "output/rp1-fin-root-fr1/01-fin-and-parallel-paths.svg",
+        "sha256": "236a2afa070c37dd1746c3819017a4c30eb7a85ccd5c52b9bba9736444541a5f"
+      },
+      "png": {
+        "path": "output/rp1-fin-root-fr1/01-fin-and-parallel-paths.png",
+        "sha256": "0599968b4585f85e7c75179dab1671cc8fd342d490a1db060846a12662000afb",
+        "pixels": [
+          1700,
+          1370
+        ]
+      }
+    },
+    {
+      "id": "02-finite-support-screen",
+      "svg": {
+        "path": "output/rp1-fin-root-fr1/02-finite-support-screen.svg",
+        "sha256": "10b01bd4a32289ecbbe14727a07a7a5614b351b99e320ff989ba9a8feb46267b"
+      },
+      "png": {
+        "path": "output/rp1-fin-root-fr1/02-finite-support-screen.png",
+        "sha256": "0216b9e460b4ad380ab806138bff64eff70dd16f46a0c98ec95e96779001c06b",
+        "pixels": [
+          1700,
+          1240
+        ]
+      }
+    },
+    {
+      "id": "03-eight-mass-guide-cases",
+      "svg": {
+        "path": "output/rp1-fin-root-fr1/03-eight-mass-guide-cases.svg",
+        "sha256": "a76070b735dcc28bf2ba2d669a4b4ca5ab51a4b6ff2b4b787e95e2d2de5b8536"
+      },
+      "png": {
+        "path": "output/rp1-fin-root-fr1/03-eight-mass-guide-cases.png",
+        "sha256": "fac6e2fca110f3b40c1c39c176911aced4d8b500133a5be24a4b16b2e287462a",
+        "pixels": [
+          1700,
+          1580
+        ]
+      }
+    }
+  ],
+  "parts": {
+    "ledger_rows": 53,
+    "proposed_removal_rows": 3,
+    "csv": {
+      "path": "output/rp1-fin-root-fr1/parts.csv",
+      "sha256": "ce18c050eb30058724313a1fddb36b8472ba757b7c7cf593aa77b9fed7d78d0e"
+    },
+    "html": {
+      "path": "output/rp1-fin-root-fr1/parts.html",
+      "sha256": "e714008282af19529e21cfd10d29cb8b9683cf2f561eac714acacd4b45acfbbc"
+    }
+  },
+  "native_render_seconds": 1.6751459590159357,
+  "native_render_total_seconds": 67.65196166705573,
+  "native_render_limit_seconds": 120,
+  "visual_inspection": [
+    "01 fin and parallel paths: final native 1700 x 1370 PNG inspected. Root/tip/span/tab dimensions, white tab-depth label, knot reservation inside annular section, and three separate tube/body/aft branches are legible; no observed clipping.",
+    "02 finite support: final native 1700 x 1240 PNG inspected. Retained 8.83 N m versus unadopted 2.905255 N m definition, finite body/mount paths, 1.185 mm failed short-tab sensitivity versus 0.901 mm ideal diagnostic, and supplement's corrected body/aft scalar notes are legible; no observed clipping.",
+    "03 eight cases: final native 1700 x 1580 PNG inspected. All eight recorded nominal/max thickness and 55/68 g nylon rows, conditional 1.5 m formal passes, 1.5 m planning misses, and mass-accounting caveat are legible; no observed clipping."
+  ],
+  "visual_correction": "Initial 64.223 s batch had dark tab-depth text. Corrected contrast, pinned joint supplement and inspected 1.754 s batch. Added exact ledger export and inspected final source-matched 1.675 s batch. Aggregate native rendering 67.652 s. No beam or guide cases were rerun.",
+  "limits": [
+    "Native AppKit image document is offline evidence, not browser verification",
+    "No CAD, continuum simulation, physical loading or qualification was run"
+  ]
+}

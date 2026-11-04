@@ -1,0 +1,80 @@
+identity: RP1-FR1-connection-definition-v1
+configuration: RP1-FR1-monolithic-carbon-v1
+adopted: false
+cad_admitted: false
+source_study: configs/studies/rp1-fin-root-replacement.yaml
+source_record: runs/wo03-rp1-fin-root-20261104-v1/record.json
+joint_supplement: runs/wo03-rp1-fin-root-20261104-v1/joint-supplement.json
+scope: Dimensioned construction intent for the stopped preflight, not permission for detailed CAD or manufacture.
+datum: mm aft from nose; fins0/120/240deg; rope/knot60deg.
+fin:
+  root_station_mm: [1075, 1205]
+  root_tip_span_sweep_mm: [130, 65, 60, 45]
+  nominal_minimum_maximum_thickness_mm: [3.175, 2.921, 3.429]
+  material: RockWest204-11 carbon/epoxy
+  property_profile: fr1_cfrp_unqualified
+  hot_flexural_modulus_Pa: null
+  hot_finished_strength_Pa: null
+tab:
+  front_end_mm: [1080.2, 1189.6]
+  axial_endpoint_tolerance_mm: 0.05
+  inner_flat_radius_mm: 15.95
+  radial_depth_mm: 17.451
+  integral_with_fin: true
+body_slot:
+  axial_front_end_mm: [1079.9, 1189.9]
+  axial_endpoint_tolerance_mm: 0.025
+  width_mm: 3.8
+  width_tolerance_mm: 0.05
+  environmental_closure_mm: 0.05
+  minimum_transverse_per_flank_mm: 0.1355
+  minimum_axial_each_end_mm: 0.175
+  required_minimum_mm: 0.1
+  supplier_or_conditioning_bounds_verified: false
+  paper_removal_credit_g: 0
+joints:
+  body_fillet:
+    sides_per_fin: 2
+    length_mm: 130
+    leg_nominal_minimum_mm: [6, 5.8]
+    proposed_film_maximum_mm: 0.5
+    final_product_process: unresolved
+    mean_single_face_screen_MPa: 1.1251997331
+    normal_peel_capacity: null
+  mount_fillet:
+    sides_per_fin: 2
+    length_mm: 109.4
+    leg_nominal_minimum_mm: [6, 5.8]
+    flat_gap_center_edge_mm: [0.2655, 0.3595]
+    flat_gap_basis: Nominal15.95flat versus31.369tubeOD; edge at maximum3.429mmfin thickness.
+    final_product_process: unresolved
+  aft_end:
+    nominal_gap_mm: 0.4
+    provisional_gap_range_mm: [0.25, 0.55]
+    nominal_minimum_area_mm2: [55.407, 50.682271]
+    direct_butt_contact: false
+    credited_extra_rotation_spring: false
+    finished_capacity_and_ring_compliance: null
+  rings:
+    forward_station_mm: [1060, 1072.2]
+    aft_station_mm: [1190, 1196]
+    nominal_OD_bore_mm: [64.4, 31.9]
+    material: Existing6mm nominalplywood, sourceallowablesunqualified.
+    tube_bore_bond_gap_nominal_mm: 0.2655
+    body_perimeter_bond_gap_nominal_mm: 0.312
+    rigid_support: false
+bond_budgets_g:
+  internal: 14
+  external: 10
+  edge_seal_finish: 2
+service:
+  motor_bore_or_retainer_change: false
+  recovery_loop_and_guard_change: false
+  knot_box_verified: false
+  passage_between_fin_planes_projection_mm: 1.3749191624
+  actual_packing_insertion_motion_and_hot_fit: unverified
+legacy_snapshot_warning: >-
+  The mass-model Vehicle snapshot retains old CAD placeholders and generic plywood
+  engineering-profile labels. They are not FR1 geometry or carbon properties.
+  This definition/study controls the stopped proposal. Unadmitted generators must
+  not be used for manufacturing; normalize complete CAD/spec before any later admission.

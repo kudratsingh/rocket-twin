@@ -1,0 +1,17 @@
+configuration: RP1-FR1-monolithic-carbon-v1
+attempts:
+  - id: geometry-adapter
+    outcome: failed_before_numerical_work
+    error: Tuple bbox does not support item assignment.
+    correction: Replace bbox tuple with the explicit same-dimension list.
+  - id: material-tag-validation
+    outcome: failed_before_numerical_work
+    error: Existing nonmetallic whitelist omitted monolithic carbon_epoxy.
+    correction: Add exact nonmetallic tag; metal fins still rejected, no property allowable added.
+  - id: completed-preflight
+    outcome: stopped_not_admitted
+    record: record.json
+    joint_completion: joint-supplement.json
+    reason: Finite-support movement fails, asymmetric bodyface mean-shear screen fails, finished hot properties and complete aft stiffness unknown.
+    further_geometry_attempts: 0
+    detailed_CAD_or_FEA: 0

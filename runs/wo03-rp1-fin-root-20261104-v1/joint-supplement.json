@@ -1,0 +1,38 @@
+{
+  "identity": "RP1-FR1-monolithic-carbon-v1",
+  "source": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+  "source_sha256": "b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313",
+  "decision": "No admission; complete route strength/stiffness not established",
+  "corrected_area_scope": "Record used109.4mm overlap area for bodyface as conservative subregion; actual bodyroot length130mm shown separately here. No beam/guide cases repeated.",
+  "body_one_face_area_mm2": 753.4200000000001,
+  "body_single_face_mean_shear_Pa": 1125199.7330822037,
+  "body_70percent_face_mean_Pa": 787639.8131575424,
+  "body_equal_share_mean_Pa_diagnostic_only": 562599.8665411018,
+  "body_single_face_screen_pass": false,
+  "required_body_leg_mm_for_mean1MPa": 6.526158451876782,
+  "mount_single_face_mean_shear_Pa": 814939.8726989841,
+  "aft_tab_end": {
+    "area_mm2": 50.68227100000001,
+    "filled_gap_nominal_mm": 0.4,
+    "provisional_gap_bounds_mm": [
+      0.25,
+      0.55
+    ],
+    "direct_butt_contact": false,
+    "mean_shear_force_screen_N": 50.68227100000001,
+    "elastic_pure_moment_screen_Nm": 0.14656468068683334,
+    "one_direction_traction_inner_edge_moment_bound_Nm": 0.43969404206050006,
+    "illustrative_G_Pa_not_sourced": 100000000.0,
+    "illustrative_rigid_ring_K_Nm_rad": 317.88047182465573,
+    "qualified_capacity_or_stiffness": null,
+    "scope": "Shear-area and elastic-section demands only; actual annular ring/peel/wood stiffness and load partition unknown. No rigid aft-ring support credited."
+  },
+  "complete_installed_movement": null,
+  "finite_sensitivity_scope": "Short-tab model has no credited extra aft-end rotational restraint; unqualified missing route could change movement. Failed sensitivities do not establish physical impossibility or a complete installed displacement prediction.",
+  "strength_qualification": null,
+  "resources": {
+    "cpu_seconds": 0.0005709999999999986,
+    "new_beam_or_guide_runs": 0,
+    "new_CAD_or_FEA": 0
+  }
+}
