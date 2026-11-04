@@ -8,6 +8,8 @@ from pathlib import Path
 import pytest
 import yaml
 
+from src.analysis.source_archive import verified_source
+
 ROOT = Path(__file__).resolve().parents[1]
 RUN = ROOT / "runs/wo03-c2-sandwich-socket-20261102-v2"
 CFG_PATH = ROOT / "configs/studies/wo03-c2-sandwich-socket.yaml"
@@ -37,7 +39,8 @@ def test_frozen_inputs_execution_copies_and_failed_context_are_preserved(evidenc
             assert hashlib.sha256(archived.read_bytes()).hexdigest() == expected
             if not path.exists():
                 continue
-        assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, relative
+        historical = verified_source(ROOT, relative, expected)
+        assert hashlib.sha256(historical.read_bytes()).hexdigest() == expected, relative
     assert (
         hashlib.sha256((ROOT / config["source_c1"]).read_bytes()).hexdigest()
         == config["source_sha256"]

@@ -1,0 +1,222 @@
+schema_version: 1
+identity: RP1-fin-root-input-sources-20261103
+status: source_packet_only_no_selection_or_load_change
+date_checked_local: '2026-11-03'
+companion_note: docs/wo03-rp1-fin-input-sources.md
+budget:
+  declared_before_browsing: true
+  maximum_unique_urls: 14
+  maximum_minutes: 18
+  started_utc: '2026-11-04 06:20:33 UTC'
+  last_new_URL_read_utc: '2026-11-04 06:23:54 UTC'
+  attempted_unique_urls: 14
+  inaccessible_unique_urls: 0
+  failed_direct_access_attempts: 1
+  failure_scope: repeat_shell_download_of_already_readable_tolerance_PDF_DNS_failed
+  search_discovery_adds_unique_count: false
+  repeat_URL_adds_unique_count: false
+scope:
+  final_four_URL_direction: primary_redirected_to_finished_quasi_isotropic_CFRP
+  construction_studied: monolithic_quasi_isotropic_CFRP_integral_TTW_tab_finite_fillets
+  exact_stock_selected: false
+  new_solver_or_physical_work: false
+  supplier_contacts_or_purchase: false
+  owner_measurement_requests: false
+  load_allowance_or_active_spec_changes: false
+  git_or_browser: false
+local_trace:
+  original_engineering_screen: {q_Pa: 25000, alpha_deg: 5, DF: 3}
+  later_sensitivity: {q_Pa: 40000, alpha_deg: 5, DF: 3, all_incidence_bound: false}
+  historical_C1:
+    planform_span_root_tip_mm: [90, 120, 60]
+    factored_force_N: 220.758695902
+    factored_moment_Nm: 8.830347836
+  frozen_F2:
+    planform_span_root_tip_mm: [60, 130, 65]
+    factored_force_N: 108.94706343962352
+    factored_moment_Nm: 2.9052550250566274
+  AD1_v2:
+    planform_span_root_tip_mm: [60, 130, 65]
+    factored_force_N: 331.125
+    factored_moment_Nm: 8.83
+    basis: current_distribution_explicitly_normalized_to_retained_historical_moment
+    direct_current_planform_40kPa_5deg_result: false
+    second_DF_applied: false
+    required_case_reduced_here: false
+  plywood:
+    original_estimate_E_GPa: 2
+    original_generic_strength_MPa: 10
+    hot_sensitivity_E_GPa: 1
+    hot_generic_strength_MPa: 5
+    supplier_or_exact_grade_allowable: false
+    substrate_screen_C: 45
+    adhesive_process_screen_C_separate: 65
+  current_RP1_full_flight_envelope: unavailable
+  historical_52part_flight:
+    identity: 62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009
+    qmax_kPa_nominal_low_high: [12.19855, 6.97324, 15.31527]
+    alpha_at_qmax_deg_nominal_low_high: [0.00648, 0.00590, 0.00071]
+    qmax_CN2_is_simultaneous_recorded_load: false
+    transferable_RP1_bound: false
+local_source_sha256:
+  configs/studies/wo03-g80-fin-loads.yaml: 8ebabc61babedf4f52f57f84249b9e6b5e1faa1b463fb54ee1ceb5a50e806fab
+  configs/studies/wo03-fin-design.yaml: db56c0de6c8f08fd9c46d498f6204b16592c3ddb2b38f93d5fc2b48021e61c78
+  configs/engineering/wo03.yaml: f5bb3c0fdb6abf4adf8628c76316302192ad779343a3a8188e01f2928c5a1678
+  configs/studies/wo03-bonded-support.yaml: d08b75ea7ba2aa6e09905d4cd9ffad839745fd30257e7b6ee288041099565caa
+  configs/studies/rp1-attachment-definition-v2.yaml: e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555
+  runs/wo03-rp1-attachment-definition-20261103-v2/record.json: bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b
+  runs/wo03-g80-f2-selected-20261103-v2/record.json: b64f1d98b8a63e5bdc89668bbc26bfa1b560e56dfa8ce046d7b6e8fa68bff3c3
+  scripts/wo03_rp1_attachment_definition.py: db4bc0c76e06cb72e88778980e101fa62d6c75d7144490aa040d1fe7b2d6c382
+  src/analysis/fin_attachment.py: 6839826227e3aabf81e7c7306bd5f4f15c016bbcfbb7c79a72d2707004021156
+source_register:
+  - id: rockwest_g10_context
+    url: https://www.rockwestcomposites.com/g10-125-1212.html
+    access: readable
+    source_class: manufacturer_product_reference_calculations
+    scope: G10_context_only_not_final_material_direction
+    location: Engineering_Properties_and_Layup
+    same_grade_as_Norplex_NP500A: unestablished
+  - id: rockwest_stock_tolerance
+    url: https://www.rockwestcomposites.com/on/demandware.static/-/Sites-rwc-master-catalog/default/dw5c7d718f/downloads/RW-PS-070-Stock-Plate-Panel-Angle-Tolerance-Sheet.pdf
+    access: web_readable_repeat_shell_download_DNS_failed
+    failed_direct_access_attempts: 1
+    source_class: manufacturer_dimensional_specification
+    identity: RW-PS-070_RevE_2025-08-06
+    location: p1_Composite_Plates_solid_infused_and_press_cured
+    nominal_thickness_band_in: [0.010, 0.130]
+    thickness_tolerance_plus_minus_in: 0.010
+    nominal_0p125_range_mm: [2.921, 3.429]
+    finished_fin_flatness_or_bond_gap_guarantee: false
+  - id: madcow_fiberglass_DX3_manual
+    url: https://madcowrocketry.com/content/pdf/fgdx3.pdf
+    access: readable
+    source_class: manufacturer_instructions
+    kit_identity: K-170
+    location: p1_specifications_p2_Step3
+    fins: three_1_16in_G10
+    root: motor_tube_tang_epoxy_tang_faces_and_two_external_body_fillets
+    G80_78010_approval: unestablished
+    measured_joint_stiffness_or_capacity: unavailable
+  - id: madcow_fiberglass_DX3_current
+    url: https://www.madcowrocketry.com/2-6-fiberglass-dual-deploy-dx3/
+    access: readable
+    source_class: manufacturer_product
+    SKU: A-0001
+    motor_mount_mm: [38, 54]
+    availability: made_to_order_not_immediate_shipping
+    supports: conventional_G10_TTW_kit_precedent_only
+  - id: madcow_paper_DX3_manual
+    url: https://www.madcowrocketry.com/content/pdf/dx3.pdf
+    access: readable
+    source_class: manufacturer_instructions
+    identity: K-126
+    location: p1_specification_and_motor_list
+    supports: G80T_7_recommendation_for_plywood_29mm_version
+    current_78010_or_fiberglass_version_transfer: false
+  - id: norplex_NP500A
+    url: https://www.norplex-micarta.com/wp-content/uploads/2017/07/TDB_NP500A.pdf
+    access: readable
+    source_class: manufacturer_grade_TDB
+    revision_date: '2022-07-14'
+    location: pp1_2
+    scope: directional_D790_typicals_not_RockWest_stock_or_joint_allowables
+    specific_gravity: 1.77
+    typical_D790_flexural_E_LW_CW_GPa: [23.4, 22.8]
+    typical_D790_flexural_strength_LW_CW_MPa: [455.1, 413.7]
+    selected_CFRP_input: false
+  - id: norplex_generic_G10_boundary
+    url: https://www.norplex-micarta.com/structural-materials/what-is-g-10/
+    access: readable
+    source_class: manufacturer_technical_explanation
+    location: What_is_G10_and_Tg_discussion
+    supports: grade_name_does_not_fix_resin_inputs_or_minimum_hot_wet_Tg
+  - id: ES6292_existing_adhesive
+    url: https://ptm-w.com/technical-library/product-bulletins/Adhesives%20Bulletins/ES6292%20Bulletin.pdf
+    access: readable
+    source_class: manufacturer_adhesive_bulletin
+    location: pp1_2
+    scope: composite_adhesive_process_context_not_actual_CFRP_paper_ply_joint
+    root_rotational_stiffness_or_mixed_mode_allowable: unavailable
+  - id: spruce_exact_existing_plywood
+    url: https://www.aircraftspruce.com/catalog/wppages/finnishbirch.php
+    access: readable
+    source_class: exact_vendor_product_record
+    SKU: 02-20850
+    nominal_mm: 6
+    plies: 12
+    sheet_in: [24, 48]
+    price_USD: 69.75
+    directional_or_hot_property_test: unavailable
+    source_tolerance_5p8_6p2_guaranteed: false
+  - id: NASA_coefficient_meaning
+    url: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/lift-coefficient/
+    access: readable
+    source_class: NASA_technical_explanation
+    location: Lift_Coefficient_Mach_and_Reynolds_sections
+    supports: F_q_area_coefficient_distinction_and_transfer_domain_cautions
+    validates_repository_single_fin_slope: false
+  - id: rockwest_CFRP_204_11
+    url: https://www.rockwestcomposites.com/204-11.html
+    access: readable
+    source_class: manufacturer_exact_product_CLT_reference_not_guaranteed
+    SKU: 204-11
+    layup_revision: NC
+    nominal_dimensions_in: [12, 12, 0.125]
+    listed_price_USD: 108.99
+    physical_stock_count: unavailable_in_retrieved_page
+    immediate_availability: unconfirmed_indexed_snapshot_said_backorder
+    layup: ['0/90', '+/-45', '0/90', '+/-45', '0/90']
+    nominal_density_kg_m3: 1520
+    raw_table_Ex_Ey: [6664000, 6664000]
+    raw_table_Gxy: 2546000
+    raw_table_unit_interpretation: psi_from_default_imperial_context_confirmation_open
+    property_basis: unguaranteed_Classical_Lamination_Theory_reference
+    measured_finished_flexural_E_or_strength: null
+    hot_wet_retention_curve: null
+    listed_Tg_F: 194
+    exact_plate_cure_or_lot_verified: false
+  - id: dragonplate_quasiiso_UD
+    url: https://dragonplate.com/quasi-isotropic-carbon-fiber-uni-sheet-1_8-x-12-x-12
+    access: readable
+    source_class: manufacturer_exact_finished_product
+    SKU: FDPLHP04T1212
+    nominal_dimensions_in: [12, 12, 0.125]
+    listed_price_USD: 147.53
+    stated_shipping_delay_days: '3-5'
+    stock_count: unavailable
+    construction: solid_UD_0_90_plus_minus45
+    approximate_density_lb_in3: 0.056
+    listed_Tg_F: 250
+    property_modulus_on_page: raw_fiber_not_laminate
+    finished_E_flexural_strength_thickness_tolerance: null
+    exact_Tg_method_cure_hot_wet_basis: null
+  - id: Rhino_resin_scope
+    url: https://www.rockwestcomposites.com/on/demandware.static/-/Sites-rwc-master-catalog/default/dwfef1ba74/downloads/Rhino-1411-4111-Infusion-Resin-TDS.pdf
+    access: readable
+    source_class: resin_manufacturer_TDS_hosted_by_plate_manufacturer
+    identity: Rhino_1411_4111_Rev0
+    location: p2_cured_composite_and_neat_resin_tables
+    Tg_DSC_C: 90
+    Tg_specimen: neat_resin_not_204_11_laminate
+    cure_hours_at_C: [[2, 35], [4, 65], [2, 85]]
+    composite_flexural_test_reinforcement: A260_unidirectional_Eglass_not_carbon
+    transfer_of_Eglass_flexural_strength_to_CFRP: false
+  - id: dragonplate_woven_identity_boundary
+    url: https://dragonplate.com/quasi-isotropic-solid-carbon-fiber-sheet-1_8-x-12-x-12
+    access: readable
+    source_class: manufacturer_different_finished_product
+    SKU: FDPLSC04____1212
+    listed_price_USD_before_finish_choice: 123.92
+    construction: solid_woven_0_90_plus_minus45_balanced_symmetric
+    approximate_density_lb_in3: 0.055
+    maximum_temperature_F: 140
+    same_temperature_basis_as_UD_250F_product: false
+    finished_E_flexural_strength_thickness_tolerance: null
+remaining_gates:
+  - exact_finished_laminate_directional_cold_hot_wet_E_strength_and_shear
+  - actual_cure_lot_thickness_flatness_machining_and_edge_quality
+  - finite_CFRP_tab_to_paper_mount_body_and_plywood_aft_ring_transfer
+  - root_rotation_slip_peel_crush_rolling_or_interlaminar_shear
+  - complete_replacement_mass_cost_CG_stability_and_guide_screen
+  - matching_speed_q_local_incidence_and_installed_flutter
+  - thermal_chafe_packing_physical_and_flight_acceptance

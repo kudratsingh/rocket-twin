@@ -1,0 +1,81 @@
+id: RP1-FR1-monolithic-carbon-v1
+source: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+source_sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+adopted: false
+budget:
+  workers: 1
+  cpu_seconds: 30
+  wall_seconds: 60
+  vehicle_cases: 8
+  guide_evaluations: 16
+  structural_cases: Two elastic-input scenarios times nine finite/ideal support cases; ideal cases are diagnostic only.
+  new_detailed_CAD_or_FEA: 0
+  stop: Failed strength, total movement, fit or unknown required hot/finished properties stops admission. No geometry iteration or stopped solver retry.
+stock:
+  supplier: Rock West Composites
+  sku: 204-11
+  nominal_sheet_mm: [304.8, 304.8, 3.175]
+  nominal_thickness_mm: 3.175
+  minimum_thickness_mm: 2.921
+  maximum_thickness_mm: 3.429
+  density_kg_m3: 1520
+  density_basis: Product nominal, no guaranteed manufacturing range.
+  price_usd: 108.99
+  physical_availability: Unconfirmed; listed product/price does not establish immediate stock.
+  modulus_raw_table: 6664000
+  modulus_unit_interpretation: psi inferred from default imperial context; confirmation open.
+  room_reference_E_Pa: 45946662065.59999
+  reference_strength_raw_compression: 55760
+  reference_strength_interpretation_Pa: 384451665.744
+  property_basis: Explicitly unguaranteed CLT calculation, not measured finished flexural or hot/wet allowable.
+  hot_finished_allowable_Pa: null
+  hot_finished_modulus_Pa: null
+  exploratory_E_fractions: [1.0, 0.5]
+  exploratory_warning: Half stiffness is a sensitivity, not a sourced environmental bound or permission to transfer plywood degradation.
+construction:
+  planform_mm: {root: 130, tip: 65, span: 60, sweep: 45}
+  count: 3
+  root_station_mm: 1075
+  integral_tab_mm: {start: 1080.2, end: 1189.6, inner_flat_radius: 15.95, depth: 17.451}
+  forward_ring_mm: [1060, 1072.2]
+  aft_ring_mm: [1190, 1196]
+  body_slot_width_mm: 3.8
+  slot_cut_tolerance_mm: 0.05
+  environmental_closure_mm: 0.05
+  fillet_leg_nominal_mm: 6
+  fillet_leg_minimum_mm: 5.8
+  body_root_fillet_length_mm: 130
+  mount_fillet_length_mm: 109.4
+  layout: Continuous tab/mount and body/root fillets, filled aft tab/ring gap; no direct butt stop, front-ring tab support or wooden wedges.
+  edge_seal_budget_g: 2
+  edge_seal_basis: Proposed cured edge sealing/finish, product/process not qualified; count as additional to retained fillets.
+  internal_bond_budget_g: 14
+  external_bond_budget_g: 10
+  qualification: No normal/peel, paper interlaminar or finished bond allowable established.
+loads:
+  retained_moment_Nm: 8.83
+  design_factor_already_applied: 3
+  dynamic_pressure_Pa: 40000
+  incidence_deg: 5
+  label_correction: 8.83Nm is an old90mm-planform moment envelope rescaled onto this60mm fin, not the direct40kPa/5deg/DF3 result.
+  direct_current_planform_case: Proposed definition correction only; not adopted in place of retained8.83Nm.
+  total_movement_limit_mm: 1
+  estimated_hot_adhesive_shear_Pa: 1000000
+  estimated_hot_paper_E_Pa: 500000000
+  estimated_hot_paper_strength_Pa: 2000000
+  paper_poisson_estimate: 0.3
+  adhesive_normal_peel_allowable_Pa: null
+supports:
+  body_translation_springs_N_m: [100000, 1000000, 10000000, 100000000]
+  mount_translation_springs_N_m: [1000000, 10000000]
+  spring_basis: Broad sensitivity values, not demonstrated installed stiffness or validated bounds.
+  mount_rotation: Paper-tube torsion between ring centres with rigid end rotations gives an optimistic conditional stiffness; actual ring/body/bond compliance reduces it.
+  ring_support_status: Neither ring is fixed ground or an accepted rigid joint.
+  root_model: Standard linear Euler-Bernoulli short tab beam with mount translation/rotation springs and a body translation spring; tapered outboard panel integrated separately.
+recovery_and_service:
+  knot_box_mm: [50, 20, 14]
+  knot_radial_mm: [16.5, 30.5]
+  knot_station_mm: [1077, 1127]
+  knot_angle_deg: 60
+  sleeve_station_mm: [980, 1060]
+  unchanged: Loop, knot, sleeve, ring and motor-removal spaces retained. No strength/thermal credit transferred.

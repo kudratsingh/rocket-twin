@@ -1,0 +1,50 @@
+version: rp1-fr1-preflight-v1
+configuration: RP1-FR1-monolithic-carbon-v1
+adopted: false
+base_matrix: configs/engineering/traceability.yaml
+source: configs/studies/rp1-fin-root-replacement.yaml
+connection_definition: configs/engineering/rp1-fr1-connection-definition.yaml
+record: runs/wo03-rp1-fin-root-20261104-v1/record.json
+joint_supplement: runs/wo03-rp1-fin-root-20261104-v1/joint-supplement.json
+decision: docs/wo03-rp1-fin-root-decision.md
+load_revision_proposal: docs/wo03-rp1-fin-load-review-proposal.md
+expanded_wo03_acceptance: open
+requirements:
+  - id: RT-LOAD-001
+    status: failed_preliminary_sensitivity_and_unknown_complete_capacity
+    result: Best finite short-tab1.185mm exceeds1mm; actual130mmone-facebodymean1.1252MPa exceeds retained1MPa estimate. No qualifiedhotlaminate or peelcapacity.
+    limitation: No extra unqualifiedaft-endrotation credited; completeinstalleddisplacementunavailable, notprovenphysicalimpossibility.
+  - id: RT-LOAD-CASE-RP1-REVIEW
+    status: proposed_label_correction_not_adopted
+    result: Current60mmplanform40kPa/5deg/DF3gives2.905255Nm;8.83legacy90mmplanformenveloperetainedforFR1.
+    remaining: Sameconfigurationtime-alignedflightloadenvelope/materialdomainandrecordeddecisionbeforeanyrequirementrevision.
+  - id: RT-MASS-001
+    status: proposed_replacement_ledger_only
+    result: 53rows,nominalphysical863.710g,proposednet-20.840g; woodsheetpurchasekeptandCFRPchargedonce. Notanadoptedsavingbecausefunctiontransferfailed.
+    remaining: Finishedharness/plate/buildmassesandqualifiedreplacementsupports.
+  - id: RT-GUIDE-001
+    status: conditional_formal_pass_all_declared_cases_planning_fail
+    result: 8caseswithfull50g,separate20g/motorCG,55/68gmain,nom/maxstock;1.5m15.023333minimum. Allmiss15.5planning. Longer1.8mconditionalonly.
+    remaining: Actualharness/density/equipmentuncertainty;68gnotanupperbound.
+  - id: RT-STAB-001
+    status: calculated_reference_hypothesis_only
+    result: RecomputedBarrowmanCPunchanged859.442mmwithsameplanform; staticendpointRocketPycheckpasses.
+    remaining: Removedwedges/thickness/filletsnotresolvedaerodynamically; noinertia/fullflightqualification.
+  - id: RT-MASS-002
+    status: physical_inertia_unavailable
+    result: Nullphysicalinertia; nofullflightresultborrowedorfabricated.
+  - id: RT-FLUTTER-001
+    status: unavailable_changed_panel_and_support
+    result: Noisolatedpanel/oldrootflutterresulttransferred. Detailedworkstoppedbeforeadmission.
+    remaining: Qualifiedinstalledstiffness/mass/damping/envelope,thenmodal/flutterscreenandlatermeasurements.
+  - id: RT-RECOVERY-001
+    status: unchanged_open
+    result: Loop/knot/sleeveandmotorremovalintentpreserved;1.375mmprojectedfillet/knotgaponly,actualpacking/motionunknown.
+    remaining: Finishedcord/nose/connectorcapacity, hotjoint/thermal/chafeanddeployment.
+  - id: RT-THERM-001
+    status: changed_paths_unqualified
+    result: CFRPcontacts/conductionandremovedwoodwedgesinvalidateanytransferofoldthermalacceptance.45Cscreenandrequiredmatrixunchanged.
+  - id: IF-FIN-BODY-FR1
+    status: conditional_dimension_screen_only
+    result: Slot3.8±.05mm,minperflank.1355mm; axial1079.9–1189.9±.025 gives.175mmeachendunderprovisionalconditioningbounds.
+    remaining: Actualstock/cuts/conditioningandadmittedCAD/servicechecks. NodetailedCADoffailedarrangement.

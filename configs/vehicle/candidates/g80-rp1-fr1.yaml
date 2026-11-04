@@ -1,0 +1,2992 @@
+id: RP1-FR1-monolithic-carbon-v1
+name: "RP1 FR1 monolithic carbon preflight \u2014 not adopted"
+class: model_rocket
+scale: model
+axis:
+  body_x: nose
+  body_z: down
+  world: NED
+limits:
+  max_liftoff_mass_kg: 1.5
+  max_propellant_kg: 0.125
+  max_total_impulse_ns: 160.0
+  metal_structure_allowed: false
+airframe:
+  body_diameter_m: 0.066802
+  length_m: 1.25
+  nose:
+    shape: ogive
+    length_m: 0.16
+  material_default: cardboard
+aero:
+  passive_stubs:
+    enabled: false
+    span_m: 0.07
+    count: 3
+    root_chord_m: 0.12
+    tip_chord_m: 0.12
+    sweep_m: 0.0
+    position_m: 0.775
+  cd_model:
+    estimate: true
+    type: empirical_mach_table
+    reference: Mandell et al.; preliminary shape/fin estimates, not calibrated drag
+    mach:
+    - 0.0
+    - 0.3
+    - 0.6
+    - 0.8
+    cd:
+    - 0.45
+    - 0.45
+    - 0.5
+    - 0.65
+    base_drag_cd: 0.12
+motor:
+  cite: configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml
+  estimate: true
+  id: aerotech-g80-10t-SKU78010-provisional
+  curve: configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng
+  propellant_mass_kg: 0.0625
+  casing_mass_kg: 0.06570000000000001
+  mount_position_m: 1.092
+  burn_time_s: 1.8079
+  total_impulse_ns: 133.243509636
+  average_thrust_n: 73.7007078024227
+  ignition_delay_s: 0.0
+  thrust_scale_range:
+  - 0.85
+  - 1.15
+  qualification:
+    certified_impulse_ns: 136.6
+    certified_average_thrust_n: 77.6
+    motor_type: commercial_solid_nonsparky
+    source: Current NAR interactive listing / manufacturer summary; discrepancies
+      retained in curve sidecar. Exact source/hardware/California recheck required
+      before procurement.
+    exact_hardware_verified: false
+    california_verified: false
+avionics:
+  loop_rate_hz: 250.0
+  physics_rate_hz: 1000.0
+  estimator: madgwick
+  sensors:
+    imu:
+      part: imu
+      rate_hz: 1000.0
+      accel_range_g: 16.0
+      gyro_range_dps: 2000.0
+    baro:
+      part: baro
+      rate_hz: 50.0
+    high_g:
+      part: high_g_accel
+      rate_hz: 1000.0
+      accel_range_g: 200.0
+  abort:
+    max_tilt_rad: 0.52
+    max_rate_rad_s: 6.0
+    sensor_dropout_ms: 20.0
+    servo_fault_ms: 50.0
+    action_on_abort:
+      gimbal: centre
+      recovery: arm
+parts:
+- estimate: true
+  id: nose
+  type: nose_cone
+  position_m: 0.0
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.16
+    radius_m: 0.033401
+    wall_m: 0.0012
+    shape: ogive
+    shoulder_length_m: 0.03
+  material: ASA
+  mass_kg: 0.038
+  cg_offset_m: 0.10017483160849072
+  print:
+    rotation_deg:
+    - 180.0
+    - 0.0
+    - 0.0
+    orientation: Shoulder face on bed; reverse CAD Z. Verify layer adhesion.
+    layer_mm: 0.2
+    infill_pct: 100.0
+    walls: 3
+    supports: false
+  explode_offset: 0.0
+  learn: Custom printed ogive guides airflow; hollow shoulder aligns separation. Do
+    not load the printed loop.
+  build:
+    method: printed
+    cost_usd: 5.0
+    generator: nose
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: nose
+    parameters:
+      shoulder_outer_mm: 32.0
+      shoulder_inner_mm: 30.8
+      shoulder_length_mm: 30
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Custom printed ogive guides airflow; hollow shoulder aligns separation.
+      Do not load the printed loop.
+    material_profile: ASA
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+  parent: null
+- cite: https://locprecision.com/products/cardboard-airframes
+  estimate: true
+  id: body
+  type: body_tube
+  parent: nose
+  position_m: 0.458
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.762
+    radius_m: 0.033401
+    inner_radius_m: 0.032512
+    wall_m: 0.000889
+  material: cardboard
+  mass_kg: 0.09819191360507513
+  cg_offset_m: 0.38100000000000006
+  explode_offset: 0.0
+  learn: LOC BT-2.56 lower762mm body. Two full blanks charged here; upper section,
+    sleeve and patch are cut from second blank. Fixed splice, no removable aft.
+  build:
+    method: cut
+    cost_usd: 20.54
+    generator: tube
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: tube
+    parameters:
+      fin_slots: true
+      fin_slot_width_mm: 6.5
+      fin_slot_length_mm: 110
+      fin_slot_start_mm: 622
+      ad1_fin_slot_width_m: 0.0068
+      fr1_fin_slot_width_m: 0.0038
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: One continuous kraft tube carries body bending and connects fin/motor
+      support to nose separation. Slots only at fins.
+    material_profile: cardboard
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- cite: docs/wo03-g80-f2-suppliers.md
+  estimate: true
+  id: fin_set
+  type: fin_set
+  parent: body
+  position_m: 1.075
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.13
+    radius_m: 0.033401
+    count: 3
+    span_m: 0.06
+    root_chord_m: 0.13
+    tip_chord_m: 0.065
+    sweep_m: 0.045
+    thickness_m: 0.003175
+  material: carbon_epoxy
+  mass_kg: 0.08469629999999999
+  cg_offset_m: 0.07055555555555554
+  explode_offset: 0.0
+  learn: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+    hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+    or wooden root wedges.
+  build:
+    method: cut
+    cost_usd: 108.99
+    generator: fins
+    notes: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+      hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+      or wooden root wedges.
+  cad:
+    generator: unadmitted_fr1_integral_carbon
+    parameters:
+      tab_depth_mm: 17.5165
+      tab_length_mm: 109.8
+      tab_offset_mm: 5
+      root_gusset_span_mm: 0
+      root_gusset_base_mm: 0
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+      hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+      or wooden root wedges.
+  engineering:
+    function: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+      hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+      or wooden root wedges.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - fin_bending
+    - flutter
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm.
+      CLTreferenceonly; hotfinishedstrength/stiffness and joints unqualified. No front-ring
+      tab support or wooden root wedges.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: fin_tabs
+  type: commercial
+  parent: body
+  position_m: 1.0802
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1094
+    - 0.017451
+    - 0.003175
+  material: carbon_epoxy
+  mass_kg: 0.027640520233200003
+  cg_offset_m: 0.0549
+  explode_offset: 0.0
+  learn: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+    hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+    or wooden root wedges.
+  build:
+    method: cut
+    cost_usd: 0.0
+    generator: envelope
+    notes: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+      hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+      or wooden root wedges.
+  cad:
+    generator: unadmitted_fr1_integral_carbon
+    parameters:
+      inner_flat_m: 0.01595
+      front_station_m: 1.0802
+      aft_station_m: 1.1896
+      angles_deg:
+      - 0
+      - 120
+      - 240
+      complete_geometry_available: false
+      proposal_adopted: false
+      front_ring_support_available: false
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#d4b887'
+    notes: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+      hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+      or wooden root wedges.
+  engineering:
+    function: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm. CLTreferenceonly;
+      hotfinishedstrength/stiffness and joints unqualified. No front-ring tab support
+      or wooden root wedges.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      inner_flat: 0.025
+      front_axial: 0.05
+      aft_axial: 0.05
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: FR1 exact204-11 nominal1/8inCFRP; minimum2.921/maximum3.429mm.
+      CLTreferenceonly; hotfinishedstrength/stiffness and joints unqualified. No front-ring
+      tab support or wooden root wedges.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- cite: docs/wo03-g80-f2-suppliers.md
+  estimate: true
+  id: motor_tube
+  type: motor_mount
+  parent: body
+  position_m: 1.055
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.165
+    radius_m: 0.0156845
+    inner_radius_m: 0.0145845
+    wall_m: 0.0011
+  material: cardboard
+  mass_kg: 0.024
+  cg_offset_m: 0.08250000000000002
+  explode_offset: 0.0
+  learn: AeroTech12912 cut165mm from305mm stock;1.235in OD retainer family,1.1mm wall
+    nominal.24g installed budget covers unweighed tube. Bore tolerances unknown.
+  build:
+    method: cut
+    cost_usd: 7.49
+    generator: tube
+    notes: Mount-kit nominal 1.140 in ID/1.210 in OD; current tube tolerances and
+      exact motor pairing unknown. No internal seat or liner.
+  cad:
+    generator: tube
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: Mount-kit nominal 1.140 in ID/1.210 in OD; current tube tolerances and
+      exact motor pairing unknown. No internal seat or liner.
+  engineering:
+    function: Fixed paper tube centers the G80. Rear motor shoulder transfers thrust
+      into tube end/retainer; bore is unobstructed.
+    material_profile: cardboard
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Mount-kit nominal 1.140 in ID/1.210 in OD; current tube tolerances
+      and exact motor pairing unknown. No internal seat or liner.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: forward_ring
+  type: commercial
+  parent: body
+  position_m: 1.06
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.0122
+    radius_m: 0.0322
+    inner_radius_m: 0.01595
+  material: plywood
+  mass_kg: 0.02247974931209163
+  cg_offset_m: 0.006100000000000002
+  explode_offset: 0.0
+  learn: "RP1 proposed fixed ring ahead of tabs, 1060\u20131072.2mm. Two6mm plies+.2mm\
+    \ glue. No eye holes or blind fin slots. One4.5x5mm inner-edge cord notch at60deg.\
+    \ Retain old wood budget plus all filled voids at800kg/m3 estimate; no new-cut\
+    \ credit. Recovery wrap bears against aft ring/tube interface. Actual contact/peel/strength\
+    \ unknown."
+  build:
+    method: cut
+    cost_usd: 69.75
+    generator: tube
+    notes: "RP1 proposed fixed ring ahead of tabs, 1060\u20131072.2mm. Two6mm plies+.2mm\
+      \ glue. No eye holes or blind fin slots. One4.5x5mm inner-edge cord notch at60deg.\
+      \ Retain old wood budget plus all filled voids at800kg/m3 estimate; no new-cut\
+      \ credit. Recovery wrap bears against aft ring/tube interface. Actual contact/peel/strength\
+      \ unknown."
+  cad:
+    generator: unadmitted_rp1_cord_notched_annulus
+    parameters:
+      complete_geometry_available: false
+      proposal_adopted: false
+      cord_notch_angle_deg: 60
+      cord_notch_width_m: 0.0045
+      cord_notch_radial_depth_m: 0.005
+      cut_tolerance_m: 5.0e-05
+      front_station_m: 1.06
+      aft_station_m: 1.0722
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: "RP1 proposed fixed ring ahead of tabs, 1060\u20131072.2mm. Two6mm plies+.2mm\
+      \ glue. No eye holes or blind fin slots. One4.5x5mm inner-edge cord notch at60deg.\
+      \ Retain old wood budget plus all filled voids at800kg/m3 estimate; no new-cut\
+      \ credit. Recovery wrap bears against aft ring/tube interface. Actual contact/peel/strength\
+      \ unknown."
+  engineering:
+    function: "RP1 proposed fixed ring ahead of tabs, 1060\u20131072.2mm. Two6mm plies+.2mm\
+      \ glue. No eye holes or blind fin slots. One4.5x5mm inner-edge cord notch at60deg.\
+      \ Retain old wood budget plus all filled voids at800kg/m3 estimate; no new-cut\
+      \ credit. Recovery wrap bears against aft ring/tube interface. Actual contact/peel/strength\
+      \ unknown."
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      outer_diameter: 0.05
+      bore_diameter: 0.05
+      notch_width: 0.05
+      notch_floor_axial: 0.05
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Selected 6.5 mm stock, geometry thickness corrected below; outer
+      radial bond gap .205 mm, inner .200 mm, both adhesive-filled.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: aft_ring
+  type: commercial
+  parent: body
+  position_m: 1.19
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.006
+    radius_m: 0.0322
+    inner_radius_m: 0.01595
+  material: plywood
+  mass_kg: 0.011161819302239405
+  cg_offset_m: 0.003
+  explode_offset: 0.0
+  learn: Aft ring bonds motor tube and integral fin tab ends into the continuous body.
+    Recovery anchor is on forward ring only.
+  build:
+    method: cut
+    cost_usd: 0.0
+    generator: tube
+    notes: "Material included in one Spruce sheet. Forward ring two6mm plies+.2mm\
+      \ epoxy; blindnotches7.4mmdeep fromaftface,6.5mmwide;4.8mmfrontweb. C1 PROPOSAL:OD64.4\xB1\
+      .05,bore31.90\xB1.05mm; original conservative mass allocation retained without\
+      \ removal credit; installed strength/adoption held."
+  cad:
+    generator: tube
+    parameters:
+      proposal_adopted: false
+      complete_geometry_available: false
+      diameter_tolerance_m: 5.0e-05
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: Selected 6.5 mm stock, geometry thickness corrected below; outer radial
+      bond gap .205 mm, inner .200 mm, both adhesive-filled. C1 candidate only; dimensions
+      do not constitute a generated/accepted assembly.
+  engineering:
+    function: Aft ring bonds motor tube and integral fin tab ends into the continuous
+      body. Recovery anchor is on forward ring only.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      outer_diameter: 0.05
+      bore_diameter: 0.05
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Selected 6.5 mm stock, geometry thickness corrected below; outer
+      radial bond gap .205 mm, inner .200 mm, both adhesive-filled.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: fin_internal_bonds
+  type: commercial
+  parent: body
+  position_m: 1.08
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.11
+    - 0.006
+    - 0.006
+  material: epoxy
+  mass_kg: 0.014
+  cg_offset_m: 0.055
+  explode_offset: 0.0
+  learn: Metered internal tab-to-tube, tab-end-to-ring and tab-to-body fillets. All
+    six sides receive continuous fillets. RP1 retains the full existing mass as counted
+    installation reserve; old blind-notch/end film occupancy is superseded, no adhesive
+    bridge across the new front gap is credited.
+  build:
+    method: bonded
+    cost_usd: 3.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Metered internal tab-to-tube, tab-end-to-ring and tab-to-body fillets.
+      All six sides receive continuous fillets.
+    material_profile: epoxy
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: ring_bonds
+  type: commercial
+  parent: body
+  position_m: 1.075
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.121
+    - 0.004
+    - 0.004
+  material: epoxy
+  mass_kg: 0.01
+  cg_offset_m: 0.0605
+  explode_offset: 0.0
+  learn: Ring/body and mount joints plus forward/nose ring laminate and nose perimeter
+    adhesive. No free adhesive credit. RP1 retains the full existing mass as counted
+    installation reserve; old blind-notch/end film occupancy is superseded, no adhesive
+    bridge across the new front gap is credited.
+  build:
+    method: bonded
+    cost_usd: 2.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Ring-to-body and ring-to-mount adhesive plus forward recovery-anchor
+      fillet; do not duplicate fin adhesive.
+    material_profile: epoxy
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: outer_fin_fillets
+  type: commercial
+  parent: body
+  position_m: 1.075
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.13
+    - 0.006
+    - 0.006
+  material: epoxy
+  mass_kg: 0.01
+  cg_offset_m: 0.065
+  explode_offset: 0.0
+  learn: External fin/body fillets spread local skin load and seal slots; do not replace
+    internal load path.
+  build:
+    method: bonded
+    cost_usd: 2.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: External fin/body fillets spread local skin load and seal slots; do
+      not replace internal load path.
+    material_profile: epoxy
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- cite: configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml
+  estimate: true
+  id: motor
+  type: motor
+  parent: body
+  position_m: 1.092
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.128
+    radius_m: 0.0145
+    diameter_m: 0.029
+  material: commercial
+  mass_kg: 0.1282
+  cg_offset_m: 0.064
+  explode_offset: 0.0
+  learn: Single G80 historical source hypothesis; current polymer SKU 78010 geometry
+    and curve reconciliation remain required.
+  build:
+    method: purchased
+    cost_usd: 43.99
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Single G80 historical source hypothesis; current polymer SKU 78010 geometry
+      and curve reconciliation remain required.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- cite: docs/wo03-g80-f2-suppliers.md
+  estimate: true
+  id: motor_retainer
+  type: commercial
+  parent: body
+  position_m: 1.205
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.045
+    radius_m: 0.0222
+    inner_radius_m: 0.014
+  material: commercial
+  mass_kg: 0.03
+  cg_offset_m: 0.0225
+  explode_offset: 0.0
+  learn: AeroTech19002 retainer,30g unweighed installed hardware budget. Current78010
+    shoulder/cap/nozzle mating drawing absent; envelope is not accepted contact geometry.
+  build:
+    method: purchased
+    cost_usd: 23.99
+    generator: tube
+    notes: Envelope based on historical comparison chart, not controlled current fit;
+      22 g budget not weighed. Sleeve and cap are schematic, not one annular collision
+      body.
+  cad:
+    generator: tube
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Envelope based on historical comparison chart, not controlled current fit;
+      22 g budget not weighed. Sleeve and cap are schematic, not one annular collision
+      body.
+  engineering:
+    function: Purchased Estes 009750 threaded 29 mm retainer budget, including cap;
+      forward thrust and reverse retention require actual mating drawing.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Envelope based on historical comparison chart, not controlled current
+      fit; 22 g budget not weighed. Sleeve and cap are schematic, not one annular
+      collision body.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: retainer_adhesive
+  type: commercial
+  parent: body
+  position_m: 1.205
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.015
+    - 0.004
+    - 0.004
+  material: epoxy
+  mass_kg: 0.002
+  cg_offset_m: 0.0075
+  explode_offset: 0.0
+  learn: Retainer-to-tube adhesive counted separately; exact bond length/contact depends
+    on current retainer.
+  build:
+    method: bonded
+    cost_usd: 1.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Retainer-to-tube adhesive counted separately; exact bond length/contact
+      depends on current retainer.
+    material_profile: epoxy
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: mount_external_shield
+  type: commercial
+  parent: body
+  position_m: 1.07
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.12
+    radius_m: 0.015787
+    inner_radius_m: 0.015387
+  material: mica
+  mass_kg: 0.01
+  cg_offset_m: 0.05999999999999999
+  explode_offset: 0.0
+  learn: 10g bounded sector shielding/retention reserve. Fullannulus is not adopted;
+    gaps around fin contacts and shield ends require thermal revalidation.
+  build:
+    method: cut
+    cost_usd: 5.0
+    generator: tube
+    notes: Reserved thermal protection mass only; full annulus would conflict with
+      integral tabs. Actual sectors/termination undefined, no fit or thermal acceptance.
+  cad:
+    generator: tube
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Reserved thermal protection mass only; full annulus would conflict with
+      integral tabs. Actual sectors/termination undefined, no fit or thermal acceptance.
+  engineering:
+    function: External mica sleeve budget shields motor mount outside, never intrudes
+      into motor bore/seat. Requires ring relief and thermal verification.
+    material_profile: mica
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Reserved thermal protection mass only; full annulus would conflict
+      with integral tabs. Actual sectors/termination undefined, no fit or thermal
+      acceptance.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: nose_anchor_plate
+  type: commercial
+  parent: body
+  position_m: 0.178
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.0122
+    radius_m: 0.0305
+    inner_radius_m: 0.0225
+  material: plywood
+  mass_kg: 0.012139003898323274
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: Two-ply12mm plywood nose annulus with45mm service opening; source sheet charged
+    with fins. Perimeter12mm adhesive lap to shoulder. Small eye washers intrude into
+    opening; service path must be checked.
+  build:
+    method: cut
+    cost_usd: 0.0
+    generator: tube
+    notes: "Preliminary F1 construction definition; not a qualified drawing. C1 proposed61.0\xB1\
+      .05mmOD; original mass retained until strength verification."
+  cad:
+    generator: tube
+    parameters:
+      proposal_adopted: false
+      complete_geometry_available: false
+      diameter_tolerance_m: 5.0e-05
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: Candidate dimensions; fit and material verification required. C1 candidate
+      only; dimensions do not constitute a generated/accepted assembly.
+  engineering:
+    function: Full plywood plate retained inside printed nose shoulder. Shoulder perimeter
+      joint must transfer nose branch load, not whole aft mass.
+    material_profile: plywood
+    tolerances_mm:
+      linear: 0.1
+      outer_diameter: 0.05
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: nose_recovery_eye
+  type: commercial
+  parent: body
+  position_m: 0.168
+  lateral_offset_m:
+  - 0.0
+  - -0.0265
+  geometry:
+    bbox_m:
+    - 0.022
+    - 0.012
+    - 0.005
+  material: commercial
+  mass_kg: 0.009
+  cg_offset_m: 0.011
+  explode_offset: 0.0
+  learn: Provisional closed M4 eye normal to noseannulus atR26.5mm, smallwasherOD<=8mmrequired.
+    Finishedeye/washercapacity and supplierdimensions held; no eye across serviceopening
+    centre.
+  build:
+    method: purchased
+    cost_usd: 4.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Closed M4 eye with nuts and washers through nose plate; use locking
+      method and inspect.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: shock_cord
+  type: recovery
+  parent: body
+  position_m: 0.28
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.12
+    - 0.04
+    - 0.04
+  material: commercial
+  mass_kg: 0.055
+  cg_offset_m: 0.06
+  explode_offset: 0.0
+  learn: LOC NW-12 variant39778657730751; uncut12ft3/8in tubular nylon factoryends;55g
+    remains estimate, price12.39 observed manufacturer. Finishedmass/strength and
+    bearinglength unknown; commerceweight68 is sensitivity only.
+  build:
+    method: purchased
+    cost_usd: 12.39
+    generator: envelope
+    notes: 'RP1 proposed LOC3/8in tubular nylon12ft with sewn loops,1020lb advertised
+      tensile. 55g installed mass and$20 are estimates, not this variant''s published
+      mass/price. Mass analogy: different Apogee1/2in nylon5.68g per foot times.75width
+      times12ft, rounded upward; no same weave/linear density claim. Supplier test
+      scope, finished sewn-loop/connector/knot/hot-wet capacity and force-extension
+      curve unavailable.'
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: soft_stowage
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: 'RP1 proposed LOC3/8in tubular nylon12ft with sewn loops,1020lb advertised
+      tensile. 55g installed mass and$20 are estimates, not this variant''s published
+      mass/price. Mass analogy: different Apogee1/2in nylon5.68g per foot times.75width
+      times12ft, rounded upward; no same weave/linear density claim. Supplier test
+      scope, finished sewn-loop/connector/knot/hot-wet capacity and force-extension
+      curve unavailable.'
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: recovery_connectors
+  type: commercial
+  parent: body
+  position_m: 0.35
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.025
+    - 0.015
+    - 0.01
+  material: commercial
+  mass_kg: 0.009
+  cg_offset_m: 0.0125
+  explode_offset: 0.0
+  learn: Two light rated connectors/swivel budget; no industrial lifting hardware.
+    Capacities not inferred from mass.
+  build:
+    method: purchased
+    cost_usd: 8.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Two light rated connectors/swivel budget; no industrial lifting hardware.
+      Capacities not inferred from mass.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: parachute
+  type: commercial
+  parent: body
+  position_m: 0.28
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.08
+    radius_m: 0.025
+  material: commercial
+  mass_kg: 0.035
+  cg_offset_m: 0.04
+  explode_offset: 0.0
+  learn: Purchased750mm canopy35g hypothesis,50mm diameter x80mm packed cylinder157mL,
+    unmeasured. Combined packing allowance and extraction through splice checked separately.
+  build:
+    method: purchased
+    cost_usd: 30.0
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#e38a4e'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: A purchased 750 mm parachute is a preliminary budget for a 6 m/s descent
+      screen at rho=1.1 kg/m3 and Cd=0.75.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+    - Packing volume, extraction force, snag-free deployment and repacking repeatability.
+- estimate: true
+  id: recovery_protection
+  type: commercial
+  parent: body
+  position_m: 0.365
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.01
+    - 0.04
+    - 0.012
+  material: commercial
+  mass_kg: 0.006
+  cg_offset_m: 0.005
+  explode_offset: 0.0
+  learn: A flame-resistant blanket isolates the packed parachute from ejection gas.
+    Packing fit and repeatable deployment need ground tests; it is not an airframe
+    thermal qualification.
+  build:
+    method: purchased
+    cost_usd: 8.0
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#7a7a70'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: A flame-resistant blanket isolates the packed parachute from ejection
+      gas.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+    - Packing volume, extraction force, snag-free deployment and repacking repeatability.
+- estimate: true
+  id: flight_computer
+  type: commercial
+  parent: nose
+  position_m: 0.085
+  lateral_offset_m:
+  - 0.0
+  - -0.011
+  geometry:
+    bbox_m:
+    - 0.061
+    - 0.018
+    - 0.006
+  material: commercial
+  mass_kg: 0.012
+  cg_offset_m: 0.0305
+  electrical:
+    supply_v: 5.0
+    current_a: 0.1
+  explode_offset: 0.0
+  learn: The Cortex-M7 FPU supports estimation and small policies at 250 Hz. SD logging
+    preserves raw sensor and control traces. Power transients and blocking writes
+    can violate the loop deadline; current and mass are estimates.
+  build:
+    method: purchased
+    cost_usd: 32.0
+    generator: commercial_envelope
+    notes: Budget estimate; exact component datasheet, price, mass and mounting interface
+      must be frozen in WO-09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: The Cortex-M7 FPU supports estimation and small policies at 250 Hz.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- estimate: true
+  id: imu
+  type: commercial
+  parent: nose
+  position_m: 0.113
+  lateral_offset_m:
+  - 0.0
+  - -0.02
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.015
+    - 0.004
+  material: commercial
+  mass_kg: 0.002
+  cg_offset_m: 0.01
+  electrical:
+    supply_v: 3.3
+    bus: SPI
+  explode_offset: 0.0
+  learn: Gyros track angular rates; accelerometers measure specific force, not gravity
+    alone during thrust. Bias and axis alignment matter for attitude estimation. Rigid
+    alignment and vibration characterization are needed before trusting this sensor.
+  build:
+    method: purchased
+    cost_usd: 18.0
+    generator: commercial_envelope
+    notes: Budget estimate; exact component datasheet, price, mass and mounting interface
+      must be frozen in WO-09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: Gyros track angular rates; accelerometers measure specific force, not
+      gravity alone during thrust.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- estimate: true
+  id: baro
+  type: commercial
+  parent: nose
+  position_m: 0.137
+  lateral_offset_m:
+  - 0.0
+  - -0.02
+  geometry:
+    bbox_m:
+    - 0.015
+    - 0.012
+    - 0.003
+  material: commercial
+  mass_kg: 0.001
+  cg_offset_m: 0.0075
+  electrical:
+    supply_v: 3.3
+    bus: SPI
+  explode_offset: 0.0
+  learn: Ambient pressure provides a height estimate through an atmosphere model.
+    Static ports must avoid stagnation and wake pressure. Burn-time acceleration does
+    not directly invalidate pressure, but airflow and filtering can bias and delay
+    the reading.
+  build:
+    method: purchased
+    cost_usd: 15.0
+    generator: commercial_envelope
+    notes: Budget estimate; exact component datasheet, price, mass and mounting interface
+      must be frozen in WO-09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: Ambient pressure provides a height estimate through an atmosphere model.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- cite: https://www.adafruit.com/product/5374 ; https://www.analog.com/en/products/adxl375.html
+  estimate: false
+  id: high_g_accel
+  type: commercial
+  parent: nose
+  position_m: 0.085
+  lateral_offset_m:
+  - 0.0
+  - -0.02
+  geometry:
+    bbox_m:
+    - 0.0256
+    - 0.0177
+    - 0.0046
+  material: commercial
+  mass_kg: 0.001
+  cg_offset_m: 0.0128
+  electrical:
+    supply_v: 3.3
+    current_a: 0.001
+    bus: SPI
+  explode_offset: 0.0
+  learn: ADXL375 +/-200 g accelerometer records launch acceleration that clips the
+    low-g IMU. The low-g IMU still supplies gyro and fine acceleration. Noise, timing,
+    alignment, wiring and data fusion require bench calibration; range alone does
+    not qualify the sensor.
+  build:
+    method: purchased
+    cost_usd: 24.95
+    generator: envelope
+    notes: Adafruit PID 5374 supplier envelope/mass; no purchase. Mount via carrier
+      clips until exact hole drawing is frozen.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#ae75c5'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: ADXL375 +/-200 g accelerometer records launch acceleration that clips
+      the low-g IMU.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Retain low-g IMU. Mount via nonconducting carrier clips, reserve
+      SPI connector and strain-relieved harness. Verify alignment, bandwidth, latency,
+      clipping and sample timing in WO-06/10.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- estimate: true
+  id: micro_sd
+  type: commercial
+  parent: nose
+  position_m: 0.145
+  lateral_offset_m:
+  - 0.0
+  - 0.008
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.003
+  cg_offset_m: 0.01
+  explode_offset: 0.0
+  learn: The log card records raw sensors, estimates, commands, fault state and supply
+    voltage. Buffered writes and recovery from a full or failed card must preserve
+    the control deadline.
+  build:
+    method: purchased
+    cost_usd: 10.0
+    generator: commercial
+    notes: WO-01 envelope and mass estimate; generator, tolerances, measured mass
+      and strength qualification in WO-03/09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: The log card records raw sensors, estimates, commands, fault state and
+      supply voltage.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect, install and remove with adjacent module open; exact fasteners,
+      connector access and physical fit remain unverified.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- estimate: true
+  id: battery
+  type: commercial
+  parent: nose
+  position_m: 0.085
+  lateral_offset_m:
+  - 0.0
+  - 0.008
+  geometry:
+    bbox_m:
+    - 0.055
+    - 0.03
+    - 0.015
+  material: commercial
+  mass_kg: 0.03
+  cg_offset_m: 0.0275
+  electrical:
+    nominal_v: 7.4
+    capacity_mah: 450.0
+    max_discharge_a: 9.0
+  explode_offset: 0.0
+  learn: A 2S pack supplies regulator headroom through discharge. Servo current spikes
+    can brown out logic unless rails and decoupling are sized correctly. Capacity,
+    mass and discharge rating are estimates pending a selected cell and measurements.
+  build:
+    method: purchased
+    cost_usd: 18.0
+    generator: commercial_envelope
+    notes: Budget estimate; exact component datasheet, price, mass and mounting interface
+      must be frozen in WO-09.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: A 2S pack supplies regulator headroom through discharge.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.15
+    load_cases:
+    - acceleration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Replace through the removable avionics sled with aft module disconnected
+      and recovery circuit safe. Verify restraint, connector clearance and independent-recovery
+      supply isolation before build.
+    required_physical_verification:
+    - Weigh and measure as-built part; confirm supplier envelope/holes where purchased.
+    - Verify material/orientation, loaded fit and applicable proof/temperature tests.
+- cite: docs/wo03-g80-f2-suppliers.md
+  estimate: false
+  id: independent_recovery
+  type: commercial
+  parent: nose
+  position_m: 0.17
+  lateral_offset_m:
+  - 0.0
+  - 0.005
+  geometry:
+    bbox_m:
+    - 0.04445
+    - 0.02286
+    - 0.008
+  material: commercial
+  mass_kg: 0.005
+  cg_offset_m: 0.022225
+  explode_offset: 0.0
+  learn: Eggtimer Apogee singleapogee kit,44.45x22.86mm/about5g plusheightbudget8mm.
+    Builtin screw power switch;1S only. Kit assembly and supply confirmation pending;
+    no external switch assumed owned.
+  build:
+    method: purchased
+    cost_usd: 15.0
+    generator: envelope
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: Altus Metrum EasyMini v3.0 independent barometric recovery controller
+      envelope with its published four-hole board pattern.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: published
+    service_notes: Manufacturer outline is represented at published footprint and
+      hole spacing; six-mm thickness includes estimated terminal allowance. Board
+      pressure access, terminal projection and switch/connector/tool access remain
+      unresolved.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+- cite: https://shop.gag.com/product/120mah-lipo-battery/
+  estimate: true
+  id: recovery_battery
+  type: commercial
+  parent: nose
+  position_m: 0.193
+  lateral_offset_m:
+  - 0.02
+  - -0.01
+  geometry:
+    bbox_m:
+    - 0.03
+    - 0.015
+    - 0.005
+  material: commercial
+  mass_kg: 0.005
+  cg_offset_m: 0.015
+  explode_offset: 0.0
+  learn: Matching1S110mAh starterpack cell,5g envelopebudget.19USD allocated incremental
+    bundlecost includes offvehicle charger; combinedcontroller+bundle34USD. Polarity/envelope/pulse
+    verification pending, not owner inventory.
+  build:
+    method: purchased
+    cost_usd: 19.0
+    generator: envelope
+    notes: Study proposal only; exact hardware or manufactured properties remain to
+      be verified.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: purchased_envelope
+    moving_group: fixed
+    color: '#5c9d73'
+    notes: F1 positioned purchased/soft envelope, not exact component CAD.
+  engineering:
+    function: Dedicated 1S 120 mAh LiPo envelope for the recovery controller; no connection
+      to the flight-computer battery net.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.25
+      hole_diameter: 0.2
+    load_cases:
+    - acceleration
+    - vibration
+    thermal_cases:
+    - G80
+    - G54
+    - G12
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Seller dimensions and mass are approximate. Connector polarity,
+      protection board, pulse behavior, charging method and restraint need confirmation.
+    required_physical_verification:
+    - Confirm exact part dimensions, mass and connector orientation from the selected
+      revision.
+    - Verify retention, insertion/removal, access and harness restraint on representative
+      hardware.
+    - Ground-test the complete isolated power system using manufacturer-approved procedures
+      under WO-09/10.
+- estimate: true
+  id: avionics_sled
+  type: commercial
+  parent: nose
+  position_m: 0.082
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.09
+    - 0.03
+    - 0.002
+  material: commercial
+  mass_kg: 0.011
+  cg_offset_m: 0.045
+  explode_offset: 0.0
+  learn: 11g removable two-rail nose carrier, fasteners and battery straps; actual
+    rails are not the solid envelope. Slides through45mm nose opening after eye/connector
+    service.
+  build:
+    method: assembled
+    cost_usd: 5.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Custom removable plywood sled, supports and fasteners; sensor alignment
+      and battery retention.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: logger_power_switch
+  type: commercial
+  parent: nose
+  position_m: 0.15
+  lateral_offset_m:
+  - 0.025
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.012
+    - 0.008
+    - 0.01
+  material: commercial
+  mass_kg: 0.003
+  cg_offset_m: 0.006
+  explode_offset: 0.0
+  learn: Independent logger arming switch; no connection to recovery firing supply.
+  build:
+    method: assembled
+    cost_usd: 3.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Independent logger arming switch; no connection to recovery firing supply.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: logger_regulator
+  type: commercial
+  parent: nose
+  position_m: 0.148
+  lateral_offset_m:
+  - -0.015
+  - -0.01
+  geometry:
+    bbox_m:
+    - 0.025
+    - 0.018
+    - 0.008
+  material: commercial
+  mass_kg: 0.004
+  cg_offset_m: 0.0125
+  explode_offset: 0.0
+  learn: Logic supply budget for logger; no servos or future gimbal regulator.
+  build:
+    method: assembled
+    cost_usd: 4.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Logic supply budget for logger; no servos or future gimbal regulator.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: recovery_carrier
+  type: commercial
+  parent: nose
+  position_m: 0.165
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.008
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Controller/cell carrier, screws, switch bracket and cell strap; removal from
+    nose opening.
+  build:
+    method: assembled
+    cost_usd: 4.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Controller/cell carrier, screws, switch bracket and cell strap; removal
+      from nose opening.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: electrical_harness
+  type: commercial
+  parent: nose
+  position_m: 0.11
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.011
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Nose logger wiring/connectors and retention;11g includes2g relocation increment.
+    Separate from5g independent recovery harness.
+  build:
+    method: assembled
+    cost_usd: 5.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Logger wiring/connectors, strain relief and battery strap.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: recovery_harness_wiring
+  type: commercial
+  parent: nose
+  position_m: 0.19
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.005
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Independent recovery wires, terminal clearance, output connector and strain
+    relief.
+  build:
+    method: assembled
+    cost_usd: 4.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Independent recovery wires, terminal clearance, output connector and
+      strain relief.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: recovery_output_mount
+  type: commercial
+  parent: nose
+  position_m: 0.225
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.006
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Output/ejection hardware mounting and nonmetallic protection budget; later
+    electrical/ground qualification.
+  build:
+    method: assembled
+    cost_usd: 5.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Output/ejection hardware mounting and nonmetallic protection budget;
+      later electrical/ground qualification.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: rail_buttons
+  type: commercial
+  parent: body
+  position_m: 0.45
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.005
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Two 1010 rail buttons and screws; actual launch equipment unconfirmed.
+  build:
+    method: assembled
+    cost_usd: 6.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Two 1010 rail buttons and screws; actual launch equipment unconfirmed.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: rail_backers
+  type: commercial
+  parent: body
+  position_m: 0.45
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.004
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Local plywood rail-button backing blocks and adhesive, not a second airframe.
+  build:
+    method: assembled
+    cost_usd: 1.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Local plywood rail-button backing blocks and adhesive, not a second
+      airframe.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: finish
+  type: commercial
+  parent: body
+  position_m: 0.45
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.012
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Sanding sealer, primer and paint process budget.
+  build:
+    method: bonded
+    cost_usd: 5.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Sanding sealer, primer and paint process budget.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: service_allowance
+  type: commercial
+  parent: body
+  position_m: 0.45
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.04
+    - 0.02
+    - 0.01
+  material: commercial
+  mass_kg: 0.006
+  cg_offset_m: 0.02
+  explode_offset: 0.0
+  learn: Labels, tape, anti-chafe, small replacement fasteners; distinct from full
+    growth.
+  build:
+    method: assembled
+    cost_usd: 2.0
+    generator: envelope
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Labels, tape, anti-chafe, small replacement fasteners; distinct from
+      full growth.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- cite: https://locprecision.com/products/cardboard-airframes
+  estimate: true
+  id: upper_body
+  type: body_tube
+  parent: nose
+  position_m: 0.16
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.298
+    radius_m: 0.033401
+    inner_radius_m: 0.032512
+    wall_m: 0.000889
+  material: cardboard
+  mass_kg: 0.03840051214476691
+  cg_offset_m: 0.14899999999999997
+  explode_offset: 0.0
+  learn: 298mm uppercut from second LOC762mm blank; fullblank cost already charged
+    onbody. Permanent50mm overlap splice.
+  build:
+    method: cut
+    cost_usd: 0.0
+    generator: tube
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: tube
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: One continuous kraft tube carries body bending and connects fin/motor
+      support to nose separation. Slots only at fins.
+    material_profile: cardboard
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- cite: https://locprecision.com/products/cardboard-airframes
+  estimate: true
+  id: body_splice
+  type: body_tube
+  parent: nose
+  position_m: 0.408
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    length_m: 0.1
+    radius_m: 0.032225
+    inner_radius_m: 0.031336
+    wall_m: 0.000889
+  material: cardboard
+  mass_kg: 0.012426258817849454
+  cg_offset_m: 0.049999999999999996
+  explode_offset: 0.0
+  learn: 100mm split sleeve formed from same LOCoffcut to fitted64.45mm OD;50mm overlap
+    each side of458mm splice. Seam patched inside. Finalconditionedfit required, not
+    supplierdiameter.
+  build:
+    method: cut
+    cost_usd: 0.0
+    generator: tube
+    notes: Preliminary F1 construction definition; not a qualified drawing.
+  cad:
+    generator: tube
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: manufactured
+    moving_group: fixed
+    color: '#d4b887'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: One continuous kraft tube carries body bending and connects fin/motor
+      support to nose separation. Slots only at fins.
+    material_profile: cardboard
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: splice_seam_patch
+  type: commercial
+  parent: body
+  position_m: 0.408
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.015
+    - 0.000889
+  material: commercial
+  mass_kg: 0.0009334500000000001
+  cg_offset_m: 0.05
+  explode_offset: 0.0
+  learn: 15mmwide internal paperseam patch fromoffcut; jointfixed, no extraction latch.
+  build:
+    method: assembled
+    cost_usd: 0.0
+    generator: envelope
+    notes: 15mmwide internal paperseam patch fromoffcut; jointfixed, no extraction
+      latch.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: 15mmwide internal paperseam patch fromoffcut; jointfixed, no extraction
+      latch.
+  engineering:
+    function: 15mmwide internal paperseam patch fromoffcut; jointfixed, no extraction
+      latch.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: splice_adhesive
+  type: commercial
+  parent: body
+  position_m: 0.408
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.004
+    - 0.004
+  material: commercial
+  mass_kg: 0.008
+  cg_offset_m: 0.05
+  explode_offset: 0.0
+  learn: '8g splice adhesive: full nominal.287mm annular film plus seam/fillets; no
+    ideal dry contact.'
+  build:
+    method: assembled
+    cost_usd: 2.0
+    generator: envelope
+    notes: 5g metered overlap/seam adhesive and tapered edges, counted separately.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: 5g metered overlap/seam adhesive and tapered edges, counted separately.
+  engineering:
+    function: 5g metered overlap/seam adhesive and tapered edges, counted separately.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: nose_service_hardware
+  type: commercial
+  parent: nose
+  position_m: 0.174
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.02
+    - 0.015
+    - 0.008
+  material: commercial
+  mass_kg: 0.003
+  cg_offset_m: 0.01
+  explode_offset: 0.0
+  learn: 3g nosecarrier captive screws/retention/battery strainrelief increment; no
+    loose ballast.
+  build:
+    method: assembled
+    cost_usd: 2.0
+    generator: envelope
+    notes: 3g nosecarrier captive screws/retention/battery strainrelief increment;
+      no loose ballast.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: 3g nosecarrier captive screws/retention/battery strainrelief increment;
+      no loose ballast.
+  engineering:
+    function: 3g nosecarrier captive screws/retention/battery strainrelief increment;
+      no loose ballast.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: c1_forward_root_bond_fill
+  type: commercial
+  parent: body
+  position_m: 1.075
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.0122
+    - 0.004
+    - 0.004
+  material: epoxy
+  mass_kg: 0.000763109335632378
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: Additional filled epoxy volume for matched forward/root gaps;1200kg/m3 estimated,
+    no parallel air path. No credit for removed original wood/bond material. Thin-film
+    approximation/process excess uncertainty remains. RP1 retains the full existing
+    mass as counted installation reserve; old blind-notch/end film occupancy is superseded,
+    no adhesive bridge across the new front gap is credited.
+  build:
+    method: bonded
+    cost_usd: 0.153
+    generator: envelope
+    notes: Additional filled epoxy volume for matched forward/root gaps;1200kg/m3
+      estimated, no parallel air path. No credit for removed original wood/bond material.
+      Thin-film approximation/process excess uncertainty remains.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Additional filled epoxy volume for matched forward/root gaps;1200kg/m3
+      estimated, no parallel air path. No credit for removed original wood/bond material.
+      Thin-film approximation/process excess uncertainty remains.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: c1_aft_bond_fill
+  type: commercial
+  parent: body
+  position_m: 1.19
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.0122
+    - 0.004
+    - 0.004
+  material: epoxy
+  mass_kg: 0.0001458955628327117
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: Additional filled epoxy volume for aft perimeter gap;1200kg/m3 estimated,
+    no parallel air path. No credit for removed original wood/bond material. Thin-film
+    approximation/process excess uncertainty remains.
+  build:
+    method: bonded
+    cost_usd: 0.029
+    generator: envelope
+    notes: Additional filled epoxy volume for aft perimeter gap;1200kg/m3 estimated,
+      no parallel air path. No credit for removed original wood/bond material. Thin-film
+      approximation/process excess uncertainty remains.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Additional filled epoxy volume for aft perimeter gap;1200kg/m3 estimated,
+      no parallel air path. No credit for removed original wood/bond material. Thin-film
+      approximation/process excess uncertainty remains.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: c1_nose_bond_fill
+  type: commercial
+  parent: nose
+  position_m: 0.178
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.0122
+    - 0.004
+    - 0.004
+  material: epoxy
+  mass_kg: 0.0002810167195006651
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: Additional filled epoxy volume for nose perimeter gap;1200kg/m3 estimated,
+    no parallel air path. No credit for removed original wood/bond material. Thin-film
+    approximation/process excess uncertainty remains.
+  build:
+    method: bonded
+    cost_usd: 0.056
+    generator: envelope
+    notes: Additional filled epoxy volume for nose perimeter gap;1200kg/m3 estimated,
+      no parallel air path. No credit for removed original wood/bond material. Thin-film
+      approximation/process excess uncertainty remains.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Additional filled epoxy volume for nose perimeter gap;1200kg/m3 estimated,
+      no parallel air path. No credit for removed original wood/bond material. Thin-film
+      approximation/process excess uncertainty remains.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: rp1_kevlar_wrap
+  type: commercial
+  parent: body
+  position_m: 0.55
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.03
+    - 0.025
+  material: commercial
+  mass_kg: 0.01625
+  cg_offset_m: 0.05
+  explode_offset: 0.0
+  learn: AD1:6.5ft raw30327,16.25g estimate; two figure-eight eyes and reeved proximal
+    choker,300mmrawreserved eachtermination; knotcapacity/actualenvelopeunknown. Frozen6ftRP1
+    unchanged.
+  build:
+    method: purchased
+    cost_usd: 17.1
+    generator: envelope
+    notes: AD1:6.5ft raw30327,16.25g estimate; two figure-eight eyes and reeved proximal
+      choker,300mmrawreserved eachtermination; knotcapacity/actualenvelopeunknown.
+      Frozen6ftRP1 unchanged.
+  cad:
+    generator: envelope
+    parameters:
+      complete_geometry_available: false
+      raw_length_m: 1.9812
+      proposed_max_cord_diameter_m: 0.0038
+      wrap_axial_min_m: 1.0722
+      wrap_axial_max_m: 1.077
+      exit_angle_deg: 60
+      knot_envelope_verified: false
+      knot_reserved_box_m:
+      - 0.05
+      - 0.02
+      - 0.014
+      knot_radial_min_m: 0.0165
+      knot_radial_max_m: 0.0305
+    mass_basis: supplied_or_estimated
+    role: soft_stowage
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: AD1:6.5ft raw30327,16.25g estimate; two figure-eight eyes and reeved
+      proximal choker,300mmrawreserved eachtermination; knotcapacity/actualenvelopeunknown.
+      Frozen6ftRP1 unchanged.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: rp1_wrap_lock_bond
+  type: commercial
+  parent: body
+  position_m: 1.066
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.03
+    - 0.025
+  material: epoxy
+  mass_kg: 0.004
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: Additional4g installation/anti-slip fillet budget at ring/tube, not a glue-only
+    tensile anchor. No glue on working rope or knot; actual finished process must
+    be tested.
+  build:
+    method: bonded
+    cost_usd: 0.8
+    generator: envelope
+    notes: Additional4g installation/anti-slip fillet budget at ring/tube, not a glue-only
+      tensile anchor. No glue on working rope or knot; actual finished process must
+      be tested.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: Additional4g installation/anti-slip fillet budget at ring/tube, not
+      a glue-only tensile anchor. No glue on working rope or knot; actual finished
+      process must be tested.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: rp1_notch_sealer
+  type: commercial
+  parent: body
+  position_m: 1.06
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.03
+    - 0.025
+  material: epoxy
+  mass_kg: 0.001
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: 1g rounded-notch sealing/finishing budget; edge radius and conditioned chafe
+    capacity unknown.
+  build:
+    method: bonded
+    cost_usd: 0.2
+    generator: envelope
+    notes: 1g rounded-notch sealing/finishing budget; edge radius and conditioned
+      chafe capacity unknown.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: 1g rounded-notch sealing/finishing budget; edge radius and conditioned
+      chafe capacity unknown.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: rp1_lip_guard
+  type: commercial
+  parent: body
+  position_m: 0.16
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.1
+    - 0.03
+    - 0.025
+  material: commercial
+  mass_kg: 0.004
+  cg_offset_m: 0.0061
+  explode_offset: 0.0
+  learn: 'Custom soft aramid-textile mouth/chafe guard4g budget,60x20mm envelope;
+    not a qualified load-spreading anchor. Existing canopy protector remains separately
+    counted. Apogee29187 is not selected: stated fit is100/300lb cord, not30327.'
+  build:
+    method: assembled
+    cost_usd: 8.0
+    generator: envelope
+    notes: 'Custom soft aramid-textile mouth/chafe guard4g budget,60x20mm envelope;
+      not a qualified load-spreading anchor. Existing canopy protector remains separately
+      counted. Apogee29187 is not selected: stated fit is100/300lb cord, not30327.'
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: 'Custom soft aramid-textile mouth/chafe guard4g budget,60x20mm envelope;
+      not a qualified load-spreading anchor. Existing canopy protector remains separately
+      counted. Apogee29187 is not selected: stated fit is100/300lb cord, not30327.'
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: ad1_cord_sleeve
+  type: commercial
+  parent: body
+  position_m: 0.98
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.08
+    - 0.008
+    - 0.002
+  material: epoxy
+  mass_kg: 0.002
+  cg_offset_m: 0.04
+  explode_offset: 0.0
+  learn: "80mm folded aramid heat/chafe sleeve, exactstock unknown; no thermalcapacity\
+    \ credited;2gcountedonce. Geometrycorrection:980\u20131060mm ahead of ring; folded8mm\
+    \ sleeve must NOT occupy4.5mmnotch. Barecordonroundedsealedpassage remains thermally/chafeunqualified."
+  build:
+    method: bonded
+    cost_usd: 2.0
+    generator: envelope
+    notes: "80mm folded aramid heat/chafe sleeve, exactstock unknown; no thermalcapacity\
+      \ credited;2gcountedonce. Geometrycorrection:980\u20131060mm ahead of ring;\
+      \ folded8mm sleeve must NOT occupy4.5mmnotch. Barecordonroundedsealedpassage\
+      \ remains thermally/chafeunqualified."
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: 80mm folded aramid heat/chafe sleeve, exactstock unknown; no thermalcapacity
+      credited;2gcountedonce.
+  engineering:
+    function: "80mm folded aramid heat/chafe sleeve, exactstock unknown; no thermalcapacity\
+      \ credited;2gcountedonce. Geometrycorrection:980\u20131060mm ahead of ring;\
+      \ folded8mm sleeve must NOT occupy4.5mmnotch. Barecordonroundedsealedpassage\
+      \ remains thermally/chafeunqualified."
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+- estimate: true
+  id: fr1_edge_finish
+  type: commercial
+  parent: body
+  position_m: 1.075
+  lateral_offset_m:
+  - 0.0
+  - 0.0
+  geometry:
+    bbox_m:
+    - 0.13
+    - 0.004
+    - 0.004
+  material: epoxy
+  mass_kg: 0.002
+  cg_offset_m: 0.065
+  explode_offset: 0.0
+  learn: 2g curedCFRPcut-edge seal/finish budget; not a structural/thermal/electrical
+    qualification.
+  build:
+    method: bonded
+    cost_usd: 2.0
+    generator: envelope
+    notes: 2g curedCFRPcut-edge seal/finish budget; not a structural/thermal/electrical
+      qualification.
+  cad:
+    generator: envelope
+    parameters: {}
+    mass_basis: supplied_or_estimated
+    role: distributed_budget
+    moving_group: fixed
+    color: '#79a8bd'
+    notes: Candidate dimensions; fit and material verification required.
+  engineering:
+    function: 2g curedCFRPcut-edge seal/finish budget; not a structural/thermal/electrical
+      qualification.
+    material_profile: commercial
+    tolerances_mm:
+      linear: 0.1
+    load_cases:
+    - acceleration
+    - recovery_opening
+    thermal_cases:
+    - G80
+    - post_burn_soak
+    property_basis: estimated
+    service_notes: Inspect before assembly; no physical tests performed.
+    required_physical_verification:
+    - Confirm dimensions, mass and supplier revision.
+    - Proof relevant installed joint and verify temperature/fit.
+stages: []
+events: []
+netlist:
+- net: LOGIC
+  from: battery
+  to:
+  - logger_power_switch
+  - logger_regulator
+  - flight_computer
+  - imu
+  - baro
+  - high_g_accel
+  - micro_sd
+- net: RECOVERY_INDEPENDENT
+  from: recovery_battery
+  to:
+  - independent_recovery
+  - recovery_harness_wiring
+  - recovery_output_mount
+design:
+  mode: performance
+  mass_allowance_kg: 0.05
+  rail_length_m: 1.5
+  minimum_rail_exit_mps: 15.0
+  screening_wind_mps: 2.0
+  rail_friction_n: 0.5
+  drag_coefficient_upper: 0.8
+  thrust_scale_lower: 0.85
+  minimum_static_margin_cal: 1.0
+  minimum_control_time_s: 0.0
+  target_control_time_s: 0.0
+  control_thrust_to_weight: 1.2
+  provenance: G80-F2 fixedstock followup. Conservative historicalG80curve hypothesis,
+    full50g all aft; additional20g/motorCGprobe separate. No automatic motor/retainer
+    fit, controller supply or physical acceptance.
+recovery:
+  cite: docs/wo01-rebaseline.md; canopy Cd, opening and trigger latency unmeasured
+  estimate: true
+  canopy_diameter_m: 0.75
+  drag_coefficient: 0.75
+  trigger: independent_electronic_apogee
+  trigger_lag_s: 0.3
+  inflation_s: 0.3
+  independent_recovery_part: independent_recovery

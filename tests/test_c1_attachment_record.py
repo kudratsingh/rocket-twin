@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pytest
 
+from src.analysis.source_archive import verified_source
+
 ROOT = Path(__file__).resolve().parents[1]
 RUN = ROOT / "runs/wo03-c1-fin-attachment-20261102-v1"
 
@@ -19,10 +21,12 @@ def test_source_identity_and_growth_cannot_be_replaced_by_rounded_summary():
     r = record()
     for relative, expected in r["input_sha256"].items():
         # The staged helpers were byte-identical to the maintained source at run
-        # time. Verify those published source files, not excluded generated bulk.
+        # time. Verify those exact bytes, including explicitly archived versions
+        # when current code evolves; never rewrite a frozen input hash.
         if relative.startswith("build/"):
             relative = relative.split("/checkout/", 1)[1]
-        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected
+        historical = verified_source(ROOT, relative, expected)
+        assert hashlib.sha256(historical.read_bytes()).hexdigest() == expected
     cases = {x["id"]: x for x in r["coupled_cases"]}
     assert cases["C1_nominal"]["total_with_growth_g"] == pytest.approx(1129.8067509765393)
     for case in cases.values():
