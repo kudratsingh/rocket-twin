@@ -1,0 +1,88 @@
+.rp1-study-comparison {
+  padding: 20px;
+  color: #e6eef5;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.rp1-study-comparison code {
+  display: block;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.rp1-unaccepted {
+  color: #f1c77e;
+  font-weight: 600;
+}
+.rp1-load-definition,
+.rp1-study-card {
+  border: 1px solid #3d5367;
+  padding: 16px;
+  border-radius: 8px;
+  background: #14212e;
+}
+.rp1-study-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.rp1-study-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.rp1-study-metrics dt {
+  color: #abc0d0;
+  font-size: 12px;
+}
+.rp1-study-metrics dd {
+  margin: 0;
+  font-size: 20px;
+}
+.rp1-study-graph {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.rp1-graph-node {
+  cursor: pointer;
+}
+.rp1-graph-node:focus-visible rect {
+  stroke: #fff;
+  stroke-width: 3;
+}
+.rp1-node-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.rp1-node-buttons button {
+  min-height: 44px;
+}
+.rp1-node-buttons button[aria-pressed='true'] {
+  border-color: #94ddff;
+}
+.rp1-node-detail {
+  padding: 12px;
+  background: #203344;
+  border-radius: 5px;
+  margin-block: 12px;
+}
+.rp1-study-comparison details {
+  margin-top: 12px;
+}
+.rp1-study-comparison summary {
+  cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .rp1-study-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .rp1-study-metrics {
+    grid-template-columns: 1fr;
+  }
+  .rp1-study-comparison {
+    padding: 10px;
+  }
+}

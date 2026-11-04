@@ -6,6 +6,7 @@ import { ExtensionViews } from './ExtensionViews';
 import { A1ConnectionViews } from './A1ConnectionViews';
 import { ConventionalG80Views } from './ConventionalG80Views';
 import F2ConnectionStudy from './F2ConnectionStudy';
+import Rp1StudyComparison from './Rp1StudyComparison';
 import { F2ConstructionViews } from './F2ConstructionViews';
 import type { A1Snapshot } from './a1Types';
 import { validateA1Snapshot } from './a1Types';
@@ -205,6 +206,13 @@ export default function EngineeringWorkbench() {
       </nav>
     </>
   );
+  if (view === 'rp1-studies')
+    return (
+      <main className="engineering-workbench">
+        {topicNavigation}
+        <Rp1StudyComparison />
+      </main>
+    );
   if (view === 'g80-f2-c1') {
     return (
       <main className="engineering-workbench">

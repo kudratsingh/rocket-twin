@@ -1,5 +1,7 @@
 # Frontend workbench backlog
 
+Latest bounded FT-016/evidence increment: [separate FP1/FR1 source-relationship comparison](wo04-rp1-studies-20261104.md), selectable graphics, source hashes and honest unaccepted status. Actual exported React graphs were inspected offline;85 integrated web tests/type/lint/format/build pass. Browser observation fields remain false; this does not complete the43-task plan.
+
 The [machine-readable backlog](frontend-workbench-backlog.json) preserves all 43 planning-kit tasks, their dependencies, owner roles, acceptance criteria and evidence fields. This is a conservative snapshot: `partial` identifies bounded evidence, not task completion. A `planned` entry may have earlier work; it has not been established here against the full task criteria. All browser-observed and accepted fields are false for this increment. Source/build checks do not establish usability or acceptance.
 
 Planning source: `output/frontend-planning-kit-20261103/` — manifest SHA-256 `4e2c647017b36ed5368ac757e873fe30d9f314f5e02fc01cf98943432ce93010`; backlog JSON SHA-256 `e0a717dabaf59794841861fd6febd8999e4bbec23464e1cd6e7e247840c0d20c`. These hashes bind the named files; the manifest lists individual kit files and excludes itself. The source snapshot has no Git metadata, so no commit identity is asserted.
