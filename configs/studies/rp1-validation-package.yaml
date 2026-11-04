@@ -1,0 +1,111 @@
+schema_version: 1
+id: RP1-VP1-plywood-validation-package-v1
+status: inquiry_ready_execution_not_authorized
+source_decision: docs/wo03-rp1-load-attachment-decision.md
+frozen_configuration: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+configuration_sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+purpose: Select evidence for one conventional G80 fin construction, not adopt a material or release a vehicle.
+owner_stock_credit_usd: 0
+purchase_authorized: false
+supplier_contact_authorized: false
+physical_work_authorized: false
+paid_service_authorized: false
+initial_material:
+  product: Aircraft Spruce 02-20850 nominal6mm twelve-ply Finnish birch
+  process: WEST105-A/206-A porous-substrate wet-out plus406-2 non-sag fillet
+  process_status: One proposed process for documentation and pilot witnesses, no finished allowable.
+  carbon_purchases: none
+  vehicle_adoption: false
+preserved:
+  fin_moment_Nm: 8.83
+  fin_force_N: 331.125
+  design_factor_already_applied: 3
+  tip_movement_limit_mm: 1
+  plywood_bending_screen_MPa: 5
+  adhesive_mean_shear_screen_MPa: 1
+  guide_reference_m: 1.5
+  formal_departure_mps: 15
+  planning_departure_mps: 15.5
+  separate_growth_g: 50
+  additional_aft_g: 20
+  motor_cg_probe_mm: 12.8
+  unverified_main_harness_g: [55, 68]
+  substrate_screen_C: 45
+  full_inertia: unavailable
+  vehicle_mass_change_g: 0
+source_registers:
+  material: configs/studies/rp1-vp1-material-sources.yaml
+  instruments: configs/studies/rp1-vp1-equipment-sources.yaml
+materials:
+  - {id: plywood, sku: 02-20850, quantity: 1, unit: 24x48in_half_sheet, unit_usd: 69.75, basis: current_seller_listing, lifecycle: consumed_test_stock, source: 'https://www.aircraftspruce.com/catalog/pnpages/02-20850.php', availability: Add_to_Cart_not_reserved_or_counted}
+  - {id: body, sku: BT-2.56, quantity: 2, unit: 762mm_blank, unit_usd: 10.27, basis: current_selected_variant, lifecycle: consumed_test_stock, source: 'https://locprecision.com/collections/rocket-components/products/cardboard-airframes', availability: storefront_available_flag_not_stock_count}
+  - {id: motor_tube, sku: '12912', quantity: 4, unit: 305mm_blank, unit_usd: 7.49, basis: current_seller_listing, lifecycle: consumed_test_stock, source: 'https://aerotech-rocketry.com/products/product_bba49b47-aef8-1eff-6575-e0aa8112f05d', availability: Add_to_Cart_not_reserved_or_counted}
+  - {id: resin, sku: 105-A, quantity: 1, unit: 0.25gal, unit_usd: 59.51, basis: manufacturer_list_effective_20260622, lifecycle: consumable, source: 'https://www.westsystem.com/price-list/', availability: list_price_live_dealer_stock_unconfirmed}
+  - {id: hardener, sku: 206-A, quantity: 1, unit: 0.44pt, unit_usd: 34.61, basis: manufacturer_list_effective_20260622, lifecycle: consumable, source: 'https://www.westsystem.com/price-list/', availability: list_price_live_dealer_stock_unconfirmed}
+  - {id: filler, sku: 406-2, quantity: 1, unit: 1.7oz, unit_usd: 23.73, basis: manufacturer_list_effective_20260622, lifecycle: consumable, source: 'https://www.westsystem.com/price-list/', availability: list_price_live_dealer_stock_unconfirmed}
+  - {id: pumps, sku: '300', quantity: 1, unit: set, unit_usd: 31.39, basis: manufacturer_list_effective_20260622, lifecycle: reusable, source: 'https://www.westsystem.com/price-list/', availability: list_price_live_dealer_stock_unconfirmed}
+initial_room_only_material_order:
+  plywood: 1
+  body: 1
+  motor_tube: 1
+  resin: 1
+  hardener: 1
+  filler: 1
+  pumps: 1
+stages:
+  - id: S0
+    scope: Four product inquiries plus one laboratory fixed-price/method RFQ
+    proposed_now: true
+    authorized: false
+    spending_usd: 0
+    stop: One follow-up on businessday5; close documentation on businessday10. Missing typical product data becomes measured-test scope, not an endless request.
+  - id: S1
+    scope: Room-temperature stock and process pilot; 10 bare wood strips and6 curved paper/wood T-joints, same lot/process
+    authorized: false
+    specimens: {wood: 10, joint: 6}
+    gate: Written lab quote, actual substrate/process agreement and uncertainty/fixture method meeting protocol; separate owner spend/build/test authorization.
+    service_price_usd: null
+    proposed_quote_screen_ceiling_usd: 1500
+  - id: S2
+    scope: Only after S1 evidence supports further admission; 20 additional conditioned strips,12 additional T-joints,3 independent240mm root articles
+    authorized: false
+    gate: Complete defined finite root and supported material/strength screen, fixture validity, written quote and separate owner authorization. No unchanged failed design is qualified by survival.
+    service_price_usd: null
+    proposed_additional_quote_screen_ceiling_usd: 3000
+financial_basis:
+  materials_known_total_usd: 269.49
+  initial_room_material_order_usd: 236.75
+  quotes_received: false
+  first_authorization_total_usd: 0
+  expected_full_programme_total_usd: null
+  unknowns: [lab_setup_and_fabrication, fixture_hardware, calibrated_channels, specimen_cutting, preparation_consumables_and_PPE, conditioning, shipping, tax]
+  quote_requirements: Itemize all unknowns; no owner tools/stock assumed; no paid consultation, deposit, purchase order or samples authorized by RFQ.
+  planning_reservation_not_quote_usd: 5000
+  reservation_purpose: Affordability screen only, not a price prediction or authorization. If an all-in written proposal exceeds this, return one decision before spending.
+protocol:
+  detail: docs/validation/rp1-vp1/protocol.md
+  material_strip_mm: [270, 25, nominal6]
+  spans_mm: [240, 180, 120]
+  primary_span_mm: 240
+  heldout_span_mm: 180
+  short_span_scope: diagnostic_only_no_home_G_identification
+  why_changed_from_D1: Longer stock amplifies bending signal; D1 150mm/60-120mm was a provisional fixture, not an engineering acceptance requirement.
+  conditions: [room_dry, dry45C, humid45C]
+  independent_strips_per_direction_condition: 5
+  directions: [face_grain_spanwise, face_grain_crosswise]
+  fit_vs_holdout_per_cell: [3, 2]
+  T_joint_replicates_per_route_condition: 3
+  routes: [wood_to_actual_motor_tube, wood_to_actual_body]
+  complete_root_replicates: 3
+  root_temperatures_and_conditioning_order: Same three articles room_dry then dry45C then humid45C; cumulative-conditioning evidence, not independent virgin hot allowables.
+  root_U95_tip_equivalent_mm_max: 0.01
+  root_U95_force_relative_max: 0.01
+  root_U95_moment_relative_max: 0.01
+  coupon_lab_displacement_U95_mm_max: 0.01
+  fit_uncertainty_limit_relative: 0.10
+  home_only_triage_uncertainty_limit_relative: 0.35
+  home_triage_can_qualify_joint_or_G: false
+  distributed_panel_loading_verified: false
+  root_measurement_rule: Replace exactly corresponding tab/support model terms, never add entire measured root to FP1 tab plus0.100mm. Unmeasured global body remains unavailable.
+  complete_fin_acceptance: Measured/validated total displacement plus uncertainty <=1mm under equivalent distributed load, retained strength screens, actual conditioned geometry; root-input fixture alone does not establish this.
+  separate_open_gates: [full_thermal_matrix, recovery, installed_flutter, physical_vehicle_inspection, exact_motor_retainer, firmware_WO10, flight_release]

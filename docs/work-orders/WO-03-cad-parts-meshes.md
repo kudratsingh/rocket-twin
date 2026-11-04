@@ -1,5 +1,34 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+**Current delivery: [VP1 owner-review validation package](../validation/rp1-vp1/package-summary.md).**
+One first test lead is ordinary6mm02-20850 birch with WEST105/206/406 fillets;
+this is not vehicle adoption. Four product drafts plus one supervised-lab RFQ
+are complete and UNSENT. Recommended first authorization is inquiries only,
+$0; no purchase, paid consultation, fabrication or loading. No email-sending
+connector is available; owner-ready drafts/forms are supplied.
+
+Room-pilot stock lists$236.75; conditional full stock reserve$269.49. Services,
+fixtures, calibrated channels and delivery are unquoted, so the all-in total
+is unavailable, never zero. A$5,000 planning reservation is an affordability
+screen, not a price or spending permission. Method/replication/uncertainty and
+stop conditions are in the [protocol](../validation/rp1-vp1/protocol.md). No full
+root execution is admitted without the specified method, supported construction,
+written quote and owner authorization. S0 closes after10businessdays, with one
+follow-up; do not wait for supplier aerospace allowables.
+
+D1's8.83N·m/331.125N once-factored load,1mm movement, estimated material screens,
+50g growth,20g adverse/motor probe,55/68g harness cases,1.5m/15formal/15.5planning
+and physical/thermal/recovery/flutter/WO10/flight gates remain unchanged.
+Frozen AD1, unadopted FP1/FR1 and G54/G12 PID-to-RL stay separate. G80 first,
+substantial custom construction and practical performance remain core goals.
+
+Frontend [portable RP1 SVG exports and graph zoom](../wo04-rp1-export-20261104.md)
+are merged inPR79 after required checks. Actual-source/code/SSR checks pass;
+browser interaction remains unverified behind the unchanged ownership block.
+Existing inspector, experiments and replay preserved; no browser workaround.
+
+## Retained D1 and expanded acceptance criteria
+
 **Current integrated decision: [RP1 D1 — load and attachment](../wo03-rp1-load-attachment-decision.md), ADR-0015.**
 The owner assigns primary integration; the coordination question is closed.
 Merged FR1 PR75 (solid carbon) and FP1 PR76 (carbon-faced plywood) are separate,

@@ -1,0 +1,160 @@
+schema: rp1-vp1-equipment-sources/v1
+captured_utc: 2026-11-04
+status: research_only_unpurchased
+governing_documents:
+  - docs/wo03-rp1-d1-test-definition.md
+  - docs/wo03-rp1-load-attachment-decision.md
+currency: USD
+price_basis: listed_unit_price_before_tax_shipping_fixtures_or_service
+source_budget: 12_unique_primary_urls
+sources:
+  gauge: https://mark-10.com/products/force-gauges/series-3/
+  stand: https://mark-10.com/products/manual-test-stands/es10-es20/
+  dial_indicator: https://www.globaltestsupply.com/product/mitutoyo-2046a-series-2-metric-standard-type-dial-indicator
+  digital_indicator: https://shop.idealprec.com/products/mitutoyo-543-700b-02-metric-digimatic-indicator-id-c-0-12-7mm-range-0-001mm-0-01mm-resolution
+  indicator_base: https://shop.idealprec.com/products/mitutoyo-7010s-magnetic-base-stand-with-6-rod-universal-clamp
+  caliper: https://www.globaltestsupply.com/product/mitutoyo-500-196-30-calliper-digimatic-encoder-technology-0-6-0-0005-0-150mm-0-01mm?ksearch_click=MITUTOYO%2B597-196-130
+  micrometer: https://www.globaltestsupply.com/product/mitutoyo-293-821-30-mdc-lite-micrometer
+  balance: https://www.globaltestsupply.com/product/ohaus-30253026-scout-spx-electronic-balance-electronic-balance-spx2201-am
+  reference_mass: https://www.globaltestsupply.com/categories/view/calibration-weights/sort%3Acreated/direction%3Aasc/page%3A2?brand=troemner
+  ambient_meter: https://www.thermoworks.com/products/rh-spot
+  probe_thermometer: https://www.thermoworks.com/products/thermopop-2?tw=RVW
+  laboratory: https://wmtr.com/en.composites.html
+items:
+  - id: mark10_m3_100
+    role: deferred_full_root_force_channel_candidate
+    lifecycle: reusable
+    model: Mark-10 M3-100
+    listed_usd: 750.00
+    source: gauge
+    range_N: 500
+    resolution_N: 0.5
+    accuracy: '+/-0.3% full scale; +/-1.5 N at 500 N capacity'
+    calibration: certificate_without_data_included; CERT_with_data_optional_85_usd
+    availability: not_stated_on_source_page
+    limitation: one_channel_only; fixtures_and_moment_calibration_unpriced
+  - id: mark10_es20
+    role: deferred_controlled_loader_candidate
+    lifecycle: reusable
+    model: Mark-10 ES20 handwheel stand
+    listed_usd: 850.00
+    source: stand
+    rated_max_N: 500
+    availability: not_stated_on_source_page
+    limitation: manufacturer_recommends_at_least_5_mm_travel_for_stand_displacement_due_to_system_and_load_cell_deflection; not_a_D1_two_force_root_fixture
+  - id: mitutoyo_2046a
+    role: inexpensive_coupon_and_multisite_displacement_indicator
+    lifecycle: reusable
+    model: Mitutoyo 2046A
+    listed_usd: 115.40
+    source: dial_indicator
+    range_mm: 10
+    resolution_mm: 0.01
+    accuracy_mm: '+/-0.013'
+    availability: 2_to_3_weeks_at_capture
+    limitation: accuracy_exceeds_0.01_mm_goal; independent_reference_and_calibration_required
+  - id: mitutoyo_543_700b_02
+    role: higher_accuracy_multisite_displacement_candidate
+    lifecycle: reusable
+    model: Mitutoyo 543-700B-02
+    listed_usd: 457.00
+    source: digital_indicator
+    range_mm: 12.7
+    resolution_mm: [0.001, 0.01]
+    maximum_permissible_error_mm: 0.003
+    hysteresis_mpe_mm: 0.002
+    availability: 5_in_stock_at_capture
+    limitation: multiple_units_and_independent_reference_points_required
+  - id: mitutoyo_7010s_10
+    role: indicator_base_candidate
+    lifecycle: reusable
+    model: Mitutoyo 7010S-10 magnetic base and clamp
+    listed_usd: 173.00
+    source: indicator_base
+    magnetic_pull_lbf: 132
+    accepted_stems_mm: [6, 8]
+    availability: 9_in_stock_at_capture
+    limitation: requires_verified_ferrous_reference_plate; cannot_attach_to_paper_body; pull_force_is_not_fixture_stiffness
+  - id: mitutoyo_500_196_32
+    role: general_geometry_caliper
+    lifecycle: reusable
+    model: Mitutoyo 500-196-32
+    listed_usd: 161.60
+    source: caliper
+    range_mm: 150
+    resolution_mm: 0.01
+    accuracy_mm: '+/-0.02'
+    availability: 207_in_stock_at_capture
+    limitation: insufficient_alone_for_30_to_50_micrometre_bond_film
+  - id: mitutoyo_293_821_32
+    role: coupon_and_skin_thickness_micrometer
+    lifecycle: reusable
+    model: Mitutoyo 293-821-32 MDC-Lite
+    listed_usd: 143.66
+    source: micrometer
+    range_mm: 25
+    resolution_mm: 0.001
+    accuracy_mm: '+/-0.002'
+    availability: 3_in_stock_at_capture
+    limitation: combined_stack_measurement_does_not_directly_resolve_buried_bond_film
+  - id: ohaus_spx2201
+    role: general_component_and_article_balance_candidate
+    lifecycle: reusable
+    model: OHAUS SPX2201
+    listed_usd: 444.62
+    source: balance
+    capacity_g: 2200
+    readability_g: 0.1
+    linearity_g: '+/-0.1'
+    optional_traceable_certificate_usd: 210.00
+    availability: 1_to_2_weeks_at_capture
+    limitation: 0.1_g_readability_not_suitable_for_small_bond_film_mass_differences; full_article_must_fit_capacity
+  - id: troemner_80780143
+    role: balance_check_and_low_load_mass_reference_candidate
+    lifecycle: reusable
+    model: Troemner ASTM Class 4 1 kg cylinder
+    listed_usd: 184.50
+    source: reference_mass
+    nominal_mass_g: 1000
+    availability: 2_to_3_weeks_at_capture
+    limitation: nominal_class_listing_is_not_actual_mass_certificate_or_safe_suspension_hardware; hanger_total_mass_and_local_gravity_need_uncertainty
+  - id: thermoworks_rh_spot
+    role: ambient_condition_log
+    lifecycle: reusable
+    model: ThermoWorks RH SPOT TX-5510-RD
+    listed_usd: 39.00
+    source: ambient_meter
+    accuracy_temperature_C: '+/-1.0'
+    accuracy_RH_percent: '+/-2 from 20 to 70% RH; +/-3 outside that band'
+    calibration: NIST_traceable_certificate_included
+    availability: in_stock_at_capture
+    limitation: ambient_only; 30_minute_response; not_substrate_45_C_channel
+  - id: thermoworks_thermopop2
+    role: proposed_contact_substrate_temperature_spot_check
+    lifecycle: reusable
+    model: ThermoWorks ThermoPop 2 TX-3120-RD
+    listed_usd: 39.00
+    source: probe_thermometer
+    accuracy_temperature_C: '+/-0.5 from -10 to 98 C'
+    calibration: NIST_traceable_certificate_included
+    availability: in_stock_at_capture
+    limitation: 45_C_surface_contact_method_and_thermal_gradient_need_validation; not_continuous_conditioning_record
+unpriced:
+  - low_load_span_fixture_steel_reference_plate_hanger_guards_and_fasteners
+  - humidity_conditioning_chamber_or_sealed_box_salts_and_monitoring_validation
+  - adhesive_specimen_materials_and_consumables
+  - small_mass_balance_if_bond_film_mass_must_be_resolved
+  - full_root_240_mm_article_two_force_or_whiffletree_fixture_and_guard
+  - independent_moment_calibration_and_multichannel_displacement_mounts
+  - accredited_or_professional_lab_coupon_and_full_root_service
+laboratory_option:
+  provider: Westmoreland Mechanical Testing and Research Inc
+  source: laboratory
+  contact_phone: 724-537-3131
+  capability_claim: custom_composites_tests_and_fixtures; conditioning_and_machine_shop
+  quote_status: unsent_unpriced
+decision_boundary:
+  stage_0: request_actual_lot_process_and_finished_joint_data_first
+  stage_1: at_most_10_N_bare_ply_coupon_effective_flexural_compliance_only_after_owner_protocol_and_calibration
+  stage_2: defer_331_125_N_and_8_83_Nm_installed_root_to_supervised_written_lab_quote_and_method_agreement
+  acceptance: none
