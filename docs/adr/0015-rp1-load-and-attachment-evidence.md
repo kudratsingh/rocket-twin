@@ -1,0 +1,11 @@
+# ADR-0015: RP1 governing-load identity and complete attachment evidence
+
+Status: accepted for case interpretation and work ordering; no reduced load or construction adopted.
+
+Context: the owner assigned the primary integration of merged FR1 PR75 and FP1 PR76. AD1 v2 is frozen. The historical90 mm fin's40 kPa/5°/DF3 moment was retained as8.83 N·m on the current60 mm planform; the current formula itself yields2.905255 N·m. Saved flights are not compatible current RP1 geometry/inertia evidence. FP1's arbitrary0.100 mm additional allowance and FR1's separate spring reactions cannot establish an installed fin.
+
+Decision: name `RP1-FIN-LEGACY-883` as the enforced331.125 N /8.83 N·m once-factored admission case. Name the current-planform formula `RP1-FIN-Q40-A5-D3` as an unadopted diagnostic. Preserve both results and factor accounting. Retaining this gate needs no new owner approval; a lower governing load requires a separate evidence-backed recorded decision. No changed load, material limit,1 mm movement or thermal screen is adopted here.
+
+Require one integrated load/material/whole-root evidence packet before another construction variant. Include actual finite tab/tube/body/ring/bond action and physical parallel routes, strength and peeling, and total movement. A complete-root prediction replaces the corresponding component tab and arbitrary allowance; it is not added twice. Unknown stiffness/strength and full inertia remain unavailable. Ordinary plywood receives the same scrutiny; carbon is optional. No convenient support stiffness, rigid ring or equal sharing supplies missing evidence.
+
+Consequences: FR1 remains stopped on evaluated movement/body-bond demand; FP1 remains an unaccepted conditional nominal component point with failed sensitivities. Neither is adopted and AD1 stays unchanged. D1 adds no vehicle mass. The50 g growth,20 g adverse/motor probe,55/68 g harness probes,1.5 m guide,15/15.5 m/s distinct targets and all WO-03/physical/flight gates remain. See the [decision and bounded resources](../wo03-rp1-load-attachment-decision.md) and [prepared test definition](../wo03-rp1-d1-test-definition.md). Primary owns integration; independent frontend work continues with exact identities and no browser-ownership bypass.

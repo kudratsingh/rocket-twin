@@ -1,0 +1,604 @@
+{
+  "FR1_joint_supplement_source_hash_matches_FR1_record": true,
+  "admission": "No FP1 or FR1 installed/adopted construction follows from this accounting audit; primary owns engineering decision.",
+  "changed_rows": [
+    {
+      "AD1": {
+        "first_moment_kg_m": 0.09030606510240997,
+        "mass_g": 78.83167661704073,
+        "station_mm": 1145.5555555555554
+      },
+      "FP1": {
+        "first_moment_kg_m": 0.07840754999999998,
+        "mass_g": 68.445,
+        "station_mm": 1145.5555555555554
+      },
+      "FR1": {
+        "first_moment_kg_m": 0.09702431699999997,
+        "mass_g": 84.6963,
+        "station_mm": 1145.5555555555554
+      },
+      "id": "fin_set"
+    },
+    {
+      "AD1": {
+        "first_moment_kg_m": 0.029419053395294135,
+        "mass_g": 25.91758734498647,
+        "station_mm": 1135.1
+      },
+      "FP1": {
+        "first_moment_kg_m": 0.025354650355398,
+        "mass_g": 22.33693098,
+        "station_mm": 1135.1
+      },
+      "FR1": {
+        "first_moment_kg_m": 0.03137475451670532,
+        "mass_g": 27.640520233200004,
+        "station_mm": 1135.1
+      },
+      "id": "fin_tabs"
+    },
+    {
+      "AD1": {
+        "first_moment_kg_m": 0.029956037114475476,
+        "mass_g": 26.277225539013575,
+        "station_mm": 1140.0
+      },
+      "FP1": null,
+      "FR1": null,
+      "id": "root_gussets"
+    },
+    {
+      "AD1": {
+        "first_moment_kg_m": 0.00456,
+        "mass_g": 4.0,
+        "station_mm": 1140.0
+      },
+      "FP1": null,
+      "FR1": null,
+      "id": "root_extra_bond_finish"
+    },
+    {
+      "AD1": {
+        "first_moment_kg_m": 0.00017099999999999998,
+        "mass_g": 0.15,
+        "station_mm": 1140.0
+      },
+      "FP1": {
+        "first_moment_kg_m": 0.00017099999999999998,
+        "mass_g": 0.15,
+        "station_mm": 1140.0
+      },
+      "FR1": null,
+      "id": "ad1_slot_fill"
+    },
+    {
+      "AD1": null,
+      "FP1": {
+        "first_moment_kg_m": 0.028718600617930298,
+        "mass_g": 25.096500000000002,
+        "station_mm": 1144.3269227952223
+      },
+      "FR1": null,
+      "id": "fp1_panel_carbon"
+    },
+    {
+      "AD1": null,
+      "FP1": {
+        "first_moment_kg_m": 0.0029371296086519627,
+        "mass_g": 2.5666875000000005,
+        "station_mm": 1144.3269227952223
+      },
+      "FR1": null,
+      "id": "fp1_panel_bond"
+    },
+    {
+      "AD1": null,
+      "FP1": {
+        "first_moment_kg_m": 0.011440082570716804,
+        "mass_g": 10.080256032000003,
+        "station_mm": 1134.9
+      },
+      "FR1": null,
+      "id": "fp1_tab_carbon"
+    },
+    {
+      "AD1": null,
+      "FP1": {
+        "first_moment_kg_m": 0.0011700084447324002,
+        "mass_g": 1.0309352760000001,
+        "station_mm": 1134.9
+      },
+      "FR1": null,
+      "id": "fp1_tab_bond"
+    },
+    {
+      "AD1": null,
+      "FP1": {
+        "first_moment_kg_m": 0.0009154615382361779,
+        "mass_g": 0.8,
+        "station_mm": 1144.3269227952223
+      },
+      "FR1": null,
+      "id": "fp1_skin_termination_finish"
+    },
+    {
+      "AD1": null,
+      "FP1": null,
+      "FR1": {
+        "first_moment_kg_m": 0.00228,
+        "mass_g": 2.0,
+        "station_mm": 1140.0
+      },
+      "id": "fr1_edge_finish"
+    }
+  ],
+  "cost": {
+    "AD1_estimate_usd": 476.688,
+    "FP1_added_component_costs": null,
+    "FP1_complete_cost_available": false,
+    "FP1_helper_retains_old_wood_cost_but_exact_Finnish_birch_purchase_cost_available": false,
+    "FP1_helper_zero_cost_placeholders_are_quotes": false,
+    "FR1_carbon_sheet_purchase_usd": 108.99,
+    "FR1_difference_from_AD1_usd": 108.74000000000001,
+    "FR1_estimate_usd": 585.428,
+    "FR1_shipping_tax_tests_included": false,
+    "FR1_wood_sheet_purchase_usd_retained_reallocated_to_forward_ring": 69.75
+  },
+  "first_moment_deltas_kg_m": {
+    "FP1_vs_AD1": -0.005297672476513915,
+    "FR1_vs_AD1": -0.023733084095474255,
+    "FR1_vs_FP1": -0.01843541161896034
+  },
+  "functional_accounting": {
+    "FP1_conditional_removal_ids": [
+      "root_gussets",
+      "root_extra_bond_finish"
+    ],
+    "FP1_replaced_panel_tab_ids": [
+      "fin_set",
+      "fin_tabs"
+    ],
+    "FP1_retained_ids": [
+      "ad1_slot_fill",
+      "fin_internal_bonds",
+      "outer_fin_fillets",
+      "ring_bonds",
+      "c1_forward_root_bond_fill",
+      "c1_aft_bond_fill",
+      "finish"
+    ],
+    "FR1_conditional_removal_ids": [
+      "root_gussets",
+      "root_extra_bond_finish",
+      "ad1_slot_fill"
+    ],
+    "FR1_replaced_panel_tab_ids": [
+      "fin_set",
+      "fin_tabs"
+    ],
+    "FR1_retained_ids": [
+      "fin_internal_bonds",
+      "outer_fin_fillets",
+      "ring_bonds",
+      "c1_forward_root_bond_fill",
+      "c1_aft_bond_fill",
+      "finish"
+    ],
+    "conditional_credit_is_admitted_weight": false,
+    "no_combined_FP1_FR1_credit": true,
+    "removed_stock_or_slot_paper_credit_g": 0
+  },
+  "id": "RP1_FP1_FR1_integrated_bookkeeping_audit_20261103",
+  "local_vs_published_hashes": {
+    "FP1": {
+      "motor_curve": {
+        "local": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+        "match": true,
+        "path": "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng",
+        "published": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075"
+      },
+      "producer": {
+        "local": "ae4c1d324712f45227ad6b17bc6b3b189c105bc15b2b84590e49874bad646026",
+        "match": true,
+        "path": "scripts/wo03_rp1_fin_precedent_replacement.py",
+        "published": "ae4c1d324712f45227ad6b17bc6b3b189c105bc15b2b84590e49874bad646026"
+      },
+      "source": {
+        "local": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "match": true,
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "published": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+      },
+      "src.vehicle.aero": {
+        "local": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+        "match": true,
+        "path": "src/vehicle/aero.py",
+        "published": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595"
+      },
+      "src.vehicle.benchmark": {
+        "local": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+        "match": true,
+        "path": "src/vehicle/benchmark.py",
+        "published": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c"
+      },
+      "src.vehicle.geometry": {
+        "local": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+        "match": true,
+        "path": "src/vehicle/geometry.py",
+        "published": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8"
+      },
+      "src.vehicle.mass": {
+        "local": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+        "match": true,
+        "path": "src/vehicle/mass.py",
+        "published": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e"
+      },
+      "src.vehicle.motors": {
+        "local": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5",
+        "match": true,
+        "path": "src/vehicle/motors.py",
+        "published": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5"
+      },
+      "src.vehicle.schema": {
+        "local": "9b801a824ae617fbd9f70d2b54c81045e54e38f42eb97d041d13482917bb42ee",
+        "match": false,
+        "path": "src/vehicle/schema.py",
+        "published": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093"
+      },
+      "study": {
+        "local": "4bd851f336ac9d9ca6668bae5735e2ee1a0f64bbd9ad9721eb210651961be079",
+        "match": true,
+        "path": "configs/studies/rp1-fin-precedent-replacement.yaml",
+        "published": "4bd851f336ac9d9ca6668bae5735e2ee1a0f64bbd9ad9721eb210651961be079"
+      }
+    },
+    "FR1": {
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": {
+        "local": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+        "match": true,
+        "published": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075"
+      },
+      "configs/studies/rp1-fin-input-sources.yaml": {
+        "local": "eb841024a77cf755779c787e0eda9307c41a3c25fb7980f4167324b214b5ac76",
+        "match": true,
+        "published": "eb841024a77cf755779c787e0eda9307c41a3c25fb7980f4167324b214b5ac76"
+      },
+      "configs/studies/rp1-fin-root-replacement.yaml": {
+        "local": "5926f9ca9b9a23295d93af95642cc3bf00ee0eb2a03cf523ffb627844c9ce11d",
+        "match": true,
+        "published": "5926f9ca9b9a23295d93af95642cc3bf00ee0eb2a03cf523ffb627844c9ce11d"
+      },
+      "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": {
+        "local": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "match": true,
+        "published": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+      },
+      "configs/vehicle/candidates/g80-rp1-fr1.yaml": {
+        "local": "d7d34d340a4481fd9107776d1ac44d03fd1046d3207eb4228d0f723e03586d7b",
+        "match": true,
+        "published": "d7d34d340a4481fd9107776d1ac44d03fd1046d3207eb4228d0f723e03586d7b"
+      },
+      "runs/wo03-g80-f2-selected-20261103-v2/record.json": {
+        "local": "b64f1d98b8a63e5bdc89668bbc26bfa1b560e56dfa8ce046d7b6e8fa68bff3c3",
+        "match": true,
+        "published": "b64f1d98b8a63e5bdc89668bbc26bfa1b560e56dfa8ce046d7b6e8fa68bff3c3"
+      },
+      "scripts/wo03_f2_c1_load_path.py": {
+        "local": "1f637121db92b3b315afbee8a6d844fdba575e3eb1fff7484ec1f7b6c5e5a6a8",
+        "match": true,
+        "published": "1f637121db92b3b315afbee8a6d844fdba575e3eb1fff7484ec1f7b6c5e5a6a8"
+      },
+      "scripts/wo03_rp1_fin_root.py": {
+        "local": "662477768f31debbf29edeb33b5fde2f9a39731e199df8fe28b75eb484726956",
+        "match": true,
+        "published": "662477768f31debbf29edeb33b5fde2f9a39731e199df8fe28b75eb484726956"
+      },
+      "src/vehicle/aero.py": {
+        "local": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+        "match": true,
+        "published": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595"
+      },
+      "src/vehicle/benchmark.py": {
+        "local": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+        "match": true,
+        "published": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c"
+      },
+      "src/vehicle/mass.py": {
+        "local": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+        "match": true,
+        "published": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e"
+      },
+      "src/vehicle/reference.py": {
+        "local": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d",
+        "match": true,
+        "published": "3f29b58ceb6a628d453f637d9733d956aa4bb04f0e17ff01c547d4921af63b2d"
+      }
+    }
+  },
+  "mass_deltas_g": {
+    "FP1_vs_AD1": -4.6701797130407385,
+    "FR1_vs_AD1": -20.839669267840804,
+    "FR1_vs_FP1": -16.169489554800066
+  },
+  "saved_cases": [
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 763.693415896063,
+      "construction": "AD1",
+      "formal_headroom_g": 23.794335343738094,
+      "growth_g": 50,
+      "model_margin_cal": 1.433323515692546,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -30.74992277393762,
+      "saved_guide_1p5m_mps": 15.212909287454936,
+      "source_record": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "total_g": 934.5492181993527
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 775.601750705159,
+      "construction": "AD1",
+      "formal_headroom_g": 3.7943353437380756,
+      "growth_g": 50,
+      "model_margin_cal": 1.2550603677464365,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -50.74992277393764,
+      "saved_guide_1p5m_mps": 15.033478843296864,
+      "source_record": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "total_g": 954.5492181993527
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 757.8805100323277,
+      "construction": "AD1",
+      "formal_headroom_g": 10.794335343738082,
+      "growth_g": 50,
+      "model_margin_cal": 1.5203404592531473,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -43.749922773937634,
+      "saved_guide_1p5m_mps": 15.095650089150393,
+      "source_record": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "total_g": 947.5492181993527
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 769.7490016639207,
+      "construction": "AD1",
+      "formal_headroom_g": -9.205664656261936,
+      "growth_g": 50,
+      "model_margin_cal": 1.3426737482026838,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -63.74992277393765,
+      "saved_guide_1p5m_mps": 14.919668703420253,
+      "source_record": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "total_g": 967.5492181993527
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 761.831789913579,
+      "construction": "FP1",
+      "formal_headroom_g": 28.46451505677894,
+      "growth_g": 50,
+      "model_margin_cal": 1.4611913337591307,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -26.079743060896774,
+      "saved_guide_1p5m_mps": 15.255657127217257,
+      "source_record": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+      "total_g": 929.8790384863119
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 773.8378704139993,
+      "construction": "FP1",
+      "formal_headroom_g": 8.464515056778922,
+      "growth_g": 50,
+      "model_margin_cal": 1.2814649707696948,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -46.079743060896796,
+      "saved_guide_1p5m_mps": 15.074855519185741,
+      "source_record": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+      "total_g": 949.8790384863119
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 756.0157593889422,
+      "construction": "FP1",
+      "formal_headroom_g": 15.464515056778927,
+      "growth_g": 50,
+      "model_margin_cal": 1.5482550522800844,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -39.07974306089679,
+      "saved_guide_1p5m_mps": 15.137491915483281,
+      "source_record": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+      "total_g": 942.8790384863119
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 767.9805486841087,
+      "construction": "FP1",
+      "formal_headroom_g": -4.535484943221091,
+      "growth_g": 50,
+      "model_margin_cal": 1.3691468025994398,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -59.0797430608968,
+      "saved_guide_1p5m_mps": 14.96032322297767,
+      "source_record": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+      "total_g": 962.8790384863119
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 755.1371236965175,
+      "construction": "FR1_nominal_stock",
+      "formal_headroom_g": 44.634004611578845,
+      "growth_g": 50,
+      "model_margin_cal": 1.5614078874111395,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -9.910253506096867,
+      "saved_guide_1p5m_mps": 15.405954937947593,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 913.7095489315119
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 767.4945184980094,
+      "construction": "FR1_nominal_stock",
+      "formal_headroom_g": 24.63400461157883,
+      "growth_g": 50,
+      "model_margin_cal": 1.3764224857541247,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -29.910253506096886,
+      "saved_guide_1p5m_mps": 15.220563467759245,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 933.7095489315119
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 749.3135270644582,
+      "construction": "FR1_nominal_stock",
+      "formal_headroom_g": 31.63400461157884,
+      "growth_g": 50,
+      "model_margin_cal": 1.648584867622201,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -22.91025350609688,
+      "saved_guide_1p5m_mps": 15.284785932458034,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 926.7095489315119
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 761.624261092508,
+      "construction": "FR1_nominal_stock",
+      "formal_headroom_g": 11.634004611578819,
+      "growth_g": 50,
+      "model_margin_cal": 1.4642979596246886,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -42.91025350609689,
+      "saved_guide_1p5m_mps": 15.103169630866267,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 946.7095489315119
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 758.9146924600649,
+      "construction": "FR1_max_stock",
+      "formal_headroom_g": 35.647058992922865,
+      "growth_g": 50,
+      "model_margin_cal": 1.504859149895086,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -18.897199124752852,
+      "saved_guide_1p5m_mps": 15.321932584884932,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 922.6964945501679
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 771.0741374320847,
+      "construction": "FR1_max_stock",
+      "formal_headroom_g": 15.647058992922847,
+      "growth_g": 50,
+      "model_margin_cal": 1.3228369803190283,
+      "nylon_probe_g": 55,
+      "planning_headroom_g": -38.897199124752866,
+      "saved_guide_1p5m_mps": 15.139133610070344,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 942.6964945501679
+    },
+    {
+      "adverse_extra_aft_g": 0,
+      "adverse_motor_CG_probe_mm": 0,
+      "case": "nominal",
+      "cg_mm": 753.0945456136252,
+      "construction": "FR1_max_stock",
+      "formal_headroom_g": 22.64705899292285,
+      "growth_g": 50,
+      "model_margin_cal": 1.5919844881550143,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -31.897199124752863,
+      "saved_guide_1p5m_mps": 15.202473318592958,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 935.6964945501679
+    },
+    {
+      "adverse_extra_aft_g": 20,
+      "adverse_motor_CG_probe_mm": 12.8,
+      "case": "adverse",
+      "cg_mm": 765.2103890364659,
+      "construction": "FR1_max_stock",
+      "formal_headroom_g": 2.647058992922835,
+      "growth_g": 50,
+      "model_margin_cal": 1.4106150168391753,
+      "nylon_probe_g": 68,
+      "planning_headroom_g": -51.89719912475288,
+      "saved_guide_1p5m_mps": 15.023332794833093,
+      "source_record": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+      "total_g": 955.6964945501679
+    }
+  ],
+  "scope": "read_only_saved_ledger_and_case_reconciliation_no_new_producer_or_guide_or_structural_rerun",
+  "source_records": {
+    "docs/studies/rp1-fin-precedent-replacement/screen-record.json": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb",
+    "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "runs/wo03-rp1-fin-root-20261104-v1/joint-supplement.json": "94da02939ae48f1d037733961f3d55a67ac64bdb7149aa2b62d9e0c5807711c8",
+    "runs/wo03-rp1-fin-root-20261104-v1/record.json": "b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313"
+  },
+  "summary": {
+    "AD1": {
+      "first_moment_kg_m": 0.6512090847696586,
+      "nominal_55g_cg_mm": 763.693415896063,
+      "nominal_55g_including_growth_g": 934.5492181993524,
+      "rows": 55,
+      "subtotal_g": 884.5492181993524
+    },
+    "FP1": {
+      "first_moment_kg_m": 0.6459114122931446,
+      "nominal_55g_cg_mm": 761.831789913579,
+      "nominal_55g_including_growth_g": 929.8790384863116,
+      "rows": 58,
+      "subtotal_g": 879.8790384863116
+    },
+    "FR1": {
+      "first_moment_kg_m": 0.6274760006741843,
+      "nominal_55g_cg_mm": 755.1371236965177,
+      "nominal_55g_including_growth_g": 913.7095489315116,
+      "rows": 53,
+      "subtotal_g": 863.7095489315116
+    }
+  },
+  "uncertainties": [
+    "FP1 proposed thickness/density/adhesive process bounds are not supplier guarantees",
+    "FR1 Rock West nominal density 1520kg/m3 has no verified manufacturing range; maximum 3.429mm thickness alone is not maximum mass",
+    "FP1/FR1 finish and adhesive budgets are estimates, not measured installed material",
+    "55g nylon estimate and 68g metadata probe are not finished-mass bounds",
+    "installed asymmetric root/joint compliance, hot/wet capacities, peel, flutter, thermal layout and exact motor/guide equipment remain open",
+    "FP1 local schema.py hash differs from published runtime identity; published FP1 producer used the matching committed schema"
+  ]
+}

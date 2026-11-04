@@ -1,0 +1,734 @@
+{
+  "id": "RP1-D1-load-attachment-decision-v1",
+  "adopted_construction": false,
+  "required_case": {
+    "id": "RP1-FIN-LEGACY-883",
+    "moment_Nm": 8.83,
+    "force_N": 331.125,
+    "design_factor_already_applied": 3,
+    "origin": "Retained older-planform admission envelope, not measured operating maximum"
+  },
+  "unadopted_current_formula": {
+    "span_m": 0.06,
+    "root_m": 0.13,
+    "tip_m": 0.065,
+    "area_m2": 0.00585,
+    "centroid_m": 0.02666666666666667,
+    "CNa_per_rad": 1.7784065314628095,
+    "q_Pa": 40000,
+    "alpha_deg": 5,
+    "design_factor": 3,
+    "force_N": 108.94706343962352,
+    "moment_Nm": 2.9052550250566274
+  },
+  "original_formula": {
+    "span_m": 0.09,
+    "root_m": 0.12,
+    "tip_m": 0.06,
+    "area_m2": 0.0081,
+    "centroid_m": 0.039999999999999994,
+    "CNa_per_rad": 2.602580569137146,
+    "q_Pa": 40000,
+    "alpha_deg": 5,
+    "design_factor": 3,
+    "force_N": 220.75869590217366,
+    "moment_Nm": 8.830347836086945
+  },
+  "lower_load_adopted": false,
+  "legacy_ratio": 3.0393201023128396,
+  "historical_flight": {
+    "available": true,
+    "source": {
+      "path": "build/wo03-g80-fin-loads-v3/results.json",
+      "sha256": "1e04f40375b62632d309d27bd99fedbc1053c1447a52279ee80c73c30fd96df6"
+    },
+    "source_hashes_match": false,
+    "input_verification": {
+      "build/wo03-g80-integrated-candidate-v1/record.json": true,
+      "build/wo03-g80-integrated-candidate-v1/resolved-candidate.yaml": true,
+      "build/wo03-g80-integrated-recovery-horizon-v1/growth_high_thrust.parquet": true,
+      "build/wo03-g80-integrated-recovery-horizon-v1/growth_low_thrust_high_drag.parquet": true,
+      "build/wo03-g80-integrated-recovery-horizon-v1/nominal_calm.parquet": true,
+      "build/wo03-g80-integrated-recovery-horizon-v1/record.json": true,
+      "configs/studies/wo03-g80-fin-loads.yaml": true,
+      "configs/studies/wo03-g80-integrated-recovery-horizon.yaml": true,
+      "scripts/wo03_g80_fin_loads.py": false
+    },
+    "identity": "62e8de9eae802300bd36e5bdfbd08c8d20635d138972bb07708f574103ed7009",
+    "part_count": 52,
+    "span_m": 0.07,
+    "source_design_factor": 1.0,
+    "compatible_with_RP1": false,
+    "cases": [
+      {
+        "case": "nominal_calm",
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "q_max_time_and_coincident_alpha": {
+          "time_s": 1.4449999999999912,
+          "value_pa": 12198.553397960935,
+          "alpha_deg_signed": 0.0064828753219223914
+        },
+        "peak_coincident_load": {
+          "time_s": 0.6050000000000004,
+          "dynamic_pressure_pa": 2919.728270449232,
+          "alpha_deg_signed": 0.7046175549198986,
+          "c_n_capped": 0.02088986770198333,
+          "normal_force_per_fin_N": 0.5123389932815705,
+          "root_moment_magnitude_per_fin_Nm": 0.01793186476485497,
+          "thrust_N": 99.39943980263158
+        }
+      },
+      {
+        "case": "growth_low_thrust_high_drag",
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "q_max_time_and_coincident_alpha": {
+          "time_s": 1.3999999999999921,
+          "value_pa": 6973.244420345813,
+          "alpha_deg_signed": 0.00589507152372306
+        },
+        "peak_coincident_load": {
+          "time_s": 0.7200000000000005,
+          "dynamic_pressure_pa": 2537.9217519065855,
+          "alpha_deg_signed": 0.7949551273979992,
+          "c_n_capped": 0.02356811482257967,
+          "normal_force_per_fin_N": 0.5024378625811186,
+          "root_moment_magnitude_per_fin_Nm": 0.01758532519033915,
+          "thrust_N": 82.87546115990612
+        }
+      },
+      {
+        "case": "growth_high_thrust",
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "q_max_time_and_coincident_alpha": {
+          "time_s": 1.4949999999999901,
+          "value_pa": 15315.27245683975,
+          "alpha_deg_signed": 0.0007103497314368375
+        },
+        "peak_coincident_load": {
+          "time_s": 0.6200000000000004,
+          "dynamic_pressure_pa": 3577.620017356401,
+          "alpha_deg_signed": 0.7838155850320928,
+          "c_n_capped": 0.02323785968678352,
+          "normal_force_per_fin_N": 0.6983443485980311,
+          "root_moment_magnitude_per_fin_Nm": 0.02444205220093109,
+          "thrust_N": 114.30326270050124
+        }
+      }
+    ],
+    "reason": "52-part 70 mm rectangular-fin modular vehicle, not 60 mm tapered RP1. Calm only; no current physical inertia/full flight. No transferred loads.",
+    "archived_producer": {
+      "path": "build/wo03-g80-fin-loads-v3/executed.py",
+      "sha256": "9298f95d8b8afe20129abbcc09861fc5ec93bef27d801581c282fc54a815d968",
+      "matches_original_producer": true,
+      "current_producer_reproduced": false
+    },
+    "current_RP1_flight_available": false
+  },
+  "nominal_FP1_tab": {
+    "matrix_SI": [
+      [
+        2.542137909264372e-07,
+        4.711996458209567e-06
+      ],
+      [
+        4.711996458209567e-06,
+        0.0005400259536083396
+      ]
+    ],
+    "EI_Nm2": 32.31511352999999,
+    "kGA_N": 87520.0,
+    "translation_m": 0.000125783470246507,
+    "rotation_rad": 0.006328688997586282,
+    "contribution_at_tip_mm": 0.5055048101016839,
+    "support": "Fixed motor-side cut only, not a validated installed support"
+  },
+  "FP1_panel_only_mm": 0.355735523195206,
+  "nominal_complete_root_ceiling_mm": 0.644264476804794,
+  "root_ceiling_is_evidence": false,
+  "root_model": "Replace tab plus arbitrary allowance with complete validated root response; never add full root twice.",
+  "material_corners": [
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.35716842482061834,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.7811435897042837,
+        "component_tip_subtotal_mm": 1.3438267370878494,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.4438267370878493,
+        "remaining_tip_budget_mm": -0.3438267370878493,
+        "max_wood_bending_MPa": 1.6024284111810083,
+        "max_carbon_bending_MPa": 57.68742280251628,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5424418064546637,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 199.9953
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.3525911194207166,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.7719347764745994,
+        "component_tip_subtotal_mm": 1.3300406184582632,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.4300406184582632,
+        "remaining_tip_budget_mm": -0.3300406184582631,
+        "max_wood_bending_MPa": 1.5796944934782966,
+        "max_carbon_bending_MPa": 57.26392538858824,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5387743137266909,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 202.87349999999995
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.35716842482061834,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.7151191110136986,
+        "component_tip_subtotal_mm": 1.1750448971157905,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.2750448971157906,
+        "remaining_tip_budget_mm": -0.17504489711579058,
+        "max_wood_bending_MPa": 1.6024284111810083,
+        "max_carbon_bending_MPa": 57.68742280251628,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5424418064546637,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 199.9953
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.3525911194207166,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.7059102977840144,
+        "component_tip_subtotal_mm": 1.1612587784862045,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.2612587784862044,
+        "remaining_tip_budget_mm": -0.16125877848620437,
+        "max_wood_bending_MPa": 1.5796944934782966,
+        "max_carbon_bending_MPa": 57.26392538858824,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5387743137266909,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 202.87349999999995
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.19965442263502411,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.46425037405423636,
+        "component_tip_subtotal_mm": 0.8694195192522076,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9694195192522076,
+        "remaining_tip_budget_mm": 0.1305804807477924,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 59.04791882387486,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.555234714919764,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 390.77459999999996
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.19725734817700485,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.45942784004066156,
+        "component_tip_subtotal_mm": 0.8621999107806136,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9621999107806136,
+        "remaining_tip_budget_mm": 0.1378000892193864,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.59482848665933,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5512962705858147,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 396.5309999999999
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.19965442263502411,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.3982258953636514,
+        "component_tip_subtotal_mm": 0.7006376792801491,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.8006376792801492,
+        "remaining_tip_budget_mm": 0.2993623207198509,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 59.04791882387486,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.555234714919764,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 390.77459999999996
+      }
+    },
+    {
+      "Ewood_Pa": 1000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.19725734817700485,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.39340336135007653,
+        "component_tip_subtotal_mm": 0.693418070808555,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.7934180708085551,
+        "remaining_tip_budget_mm": 0.30658192919144506,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.59482848665933,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5512962705858147,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 396.5309999999999
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.24826392035488143,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.6228326738224585,
+        "component_tip_subtotal_mm": 1.076611316740287,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.1766113167402872,
+        "remaining_tip_budget_mm": -0.07661131674028708,
+        "max_wood_bending_MPa": 9.692833455187637,
+        "max_carbon_bending_MPa": 43.61775054834436,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.41014297833913244,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 264.5073
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2456380124750359,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.6175497632208691,
+        "component_tip_subtotal_mm": 1.068702498258852,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.168702498258852,
+        "remaining_tip_budget_mm": -0.06870249825885205,
+        "max_wood_bending_MPa": 9.58849753102301,
+        "max_carbon_bending_MPa": 43.447879437448016,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4087844357148456,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 267.3854999999999
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.24826392035488143,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.5568081951318735,
+        "component_tip_subtotal_mm": 0.9078294767682286,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.0078294767682285,
+        "remaining_tip_budget_mm": 0.09217052323177143,
+        "max_wood_bending_MPa": 9.692833455187637,
+        "max_carbon_bending_MPa": 43.61775054834436,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.41014297833913244,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 264.5073
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 30000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2456380124750359,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.551525284530284,
+        "component_tip_subtotal_mm": 0.8999206582867936,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9999206582867937,
+        "remaining_tip_budget_mm": 0.10007934171320644,
+        "max_wood_bending_MPa": 9.58849753102301,
+        "max_carbon_bending_MPa": 43.447879437448016,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4087844357148456,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 267.3854999999999
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.14604230196836,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.4171789737705187,
+        "component_tip_subtotal_mm": 0.7687359983018259,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.868735998301826,
+        "remaining_tip_budget_mm": 0.23126400169817407,
+        "max_wood_bending_MPa": 5.631233615444322,
+        "max_carbon_bending_MPa": 50.681102538998886,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4765605305073438,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 455.2865999999999
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 100000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.14427276884730023,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.41361895349834527,
+        "component_tip_subtotal_mm": 0.7634064449085927,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.8634064449085928,
+        "remaining_tip_budget_mm": 0.2365935550914073,
+        "max_wood_bending_MPa": 5.560924266459643,
+        "max_carbon_bending_MPa": 50.39587616479051,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4741554724215825,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 461.0429999999999
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 3e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.14604230196836,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.35115449507993374,
+        "component_tip_subtotal_mm": 0.5999541583297674,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.6999541583297674,
+        "remaining_tip_budget_mm": 0.40004584167023266,
+        "max_wood_bending_MPa": 5.631233615444322,
+        "max_carbon_bending_MPa": 50.681102538998886,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4765605305073438,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 455.2865999999999
+      }
+    },
+    {
+      "Ewood_Pa": 8000000000.0,
+      "Ecarbon_Pa": 60000000000.0,
+      "Gwood_Pa": 200000000.0,
+      "film_m": 5e-05,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.14427276884730023,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.3475944748077603,
+        "component_tip_subtotal_mm": 0.5946246049365341,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.6946246049365341,
+        "remaining_tip_budget_mm": 0.4053753950634659,
+        "max_wood_bending_MPa": 5.560924266459643,
+        "max_carbon_bending_MPa": 50.39587616479051,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4741554724215825,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 461.0429999999999
+      }
+    }
+  ],
+  "all_diagnostic_corners_pass": false,
+  "corners_are_verified_bounds": false,
+  "ordinary_plywood": [
+    {
+      "label": "AD1 ideal bonded wedges",
+      "retained_moment_Nm": 8.83,
+      "retained_panel_movement_mm": 1.8054161114599911,
+      "retained_panel_stress_MPa": 7.301269256902433,
+      "unadopted_2_905_panel_movement_mm": 0.5940197316123822,
+      "unadopted_2_905_panel_stress_MPa": 2.402270577339441,
+      "installed_pass": null,
+      "scope": "Linear source-component scaling only; no new construction or adopted load."
+    },
+    {
+      "label": "AD1 bare panel",
+      "retained_moment_Nm": 8.83,
+      "retained_panel_movement_mm": 3.98811898332128,
+      "retained_panel_stress_MPa": 12.114698618860333,
+      "unadopted_2_905_panel_movement_mm": 1.3121747131164072,
+      "unadopted_2_905_panel_stress_MPa": 3.985989698696553,
+      "installed_pass": null,
+      "scope": "Linear source-component scaling only; no new construction or adopted load."
+    }
+  ],
+  "installed_tip_movement": null,
+  "installed_strength": null,
+  "physical_inertia": null,
+  "mass_changes_g": 0,
+  "new_construction_admitted": false,
+  "decision": "Retain 8.83 Nm and 331.125 N once-factored; no fin correction admitted until compatible load/material/whole-root evidence.",
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-fin-precedent-replacement.yaml": "4bd851f336ac9d9ca6668bae5735e2ee1a0f64bbd9ad9721eb210651961be079",
+    "docs/studies/rp1-fin-precedent-replacement/screen-record.json": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb",
+    "runs/wo03-rp1-fin-root-20261104-v1/record.json": "b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313",
+    "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "scripts/wo03_rp1_fin_precedent_replacement.py": "ae4c1d324712f45227ad6b17bc6b3b189c105bc15b2b84590e49874bad646026",
+    "configs/studies/rp1-integrated-ledger-audit.json": "43a4d4a5fd83dc50e7e69e3204d8dafb3ae8f301567628f53f1f28daf2049919",
+    "configs/studies/rp1-joint-material-evidence.yaml": "f6301a768921d1510cc0cf89ac1eac8a5cb8a500a42903d76ed3c94de6997fa2",
+    "scripts/wo03_rp1_load_attachment_decision.py": "89399831502c8375f6985d3b29b3c8f79c30b3b5c0f506ce28ee130f9ae3a21d"
+  },
+  "resources": {
+    "cpu_s": 0.016459999999999975,
+    "wall_s": 0.02225170802557841,
+    "packet_CPU_limit_s": 10,
+    "packet_wall_stop_s": 20,
+    "threads": 1,
+    "material_cases": 16,
+    "new_flight_guide_CAD_FEA_runs": 0
+  },
+  "executed_source_archive": "runs/wo03-rp1-d1-20261104-v1/executed.py",
+  "complete_consequences": "runs/wo03-rp1-d1-20261104-v1/complete-consequences.json"
+}

@@ -1,5 +1,36 @@
 # Status
 
+**Current integrated decision: [RP1 D1 — load and attachment](wo03-rp1-load-attachment-decision.md), ADR-0015.**
+The owner assigns primary integration; the coordination question is closed.
+Merged FR1 PR75 (solid carbon) and FP1 PR76 (carbon-faced plywood) are separate,
+**unadopted** studies. Frozen AD1 v2 stays unchanged. FR1 fails evaluated finite
+movement/body-bond screens; FP1's nominal0.961 mm includes an unverified0.100 mm
+attachment input and fails material sensitivities. No installed fin pass.
+
+Enforce8.83 N·m /331.125 N, factor3 already applied once. Current-planform
+40 kPa/5° arithmetic gives2.905255 N·m but is not an adopted governing case.
+Older70 mm-fin calm flights cannot establish current60 mm RP1 loads/inertia.
+D1 reconciles the source, complete-root model and exact-once mass alternatives;
+12/16 combined material diagnostics fail, none is a qualified property bound.
+No new fin variant, vehicle change, stopped solver retry or detailed CAD/FEA
+is admitted. Next: [bounded representative evidence definition](wo03-rp1-d1-test-definition.md),
+then source/whole-root evidence before one possible construction correction.
+No purchase, supplier contact, physical test or owner hardware measurement.
+
+[Accounting](wo03-rp1-integrated-accounting.md) preserves full separate50 g,
+20 g adverse/motor probe and55/68 g unverified harness cases. D1 adds0 g.
+All FP1/FR1 cases miss15.5 planning; FP1 adverse68 g also misses15 formal on
+reference1.5 m. Longer equipment remains unconfirmed. G80 custom building and
+practical performance first; G54 upgrade and committed G12 PID-to-RL separate.
+WO-03, thermal/recovery/installed flutter, physical and flight gates stay open.
+
+[Separate frontend study comparison](wo04-rp1-studies-20261104.md) adds source-linked
+selectable relationship graphics. Actual offline PNGs inspected; browser
+interactions remain unverified behind the unchanged ownership prerequisite.
+Preserve inspector/experiments/replay and exact configuration identities.
+
+## Earlier checkpoints — historical, not the current decision
+
 Latest bounded deliverable: RP1 AD1 v2 attachment/test definition, not adoption.
 See `wo03-rp1-attachment-definition.md`. Exact cord identities and reproducible
 proposed ends/route are defined; finished strengths remain unknown. Changed-fin
