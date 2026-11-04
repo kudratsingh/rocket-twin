@@ -1,7 +1,8 @@
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { loadRp1Studies, rp1Quantity } from './rp1Studies';
 import type { Rp1Studies, Rp1Study } from './rp1Studies';
 import './rp1StudyComparison.css';
+import { downloadRp1StudySvg } from './rp1StudyExport';
 
 function wrap(text: string, length = 32) {
   const lines = [''];
@@ -110,7 +111,10 @@ export function Rp1StudyGraph({
   );
 }
 
-function StudyCard({ study }: { study: Rp1Study }) {
+function StudyCard({ study, snapshot }: { study: Rp1Study; snapshot: Rp1Studies }) {
+  const graphRef = useRef<HTMLDivElement>(null);
+  const [zoom, setZoom] = useState(1);
+  const [exportStatus, setExportStatus] = useState('');
   const [selected, setSelected] = useState<string | null>(study.nodes[0]?.id ?? null);
   const node = study.nodes.find((item) => item.id === selected);
   return (
@@ -148,7 +152,64 @@ function StudyCard({ study }: { study: Rp1Study }) {
         </p>
       )}
       <p>{study.mass.note}</p>
-      <Rp1StudyGraph study={study} selected={selected} onSelect={setSelected} />
+      <div className="rp1-graph-controls" aria-label={`${study.label} graph controls`}>
+        <button
+          type="button"
+          disabled={zoom <= 0.75}
+          onClick={() => setZoom((value) => Math.max(0.75, value - 0.25))}
+        >
+          Zoom out
+        </button>
+        <button
+          type="button"
+          disabled={zoom >= 2}
+          onClick={() => setZoom((value) => Math.min(2, value + 0.25))}
+        >
+          Zoom in
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setZoom(1);
+            graphRef.current?.scrollTo({ top: 0, left: 0 });
+          }}
+        >
+          Fit width / reset graph
+        </button>
+        <span aria-live="polite">{Math.round(zoom * 100)}%</span>
+        <button
+          type="button"
+          disabled={!study.nodes.length}
+          onClick={() => {
+            try {
+              downloadRp1StudySvg(
+                graphRef.current?.querySelector('svg') ?? null,
+                snapshot,
+                study.id,
+              );
+              setExportStatus(
+                'SVG download requested with source identity, relationship key and unaccepted scope.',
+              );
+            } catch (reason) {
+              setExportStatus(reason instanceof Error ? reason.message : 'SVG export unavailable.');
+            }
+          }}
+        >
+          Export study SVG
+        </button>
+      </div>
+      <p role="status">{exportStatus}</p>
+      <div
+        ref={graphRef}
+        className="rp1-graph-scroll"
+        role="region"
+        aria-label={`${study.label} zoomable relationship graph`}
+        tabIndex={0}
+      >
+        <div style={{ width: `${zoom * 100}%` }}>
+          <Rp1StudyGraph study={study} selected={selected} onSelect={setSelected} />
+        </div>
+      </div>
       <ol className="rp1-relationship-key" aria-label={`${study.label} graphic relationship key`}>
         {study.edges.map((edge, index) => (
           <li key={index}>
@@ -255,7 +316,7 @@ export function Rp1StudyComparisonView({ snapshot }: { snapshot: Rp1Studies }) {
       {snapshot.studies.length ? (
         <div className="rp1-study-grid">
           {snapshot.studies.map((study) => (
-            <StudyCard key={study.id} study={study} />
+            <StudyCard key={study.id} study={study} snapshot={snapshot} />
           ))}
         </div>
       ) : (
