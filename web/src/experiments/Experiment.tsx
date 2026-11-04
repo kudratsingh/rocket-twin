@@ -14,6 +14,8 @@ import {
   defaultChannels,
   displayedMetadata,
   label,
+  nearestSample,
+  prepareSamples,
   series,
 } from './channels';
 import type { ChannelMeta } from './channels';
@@ -375,6 +377,11 @@ function Plot({
   setTime: (v: number) => void;
   setName: (v: string) => void;
 }) {
+  const aSamples = useMemo(() => prepareSamples(run.telemetry.columns, name), [run, name]);
+  const bSamples = useMemo(
+    () => (other ? prepareSamples(other.telemetry.columns, name) : null),
+    [other, name],
+  );
   const a = series(run.telemetry.columns, name),
     candidate = other ? series(other.telemetry.columns, name) : null;
   const mismatch =
@@ -394,6 +401,19 @@ function Plot({
     other?.telemetry.channel_metadata?.[name],
   );
   const available = [...(a ?? []), ...(comparison ?? [])];
+  const sampleText = (samples: ReturnType<typeof prepareSamples>, loaded: Loaded) => {
+    const sample = nearestSample(samples, time);
+    if (!sample) return 'unavailable at this time';
+    if (sample.value === null) return `unavailable at sampled T+${sample.time} s`;
+    const unit = loaded.telemetry.channel_metadata?.[name]?.unit ?? 'units unknown';
+    return `${sample.value} ${unit} at sampled T+${sample.time} s`;
+  };
+  const readout = (
+    <p>
+      Nearest decimated playback sample · A: {sampleText(aSamples, run)}
+      {other && <> · B: {sampleText(bSamples, other)}</>}
+    </p>
+  );
   const selector = (
     <select aria-label="Telemetry channel" value={name} onChange={(e) => setName(e.target.value)}>
       {!channelOptions(run.telemetry.columns, other?.telemetry.columns).includes(name) && (
@@ -410,7 +430,8 @@ function Plot({
     return (
       <div className="exp-plot">
         {selector}
-        <p>Channel unavailable in both runs. Missing data is not zero.</p>
+        {readout}
+        <p>Channel unavailable for plotting. Missing data is not zero.</p>
       </div>
     );
   const { min, max } = plotScale(available);
@@ -429,6 +450,7 @@ function Plot({
   return (
     <div className="exp-plot">
       {selector}
+      {readout}
       <span>
         Scale: {minLabel} – {maxLabel}
       </span>
@@ -834,7 +856,8 @@ export default function Experiment({
             <p>
               Choose recorded or backend-derived channels. Unrecognized names are shown exactly as
               recorded; their units and meaning are not inferred. Plots use decimated playback
-              samples.
+              samples. Readouts use the nearest decimated playback sample within each run’s recorded
+              time range, without interpolation; they do not establish full-rate extremes.
             </p>
             <div className="exp-plots">
               {plotChannels.map((name, index) => (

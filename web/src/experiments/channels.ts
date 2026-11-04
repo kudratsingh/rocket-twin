@@ -67,3 +67,42 @@ export function comparisonReason(
     return 'Simulation code identities differ or are unavailable; comparison is withheld.';
   return null;
 }
+
+export type SampleSeries = { times: number[]; values: number[] };
+
+/** Validate the playback time axis once; missing values stay attached to their sample. */
+export function prepareSamples(
+  columns: Record<string, number[]>,
+  name: string,
+): SampleSeries | null {
+  const times = columns.time_s;
+  const values = columns[name];
+  if (
+    !Array.isArray(times) ||
+    !Array.isArray(values) ||
+    times.length === 0 ||
+    values.length !== times.length ||
+    !times.every((time, index) => Number.isFinite(time) && (index === 0 || time > times[index - 1]))
+  )
+    return null;
+  return { times, values };
+}
+
+/** Return an actual nearest sample; never interpolate or extrapolate past recorded coverage. */
+export function nearestSample(
+  samples: SampleSeries | null,
+  time: number,
+): { time: number; value: number | null } | null {
+  if (!samples || !Number.isFinite(time)) return null;
+  const { times, values } = samples;
+  if (time < times[0] || time > times[times.length - 1]) return null;
+  let low = 0;
+  let high = times.length - 1;
+  while (low < high) {
+    const mid = Math.floor((low + high) / 2);
+    if (times[mid] < time) low = mid + 1;
+    else high = mid;
+  }
+  const index = low > 0 && time - times[low - 1] <= times[low] - time ? low - 1 : low;
+  return { time: times[index], value: Number.isFinite(values[index]) ? values[index] : null };
+}

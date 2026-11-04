@@ -278,6 +278,7 @@
 }
 .research-selection-summary {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -287,6 +288,7 @@
 }
 .research-selection-summary > div {
   min-width: 0;
+  flex: 1 1 240px;
 }
 .research-selection-summary p {
   font-size: 12px;
@@ -304,6 +306,9 @@
   flex-shrink: 0;
 }
 @media (max-width: 800px) {
+  .research-selection-summary > div {
+    flex-basis: auto;
+  }
   .research-selection-summary {
     align-items: stretch;
     flex-direction: column;
@@ -327,4 +332,88 @@
 }
 .research-representation[hidden] {
   display: none;
+}
+
+.research-component-evidence {
+  border-top: 1px solid var(--border);
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.research-component-evidence > summary {
+  cursor: pointer;
+  min-height: 32px;
+}
+.research-component-evidence > summary > span,
+.research-evidence-state {
+  display: block;
+  color: #bed7e3;
+}
+.research-component-evidence section {
+  scroll-margin-block: 16px;
+  margin-block: 18px;
+}
+.research-component-evidence h3 {
+  font-size: 15px;
+}
+.research-component-evidence h4 {
+  margin-block: 12px 4px;
+}
+.research-evidence-nav,
+.research-evidence-endpoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+.research-evidence-nav a,
+.research-evidence-endpoints button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 10px;
+}
+.research-evidence-endpoints button[aria-current='true'] {
+  border-color: var(--accent, #80c3dc);
+}
+.research-evidence-record {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 10px;
+  margin-block: 8px;
+}
+.research-evidence-record > summary {
+  cursor: pointer;
+}
+.research-component-evidence dl > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.3fr) minmax(0, 1fr);
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding-block: 8px;
+}
+.research-component-evidence dt {
+  color: #a6beca;
+}
+.research-component-evidence dd {
+  margin: 0;
+}
+.research-component-evidence dd ul {
+  padding-left: 18px;
+  margin: 0;
+}
+.research-evidence-muted {
+  color: #a6beca;
+}
+.research-component-evidence :focus-visible {
+  outline: 2px solid #8bd8fa;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .research-component-evidence dl > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }
