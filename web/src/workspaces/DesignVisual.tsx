@@ -1,10 +1,11 @@
-import { useId, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { OrthographicDesign } from '../design/OrthographicDesign';
 import { useInspection } from '../store';
 import type { InspectionDocument } from '../types';
 import { useOpenInspectionDetails } from './InspectionWorkspace';
 import { drawingShortcut } from './inspectionWorkflow';
+import { ComponentEvidence } from './ComponentEvidence';
 
 /** Representation changes preserve shared selection and the mounted 3D camera. */
 export function DesignVisual({
@@ -15,6 +16,7 @@ export function DesignVisual({
   meshView: ReactNode;
 }) {
   const id = useId();
+  const evidenceRef = useRef<HTMLDetailsElement>(null);
   const [representation, setRepresentation] = useState<'3d' | '2d'>(() =>
     vehicle.parts.some((part) => part.mesh_url) ? '3d' : '2d',
   );
@@ -35,7 +37,8 @@ export function DesignVisual({
         if (
           event.target instanceof HTMLElement &&
           (['INPUT', 'SELECT', 'TEXTAREA'].includes(event.target.tagName) ||
-            event.target.isContentEditable)
+            event.target.isContentEditable ||
+            event.target.closest('[data-inspection-evidence]'))
         )
           return;
         const action = drawingShortcut(event.key);
@@ -87,6 +90,17 @@ export function DesignVisual({
               {hiddenIds.includes(selectedPart.id) ? ' · currently hidden' : ''}
             </span>
           </div>
+          <button
+            type="button"
+            onClick={() => {
+              if (!evidenceRef.current) return;
+              evidenceRef.current.open = true;
+              evidenceRef.current.scrollIntoView({ block: 'nearest' });
+              evidenceRef.current.querySelector('summary')?.focus();
+            }}
+          >
+            Connections & evidence
+          </button>
           {openDetails && (
             <button type="button" onClick={openDetails}>
               Open selected component details
@@ -109,6 +123,13 @@ export function DesignVisual({
           }}
         />
       </div>
+      <ComponentEvidence
+        vehicle={vehicle}
+        selectedId={selected}
+        onSelect={select}
+        hiddenIds={hiddenIds}
+        disclosureRef={evidenceRef}
+      />
     </section>
   );
 }
