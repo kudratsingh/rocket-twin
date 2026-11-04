@@ -1,181 +1,106 @@
 # rocket-twin
 
-A substantial custom modular rocket build and a serious digital-twin/control project.
-Two core outcomes: the highest practical performance within the no-high-power-
-certification scope, and PID-to-RL training, embedded deployment and eventual real-flight
-comparison. Custom mechanical design, materials, fabrication and integration are part
-of the project, alongside certified commercial motors and appropriate purchased parts.
+A custom rocket and its digital twin: YAML vehicle specifications, parametric CAD,
+a JAX flight simulator, and a web workbench for inspecting designs and replaying
+experiments. The project connects mechanical design, materials and recovery
+engineering with a planned PID-to-reinforcement-learning control stack.
 
-The current WO-03 design shares an upper airframe, avionics and recovery across
-conventional performance, finned TVC training and eventual finless configurations.
-Custom fabrication, maximum practical conventional performance and committed
-PID-to-RL development remain equally important outcomes.
+The current priority is a conventional fixed-motor **G80** engineering package.
+A **G54** performance upgrade and **G12 thrust-vector-control** trainer remain
+separate tracks. Custom construction and practical performance are core goals;
+certified commercial motors and suitable purchased parts complement the build.
 
-## Working vehicle baseline — WO-03 open
+## What works today
 
-**Diameter: 66 mm. Overall length: approximately 1.21 m (1,212 mm).** A 400 mm
-upper-body extension, stronger fins/supports, thermal protection and recovery
-integration have increased length and mass. These figures supersede the original
-800 mm platform and its earlier performance estimates.
+- **Vehicle models:** typed YAML parts, geometry, mass, centre of gravity, full
+  inertia, aerodynamic stability, motor curves, build inventories and per-part
+  explanations. Each complete configuration has its own identity and evidence.
+- **Flight simulation:** a shared JAX 6-DOF core with changing mass/inertia,
+  quaternions, launch-guide constraints, aerodynamics, wind, TVC, sensor/servo
+  models and simplified recovery. CPU experiments use this same core.
+- **CAD and engineering tools:** CadQuery part generators and STEP/STL/GLB exports,
+  plus structural, thermal, fit, recovery and mass-budget studies. Recorded
+  failures and method limits stay visible alongside passing numerical checks.
+- **Inspection workbench:** React/Three.js Design, Engineering, Experiments,
+  Flight Replay and Analysis workspaces, backed by FastAPI. Inspect parts and
+  source-linked drawings, run supported unguided CPU experiments, and replay
+  recorded trajectories and telemetry.
+- **Evidence-aware analysis:** geometry and result hashes are checked before
+  overlays attach to a model. Missing or incompatible data is shown as
+  unavailable. Candidate studies remain separate from reference assemblies.
 
-| Configuration | Motor hypothesis | Nominal loaded mass | With 50 g allowance | Nominal calm-air altitude |
-|---|---|---:|---:|---:|
-| Conventional finned performance | AeroTech G80-10T SU family | 739 g | 789 g | 635 m / 2,084 ft |
-| Conditional performance upgrade | CTI G54 / Pro29 source hypothesis | 818 g | 868 g | 756 m / 2,479 ft |
-| Finned TVC trainer, gimbal locked | Reformulated G12ST-P DMS family | 780 g | 830 g | 531 m / 1,743 ft |
-| Eventual finless TVC | G12ST-P, separate actual geometry | 646 g | 696 g | Not flight validated |
+## Current evidence
 
-Altitude uses **nominal mass**; growth is evaluated in separate cases. These are
-simulated source hypotheses, not flight measurements or purchase-ready motor
-configurations. G54 predicts about 19% more nominal altitude than G80. Its defined
-full-growth/depletion stability minimum is **1.046 calibre**, just above the 1.0
-gate; an additional exploratory motor-CG sensitivity falls below 1.0. G54 remains
-conditional on design robustness and exact source/hardware/CG evidence.
+**Engineering acceptance is open (WO-03; November 4, 2026).** The latest
+[RP1 load and attachment decision](docs/wo03-rp1-load-attachment-decision.md)
+reconciles the carbon-faced plywood and solid-carbon fin studies. Neither is
+adopted, and neither establishes an installed fin pass. Recovery joints,
+conditioned material properties, thermal limits, exact motor fit and installed
+flutter still need evidence. Older modular assemblies and their flight results
+remain reference records, rather than validation of the latest RP1 geometry.
 
-**G12 TVC currently requires 5 m usable launch-guide travel in the model. Its
-availability and club acceptance are unconfirmed.** The lower-thrust, full-growth
-screen retains its 10 m/s departure requirement. This guide assumption is not
-confirmed launch equipment or authorization.
+The [recorded flight studies](docs/wo02-flight-study.md) compare unguided ascent
+against RocketPy under matched assumptions. Passing numerical comparisons do not
+establish physical flight accuracy. The [results log](docs/results.md) retains
+run identities, assumptions, discrepancies and negative results.
 
-### Latest isolated G80 correction studies
+The early workbench is implemented while full WO-04/05 acceptance remains open.
+Source, test and offline-render checks are recorded separately from pending
+browser interaction acceptance. See the [current project state](docs/CURRENT.md)
+and [frontend handoff](docs/wo04-focused-preview-20261103.md).
 
-The working specifications and preview above remain unchanged. The following
-**unadopted candidates** integrate the new retention parts and recovery studies;
-their results belong to their own source revisions.
-
-| G80 candidate | Nominal loaded mass | With separate 50 g growth | Nominal modeled altitude | Growth loaded stability margin |
-|---|---:|---:|---:|---:|
-| 72-part keeper/bridge integration | 773.0 g | 823.0 g | 620.6 m / 2,036 ft | 1.166 calibres |
-| Larger-canopy study | 789.6 g | 839.6 g | 613.2 m / 2,012 ft | 1.361 calibres |
-
-The larger-canopy study also evaluates a **separate estimated 5 g** line and
-connector allocation, giving 844.6 g with growth and 1.419 calibres. A calibre
-here is one body diameter of separation between the balance point and the
-aerodynamic-force location. These preliminary stability and ascent comparisons
-pass their stated screens; they do not qualify the structures or recovery.
-See [integrated results](docs/wo03-g80-staged-retention-results.md) and
-[canopy results](docs/wo03-g80-canopy-stage3-results.md).
-
-All five larger-canopy simulations meet the 6 m/s **vertical descent** target
-under unmeasured drag assumptions, including an illustrative lower-drag case.
-Wind adds horizontal landing speed and drift. Packed fit, opening loads, actual
-drag and independent recovery operation remain unverified. The proposed
-continuous recovery tether and its end attachments are **not included** in
-those masses or flight predictions. Its
-[straight-route study](docs/wo03-g80-backbone-route.md) does not establish an
-installed, load-qualified recovery system.
-
-Two major numerical/design blockers remain: the actual bridge fails force and
-reciprocal-work checks, and the closed thermal-tool comparison does not qualify
-an actual-baffle calculation. Installed fin/root/flutter and complete recovery
-load paths also remain open. The [current closure table](docs/wo03-g80-current-closure.md)
-separates these from later owner-performed qualification.
-
-The integrated design uses light kraft tubes, custom keyed joints, rectangular
-plywood fins and root gussets, machined G11 recovery/thrust/gimbal parts, mica/foil
-thermal protection and a dedicated recovery-controller power package. All-printed,
-rolled-paper and composite options remain available where justified by strength,
-heat, mass, cost and learning. One shared YAML parts model drives CAD, mass/CG/full
-inertia, JAX physics, BOM/learn metadata and the early inspection viewer.
-
-**WO-03 acceptance remains open.** Remaining items include installed fin/root and
-flutter evidence, minimum clearances, G54 thermal/CG sensitivities, detailed motor
-capture/fastener/pin evidence, recovery mounting/arming/routing and anchor capacity.
-Nominal CAD/flight comparisons and standard thermal screens do not close these
-design items or the separate physical qualification gates. See the
-[correction/closure report](docs/wo03-correction-closure.md),
-[full mass/CG/inertia report](docs/wo03-integrated-vehicle.md) and
-[current status](docs/STATUS.md).
-
-G80 remains the reference; G12 remains the PID-to-RL trainer; eventual finless
-burnout/recovery transition requires its own validation. Certified commercial
-motors and appropriate purchased components complement substantial custom
-mechanical work. Exact motor/source/lot, California eligibility and club/RSO
-acceptance remain launch prerequisites. G25W remains quarantined. Historical
-threshold-only motor exclusions remain recorded and are reconsidered under the
-rebaseline. The 1.5 kg loaded ceiling is a limit, not a target weight.
-
-WO-01 and WO-02 numerical benchmarks remain the historical baseline. Current
-integrated configurations are rechecked independently with RocketPy. Frontend,
-PID/RL, firmware/HIL and owner-performed build/flights remain in sequence; every
-record has `flight_ready: false`. RL is committed, with honest negative results.
-The digital-only orbital launcher, PPO-versus-G-FOLD and extension interfaces remain.
-Purchases, physical work, paid runs, WO-10 owner review and flight release remain gated.
+**PID/RL training, embedded policy deployment, firmware/HIL and real flights are
+later milestones.** The eventual finless vehicle needs its own active-control and
+recovery validation. A digital-only orbital launcher and PPO-versus-G-FOLD study
+also remain planned. No build or flight readiness is claimed.
 
 ## Run locally
 
-The owner-authorized early inspection/experiment preview can run while expanded
-WO-03 acceptance remains open:
+Use **Python 3.11**, **uv**, and **Node 22.12+ within the Node 22 line**.
+From a fresh checkout:
 
 ```bash
+git clone https://github.com/kudratsingh/rocket-twin.git
+cd rocket-twin
+make setup
+make setup-viewer
+npm --prefix web ci
 make preview
 ```
 
-Open **http://127.0.0.1:5173**. The launcher installs the exact web dependencies
-on first use, starts the local Python API at port 8000 and Vite at port 5173, and
-stops the launched API when you press Ctrl-C. Use Node 22 and the existing project
-Python environment (`make setup-viewer` if needed). After installation the lockfile
-is used by `npm ci`. See [web instructions](web/README.md) and
-[ADR-0009](docs/adr/0009-early-inspection-experiments.md) for the limited scope.
-Browser interaction and successful simulated flights do not approve construction
-or flight; PID and reinforcement learning remain later work orders.
+Open [the workbench](http://127.0.0.1:5173) or
+[the local API reference](http://127.0.0.1:8000/docs). The launcher prepares
+recorded engineering snapshots, starts FastAPI and Vite, and stops its API
+process on Ctrl-C. It requires the Python environment and locked web dependencies
+installed by the preceding commands.
 
-Use Python 3.11 and uv. On a fresh network-enabled machine:
+Generated CAD meshes and full telemetry are excluded from Git. A fresh clone
+contains source specifications, compact records and concept drawings; views that
+need absent artifacts report them as unavailable. The
+[web guide](web/README.md) explains the inspector, replay and compatibility rules;
+the [environment guide](docs/ENVIRONMENT.md) records dependency pins and
+regeneration commands. A complete Python dependency lock and fresh-machine
+full-stack verification remain pending.
 
-```sh
-make setup
+For the CPU model and reference checks:
+
+```bash
 make setup-sim
-make check smoke tiny benchmark
+make check smoke
+make tiny
+make benchmark
 ```
 
-The current workspace already has the environment. `make tiny` resolves all modes
-and produces source/code hashes, parts budgets, CG/inertia/CP, guide/control-time
-screens and inventory/spec previews in `runs/<id>/`. `make benchmark` adds real
-RocketPy comparisons and exits nonzero if preliminary completion gates fail. Neither
-command authorizes hardware or flight. `make flight-study` runs the full motor,
-wind, uncertainty and recovery study; see [WO-02 findings](docs/wo02-flight-study.md). Full dependency locking is still pending;
-WO-01's direct dependency pins and tested reference versions are recorded.
+`tiny` writes a new run with specification/source hashes and model outputs.
+`benchmark` enforces preliminary static and unguided-flight comparisons against
+RocketPy. These checks are distinct from the open engineering acceptance gates.
 
-The active manifest is [configs/platform.yaml](configs/platform.yaml); mode YAML
-and shared upper are under [configs/vehicle/platform](configs/vehicle/platform).
+## Explore the project
 
-```sh
-.venv/bin/python scripts/wo01_platform.py --preset sim --compare rocketpy --require-benchmark
-```
-
-## Evidence and project direction
-
-- [Rebaseline trade, motors, mass/cost and verification](docs/wo01-rebaseline.md)
-- [WO-01 deliverables and stage-appropriate benchmark](docs/work-orders/WO-01-vehicle-spec-mass-cp.md)
-- [ADR-0006](docs/adr/0006-modular-platform-rebaseline.md), [plan](docs/PLAN.md), [status](docs/STATUS.md), [results](docs/results.md)
-- [Environment](docs/ENVIRONMENT.md), [owner start guide](START_HERE.md), [agent workflow](AGENTS.md)
-
-## Delivered-performance evidence
-
-The working-baseline table above retains the integrated WO-03 prediction, with G80 as reference
-and G54 conditional. Its recorded 27-case campaign includes motor alternatives,
-growth, thrust/drag, wind and recovery timing. Five nominal RocketPy comparisons
-meet the 5% benchmark; the largest current error is finned-G12 altitude 2.064% and
-time-to-apogee 0.917%. Numerical agreement under assumptions is not measured flight
-accuracy. G12 passive weathercock/post-burn motion remains a control/model risk.
-The high-g measurement path is retained alongside the low-g IMU.
-[Recorded results](docs/results.md) preserve the earlier estimates and comparison
-records as historical evidence rather than current performance claims.
-
-## Historical studies
-
-Original 1.6 mm PETG/F15 and 1.2 mm proposals and downloaded curves remain unchanged.
-Their original three-second/TWR-3 gates remain reproducible, rather than being rewritten
-as new results. They are not the active platform benchmark:
-
-```sh
-.venv/bin/python scripts/wo01_vehicle.py --preset sim --compare rocketpy
-make motor-study
-make f22-study
-make g-impulse-study
-```
-
-Source collectors (`make fetch-motors`, `make fetch-motor-study-sources`,
-`make fetch-f22-sources`) require network access and retain unreviewed raw data under
-ignored `data/`. They do not select or purchase motors. Current exact source/variant
-verification is separate from a preliminary numerical-model pass.
+| Area | Start here |
+| --- | --- |
+| Current design and open findings | [Current state](docs/CURRENT.md), [status history](docs/STATUS.md), [RP1 decision](docs/wo03-rp1-load-attachment-decision.md) |
+| Vehicle specifications and calculations | [Platform manifest](configs/platform.yaml), [vehicle models](src/vehicle/), [CAD](src/cad/) |
+| Physics and experiments | [JAX simulator](src/sim/), [experiment API](src/api/experiments.py), [flight-study method](docs/wo02-flight-study.md) |
+| Inspection and recorded analysis | [Web app](web/), [API](src/api/), [RP1 study comparison](docs/wo04-rp1-studies-20261104.md) |
+| Direction and validation | [Plan](docs/PLAN.md), [work orders](docs/work-orders/), [results](docs/results.md), [architecture decisions](docs/adr/) |
