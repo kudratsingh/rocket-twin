@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-03",
+  "evidence_boundary": "Manufacturer product descriptions and assembly instructions establish design intent, not instrumented flight history, measured hot material/joint capacity, or acceptance of RP1 AD1.",
+  "records": [
+    {
+      "kit": "Madcow 2.6 DX3 K-126 / current product K-3126",
+      "sources": [
+        {
+          "url": "https://madcowrocketry.com/content/pdf/dx3.pdf",
+          "pages": "1-3",
+          "revision": "copyright 2007; current product links instruction but identical current physical revision unverified"
+        },
+        {
+          "url": "https://www.madcowrocketry.com/2-6-dx3/",
+          "pages": "product listing",
+          "revision": "current listing checked 2026-11-03"
+        }
+      ],
+      "motor": "manual recommends G80T-7, single use",
+      "fins": "three 1/8 in (3.175 mm) plywood; shape/dimensions and ply grade unspecified",
+      "mount": "29 mm tube; aft/forward rings epoxied to tube and body, rings clear fin slots; tang end to motor tube, root to airframe, thin epoxy each tang side, exterior fillets both sides",
+      "mass": "15 oz listed as weight; loaded vs unloaded and finishing scope not explicitly defined; do not use as loaded mass",
+      "limits": "No hot modulus, strength, tab bond capacity, load, deflection, or flutter evidence."
+    },
+    {
+      "kit": "LOC Hi-Tech PK-56",
+      "sources": [
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-56_HiTech_Build_Instructions.pdf?v=1639515959",
+          "pages": "1-4",
+          "revision": "11-29-21 instruction sheet"
+        },
+        {
+          "url": "https://locprecision.com/collections/loc-precision/products/hi-tech",
+          "pages": "product listing",
+          "revision": "current listing checked 2026-11-03; recovery descriptions differ from 2021 sheet"
+        }
+      ],
+      "motor": "G80-7 suggested in manual with 29 mm MMA-2 adapter, 38 mm mount",
+      "fins": "three laser cut fins, thickness/material not specified in examined Hi-Tech manufacturer sources; no inferred thickness from another kit",
+      "mount": "38 mm motor tube, 3 rings; middle and aft rings arranged clear of fin slots with fin between them, epoxied to motor tube; ring/body joint epoxy and aft fillet; fin root epoxy and external body fillets; no quantified ring-end bond or tab/ring contact",
+      "mass": "20 oz called weight, manual asks owner to weigh finished rocket; motor inclusion not explicitly defined",
+      "limits": "No material properties, root/tab dimensions, hot strength, stiffness or measured capacity."
+    },
+    {
+      "kit": "LOC Graduator PK-16",
+      "sources": [
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-16-Graduator.pdf?v=1623763227",
+          "pages": "1-2",
+          "revision": "linked instruction; no dated revision identified"
+        },
+        {
+          "url": "https://locprecision.com/collections/rockets-skill-level-entry/products/graduator",
+          "pages": "product listing",
+          "revision": "current listing checked 2026-11-03; payload upgrade, and launch lug no longer included versus linked sheet"
+        }
+      ],
+      "motor": "instruction says D\u2013G range, no exact G80 recommendation located; current listing also says D12 through H; G80 capability not established by range alone",
+      "fins": "1/8 in fin set; material not specified in instruction or examined listing",
+      "mount": "29 mm tube, two 1/4 in centering rings, through-wall fins; optionally position ring against fin tabs; epoxy fin root and external fillets, ring to motor tube fillets and aft ring to airframe",
+      "mass": "not established; site product shipping/variant weight not vehicle flight mass",
+      "limits": "No exact G80 flight, tab geometry, material grade, capacity or applicable environmental limits."
+    },
+    {
+      "kit": "Madcow Solar Express K-111",
+      "sources": [
+        {
+          "url": "https://www.madcowrocketry.com/content/pdf/solarexpress.pdf",
+          "pages": "1-3",
+          "revision": "copyright 2007 historical instruction; current availability/revision not established"
+        }
+      ],
+      "motor": "G80T-7 explicitly recommended",
+      "fins": "three 1/8 in plywood; fin profile dimensions and plywood grade unreported",
+      "mount": "29 mm tube, two rings to motor tube and body, rings clear fin slots; fin tang end to motor tube, fin root to body, thin epoxy each tang side and external fillets",
+      "mass": "12 oz specified weight; loaded/dry and finish inclusion unspecified",
+      "limits": "Same maker and broadly similar method to DX3; not independent proof of measured capacity."
+    },
+    {
+      "kit": "Enerjet by AeroTech Initiator 89011",
+      "sources": [
+        {
+          "url": "https://aerotech-rocketry.com/products/product_6884e3bb-9375-a3f8-ab43-42d8a31ec4ee",
+          "pages": "product listing",
+          "revision": "current listing checked 2026-11-03"
+        },
+        {
+          "url": "https://aerotech-rocketry.com/products/product_e2789daa-2937-a59c-b53b-b257b06a608d",
+          "pages": "individual fin listing",
+          "revision": "current listing checked 2026-11-03"
+        }
+      ],
+      "motor": "G80-10T expressly listed, 29 mm mount",
+      "fins": "three molded polymer airfoil fins; separately listed same-style part 11711 is high impact polystyrene; thickness and molding geometry unspecified",
+      "mount": "Fin-Lok integrated mount is described as distributing aerodynamic and thrust loads; manufacturer assembly instructions and full bond/contact geometry not obtained; cannot assume equivalent to bonded plywood tabs",
+      "mass": "14 oz (400 g) called weight; loaded/dry and finishing scope unspecified",
+      "limits": "Product claim and nominal motor listing, not measured Fin-Lok or hot-fin capacity."
+    }
+  ],
+  "project_implication": "RP1 AD1 current ideal-root 8.83 N m factored demand produces 7.301 MPa and 1.805 mm under E=1 GPa / 5 MPa screen and 15 mm gussets. The 1 mm deflection and same demand remain; kit motor labels do not justify thinner replacement or change to demand or limits. The differing fin geometries, mass and loading invalidate direct capacity comparison. No replacement adopted or shown passing."
+}

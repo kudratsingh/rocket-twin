@@ -1,0 +1,534 @@
+{
+  "id": "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1",
+  "status": "conditional_nominal_screen_pass_sensitivity_not_admitted",
+  "source_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+  "study_sha256": "4bd851f336ac9d9ca6668bae5735e2ee1a0f64bbd9ad9721eb210651961be079",
+  "producer_sha256": "ae4c1d324712f45227ad6b17bc6b3b189c105bc15b2b84590e49874bad646026",
+  "runtime_dependency_sha256": {
+    "src.vehicle.schema": "e11d777cce363e45fd07376b45db4bde640cea00fefda8377ced735250de5093",
+    "src.vehicle.mass": "b520285733039b75eba14ad8ef6eacad659f43b2af9fbaa51513ff1929becd5e",
+    "src.vehicle.aero": "4eaccd3ef1218cfc13e0495cdba683d242142eeff2c53bbd12470ad1e94fb595",
+    "src.vehicle.geometry": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "src.vehicle.benchmark": "5a0c22b90c3e205b90597caeb07b0ce6cbd10c4f1662eee841600aa16b59d46c",
+    "src.vehicle.motors": "501eec6d43e680af3e805594b309da48fa79248e7a6af7bdd47c3876251ed6c5"
+  },
+  "motor_curve_sha256": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+  "source_run_not_modified": true,
+  "adopted": false,
+  "flight_ready": false,
+  "baseline_frozen_record": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+  "component_screens": [
+    {
+      "divisions": 400,
+      "panel_bending_mm": 0.25237059430795467,
+      "panel_shear_mm": 0.1027573117274946,
+      "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+      "component_tip_subtotal_mm": 0.8606327161371331,
+      "unverified_attachment_reserve_mm": 0.1,
+      "screen_total_tip_mm": 0.9606327161371331,
+      "remaining_tip_budget_mm": 0.13936728386286695,
+      "max_wood_bending_MPa": 1.4103118116491407,
+      "max_carbon_bending_MPa": 58.58734557879178,
+      "max_wood_shear_MPa": 0.7566841864716635,
+      "max_mean_interface_shear_MPa": 0.5509038890494036,
+      "individual_provisional_screens": {
+        "wood_bending": true,
+        "carbon_bending": true,
+        "wood_shear": true,
+        "mean_bond_shear": true,
+        "movement_with_reserved_attachment_budget": true
+      },
+      "conditional_numeric_pass": true,
+      "installed_strength_pass": null,
+      "installed_tip_movement_pass": null,
+      "peel_delamination_capacity": null,
+      "hot_wet_material_bounds_verified": false,
+      "section_D_Nm": 295.38494999999995
+    },
+    {
+      "divisions": 1600,
+      "panel_bending_mm": 0.25285604158432123,
+      "panel_shear_mm": 0.10275735836653155,
+      "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+      "component_tip_subtotal_mm": 0.8611182100525365,
+      "unverified_attachment_reserve_mm": 0.1,
+      "screen_total_tip_mm": 0.9611182100525366,
+      "remaining_tip_budget_mm": 0.13888178994746345,
+      "max_wood_bending_MPa": 1.4304378084792018,
+      "max_carbon_bending_MPa": 58.58734557879178,
+      "max_wood_shear_MPa": 0.7566841864716635,
+      "max_mean_interface_shear_MPa": 0.5509038890494036,
+      "individual_provisional_screens": {
+        "wood_bending": true,
+        "carbon_bending": true,
+        "wood_shear": true,
+        "mean_bond_shear": true,
+        "movement_with_reserved_attachment_budget": true
+      },
+      "conditional_numeric_pass": true,
+      "installed_strength_pass": null,
+      "installed_tip_movement_pass": null,
+      "peel_delamination_capacity": null,
+      "hot_wet_material_bounds_verified": false,
+      "section_D_Nm": 295.38494999999995
+    },
+    {
+      "divisions": 6400,
+      "panel_bending_mm": 0.2529781619137324,
+      "panel_shear_mm": 0.1027573612814736,
+      "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+      "component_tip_subtotal_mm": 0.8612403332968899,
+      "unverified_attachment_reserve_mm": 0.1,
+      "screen_total_tip_mm": 0.9612403332968898,
+      "remaining_tip_budget_mm": 0.13875966670311016,
+      "max_wood_bending_MPa": 1.4354890000037785,
+      "max_carbon_bending_MPa": 58.58734557879178,
+      "max_wood_shear_MPa": 0.7566841864716635,
+      "max_mean_interface_shear_MPa": 0.5509038890494036,
+      "individual_provisional_screens": {
+        "wood_bending": true,
+        "carbon_bending": true,
+        "wood_shear": true,
+        "mean_bond_shear": true,
+        "movement_with_reserved_attachment_budget": true
+      },
+      "conditional_numeric_pass": true,
+      "installed_strength_pass": null,
+      "installed_tip_movement_pass": null,
+      "peel_delamination_capacity": null,
+      "hot_wet_material_bounds_verified": false,
+      "section_D_Nm": 295.38494999999995
+    }
+  ],
+  "diagnostic_sensitivities": [
+    {
+      "parameter": "plywood_E_Pa",
+      "value": 1000000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2529781619137324,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+        "component_tip_subtotal_mm": 0.8612403332968899,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9612403332968898,
+        "remaining_tip_budget_mm": 0.13875966670311016,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.58734557879178,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5509038890494036,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 295.38494999999995
+      }
+    },
+    {
+      "parameter": "plywood_E_Pa",
+      "value": 5000000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2011157496897829,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.4567431723684757,
+        "component_tip_subtotal_mm": 0.7606162833397323,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.8606162833397324,
+        "remaining_tip_budget_mm": 0.23938371666026773,
+        "max_wood_bending_MPa": 4.822861755058504,
+        "max_carbon_bending_MPa": 52.08690695463185,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.4897794792780041,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 332.2489499999999
+      }
+    },
+    {
+      "parameter": "plywood_E_Pa",
+      "value": 8000000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.18360633839746718,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.4267273846747864,
+        "component_tip_subtotal_mm": 0.7130910843537271,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.8130910843537272,
+        "remaining_tip_budget_mm": 0.2869089156462729,
+        "max_wood_bending_MPa": 7.123775865789785,
+        "max_carbon_bending_MPa": 48.085487094081046,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.45215364487435533,
+        "individual_provisional_screens": {
+          "wood_bending": false,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 359.89694999999995
+      }
+    },
+    {
+      "parameter": "carbon_E_Pa",
+      "value": 30000000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.35716842482061834,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.7151191110136986,
+        "component_tip_subtotal_mm": 1.1750448971157905,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.2750448971157906,
+        "remaining_tip_budget_mm": -0.17504489711579058,
+        "max_wood_bending_MPa": 1.6024284111810083,
+        "max_carbon_bending_MPa": 57.68742280251628,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5424418064546637,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 199.9953
+      }
+    },
+    {
+      "parameter": "carbon_E_Pa",
+      "value": 45000000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2529781619137324,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+        "component_tip_subtotal_mm": 0.8612403332968899,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9612403332968898,
+        "remaining_tip_budget_mm": 0.13875966670311016,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.58734557879178,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5509038890494036,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 295.38494999999995
+      }
+    },
+    {
+      "parameter": "carbon_E_Pa",
+      "value": 60000000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.19965442263502411,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.3982258953636514,
+        "component_tip_subtotal_mm": 0.7006376792801491,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.8006376792801492,
+        "remaining_tip_budget_mm": 0.2993623207198509,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 59.04791882387486,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.555234714919764,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 390.77459999999996
+      }
+    },
+    {
+      "parameter": "plywood_G_Pa",
+      "value": 100000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2529781619137324,
+        "panel_shear_mm": 0.2055147225629472,
+        "finite_tab_translation_rotation_shear_mm": 0.5715292887922688,
+        "component_tip_subtotal_mm": 1.0300221732689485,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 1.1300221732689486,
+        "remaining_tip_budget_mm": -0.030022173268948443,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.58734557879178,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5509038890494036,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 295.38494999999995
+      }
+    },
+    {
+      "parameter": "plywood_G_Pa",
+      "value": 200000000,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2529781619137324,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+        "component_tip_subtotal_mm": 0.8612403332968899,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9612403332968898,
+        "remaining_tip_budget_mm": 0.13875966670311016,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.58734557879178,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5509038890494036,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 295.38494999999995
+      }
+    },
+    {
+      "parameter": "extra_attachment_tip_budget_m",
+      "value": 0.0001,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2529781619137324,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+        "component_tip_subtotal_mm": 0.8612403332968899,
+        "unverified_attachment_reserve_mm": 0.1,
+        "screen_total_tip_mm": 0.9612403332968898,
+        "remaining_tip_budget_mm": 0.13875966670311016,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.58734557879178,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5509038890494036,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": true
+        },
+        "conditional_numeric_pass": true,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 295.38494999999995
+      }
+    },
+    {
+      "parameter": "extra_attachment_tip_budget_m",
+      "value": 0.00025,
+      "result": {
+        "divisions": 6400,
+        "panel_bending_mm": 0.2529781619137324,
+        "panel_shear_mm": 0.1027573612814736,
+        "finite_tab_translation_rotation_shear_mm": 0.5055048101016838,
+        "component_tip_subtotal_mm": 0.8612403332968899,
+        "unverified_attachment_reserve_mm": 0.25,
+        "screen_total_tip_mm": 1.1112403332968899,
+        "remaining_tip_budget_mm": 0.13875966670311016,
+        "max_wood_bending_MPa": 1.4354890000037785,
+        "max_carbon_bending_MPa": 58.58734557879178,
+        "max_wood_shear_MPa": 0.7566841864716635,
+        "max_mean_interface_shear_MPa": 0.5509038890494036,
+        "individual_provisional_screens": {
+          "wood_bending": true,
+          "carbon_bending": true,
+          "wood_shear": true,
+          "mean_bond_shear": true,
+          "movement_with_reserved_attachment_budget": false
+        },
+        "conditional_numeric_pass": false,
+        "installed_strength_pass": null,
+        "installed_tip_movement_pass": null,
+        "peel_delamination_capacity": null,
+        "hot_wet_material_bounds_verified": false,
+        "section_D_Nm": 295.38494999999995
+      }
+    }
+  ],
+  "all_diagnostics_pass": false,
+  "replacement_admitted": false,
+  "replacement_ledger": {
+    "replaced_allocations_g": {
+      "fin_set": 78.83167661704073,
+      "fin_tabs": 25.91758734498647,
+      "root_gussets": 26.277225539013575,
+      "root_extra_bond_finish": 4.0
+    },
+    "new_core_g": {
+      "fin_set": 68.445,
+      "fin_tabs": 22.33693098
+    },
+    "added_allocations": [
+      {
+        "id": "fp1_panel_carbon",
+        "mass_g": 25.096500000000002,
+        "cg_mm": 1144.3269227952223,
+        "cost_usd": null
+      },
+      {
+        "id": "fp1_panel_bond",
+        "mass_g": 2.5666875000000005,
+        "cg_mm": 1144.3269227952223,
+        "cost_usd": null
+      },
+      {
+        "id": "fp1_tab_carbon",
+        "mass_g": 10.080256032000003,
+        "cg_mm": 1134.9,
+        "cost_usd": null
+      },
+      {
+        "id": "fp1_tab_bond",
+        "mass_g": 1.0309352760000001,
+        "cg_mm": 1134.9,
+        "cost_usd": null
+      }
+    ],
+    "skin_termination_finish_g": 0.8,
+    "net_change_g": -4.67017971304079,
+    "retained_bonds_and_global_finish": [
+      "fin_internal_bonds",
+      "outer_fin_fillets",
+      "c1_forward_root_bond_fill",
+      "c1_aft_bond_fill",
+      "ad1_slot_fill",
+      "finish"
+    ],
+    "new_complete_fin_group_g": 154.356309788,
+    "maximum_laminate_m": 0.0063999999999999994,
+    "cost_complete": false,
+    "note": "Zero build-cost placeholders exist only in the in-memory mass model; new component cost is unavailable, never free. No full candidate spec or CAD is adopted/exported."
+  },
+  "complete_vehicle_cases": [
+    {
+      "case": "nominal",
+      "nylon_mass_g": 55,
+      "nylon_probe_is_measurement_or_bound": false,
+      "mass_g": 929.8790384863119,
+      "cg_mm": 761.831789913579,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.4611913337591307,
+      "guide_1_5m_mps": 15.255657127217257,
+      "formal_mass_headroom_g": 28.46451505677894,
+      "planning_mass_headroom_g": -26.079743060896774
+    },
+    {
+      "case": "adverse",
+      "nylon_mass_g": 55,
+      "nylon_probe_is_measurement_or_bound": false,
+      "mass_g": 949.8790384863119,
+      "cg_mm": 773.8378704139993,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.2814649707696948,
+      "guide_1_5m_mps": 15.074855519185741,
+      "formal_mass_headroom_g": 8.464515056778922,
+      "planning_mass_headroom_g": -46.079743060896796
+    },
+    {
+      "case": "nominal",
+      "nylon_mass_g": 68,
+      "nylon_probe_is_measurement_or_bound": false,
+      "mass_g": 942.8790384863119,
+      "cg_mm": 756.0157593889422,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.5482550522800844,
+      "guide_1_5m_mps": 15.137491915483281,
+      "formal_mass_headroom_g": 15.464515056778927,
+      "planning_mass_headroom_g": -39.07974306089679
+    },
+    {
+      "case": "adverse",
+      "nylon_mass_g": 68,
+      "nylon_probe_is_measurement_or_bound": false,
+      "mass_g": 962.8790384863119,
+      "cg_mm": 767.9805486841087,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.3691468025994398,
+      "guide_1_5m_mps": 14.96032322297767,
+      "formal_mass_headroom_g": -4.535484943221091,
+      "planning_mass_headroom_g": -59.0797430608968
+    }
+  ],
+  "unavailable": [
+    "conditioned material minimums",
+    "installed bond peel/delamination capacity",
+    "complete tube/body/ring attachment compliance",
+    "thermal layout",
+    "installed flutter",
+    "full-vehicle CAD/physical inertia/new flight prediction",
+    "finished harness mass/capacity",
+    "verified upper and lower wood stiffness coupled to retained strength screen"
+  ],
+  "resources": {
+    "wall_s": 0.0981049999827519,
+    "cpu_s": 0.21911999999999998,
+    "new_FEA_or_CAD_or_simulation_runs": 0
+  }
+}

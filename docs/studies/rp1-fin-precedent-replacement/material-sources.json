@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-03",
+  "scope": "Primary manufacturer material evidence; research only, no selection or qualification",
+  "sources": [
+    {
+      "id": "acculam-comparison",
+      "url": "https://acculam.com/resource-center/technical-data/sheet-comparative-data-chart",
+      "kind": "manufacturer comparative chart",
+      "grade": "G10, FR4, G11, FR5",
+      "evidence": "engineering values MIN unless noted; .125 in flexural strengths 55/45 ksi LW/CW; flexural modulus G10/FR4 2700/2200 ksi and G11/FR5 2800/2300 ksi; confirm test conditions and modulus thickness",
+      "hot_wet_allowable": null
+    },
+    {
+      "id": "np511",
+      "url": "https://www.norplex-micarta.com/wp-content/uploads/2017/07/TDB_NP511.pdf",
+      "kind": "manufacturer datasheet",
+      "grade": "NP511 G11",
+      "test_thickness_in": 0.0625,
+      "density_kg_m3_typical": 1800,
+      "flexural_strength_mpa_typical_LW_CW": [
+        469.5,
+        422.6
+      ],
+      "flexural_modulus_gpa_typical_LW_CW": [
+        20.7,
+        18.6
+      ],
+      "flexural_strength_mpa_typical_150C_LW": 275.8,
+      "hot_crosswise_strength": null,
+      "hot_modulus": null,
+      "hot_wet_allowable": null
+    },
+    {
+      "id": "norplex-sizes",
+      "url": "https://www.norplex-micarta.com/wp-content/uploads/2017/07/MC_Sheets_Epoxy_Glass.pdf",
+      "kind": "manufacturer production sizes, not inventory",
+      "evidence": "NP511 48 x 96 in 0.031-4.000 in; NP511EM 48 x 96 in 0.125-0.250 in, minimum purchase quantity; price and live availability unknown"
+    },
+    {
+      "id": "atlas-g10",
+      "url": "https://www.atlasfibre.com/wp-content/uploads/2023/04/G10_DataSheet-2024.pdf",
+      "kind": "manufacturer datasheet",
+      "specific_gravity": 1.8,
+      "flexural_strength_mpa": 517,
+      "limitations": "Direction, condition, flexural modulus and hot-wet properties not specified; informational, no batch warranty."
+    },
+    {
+      "id": "atlas-g11",
+      "url": "https://www.atlasfibre.com/material/g-11/",
+      "kind": "manufacturer product page",
+      "specific_gravity": 1.82,
+      "flexural_strength_mpa_LW_condition_A_at_0_125_in": 517,
+      "limitations": "Information only; batch properties available separately, no hot-wet modulus or strength."
+    },
+    {
+      "id": "broszeit-birch",
+      "url": "https://broszeit-group.com/produkt/birch-aircraft-plywood/?lang=en",
+      "kind": "supplier product page",
+      "density_kg_m3_approx_range": [
+        680,
+        750
+      ],
+      "limitations": "Exact 5.8 mm stock, layup and relevant conditioned mechanical values unavailable."
+    },
+    {
+      "id": "diab-h80",
+      "url": "https://www.diabgroup.com/media/b0nlea5v/diab-divinycell-h-april-2022-rev21-si-cn.pdf",
+      "kind": "manufacturer datasheet",
+      "density_kg_m3_nominal": 80,
+      "test_temperature_c": 23,
+      "shear_strength_mpa_min": 0.95,
+      "shear_modulus_mpa_min": 23,
+      "limitations": "ASTM C273 room temperature core values; hot/wet, skin/core bond and root not characterized."
+    },
+    {
+      "id": "hexcel-sandwich",
+      "url": "https://www.hexcel.com/wp-content/uploads/2026/01/Honeycomb_Sandwich_Design_Technology-1.pdf",
+      "kind": "manufacturer design handbook",
+      "evidence": "Appendix III symmetric thin-identical-face soft-core sandwich beam theory includes bending and shear deflection. Loading and supports must match; root motion and other failure modes remain separate."
+    },
+    {
+      "id": "easy-thin-cured",
+      "url": "https://media.easycomposites.co.uk/datasheets/EC-TDS-Double-Sided-High-Strength-Carbon-Sheet.pdf",
+      "kind": "manufacturer datasheet",
+      "product": "Double sided high strength 0.25 mm",
+      "actual_thickness_mm": 0.22,
+      "thickness_tolerance_mm_plus_minus": 0.1,
+      "areal_mass_kg_m2": 0.35,
+      "derived_density_kg_m3_at_nominal": 1591,
+      "tensile_modulus_gpa_typical_0_90": 50.1,
+      "tensile_strength_mpa_typical_0_90": 641,
+      "flexural_modulus": "TBC",
+      "flexural_strength": "TBC",
+      "compression": null,
+      "tg_c": 80,
+      "hot_wet_allowable": null,
+      "limitations": "One layer 210g twill; nominal density derived from areal mass / actual nominal thickness. Typical tensile values are not flexural/compression data; not specification values."
+    },
+    {
+      "id": "easy-xc130-ud",
+      "url": "https://www.easycomposites.co.uk/xc130-300g-unidirectional-prepreg-carbon-fibre",
+      "datasheet_url": "https://media.easycomposites.co.uk/datasheets/EC-TDS-XPREG-XC130-Component-Prepreg.pdf",
+      "kind": "uncured UD prepreg",
+      "nominal_consolidated_thickness_mm": 0.3,
+      "thickness_tolerance": null,
+      "limitations": "Product page generic 60.1 GPa flexural modulus / 882 MPa flexural and 615 MPa compression come from 210g twill autoclave laminate, not this UD; cannot transfer them. 130 C service is after post-cure; positive pressure cure required, and plywood/bond compatibility not established. No hot-wet UD allowable."
+    },
+    {
+      "id": "elevated-em-cf",
+      "url": "https://www.rockwestcomposites.com/on/demandware.static/-/Sites-rwc-master-catalog/default/dw48c50396/wysiwyg/Elevated-Materials-Sheet-Product-Data-Sheet.pdf",
+      "kind": "manufacturer sheet data distributed by Rock West",
+      "density_kg_m3": 1600,
+      "compression_modulus_gpa_greater_than": 48.95,
+      "compression_strength_mpa_greater_than": 689.5,
+      "tensile_modulus_gpa_greater_than": 55.82,
+      "dry_resin_tg_c_min": 121,
+      "limitations": "No verified target-thickness product, tolerance, flexural modulus, test conditions or hot-wet properties."
+    }
+  ],
+  "safety_status": {
+    "adopted": false,
+    "installed_fin_qualified": false,
+    "hot_wet_allowable_established": false,
+    "purchase": false
+  }
+}
