@@ -1,4 +1,4 @@
-import { Box3, Vector3 } from 'three';
+import { Box3, Plane, Vector3 } from 'three';
 import type { CameraFrame } from './inspectionGeometry';
 
 /** Frame the actual bounds along the camera's current viewing direction. */
@@ -51,4 +51,9 @@ export function fitOrbitFrame(
     near,
     far,
   };
+}
+
+/** Clipped geometry must not intercept a pick intended for a visible interior part. */
+export function isPointClipped(point: Vector3, plane: Plane, sectionEnabled: boolean): boolean {
+  return sectionEnabled && plane.distanceToPoint(point) < 0;
 }

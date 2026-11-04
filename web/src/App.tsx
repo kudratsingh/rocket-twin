@@ -7,6 +7,11 @@ import { Viewer } from './components/Viewer';
 import { useInspection } from './store';
 import type { Catalog, InspectionDocument, MassSample } from './types';
 
+import {
+  inspectionSourceContext,
+  requireInspectionSource,
+  drawingShortcut,
+} from './workspaces/inspectionWorkflow';
 import { DesignVisual } from './workspaces/DesignVisual';
 import { InspectionWorkspace } from './workspaces/InspectionWorkspace';
 import {
@@ -33,7 +38,8 @@ export default function App() {
       new URL(currentHref(), 'http://local.invalid').searchParams.get('design') ||
       'modular-performance-v1',
   );
-  const [vehicle, setVehicle] = useState<InspectionDocument | null>(null);
+  const [loadedVehicle, setVehicle] = useState<InspectionDocument | null>(null);
+  const vehicle = loadedVehicle?.id === vehicleId ? loadedVehicle : null;
   const [catalogError, setCatalogError] = useState('');
   const [vehicleError, setVehicleError] = useState('');
   const [massError, setMassError] = useState('');
@@ -74,6 +80,7 @@ export default function App() {
     setCatalogError('');
     void getJson<Catalog>('/api/vehicles', controller.signal)
       .then((data) => {
+        if (controller.signal.aborted) return;
         setCatalog(data);
         setVehicleId(
           (id) => id || data.vehicles.find((entry) => entry.available !== false)?.id || '',
@@ -101,7 +108,9 @@ export default function App() {
       `/api/vehicles/${encodeURIComponent(vehicleId)}`,
       controller.signal,
     )
-      .then(setVehicle)
+      .then((data) => {
+        if (!controller.signal.aborted) setVehicle(requireInspectionSource(data, vehicleId));
+      })
       .catch((error: unknown) => {
         if (!controller.signal.aborted)
           setVehicleError(error instanceof Error ? error.message : 'Could not load vehicle.');
@@ -113,13 +122,16 @@ export default function App() {
     if (!vehicle) return;
     const controller = new AbortController();
     setMassLoading(true);
+    setMass(null);
     setMassError('');
     const timeout = window.setTimeout(() => {
       void getJson<MassSample>(
         `/api/vehicles/${encodeURIComponent(vehicle.id)}/mass?burn_fraction=${burn}`,
         controller.signal,
       )
-        .then((data) => setMass({ ...data, burn_fraction: burn }))
+        .then((data) => {
+          if (!controller.signal.aborted) setMass({ ...data, burn_fraction: burn });
+        })
         .catch((error: unknown) => {
           if (!controller.signal.aborted) {
             setMass(null);
@@ -148,6 +160,19 @@ export default function App() {
         return;
       const state = useInspection.getState();
       if (event.key === 'Escape') state.select(null);
+      const drawing =
+        mode === 'design'
+          ? document.querySelector<HTMLElement>('.research-design-visual[data-representation="2d"]')
+          : null;
+      const drawingAction = drawingShortcut(event.key);
+      if (drawing && drawingAction) {
+        event.preventDefault();
+        if (drawingAction !== 'unsupported')
+          drawing
+            .querySelector<HTMLButtonElement>(`[data-inspection-action="${drawingAction}"]`)
+            ?.click();
+        return;
+      }
       if (event.key.toLowerCase() === 'r') state.resetCamera();
       if (event.key.toLowerCase() === 'f' && state.selectedId) {
         const selected = vehicle?.parts.find((part) => part.id === state.selectedId);
@@ -168,6 +193,8 @@ export default function App() {
   const selectedEntry = [...(catalog?.vehicles ?? []), ...(catalog?.candidates ?? [])].find(
     (entry) => entry.id === vehicleId,
   );
+  const inspectionContext = inspectionSourceContext(vehicleId, vehicle, selectedEntry);
+  const inspectionError = vehicleError || (!vehicle ? catalogError : '');
   return (
     <WorkspaceFrame
       header={
@@ -284,21 +311,19 @@ export default function App() {
               ? 'Engineering drawings — select the source snapshot below'
               : mode === 'experiments' || mode === 'replay'
                 ? 'Preliminary simulated flights — exact identity follows the selected run'
-                : selectedEntry?.label || vehicle?.label || 'Selected design source'
+                : inspectionContext.name
           }
           maturity={
             mode === 'engineering'
               ? 'Concept, envelope and local joint drawings; maturity stated per source'
               : mode === 'experiments' || mode === 'replay'
                 ? 'Existing Python/JAX model; PID and RL remain later milestones'
-                : vehicle?.snapshot_only
-                  ? 'Historical candidate snapshot; not active CAD'
-                  : 'Recorded design/CAD identity; physical qualification open'
+                : inspectionContext.maturity
           }
           state={
             mode === 'engineering' || mode === 'experiments' || mode === 'replay'
               ? 'ready'
-              : catalogError || vehicleError
+              : inspectionError
                 ? 'unavailable'
                 : vehicle
                   ? 'ready'
@@ -316,6 +341,22 @@ export default function App() {
                   ? `Selected identifier: ${vehicleId || 'loading'}.`
                   : 'Configuration, source fingerprints and limitations are attached to the displayed drawing or run.'}
               </p>
+              {(mode === 'design' || mode === 'analysis') && (
+                <dl className="research-source-fingerprints">
+                  <dt>Resolved specification</dt>
+                  <dd>
+                    {inspectionContext.specification || 'Unavailable for the requested source'}
+                  </dd>
+                  <dt>Recorded CAD revision</dt>
+                  <dd>{inspectionContext.cadRevision || 'Unavailable for the requested source'}</dd>
+                  <dt>Geometry coverage</dt>
+                  <dd>
+                    {vehicle
+                      ? `${inspectionContext.meshCount}/${vehicle.parts.length} components have recorded meshes. 2D uses source dimensions and preserves unavailable geometry.`
+                      : 'Requested source not loaded.'}
+                  </dd>
+                </dl>
+              )}
             </>
           }
         />
@@ -362,6 +403,12 @@ export default function App() {
           . The CAD selector contains recorded reference assemblies, not a complete F2 assembly.
         </p>
       )}
+      {catalogError && vehicle && (mode === 'design' || mode === 'analysis') && (
+        <p className="route-notice" role="status">
+          Configuration list unavailable: {catalogError}. The displayed source document is loaded
+          independently.
+        </p>
+      )}
       {route.notice && (
         <p className="route-notice" role="status">
           {route.notice}
@@ -393,10 +440,10 @@ export default function App() {
             onOpenReplay={() => navigate(workspaceHref(currentHref(), 'replay'))}
           />
         </Suspense>
-      ) : catalogError || vehicleError ? (
+      ) : inspectionError ? (
         <main className="center-state">
           <h1>Selected inspection source unavailable</h1>
-          <p>{catalogError || vehicleError}</p>
+          <p>{inspectionError}</p>
           <p>
             Engineering drawings and saved experiments remain independently available. Start the
             local Python API on port 8000 to load inspection data.

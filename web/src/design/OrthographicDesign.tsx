@@ -160,13 +160,16 @@ function DesignDrawing({
         </button>
         <button
           onClick={revealAndFocus}
+          data-inspection-action="focus"
           disabled={!selected || (visibility === 'hidden-part' && !onRevealPart)}
         >
           {visibility === 'hidden-part' || visibility === 'hidden-layer'
             ? 'Reveal & focus selection'
             : 'Focus selection'}
         </button>
-        <button onClick={showContext}>Show context / reset view</button>
+        <button onClick={showContext} data-inspection-action="reset">
+          Show context / reset view
+        </button>
         <button
           aria-pressed={onlySelected}
           disabled={!selected || visibility !== 'visible'}
