@@ -1,5 +1,13 @@
 # Plan — modular custom rocket and digital twin
 
+Recovery precedent recommendation RP1 is recorded in
+`docs/wo03-f2-recovery-precedent-decision.md`: retain fixed F2, carry the conventional
+motor-tube wrap/nylon topology forward. The one balance correction passes the
+formal1.5m guide/static screens under estimates; planning and installed joint
+gates remain open. No expensive analysis or launch-baseline change.
+The unexecuted F2-C2 arithmetic packet was superseded by this owner direction.
+Inspection reachability/source-isolation PR70 is merged after required checks.
+
 F2-C1 connection packet is recorded in `docs/wo03-g80-f2-c1-decision.md` and `configs/engineering/g80-f2-c1-verification.yaml` (repository-relative). Seven proposed fits and coupled mass are calculated; installed recovery/motor/thermal/fin gates and3-grid accuracy remain open. Fine node-capped attempts stopped without resource increases; no full-WO or physical adoption. Source-linked frontend study is independent of the active design.
 
 2026-11-03 frontend direction: execute the supplied43-task planning kit through

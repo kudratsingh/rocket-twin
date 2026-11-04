@@ -1,5 +1,20 @@
 # Current bounded work list
 
+## Recovery precedents and first inspection slice
+
+| Deliverable / owner | Budget and source | Actual status / stop |
+| --- | --- | --- |
+| DX3/Hi-Tech precedents / Sol HIGH |16URLs/20min; exact kit/version/instructions, first-person evidence distinct |8URLs closed,2direct403; notes/register complete, no measured F2 strength inferred |
+| Initiator/components/recommendation / primary |12directURLs/15min active research; one topology,10CPU/20wall arithmetic |12URLs closed; RP1 loop selected for definition only. One ledger-export failure preserved, one correction1.619s; CPU/thread usage not recorded. No further numerical retry |
+| Complete RP1 package / primary |Full50g,+20g/probe,1.5m/15formal/15.5planning; all replacement costs/masses |First screen+42.215g fails. One ballast/leader correction: +12.399g overC1;951.149g adverse passesformal by7.194g, missesplanning47.350g. Main mass/capacity, changed root support and actual launch setup still hold admission |
+| One RP1 balance correction / primary |6CPU/10wall,librarythreads1; ballast-only function replaced and6ft leader reaches accessiblejunction |1.099CPU/1.270main-wall; originalnose-service3g retained. Adverseaftcordstow1.149cal. No further design iteration or expensive analysis admitted |
+| Source drawings / Sol HIGH + primary |One source-linked exporter and one visual correction; native render total120s |First images inspected; actual final image observations/export hashes retained separately; no browser/engineering acceptance |
+| First inspection slice / Astra MEDIUM, Terra HIGH |35/25min code packets +one correction; separate files,71 integrated web tests |PR70 merged after required jobs passed atf2a405272093d5524973e2cf65eaa3432192a11e. Scroll/details/source/section interaction acceptance pending designated runtime ownership. No bypass |
+| Read-only inspection assets / Terra HIGH |12min,15CPU/30wall; existing files only, no API/server/browser/CAD/sim |0.430CPU/0.473wall inventory;42/42,42/42,53/53,51/51 listed meshes exist with matching source identities. Original GLB expected byte digests absent; browser acceptance still open |
+
+F2-C2 joint-demand arithmetic was superseded unexecuted. Existing F2/C1 solver
+stops remain closed. No purchases, physical work, supplier contact or paid runs.
+
 ## F2-C1 bounded packet — adoption held
 
 | Deliverable / responsible | Source/criterion | Actual outcome and stop |

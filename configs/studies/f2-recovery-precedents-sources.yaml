@@ -1,0 +1,130 @@
+schema_version: 1
+identity: F2-recovery-precedents-Madcow-DX3-LOC-Hi-Tech
+date_checked_local: 2026-11-03
+status: closed_two_kit_source_packet_no_design_selection
+budget:
+  declared_before_browsing: true
+  maximum_unique_urls: 16
+  maximum_minutes: 20
+  started_utc: '2026-11-04 02:34:27 UTC'
+  research_closed_utc: '2026-11-04 02:37:05 UTC'
+  attempted_unique_urls: 8
+  failed_direct_access_attempts: 2
+  search_discovery_adds_unique_count: false
+  same_URL_repeat_adds_unique_count: false
+  automatic_extension: false
+scope:
+  owns_only_new_note_and_this_register: true
+  C2_joint_arithmetic_executed: false
+  purchases_contacts_hardware_measurement_requests: false
+  solver_or_git_operations: false
+  primary_owns_replacement_selection_and_mass: true
+source_register:
+  - id: madcow_current_product
+    url: https://madcowrocketry.com/2-6-dx3/
+    access: readable
+    source_class: manufacturer_product_plus_separately_labeled_user_review
+    exact_product_SKU: K-3126
+    page_reference: Features_Specifications_and_Cory_Antosh_review_2025_05_28
+    supports: current_cardboard_plywood_product_identity_catalogue_dimensions_and_unqualified_advertised_mass
+    does_not_support: loaded_motor_mass_or_measured_finished_capacity
+  - id: loc_current_product
+    url: https://locprecision.com/products/hi-tech
+    access: readable
+    source_class: manufacturer_product
+    exact_product_SKU: PK-56
+    page_reference: Description_and_linked_Build_Instructions
+    supports: current_product_identity_38mm_mount_and_Kevlar_webbing_description
+    gap: linked_manual_material_and_attachment_differ_from_product_description
+  - id: madcow_currently_linked_manual
+    url: https://www.madcowrocketry.com/content/pdf/dx3.pdf
+    access: readable
+    source_class: manufacturer_instructions_linked_by_current_product
+    pages: 4
+    document_identity: K-126
+    copyright_marks: [2006, 2007]
+    current_delivered_revision_match: unestablished
+    page_references:
+      1: specifications_and_motor_list
+      2: Steps_1_to_3_mount_loop_and_body_installation
+      3: Steps_4_and_6_fin_and_payload_assembly
+      4: Steps_7_and_8_balance_flight_recovery_and_retention
+    short_quote_location: companion_note_Madcow_section_page_2_Step_2
+    measured_strength: none
+    exact_current_G80_10T_78010_approval: unestablished
+  - id: loc_currently_linked_manual
+    url: https://cdn.shopify.com/s/files/1/0568/7489/3503/files/PK-56_HiTech_Build_Instructions.pdf?v=1639515959
+    access: readable
+    source_class: manufacturer_instructions_linked_by_current_product
+    pages: 5
+    document_identity: PK-56_Hi-Tech_Build_Instructions
+    revision_identifier_from_extracted_text: unestablished
+    page_references:
+      1: Steps_1_and_2_forward_eye_and_three_ring_mount
+      2: Steps_3_to_5_cord_booster_and_fins
+      3: Steps_6_to_9_bulkhead_payload_and_cord
+      4: Step_10_nose_retention_and_preflight_motor_mass_statements
+    short_quote_location: companion_note_LOC_section_page_4_Step_10
+    measured_strength: none
+    exact_current_G80_10T_78010_approval: unestablished
+  - id: madcow_firsthand_caplinger
+    url: https://www.rocketreviews.com/madcow-rocketry-dx3-by-mike-caplinger.html
+    access: direct_HTTP_403_search_index_text_available
+    failed_direct_access_attempts: 1
+    source_class: manufacturer_linked_firsthand_builder_flight_narrative
+    author: Mike_Caplinger
+    page_reference: Construction_Flight_Recovery_and_Summary_sections_in_indexed_text
+    supports: author_reported_build_mass_and_nose_separations
+    limits: historical_build_unlabeled_mass_state_no_load_instrumentation_no_G80_result_direct_content_not_refetched
+  - id: loc_firsthand_terry
+    url: https://www.rocketreviews.com/mike-terrys-page.html
+    access: direct_HTTP_403_search_index_text_available
+    failed_direct_access_attempts: 1
+    source_class: indexed_firsthand_flight_narrative
+    author: Mike_Terry
+    page_reference: LOC_Hi_Tech_H123_zipper_entry
+    supports: author_reported_historical_family_zipper
+    limits: exact_kit_revision_harness_modifications_event_force_unestablished_not_current_PK56_failure_evidence
+  - id: loc_historical_2013_manual
+    url: https://www.apogeerockets.com/downloads/instructions/PK-56_Hi-Tech_Assy.pdf
+    access: readable
+    source_class: manufacturer_authored_manual_hosted_by_vendor
+    pages: 2
+    copyright: 2013
+    document_identity: PK-56
+    page_reference: page_2_Shock_Cord_Mount_Parts_List_and_Payload_Assembly
+    supports: historical_wall_anchor_and_elastic_cord_version
+    current_five_page_manual_equivalence: false
+    measured_strength: none
+  - id: montana_firsthand_report_disambiguation
+    url: https://tripolimontana.org/demery/Reports/Launch20010616.html
+    access: readable
+    source_class: firsthand_launch_report
+    date: 2001-06-16
+    page_reference: Highlights_paragraphs
+    supports: reported_Hi_Tech_flight_and_disambiguation_of_Arcas_recovery_tangle
+    Hi_Tech_failure_claim_supported: false
+    measured_attachment_strength: none
+kit_evidence_boundaries:
+  Madcow_2p6_cardboard_DX3:
+    included_identity: K-3126_current_product_K-126_linked_manual
+    excluded: fiberglass_2p6_Super_DX3_Mini_DX3
+    advertised_mass_state_empty_or_loaded: not_explicit
+    loaded_G80_configuration_mass: unavailable
+    official_total_cord_length: unavailable
+    elasticity_or_force_extension_data: unavailable
+    later_anchor_replacement_procedure: unavailable
+    nose_to_payload_retention_procedure_in_linked_manual: not_established
+    capacity_basis: instruction_precedent_only
+  LOC_Hi_Tech:
+    included_identity: PK-56_current_product_and_currently_linked_five_page_manual
+    excluded: LOC_I_LONE_Hitec1_18mm_kit
+    advertised_mass_state_empty_or_loaded: not_explicit
+    loaded_G80_configuration_mass: unavailable
+    official_total_cord_length: unavailable
+    three_foot_tail_is_total_length: false
+    current_storefront_manual_harness_match: unresolved
+    historical_2013_manual_may_be_combined_with_current: false
+    later_anchor_replacement_procedure: unavailable
+    capacity_basis: instruction_precedent_only
+integration_stop: no_adoption_force_or_strength_transfer_loaded_mass_invention_or_replacement_purchase_request

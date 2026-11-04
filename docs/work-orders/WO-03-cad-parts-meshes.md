@@ -1,5 +1,14 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+Current bounded recovery deliverable is RP1 in
+`docs/wo03-f2-recovery-precedent-decision.md`. A motor-tube wrap/nylon topology is
+recommended from manufacturer precedents. Its single balance correction passes
+the formal1.5m departure screen under estimates, misses15.5planning and loses
+the former front-tab ring support. Hold
+adoption and expensive work pending the named mass/equipment/joint decisions.
+This does not close structural/thermal/root/flutter or aggregate acceptance.
+F2-C2 arithmetic was superseded before execution; stopped F2/C1 methods stay stopped.
+
 F2-C1 connection packet is recorded in `docs/wo03-g80-f2-c1-decision.md` and `configs/engineering/g80-f2-c1-verification.yaml` (repository-relative). Seven proposed fits and coupled mass are calculated; installed recovery/motor/thermal/fin gates and3-grid accuracy remain open. Fine node-capped attempts stopped without resource increases; no full-WO or physical adoption. Source-linked frontend study is independent of the active design.
 
 G80-F2 is the separate actual-stock construction follow-up to frozen F1. See `docs/wo03-g80-f2-decision.md` (relative to repository root). Only local joint CAD is executed; static/formal-guide passes do not close installed recovery/fin, thermal, exact motor fit, planning-speed or full WO-03 gates. Preserve G54 and G12/PID-to-RL separately.
