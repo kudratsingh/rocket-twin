@@ -1,0 +1,100 @@
+id: G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1
+status: conditional_nominal_screen_pass_sensitivity_not_admitted
+source: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+source_sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+flight_ready: false
+geometry:
+  count: 3
+  root_m: 0.13
+  tip_m: 0.065
+  span_m: 0.06
+  sweep_m: 0.045
+  panel_station_m: 1.075
+  tab_station_m: 1.0802
+  tab_chord_m: 0.1094
+  tab_depth_m: 0.017451
+  skin_span_m: 0.045
+  plywood_thickness_min_m: 0.0048
+  plywood_thickness_max_m: 0.0052
+  carbon_each_face_min_m: 0.00045
+  carbon_each_face_max_m: 0.00055
+  bond_each_face_min_m: 0.00003
+  bond_each_face_max_m: 0.00005
+  receiving_windows_are_supplier_guarantees: false
+loads:
+  factored_root_moment_Nm: 8.83
+  factored_tip_force_equivalent_N: 331.125
+  design_factor_already_applied: 3
+  load_interpretation: Trapezoidal distributed pressure rescaled to the retained inherited root moment; not a newly validated aerodynamic load case.
+screening_inputs:
+  plywood_E_Pa: 1000000000
+  plywood_bending_screen_Pa: 5000000
+  plywood_G_Pa: 200000000
+  plywood_shear_screen_Pa: 1000000
+  carbon_E_Pa: 45000000000
+  carbon_stress_screen_Pa: 150000000
+  adhesive_mean_shear_screen_Pa: 1000000
+  shear_correction_factor: 0.8333333333333334
+  extra_attachment_tip_budget_m: 0.0001
+  tip_movement_limit_m: 0.001
+  hot_wet_material_bounds_verified: false
+  extra_attachment_budget_verified: false
+  note: Wood E/bending screen retained. Wood shear inputs, derated carbon screen, full composite action and the extra attachment movement budget are explicit provisional requirements for representative tests, not measured allowables.
+sensitivities:
+  plywood_E_Pa: [1000000000, 5000000000, 8000000000]
+  carbon_E_Pa: [30000000000, 45000000000, 60000000000]
+  plywood_G_Pa: [100000000, 200000000]
+  extra_attachment_tip_budget_m: [0.0001, 0.00025]
+  interpretation: Diagnostic values, not established material bounds or an admission envelope. Higher wood stiffness can increase wood stress through load sharing. No passing nominal point overrides a failing sensitivity or missing joint evidence.
+saved_guide_limits:
+  source_record: runs/wo03-g80-f2-selected-20261103-v2/record.json
+  usable_travel_m: 1.5
+  formal_15_mps_total_mass_kg: 0.9583435535430908
+  planning_15_5_mps_total_mass_kg: 0.903799295425415
+  equipment_confirmed: false
+mass_budget:
+  plywood_density_max_kg_m3: 750
+  carbon_density_max_kg_m3: 1600
+  adhesive_density_kg_m3: 1200
+  adhesive_process_multiplier: 1.5
+  skin_end_finish_g: 0.8
+  retained_ids:
+  - fin_internal_bonds
+  - outer_fin_fillets
+  - c1_forward_root_bond_fill
+  - c1_aft_bond_fill
+  - ad1_slot_fill
+  - finish
+  replaced_ids:
+  - fin_set
+  - fin_tabs
+  - root_gussets
+  - root_extra_bond_finish
+  harness_g_cases: [55, 68]
+material_leads:
+  plywood:
+    product: Aircraft Spruce 02-20750, nominal5mm ten-ply Finnish birch
+    url: https://www.aircraftspruce.com/catalog/wppages/finnishbirch.php
+    incoming_density_and_thickness_verified: false
+  carbon:
+    product: Carbon Composite AG CP005, cured0.5mm balanced0/90 carbon/epoxy sheet
+    url: https://www.carbon-composite.com/en/Carbon-Plate-0.5mm/CP005-2
+    source_characteristic_flexural_E_Pa: 60000000000
+    source_characteristic_flexural_strength_Pa: 850000000
+    source_density_kg_m3: 1560
+    supplier_minimum_hot_wet_properties: null
+    thickness_tolerance: Not stated in inspected product page;0.45--0.55mm is proposed incoming selection only.
+  adhesive:
+    product: Not selected
+    process: Flat pressed secondary bond,0.03--0.05mm target films; preserve existing root fillets
+    conditioned_shear_peel_fracture_data: null
+admission:
+  detailed_FEA: false
+  complete_CAD: false
+  active_vehicle_change: false
+  required_before_installed_pass:
+  - Verify material identity, thickness, density and conditioned directional properties.
+  - Validate skin-to-plywood composite action, core shear and skin termination against slip/peel/delamination.
+  - Demonstrate complete tube/body/ring/fillet attachment adds no more than the reserved tip movement at the combined load.
+  - Check recovery knot/cord access, actual motor contact, thermal layout and installed flutter.
+  - Reconcile measured finished harness mass and all subsequent design corrections.
