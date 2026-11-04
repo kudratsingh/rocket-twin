@@ -43,7 +43,16 @@ def main() -> None:
             json.dumps(
                 {
                     "id": p["id"],
-                    "source_sha256": pins,
+                    "source_sha256": {
+                        k: v
+                        for k, v in pins.items()
+                        if k
+                        in (
+                            "configs/studies/rp1-validation-package.yaml",
+                            p["frozen_configuration"],
+                            "docs/validation/rp1-vp1/accounting.json",
+                        )
+                    },
                     "status": "Planning concept; fixture not accepted; no test performed",
                 }
             )
