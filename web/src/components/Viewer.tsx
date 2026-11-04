@@ -17,7 +17,7 @@ import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
-import { fitOrbitFrame } from './inspectionCamera';
+import { fitOrbitFrame, isPointClipped } from './inspectionCamera';
 import './inspectionViews.css';
 
 export interface ViewOverlay {
@@ -164,12 +164,12 @@ function PartMesh({
       name={`inspection-part:${part.id}`}
       position={translation.map((coordinate) => coordinate * exploded) as Vector3Tuple}
       onClick={(event) => {
-        if (ghost) return;
+        if (ghost || isPointClipped(event.point, CUT_PLANE, section)) return;
         event.stopPropagation();
         select(part.id);
       }}
       onPointerOver={(event) => {
-        if (ghost) return;
+        if (ghost || isPointClipped(event.point, CUT_PLANE, section)) return;
         event.stopPropagation();
         hover(part.id);
         document.body.style.cursor = 'pointer';
@@ -489,7 +489,11 @@ export function Viewer({
           </button>
         </div>
         <div className="button-group">
-          <button onClick={toggleSection} aria-pressed={section} title="Section cut (S)">
+          <button
+            onClick={toggleSection}
+            aria-pressed={section}
+            title="Section cut through the vehicle axis (S); select visible surfaces"
+          >
             <Icon name="layers" />
             Section
           </button>

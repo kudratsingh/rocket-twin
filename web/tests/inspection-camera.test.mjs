@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { Box3, Vector3 } from 'three';
-import { fitOrbitFrame } from '../src/components/inspectionCamera.ts';
+import { Box3, Plane, Vector3 } from 'three';
+import { fitOrbitFrame, isPointClipped } from '../src/components/inspectionCamera.ts';
 
 const bounds = new Box3(new Vector3(-0.2, 0, -0.1), new Vector3(0.2, 1.2, 0.1));
 
@@ -32,7 +32,22 @@ test('fit preserves a manually chosen orbit and contains every corner', () => {
 });
 
 test('end-on fit remains finite when the up hint is parallel to the orbit', () => {
-  const frame = fitOrbitFrame(bounds, 1, 35, new Vector3(0, -1, 0), new Vector3(), new Vector3(0, 1, 0));
+  const frame = fitOrbitFrame(
+    bounds,
+    1,
+    35,
+    new Vector3(0, -1, 0),
+    new Vector3(),
+    new Vector3(0, 1, 0),
+  );
   assert.ok([...frame.position, ...frame.up, frame.near, frame.far].every(Number.isFinite));
   assert.ok(frame.far > frame.near);
+});
+
+test('section picks pass through clipped world-space hits and retain visible and boundary hits', () => {
+  const plane = new Plane(new Vector3(-1, 0, 0), 0);
+  assert.equal(isPointClipped(new Vector3(0.1, 1, 0), plane, true), true);
+  assert.equal(isPointClipped(new Vector3(-0.1, 1, 0), plane, true), false);
+  assert.equal(isPointClipped(new Vector3(0, 1, 0), plane, true), false);
+  assert.equal(isPointClipped(new Vector3(0.1, 1, 0), plane, false), false);
 });

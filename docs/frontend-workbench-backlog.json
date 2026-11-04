@@ -47,6 +47,15 @@
             "docs/wo04-focused-preview-20261103.md"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/inspectionWorkflow.ts",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Requested source cannot inherit an older document label, fingerprint or mesh coverage; saved reference identities remain separate from F2/F2-C1."
         }
       ]
     },
@@ -82,6 +91,15 @@
             "web/src/workspaces/navigation.ts"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/DesignVisual.tsx",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Existing shared selection and retained representations preserved; source-only geometry starts in 2D and linked details exposes missing mesh mapping."
         }
       ]
     },
@@ -213,6 +231,15 @@
             "web/src/workspaces/workspaces.css"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/workspaces.css",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Compact navigation retained; natural-height 2D and explicit-height 3D composition remove fixed representation sizing from long content. Browser layout not measured."
         }
       ]
     },
@@ -287,6 +314,15 @@
             "scripts/wo04_preview.sh"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/App.tsx",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Aborted/mismatched inspection responses cannot replace requested source; independently loaded inspection remains visible when only catalog fails."
         }
       ]
     },
@@ -322,6 +358,15 @@
             "web/src/workspaces/workspaces.css"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/InspectionWorkspace.tsx",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Find/details actions reopen panels, scroll targets and request focus; slash reopens collapsed search. SSR/source checks only; actual scrolling and focus pending."
         }
       ]
     },
@@ -395,6 +440,15 @@
             "web/src/workspaces/workspaces.css"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/workspaces.css",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Desktop 64-percent visual width retained; narrow 2D content grows before lower panels. Actual browser proportions and clipping remain pending."
         }
       ]
     },
@@ -431,6 +485,15 @@
             "web/src/store.ts"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/inspectionWorkflow.ts",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Active 2D F/R dispatch uses drawing controls, preserving hidden 3D state; existing explicit zoom/fit/focus/reset retained. Browser interactions pending."
         }
       ]
     },
@@ -530,6 +593,15 @@
             "docs/wo04-inspection-refinement-20261103.md"
           ],
           "scope": "Export-safe legend, linked visibility and selected annotations; offline images observed, browser interaction still pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/workspaces/DesignVisual.tsx",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Selected source function/material/mesh availability and details action retained across 2D/3D; unavailable mesh never borrows another source."
         }
       ]
     },
@@ -542,7 +614,7 @@
         "FT-012",
         "FT-014"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Section and explode controls",
         "Dimension and mass provenance context"
@@ -554,10 +626,22 @@
       "estimate_class": "M",
       "browser_required": true,
       "risk": "Display transforms can be mistaken for physical movement or assembly clearance.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
-      "evidence": []
+      "evidence": [
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/components/Viewer.tsx",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs",
+            "web/src/components/inspectionCamera.ts",
+            "web/tests/inspection-camera.test.mjs"
+          ],
+          "scope": "Terra section click/pointer-over eligibility uses the rendering world-space clipping plane; clipped hits do not stop visible interior picking. Camera/state suite reported 5/5 passing before freeze. Existing section/explode source boundaries retained; actual browser picking pending."
+        }
+      ]
     },
     {
       "id": "FT-016",
@@ -1179,6 +1263,15 @@
             "web/src/workspaces/navigation.ts"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "inspection-slice-v3-code-checks",
+          "files": [
+            "web/src/App.tsx",
+            "docs/wo04-inspection-slice-20261103-v3.md",
+            "web/tests/inspection-workflow.test.mjs"
+          ],
+          "scope": "Bounded first-inspection source/layout integration only; experiments/replay and routes preserved. Full end-to-end integration acceptance remains open."
         }
       ]
     },
