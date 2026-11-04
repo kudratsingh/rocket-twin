@@ -1,0 +1,88 @@
+{
+  "result": "native_render_complete_offline_inspected",
+  "identity": "G80-F2-RP1-FP1-FR1-comparison-v1",
+  "status": "Preliminary engineering evidence — both studies unaccepted; WO-03 open",
+  "prepared_data": {
+    "path": "web/public/engineering-workbench/rp1-studies.json",
+    "sha256": "911ae469e341781f2c0a1d8d024be427bd829e4dc224fa7f7cfc28978e25eded"
+  },
+  "source_configuration": {
+    "id": "G80-F2-RP1-AD1-definition-v2",
+    "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+  },
+  "study_ids": [
+    "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1",
+    "RP1-FR1-monolithic-carbon-v1"
+  ],
+  "rendered_sources": [
+    {
+      "path": "web/src/workbench/Rp1StudyComparison.tsx",
+      "sha256": "6a5bfa575c273f9c804eecdd4172f099a364287ec9e3f5f23ce9a3159be62bd7"
+    },
+    {
+      "path": "web/src/workbench/rp1Studies.ts",
+      "sha256": "f0dcde2f5bab1e732cfed6b15afb8618572171e81a9b0a270e4d23e8047690b4"
+    },
+    {
+      "path": "web/src/workbench/rp1StudyComparison.css",
+      "sha256": "e7c2fda497b5245725ec8649f389838df2e567bdb3462116deef206aa595c62b"
+    },
+    {
+      "path": "scripts/wo04_rp1_studies_drawings.mjs",
+      "sha256": "bc69670ec939afcedbef206ce45a155bf26a6069346f57a073a04921b038a0ad"
+    }
+  ],
+  "helper": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "artifacts": [
+    {
+      "id": "fp1-graph",
+      "study_id": "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1",
+      "source": {
+        "path": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+        "sha256": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb"
+      },
+      "svg": {
+        "path": "output/rp1-integrated-walkthrough/fp1-graph.svg",
+        "sha256": "4515190230fcc2630ec89d2e79bb8dc3c425f39ed465e13eabc05627d072ca5b"
+      },
+      "png": {
+        "path": "output/rp1-integrated-walkthrough/fp1-graph.png",
+        "sha256": "5709d38265b25e352d8cb1f973a8e3a69c2ca186899ce9d818b6ce9afebe0bea"
+      }
+    },
+    {
+      "id": "fr1-graph",
+      "study_id": "RP1-FR1-monolithic-carbon-v1",
+      "source": {
+        "path": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+        "sha256": "b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313"
+      },
+      "svg": {
+        "path": "output/rp1-integrated-walkthrough/fr1-graph.svg",
+        "sha256": "85c7bb3ac8eb291bd9303c68dceffe7ac6ef96ef8cefa8668272397579d48531"
+      },
+      "png": {
+        "path": "output/rp1-integrated-walkthrough/fr1-graph.png",
+        "sha256": "1eb92024d86c81c926ec3b906c8b0f217ab01d54876f7d9a6c9ff845d7fff805"
+      }
+    }
+  ],
+  "native_render_seconds": 33.778922709,
+  "native_render_limit_seconds": 120,
+  "warnings": [],
+  "visual_inspection": [
+    "FP1 actual React graph: inspected native 1100 x 950 PNG. Six node labels/statuses, seven numbered links, complete export legend and source identity are readable without observed clipping. Footer explicitly says reported 0.961 mm includes the unverified 0.100 mm attachment budget; no installed pass.",
+    "FR1 actual React graph: inspected native 1100 x 950 PNG. Six node labels/statuses, seven numbered links, complete export legend and source identity are readable without observed clipping. Footer calls 1.185 mm a failed partial finite-support sensitivity and complete installed movement unavailable.",
+    "Gallery and full comparison page are offline HTML/SSR artifacts. Their browser layout, interactivity and downloads were not observed."
+  ],
+  "browser_verified": false,
+  "engineering_accepted": false,
+  "limits": [
+    "React SSR and AppKit native PNG only; no browser interaction or download acceptance.",
+    "Graph arrows are source relationships, not CAD, stress maps, installed load sharing or physics."
+  ]
+}

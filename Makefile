@@ -22,6 +22,12 @@ workbench: ## Prepare source-checked engineering graphics data; no solver/CAD ru
 	$(PYTHON) scripts/wo04_f2_export.py --output web/public/engineering-workbench/preparedg80-fixed-f2.json
 	$(PYTHON) scripts/wo04_f2_c1_export.py --output web/public/engineering-workbench/f2-c1.json
 
+	$(PYTHON) scripts/wo04_rp1_studies_export.py
+
+.PHONY: workbench-rp1-studies
+workbench-rp1-studies: ## Prepare separate, unaccepted recorded FP1/FR1 graphics; no physics.
+	$(PYTHON) scripts/wo04_rp1_studies_export.py
+
 workbench-drawings: workbench ## Export portable C1/R1 SVG drawings without a browser or solver.
 	node scripts/wo04_export_walkthrough_drawings.mjs
 
