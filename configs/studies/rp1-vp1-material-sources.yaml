@@ -1,0 +1,90 @@
+id: RP1_VP1_material_supplier_packet_20261104
+status: bounded_research_complete_unsent_unpurchased
+checked_local_date: 2026-11-04
+scope: Supplier/product facts for the D1 representative material and 240 mm installed-root article; no adoption or assembly qualification.
+budget:
+  unique_primary_urls_max: 12
+  unique_primary_urls_attempted: 12
+  active_minutes_max: 15
+  source_rule: Search discovery and repeated reads of the same URL do not add a primary URL.
+  producer_or_engineering_rerun: false
+  supplier_contact_or_purchase: false
+sources:
+  - id: AS_02_20850
+    url: https://www.aircraftspruce.com/catalog/pnpages/02-20850.php
+    owner: Aircraft Spruce
+    access: readable
+    observed: Part 02-20850; nominal 6 mm, 12-ply Finnish birch, 24 x 48 in half sheet; $69.75 per sheet; Add to Cart. Seller says 2 x 4 ft sheets cut with face grain and quotes approximately 0.92 lb per square foot in Q&A.
+    limitation: Add to Cart does not give a reserved stock count. No lot-controlled thickness, density, directional E/G/strength or hot-wet data.
+  - id: LOC_BT_2_56
+    url: https://locprecision.com/collections/rocket-components/products/cardboard-airframes
+    owner: LOC Precision
+    access: readable
+    observed: BT-2.56 option is 2.56 in ID x 2.63 in OD x 30 in; page variant data says available and $10.27 each. Custom cutting is a separate charged item and adds lead time.
+    limitation: Available flag is a storefront snapshot, no count. No controlled wall/ovality/mass or conditioned paper tube properties.
+  - id: AeroTech_12912
+    url: https://aerotech-rocketry.com/products/product_bba49b47-aef8-1eff-6575-e0aa8112f05d
+    owner: AeroTech/Quest
+    access: readable
+    observed: Part 12912, 29 mm x 12 in (305 mm) motor mount tube, listed $7.49 with Add to Cart; described as 1.1 mm wall and same tube as AeroTech kits.
+    limitation: No inventory count, controlled ID/OD/straightness/mass, paper properties or exact ring/case fit tolerance.
+  - id: WEST_105_206_TDS
+    url: https://www.westsystem.com/app/uploads/2022/12/105-206-Epoxy-Resin.pdf
+    owner: WEST SYSTEM / Gougeon Brothers
+    access: readable_pdf
+    observed: 105 resin/206 Slow Hardener; 5 to 1 by volume or 5.36 to 1 by weight; 16 C minimum recommended; thin-film working time 90-110 min, solid cure 10-15 h, working strength 1-4 days at stated conditions. General wood/composite bonding and wet-out.
+    limitation: Resin bulk/thermal figures, including Tg, do not qualify a loaded paper/wood/tube joint or its 45 C substrate screen; no exact mixed-adherend film or peel allowable.
+  - id: WEST_105_system
+    url: https://www.westsystem.com/products/105-system/
+    owner: WEST SYSTEM
+    access: readable
+    observed: 105-A resin is 1 quart; pair with matching A group 206 Slow Hardener. Page states 206 minimum cure temperature 16 C and thin-film work time 90-110 min at 22 C; technical support phone shown.
+    limitation: Manufacturer product page does not show live dealer inventory or a delivered kit price.
+  - id: WEST_surface_preparation
+    url: https://www.westsystem.com/instruction/epoxy-basics/surface-preparation/
+    owner: WEST SYSTEM
+    access: readable
+    observed: Clean, dry, sanded surface; contamination removed before abrasion; 80-grit guidance for hardwood and smooth cured/nonporous surfaces; cured-epoxy amine blush washed with water before sanding.
+    limitation: General guidance does not set finished paper/wood/motor-tube bondline, preload, cure or hot strength for RP1.
+  - id: WEST_bonding_clamping
+    url: https://www.westsystem.com/instruction/epoxy-basics/bonding-and-clamping/
+    owner: WEST SYSTEM
+    access: timeout
+    observed: null
+    limitation: Current page could not be independently read within this packet; existing local source notes identify it, but no new detailed claim is drawn from this fetch.
+  - id: AS_contact
+    url: https://www.aircraftspruce.com/contactus.php
+    owner: Aircraft Spruce
+    access: readable
+    observed: Contact Us form accepts product questions; main product-page header gives info@aircraftspruce.com. No message sent.
+    limitation: Neither form nor address identifies a technical-properties specialist by name.
+  - id: WEST_price_list
+    url: https://www.westsystem.com/price-list/
+    owner: WEST SYSTEM
+    access: readable
+    observed: Official list effective 2026-06-22 gives 105-A 0.25 gal $59.51; 206-A 0.44 pt $34.61; optional 406-2 silica 1.7 oz $23.73; 300 Mini Pump Set $31.39. This is list pricing, not live dealer stock.
+    limitation: 105/206 pair has no priced smaller factory package identified in this source. Shipping, tax, scale, containers and article/test consumption unknown.
+  - id: WEST_technical_support
+    url: https://www.westsystem.com/need-help/
+    owner: WEST SYSTEM / Gougeon Brothers
+    access: readable
+    observed: Technical Advisors support form and US phone 866-937-8797, weekdays 9-5 ET. No email recipient published on this page; no form submitted.
+    limitation: Advice is product/process guidance, not RP1 joint certification.
+  - id: LOC_contact
+    url: https://locprecision.com/pages/contact
+    owner: LOC Precision
+    access: readable
+    observed: support@locprecision.com and 920-892-0557; site says email is usually most responsive. No message sent.
+    limitation: No named technical representative or stock quantity.
+  - id: AeroTech_contact
+    url: https://aerotech-rocketry.com/pages/contact
+    owner: AeroTech/Quest / RCS Rocket Motor Components
+    access: readable
+    observed: customerservice@aerotech-quest.com, contact form and 435-865-7100. No message sent.
+    limitation: This is a general customer-service recipient, not a published material-property specialist.
+source_boundary:
+  current_price_and_availability: storefront_snapshot_only
+  required_actual_stock_and_lot: unknown
+  conditioned_directional_properties: unknown
+  actual_finished_assembly_capacity: owner_reviewed_representative_test_only
+  active_vehicle_or_material_selection_changed: false

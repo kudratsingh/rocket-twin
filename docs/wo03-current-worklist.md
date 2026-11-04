@@ -1,5 +1,22 @@
 # Current bounded work list
 
+## Current: VP1 inquiry-ready evidence package
+
+| Deliverable / owner | Budget / source | Actual status and stop |
+| --- | --- | --- |
+| Material/process recipients / Sol HIGH |12primaryURLs/15min, reuse prior packet |12attempts,11readable; four precise UNSENT drafts, one plywood/WEST lead, no contacts |
+| Equipment/metrology / Sol HIGH |12primaryURLs/15min |12sources/11priced instruments; home reading is not full uncertainty, calibrated-service quote required |
+| Integrated package / primary |One material/process,5CPU/10wall arithmetic; no new vehicle/solver |0.0062CPU/0.0066wall; material236.75/269.49USD, all-inunquoted; protocol/cost/drafts complete for inquiries only |
+| Owner review / primary |Five inquiries,$0; no purchase/test |Await exact Stage0 authorization; one follow-upday5, closeday10; quotes/method before later spending |
+| Review drawing pack / primary |Existing native offline route,120wall ceiling, one visual correction |Final1280x900 offline image inspected, explicit arrows/radial-schematic warning; final0.723s, first elapsedunrecorded; no browser acceptance |
+| Frontend export / Astra MEDIUM |One25min code packet, owned export/view/test files |86integratedwebchecks/type/lint/format/build; PR79 merged after required jobs at0cdff6be; no browser |
+| Publication / primary |Focused private PR, required jobs before merge |Exact PR state is on GitHub; no added owner review gate |
+
+See [owner summary](validation/rp1-vp1/package-summary.md) and [protocol](validation/rp1-vp1/protocol.md).
+No installed engineering gate closes; root execution is still conditional and source failures remain preserved.
+
+## Retained D1 outcome
+
 ## Current: RP1 D1 integrated load/attachment decision
 
 Primary owns integration under the latest explicit owner instruction; no cross-thread coordination hold.
@@ -13,7 +30,7 @@ Primary owns integration under the latest explicit owner instruction; no cross-t
 | Material/root article definition / primary |150×25mm witness,240mm real-root article, proper finite support and distribution | Prepared [test definition](wo03-rp1-d1-test-definition.md); no physical execution | Owner authorization later; test fixture/protocol review, exact property/process data |
 | Frontend comparison / Astra MEDIUM | Exact study IDs, select relationships, preserve existing features | Implemented and source/SSR/test/build checked; both unaccepted | Browser interactions not observed, no ownership bypass |
 | Offline graphics / Sol HIGH | Actual React graphs, source hashes, legends |2native PNGs inspected,33.779s render; [pack](../output/rp1-integrated-walkthrough/index.html) | Not browser screenshots or engineering qualification |
-| Focused publication / primary | Private focused PRs, exact-head required jobs before merge | Frontend PR77 open; both required jobs pending; engineering packet follows | No owner review gate added; protections respected |
+| Focused publication / primary | Private focused PRs, exact-head required jobs before merge | PR77/78 merged after both exact-head required jobs passed; D1 remains unadopted engineering evidence | No owner review gate added; protections respected |
 
 Next bounded action: documentation/representative evidence, not another construction family.
 No immediate owner input; hardware remains unpurchased. G80 first, G54/G12 committed separately.
