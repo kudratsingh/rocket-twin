@@ -1,5 +1,28 @@
 # Current engineering and inspection checkpoint
 
+**Latest attachment definition: [RP1 AD1 v2](wo03-rp1-attachment-definition.md).**
+BalancedRP1v2 remains the frozen preferred research direction. AD1 specifies
+exact30327/NW-12, proposed finished ends,6.5ftleader/12ftmain, contacts and a
+[dimensioned sacrificial test plan](wo03-rp1-representative-test-plan.md).
+It is not an adopted flight vehicle. The moved-ring fin's optimistic5.8mm
+panel fails5MPa/1mm at7.301MPa/1.805mm; installed root/peel/flutter remain open.
+No unchanged-fin detailed analysis or stopped solver retry follows.
+
+Complete estimates add3.400g: nominal/adverse934.549/954.549g with separate50g,
+CG763.693/775.602mm, static1.433/1.255cal,1.5m15.212909/15.033479m/s.
+Formal headroom23.794/3.794g; planning deficits30.750/50.750g. The55gmain
+remains estimated;68gmetadata is only a hypothetical probe, which fails adverse
+formal speed. Final sleeve ends before the notch; no thermal/chafe pass.
+[Final drawing pack](../output/rp1-attachment-definition/index.html) is concept
+geometry, separate from current CAD. Test definition is ready for owner review,
+not authorization to purchase/build/load it or fly. Finished strength is unknown.
+
+Frontend [connections/evidence and recorded-sample readouts](wo04-inspection-evidence-replay-20261103.md)
+pass integrated76webtests/type/lint/format/build; source-linked part navigation
+and actual A/B sample timestamps/units are implemented. Browser behavior is
+still unobserved behind the same designated ownership gate. No access bypass.
+Full WO-03/04/05 and all physical/release gates remain open.
+
 **Current recovery decision: [RP1 precedent recommendation](wo03-f2-recovery-precedent-decision.md).**
 Carry a motor-tube wrap with a replaceable nylon main forward for definition;
 keep the conventional F2 architecture and all earlier records frozen. This is

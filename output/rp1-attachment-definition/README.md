@@ -1,0 +1,11 @@
+# RP1 attachment definition offline drawings
+
+Identity: `G80-F2-RP1-AD1-definition-v2`. Source config SHA-256 `e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555`; executed record SHA-256 `bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b`.
+
+Four source-linked SVGs and native AppKit PNGs were generated. All four actual native PNGs were visually inspected at 1700 px width. The local section shows the corrected sleeve stopping at z1060, ahead of the moved ring; the bare rounded 60-degree passage and knot reservation are marked as unqualified. The path chart's three rows and failed best-case 7.301 MPa / 1.805 mm strip screen, the 240 mm article and proposed finite grip, and all four saved mass/guide rows are readable. No clipping was observed. One caption in the load-path drawing was corrected after first inspection; the final native image was inspected again. Total AppKit rendering was 74.163 s across three batches, including the final source-format snapshot, under the aggregate 120 s limit.
+
+The initial v1 sleeve placement was rejected because a folded 8 mm sleeve cannot occupy the 4.5 mm passage. The final v2 source terminates its 80 mm sleeve at z1060. Bare cord, passage, sleeve edge, knot, finite grip, load contacts and conditioned thermal/chafe behavior remain unverified. The four case values and failure statements are copied from the final v2 record, with reused guide and fin outputs as declared there.
+
+These are local concept/test diagrams, not whole-vehicle CAD or browser evidence. No installed joint, thermal, flutter, recovery or flight acceptance follows.
+
+Primary integration correction: the fin path now forks through the actual tube/ring and external-wedge/body paths, with unknown sharing; the knot reservation is inside the schematic annulus. Actual final01/02 native images were inspected. Compact path-node secondary text touches some box bottoms; it remains readable and is not manufacturing drawing acceptance. Aggregate rendering including this correction: 106.955s of120s; no further render attempt. Original diagnostic vectors are preserved locally under `.cache/rp1-ad1-pre-integration`. Offline images remain separate from browser interactions.

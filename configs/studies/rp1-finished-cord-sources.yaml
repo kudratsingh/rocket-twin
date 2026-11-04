@@ -1,0 +1,150 @@
+schema_version: 1
+identity: RP1-exact-finished-cord-documentation-20261103
+date_checked_local: '2026-11-03'
+status: bounded_source_search_closed_no_design_decision
+companion_note: docs/wo03-rp1-cord-documentation.md
+prepared_questions: docs/wo03-f2-recovery-supplier-questions.md
+budget:
+  declared_before_browsing: true
+  maximum_unique_urls: 12
+  maximum_minutes: 15
+  started_utc: '2026-11-04 05:13:25 UTC'
+  research_closed_utc: '2026-11-04 05:16:34 UTC'
+  attempted_unique_urls: 12
+  inaccessible_unique_urls: 2
+  failed_direct_access_attempts: 6
+  search_discovery_adds_unique_count: false
+  repeat_URL_adds_unique_count: false
+scope:
+  supplier_messages: UNSENT
+  hardware: unpurchased
+  owner_measurement_requests: false
+  architecture_or_mass_decision: false
+  solver_physical_or_git_work: false
+source_register:
+  - id: apogee_30327
+    url: https://www.apogeerockets.com/Building_Supplies/Parachutes_Recovery_Equipment/Shock_Cord/Kevlar_Cord_1500
+    access: readable
+    source_class: manufacturer_product
+    location: Model_Additional_Info_price_stock_and_comparison
+    model: '30327'
+    construction: braided_hollow_core_explicitly_not_tubular
+    nominal_OD_in: 0.137
+    listed_weight_g: 2
+    weight_per_foot_explicit: false
+    price_USD_per_foot: 1.71
+    minimum_order_feet: 10
+    stock_display: '10+'
+    advertised_test_lb: 1500
+    strength_raw_or_terminated: unstated
+    finished_allowable: unavailable
+  - id: loc_current_cord_variants
+    url: https://locprecision.com/products/shock-cords
+    access: readable
+    source_class: manufacturer_product_with_inline_commerce_data
+    location: description_3_8_tubular_and_inline_variant_array
+    exact_variant_id: '39778657730751'
+    exact_SKU: NW-12
+    size: 3_8_in_tubular_nylon_12_ft_factory_sewn_loops
+    price_USD: 12.39
+    availability_flag: true
+    inventory_management: null
+    counted_physical_stock: unavailable
+    raw_commerce_weight_field: 68
+    commerce_weight_unit_and_finished_mass_basis: unstated
+    finished_mass_g: null
+    advertised_tensile_lb: 1020
+    strength_raw_or_sewn_assembly: unstated
+    elastic_175_percent_statement_applies_to_NW12: false
+    finished_allowable: unavailable
+  - id: loc_historical_flat_webbing
+    url: https://locprecision.com/blogs/rocket-journal/q4-2017-loc-update
+    access: readable
+    source_class: manufacturer_historical_update
+    location: 3_8_flat_nylon_webbing_paragraph
+    construction: flat_not_current_tubular_description
+    rating_lb: 950
+    historical_12ft_mass_oz: 1.2
+    mass_transfer_to_current_NW12_supported: false
+  - id: loc_js_endpoint
+    url: https://locprecision.com/products/shock-cords.js
+    access: inaccessible
+    failed_direct_access_attempts: 1
+    evidence_used: none
+  - id: apogee_material_guidance_html
+    url: https://www.apogeerockets.com/Peak-of-Flight/Newsletter591
+    access: readable
+    source_class: manufacturer_general_material_guidance
+    issue: 591
+    date: '2023-01-17'
+    exact_cord_force_extension_or_finished_rating: false
+  - id: apogee_material_guidance_pdf
+    url: https://www.apogeerockets.com/education/downloads/Newsletter591.pdf
+    access: readable
+    source_class: manufacturer_general_material_guidance_same_article
+    pages_relevant: '6-12'
+    supports: qualitative_nylon_heat_Kevlar_low_stretch_and_zippering_discussion
+    conditioned_exact_product_results: unavailable
+  - id: apogee_video87
+    url: https://www.apogeerockets.com/Advanced_Construction_Videos/Rocketry_Video_87
+    access: initially_readable_later_repeated_fetch_timeouts_search_index_also_readable
+    failed_direct_access_attempts: 4
+    source_class: manufacturer_instruction_with_author_firsthand_ring_pullthrough
+    title: Simple_Shock_Cord_Attachment_Methods
+    transcript_locations: '00:09-00:29;01:22-02:51;03:41-04:37'
+    procedure: low_mid_power_slip_knot_motor_tube_ring_wood_glue
+    caution: CA_stiffened_cord_repeated_bending_fiber_damage
+    exact_30327_identity_or_capacity: unavailable
+  - id: loc_exact_variant_permalink
+    url: https://locprecision.com/products/shock-cords?variant=39778657730751
+    access: inaccessible
+    failed_direct_access_attempts: 1
+    evidence_used: identity_comes_from_original_page_not_this_failed_URL
+  - id: apogee_replaceable_loop_2013
+    url: https://www.apogeerockets.com/education/downloads/Newsletter338.pdf
+    access: readable
+    source_class: manufacturer_published_authored_LPR_tutorial
+    author: Chris_Michielssen
+    date: '2013-05-07'
+    pages_relevant: '2;5-6'
+    procedure: square_knot_loop_optional_knot_glue_accessible_tail_no_ring_fillet_bond
+    supports: inspection_access_and_reported_repeated_ejection_heat_deterioration
+    exact_30327_identity_or_capacity: unavailable
+  - id: apogee_megamako_1500_class
+    url: https://www.apogeerockets.com/downloads/PDFs/04996_Mega%20Mako-instructions-web.pdf
+    access: readable
+    source_class: manufacturer_kit_instructions
+    kit: '04996'
+    instruction_sheet_A: '31294'
+    locations: p2_parts_p4_step6_p8_step30_p9_steps31_34_35
+    identified_cut_parts: ['29544', '29545']
+    cord_label_lb: 1500
+    procedures: double_knotted_epoxy_coated_Y_bridle_tied_taped_loops_loop_through_loop
+    explicit_cut_part_equivalence_to_30327: false
+    exact_RP1_geometry_or_finished_capacity: unavailable
+  - id: loc_micro_magg_current
+    url: https://locprecision.com/products/micro-magg
+    access: readable
+    source_class: manufacturer_product
+    location: Description_shock_cord_type_and_linked_instructions
+    exact_named_cord_SKU: NW-12
+    supports: current_factory_sewn_12ft_3_8in_cord_kit_identity
+  - id: loc_micro_magg_linked_manual
+    url: https://cdn.shopify.com/s/files/1/0568/7489/3503/files/instructions-2020.pdf?v=1623675601
+    access: readable
+    source_class: manufacturer_currently_linked_instructions
+    locations: p1_parts_mount_p2_recovery
+    supports: NW12_parts_entry_separate_2ft_Kevlar_mount_and_conditional_sewn_loop_chute_method
+    gap: mixed_generic_route_does_not_define_exact_delivered_NW12_end_to_end_assembly
+    finished_rating: unavailable
+unresolved_exact_product_fields:
+  both: [test_method, minimum_vs_typical, finished_joint_capacity, force_extension_rate_curve, minimum_bend_radius, hot_wet_residual_strength, abrasion_rejection_limits]
+  Apogee_30327: [mass_per_length_confirmation, OD_tolerance, braid_grade_finish, recommended_exact_SKU_knot_splice, cut_part_equivalence]
+  LOC_NW12: [finished_mass_and_range, length_datum, loop_dimensions, sewing_thread_pattern, physical_stock_count, revision]
+evidence_boundaries:
+  generic_fiber_strength_used_as_finished_allowable: false
+  generic_knot_efficiency_assumed: false
+  commercial_weight_used_as_flight_mass: false
+  advertised_tensile_label_used_as_qualification: false
+  existing_RP1_mass_records_modified: false
+  later_installed_conditioned_joint_and_deployment_evidence: still_required_under_separate_authorized_plan

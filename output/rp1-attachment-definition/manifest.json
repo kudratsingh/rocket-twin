@@ -1,0 +1,136 @@
+{
+  "identity": "G80-F2-RP1-AD1-definition-v2",
+  "adopted": false,
+  "status": "test_definition_only; finishedcapacity/rootnormalpeel/stiffness/thermalunknown;planningmiss",
+  "representation": "local_concept_and_recorded_scalars_not_whole_CAD",
+  "specification": {
+    "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+    "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+  },
+  "record": {
+    "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+    "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+  },
+  "exporter": {
+    "path": "scripts/wo03_rp1_attachment_drawings.py",
+    "sha256": "e3900554d9229e5f0f1301a44009a9296b8b75475e6d9aaa6718a532f13f3c5c"
+  },
+  "helper": {
+    "path": "scripts/wo03_recovery_precedent_drawings.py",
+    "sha256": "0731a636128d0f14d2a674aaf1da9f341d98a22b6fdeefa45f3e7d8c573d25ca"
+  },
+  "native_renderer": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1.yaml": "b53c048937b2fd3a9ada6b653e74d7051c67e9a6d4130010f3699bc7c185851c",
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-attachment-definition.yaml": "5369db2a1c844f0e27b26cf3626d2902bd0b329a4d501ca4ccb3d44b2035bc00",
+    "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "runs/wo03-rp1-attachment-definition-20261103-v1/record.json": "dbdd6183de505af4979f0088d41ed4ae89d1058afdf41c6d5ad4beadc8c93126",
+    "scripts/wo03_rp1_sleeve_correction.py": "06fdff182d4d177d0be724bffcdc789db1d7433ef9c2ef6fba116fe7ac4d7fe8"
+  },
+  "units": {
+    "length": "mm",
+    "mass": "g",
+    "force": "N",
+    "stress": "MPa"
+  },
+  "browser_verified": false,
+  "engineering_accepted": false,
+  "artifacts": [
+    {
+      "id": "01-local-attachment",
+      "svg": {
+        "path": "output/rp1-attachment-definition/01-local-attachment.svg",
+        "sha256": "cf1569a1044c48c5465189bb03666f7af00d143ef9f8e307ce9a33e9450c2af7"
+      },
+      "png": {
+        "path": "output/rp1-attachment-definition/01-local-attachment.png",
+        "sha256": "2b87f46dc6dd57df1d1589e1197c2021571a1c59c7188497de32d3f160f8ea91",
+        "pixels": [
+          1700,
+          1190
+        ]
+      }
+    },
+    {
+      "id": "02-load-paths",
+      "svg": {
+        "path": "output/rp1-attachment-definition/02-load-paths.svg",
+        "sha256": "07ed71f1889fb0f851487b66617c79b65cb25f05d0795097fc3254e7c3770afa"
+      },
+      "png": {
+        "path": "output/rp1-attachment-definition/02-load-paths.png",
+        "sha256": "3df752f95af2b527b11954411eb1cd8cf9204658c53e8e22aa40a1930647bc5b",
+        "pixels": [
+          1700,
+          1310
+        ]
+      }
+    },
+    {
+      "id": "03-test-article",
+      "svg": {
+        "path": "output/rp1-attachment-definition/03-test-article.svg",
+        "sha256": "74c82a34bf60396fa9105c65081afed74e7eaa496c7d7e2f78b1e3be56daaeef"
+      },
+      "png": {
+        "path": "output/rp1-attachment-definition/03-test-article.png",
+        "sha256": "678a0d2cb93b746f2970dcfd5b5240a85b52dbbbebf81fd0058177633e09a205",
+        "pixels": [
+          1700,
+          1230
+        ]
+      }
+    },
+    {
+      "id": "04-coupled-cases",
+      "svg": {
+        "path": "output/rp1-attachment-definition/04-coupled-cases.svg",
+        "sha256": "ec837f0342953a33b2db73f9082ba4577bacee3581ca94c6173f39dbb87a4b80"
+      },
+      "png": {
+        "path": "output/rp1-attachment-definition/04-coupled-cases.png",
+        "sha256": "24972c4fcc1c92971db9db4caa1d65bfd8dc856ea8826da52c8102ae79e4a411",
+        "pixels": [
+          1700,
+          1070
+        ]
+      }
+    }
+  ],
+  "native_render_seconds": 32.79154991602991,
+  "native_render_limit_seconds": 120,
+  "visual_inspection": [
+    "01 local attachment: inspected native 1700 x 1190 PNG. Sleeve z980-1060 ends before moved ring; 60 degree bare-cord passage, unverified knot box, junction and footer are legible without clipping.",
+    "02 load paths: inspected corrected native 1700 x 1310 PNG. All three rows, failed best-case 7.301 MPa / 1.805 mm screen, unknown local peel/contact and footer are legible without clipping.",
+    "03 test article: inspected native 1700 x 1230 PNG. Full 240 mm station, 60 mm proposed grip, empty tube, five assembly/inspection steps and owner test hold are legible without clipping.",
+    "04 coupled cases: inspected native 1700 x 1070 PNG. All four case rows, separate formal/planning headrooms, conditional 1.8 m values and footer are legible without clipping."
+  ],
+  "limits": [
+    "AppKit native SVG snapshot, not browser evidence",
+    "No CAD, continuum solver, paid run or physical test was executed"
+  ],
+  "native_render_total_seconds": 106.95461837400224,
+  "visual_correction": "First native render 36.555 s; corrected load-path caption and inspected 1.986 s render; after Python format, final source-matched render 35.622 s, all four PNGs reinspected. Aggregate native rendering 74.163 s.",
+  "primary_integration_correction": {
+    "changes": [
+      "Separate parallel fin load paths; no tube-to-external-wedge fictitious serial route",
+      "Show knot reservation inside schematic body/tube annulus"
+    ],
+    "budget": "existing120saggregate, no increase",
+    "redrawn": [
+      "01-local-attachment",
+      "02-load-paths"
+    ],
+    "unchanged_pngs": [
+      "03-test-article",
+      "04-coupled-cases"
+    ],
+    "prior_diagnostic_svgs": ".cache/rp1-ad1-pre-integration",
+    "inspection": "Actual final01/02PNGimages inspected: knotbox nowinside schematicannulus and finroute splits into parallelactualjointpaths. Labelsreadable; compactrowA secondarytext touches someboxbottoms. No newphysical/CAD/browseracceptance. No further renderattempt.",
+    "svg_metadata": "Normalized to exporter source keys only after rendering; no graphical element change or extra render."
+  }
+}

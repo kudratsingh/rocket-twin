@@ -1,0 +1,99 @@
+id: G80-F2-RP1-AD1-definition-v1
+source: configs/vehicle/candidates/g80-f2-rp1-balanced.yaml
+source_sha256: 4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2
+adopted: false
+purpose: Define one representative attachment for documentation and later owner-reviewed tests; not flight acceptance.
+budget:
+  workers: 1
+  maximum_cases: 10
+  per_case_cpu_seconds: 120
+  packet_cpu_seconds: 600
+  correction_cycles: 1
+  stop: Unknown finished capacity or a failed required screen holds vehicle adoption; no new solver/architecture retry.
+cord:
+  kevlar:
+    supplier: Apogee
+    product: '30327'
+    purchase_length_m: 3.048
+    installed_raw_cut_m: 1.9812
+    proposed_max_diameter_mm: 3.8
+    installed_budget_g: 16.25
+    basis: 6.5ft cut; frozen assumed2g/ft plus25percent; unit basis and finished mass unconfirmed.
+    proximal_termination: Figure-eight-on-a-bight eye, reeved around mount tube as a choker; knot sits between fins at60deg.
+    distal_termination: Figure-eight-on-a-bight eye outside the body mouth; loop-to-loop hitch to uncut factory nylon end.
+    each_termination_raw_reservation_mm: 300
+    minimum_tail_mm: 100
+    minimum_distal_eye_bearing_length_mm: 40
+    knot_reservation_mm: [50, 20, 14]
+    knot_radial_bounds_mm: [16.5, 30.5]
+    knot_axial_bounds_mm: [1077.0, 1127.0]
+    status: Proposed reproducible test construction, not a manufacturer-approved termination or a qualified allowable.
+  nylon:
+    supplier: LOC Precision
+    sku: NW-12
+    variant: '39778657730751'
+    nominal_length_m: 3.6576
+    installed_budget_g: 55
+    price_usd: 12.39
+    construction: 3/8in tubular nylon with two original factory-sewn loops; do not cut or resew.
+    length_datum: Unknown; raw nominal length is not established as installed loop-bearing length.
+    finished_capacity_N: null
+    finished_mass_g: null
+    source_metadata_mass_probe_g: 68
+    metadata_warning: Commerce weight lacks physical unit/scope and inconsistent adjacent variants; sensitivity only, not a bound or measured mass.
+route:
+  datum: Millimetres aft from nose tip; angle0 at first fin, positive about body axis.
+  mouth_station_mm: 160
+  forward_ring_mm: [1060, 1072.2]
+  motor_tube_mm: [1055, 1220]
+  tube_od_mm: 31.369
+  wrap_axial_mm: [1072.2, 1077.0]
+  passage_angle_deg: 60
+  passage_width_mm: 4.5
+  passage_depth_mm: 5
+  passage_cut_tolerance_mm: 0.05
+  passage_edge_roundover_mm: 2
+  passage_radius_status: Geometric proposal only; no exact-cord minimum bend diameter documented.
+  route_detour_mm: 20
+  minimum_external_junction_reach_mm: 300
+  thermal_moisture_closure_mm: 0.05
+  closure_status: Provisional allowance; conditioning and actual supplied stock remain unmeasured.
+  heat_abrasion_sleeve:
+    length_mm: 80
+    minimum_flat_internal_width_mm: 8
+    budget_g: 2
+    material: Custom folded aramid textile from separately purchased stock; exact textile/finish unresolved.
+    attachment: Captured by loose textile ties outside knot; no CA or epoxy on working cord; can slide for inspection before body closure.
+    status: No thermal or abrasion capacity credit; sleeve edge/fold packing not established.
+fin_joints:
+  panel_minimum_thickness_mm: 5.8
+  load_moment_factored_Nm: 8.83
+  design_factor_already_applied: 3
+  hot_wood_E_Pa: 1000000000
+  hot_wood_strength_Pa: 5000000
+  hot_paper_strength_Pa: 2000000
+  hot_adhesive_shear_Pa: 1000000
+  adhesive_normal_peel_allowable_Pa: null
+  gusset_height_mm: 15
+  gusset_base_width_mm: 6
+  root_length_mm: 130
+  tab_length_mm: 109.4
+  tab_inner_flat_radius_mm: 15.95
+  aft_ring_front_mm: 1190
+  aft_tab_end_mm: 1189.6
+  external_slot_width_mm: 6.8
+  slot_cut_tolerance_mm: 0.05
+  previous_slot_width_mm: 6.5
+  previous_slot_tolerance_mm: 0.1
+  additional_slot_bond_budget_g: 0.15
+  removal_credit_g: 0
+  support: Continuous six-sided tab/mount fillets, external root wedges/body saddle bonds and aft end adhesive; no front-ring tab support or direct aft butt contact credited.
+test_article:
+  vehicle_station_range_mm: [980, 1220]
+  body_length_mm: 240
+  material_and_bonds: Same identified body/mount stock, minimum ply thickness, actual conditioned adhesive batch/coverage and terminations as vehicle.
+  fore_body_grip_engagement_mm: 60
+  grip_status: Proposed split saddle with compliant liner, not a fixed support; measure slip, ovalization and reaction distribution.
+  no_live_motor: true
+  minimum_load_system_range_N: 5000
+  fixture_and_test_release: Owner review of grips, guards, calibration, loading protocol and hot test arrangement required before loading.

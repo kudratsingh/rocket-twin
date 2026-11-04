@@ -1,5 +1,15 @@
 # Plan — modular custom rocket and digital twin
 
+RP1 AD1 v2 is the current bounded attachment-definition follow-up, documented
+in `docs/wo03-rp1-attachment-definition.md`. Preserve balancedRP1v2 frozen. Carry
+the exact-product finished-end/test definition forward, with its changed-fin
+screen explicitly failed and finished capacity unknown. No flight manufacture
+or expensive unchanged-fin analysis admitted. The next fin construction scope
+must address panel AND finite root jointly within the complete guide/mass budget.
+The representative test plan is for owner review, not physical authorization.
+Frontend linked component evidence and recorded replay sample readouts continue
+the43-task plan without claiming browser acceptance or fullWO04/05 completion.
+
 Recovery precedent recommendation RP1 is recorded in
 `docs/wo03-f2-recovery-precedent-decision.md`: retain fixed F2, carry the conventional
 motor-tube wrap/nylon topology forward. The one balance correction passes the

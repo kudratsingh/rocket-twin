@@ -1,5 +1,15 @@
 # Status
 
+Latest bounded deliverable: RP1 AD1 v2 attachment/test definition, not adoption.
+See `wo03-rp1-attachment-definition.md`. Exact cord identities and reproducible
+proposed ends/route are defined; finished strengths remain unknown. Changed-fin
+optimistic screen fails7.301MPa/1.805mm against5MPa/1mm. No detailed unchanged-fin
+analysis or capped solver retry. Complete934.549/954.549g estimates include
+separate50g; formal1.5m guide passes narrowly, planning fails. Prior records below
+remain historical. WO-03 stays open; G54/G12 PID-to-RL remain separate.
+Frontend evidence disclosure/sample readouts pass76integratedwebtests/build;
+browser ownership remains blocked and actual interactions unverified.
+
 Current recovery outcome: RP1 precedent recommendation only, not adopted.
 See `wo03-f2-recovery-precedent-decision.md`: balanced-v2 full masses931.149/951.149g,
 reference1.5m speeds15.243988/15.063562 pass15; adverse formal headroom7.194g,
