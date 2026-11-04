@@ -1,5 +1,26 @@
 # Current bounded work list
 
+## Current: RP1 D1 integrated load/attachment decision
+
+Primary owns integration under the latest explicit owner instruction; no cross-thread coordination hold.
+
+| Deliverable / owner | Source / acceptance | Budget / actual status | Stop / dependency |
+| --- | --- | --- | --- |
+| Local/GitHub reconciliation / primary | Merged75 FR1 +76 FP1; AD1 unchanged | Both present inmainb1de5906; frozen source hashes checked | No study mutation/adoption |
+| Load/whole-root decision / primary | D1 case names, force/moment/DF, time-aligned compatible evidence |10CPU/20wall,16 combined existing-method diagnostics; body0.0165CPU/0.0223wall;12 fail |8.83/331.125 enforced; no variant/CAD/FEA until inputs support it |
+| Supplier reconciliation / Sol HIGH |8primaryURLs/12min, exact stock/process conditioned limits | Closed8m18 incl local reads; no finished-root/peel data, messagesUNSENT | No invented material reductions or borrowed adhesive substrate data |
+| Ledger / Sol HIGH |16 saved mass/stock/harness cases, exact-once credits and moments |12minread-only+bounded update; complete,0g D1 change | Proposed4.670/20.840g savings are alternatives, unadopted |
+| Material/root article definition / primary |150×25mm witness,240mm real-root article, proper finite support and distribution | Prepared [test definition](wo03-rp1-d1-test-definition.md); no physical execution | Owner authorization later; test fixture/protocol review, exact property/process data |
+| Frontend comparison / Astra MEDIUM | Exact study IDs, select relationships, preserve existing features | Implemented and source/SSR/test/build checked; both unaccepted | Browser interactions not observed, no ownership bypass |
+| Offline graphics / Sol HIGH | Actual React graphs, source hashes, legends |2native PNGs inspected,33.779s render; [pack](../output/rp1-integrated-walkthrough/index.html) | Not browser screenshots or engineering qualification |
+| Focused publication / primary | Private focused PRs, exact-head required jobs before merge | Frontend PR77 open; both required jobs pending; engineering packet follows | No owner review gate added; protections respected |
+
+Next bounded action: documentation/representative evidence, not another construction family.
+No immediate owner input; hardware remains unpurchased. G80 first, G54/G12 committed separately.
+All existing load/material/movement/50g/adverse/guide/thermal/physical/flight gates remain.
+
+## Earlier work lists — historical outcomes
+
 ## RP1 AD1 finished attachment and inspection/replay increment
 
 | Deliverable / owner | Budget and identity | Outcome / stop |

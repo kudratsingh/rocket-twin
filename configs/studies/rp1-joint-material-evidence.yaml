@@ -1,0 +1,224 @@
+schema_version: 1
+identity: RP1-FP1-FR1-material-interface-reconciliation-20261103
+status: evidence_only_no_construction_selected
+companion_note: docs/wo03-rp1-joint-material-reconciliation.md
+budget:
+  declared_before_browsing: true
+  maximum_unique_urls: 8
+  maximum_minutes: 12
+  started_utc: 2026-11-04 07:27:01 UTC
+  attempted_unique_urls: 8
+  CP005_direct_fetches: unreliable_timeouts_manufacturer_index_text_used
+  image_only_PDF_urls: 1
+  search_discovery_adds_unique_count: false
+  repeat_URL_adds_unique_count: false
+scope:
+  FP1_FR1_preserved: true
+  construction_selection: false
+  loads_strengths_or_allowances_reduced: false
+  physical_work_solver_contacts_purchase_git_browser: false
+readonly_input_sha256:
+  configs/studies/rp1-fin-precedent-replacement.yaml: 4bd851f336ac9d9ca6668bae5735e2ee1a0f64bbd9ad9721eb210651961be079
+  docs/studies/rp1-fin-precedent-replacement/material-sources.json: cc78abf7517fa8022d7e7f9a5673fc6ad9513d55530f1a2bc0ac94215272fc4a
+  docs/studies/rp1-fin-precedent-replacement/source-audit.md: ef2ab9c4bf9591b1e1cb7ea65aaa9c7150b1fc25783aa6ce0f4b92de8b629262
+  docs/studies/rp1-fin-precedent-replacement/screen-record.json: 3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb
+  scripts/wo03_rp1_fin_precedent_replacement.py: ae4c1d324712f45227ad6b17bc6b3b189c105bc15b2b84590e49874bad646026
+  docs/wo03-rp1-fin-precedent-replacement.md: f19070a3d9eeca0ed32ef4126873ec776ce608a3d9d2290277c1cb0c2190bb92
+  configs/studies/rp1-fin-root-replacement.yaml: 5926f9ca9b9a23295d93af95642cc3bf00ee0eb2a03cf523ffb627844c9ce11d
+  configs/engineering/rp1-fr1-connection-definition.yaml: f781fbf1de7d85d51db35cf998d345775cbc831aa6ab69c3d8f5166b28287432
+  runs/wo03-rp1-fin-root-20261104-v1/record.json: b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313
+  runs/wo03-rp1-fin-root-20261104-v1/joint-supplement.json: 94da02939ae48f1d037733961f3d55a67ac64bdb7149aa2b62d9e0c5807711c8
+  scripts/wo03_rp1_fin_root.py: 662477768f31debbf29edeb33b5fde2f9a39731e199df8fe28b75eb484726956
+  docs/wo03-rp1-fin-root-decision.md: fbdc802b1c1e319987f0016780e074880460bb0a43f2df02e4d3282b2f5b5c75
+  configs/studies/rp1-fin-input-sources.yaml: eb841024a77cf755779c787e0eda9307c41a3c25fb7980f4167324b214b5ac76
+  docs/wo03-rp1-fin-input-sources.md: 2852d8d135fd00f5f97d3b3bc657fd1777c24b35d1a4c92b8d328ff9faa53aed
+  configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+FP1_record_provenance_comparison:
+  FP1_study: true
+  FP1_producer: true
+  FP1_source: true
+retained_demand:
+  moment_Nm: 8.83
+  force_N: 331.125
+  DF_already_applied: 3
+  total_tip_limit_mm: 1
+  direct_current_planform_40kPa_result: false
+FP1_nominal:
+  wood_E_GPa: 1
+  wood_G_MPa: 200
+  carbon_E_GPa: 45
+  wood_bending_screen_MPa: 5
+  wood_shear_screen_MPa: 1
+  carbon_screen_MPa: 150
+  mean_bond_screen_MPa: 1
+  component_tip_mm: 0.8612403332968899
+  extra_attachment_reserved_mm: 0.1
+  total_tip_mm: 0.9612403332968898
+  installed_pass: null
+  hot_wet_bounds_verified: false
+FP1_saved_diagnostics:
+- changed: wood_E_GPa
+  value: 5
+  wood_bending_MPa: 4.822861755058504
+  total_tip_mm: 0.8606162833397324
+- changed: wood_E_GPa
+  value: 8
+  wood_bending_MPa: 7.123775865789785
+  total_tip_mm: 0.8130910843537272
+  wood_5MPa_screen: false
+- changed: carbon_E_GPa
+  value: 30
+  total_tip_mm: 1.2750448971157906
+  movement_screen: false
+- changed: wood_G_MPa
+  value: 100
+  total_tip_mm: 1.1300221732689486
+  movement_screen: false
+diagnostic_scope: one_input_changes_not_combined_uncertainty_corners_or_tested_material_bounds
+source_register:
+- id: CP005_exact
+  url: https://www.carbon-composite.com/en/Carbon-Plate-0.5mm/CP005-2
+  access: direct_timeouts_manufacturer_index_readable
+  source_class: manufacturer_product
+  scope: characteristic_cured_laminate_not_conditioned_minimum
+  nominal_thickness_mm: 0.5
+  flexural_E_EN2562_GPa: 60
+  flexural_strength_EN2562_MPa: 850
+  density_kg_m3: 1560
+  ILSS_EN2563_MPa_approx: 70
+  external_wood_bond_rating: false
+  thickness_hotwet_guarantee: null
+  temperature_wording: 130C_(180C)_short_term_method_and_cure_unstated
+- id: Spruce_02_20750
+  url: https://www.aircraftspruce.com/catalog/wppages/finnishbirch.php
+  access: readable
+  source_class: exact_vendor_stock_record
+  SKU: 02-20750
+  nominal_thickness_mm: 5
+  plies: 10
+  sheet_mm:
+  - 609.6
+  - 1219.2
+  price_USD: 88.9
+  grade: AB/B
+  receiving_4p8_to_5p2mm_guaranteed: false
+  directional_conditioned_E_G_strength: null
+- id: ES6292
+  url: https://ptm-w.com/technical-library/product-bulletins/Adhesives%20Bulletins/ES6292%20Bulletin.pdf
+  access: readable
+  source_class: manufacturer_TDS
+  revision: 03Sep13-C4
+  locations: pp1-2
+  film_range_mm: null
+  cure_example: 2h_RT_gel_then_4_to_6h_at150_to160F
+  wet_epoxyglass_shear_150F_psi: 1600
+  wood_CP005_or_root_peel: null
+- id: DP420_OffWhite
+  url: https://multimedia.3m.com/mws/media/2365939O/3m-scotch-weld-epoxy-adhesive-dp420-off-white.pdf
+  access: readable
+  source_class: manufacturer_TDS
+  revision: V7_2025-12
+  locations: pp2-5
+  room_FRP_epoxy_lap_film_mm:
+  - 0.13
+  - 0.2
+  hot_aluminum_test_film_mm: 0.25
+  FP1_0p03_to_0p05_film_validated: false
+  exact_wood_carbon_hotwet_peel: null
+- id: WEST_secondary_process
+  url: https://www.westsystem.com/instruction/epoxy-basics/bonding-and-clamping/
+  access: readable
+  source_class: manufacturer_process_guidance
+  scope: porous_surface_wetout_secondary_bond_preparation_avoid_starvation
+  guaranteed_30_to_50um_film: false
+- id: WEST_surface_prep
+  url: https://www.westsystem.com/instruction/epoxy-basics/surface-preparation/
+  access: readable
+  source_class: manufacturer_process_guidance
+  scope: clean_dry_abraded_cured_surface_and_blush_removal_not_exact_CP005_qualification
+- id: WEST_105_206
+  url: https://www.westsystem.com/app/uploads/2022/12/105-206-Epoxy-Resin.pdf
+  access: readable
+  source_class: manufacturer_resin_TDS
+  revision: 2014-10
+  DSC_Tg_onset_F: 126
+  ultimate_Tg_F: 139
+  65C_loaded_wood_joint_rating: false
+  exact_structural_film_range: null
+- id: Spruce_linked_plywood_rules
+  url: https://www.aircraftspruce.com/catalog/pdf/Germanischer%20Lloyd.pdf
+  access: image_only_PDF_no_text_extracted
+  source_class: vendor_linked_rules_not_selected_lot_certificate
+  property_values_used: false
+proposed_later_evidence:
+  authorization: future_reviewed_plan_only_no_hardware_measure_request_or_test_execution
+  repeatability: at_least3_per_critical_direction_process_condition_initial_screen_not_statistical_allowable
+  stock_strips:
+    dimensions_mm:
+    - 150
+    - 25
+    wood_spans_mm:
+    - 120
+    - 60
+    measure:
+    - minimum_and_maximum_directional_E
+    - effective_through_thickness_shear_G
+    - strength_and_mode
+    - moisture_density_thickness
+    - residual_set
+    thin_carbon_method: use_complete_matching_thin_laminate_flexure_protocol_not_wood_span
+  FP1_interface:
+    custom_lap_adherends_mm:
+    - 25
+    - 102
+    overlap_mm:
+    - 25
+    - 12.7
+    target_films_mm:
+    - 0.03
+    - 0.05
+    mean1MPa_load_N: 317.5
+    record:
+    - bond_thickness_voids_penetration
+    - force_slip
+    - failure_mode
+    - conditioned_residual_capacity
+    termination_strip_width_mm: 25
+    covered_and_bare_span_mm:
+    - 45
+    - 15
+    tab_depth_mm: 17.451
+    peel_and_slip_required: true
+  installed_root:
+    body_station_mm:
+    - 980
+    - 1220
+    fore_grip_length_mm: 60
+    forward_ring_station_mm:
+    - 1060
+    - 1072.2
+    aft_ring_station_mm:
+    - 1190
+    - 1196
+    tab_station_mm:
+    - 1080.2
+    - 1189.6
+    measure:
+    - coupled_translation_rotation_compliance
+    - grip_slip_ovalization
+    - tube_twist_ring_rotation
+    - tip_displacement_and_residual_set
+    - crack_peel_growth
+    combined_required_F_N: 331.125
+    combined_required_M_Nm: 8.83
+    tip_limit_mm: 1
+    FP1_extra_attachment_claim_limit_mm: 0.1
+    target_tip_equivalent_measurement_uncertainty_mm: 0.01
+    point_load_not_full_panel_distribution: true
+  conditioning: dry_baseline_and_documented_wet_condition_at45C_substrate;65C_adhesive_process_separate_not_wood_permission
+decision_gaps:
+- upper_and_lower_wood_E_with_retained_strength
+- wood_core_G_direction_and_condition
+- finished_carbon_hotwet_stiffness_strength
+- thin_secondary_bond_process_and_skin_end_peel
+- complete_finite_body_mount_ring_root_load_path
