@@ -1,0 +1,55 @@
+version: rp1-ad1-definition-v2
+configuration: G80-F2-RP1-AD1-definition-v2
+specification: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+definition: configs/studies/rp1-attachment-definition-v2.yaml
+results: runs/wo03-rp1-attachment-definition-20261103-v2/record.json
+decision: docs/wo03-rp1-attachment-definition.md
+test_plan: docs/wo03-rp1-representative-test-plan.md
+base_matrix: configs/engineering/traceability.yaml
+adopted: false
+expanded_wo03_acceptance: open
+scope: G80 test definition only; no G54 or G12 PID-to-RL evidence transfer.
+requirements:
+  - id: RT-RECOVERY-001
+    status: finished_capacity_unknown_test_definition_ready_for_owner_review
+    result: Exact30327/NW-12 products,6.5ft raw leader and uncut12ft main, proposed two figure-eight eyes/reeved choker/loop hitch defined.
+    remaining: Product mass/strength scope, actual knot/eye geometry, nose/connectors, installed crush/peel/body/bond capacity, packing and deployment.
+  - id: RT-RECOVERY-002
+    status: required_case_unchanged
+    result: 20.4m/s,0.3m,DF3once;55g-main whole1972.104/2014.309N; body1358.727/1400.931N. Not measured peaks.
+    remaining: Mechanism-specific normal/early-late/snatch/inflation evidence and conditioned load-extension before any requirement revision.
+  - id: RT-LOAD-001
+    status: failed_optimistic_panel_and_open_connections
+    criterion: Estimated hot5MPa,1mm movement; installed roots and force balance required.
+    result: Minimum5.8mm ideal bonded panel7.301MPa/1.805416mm; no positive rootstiffness can close1mm. No front-ring tab support; normal/peel unavailable.
+    remaining: Separate bounded fin/root construction decision before detailed analysis; installed ring/body/tube/rope contact tests.
+  - id: RT-FLUTTER-001
+    status: unavailable_changed_installed_support
+    result: No previous isolated fin or old front-ring result transferred; no current flutter acceptance.
+    remaining: Actual mass/stiffness/damping and operating envelope, installed modal/flutter screening and physical measurements.
+  - id: RT-MASS-001
+    status: complete_estimated_ledger_mass_sensitive
+    result: 55rows,+3.400gversusbalancedv2,934.549/954.549gwith50gandseparate20g.55gnylonunverified;68gmetadataonlyhypothetical.
+    remaining: Actual finished product and build masses; no growth allowance consumed or double removal credit.
+  - id: RT-MASS-002
+    status: physical_inertia_unavailable
+    result: Full mass/CG analytic ledger; sleevepositiononlycorrection, staticRocketPyendpointcomparison.
+    remaining: Admitted whole-assembly geometry/full inertia; no full-flight result fabricated.
+  - id: RT-STAB-001
+    status: calculated_hypothesis_screen_pass_only
+    result: 55gmainloaded1.433/1.255cal,burnout1.854/1.654cal; aftstow1.315/1.140. UnchangedexternalCPhypothesis.
+    remaining: Actual placements/motion, full configuration/uncertainty/aerodynamic evidence.
+  - id: RT-GUIDE-001
+    status: conditional_formal_pass_planning_fail_for55gmain
+    result: 1.5m15.212909/15.033479m/s;formal+23.794/+3.794g,planning-30.750/-50.750g.68gprobeadverse14.919669failsformal.
+    remaining: Finishedharnessmass/realusableguide;1.8mconditionalonly.15formal/15.5planningunchanged.
+  - id: RT-THERM-001
+    status: open_changed_sleeve_termination
+    criterion: Unchanged45Csubstratescreenandrequiredmatrix.
+    result: Foldedsleevethroughnotchrejected;80mmsleeveendsaheadring. Barecordpassage/newends/knotnotqualified.
+    remaining: Exacttextile/process, realcase/shieldgeometry, requiredburn/postburncalculationsandlatermeasurements.
+  - id: IF-FIN-BODY-AD1
+    status: provisional_dimensional_screen_only
+    criterion: Minimum0.1mmperflank.
+    result: Proposed6.8±.05mmslotgives.250mmwith6.2maxplyand.05conditioningclosure;previous6.5±.1gave.075mm.
+    remaining: Suppliertolerances, actualconditioning/cutquality, bondfillandinstalledstrength;notaflightadoption.

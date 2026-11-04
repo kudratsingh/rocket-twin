@@ -1,0 +1,17 @@
+packet: RP1-AD1-definition
+attempts:
+  - id: schema-preflight
+    outcome: failed_before_numerical_calculation
+    error: part ad1_slot_fill extends beyond vehicle
+    cause: Slot-fill envelope origin1140mm plus130mmlength exceeded1250mm vehicle; intended CG1140mm.
+    correction: Origin1075mm plus65mmCGoffset; mass and intendedCG unchanged.
+    measured_compute_time: unavailable
+  - id: completed-v1
+    outcome: completed_diagnostic
+    record: record.json
+    limitations: Fin screen fails; sleeve envelope overlaps narrower cord passage; no adoption.
+  - id: one-geometry-correction
+    outcome: completed_definition_v2
+    record: ../wo03-rp1-attachment-definition-20261103-v2/record.json
+    correction: Sleeve terminatesahead ofring; onlyCGupdated, existingguide/stripoutputreused.
+    remaining: No finishedcapacity, thermalacceptance or installedfinpass; stopfurtherautomaticiterations.

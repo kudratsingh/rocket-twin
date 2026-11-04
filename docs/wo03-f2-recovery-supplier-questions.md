@@ -25,8 +25,10 @@ model, and need component data before freezing a prototype design.
   practices are specified for the sewn loops? Are knots in the main prohibited
   or characterized? We intend to retain the factory ends and original length.
 
-Current total model assumes55g for this harness. Under all other current budgets,
-the adverse formal1.5m guide limit is62.194g; equality leaves no development margin.
+Frozen balancedRP1v2 assumes55g and had62.194g adverse formal allowance. The
+AD1v2 attachment definition now includes all3.4g additions; with those other
+budgets fixed, its adverse formal1.5m maximum main mass is58.794g. Equality
+leaves no development margin. Neither figure is a supplier requirement.
 Please provide component data rather than treating that figure as a product
 specification. If no such data exists, keep the properties unknown and use later
 representative owner-performed tests; do not invent a certification.
@@ -44,3 +46,5 @@ The proposed local anchor wraps a paper motor tube and meets a plywood ring;
 neither a cord tensile label nor a kit precedent qualifies that complete joint.
 Any response still needs the ring/tube/body/root design checks and later
 conditioning, packing, thermal and deployment evidence assigned in the plan.
+
+AD1v2 now proposes a6.5ft raw30327 leader, two figure-eight-on-a-bight eyes, a reeved proximal choker and a loop-to-loop junction to NW-12. These are unqualified test choices. Please distinguish any exact-product finished-end guidance or tested limits from generic raw-cord labels; no assumed knot-efficiency percentage is being used. The existing supplier questions remain UNSENT.

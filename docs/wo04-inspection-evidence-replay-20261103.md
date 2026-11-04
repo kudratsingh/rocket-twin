@@ -52,3 +52,5 @@ Do not retry through another agent or browser. No screenshot is claimed.
 FT-009/014/018 remain partial until their browser and full acceptance criteria
 are met. WO-03/04/05, physical work, purchases, paid runs, WO-10 owner review and
 flight-release gates are unchanged.
+
+Publication: PR#72 merged at`f139194d1bfab7d9b22fa7e6141d648f7ba4a9ce` after both required jobs succeeded for exact head`3a16cccea919fa83fc1695315af2f40b087d5fdb`, run41779066615. Repository privacy was rechecked. This is code publication, not browser acceptance.

@@ -1,5 +1,16 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+Latest bounded follow-up: **RP1 AD1 v2**,
+[attachment definition](../wo03-rp1-attachment-definition.md) and
+[representative test plan](../wo03-rp1-representative-test-plan.md). Exact cords,
+proposed finished ends, contacts, finite-support demands and full mass/guide
+consequences are recorded. The changed fin's optimistic screen FAILS5MPa/1mm;
+finished attachment and conditioned joints remain unknown. Do not restart
+unchanged-fin detailed analysis, stopped solvers or silently transfer old support
+results. A sacrificial test plan ready for owner review is not an authorization
+to purchase/fabricate/load it or manufacture the flight vehicle. Aggregate
+WO-03/physical/flight gates and independent G54/G12 PID-to-RL remain unchanged.
+
 Current bounded recovery deliverable is RP1 in
 `docs/wo03-f2-recovery-precedent-decision.md`. A motor-tube wrap/nylon topology is
 recommended from manufacturer precedents. Its single balance correction passes

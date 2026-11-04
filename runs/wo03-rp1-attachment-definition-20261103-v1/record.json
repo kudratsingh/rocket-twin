@@ -1,0 +1,615 @@
+{
+  "identity": "G80-F2-RP1-AD1-definition-v1",
+  "adopted": false,
+  "decision": "test_definition_only; finishedcapacity/rootnormalpeel/stiffness/thermalunknown;planningmiss",
+  "cases": [
+    {
+      "case": "nominal",
+      "nylon_mass_probe_g": 55,
+      "probe_is_bound": false,
+      "total_mass_g": 934.5492181993527,
+      "growth_g": 50,
+      "extra_aft_g": 0.0,
+      "motor_cg_probe_mm": 0.0,
+      "cg_mm": 763.8051275084285,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.431651236234363,
+      "burnout_cg_mm": 735.696416418317,
+      "burnout_margin_cal": 1.852427726311181,
+      "aft_stowage_margin_cal": 1.3137186930267788,
+      "guide_mps": {
+        "1.5": 15.212909287454936,
+        "1.8": 16.668171259509133
+      },
+      "formal_speed_margin_mps": 0.2129092874549361,
+      "planning_speed_margin_mps": -0.2870907125450639,
+      "formal_mass_headroom_g": 23.794335343738094,
+      "planning_mass_headroom_g": -30.74992277393762,
+      "whole_mean_proxy_N": 1972.1044045011772,
+      "body_proxy_N": 1358.726728126534
+    },
+    {
+      "case": "adverse",
+      "nylon_mass_probe_g": 55,
+      "probe_is_bound": false,
+      "total_mass_g": 954.5492181993527,
+      "growth_g": 50,
+      "extra_aft_g": 20.0,
+      "motor_cg_probe_mm": 12.8,
+      "cg_mm": 775.7111217024942,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.2534231263863693,
+      "burnout_cg_mm": 749.0667904159637,
+      "burnout_margin_cal": 1.6522784194394298,
+      "aft_stowage_margin_cal": 1.1379615410080743,
+      "guide_mps": {
+        "1.5": 15.033478843296864,
+        "1.8": 16.47216836866458
+      },
+      "formal_speed_margin_mps": 0.033478843296864014,
+      "planning_speed_margin_mps": -0.466521156703136,
+      "formal_mass_headroom_g": 3.7943353437380756,
+      "planning_mass_headroom_g": -50.74992277393764,
+      "whole_mean_proxy_N": 2014.3088035011772,
+      "body_proxy_N": 1400.931127126534
+    },
+    {
+      "case": "nominal",
+      "nylon_mass_probe_g": 68,
+      "probe_is_bound": false,
+      "total_mass_g": 947.5492181993527,
+      "growth_g": 50,
+      "extra_aft_g": 0.0,
+      "motor_cg_probe_mm": 0.0,
+      "cg_mm": 757.9906890056146,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.51869112280683,
+      "burnout_cg_mm": 729.884249922194,
+      "burnout_margin_cal": 1.9394336018257303,
+      "aft_stowage_margin_cal": 1.3900539387633541,
+      "guide_mps": {
+        "1.5": 15.095650089150393,
+        "1.8": 16.540089414974517
+      },
+      "formal_speed_margin_mps": 0.09565008915039286,
+      "planning_speed_margin_mps": -0.40434991084960714,
+      "formal_mass_headroom_g": 10.794335343738082,
+      "planning_mass_headroom_g": -43.749922773937634,
+      "whole_mean_proxy_N": 1999.5372638511772,
+      "body_proxy_N": 1358.726728126534
+    },
+    {
+      "case": "adverse",
+      "nylon_mass_probe_g": 68,
+      "probe_is_bound": false,
+      "total_mass_g": 967.5492181993527,
+      "growth_g": 50,
+      "extra_aft_g": 20.0,
+      "motor_cg_probe_mm": 12.8,
+      "cg_mm": 769.8569031515518,
+      "cp_mm": 859.4422933913564,
+      "margin_cal": 1.3410585048322596,
+      "burnout_cg_mm": 743.1910124267979,
+      "burnout_margin_cal": 1.7402365343037425,
+      "aft_stowage_margin_cal": 1.2150803521150224,
+      "guide_mps": {
+        "1.5": 14.919668703420253,
+        "1.8": 16.347862496184415
+      },
+      "formal_speed_margin_mps": -0.08033129657974669,
+      "planning_speed_margin_mps": -0.5803312965797467,
+      "formal_mass_headroom_g": -9.205664656261936,
+      "planning_mass_headroom_g": -63.74992277393765,
+      "whole_mean_proxy_N": 2041.7416628511774,
+      "body_proxy_N": 1400.931127126534
+    }
+  ],
+  "ledger": [
+    {
+      "id": "nose",
+      "mass_g": 38.0,
+      "cg_mm": 100.17483160849072,
+      "cost_usd": 5.0
+    },
+    {
+      "id": "body",
+      "mass_g": 98.19191360507513,
+      "cg_mm": 839.0000000000001,
+      "cost_usd": 20.54
+    },
+    {
+      "id": "fin_set",
+      "mass_g": 78.83167661704073,
+      "cg_mm": 1145.5555555555554,
+      "cost_usd": 69.75
+    },
+    {
+      "id": "fin_tabs",
+      "mass_g": 25.91758734498647,
+      "cg_mm": 1135.1,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "motor_tube",
+      "mass_g": 24.0,
+      "cg_mm": 1137.5,
+      "cost_usd": 7.49
+    },
+    {
+      "id": "forward_ring",
+      "mass_g": 22.47974931209163,
+      "cg_mm": 1066.1000000000001,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "aft_ring",
+      "mass_g": 11.161819302239405,
+      "cg_mm": 1192.9999999999998,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "fin_internal_bonds",
+      "mass_g": 14.0,
+      "cg_mm": 1135.0,
+      "cost_usd": 3.0
+    },
+    {
+      "id": "ring_bonds",
+      "mass_g": 10.0,
+      "cg_mm": 1135.5,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "outer_fin_fillets",
+      "mass_g": 10.0,
+      "cg_mm": 1140.0,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "motor",
+      "mass_g": 128.20000000000002,
+      "cg_mm": 1156.0000000000002,
+      "cost_usd": 43.99
+    },
+    {
+      "id": "motor_retainer",
+      "mass_g": 30.0,
+      "cg_mm": 1227.5,
+      "cost_usd": 23.99
+    },
+    {
+      "id": "retainer_adhesive",
+      "mass_g": 2.0,
+      "cg_mm": 1212.5000000000002,
+      "cost_usd": 1.0
+    },
+    {
+      "id": "mount_external_shield",
+      "mass_g": 10.0,
+      "cg_mm": 1130.0000000000002,
+      "cost_usd": 5.0
+    },
+    {
+      "id": "nose_anchor_plate",
+      "mass_g": 12.139003898323274,
+      "cg_mm": 184.1,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "nose_recovery_eye",
+      "mass_g": 9.0,
+      "cg_mm": 179.00000000000003,
+      "cost_usd": 4.0
+    },
+    {
+      "id": "shock_cord",
+      "mass_g": 55.0,
+      "cg_mm": 340.0,
+      "cost_usd": 12.39
+    },
+    {
+      "id": "recovery_connectors",
+      "mass_g": 9.0,
+      "cg_mm": 362.5,
+      "cost_usd": 8.0
+    },
+    {
+      "id": "parachute",
+      "mass_g": 35.0,
+      "cg_mm": 320.0,
+      "cost_usd": 30.0
+    },
+    {
+      "id": "recovery_protection",
+      "mass_g": 6.0,
+      "cg_mm": 370.0,
+      "cost_usd": 8.0
+    },
+    {
+      "id": "flight_computer",
+      "mass_g": 12.0,
+      "cg_mm": 115.5,
+      "cost_usd": 32.0
+    },
+    {
+      "id": "imu",
+      "mass_g": 2.0,
+      "cg_mm": 123.0,
+      "cost_usd": 18.0
+    },
+    {
+      "id": "baro",
+      "mass_g": 1.0,
+      "cg_mm": 144.50000000000003,
+      "cost_usd": 15.0
+    },
+    {
+      "id": "high_g_accel",
+      "mass_g": 1.0,
+      "cg_mm": 97.80000000000001,
+      "cost_usd": 24.95
+    },
+    {
+      "id": "micro_sd",
+      "mass_g": 3.0,
+      "cg_mm": 155.0,
+      "cost_usd": 10.0
+    },
+    {
+      "id": "battery",
+      "mass_g": 30.0,
+      "cg_mm": 112.5,
+      "cost_usd": 18.0
+    },
+    {
+      "id": "independent_recovery",
+      "mass_g": 5.0,
+      "cg_mm": 192.225,
+      "cost_usd": 15.0
+    },
+    {
+      "id": "recovery_battery",
+      "mass_g": 5.0,
+      "cg_mm": 208.00000000000003,
+      "cost_usd": 19.0
+    },
+    {
+      "id": "avionics_sled",
+      "mass_g": 11.0,
+      "cg_mm": 127.0,
+      "cost_usd": 5.0
+    },
+    {
+      "id": "logger_power_switch",
+      "mass_g": 3.0,
+      "cg_mm": 156.0,
+      "cost_usd": 3.0
+    },
+    {
+      "id": "logger_regulator",
+      "mass_g": 4.0,
+      "cg_mm": 160.5,
+      "cost_usd": 4.0
+    },
+    {
+      "id": "recovery_carrier",
+      "mass_g": 8.0,
+      "cg_mm": 185.0,
+      "cost_usd": 4.0
+    },
+    {
+      "id": "electrical_harness",
+      "mass_g": 11.0,
+      "cg_mm": 130.0,
+      "cost_usd": 5.0
+    },
+    {
+      "id": "recovery_harness_wiring",
+      "mass_g": 5.0,
+      "cg_mm": 210.0,
+      "cost_usd": 4.0
+    },
+    {
+      "id": "recovery_output_mount",
+      "mass_g": 6.0,
+      "cg_mm": 245.0,
+      "cost_usd": 5.0
+    },
+    {
+      "id": "rail_buttons",
+      "mass_g": 5.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 6.0
+    },
+    {
+      "id": "rail_backers",
+      "mass_g": 4.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 1.0
+    },
+    {
+      "id": "finish",
+      "mass_g": 12.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 5.0
+    },
+    {
+      "id": "service_allowance",
+      "mass_g": 6.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "upper_body",
+      "mass_g": 38.400512144766914,
+      "cg_mm": 308.99999999999994,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "body_splice",
+      "mass_g": 12.426258817849455,
+      "cg_mm": 457.99999999999994,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "splice_seam_patch",
+      "mass_g": 0.93345,
+      "cg_mm": 457.99999999999994,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "splice_adhesive",
+      "mass_g": 8.0,
+      "cg_mm": 457.99999999999994,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "root_gussets",
+      "mass_g": 26.277225539013575,
+      "cg_mm": 1140.0,
+      "cost_usd": 0.0
+    },
+    {
+      "id": "root_extra_bond_finish",
+      "mass_g": 4.0,
+      "cg_mm": 1140.0,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "nose_service_hardware",
+      "mass_g": 3.0,
+      "cg_mm": 184.0,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "c1_forward_root_bond_fill",
+      "mass_g": 0.763109335632378,
+      "cg_mm": 1081.1,
+      "cost_usd": 0.153
+    },
+    {
+      "id": "c1_aft_bond_fill",
+      "mass_g": 0.14589556283271168,
+      "cg_mm": 1196.1,
+      "cost_usd": 0.029
+    },
+    {
+      "id": "c1_nose_bond_fill",
+      "mass_g": 0.2810167195006651,
+      "cg_mm": 184.1,
+      "cost_usd": 0.056
+    },
+    {
+      "id": "rp1_kevlar_wrap",
+      "mass_g": 16.25,
+      "cg_mm": 600.0000000000001,
+      "cost_usd": 17.1
+    },
+    {
+      "id": "rp1_wrap_lock_bond",
+      "mass_g": 4.0,
+      "cg_mm": 1072.1000000000001,
+      "cost_usd": 0.8
+    },
+    {
+      "id": "rp1_notch_sealer",
+      "mass_g": 1.0,
+      "cg_mm": 1066.1000000000001,
+      "cost_usd": 0.2
+    },
+    {
+      "id": "rp1_lip_guard",
+      "mass_g": 4.0,
+      "cg_mm": 166.1,
+      "cost_usd": 8.0
+    },
+    {
+      "id": "ad1_cord_sleeve",
+      "mass_g": 2.0,
+      "cg_mm": 1072.2,
+      "cost_usd": 2.0
+    },
+    {
+      "id": "ad1_slot_fill",
+      "mass_g": 0.15,
+      "cg_mm": 1140.0,
+      "cost_usd": 0.25
+    }
+  ],
+  "net_addition_to_balanced_g": 3.3999999999999586,
+  "estimated_cost_usd": 476.688,
+  "physical_inertia": null,
+  "full_flight": "not run; physical inertia/source/motor unresolved",
+  "cord_geometry": {
+    "wrap_centerline_circumference_mm": 110.48667203409943,
+    "guarded_route_mm": 932.2,
+    "termination_reservation_each_mm": 300,
+    "available_external_reach_mm": 338.51332796590054,
+    "minimum_reach_mm": 300,
+    "reach_pass": true,
+    "notch_min_per_flank_mm": 0.30000000000000016,
+    "knot_box_cold_body_clearance_mm": 0.41449230859193165,
+    "knot_box_not_a_verified_knot": true
+  },
+  "fin": {
+    "factored_moment_Nm": 8.83,
+    "factored_force_N": 331.125,
+    "no_second_factor": true,
+    "actual_root_support": "no front-ring contact; finite tab/tube/body/gusset and aft-end adhesive",
+    "ideal_composite_strip_lower_deflection_only": [
+      {
+        "divisions": 100,
+        "deflection_m": 0.0018067915939475737,
+        "maximum_bending_Pa": 7301269.256902433
+      },
+      {
+        "divisions": 400,
+        "deflection_m": 0.001805497153400484,
+        "maximum_bending_Pa": 7301269.256902433
+      },
+      {
+        "divisions": 1600,
+        "deflection_m": 0.0018054161114599912,
+        "maximum_bending_Pa": 7301269.256902433
+      }
+    ],
+    "relative_delta_last_two": 4.4886218923290144e-05,
+    "bonded_panel_stress_screen_pass_only": false,
+    "bare_panel": {
+      "divisions": 1600,
+      "deflection_m": 0.00398811898332128,
+      "maximum_bending_Pa": 12114698.618860332
+    },
+    "required_joint_rotation_stiffness_Nm_rad": null,
+    "root_spring_examples": [
+      {
+        "K_Nm_rad": 200,
+        "total_tip_mm": 4.454416111459992
+      },
+      {
+        "K_Nm_rad": 500,
+        "total_tip_mm": 2.8650161114599912
+      },
+      {
+        "K_Nm_rad": 1000,
+        "total_tip_mm": 2.335216111459991
+      },
+      {
+        "K_Nm_rad": 3000,
+        "total_tip_mm": 1.982016111459991
+      }
+    ],
+    "couple_force_at_15mm_N": 588.6666666666667,
+    "areas": {
+      "ring_outer_mm2": 2468.2865160724286,
+      "ring_inner_mm2": 1167.7450289240755,
+      "tab_flat_mm2_per_fin": 634.52,
+      "gusset_fin_face_mm2_one_side": 1950,
+      "gusset_body_base_mm2_one_side": 780,
+      "aft_tab_end_mm2": 101.2158
+    },
+    "gusset_fin_face_mean_Pa": 301880.34188034193,
+    "gusset_body_normal_mean_Pa": 754700.8547008549,
+    "tab_flat_mean_if_whole_couple_Pa": 927735.4010380552,
+    "aft_end_mean_if_whole_force_Pa": 3271475.4020617334,
+    "normal_peel_capacity": null,
+    "installed_displacement": null,
+    "installed_flutter": "unavailable; changed joint stiffness/inertia not validated"
+  },
+  "recovery_connections": {
+    "areas": {
+      "ring_outer_mm2": 2468.2865160724286,
+      "ring_inner_mm2": 1167.7450289240755,
+      "tab_flat_mm2_per_fin": 634.52,
+      "gusset_fin_face_mm2_one_side": 1950,
+      "gusset_body_base_mm2_one_side": 780,
+      "aft_tab_end_mm2": 101.2158
+    },
+    "adverse_body_proxy_N": 1400.931127126534,
+    "outer_ring_mean_shear_Pa": 567572.3292268821,
+    "inner_ring_mean_shear_if_full_force_Pa": 1199689.2236118605,
+    "body_full_route_axial_stress_Pa": 7610164.989906783,
+    "scope": "separate full-route envelopes, not equalsharing or summed simultaneous independent loads; peel/crush/ropepressure/annularbending unresolved",
+    "finished_attachment_capacity_N": null
+  },
+  "slot_clearance": {
+    "previous_min_per_flank_mm": 0.0750000000000001,
+    "proposed_min_per_flank_mm": 0.24999999999999992,
+    "criterion_mm": 0.1,
+    "conditional_only": true,
+    "added_epoxy_g": 0.15,
+    "removal_credit_g": 0
+  },
+  "rocketpy_static_reference": {
+    "reference": "RocketPy",
+    "version": "1.13.0",
+    "motor_mode": "source curve; static endpoints only",
+    "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+    "rows": [
+      {
+        "state": "liftoff",
+        "rocket_twin": {
+          "mass_kg": 0.8845492181993526,
+          "cg_m": 0.7363224921452262,
+          "cp_m": 0.8594422933913565,
+          "stability_margin_cal": 1.8430556157918971
+        },
+        "rocketpy": {
+          "mass_kg": 0.8845492181993524,
+          "cg_m": 0.7363224921452263,
+          "cp_m": 0.8594422933913552,
+          "stability_margin_cal": 1.8430556157918772
+        },
+        "absolute_delta": {
+          "mass_kg": 2.220446049250313e-16,
+          "cg_m": 1.1102230246251565e-16,
+          "cp_m": 1.2212453270876722e-15,
+          "stability_margin_cal": 1.9984014443252818e-14
+        },
+        "passed": true
+      },
+      {
+        "state": "burnout",
+        "rocket_twin": {
+          "mass_kg": 0.8220492181993526,
+          "cg_m": 0.7044146164849605,
+          "cp_m": 0.8594422933913565,
+          "stability_margin_cal": 2.320704124223765
+        },
+        "rocketpy": {
+          "mass_kg": 0.8220492181993524,
+          "cg_m": 0.7044146164849607,
+          "cp_m": 0.8594422933913552,
+          "stability_margin_cal": 2.320704124223743
+        },
+        "absolute_delta": {
+          "mass_kg": 2.220446049250313e-16,
+          "cg_m": 2.220446049250313e-16,
+          "cp_m": 1.2212453270876722e-15,
+          "stability_margin_cal": 2.220446049250313e-14
+        },
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2",
+    "configs/studies/rp1-attachment-definition.yaml": "5369db2a1c844f0e27b26cf3626d2902bd0b329a4d501ca4ccb3d44b2035bc00",
+    "configs/vehicle/candidates/g80-f2-rp1-ad1.yaml": "b53c048937b2fd3a9ada6b653e74d7051c67e9a6d4130010f3699bc7c185851c",
+    "scripts/wo03_rp1_attachment_definition.py": "db4bc0c76e06cb72e88778980e101fa62d6c75d7144490aa040d1fe7b2d6c382"
+  },
+  "resources": {
+    "cpu_seconds": 1.232864,
+    "wall_seconds": 1.7925712500000373,
+    "thread_env_limit": 1,
+    "cpu_affinity_verified": false,
+    "new_continuum_solver_runs": 0
+  },
+  "method_check": {
+    "uniform_beam_numerical_m": 0.004229702463122082,
+    "closed_form_m": 0.004229700810895203,
+    "relative_error": 3.906249999019451e-07,
+    "scope": "integration only, not installed root or material validation"
+  }
+}

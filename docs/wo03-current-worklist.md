@@ -1,5 +1,22 @@
 # Current bounded work list
 
+## RP1 AD1 finished attachment and inspection/replay increment
+
+| Deliverable / owner | Budget and identity | Outcome / stop |
+| --- | --- | --- |
+| Exact cord documentation / Sol HIGH |12primaryURLs/15min, source register`rp1-finished-cord-sources.yaml` | Closed12URLs in3m9s; NW-12variant/price resolved, finished strength/mass not established; supplier requestsUNSENT |
+| AD1 definition / primary | One topology,10calculationcases,120CPU/case600CPUpacket,onegeometrycorrection; no continuum solver | Initialschemaoriginfailure preserved; completed1.233CPU/1.793wall. Finideal7.301MPa/1.805mmFAIL; capacities unknown. No unchanged-fin detailed work |
+| Sleeve correction / primary | Only2gsleevelocation, one permitted correction, savedguide/stripreuse |1.129CPU/1.319wall;80mmsleeveendsbefore4.5mmnotch, massunchanged. No thermal/chafe acceptance |
+| Coupled bookkeeping / Sol HIGH |12minread-onlyaudit +5minfinalupdate, ownednoteonly |55rows,+3.4g,934.549/954.549g;formal+23.794/+3.794g,planning−30.750/−50.750g. Physicalinertiaunknown |
+| Sacrificial test definition / primary | SameAD1v2, finishedcord/local240mmarticle, owner-onlyphysicalwork | Dimensionedcoupon/article/BOM/reaction/conditioningplan; readyforownerreview, not loading/build/flightrelease |
+| Offline drawing pack / Sol HIGH |30mincode,onevisualcorrection,nativerender120wallaggregate | SeparateversionedSVG/PNG/gallery, observationstatusinpack; no browserorengineeringacceptance |
+| Inspection evidence / Astra MEDIUM |30mincode+onecorrection, ownedworkspacefiles | Source-linkedconnections/failures/verificationimplemented; focus/scroll/linkbrowseracceptancepending |
+| Replay sample readouts / Terra HIGH | Boundedownedsample/UI/testfiles | Actualnearestdecimatedsamples,time/units, missingcoveragewithheld; no alteredphysics/pose. Integrated76tests/type/lint/format/buildpass |
+
+No purchases, physical work, supplier messages, paid compute, new launch baseline
+or G54/G12 acceptance transfer. Next mechanical scope must address both failed
+panel and finite root before expensive analysis; no automatic architecture retry.
+
 ## Recovery precedents and first inspection slice
 
 | Deliverable / owner | Budget and source | Actual status / stop |
