@@ -23,6 +23,13 @@ reachable details/search, source isolation, active2D shortcuts and section picki
 Integrated71 web tests/typecheck/lint/format/build and required hosted jobs pass; browser ownership remains
 blocked with no exposed supported repair command. [Handoff](wo04-inspection-slice-20261103-v3.md).
 
+[Read-only asset readiness](wo04-inspection-asset-readiness-20261103.md) confirms
+source-matching listed mesh inventories: referenceG80 42/42, G54 42/42, finnedG12
+53/53 and finlessG12 51/51. These are the older reference designs, not F2/RP1 CAD.
+Current mesh bytes were fingerprinted; no independent expected GLB-byte hashes
+or browser/WebGL acceptance is claimed. Supplier questions for the unpurchased
+nylon/Kevlar are [prepared but unsent](wo03-f2-recovery-supplier-questions.md).
+
 The F2-C2 joint-demand declaration below was superseded before arithmetic. RP1's
 new small arithmetic had one preserved ledger-export failure and one declared
 setup correction; no stopped F2/C1 solver was repeated. Hardware is unpurchased.
