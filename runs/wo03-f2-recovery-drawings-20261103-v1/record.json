@@ -1,0 +1,80 @@
+{
+  "status": "offline_images_inspected_browser_pending",
+  "identity": "G80-F2-RP1-wrap-recommendation-v1",
+  "export": {
+    "identity": "G80-F2-RP1-wrap-recommendation-v1",
+    "adopted": false,
+    "representation": "dimensioned_concept_and_record_display",
+    "specification": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-wrap.yaml",
+      "sha256": "1a09bbc8c196386d65d9e421a2fc09b8e6b2e42ba32a57823fa39834696d1071"
+    },
+    "record": {
+      "path": "runs/wo03-f2-recovery-precedent-20261103-v1/record.json",
+      "sha256": "d85224dabd5f661d55b937788b2c0df43a9d86671bb056f1fd9d0db5b014650d"
+    },
+    "exporter": {
+      "path": "scripts/wo03_recovery_precedent_drawings.py",
+      "sha256": "ed456ce90a6276c10098030a4c8bb9a43d9e900902c39c5e167155bf8f5495b7"
+    },
+    "sources": {
+      "configs/vehicle/candidates/g80-f2-c1-fit-proposal.yaml": "f4f62b8c2051bc1f50bad5738ad8597d63671d953a1da2a70c18ec6f8bd75201",
+      "configs/vehicle/candidates/g80-f2-rp1-wrap.yaml": "1a09bbc8c196386d65d9e421a2fc09b8e6b2e42ba32a57823fa39834696d1071"
+    },
+    "units": {
+      "dimensions": "mm",
+      "mass": "g",
+      "loads": "N"
+    },
+    "context_sources": {
+      "docs/wo03-f2-recovery-precedents-source-notes.md": "dbd4f9d6d31ed60621ad974242b1c1af751de9ca133a004b1afe9830fb0dde32",
+      "configs/studies/f2-recovery-precedents-sources.yaml": "10976049f4ac489202ac368f64eaf49ba4f940506240c9c1437043257ed41de6",
+      "docs/wo03-g80-f2-c1-decision.md": "f1516ead2f4a2c5d414392d67fcea4354db31e041302450044b79d126234982f"
+    },
+    "browser_verified": false,
+    "engineering_accepted": false,
+    "unknowns": [
+      "knot_envelope",
+      "conditioned_joint_capacity",
+      "thermal_field",
+      "installed_load_sharing"
+    ],
+    "artifacts": [
+      {
+        "path": "output/f2-recovery-precedents/connection.svg",
+        "sha256": "0536d00a69b954d5ce1fadd40dc61cb93a5372c412debdb754ab72eb07ecae52"
+      },
+      {
+        "path": "output/f2-recovery-precedents/comparison.svg",
+        "sha256": "671507cc0761a02d300dc17ef1d3ef66511e4ecc171ed79d685ef799d6f17b9f"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "svg": "output/f2-recovery-precedents/connection.svg",
+      "png": "output/f2-recovery-precedents/connection.png",
+      "svg_sha256": "0536d00a69b954d5ce1fadd40dc61cb93a5372c412debdb754ab72eb07ecae52",
+      "png_sha256": "76a363e3173848925fa09724a1f978a1f383da8b6ed264b8f1ad1dd4919eea63"
+    },
+    {
+      "svg": "output/f2-recovery-precedents/comparison.svg",
+      "png": "output/f2-recovery-precedents/comparison.png",
+      "svg_sha256": "671507cc0761a02d300dc17ef1d3ef66511e4ecc171ed79d685ef799d6f17b9f",
+      "png_sha256": "bee02b0c1eefcc529966a1acaf8ab11647d1ca43d08e9aa7b99cd3dd2aaa2127"
+    }
+  ],
+  "observations": [
+    "Primary inspected actual1700x1180connection and1700x1320comparison images at original resolution.",
+    "First image had a wrap projection crossing the bore; one visual correction keeps the corridor clear and includes lipguard/nose topology.",
+    "Final status-label fit was shortened within that correction; all labels, arrows, dimensions, source hashes, units and negative guide margins are readable with no observed clipping."
+  ],
+  "render_budget_s": 120,
+  "render_wall_s_records": [
+    1.8345204169745557,
+    1.4279520839918405
+  ],
+  "final_label_command_wall_s": 0.824892,
+  "browser_verified": false,
+  "engineering_accepted": false
+}

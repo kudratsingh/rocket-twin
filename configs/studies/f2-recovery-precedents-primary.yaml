@@ -1,0 +1,73 @@
+version: f2-recovery-precedents-primary-v1
+date_local: '2026-11-03'
+budget:
+  maximum_unique_direct_urls: 12
+  maximum_active_research_minutes: 15
+  actual_unique_direct_urls: 12
+  active_time_measurement: not instrumented; research closed, no further URLs
+access_notes:
+- Web PDF screenshot calls supplied no inspectablepixels; article screenshot timedout.
+  Alternate searchtool reported screenshotnotenabled. No source-imageacceptance claimed.
+- DirectPDFdownloadfailedDNS; no originalPDFbyteshash/localfile acquired. ExistingofflineSVGnative
+  renderer is separate.
+sources:
+- id: initiator_current
+  url: https://aerotech-rocketry.com/products/product_6884e3bb-9375-a3f8-ab43-42d8a31ec4ee
+  source_class: manufacturer_product
+  access: readable
+  supported_scope: 89011 currentG80-10T recommendation and catalogue400g; manual identifieswithoutmotor
+- id: initiator_manual
+  url: https://d3l66gvjdr7rqw.cloudfront.net/Templates/170652/myimages/initiator_in_8-04_1674501193528.pdf
+  source_class: manufacturer_instructions
+  access: text_readable_visual_unavailable
+  supported_scope: "19911-8091 Rev8/12/04 pp3\u20136;8ftelastic,baffleeye,moldednoseloop;currentretainerdiffers"
+- id: resources
+  url: https://www.rocketmotorparts.com/page/aerotech-resources
+  source_class: manufacturer_index
+  access: readable
+  supported_scope: links resource library; no newcontrolleddimensions
+- id: kevlar
+  url: https://www.apogeerockets.com/Building_Supplies/Parachutes_Recovery_Equipment/Shock_Cord/Kevlar_Cord_1500
+  source_class: manufacturer_product
+  access: readable
+  supported_scope: 30327;1500lblabel;0.137inOD;2glistingmassperpricedfootinferrednotconfirmed;$1.71/ft,min10,inStock10+
+- id: measured_patch
+  url: https://www.apogeerockets.com/education/downloads/Newsletter318_Large.pdf
+  source_class: firsthand_experiment
+  access: text_readable_visual_unavailable
+  supported_scope: 2012 Treichel30couponspulltest,98mmBlueTube,24h,10mm/min; noF2/hot/shockallowable
+- id: initiator_review
+  url: https://www.rocketreviews.com/aerotech-aerospace-initiator--by-harryholmes.html
+  source_class: firsthand_comments
+  access: direct_403_indexed_text_only
+  supported_scope: 2001G80flightcomment;2006shroudlinebreakcomment; noforces/mass/reliability
+- id: modern_builder
+  url: https://modelrocketbuilding.blogspot.com/2024/07/
+  source_class: firsthand_build
+  access: direct_redirect_failure_indexed_text_only
+  supported_scope: 2024bodybuild/currentretainerlead;notusedasstrengthsource
+- id: zip_guard
+  url: https://www.apogeerockets.com/Building-Supplies/Shock-Cord/Zipper-Shield-2-pk?cPath=42_96
+  source_class: manufacturer_product
+  access: readable
+  supported_scope: 29187;1.47g;$7.44/2;fit100/300lbcordonly.Notselectedfor30327
+- id: nylon
+  url: https://locprecision.com/products/shock-cords
+  source_class: manufacturer_product
+  access: readable
+  supported_scope: 3/8in12ftsewnloops1020lblabel;exactmass,variantstock/price/testscopeunavailable.Default$8.12notselectedquote
+- id: nylon_json
+  url: https://locprecision.com/products/shock-cords.js
+  source_class: manufacturer_endpoint
+  access: unavailable
+  supported_scope: NoJSONvariantmass/priceacquired
+- id: combo
+  url: https://www.madcowrocketry.com/kevlar-nylon-shock-cord-combo/
+  source_class: manufacturer_product
+  access: readable
+  supported_scope: P183,$7.70,inStock,2.5ftKevlar+5ft1/8in550lbnylon; finishedcapacity/massextensionunavailable
+- id: incorrect_product_lead
+  url: https://aerotech-rocketry.com/products/product_ade611ca-5d61-4b2e-855b-a44defe21951
+  source_class: incorrect_unverified_lead
+  access: unavailable
+  supported_scope: IncorrectinitialURLlead;notusedasproductevidence

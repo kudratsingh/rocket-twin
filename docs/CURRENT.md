@@ -1,6 +1,33 @@
 # Current engineering and inspection checkpoint
 
-**Current connection decision: [G80-F2-C1](wo03-g80-f2-c1-decision.md), not adopted.**
+**Current recovery decision: [RP1 precedent recommendation](wo03-f2-recovery-precedent-decision.md).**
+Carry a motor-tube wrap with a replaceable nylon main forward for definition;
+keep the conventional F2 architecture and all earlier records frozen. This is
+a research recommendation, not adoption. The single balance correction removes
+redundant ballast-only parts and shortens the leader while preserving its route.
+Selected balanced-v2 nominal/adverse estimates are931.149/951.149g including
+full50g, CG763.302/775.261mm, margins1.439/1.260cal (1.149withaftcordstowage).
+Reference1.5m departure15.243988/15.063562m/s passes15; formal headroom27.194/7.194g,
+planning deficits27.350/47.350g. Conditional1.8m equipment remains unconfirmed.
+Main nylon55g is an estimate; adverse formal maximum62.194g with other budgets
+fixed. No growth use, reduced recovery case or detailed FEA is admitted.
+
+The source study compares three kit families/four documented constructions.
+The loop removes the proposed body-eye dependency, but moving the ring ahead of
+tabs removes their old front support. Finished cord/knots, finite ring/tube/body
+and revised root joints, heat and service remain open. [Current drawings](../output/f2-recovery-precedents-balanced/index.html)
+are versioned concepts with actual offline images, separate from complete CAD.
+
+The first inspection-slice correction is merged PR70: scroll/content height,
+reachable details/search, source isolation, active2D shortcuts and section picking.
+Integrated71 web tests/typecheck/lint/format/build and required hosted jobs pass; browser ownership remains
+blocked with no exposed supported repair command. [Handoff](wo04-inspection-slice-20261103-v3.md).
+
+The F2-C2 joint-demand declaration below was superseded before arithmetic. RP1's
+new small arithmetic had one preserved ledger-export failure and one declared
+setup correction; no stopped F2/C1 solver was repeated. Hardware is unpurchased.
+
+**Previous connection decision: [G80-F2-C1](wo03-g80-f2-c1-decision.md), not adopted.**
 Frozen F2 remains the working reference below. The new proposal defines seven
 conditional fit stacks and adds1.190g epoxy with zero wood-removal credit.
 Nominal/adverse918.750/938.750g, static1.283/1.105cal, reference1.5m
@@ -26,8 +53,10 @@ table and offline image observations. Open
 `http://127.0.0.1:5173/?workspace=engineering&view=g80-f2-c1` after `make preview`.
 The study is not a new flight configuration or a compatible stress overlay.
 Browser runtime ownership remains unresolved; read-only host diagnostics do not
-bypass it. The only pending owner question is whether exact hardware is already
-on hand for the missing external dimensions; no purchase/physical work requested.
+bypass it. The owner subsequently confirmed that none of the exact motor,
+mount tube, retainer or recovery-anchor hardware has been purchased. Do not ask
+for measurements of unavailable hardware; missing mating data remains a supplier
+dependency. Components remain budgeted purchases; none is authorized here.
 
 **Current selected G80 follow-up: G80-F2-fixed-stock-ballast-v2.**
 [Construction decision](wo03-g80-f2-decision.md) and

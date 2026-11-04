@@ -1,5 +1,13 @@
 # Agent entry point
 
+Latest recovery direction: use the bounded precedent study in
+`docs/wo03-f2-recovery-precedent-decision.md`. RP1 recommends a conventional
+motor-tube wrap/nylon route. One declared balance correction gives931.149/951.149g,
+formal1.5m guide/stability passes under estimates, while15.5planning/installed
+acceptance stay open. It is not adopted or admitted to expensive analysis. F2 architecture
+stays fixed; F2/F2-C1/stopped records remain frozen. F2-C2 arithmetic was superseded
+before execution. Hardware is unpurchased; seek supplier data, not owner measurements.
+
 2026-11-03 frontend direction: execute the supplied43-task planning kit through
 focused Design/Engineering/Experiments/Flight Replay/Analysis workspaces
 (ADR-0014; `docs/frontend-workbench-backlog.md`). Astra MEDIUM owns complex

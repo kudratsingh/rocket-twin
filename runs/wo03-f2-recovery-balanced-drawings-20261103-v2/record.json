@@ -1,0 +1,127 @@
+{
+  "wall_s": 1.6279553329804912,
+  "artifacts": [
+    {
+      "svg": "output/f2-recovery-precedents-balanced/connection.svg",
+      "svg_sha256": "6f7f61d313043263632130a48df18469a1b877e927898416cdab57004f25b1d8",
+      "png": "output/f2-recovery-precedents-balanced/connection.png",
+      "png_sha256": "646cbe5a31e432bdac21fa413b8df00023746e07709acd2080743a923a983bb2",
+      "renderer_output": "SVG_registered=true\nPNG_dimensions=1700x1180\n"
+    },
+    {
+      "svg": "output/f2-recovery-precedents-balanced/comparison.svg",
+      "svg_sha256": "f3d63963aaa7cb05bcaff203b8b5f13dcef817e601c84e9590d44f7ed6520788",
+      "png": "output/f2-recovery-precedents-balanced/comparison.png",
+      "png_sha256": "9b377a35806bbb03e65fd5a91d41809e9f21db05010ff808f121f0919e90c3d7",
+      "renderer_output": "SVG_registered=true\nPNG_dimensions=1700x1320\n"
+    }
+  ],
+  "browser_verified": false,
+  "engineering_accepted": false,
+  "visual_inspection_pending": false,
+  "status": "offline_images_inspected",
+  "observations": [
+    "Primary inspected actual1700x1180connection and1700x1320comparison at original resolution.",
+    "Balanced source refresh preserves clear motor bore, labels, arrows and inherited correction; no observed clipping.",
+    "Identity, six-decimal guide speed, positive formal and negative planning headroom match corrected record."
+  ],
+  "export": {
+    "identity": "G80-F2-RP1-balanced-v2",
+    "adopted": false,
+    "representation": "dimensioned_concept_and_record_display",
+    "specification": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml",
+      "sha256": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2"
+    },
+    "record": {
+      "path": "runs/wo03-f2-recovery-balanced-20261103-v2/record.json",
+      "sha256": "6d457eb960950291b5a9b4de67357365444a7398e897999c299ff49e1962a88b"
+    },
+    "exporter": {
+      "path": "scripts/wo03_recovery_precedent_drawings.py",
+      "sha256": "0731a636128d0f14d2a674aaf1da9f341d98a22b6fdeefa45f3e7d8c573d25ca"
+    },
+    "sources": {
+      "configs/vehicle/candidates/g80-f2-rp1-wrap.yaml": "1a09bbc8c196386d65d9e421a2fc09b8e6b2e42ba32a57823fa39834696d1071",
+      "runs/wo03-f2-recovery-precedent-20261103-v1/record.json": "d85224dabd5f661d55b937788b2c0df43a9d86671bb056f1fd9d0db5b014650d",
+      "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2"
+    },
+    "units": {
+      "dimensions": "mm",
+      "mass": "g",
+      "loads": "N"
+    },
+    "context_sources": {
+      "docs/wo03-f2-recovery-precedents-source-notes.md": "dbd4f9d6d31ed60621ad974242b1c1af751de9ca133a004b1afe9830fb0dde32",
+      "configs/studies/f2-recovery-precedents-sources.yaml": "10976049f4ac489202ac368f64eaf49ba4f940506240c9c1437043257ed41de6",
+      "docs/wo03-g80-f2-c1-decision.md": "f1516ead2f4a2c5d414392d67fcea4354db31e041302450044b79d126234982f",
+      "configs/vehicle/candidates/g80-f2-c1-fit-proposal.yaml": "f4f62b8c2051bc1f50bad5738ad8597d63671d953a1da2a70c18ec6f8bd75201"
+    },
+    "browser_verified": false,
+    "engineering_accepted": false,
+    "functional_replacement": {
+      "balance": "Forward harness mass retains >=1cal under loaded/burnout/adverse/statedstowage bounds; ballast-only capsule removed, nose carrier/service retained",
+      "leader_length": "6ft raw less.45m loop/ends and.93mroute leaves.4488m; provisional service target.3m. Actual end/path lengths unknown"
+    },
+    "previous_rp1_cases": [
+      {
+        "case": "nominal",
+        "total_mass_kg": 0.9609652152706016,
+        "growth_kg": 0.05,
+        "extra_aft_kg": 0.0,
+        "motor_cg_probe_m": 0.0,
+        "cg_m": 0.7424597199469561,
+        "cp_m": 0.8594422933913565,
+        "margin_cal": 1.751183698757527,
+        "burnout_mass_kg": 0.8984652152706016,
+        "burnout_cg_m": 0.7136925878821595,
+        "burnout_margin_cal": 2.1818164951527943,
+        "guide_mps": {
+          "1.5": 14.977020110647361,
+          "1.8": 16.410514158766578
+        },
+        "formal_mass_headroom_g": -2.6216617275108822,
+        "planning_mass_headroom_g": -57.16591984518659,
+        "required_whole_mean_proxy_N": 2027.8479685200684,
+        "required_body_proxy_N": 1354.1897552340338
+      },
+      {
+        "case": "adverse",
+        "total_mass_kg": 0.9809652152706017,
+        "growth_kg": 0.05,
+        "extra_aft_kg": 0.02,
+        "motor_cg_probe_m": 0.0128,
+        "cg_m": 0.7544802945988393,
+        "cp_m": 0.8594422933913565,
+        "margin_cal": 1.5712403639489418,
+        "burnout_mass_kg": 0.9184652152706017,
+        "burnout_cg_m": 0.7271575597033441,
+        "burnout_margin_cal": 1.980251095596126,
+        "guide_mps": {
+          "1.5": 14.804581202570395,
+          "1.8": 16.22210396149276
+        },
+        "formal_mass_headroom_g": -22.6216617275109,
+        "planning_mass_headroom_g": -77.16591984518661,
+        "required_whole_mean_proxy_N": 2070.0523675200684,
+        "required_body_proxy_N": 1396.3941542340337
+      }
+    ],
+    "unknowns": [
+      "knot_envelope",
+      "conditioned_joint_capacity",
+      "thermal_field",
+      "installed_load_sharing"
+    ],
+    "artifacts": [
+      {
+        "path": "output/f2-recovery-precedents-balanced/connection.svg",
+        "sha256": "6f7f61d313043263632130a48df18469a1b877e927898416cdab57004f25b1d8"
+      },
+      {
+        "path": "output/f2-recovery-precedents-balanced/comparison.svg",
+        "sha256": "f3d63963aaa7cb05bcaff203b8b5f13dcef817e601c84e9590d44f7ed6520788"
+      }
+    ]
+  }
+}

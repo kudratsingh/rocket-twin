@@ -1,0 +1,48 @@
+version: wo03-f2-rp1-verification-v2
+configuration: G80-F2-RP1-balanced-v2
+specification: configs/vehicle/candidates/g80-f2-rp1-balanced.yaml
+results: runs/wo03-f2-recovery-balanced-20261103-v2/record.json
+decision: docs/wo03-f2-recovery-precedent-decision.md
+adopted: false
+expanded_wo03_acceptance: open
+base_matrix: configs/engineering/traceability.yaml
+scope: G80 recommendation only; no G54 or G12 PID-to-RL evidence transfer.
+requirements:
+  - id: RT-RECOVERY-001
+    status: topology_recommended_capacity_open
+    result: Motor-tube wrap replaces proposed paired body eyes. Separate nose anchor retained; finished harness and full extraction/access unknown.
+    remaining: Cord/knot/sewn-loop/connector data, ring/tube/body capacity, packing, chafe, proof and deployment tests.
+  - id: RT-RECOVERY-002
+    status: unchanged_required_case_retained
+    result: 20.4m/s,0.3m,DF3once; required whole proxies1964.930/2007.134N. No physical peak or stroke qualification.
+    remaining: Separate normal/early-late/snatch/inflation mechanisms and measured force-extension/peaks before any documented revision.
+  - id: RT-GUIDE-001
+    status: conditional_formal_pass_planning_miss
+    criterion: 1.5m reference,15m/s formal,15.5m/s separate planning; full50g.
+    result: 15.243988/15.063562m/s. Formal headroom27.194/7.194g; planning deficits27.350/47.350g.1.8m conditional only.
+    remaining: Exact main harness mass and supported actual launch-equipment decision. No rounding, growth use or longer baseline adoption.
+  - id: RT-MASS-001
+    status: calculated_ceiling_pass_only
+    result: 931.149/951.149g with full50g; adverse20g and motor-balance probe.53 allocation rows,+12.399g replacement change after redundant ballast/leader correction.
+    remaining: Finished masses; nylon55g is an analogy, not a manufacturer mass. Costs include budgeted purchases, not owner stock.
+  - id: RT-MASS-002
+    status: open
+    result: Complete ledger and analytic CG provided; physical full inertia unavailable, source envelopes are not CAD.
+    remaining: Admitted actual assembly, resolved cord placement and full mass/inertia reconciliation.
+  - id: RT-STAB-001
+    status: calculated_screen_pass_only
+    result: Loaded1.439/1.260cal; burnout1.862/1.661cal; adverseaftstow1.149cal under existing external CP hypothesis. RocketPy compares no-growth endpoints only.
+    remaining: Complete configuration and applicable uncertainty/aero/flight evidence; no transfer from old vehicle flights.
+  - id: RT-LOAD-001
+    status: open_changed_support
+    result: Forward ring1060–1072.2mm precedes tabs1080.2–1189.6mm. Former front tab end/side support is removed.
+    remaining: Continuous tab/root/mount/body and aft-ring strength/stiffness, asymmetric wrap contact, crushing/peel and realistic supports.
+  - id: RT-THERM-001
+    status: open
+    criterion: Unchanged45C substrate screen and required burn/postburn matrix.
+    result: Ring/cord/contact paths changed; no new temperature acceptance.
+    remaining: Actual motor/retainer and shield layout, material/contact properties and later temperature measurements.
+  - id: RT-FLUTTER-001
+    status: open
+    result: New installed root support has no transferable old fin/root or vibration acceptance.
+    remaining: Applicable actual-configuration stiffness, vibration/flutter screening and later measurements.

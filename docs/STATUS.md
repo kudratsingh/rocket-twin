@@ -1,5 +1,13 @@
 # Status
 
+Current recovery outcome: RP1 precedent recommendation only, not adopted.
+See `wo03-f2-recovery-precedent-decision.md`: balanced-v2 full masses931.149/951.149g,
+reference1.5m speeds15.243988/15.063562 pass15; adverse formal headroom7.194g,
+planning deficit47.350g. Actual nylon mass/capacity, changed front-tab support and launch
+equipment control admission. No old solver restart; F2-C2 arithmetic superseded.
+First inspection correction PR70 merged after both required jobs;71 local web tests/build pass. Browser
+ownership remains unresolved. WO-03 and every physical/flight gate remain open.
+
 F2-C1 connection packet is recorded in `docs/wo03-g80-f2-c1-decision.md` and `configs/engineering/g80-f2-c1-verification.yaml` (repository-relative). Seven proposed fits and coupled mass are calculated; installed recovery/motor/thermal/fin gates and3-grid accuracy remain open. Fine node-capped attempts stopped without resource increases; no full-WO or physical adoption. Source-linked frontend study is independent of the active design.
 
 2026-11-03 frontend direction: execute the supplied43-task planning kit through

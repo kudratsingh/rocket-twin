@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_recovery_precedent_screen.py", line 306, in <module>
+    main()
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_recovery_precedent_screen.py", line 240, in main
+    ledger = [
+             ^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/scripts/wo03_recovery_precedent_screen.py", line 244, in <listcomp>
+    "cg_mm": (p.position_m + p.resolved_cg_offset_m) * 1000,
+                             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/.venv/lib/python3.11/site-packages/pydantic/main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Part' object has no attribute 'resolved_cg_offset_m'

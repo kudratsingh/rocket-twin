@@ -1,0 +1,642 @@
+{
+  "identity": "G80-F2-RP1-balanced-v2",
+  "adopted": false,
+  "status": "one topology correction; conditional formal pass, planning and installed acceptance open",
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-wrap.yaml": "1a09bbc8c196386d65d9e421a2fc09b8e6b2e42ba32a57823fa39834696d1071",
+    "runs/wo03-f2-recovery-precedent-20261103-v1/record.json": "d85224dabd5f661d55b937788b2c0df43a9d86671bb056f1fd9d0db5b014650d",
+    "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2"
+  },
+  "cases": [
+    {
+      "case": "nominal",
+      "total_mass_kg": 0.9311492181993527,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.0,
+      "motor_cg_probe_m": 0.0,
+      "cg_m": 0.7633020260104996,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.4391824702981484,
+      "burnout_mass_kg": 0.8686492181993527,
+      "burnout_cg_m": 0.7350470954123682,
+      "burnout_margin_cal": 1.862147809631272,
+      "guide_mps": {
+        "1.5": 15.243988147311146,
+        "1.8": 16.702140766006092
+      },
+      "formal_mass_headroom_g": 27.194335343738054,
+      "planning_mass_headroom_g": -27.349922773937664,
+      "required_whole_mean_proxy_N": 1964.9296566711773,
+      "required_body_proxy_N": 1354.1897552340338,
+      "aft_stowage_sensitivity": {
+        "kevlar_cg_m": 0.85,
+        "nylon_cg_m": 0.4,
+        "cg_m": 0.7708733151897282,
+        "margin_cal": 1.3258432113054734,
+        "verified": false
+      }
+    },
+    {
+      "case": "adverse",
+      "total_mass_kg": 0.9511492181993527,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "motor_cg_probe_m": 0.0128,
+      "cg_m": 0.7752611584601106,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.260158901398849,
+      "burnout_mass_kg": 0.8886492181993527,
+      "burnout_cg_m": 0.7484832385464908,
+      "burnout_margin_cal": 1.6610139643254047,
+      "guide_mps": {
+        "1.5": 15.063561690263697,
+        "1.8": 16.505038018318995
+      },
+      "formal_mass_headroom_g": 7.194335343738034,
+      "planning_mass_headroom_g": -47.34992277393768,
+      "required_whole_mean_proxy_N": 2007.1340556711773,
+      "required_body_proxy_N": 1396.3941542340337,
+      "aft_stowage_sensitivity": {
+        "kevlar_cg_m": 0.85,
+        "nylon_cg_m": 0.4,
+        "cg_m": 0.7826732446660443,
+        "margin_cal": 1.1492028490960182,
+        "verified": false
+      }
+    }
+  ],
+  "baseline_cases": [
+    {
+      "identity": "G80-F2-C1-fit-proposal-v2",
+      "variant": "C1_fit_proposal",
+      "case": "nominal",
+      "total_mass_kg": 0.9187500030845739,
+      "parts_mass_kg": 0.8687500030845738,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0,
+      "motor_cg_probe_m": 0,
+      "cg_m": 0.7737070939508978,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.283422643640291,
+      "guide_mps": {
+        "1.5": 15.358668043388118,
+        "1.8": 16.827374083934572
+      },
+      "formal_mass_headroom_g": 39.593550458516866,
+      "planning_mass_headroom_g": -14.950707659158846,
+      "required_whole_mean_proxy_N": 1938.7645855716296,
+      "common_acceleration_partition_N": {
+        "nose": 409.8807195360347,
+        "soft": 160.37671620000003,
+        "body": 1368.5071498355946
+      },
+      "two_free_body_comparison": {
+        "nose_mass_kg": 0.19423601768907295,
+        "body_mass_kg": 0.6485139853955009,
+        "reduced_mass_kg": 0.14946873150737983,
+        "relative_speed_hypothesis_mps": 20.4,
+        "stroke_hypothesis_m": 0.3,
+        "factored_mean_tension_N": 311.0145365205559,
+        "scope": "derived relative-motion energy comparison, not replacement requirement or peak; soft goods omitted/engagement unknown"
+      },
+      "point_drag_model_full_canopy_comparison_N": 253.37359539606726
+    },
+    {
+      "identity": "G80-F2-C1-fit-proposal-v2",
+      "variant": "C1_fit_proposal",
+      "case": "adverse",
+      "total_mass_kg": 0.9387500030845739,
+      "parts_mass_kg": 0.8687500030845738,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "motor_cg_probe_m": 0.0128,
+      "cg_m": 0.7856025060247085,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.1053529440233523,
+      "guide_mps": {
+        "1.5": 15.174782613300481,
+        "1.8": 16.626533074598637
+      },
+      "formal_mass_headroom_g": 19.59355045851685,
+      "planning_mass_headroom_g": -34.950707659158866,
+      "required_whole_mean_proxy_N": 1980.9689845716296,
+      "common_acceleration_partition_N": {
+        "nose": 409.8807195360347,
+        "soft": 160.37671620000003,
+        "body": 1410.7115488355946
+      },
+      "two_free_body_comparison": {
+        "nose_mass_kg": 0.19423601768907295,
+        "body_mass_kg": 0.6685139853955009,
+        "reduced_mass_kg": 0.1505065126959429,
+        "relative_speed_hypothesis_mps": 20.4,
+        "stroke_hypothesis_m": 0.3,
+        "factored_mean_tension_N": 313.17395161771793,
+        "scope": "derived relative-motion energy comparison, not replacement requirement or peak; soft goods omitted/engagement unknown"
+      },
+      "point_drag_model_full_canopy_comparison_N": 253.37359539606726
+    }
+  ],
+  "previous_rp1_cases": [
+    {
+      "case": "nominal",
+      "total_mass_kg": 0.9609652152706016,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.0,
+      "motor_cg_probe_m": 0.0,
+      "cg_m": 0.7424597199469561,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.751183698757527,
+      "burnout_mass_kg": 0.8984652152706016,
+      "burnout_cg_m": 0.7136925878821595,
+      "burnout_margin_cal": 2.1818164951527943,
+      "guide_mps": {
+        "1.5": 14.977020110647361,
+        "1.8": 16.410514158766578
+      },
+      "formal_mass_headroom_g": -2.6216617275108822,
+      "planning_mass_headroom_g": -57.16591984518659,
+      "required_whole_mean_proxy_N": 2027.8479685200684,
+      "required_body_proxy_N": 1354.1897552340338
+    },
+    {
+      "case": "adverse",
+      "total_mass_kg": 0.9809652152706017,
+      "growth_kg": 0.05,
+      "extra_aft_kg": 0.02,
+      "motor_cg_probe_m": 0.0128,
+      "cg_m": 0.7544802945988393,
+      "cp_m": 0.8594422933913565,
+      "margin_cal": 1.5712403639489418,
+      "burnout_mass_kg": 0.9184652152706017,
+      "burnout_cg_m": 0.7271575597033441,
+      "burnout_margin_cal": 1.980251095596126,
+      "guide_mps": {
+        "1.5": 14.804581202570395,
+        "1.8": 16.22210396149276
+      },
+      "formal_mass_headroom_g": -22.6216617275109,
+      "planning_mass_headroom_g": -77.16591984518661,
+      "required_whole_mean_proxy_N": 2070.0523675200684,
+      "required_body_proxy_N": 1396.3941542340337
+    }
+  ],
+  "ledger": [
+    {
+      "id": "nose",
+      "mass_g": 38.0,
+      "cg_mm": 100.17483160849072,
+      "cost_usd": 5.0,
+      "basis": "Custom printed ogive guides airflow; hollow shoulder aligns separation. Do not load the printed loop."
+    },
+    {
+      "id": "body",
+      "mass_g": 98.19191360507513,
+      "cg_mm": 839.0000000000001,
+      "cost_usd": 20.54,
+      "basis": "LOC BT-2.56 lower762mm body. Two full blanks charged here; upper section, sleeve and patch are cut from second blank. Fixed splice, no removable aft."
+    },
+    {
+      "id": "fin_set",
+      "mass_g": 78.83167661704073,
+      "cg_mm": 1145.5555555555554,
+      "cost_usd": 69.75,
+      "basis": "Aircraft Spruce02-20850 nominal6mm twelve-ply Finnish birch; one24x48in sheet charged here for all plywood parts. Spanwise face grain. Incoming thickness5.8--6.2mm is a proposed inspection window, not supplier tolerance."
+    },
+    {
+      "id": "fin_tabs",
+      "mass_g": 25.91758734498647,
+      "cg_mm": 1135.1,
+      "cost_usd": 0.0,
+      "basis": "C1 fit proposal only:innerflat15.950\u00b1.025mm;front1080.20\u00b1.05/end1189.60\u00b1.05mm. Existing mass allocation retained; no source of positive axial recovery capture is introduced by a blind notch. Adhesive tension/side shear and installed flexibility remain open. RP1: forward ring moved ahead of tabs. Old front end/side ring bonds no longer exist. Fin forces use continuous tab-to-mount/root/body bonds and aft-ring connection; their finite installed stiffness/strength must be revalidated. No older result transferred."
+    },
+    {
+      "id": "motor_tube",
+      "mass_g": 24.0,
+      "cg_mm": 1137.5,
+      "cost_usd": 7.49,
+      "basis": "AeroTech12912 cut165mm from305mm stock;1.235in OD retainer family,1.1mm wall nominal.24g installed budget covers unweighed tube. Bore tolerances unknown."
+    },
+    {
+      "id": "forward_ring",
+      "mass_g": 22.47974931209163,
+      "cg_mm": 1066.1000000000001,
+      "cost_usd": 0.0,
+      "basis": "RP1 proposed fixed ring ahead of tabs, 1060\u20131072.2mm. Two6mm plies+.2mm glue. No eye holes or blind fin slots. One4.5x5mm inner-edge cord notch at60deg. Retain old wood budget plus all filled voids at800kg/m3 estimate; no new-cut credit. Recovery wrap bears against aft ring/tube interface. Actual contact/peel/strength unknown."
+    },
+    {
+      "id": "aft_ring",
+      "mass_g": 11.161819302239405,
+      "cg_mm": 1192.9999999999998,
+      "cost_usd": 0.0,
+      "basis": "Aft ring bonds motor tube and integral fin tab ends into the continuous body. Recovery anchor is on forward ring only."
+    },
+    {
+      "id": "fin_internal_bonds",
+      "mass_g": 14.0,
+      "cg_mm": 1135.0,
+      "cost_usd": 3.0,
+      "basis": "Metered internal tab-to-tube, tab-end-to-ring and tab-to-body fillets. All six sides receive continuous fillets. RP1 retains the full existing mass as counted installation reserve; old blind-notch/end film occupancy is superseded, no adhesive bridge across the new front gap is credited."
+    },
+    {
+      "id": "ring_bonds",
+      "mass_g": 10.0,
+      "cg_mm": 1135.5,
+      "cost_usd": 2.0,
+      "basis": "Ring/body and mount joints plus forward/nose ring laminate and nose perimeter adhesive. No free adhesive credit. RP1 retains the full existing mass as counted installation reserve; old blind-notch/end film occupancy is superseded, no adhesive bridge across the new front gap is credited."
+    },
+    {
+      "id": "outer_fin_fillets",
+      "mass_g": 10.0,
+      "cg_mm": 1140.0,
+      "cost_usd": 2.0,
+      "basis": "External fin/body fillets spread local skin load and seal slots; do not replace internal load path."
+    },
+    {
+      "id": "motor",
+      "mass_g": 128.20000000000002,
+      "cg_mm": 1156.0000000000002,
+      "cost_usd": 43.99,
+      "basis": "Single G80 historical source hypothesis; current polymer SKU 78010 geometry and curve reconciliation remain required."
+    },
+    {
+      "id": "motor_retainer",
+      "mass_g": 30.0,
+      "cg_mm": 1227.5,
+      "cost_usd": 23.99,
+      "basis": "AeroTech19002 retainer,30g unweighed installed hardware budget. Current78010 shoulder/cap/nozzle mating drawing absent; envelope is not accepted contact geometry."
+    },
+    {
+      "id": "retainer_adhesive",
+      "mass_g": 2.0,
+      "cg_mm": 1212.5000000000002,
+      "cost_usd": 1.0,
+      "basis": "Retainer-to-tube adhesive counted separately; exact bond length/contact depends on current retainer."
+    },
+    {
+      "id": "mount_external_shield",
+      "mass_g": 10.0,
+      "cg_mm": 1130.0000000000002,
+      "cost_usd": 5.0,
+      "basis": "10g bounded sector shielding/retention reserve. Fullannulus is not adopted; gaps around fin contacts and shield ends require thermal revalidation."
+    },
+    {
+      "id": "nose_anchor_plate",
+      "mass_g": 12.139003898323274,
+      "cg_mm": 184.1,
+      "cost_usd": 0.0,
+      "basis": "Two-ply12mm plywood nose annulus with45mm service opening; source sheet charged with fins. Perimeter12mm adhesive lap to shoulder. Small eye washers intrude into opening; service path must be checked."
+    },
+    {
+      "id": "nose_recovery_eye",
+      "mass_g": 9.0,
+      "cg_mm": 179.00000000000003,
+      "cost_usd": 4.0,
+      "basis": "Provisional closed M4 eye normal to noseannulus atR26.5mm, smallwasherOD<=8mmrequired. Finishedeye/washercapacity and supplierdimensions held; no eye across serviceopening centre."
+    },
+    {
+      "id": "shock_cord",
+      "mass_g": 55.0,
+      "cg_mm": 340.0,
+      "cost_usd": 20.0,
+      "basis": "RP1 proposed LOC3/8in tubular nylon12ft with sewn loops,1020lb advertised tensile. 55g installed mass and$20 are estimates, not this variant's published mass/price. Mass analogy: different Apogee1/2in nylon5.68g per foot times.75width times12ft, rounded upward; no same weave/linear density claim. Supplier test scope, finished sewn-loop/connector/knot/hot-wet capacity and force-extension curve unavailable."
+    },
+    {
+      "id": "recovery_connectors",
+      "mass_g": 9.0,
+      "cg_mm": 362.5,
+      "cost_usd": 8.0,
+      "basis": "Two light rated connectors/swivel budget; no industrial lifting hardware. Capacities not inferred from mass."
+    },
+    {
+      "id": "parachute",
+      "mass_g": 35.0,
+      "cg_mm": 320.0,
+      "cost_usd": 30.0,
+      "basis": "Purchased750mm canopy35g hypothesis,50mm diameter x80mm packed cylinder157mL, unmeasured. Combined packing allowance and extraction through splice checked separately."
+    },
+    {
+      "id": "recovery_protection",
+      "mass_g": 6.0,
+      "cg_mm": 370.0,
+      "cost_usd": 8.0,
+      "basis": "A flame-resistant blanket isolates the packed parachute from ejection gas. Packing fit and repeatable deployment need ground tests; it is not an airframe thermal qualification."
+    },
+    {
+      "id": "flight_computer",
+      "mass_g": 12.0,
+      "cg_mm": 115.5,
+      "cost_usd": 32.0,
+      "basis": "The Cortex-M7 FPU supports estimation and small policies at 250 Hz. SD logging preserves raw sensor and control traces. Power transients and blocking writes can violate the loop deadline; current and mass are estimates."
+    },
+    {
+      "id": "imu",
+      "mass_g": 2.0,
+      "cg_mm": 123.0,
+      "cost_usd": 18.0,
+      "basis": "Gyros track angular rates; accelerometers measure specific force, not gravity alone during thrust. Bias and axis alignment matter for attitude estimation. Rigid alignment and vibration characterization are needed before trusting this sensor."
+    },
+    {
+      "id": "baro",
+      "mass_g": 1.0,
+      "cg_mm": 144.50000000000003,
+      "cost_usd": 15.0,
+      "basis": "Ambient pressure provides a height estimate through an atmosphere model. Static ports must avoid stagnation and wake pressure. Burn-time acceleration does not directly invalidate pressure, but airflow and filtering can bias and delay the reading."
+    },
+    {
+      "id": "high_g_accel",
+      "mass_g": 1.0,
+      "cg_mm": 97.80000000000001,
+      "cost_usd": 24.95,
+      "basis": "ADXL375 +/-200 g accelerometer records launch acceleration that clips the low-g IMU. The low-g IMU still supplies gyro and fine acceleration. Noise, timing, alignment, wiring and data fusion require bench calibration; range alone does not qualify the sensor."
+    },
+    {
+      "id": "micro_sd",
+      "mass_g": 3.0,
+      "cg_mm": 155.0,
+      "cost_usd": 10.0,
+      "basis": "The log card records raw sensors, estimates, commands, fault state and supply voltage. Buffered writes and recovery from a full or failed card must preserve the control deadline."
+    },
+    {
+      "id": "battery",
+      "mass_g": 30.0,
+      "cg_mm": 112.5,
+      "cost_usd": 18.0,
+      "basis": "A 2S pack supplies regulator headroom through discharge. Servo current spikes can brown out logic unless rails and decoupling are sized correctly. Capacity, mass and discharge rating are estimates pending a selected cell and measurements."
+    },
+    {
+      "id": "independent_recovery",
+      "mass_g": 5.0,
+      "cg_mm": 192.225,
+      "cost_usd": 15.0,
+      "basis": "Eggtimer Apogee singleapogee kit,44.45x22.86mm/about5g plusheightbudget8mm. Builtin screw power switch;1S only. Kit assembly and supply confirmation pending; no external switch assumed owned."
+    },
+    {
+      "id": "recovery_battery",
+      "mass_g": 5.0,
+      "cg_mm": 208.00000000000003,
+      "cost_usd": 19.0,
+      "basis": "Matching1S110mAh starterpack cell,5g envelopebudget.19USD allocated incremental bundlecost includes offvehicle charger; combinedcontroller+bundle34USD. Polarity/envelope/pulse verification pending, not owner inventory."
+    },
+    {
+      "id": "avionics_sled",
+      "mass_g": 11.0,
+      "cg_mm": 127.0,
+      "cost_usd": 5.0,
+      "basis": "11g removable two-rail nose carrier, fasteners and battery straps; actual rails are not the solid envelope. Slides through45mm nose opening after eye/connector service."
+    },
+    {
+      "id": "logger_power_switch",
+      "mass_g": 3.0,
+      "cg_mm": 156.0,
+      "cost_usd": 3.0,
+      "basis": "Independent logger arming switch; no connection to recovery firing supply."
+    },
+    {
+      "id": "logger_regulator",
+      "mass_g": 4.0,
+      "cg_mm": 160.5,
+      "cost_usd": 4.0,
+      "basis": "Logic supply budget for logger; no servos or future gimbal regulator."
+    },
+    {
+      "id": "recovery_carrier",
+      "mass_g": 8.0,
+      "cg_mm": 185.0,
+      "cost_usd": 4.0,
+      "basis": "Controller/cell carrier, screws, switch bracket and cell strap; removal from nose opening."
+    },
+    {
+      "id": "electrical_harness",
+      "mass_g": 11.0,
+      "cg_mm": 130.0,
+      "cost_usd": 5.0,
+      "basis": "Nose logger wiring/connectors and retention;11g includes2g relocation increment. Separate from5g independent recovery harness."
+    },
+    {
+      "id": "recovery_harness_wiring",
+      "mass_g": 5.0,
+      "cg_mm": 210.0,
+      "cost_usd": 4.0,
+      "basis": "Independent recovery wires, terminal clearance, output connector and strain relief."
+    },
+    {
+      "id": "recovery_output_mount",
+      "mass_g": 6.0,
+      "cg_mm": 245.0,
+      "cost_usd": 5.0,
+      "basis": "Output/ejection hardware mounting and nonmetallic protection budget; later electrical/ground qualification."
+    },
+    {
+      "id": "rail_buttons",
+      "mass_g": 5.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 6.0,
+      "basis": "Two 1010 rail buttons and screws; actual launch equipment unconfirmed."
+    },
+    {
+      "id": "rail_backers",
+      "mass_g": 4.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 1.0,
+      "basis": "Local plywood rail-button backing blocks and adhesive, not a second airframe."
+    },
+    {
+      "id": "finish",
+      "mass_g": 12.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 5.0,
+      "basis": "Sanding sealer, primer and paint process budget."
+    },
+    {
+      "id": "service_allowance",
+      "mass_g": 6.0,
+      "cg_mm": 470.00000000000006,
+      "cost_usd": 2.0,
+      "basis": "Labels, tape, anti-chafe, small replacement fasteners; distinct from full growth."
+    },
+    {
+      "id": "upper_body",
+      "mass_g": 38.400512144766914,
+      "cg_mm": 308.99999999999994,
+      "cost_usd": 0.0,
+      "basis": "298mm uppercut from second LOC762mm blank; fullblank cost already charged onbody. Permanent50mm overlap splice."
+    },
+    {
+      "id": "body_splice",
+      "mass_g": 12.426258817849455,
+      "cg_mm": 457.99999999999994,
+      "cost_usd": 0.0,
+      "basis": "100mm split sleeve formed from same LOCoffcut to fitted64.45mm OD;50mm overlap each side of458mm splice. Seam patched inside. Finalconditionedfit required, not supplierdiameter."
+    },
+    {
+      "id": "splice_seam_patch",
+      "mass_g": 0.93345,
+      "cg_mm": 457.99999999999994,
+      "cost_usd": 0.0,
+      "basis": "15mmwide internal paperseam patch fromoffcut; jointfixed, no extraction latch."
+    },
+    {
+      "id": "splice_adhesive",
+      "mass_g": 8.0,
+      "cg_mm": 457.99999999999994,
+      "cost_usd": 2.0,
+      "basis": "8g splice adhesive: full nominal.287mm annular film plus seam/fillets; no ideal dry contact."
+    },
+    {
+      "id": "root_gussets",
+      "mass_g": 26.277225539013575,
+      "cg_mm": 1140.0,
+      "cost_usd": 0.0,
+      "basis": "Six triangular6mm-stock root wedges,15mm radial x6mm base x130mm axial. Massseparate frompanels/tabs. Bevel/process/adhesive supported by localjointcheck."
+    },
+    {
+      "id": "root_extra_bond_finish",
+      "mass_g": 4.0,
+      "cg_mm": 1140.0,
+      "cost_usd": 2.0,
+      "basis": "4g extra gusset adhesive/sealing increment beyond F1 internal/outer fillets."
+    },
+    {
+      "id": "nose_service_hardware",
+      "mass_g": 3.0,
+      "cg_mm": 184.0,
+      "cost_usd": 2.0,
+      "basis": "3g nosecarrier captive screws/retention/battery strainrelief increment; no loose ballast."
+    },
+    {
+      "id": "c1_forward_root_bond_fill",
+      "mass_g": 0.763109335632378,
+      "cg_mm": 1081.1,
+      "cost_usd": 0.153,
+      "basis": "Additional filled epoxy volume for matched forward/root gaps;1200kg/m3 estimated, no parallel air path. No credit for removed original wood/bond material. Thin-film approximation/process excess uncertainty remains. RP1 retains the full existing mass as counted installation reserve; old blind-notch/end film occupancy is superseded, no adhesive bridge across the new front gap is credited."
+    },
+    {
+      "id": "c1_aft_bond_fill",
+      "mass_g": 0.14589556283271168,
+      "cg_mm": 1196.1,
+      "cost_usd": 0.029,
+      "basis": "Additional filled epoxy volume for aft perimeter gap;1200kg/m3 estimated, no parallel air path. No credit for removed original wood/bond material. Thin-film approximation/process excess uncertainty remains."
+    },
+    {
+      "id": "c1_nose_bond_fill",
+      "mass_g": 0.2810167195006651,
+      "cg_mm": 184.1,
+      "cost_usd": 0.056,
+      "basis": "Additional filled epoxy volume for nose perimeter gap;1200kg/m3 estimated, no parallel air path. No credit for removed original wood/bond material. Thin-film approximation/process excess uncertainty remains."
+    },
+    {
+      "id": "rp1_kevlar_wrap",
+      "mass_g": 15.0,
+      "cg_mm": 600.0000000000001,
+      "cost_usd": 17.1,
+      "basis": "RP1 balanced:6ft raw30327 Kevlar,15g budget from2g assumed per foot+25percent. Purchase10ft minimum;4ftspare excluded from flight mass. Total loop/termination/tails reservation.45m and guarded axial route.93m leave.4488m outside body mouth, above provisional.3m service-junction target. These are unverified manufacturing/route allocations, not measured knot length or insertion clearance. StowedCG.600m estimated."
+    },
+    {
+      "id": "rp1_wrap_lock_bond",
+      "mass_g": 4.0,
+      "cg_mm": 1072.1000000000001,
+      "cost_usd": 0.8,
+      "basis": "Additional4g installation/anti-slip fillet budget at ring/tube, not a glue-only tensile anchor. No glue on working rope or knot; actual finished process must be tested."
+    },
+    {
+      "id": "rp1_notch_sealer",
+      "mass_g": 1.0,
+      "cg_mm": 1066.1000000000001,
+      "cost_usd": 0.2,
+      "basis": "1g rounded-notch sealing/finishing budget; edge radius and conditioned chafe capacity unknown."
+    },
+    {
+      "id": "rp1_lip_guard",
+      "mass_g": 4.0,
+      "cg_mm": 166.1,
+      "cost_usd": 8.0,
+      "basis": "Custom soft aramid-textile mouth/chafe guard4g budget,60x20mm envelope; not a qualified load-spreading anchor. Existing canopy protector remains separately counted. Apogee29187 is not selected: stated fit is100/300lb cord, not30327."
+    }
+  ],
+  "delta_mass_g": 12.399215114778816,
+  "removal_credit_g": 50.815997071248944,
+  "addition_mass_g": 63.21521218602774,
+  "correction_removals": {
+    "ballast_and_sole_carrier_g": 24.81599707124894,
+    "shorter_cord_g": 5,
+    "nose_service_hardware_retained_g": 3.0
+  },
+  "functional_replacement": {
+    "balance": "Forward harness mass retains >=1cal under loaded/burnout/adverse/statedstowage bounds; ballast-only capsule removed, nose carrier/service retained",
+    "leader_length": "6ft raw less.45m loop/ends and.93mroute leaves.4488m; provisional service target.3m. Actual end/path lengths unknown"
+  },
+  "maximum_main_cord_mass_g_adverse_formal": 62.19433534373803,
+  "maximum_main_cord_mass_g_adverse_planning": 7.650077226062322,
+  "complete_cost_estimate_usd": 482.048,
+  "physical_full_inertia": null,
+  "label_only_strength_N": {
+    "apogee30327": 6672.3324228907495,
+    "LOC3/8nylon": 4537.1860475657095,
+    "LOC3/16nylon": 1668.0831057226874,
+    "MadcowP183nylon": 2446.521888393275
+  },
+  "static_rocketpy": {
+    "reference": "RocketPy",
+    "version": "1.13.0",
+    "motor_mode": "source curve; static endpoints only",
+    "scope": "static mass/CG/CP/stability at Mach 0 and burn endpoints; inertia/flight excluded",
+    "rows": [
+      {
+        "state": "liftoff",
+        "rocket_twin": {
+          "mass_kg": 0.8811492181993527,
+          "cg_m": 0.7356847981938491,
+          "cp_m": 0.8594422933913565,
+          "stability_margin_cal": 1.8526016466199715
+        },
+        "rocketpy": {
+          "mass_kg": 0.8811492181993524,
+          "cg_m": 0.7356847981938491,
+          "cp_m": 0.8594422933913552,
+          "stability_margin_cal": 1.8526016466199533
+        },
+        "absolute_delta": {
+          "mass_kg": 2.220446049250313e-16,
+          "cg_m": 0.0,
+          "cp_m": 1.2212453270876722e-15,
+          "stability_margin_cal": 1.8207657603852567e-14
+        },
+        "passed": true
+      },
+      {
+        "state": "burnout",
+        "rocket_twin": {
+          "mass_kg": 0.8186492181993527,
+          "cg_m": 0.7035957183671246,
+          "cp_m": 0.8594422933913565,
+          "stability_margin_cal": 2.3329627110600257
+        },
+        "rocketpy": {
+          "mass_kg": 0.8186492181993524,
+          "cg_m": 0.7035957183671249,
+          "cp_m": 0.8594422933913552,
+          "stability_margin_cal": 2.332962711060004
+        },
+        "absolute_delta": {
+          "mass_kg": 2.220446049250313e-16,
+          "cg_m": 2.220446049250313e-16,
+          "cp_m": 1.2212453270876722e-15,
+          "stability_margin_cal": 2.1760371282653068e-14
+        },
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "producer_sha256": "ad65360ecd575e913af24bacc6bd6e251fb35a85366919a48acfc36390a1be6a",
+  "resources": {
+    "cpu_limit_s": 6,
+    "wall_limit_s": 10,
+    "library_threads_requested": 1,
+    "cpu_s": 1.099374,
+    "main_wall_s": 1.270153458986897,
+    "peak_rss_platform_units": 164806656,
+    "cpu_affinity_verified": false
+  }
+}
