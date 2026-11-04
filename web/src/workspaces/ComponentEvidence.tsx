@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import { PartDimensions } from './PartDimensions';
 import type { RefObject } from 'react';
 import type { InspectionDocument, JsonValue } from '../types';
 import {
@@ -130,10 +131,15 @@ export function ComponentEvidence({
         hierarchy does not establish a qualified load path.
       </p>
       <nav aria-label="Component evidence sections" className="research-evidence-nav">
+        <a href={`#${id}-dimensions`}>Dimensions & material</a>
         <a href={`#${id}-connections`}>Connections</a>
         <a href={`#${id}-failures`}>Failures</a>
         <a href={`#${id}-verification`}>Verification</a>
       </nav>
+      <section id={`${id}-dimensions`} aria-label="Source dimensions and material">
+        <h3>Dimensions & material</h3>
+        <PartDimensions vehicle={vehicle} partId={model.part.id} />
+      </section>
       <section id={`${id}-connections`} aria-label="Recorded connections">
         <h3>Recorded connections</h3>
         <h4>Parent assembly</h4>

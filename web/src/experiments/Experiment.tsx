@@ -3,6 +3,7 @@ import { requestOrder } from './requestOrder';
 import { replayValidity } from './replayValidity';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
+import { exportMetadata, recordedSettingsDraft, telemetryCsv } from './runExport';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Line, OrbitControls, useGLTF } from '@react-three/drei';
 import { Matrix4, Quaternion, Vector3 } from 'three';
@@ -523,6 +524,7 @@ export default function Experiment({
     [pending, setPending] = useState(''),
     [status, setStatus] = useState(''),
     [error, setError] = useState(''),
+    [draftStatus, setDraftStatus] = useState(''),
     [time, setTime] = useState(0),
     [playing, setPlaying] = useState(false),
     [speed, setSpeed] = useState(1),
@@ -644,6 +646,37 @@ export default function Experiment({
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [playing, shown, speed, replayEnd]);
+  function downloadRun(run: Loaded, peer: Loaded | null, kind: 'csv' | 'json') {
+    try {
+      const content = kind === 'csv' ? telemetryCsv(run) : exportMetadata(run, peer);
+      const url = URL.createObjectURL(
+        new Blob([content], {
+          type: kind === 'csv' ? 'text/csv;charset=utf-8' : 'application/json',
+        }),
+      );
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${run.record.run_id.replace(/[^a-zA-Z0-9_-]/g, '_')}-playback.${kind}`;
+      link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setError('');
+    } catch (e) {
+      setError(`Export unavailable: ${String(e)}`);
+    }
+  }
+  function reuseDraft(run: Loaded) {
+    const draft = recordedSettingsDraft(run.record, configurationId);
+    if (!draft.ok) {
+      setDraftStatus(draft.reason);
+      return;
+    }
+    setWind(draft.wind);
+    setDirection(draft.direction);
+    setGust(draft.gust);
+    setDraftStatus(
+      `Draft copied from ${run.record.run_id}. Review Experiment setup; no run was started. Case/model details and source revisions are not copied.`,
+    );
+  }
   async function start() {
     try {
       setError('');
@@ -909,6 +942,32 @@ export default function Experiment({
             <div className="exp-info">
               <h3>Simulated preliminary results · unguided</h3>
               <RunDetails run={shown} label="A · teal" />
+              <div>
+                <p>
+                  Export returned decimated playback samples, including backend-derived channels.
+                  Each run keeps its own timestamps and coverage; missing values are blank. These
+                  files are not full-resolution telemetry.
+                </p>
+                <button onClick={() => downloadRun(shown, other, 'csv')}>Download A CSV</button>
+                <button onClick={() => downloadRun(shown, other, 'json')}>
+                  Download A metadata JSON
+                </button>
+                <button onClick={() => reuseDraft(shown)}>
+                  Reuse A recorded settings as draft
+                </button>
+                {other && (
+                  <>
+                    <button onClick={() => downloadRun(other, shown, 'csv')}>Download B CSV</button>
+                    <button onClick={() => downloadRun(other, shown, 'json')}>
+                      Download B metadata JSON
+                    </button>
+                    <button onClick={() => reuseDraft(other)}>
+                      Reuse B recorded settings as draft
+                    </button>
+                  </>
+                )}
+                {draftStatus && <p role="status">{draftStatus}</p>}
+              </div>
               {other && (
                 <>
                   <RunDetails run={other} label="B · gold" />
