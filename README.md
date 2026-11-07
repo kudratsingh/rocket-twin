@@ -41,7 +41,18 @@ conditioned material properties, thermal limits, exact motor fit and installed
 flutter still need evidence. Older modular assemblies and their flight results
 remain reference records, rather than validation of the latest RP1 geometry.
 
-VP1 starts with documentation and one proposed room-temperature test round using ordinary birch plywood and WEST 105/206/406. This selects a first material/process to investigate, not vehicle construction. The owner will supply actual send dates and replies for the five prepared inquiries. Each response window starts from its actual send date, with one day-5 follow-up and a day-10 close. No send date or reply has been recorded yet.
+The current design under study is **G80 RP1 / AD1 v2**, presented from its frozen
+55-part source definition, drawings and saved estimated cases. Matching complete
+RP1 CAD and full inertia remain unavailable. The archived G80 CAD assembly is a
+separate inspection/replay reference. The [frontend revamp](docs/wo04-rp1-revamp-20261107.md)
+implements adjacent collapsible left columns, a larger visual and a bottom tools
+drawer; browser acceptance remains open.
+
+VP1 remains a proposed evidence programme using ordinary birch plywood and WEST
+105/206/406, not vehicle adoption. **The five inquiry drafts remain UNSENT under
+the latest owner direction.** Frontend/design explanation continues from existing
+repository evidence without waiting for replies. If outreach is later authorized,
+response windows start from actual sends; no clock has started.
 
 The next owner decision will include the lab's method, calibration and uncertainty, an itemized all-in quote, and what passing or failing would establish under the unchanged D1 criteria. Material stock subtotals are **not** the total test cost; fixtures, calibrated measurement, services and delivery remain unquoted. Purchases and testing require owner approval. Supplier/lab messages are never sent by the workbench.
 

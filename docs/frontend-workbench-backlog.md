@@ -1,5 +1,7 @@
 # Frontend workbench backlog
 
+Latest owner revamp (November7): [RP1-first Design slice](wo04-rp1-revamp-20261107.md), [21-task mapped ledger](frontend-revamp-backlog.json) and [37-check matrix](frontend-revamp-acceptance.csv). Existing43FTtasks and prior evidence remain; current source is frozenAD1v2, archivedCAD is separate, inquiriesUNSENT. Browser acceptance remains blocked.
+
 Latest bounded FT-015 slice: [recoverable section/exploded inspection](wo04-inspection-display-20261106.md). Restore assembled inspection, compact display status and source dimensions implemented;93 integrated web tests/build/lint/format pass. Actual React HTML is an offline source artifact; browser observations remain absent.
 
 Latest bounded FT-001/016/017 slice: [VP1 programme workbench](wo04-vp1-validation-workbench-20261106.md). Selectable stage/part SVG, dated material costs, unavailable all-in cost and five UNSENT copy/download previews are implemented; browser/physical acceptance remains open. No contact or test execution is inferred.

@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-07",
+  "scope": "Read-only local manifests and saved diagnostics; no CAD, simulation, rendering, network, browser, or telemetry re-read. Sequential local files are not an atomic snapshot or remote revision.",
+  "kit": {
+    "verification_report": {
+      "path": "output/rocket-twin-frontend-revamp-kit-20261106/verification/report.json",
+      "sha256": "6d28c139dc159a6f6ed4588d2e716caa486d363b41f945bc06951eb14f562beb"
+    },
+    "inventory": {
+      "path": "output/rocket-twin-frontend-revamp-kit-20261106/context/asset-inventory.json",
+      "sha256": "e5807ffd3c4c54cb9e345b376f6ece9a1ce6477a69b9ca47dcf70b9c85bae16e"
+    },
+    "prior_readiness": {
+      "path": "runs/wo04-inspection-asset-readiness-20261103-v1/record.json",
+      "sha256": "9b682d9095b0ee2f3fa88c30db1231e68c73f5ad5586dc688b26ea2ed08646db"
+    }
+  },
+  "configurations": [
+    {
+      "id": "modular-performance-v1",
+      "manifest": {
+        "path": "build/modular-performance-v1/manifest.json",
+        "sha256": "05caeae43ab74b154a063f68e5744feabe52a4e9ce0dd2774c2b17a72432e83e"
+      },
+      "matches_kit_sha256": true,
+      "resolved_spec_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "listed_mesh_count": 42,
+      "listed_files_present": 42,
+      "actual_part_glb_count": 42,
+      "extra_filenames": [],
+      "listed_missing": [],
+      "actual_glb_total_bytes": 1554284,
+      "actual_glb_min_bytes": 1508,
+      "actual_glb_max_bytes": 884912,
+      "saved_readiness_20261103": {
+        "mesh_expected": 42,
+        "mesh_files_present": 42,
+        "identity_matching": true,
+        "part_coverage_matching": true
+      }
+    },
+    {
+      "id": "modular-performance-g54-hypothesis",
+      "manifest": {
+        "path": "build/modular-performance-g54-hypothesis/manifest.json",
+        "sha256": "8ec617de9cacc356867627a5bbff73e286cdd87c1ee06e75086b826ea15f0bf1"
+      },
+      "matches_kit_sha256": true,
+      "resolved_spec_sha256": "481706d1c4768d944ad42fd917ef4216196de50a277743b1cedb76954940e45f",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "listed_mesh_count": 42,
+      "listed_files_present": 42,
+      "actual_part_glb_count": 42,
+      "extra_filenames": [],
+      "listed_missing": [],
+      "actual_glb_total_bytes": 1554284,
+      "actual_glb_min_bytes": 1508,
+      "actual_glb_max_bytes": 884912,
+      "saved_readiness_20261103": {
+        "mesh_expected": 42,
+        "mesh_files_present": 42,
+        "identity_matching": true,
+        "part_coverage_matching": true
+      }
+    },
+    {
+      "id": "modular-tvc-finned-v1",
+      "manifest": {
+        "path": "build/modular-tvc-finned-v1/manifest.json",
+        "sha256": "52c66c3663ed6080e6d3968b647b7affc70f8e01467aa2c11679508601117087"
+      },
+      "matches_kit_sha256": true,
+      "resolved_spec_sha256": "869179bb8627a2605cdf6049579c9af0c2bbb6cb43694c57bdb2471febd80b89",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "listed_mesh_count": 53,
+      "listed_files_present": 53,
+      "actual_part_glb_count": 54,
+      "extra_filenames": [
+        "retention.glb"
+      ],
+      "listed_missing": [],
+      "actual_glb_total_bytes": 1968504,
+      "actual_glb_min_bytes": 1508,
+      "actual_glb_max_bytes": 884912,
+      "saved_readiness_20261103": {
+        "mesh_expected": 53,
+        "mesh_files_present": 53,
+        "identity_matching": true,
+        "part_coverage_matching": true
+      }
+    },
+    {
+      "id": "modular-tvc-finless-v1",
+      "manifest": {
+        "path": "build/modular-tvc-finless-v1/manifest.json",
+        "sha256": "794836021679ae2cd9fe0b2e6ad1f9bfa987164a258b2a4bc77d9cb4aa23d82f"
+      },
+      "matches_kit_sha256": true,
+      "resolved_spec_sha256": "b98d4c8aedbc6aa749bb72bac4b5071c265e2d1b63664c8b23af7b41259ba76d",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "listed_mesh_count": 51,
+      "listed_files_present": 51,
+      "actual_part_glb_count": 52,
+      "extra_filenames": [
+        "retention.glb"
+      ],
+      "listed_missing": [],
+      "actual_glb_total_bytes": 1955808,
+      "actual_glb_min_bytes": 1508,
+      "actual_glb_max_bytes": 884912,
+      "saved_readiness_20261103": {
+        "mesh_expected": 51,
+        "mesh_files_present": 51,
+        "identity_matching": true,
+        "part_coverage_matching": true
+      }
+    }
+  ],
+  "primary_fixture": {
+    "configuration_id": "modular-performance-v1",
+    "parts": [
+      {
+        "id": "nose_cone",
+        "type": "nose_cone",
+        "parent": null,
+        "bbox_mm": [
+          66.0,
+          66.0,
+          170.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/nose_cone.glb",
+        "mesh_size_bytes": 884912,
+        "mesh_current_sha256": "cac1ff5c48d4eafd5a5a48b5024427f80adbd8cbac4c371120a7c33a301cae1a",
+        "mesh_sha256_in_readiness_record": "cac1ff5c48d4eafd5a5a48b5024427f80adbd8cbac4c371120a7c33a301cae1a"
+      },
+      {
+        "id": "body_upper",
+        "type": "body_tube",
+        "parent": "nose_cone",
+        "bbox_mm": [
+          66.0,
+          66.0,
+          778.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/body_upper.glb",
+        "mesh_size_bytes": 19876,
+        "mesh_current_sha256": "d2757f4444bb204b80ea275eb5a9f7920697fa7ca5b91f2965e025f770158c8d",
+        "mesh_sha256_in_readiness_record": "d2757f4444bb204b80ea275eb5a9f7920697fa7ca5b91f2965e025f770158c8d"
+      },
+      {
+        "id": "fin_set",
+        "type": "fin_set",
+        "parent": "aft_shell",
+        "bbox_mm": [
+          157.24963065701564,
+          181.57623317959434,
+          120.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/fin_set.glb",
+        "mesh_size_bytes": 9680,
+        "mesh_current_sha256": "42dd80c5cd16866022b1d27fd727adab18443c5337ebac5d2261da72d52e3762",
+        "mesh_sha256_in_readiness_record": "42dd80c5cd16866022b1d27fd727adab18443c5337ebac5d2261da72d52e3762"
+      },
+      {
+        "id": "motor",
+        "type": "motor",
+        "parent": "motor_mount",
+        "bbox_mm": [
+          29.0,
+          29.0,
+          128.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/motor.glb",
+        "mesh_size_bytes": 10384,
+        "mesh_current_sha256": "e983860d88cb5597438ebfc19c1c3fbc358cc25e1c43ea83950ad72f308fe503",
+        "mesh_sha256_in_readiness_record": "e983860d88cb5597438ebfc19c1c3fbc358cc25e1c43ea83950ad72f308fe503"
+      },
+      {
+        "id": "recovery_bulkhead",
+        "type": "commercial",
+        "parent": "body_upper",
+        "bbox_mm": [
+          64.60000000000001,
+          64.60000000000001,
+          5.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/recovery_bulkhead.glb",
+        "mesh_size_bytes": 19872,
+        "mesh_current_sha256": "05855566e8794dbc118ae6a2e96591ef43005565c8fb93533a92ba97483cffcf",
+        "mesh_sha256_in_readiness_record": "05855566e8794dbc118ae6a2e96591ef43005565c8fb93533a92ba97483cffcf"
+      },
+      {
+        "id": "joint_stop",
+        "type": "commercial",
+        "parent": "interface_coupler",
+        "bbox_mm": [
+          66.4,
+          66.4,
+          29.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/joint_stop.glb",
+        "mesh_size_bytes": 21456,
+        "mesh_current_sha256": "50b4144c4107f4dfd6e5d7996f15d38747ab171bd8b093b7b5378629889cfd64",
+        "mesh_sha256_in_readiness_record": "50b4144c4107f4dfd6e5d7996f15d38747ab171bd8b093b7b5378629889cfd64"
+      },
+      {
+        "id": "recovery_mount_hardware_allowance",
+        "type": "commercial",
+        "parent": "avionics_bay",
+        "bbox_mm": [
+          2.0,
+          2.0,
+          85.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/recovery_mount_hardware_allowance.glb",
+        "mesh_size_bytes": 1508,
+        "mesh_current_sha256": "21e9cf5eee76149bb5e294978d659b3c37fd5bc8a4fbd9316b7f5bcb2e831398",
+        "mesh_sha256_in_readiness_record": "21e9cf5eee76149bb5e294978d659b3c37fd5bc8a4fbd9316b7f5bcb2e831398"
+      },
+      {
+        "id": "baro",
+        "type": "commercial",
+        "parent": "avionics_bay",
+        "bbox_mm": [
+          12.0,
+          3.0,
+          15.0
+        ],
+        "mesh_path": "build/modular-performance-v1/parts/baro.glb",
+        "mesh_size_bytes": 1508,
+        "mesh_current_sha256": "d27aac2f26802830878a9ebc7f1d6d32e4ca4182840c328fd0e3c4a37f2f2b36",
+        "mesh_sha256_in_readiness_record": "d27aac2f26802830878a9ebc7f1d6d32e4ca4182840c328fd0e3c4a37f2f2b36"
+      }
+    ],
+    "smallest_definition": "Minimum product of saved CAD bbox_mm dimensions among 42 listed parts; geometry envelope proxy, not minimum actual solid volume, screen size, longest dimension, or mesh byte count.",
+    "smallest_bbox_product_part": "recovery_mount_hardware_allowance",
+    "nested_mesh_risk": "Part and descendants may carry transforms and nested geometries; frame union of actual visible transformed mesh geometry at final canvas size, not only root bounding box or parent group. Runtime remains unverified."
+  },
+  "rp1_fp1_fr1_vp1": {
+    "saved_rp1_readiness": {
+      "identity": "G80-F2-RP1-balanced-v2",
+      "record_path": "runs/wo03-f2-recovery-balanced-20261103-v2/record.json",
+      "record_sha256": "6d457eb960950291b5a9b4de67357365444a7398e897999c299ff49e1962a88b",
+      "spec_path": "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml",
+      "spec_sha256": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2",
+      "offline_drawing_index": "output/f2-recovery-precedents-balanced/index.html",
+      "complete_cad_available": false,
+      "status": "source concept; not a vehicle inspection CAD registration",
+      "record_identity_matches": true,
+      "source_hash_checks": {
+        "configs/vehicle/candidates/g80-f2-rp1-wrap.yaml": {
+          "expected": "1a09bbc8c196386d65d9e421a2fc09b8e6b2e42ba32a57823fa39834696d1071",
+          "actual": "1a09bbc8c196386d65d9e421a2fc09b8e6b2e42ba32a57823fa39834696d1071",
+          "matching": true
+        },
+        "runs/wo03-f2-recovery-precedent-20261103-v1/record.json": {
+          "expected": "d85224dabd5f661d55b937788b2c0df43a9d86671bb056f1fd9d0db5b014650d",
+          "actual": "d85224dabd5f661d55b937788b2c0df43a9d86671bb056f1fd9d0db5b014650d",
+          "matching": true
+        },
+        "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml": {
+          "expected": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2",
+          "actual": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2",
+          "matching": true
+        }
+      }
+    },
+    "rp1_balanced_record_current": {
+      "path": "runs/wo03-f2-recovery-balanced-20261103-v2/record.json",
+      "sha256": "6d457eb960950291b5a9b4de67357365444a7398e897999c299ff49e1962a88b"
+    },
+    "rp1_balanced_spec_current": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-balanced.yaml",
+      "sha256": "4486d2404c4d89cffd5f4b4df9c62142d6cdd8caf415bd4820652a80990450e2"
+    },
+    "prepared": [
+      {
+        "file": {
+          "path": "web/public/engineering-workbench/rp1-studies.json",
+          "sha256": "911ae469e341781f2c0a1d8d024be427bd829e4dc224fa7f7cfc28978e25eded"
+        },
+        "id": "G80-F2-RP1-FP1-FR1-comparison-v1",
+        "configuration": {
+          "id": "G80-F2-RP1-AD1-definition-v2",
+          "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+          "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+        },
+        "studies": [
+          {
+            "id": "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1",
+            "source": {
+              "path": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+              "sha256": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb"
+            },
+            "source_matches": true,
+            "adopted": false
+          },
+          {
+            "id": "RP1-FR1-monolithic-carbon-v1",
+            "source": {
+              "path": "runs/wo03-rp1-fin-root-20261104-v1/record.json",
+              "sha256": "b032e4d22f18cbcb183c477e6a3fb4d37371a698f3cad5df0a30f0237e53f313"
+            },
+            "source_matches": true,
+            "adopted": false
+          }
+        ],
+        "package": null,
+        "protocol": null
+      },
+      {
+        "file": {
+          "path": "web/public/engineering-workbench/rp1-validation.json",
+          "sha256": "341d9e4bd7f78ae16ca4c298ebf172d28bb12c152fae324278a693453ff9511e"
+        },
+        "id": "RP1-VP1-inspection-preview-v1",
+        "configuration": {
+          "id": "G80-F2-RP1-AD1-definition-v2",
+          "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+        },
+        "studies": [],
+        "package": {
+          "id": "RP1-VP1-plywood-validation-package-v1",
+          "path": "configs/studies/rp1-validation-package.yaml",
+          "sha256": "3bc7ef7a01d20599faec2fb7ad8ca6c225243f273fedf9dcc870aa1d2d98eff8"
+        },
+        "protocol": {
+          "path": "docs/validation/rp1-vp1/protocol.md",
+          "sha256": "7941ee02b27255c760cbb9d59002452821596e3e30c86835e7b0ad805e31a2ac"
+        }
+      }
+    ],
+    "other_sources": [
+      {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+      },
+      {
+        "path": "docs/wo03-rp1-load-attachment-decision.md",
+        "sha256": "af6eabd641063d262d0190ee46f5bbc847e54af5c7a3a1f1c442f0a57740bb47"
+      },
+      {
+        "path": "docs/wo03-vp1-response-decision-20261106.md",
+        "sha256": "cd50c9627757d4ec89cd616bfc43d1ce8c2b8a68bf9e87006156931d45c4033b"
+      },
+      {
+        "path": "docs/validation/rp1-vp1/protocol.md",
+        "sha256": "7941ee02b27255c760cbb9d59002452821596e3e30c86835e7b0ad805e31a2ac"
+      },
+      {
+        "path": "configs/studies/rp1-validation-package.yaml",
+        "sha256": "3bc7ef7a01d20599faec2fb7ad8ca6c225243f273fedf9dcc870aa1d2d98eff8"
+      }
+    ],
+    "meaning": "RP1 and F2 complete vehicle CAD and matching Design/replay registration unavailable in saved readiness records. AD1 is frozen; FP1 and FR1 are unadopted analytical studies; VP1 is unperformed conceptual evidence, not CAD. Do not attach prior reference mesh to these identities."
+  },
+  "replay": {
+    "diagnostic": {
+      "path": "output/rocket-twin-frontend-revamp-kit-20261106/context/saved-replay-diagnostic.json",
+      "sha256": "45c9f41d877e82023a08a0f415dead260d3ce28e7d7c9406a26a3b20860ddc71"
+    },
+    "prior_fixture": {
+      "path": "output/frontend-planning-kit-20261103/fixtures/replay-diagnostic.json",
+      "sha256": "45c9f41d877e82023a08a0f415dead260d3ce28e7d7c9406a26a3b20860ddc71"
+    },
+    "run_id": "exp-cf9e47a650074144856caf50775846d2",
+    "configuration": "modular-performance-v1",
+    "record_current": {
+      "path": "runs/exp-cf9e47a650074144856caf50775846d2/record.json",
+      "sha256": "c52dbc2829b1d8e30b3fef1d411eb0ca07afc04cf6d62fb80a63f1715bcc5997"
+    },
+    "artifact_sha256_saved": {
+      "runs/exp-cf9e47a650074144856caf50775846d2/record.json": "c52dbc2829b1d8e30b3fef1d411eb0ca07afc04cf6d62fb80a63f1715bcc5997",
+      "runs/exp-cf9e47a650074144856caf50775846d2/telemetry.parquet": "ce81a775e824239e9587b95b932c5385834f56e2a2616ff73069b240d95bf5ae",
+      "runs/exp-cf9e47a650074144856caf50775846d2/resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f"
+    },
+    "telemetry_rehashed_this_audit": false,
+    "sample": "Saved diagnostic at T+11.15 s: NED down velocity +5.456039 m/s and nose 4.076303 degrees from up. Simplified recovery dampens rotation and does not model canopy/line or suspended-body pose. This does not prove a rendering defect.",
+    "browser_verified": false
+  },
+  "publication": {
+    "source": "output/rocket-twin-frontend-revamp-kit-20261106/context/repository-snapshot.json",
+    "recorded_git_head": null,
+    "recorded_git_branch": null,
+    "note": "Saved capture reports no .git metadata; owner-confirmed public, no live remote state observed. No latest-main claim."
+  },
+  "verification_limits": [
+    "File presence, sizes and selected current hashes are not original exporter byte attestation, API delivery or browser interaction.",
+    "No engineering, physical or flight acceptance; 37 revamp acceptance criteria not assessed."
+  ],
+  "timing": {
+    "wall_seconds": 0.065,
+    "cpu_seconds": 0.015,
+    "budget_wall_seconds": 20,
+    "budget_cpu_seconds": 10
+  }
+}

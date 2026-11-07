@@ -1,5 +1,7 @@
 # Frontend specification — focused engineering workspaces
 
+**Owner revamp direction (2026-11-07):** [RP1-first Design inspection](wo04-rp1-revamp-20261107.md). Use frozen G80-F2-RP1-AD1-definition-v2 as the current source/drawing design. Archived modular-performance-v1 is a separate matching-CAD/replay fixture; no historical mesh or inertia substitutes for RP1. Keep all five supplier/lab drafts UNSENT and proceed from repository evidence without waiting for replies. Expose estimates and missing details for later authorized measurement. Two adjacent independently collapsible left columns, dominant visual and a slim tools drawer replace the crowded Design layout. The 21 RV tasks map to the existing 43 FT tasks; code/offline checks and browser acceptance remain separate. WO-03, purchases, physical/test, paid-run, WO-10 and flight gates remain unchanged.
+
 **FT-015 bounded preview (2026-11-06):** [assembled inspection display](wo04-inspection-display-20261106.md) adds one restore action, compact section/explode state and exact-source dimensions. Code/SSR verified; browser observation and full acceptance remain open. No geometry, physics or engineering criterion changed.
 
 ## Active owner-authorized frontend direction — 2026-11-03

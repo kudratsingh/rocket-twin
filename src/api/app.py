@@ -19,7 +19,7 @@ from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.analysis.records import AnalysisRecord, Identity, asset_path, load_compatible
-from src.api import candidate_snapshot
+from src.api import candidate_snapshot, rp1_inspection
 from src.vehicle.aero import center_of_pressure
 from src.vehicle.cad_contract import digest
 from src.vehicle.mass import mass_properties
@@ -43,11 +43,11 @@ class CatalogEntry:
 CATALOG = (
     CatalogEntry(
         "configs/vehicle/platform/performance.yaml",
-        "G80 performance reference",
+        "Archived G80 reference · 3D/replay fixture",
         "reference",
         "Preliminary reference; engineering acceptance open",
         "reference",
-        "Conventional fixed-motor finned reference with the adopted WO-03 package.",
+        "Historical modular fixed-motor reference; matching CAD/run fixture, separate from current RP1 AD1 source definition.",
     ),
     CatalogEntry(
         "configs/vehicle/wo02/performance-g54.yaml",
@@ -705,9 +705,19 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
         except HTTPException as error:
             candidate_available = False
             reason = error.detail
+        try:
+            current_definition = rp1_inspection.catalog_entry(root)
+        except (OSError, ValueError, KeyError) as error:
+            current_definition = {
+                "id": rp1_inspection.ID,
+                "label": "G80 RP1 / AD1 v2 — source unavailable",
+                "available": False,
+                "unavailable_reason": str(error),
+            }
         return {
             "vehicles": rows,
             "status": STATUS,
+            "default_design_id": rp1_inspection.ID,
             "candidates": [
                 {
                     "id": candidate_snapshot.ALIAS,
@@ -718,13 +728,19 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
                     "description": "Archived retention candidate; snapshot inspection only. Active baseline unchanged.",
                     "available": candidate_available,
                     "unavailable_reason": reason,
-                }
+                },
+                current_definition,
             ],
             "candidate_message": "Experimental candidate is separate and unadopted; snapshot inspection only.",
         }
 
     @app.get("/api/vehicles/{vehicle_id}")
     def vehicle_detail(vehicle_id: str) -> dict[str, Any]:
+        if vehicle_id == rp1_inspection.ID:
+            try:
+                return rp1_inspection.build(root)
+            except (OSError, ValueError, KeyError) as error:
+                raise HTTPException(409, f"Current AD1 source unavailable: {error}") from error
         if vehicle_id == candidate_snapshot.ALIAS:
             _, projection = candidate_snapshot.load(root)
             return cast(dict[str, Any], projection["data"])
@@ -743,6 +759,11 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
     def vehicle_mass(
         vehicle_id: str, burn_fraction: Annotated[float, Query(ge=0, le=1)] = 0
     ) -> dict[str, Any]:
+        if vehicle_id == rp1_inspection.ID:
+            raise HTTPException(
+                409,
+                "AD1 has saved estimated mass cases, not a compatible burn-state model. Inspect its recorded cases; no inertia or flight result is substituted.",
+            )
         if vehicle_id == candidate_snapshot.ALIAS:
             _, projection = candidate_snapshot.load(root)
             index = round(burn_fraction * 20)
@@ -854,6 +875,12 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
 
     @app.get("/api/vehicles/{vehicle_id}/analyses")
     def vehicle_analyses(vehicle_id: str) -> dict[str, Any]:
+        if vehicle_id == rp1_inspection.ID:
+            return {
+                "vehicle_id": vehicle_id,
+                "analyses": [],
+                "status": "No registered field matches AD1 geometry; source calculations remain separate.",
+            }
         snapshot = get_snapshot(vehicle_id, meshes=False)
         entries = []
         for public_id, (_, record, owner, reason) in _recorded_analyses(snapshot).items():
