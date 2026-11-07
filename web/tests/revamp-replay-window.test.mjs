@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { replayWindow, replayWindowStatus } from '../src/experiments/replayWindow.ts';
+import {
+  firstRecordedTime,
+  replayWindow,
+  replayWindowStatus,
+} from '../src/experiments/replayWindow.ts';
 
 const coverage = (times, time) => replayWindowStatus(replayWindow(times), time);
 
@@ -31,6 +35,10 @@ test('nonzero starts and exact endpoints are inclusive without extrapolation', (
   assert.equal(coverage([0.001, 1, 2], 2), 'inside');
   assert.equal(coverage([1], 1), 'inside');
   assert.equal(coverage([1], 1.01), 'outside');
+  assert.equal(firstRecordedTime(replayWindow([0.001, 1, 2])), 0.001);
+  assert.equal(firstRecordedTime(replayWindow([1, 2]), replayWindow([0.25, 3])), 0.25);
+  assert.equal(firstRecordedTime(null, replayWindow([0.001, 1])), 0.001);
+  assert.equal(firstRecordedTime(null), 0);
 });
 
 test('missing, nonfinite, repeated, and unordered times cannot establish a window', () => {

@@ -15,7 +15,10 @@ clamping it to a shorter run. Outside A, follow mode has no current position to
 track; its path remains a recorded path. Both panels state **Outside recorded
 window** or unavailable and show the supported time interval. At an exact endpoint
 the saved sample remains eligible. An initial cursor before the first returned
-sample also remains outside; no launch pose is extrapolated.
+sample also remains outside; no launch pose is extrapolated. A newly opened run
+starts paused at its first actual saved sample, and restarting comparison uses
+the earliest available recorded start. The audited run begins at T+0.001 s;
+this avoids an empty initial actor while retaining honest support boundaries.
 
 In-window interpolation, frame matrices, CAD pivot and quaternion interpretation
 are unchanged. This does not fix or cosmetically rotate the saved nose-up descent.

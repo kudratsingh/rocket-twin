@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
 import { replayValidity } from './replayValidity';
-import { replayWindow, replayWindowStatus } from './replayWindow';
+import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWindow';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
 import { exportMetadata, recordedSettingsDraft, telemetryCsv } from './runExport';
@@ -604,7 +604,7 @@ export default function Experiment({
         else {
           onConfigurationChange(record.vehicle_id!);
           setCurrent(item);
-          setTime(0);
+          setTime(firstRecordedTime(replayWindow(telemetry.columns.time_s)));
           setPlaying(false);
         }
         setError('');
@@ -854,7 +854,8 @@ export default function Experiment({
               </button>
               <button
                 onClick={() => {
-                  if (!playing && time >= replayEnd) setTime(0);
+                  if (!playing && time >= replayEnd)
+                    setTime(firstRecordedTime(primaryWindow, comparisonWindow));
                   setPlaying(!playing);
                 }}
               >
