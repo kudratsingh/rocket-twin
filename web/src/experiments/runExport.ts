@@ -9,11 +9,38 @@ export type ExportRun = {
   };
 };
 
+export type ExportSelection = {
+  start_s: number;
+  end_s: number;
+  offset_s: number;
+  alignment_event: string | null;
+  peer_offset_s?: number;
+};
+
+function selectedIndices(times: (number | null)[], selection?: ExportSelection): number[] {
+  if (
+    selection &&
+    (!Number.isFinite(selection.start_s) ||
+      !Number.isFinite(selection.end_s) ||
+      !Number.isFinite(selection.offset_s) ||
+      selection.end_s < selection.start_s)
+  )
+    throw new Error('Export selection has an invalid range or clock offset.');
+  return times.flatMap((time, index) =>
+    typeof time === 'number' &&
+    (!selection ||
+      (time - selection.offset_s >= selection.start_s &&
+        time - selection.offset_s <= selection.end_s))
+      ? [index]
+      : [],
+  );
+}
+
 function csvCell(value: string): string {
   return /[",\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
 }
 
-export function telemetryCsv(run: ExportRun): string {
+export function telemetryCsv(run: ExportRun, selection?: ExportSelection): string {
   const columns = run.telemetry.columns;
   const times = columns.time_s;
   if (
@@ -38,7 +65,7 @@ export function telemetryCsv(run: ExportRun): string {
       throw new Error(`Channel ${name} has invalid coverage; export is withheld.`);
   }
   const rows = [names.map(csvCell).join(',')];
-  for (let i = 0; i < times.length; i++) {
+  for (const i of selectedIndices(times, selection)) {
     rows.push(
       names
         .map((name) => {
@@ -51,14 +78,31 @@ export function telemetryCsv(run: ExportRun): string {
   return `${rows.join('\r\n')}\r\n`;
 }
 
-export function exportMetadata(run: ExportRun, other?: ExportRun | null): string {
+export function exportMetadata(
+  run: ExportRun,
+  other?: ExportRun | null,
+  selection?: ExportSelection,
+): string {
   const { columns, ...telemetryInfo } = run.telemetry;
   const times = columns.time_s;
+  const native =
+    (run.telemetry.sampling as { mode?: string } | undefined)?.mode === 'full-rate-benchmark';
   const info = {
-    format: 'rocket-twin-decimated-playback-export-v1',
-    scope:
-      'Returned playback samples; some channels are backend-derived. No interpolation or extrapolation; not full-resolution telemetry or flight evidence.',
+    format: native
+      ? 'rocket-twin-native-playback-export-v1'
+      : 'rocket-twin-decimated-playback-export-v1',
+    scope: native
+      ? 'Native-rate returned samples with backend-derived display channels; selection may restrict coverage. No interpolation or extrapolation; not flight evidence.'
+      : 'Returned playback samples; some channels are backend-derived. No interpolation or extrapolation; not full-resolution telemetry or flight evidence.',
     selected_run: run.record,
+    selection: selection
+      ? {
+          ...selection,
+          clock: 'display_s = recorded_time_s - offset_s; CSV keeps original recorded time_s',
+          selected_sample_count: selectedIndices(times, selection).length,
+          range_policy: 'inclusive recorded samples only; no synthetic boundary samples',
+        }
+      : null,
     playback: telemetryInfo,
     coverage: {
       returned_sample_count: Array.isArray(times) ? times.length : null,
@@ -87,6 +131,12 @@ export function exportMetadata(run: ExportRun, other?: ExportRun | null): string
             returned_sample_count: other.telemetry.columns.time_s?.length ?? null,
             first_time_s: other.telemetry.columns.time_s?.[0] ?? null,
             last_time_s: other.telemetry.columns.time_s?.at(-1) ?? null,
+            selected_sample_count: selection
+              ? selectedIndices(other.telemetry.columns.time_s, {
+                  ...selection,
+                  offset_s: selection.peer_offset_s ?? 0,
+                }).length
+              : null,
           },
         }
       : null,

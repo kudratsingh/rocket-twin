@@ -1,6 +1,8 @@
 type ComparableRun = {
   configuration?: string;
-  settings?: Record<string, number | boolean | null | undefined>;
+  random_seed?: number;
+  controller?: string;
+  settings?: Record<string, unknown>;
   case?: Record<string, number | boolean | null | undefined>;
   code_sha256?: string;
   resolved_sha256?: string;
@@ -33,6 +35,12 @@ function objectRows(
 export function comparisonDifferences(a: ComparableRun, b: ComparableRun): Row[] {
   const rows: Row[] = [
     ['Configuration', a.configuration, b.configuration],
+    ...(a.random_seed !== undefined || b.random_seed !== undefined
+      ? [['Recorded random seed', a.random_seed, b.random_seed] as Row]
+      : []),
+    ...(a.controller !== undefined || b.controller !== undefined
+      ? [['Controller', a.controller, b.controller] as Row]
+      : []),
     ...objectRows('setting', a.settings, b.settings, [
       'wind_mps',
       'wind_direction_deg',

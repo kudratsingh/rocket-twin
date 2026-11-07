@@ -239,3 +239,31 @@
     overflow: visible;
   }
 }
+
+.experiment input[type='checkbox'] {
+  width: auto;
+  display: inline-block;
+  margin-right: 8px;
+}
+.experiment pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+.experiment li {
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.exp-controls label {
+  margin: 0;
+}
+.exp-plot svg:focus-visible {
+  outline: 2px solid #54d8d2;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .experiment * {
+    scroll-behavior: auto;
+  }
+}
