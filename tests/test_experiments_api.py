@@ -77,9 +77,7 @@ def test_replay_frame_basis():
 
     import numpy as np
 
-    source = (
-        Path(__file__).resolve().parents[1] / "web/src/experiments/Experiment.tsx"
-    ).read_text()
+    source = (Path(__file__).resolve().parents[1] / "web/src/experiments/replayPose.ts").read_text()
 
     def matrix(name):
         match = re.search(rf"const\s+{name}\s*=\s*new Matrix4\(\)\s*\.set\(([^)]*)\)", source)
