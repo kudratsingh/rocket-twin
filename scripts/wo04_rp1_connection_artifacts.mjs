@@ -31,7 +31,12 @@ try {
     html = html.replaceAll('href="/?', 'href="http://127.0.0.1:5173/?');
     write(`${id}.html`, `<!doctype html><html lang="en"><meta charset="utf-8"><title>RP1 ${id} source artifact</title><style>${css}</style><main><p>Offline React export — selection buttons are inert. This is not browser interaction evidence. <a href="index.html">Artifact index</a></p>${html}</main></html>`);
     const connection = document.connections.find((c) => c.id === id);
-    write(`${id}.svg`, renderToStaticMarkup(React.createElement(Rp1ConnectionGraph, { connection, selectedPartId: part, onSelectNode: () => {} })));
+    let svg = renderToStaticMarkup(React.createElement(Rp1ConnectionGraph, { connection, selectedPartId: part, onSelectNode: () => {} }));
+    const box = svg.match(/viewBox="0 0 ([0-9.]+) ([0-9.]+)"/);
+    if (!box) throw Error('Missing graph frame');
+    const height = Number(box[2]);
+    svg = svg.replace(box[0], `viewBox="0 0 ${box[1]} ${height + 62}"`).replace('</svg>', `<rect x="0" y="${height}" width="${box[1]}" height="62" fill="#e6f0f4"/><text x="20" y="${height + 16}" fill="#20394b" font-size="12" font-family="sans-serif">${document.configuration.id} · CONCEPT / UNADOPTED</text><text x="20" y="${height + 37}" fill="#20394b" font-size="10" font-family="monospace">spec SHA-256 ${document.configuration.sha256}</text></svg>`);
+    write(`${id}.svg`, svg);
   }
   write('index.html', '<!doctype html><html lang="en"><meta charset="utf-8"><title>RP1 connection exports</title><h1>Frozen RP1 / AD1 v2 connection exports</h1><p>Source-defined concept diagrams and recorded evidence. Not CAD, accepted design, browser screenshots or interaction proof.</p><ul><li><a href="fin-root.html">Fin-root connection and evidence</a></li><li><a href="recovery.html">Recovery attachment and evidence</a></li><li><a href="fin-root.svg">Fin relationship SVG</a></li><li><a href="recovery.svg">Recovery relationship SVG</a></li></ul>');
   fs.writeFileSync(`${output}/manifest.json`, JSON.stringify({ configuration: document.configuration, input, input_sha256: hash(fs.readFileSync(input)), sources: document.sources, drawings: document.drawings, files, browser_verified: false, interactions_verified: false, scope: 'Actual React/SVG markup export only; no image rendering, browser, CAD or calculation.' }, null, 2) + '\n');

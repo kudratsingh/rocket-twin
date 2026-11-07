@@ -173,7 +173,13 @@ function SourceRef({ document, id }: { document: Rp1ConnectionsDocument; id: str
   const source = document.sources.find((item) => item.id === id);
   return source ? (
     <small className="rp1-connections-source">
-      <code>{source.path}</code>
+      <a
+        href={`https://github.com/kudratsingh/rocket-twin/blob/37e0cc8745f7b5397c2e07145db00791a84f79f7/${source.path}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <code>{source.path}</code>
+      </a>
       <span>SHA-256 {source.sha256}</span>
     </small>
   ) : (
@@ -287,7 +293,11 @@ function ConnectionContent({
       </div>
       <div className="rp1-connections-graphs">
         {document.connections.map((connection) => (
-          <article key={connection.id} className={connection.id === active.id ? 'is-active' : ''}>
+          <article
+            key={connection.id}
+            hidden={connection.id !== active.id}
+            className={connection.id === active.id ? 'is-active' : ''}
+          >
             <Rp1ConnectionGraph
               connection={connection}
               selectedNodeId={connection.id === active.id ? nodeId : null}

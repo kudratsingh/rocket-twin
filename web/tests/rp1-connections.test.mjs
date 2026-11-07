@@ -237,6 +237,7 @@ test('both accessible source graphs and selected exact part expose distinct fail
       }),
     );
     assert.equal((html.match(/<svg/g) ?? []).length, 2);
+    assert.equal((html.match(/<article hidden=""/g) ?? []).length, 1, 'only one full-width connection diagram is exposed at a time');
     for (const text of [
       'CONCEPT',
       'NOT CAD',
@@ -324,6 +325,7 @@ test(
           }),
         );
         assert.equal((html.match(/<svg/g) ?? []).length, 2);
+    assert.equal((html.match(/<article hidden=""/g) ?? []).length, 1, 'only one full-width connection diagram is exposed at a time');
         assert.ok(html.includes(document.configuration.sha256));
         for (const finding of connection.findings)
           assert.ok(html.includes(finding.label.replaceAll('&', '&amp;')));
