@@ -5,7 +5,11 @@ import { useInspection } from '../store';
 import type { InspectionDocument } from '../types';
 import { InspectionTools, useOpenInspectionDetails } from './InspectionWorkspace';
 import { useWorkspaceLayout } from './workspaceLayoutContext';
-import { drawingShortcut } from './inspectionWorkflow';
+import {
+  drawingShortcut,
+  inspectionGeometryPresentation,
+  inspectionPartRepresentation,
+} from './inspectionWorkflow';
 import { ComponentEvidence } from './ComponentEvidence';
 import './revampDesignVisual.css';
 
@@ -40,7 +44,7 @@ export function DesignVisual({
   const select = useInspection((s) => s.select);
   const openDetails = useOpenInspectionDetails();
   const selectedPart = vehicle.parts.find((part) => part.id === selected);
-  const availableMeshes = vehicle.parts.filter((part) => !!part.mesh_url).length;
+  const geometry = inspectionGeometryPresentation(vehicle);
   return (
     <section
       className="research-design-visual"
@@ -74,12 +78,14 @@ export function DesignVisual({
           disabled={!hasMeshes}
           title={
             hasMeshes
-              ? 'Inspect matching recorded CAD'
+              ? geometry.sourceDerived
+                ? 'Inspect this source-derived model; complete manufacturing CAD is unavailable'
+                : 'Inspect matching recorded CAD'
               : 'No matching 3D assembly exists for this source; use its source drawing'
           }
           onClick={() => setRepresentation('3d')}
         >
-          3D recorded geometry
+          {geometry.sourceDerived ? '3D inspection model' : '3D recorded geometry'}
         </button>
         <button
           type="button"
@@ -90,12 +96,16 @@ export function DesignVisual({
           2D source dimensions
         </button>
         <span>
-          {vehicle.label || vehicle.name || vehicle.id} ·{' '}
-          {availableMeshes
-            ? `${availableMeshes} recorded component meshes`
-            : 'No recorded component meshes'}
+          {vehicle.label || vehicle.name || vehicle.id} · {geometry.coverage}
         </span>
       </div>
+      {geometry.sourceDerived && (
+        <p className="revamp-source-state" role="status">
+          Source-derived inspection model · source estimates and simplified envelopes · complete
+          manufacturing CAD unavailable. Mass allowances and missing geometry have no solid; every
+          source record remains selectable in the parts tree. Physical qualification open.
+        </p>
+      )}
       {!hasMeshes && (
         <p className="revamp-source-state" role="status">
           Source drawing / concept · matching 3D assembly unavailable
@@ -109,12 +119,12 @@ export function DesignVisual({
               {selectedPart.function || selectedPart.engineering?.function || selectedPart.learn}
             </p>
             <span>
-              {selectedPart.material} ·{' '}
-              {selectedPart.mesh_url
-                ? 'Recorded component mesh'
-                : 'No recorded 3D mesh for this component'}
+              {selectedPart.material} · {inspectionPartRepresentation(selectedPart).label}
               {hiddenIds.includes(selectedPart.id) ? ' · currently hidden' : ''}
             </span>
+            {geometry.sourceDerived && inspectionPartRepresentation(selectedPart).description && (
+              <p>{inspectionPartRepresentation(selectedPart).description}</p>
+            )}
           </div>
           <button
             type="button"

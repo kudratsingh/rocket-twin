@@ -1,0 +1,2094 @@
+{
+  "schema_version": 1,
+  "id": "G80-F2-RP1-AD1-definition-v2",
+  "geometry_id": "rp1-ad1-v2-inspection-geometry-v1",
+  "identity": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "resolved_spec_sha256": null,
+    "cad_revision_sha256": null,
+    "record_path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+    "record_sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "definition_path": "configs/studies/rp1-attachment-definition-v2.yaml",
+    "definition_sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "src/inspection/rp1_geometry.py": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8"
+  },
+  "viewer_frame": "X=body+y, Y=length-station, Z=body-z",
+  "units": {
+    "source": "m except explicitly named mm definition fields",
+    "cad": "mm",
+    "glb": "m",
+    "bounds": "m"
+  },
+  "origin": "Viewer origin at aft datum station length_m; nose tip at [0,length_m,0]",
+  "source_datum": "Millimetres aft from nose tip; angle0 at first fin, positive about body axis.",
+  "length_m": 1.25,
+  "bounds_m": [
+    [
+      -0.04929857621135336,
+      0.0,
+      -0.08238763873887034
+    ],
+    [
+      0.09340100000000001,
+      1.25,
+      0.08238763873887037
+    ]
+  ],
+  "coverage": {
+    "source_parts": 55,
+    "mesh_parts": 26,
+    "by_maturity": {
+      "source_dimensioned": 10,
+      "simplified_envelope": 16,
+      "mass_allowance": 25,
+      "missing_geometry": 4
+    },
+    "complete_installed_geometry": false
+  },
+  "assembly": {
+    "path": "output/rp1-inspection-geometry/assembly.glb",
+    "sha256": "c164183a8fda060b6e7c387a96f1182a3f5f79982f598d3723345560d9a6f1cd"
+  },
+  "parts": [
+    {
+      "id": "nose",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "nose"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.0,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.16,
+        "radius_m": 0.033401,
+        "wall_m": 0.0012,
+        "shape": "ogive",
+        "shoulder_length_m": 0.03
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/nose.glb",
+        "sha256": "640a7567f3b142ed1ab3ae38ec76688f4e5eb842cc96b4e22d6cb83c580ec1ef",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.033401000000000014,
+          1.06,
+          -0.033401000000000014
+        ],
+        [
+          0.033401000000000014,
+          1.25,
+          0.033401000000000014
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "b41ed17909605b15050c8d955f905685226c94a3699a286f3a00d6999ca027c9"
+    },
+    {
+      "id": "body",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "body"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.458,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.762,
+        "radius_m": 0.033401,
+        "inner_radius_m": 0.032512,
+        "wall_m": 0.000889
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/body.glb",
+        "sha256": "7efda04d74a10c5154b849eeda21f2b4ebb3a831d59b5e8cb6bd92f2ea253a84",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.03340100000000001,
+          0.030000000000000027,
+          -0.03340100000000001
+        ],
+        [
+          0.03340100000000001,
+          0.792,
+          0.03340100000000001
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "0c094482e9724c0a36307f5cbf16cf3da8f83af6bec40163eed2aafbc128f470"
+    },
+    {
+      "id": "fin_set",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "fin_set"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.13,
+        "radius_m": 0.033401,
+        "count": 3,
+        "span_m": 0.06,
+        "root_chord_m": 0.13,
+        "tip_chord_m": 0.065,
+        "sweep_m": 0.045,
+        "thickness_m": 0.006
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/fin_set.glb",
+        "sha256": "e39ce3573be99b6e3a178241612eb552549a359f06fbd75aa7db3332adfc496b",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.04929857621135336,
+          0.04499999999999993,
+          -0.08238763873887034
+        ],
+        [
+          0.09340100000000001,
+          0.17500000000000004,
+          0.08238763873887037
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "055fb498532f28ed1633196c5eacee378599df2a6e52a1fb99fee97b802d45e1"
+    },
+    {
+      "id": "fin_tabs",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "fin_tabs"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.0802,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1094,
+          0.017451,
+          0.006
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/fin_tabs.glb",
+        "sha256": "9373587f11445b9c8e5b7be8660667f6e07c8daeb11e025fdd51e96a51284149",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.01929857621135333,
+          0.06039999999999979,
+          -0.030426114511804023
+        ],
+        [
+          0.033401,
+          0.16979999999999995,
+          0.030426114511804034
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "b177a4da83ddbf6e1190ec8b02b64873d3fc4d95bf475b2b73e3fe3d7f41a38e"
+    },
+    {
+      "id": "motor_tube",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "motor_tube"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.055,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.165,
+        "radius_m": 0.0156845,
+        "inner_radius_m": 0.0145845,
+        "wall_m": 0.0011
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/motor_tube.glb",
+        "sha256": "8cc0082e97cf24e041b7bd05dcb127f7d25b724760ea0a7f49643a212684ab22",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.0156845,
+          0.030000000000000027,
+          -0.0156845
+        ],
+        [
+          0.0156845,
+          0.19500000000000006,
+          0.0156845
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "59abb33f1ec16671f57a4f73be5f5ff4137de6d5a9e72a17fb13bc7ee089d96a"
+    },
+    {
+      "id": "forward_ring",
+      "maturity": "simplified_envelope",
+      "description": "Ideal notched annulus; proposed 2 mm edge roundovers omitted. Not a finished passage or fit model.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "forward_ring"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.06,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.0122,
+        "radius_m": 0.0322,
+        "inner_radius_m": 0.01595
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/forward_ring.glb",
+        "sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.032200000000000006,
+          0.17779999999999996,
+          -0.032200000000000006
+        ],
+        [
+          0.032200000000000006,
+          0.18999999999999995,
+          0.032200000000000006
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "40c523d4090ce759321fa0b65fc795a64f2a5311377722a64789472ce6afbab0"
+    },
+    {
+      "id": "aft_ring",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "aft_ring"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.19,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.006,
+        "radius_m": 0.0322,
+        "inner_radius_m": 0.01595
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/aft_ring.glb",
+        "sha256": "6d1d49ee7ebd9603b4f987d0808e65cd6f8d2a9059bb349efcc4cdf51dc0c277",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.032200000000000006,
+          0.05400000000000005,
+          -0.032200000000000006
+        ],
+        [
+          0.032200000000000006,
+          0.06000000000000005,
+          0.032200000000000006
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "568f3cf9cf8213b1a3d2fa1b5bbf85ddcba87aa68502a9a0b7ac7457def12c26"
+    },
+    {
+      "id": "fin_internal_bonds",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "fin_internal_bonds"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.08,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.11,
+          0.006,
+          0.006
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "7d39cb5e3692f8c524e5d40b60a9e8968afd71bc232787110c2cb14acb8852b6"
+    },
+    {
+      "id": "ring_bonds",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "ring_bonds"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.121,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "49318545d8a3045779571bf48998e8a06a78aec2f9ce87125b132259f78b2250"
+    },
+    {
+      "id": "outer_fin_fillets",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "outer_fin_fillets"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.13,
+          0.006,
+          0.006
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "9f2b7a45e1aac74e9f1e138406e53adcc54a759f8fddef2df140c7772f2ac2a4"
+    },
+    {
+      "id": "motor",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "motor"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.092,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.128,
+        "radius_m": 0.0145,
+        "diameter_m": 0.029
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/motor.glb",
+        "sha256": "3016265e1d2a44a153c3ae554812ed1aa3d77cf813be7061f1e9ddf39ff12d30",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.0145,
+          0.030000000000000027,
+          -0.0145
+        ],
+        [
+          0.0145,
+          0.15799999999999992,
+          0.0145
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "91a2fe2d6a12019ad84a3019b2d2ab5b2a765b48994a29801c6703b212b3ef87"
+    },
+    {
+      "id": "motor_retainer",
+      "maturity": "simplified_envelope",
+      "description": "Historical nominal annular envelope only; cap/sleeve details and current exact motor fit unavailable.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "motor_retainer"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.205,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.045,
+        "radius_m": 0.0222,
+        "inner_radius_m": 0.014
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/motor_retainer.glb",
+        "sha256": "53f852a8196ca427abc544d58b283c640cea7580f880d8516e65f78f977f3ef4",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.0222,
+          0.0,
+          -0.0222
+        ],
+        [
+          0.0222,
+          0.04499999999999993,
+          0.0222
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "389f7916fcd88d20b999c983254e3f521361a6a18dc517fbd2545b2f77277af0"
+    },
+    {
+      "id": "retainer_adhesive",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "retainer_adhesive"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.205,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.015,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "c8409555e2245c4c433bbc85d6e204e56fe54f879a982336bc939903dfe21a75"
+    },
+    {
+      "id": "mount_external_shield",
+      "maturity": "missing_geometry",
+      "description": "Thermal sectors and terminations undefined; annulus would conflict with tabs.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "mount_external_shield"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.07,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.12,
+        "radius_m": 0.015787,
+        "inner_radius_m": 0.015387
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "d51cb28c7282568eaa4f956a727f62367bac68c236cfb8011561c7c0e90f7363"
+    },
+    {
+      "id": "nose_anchor_plate",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "nose_anchor_plate"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.178,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.0122,
+        "radius_m": 0.0305,
+        "inner_radius_m": 0.0225
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/nose_anchor_plate.glb",
+        "sha256": "0bbbaeadb2d9ccccce79fe674cd38bdae39b30720981944bf1ffa279ded2a0d5",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.0305,
+          1.0598,
+          -0.0305
+        ],
+        [
+          0.0305,
+          1.072,
+          0.0305
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "99364cec7a19581db39925c9c543a6b2a4e41394b4aa5bb108e27e53093434d0"
+    },
+    {
+      "id": "nose_recovery_eye",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "nose_recovery_eye"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.168,
+      "lateral_offset_m": [
+        0.0,
+        -0.0265
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.022,
+          0.012,
+          0.005
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/nose_recovery_eye.glb",
+        "sha256": "6dbf161d736e3d8e85012ff72aca20792ad807ab79383926e02ee793cbc17de7",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.006,
+          1.06,
+          0.024
+        ],
+        [
+          0.006,
+          1.082,
+          0.029
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "1346401fba32166bc105b03e018b86e2feed81d00391ad0320865cf5f0c93c57"
+    },
+    {
+      "id": "shock_cord",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "shock_cord"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.28,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.12,
+          0.04,
+          0.04
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/shock_cord.glb",
+        "sha256": "3afa20d8a4b2529ab99c1e69bbe3b512679118179e0302a1e2191afc06de26ad",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.02,
+          0.85,
+          -0.02
+        ],
+        [
+          0.02,
+          0.97,
+          0.02
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "9796e84e3d7ba6bef9aba635611af4cd283f15ba38dd3d15a8ee25ba8f006fe3"
+    },
+    {
+      "id": "recovery_connectors",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "recovery_connectors"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.35,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.025,
+          0.015,
+          0.01
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/recovery_connectors.glb",
+        "sha256": "9a43ad1a28fc55f3a6bddfe3e2af8c10e56306bda52ed6c8779d32d2e8a41b45",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.0075,
+          0.875,
+          -0.005
+        ],
+        [
+          0.0075,
+          0.8999999999999999,
+          0.005
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "94585f4e26a6f731fadcd873de57a22ad19a33d83fe5ab0ea6a858c6d3edec4c"
+    },
+    {
+      "id": "parachute",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "parachute"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.28,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.08,
+        "radius_m": 0.025
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/parachute.glb",
+        "sha256": "b8fecc7cd154ff5c34486d5226dbd0e60193778fa3ba5a9ff67edbcfdc7c0598",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.025,
+          0.89,
+          -0.025
+        ],
+        [
+          0.025,
+          0.97,
+          0.025
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "c03a6bc6f4088a222ade002917f2d855222a8a79e1a0784e893c2e474475049b"
+    },
+    {
+      "id": "recovery_protection",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "recovery_protection"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.365,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.01,
+          0.04,
+          0.012
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/recovery_protection.glb",
+        "sha256": "317208430b09186e32b83dbd7bd35287701add63d26aca1b1eb44d53ccf726fa",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.02,
+          0.875,
+          -0.006
+        ],
+        [
+          0.02,
+          0.885,
+          0.006
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "f748a289cc621f2c00a3156a1660a8632051944c665c9e067ad50ae68416f1e4"
+    },
+    {
+      "id": "flight_computer",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "flight_computer"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.085,
+      "lateral_offset_m": [
+        0.0,
+        -0.011
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.061,
+          0.018,
+          0.006
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/flight_computer.glb",
+        "sha256": "fba9a3eae4078b53efe122c05d2acb98b7003a103a2c475a23ec567dc243905b",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.009000000000000001,
+          1.104,
+          0.008
+        ],
+        [
+          0.009000000000000001,
+          1.165,
+          0.014
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "be020b090bdd573a659240f7de9520815d5ad799bb291db90cf0c035f9baef22"
+    },
+    {
+      "id": "imu",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "imu"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.113,
+      "lateral_offset_m": [
+        0.0,
+        -0.02
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.02,
+          0.015,
+          0.004
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/imu.glb",
+        "sha256": "f0ced62fd34a08f0f56a5c52fd20d8ec50aed5cb79205abb74f01f7717cddd12",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.0075,
+          1.117,
+          0.018000000000000002
+        ],
+        [
+          0.0075,
+          1.137,
+          0.022
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "044bd57aab54f31beeda403a660ff60dcdaeb0ca080a44a3a2eb3196bb199b4f"
+    },
+    {
+      "id": "baro",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "baro"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.137,
+      "lateral_offset_m": [
+        0.0,
+        -0.02
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.015,
+          0.012,
+          0.003
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/baro.glb",
+        "sha256": "04af1f2eafc33c17c1c33268bae9492e333cf4e19b99abc71150212b43e74aec",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.006,
+          1.098,
+          0.0185
+        ],
+        [
+          0.006,
+          1.113,
+          0.021500000000000002
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "5e69cccdfc03785b9f63840458f824bdbcb4274163c7f7007a0b812badd58803"
+    },
+    {
+      "id": "high_g_accel",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "high_g_accel"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.085,
+      "lateral_offset_m": [
+        0.0,
+        -0.02
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.0256,
+          0.0177,
+          0.0046
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/high_g_accel.glb",
+        "sha256": "d98a44e45eb5585fe649f646aef8092b4f4d4d941ea6af4c7318893e32f60899",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.00885,
+          1.1394,
+          0.0177
+        ],
+        [
+          0.00885,
+          1.165,
+          0.0223
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "0db1a6ecb7f509639f44fff4df6b607119e8421a85fe6dce5b388111a9ddbd3b"
+    },
+    {
+      "id": "micro_sd",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "micro_sd"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.145,
+      "lateral_offset_m": [
+        0.0,
+        0.008
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.02,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/micro_sd.glb",
+        "sha256": "096395f7f8a12ca06e619f9795cf03a574fad6feb71c23dc9361df5216f2f9cf",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.01,
+          1.085,
+          -0.013000000000000001
+        ],
+        [
+          0.01,
+          1.105,
+          -0.003
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "7b63ef92d790344397228046152d88b65e74231bd00548d5f4958b7c8224d65a"
+    },
+    {
+      "id": "battery",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "battery"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.085,
+      "lateral_offset_m": [
+        0.0,
+        0.008
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.055,
+          0.03,
+          0.015
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/battery.glb",
+        "sha256": "773f3f724feea02abd2a1bde0d96ee362fca7d549f3287e1de202f3faed5e57f",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.015,
+          1.1099999999999999,
+          -0.0155
+        ],
+        [
+          0.015,
+          1.165,
+          -0.0005
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "1f095546502396a73790ebc054462474c9097815bd1f40dc1747f615b9393962"
+    },
+    {
+      "id": "independent_recovery",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "independent_recovery"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.17,
+      "lateral_offset_m": [
+        0.0,
+        0.005
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04445,
+          0.02286,
+          0.008
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/independent_recovery.glb",
+        "sha256": "77be5439c7a23ec1e5975257bdf58ec12cbddea86ede47c164d6e50f7e4ff950",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.01143,
+          1.03555,
+          -0.009000000000000001
+        ],
+        [
+          0.01143,
+          1.08,
+          -0.001
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "3e8f25f8537385220bac75fc341347dff826adb7c072f04349a0fff6a1da6e0c"
+    },
+    {
+      "id": "recovery_battery",
+      "maturity": "simplified_envelope",
+      "description": "Nominal source bounding envelope; supplier details, fit and installed form unverified.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "recovery_battery"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.193,
+      "lateral_offset_m": [
+        0.02,
+        -0.01
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.03,
+          0.015,
+          0.005
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/recovery_battery.glb",
+        "sha256": "37db0c2b3f00abdd366caf5ba268e89b89f26075a336e2c99b2a7b19535d7c5a",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          0.0125,
+          1.027,
+          0.0075
+        ],
+        [
+          0.0275,
+          1.057,
+          0.0125
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "9b56c3a5b6d1172d71fbdcc8d89b1420a3f5c8e5b4c4e41ff156de546be8a5bd"
+    },
+    {
+      "id": "avionics_sled",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "avionics_sled"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.082,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.09,
+          0.03,
+          0.002
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "4acc97af069b687f9d377a4d19a9b6d4716a06b85a1d604864b690048f712e3d"
+    },
+    {
+      "id": "logger_power_switch",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "logger_power_switch"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.15,
+      "lateral_offset_m": [
+        0.025,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.012,
+          0.008,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "b1ead8f3d89fb533167c241e07e1dc2b33afc5ac7eadf97ceb644d1a8c2523a4"
+    },
+    {
+      "id": "logger_regulator",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "logger_regulator"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.148,
+      "lateral_offset_m": [
+        -0.015,
+        -0.01
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.025,
+          0.018,
+          0.008
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "a723ddf174039ed87fa05f2c1de737c484d8b1b6c58e70b1b6bd007c0fdbe9b5"
+    },
+    {
+      "id": "recovery_carrier",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "recovery_carrier"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.165,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "360d71306015bc3da41b9b1cc5653b47fa6687b6d9fbc2e52fd4e486e6f63dd5"
+    },
+    {
+      "id": "electrical_harness",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "electrical_harness"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.11,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "71da19a25b83e9fad38eeb4bb7af815f66be07b338675c1e59d0e8057867bf5c"
+    },
+    {
+      "id": "recovery_harness_wiring",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "recovery_harness_wiring"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.19,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "570d8f1f57ff230217ebbb97467c5be1bdd42e19039454b81824e2667c668ccc"
+    },
+    {
+      "id": "recovery_output_mount",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "recovery_output_mount"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.225,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "fa3b209a4031517fdb4e77b7cf5ca215be0af8742920009b4a5f2b99f98c0e9c"
+    },
+    {
+      "id": "rail_buttons",
+      "maturity": "missing_geometry",
+      "description": "Actual guide hardware and two attachment stations are unconfirmed; generic budget box is not installed geometry.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "rail_buttons"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.45,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "1161af4fab2b805ff9f120bf7eed996116b654f8a9a764c023f3c5884365f4c5"
+    },
+    {
+      "id": "rail_backers",
+      "maturity": "missing_geometry",
+      "description": "Backer shape, fasteners and actual guide stations unconfirmed.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "rail_backers"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.45,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "f327c1550621ebd2354fa732a965050d48902e4a6970a82764960bdbcb14e265"
+    },
+    {
+      "id": "finish",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "finish"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.45,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "283865c774ce5c3525e28258aa3fc722fc00118875a1ea4d1a6df250d259595d"
+    },
+    {
+      "id": "service_allowance",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "service_allowance"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.45,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.04,
+          0.02,
+          0.01
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "c6a13251f465bda3033817be3b21c0dadf35d875cf4d557a64c7b98f7f1d83c3"
+    },
+    {
+      "id": "upper_body",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "upper_body"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.16,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.298,
+        "radius_m": 0.033401,
+        "inner_radius_m": 0.032512,
+        "wall_m": 0.000889
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/upper_body.glb",
+        "sha256": "40d856bf8d0fee6ba94e429d6adc30b71a14b268b320d91834c8d0a02b383405",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.03340100000000001,
+          0.792,
+          -0.03340100000000001
+        ],
+        [
+          0.03340100000000001,
+          1.09,
+          0.03340100000000001
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "e2e359e47a8dfbaf6aa5b2af195a5b48b772ca72827b78db18d5d9f04cd47ce4"
+    },
+    {
+      "id": "body_splice",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "body_splice"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.408,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "length_m": 0.1,
+        "radius_m": 0.032225,
+        "inner_radius_m": 0.031336,
+        "wall_m": 0.000889
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/body_splice.glb",
+        "sha256": "2aa4d979fe79de0834d2fe5c7795f1d99cdababc342c48f0b4b90731f7966492",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.032225,
+          0.742,
+          -0.032225
+        ],
+        [
+          0.032225,
+          0.842,
+          0.032225
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "92d5e7213bd409b04726d653286a9eb8eff80feb7d37a0cc44073c44e61e60b1"
+    },
+    {
+      "id": "splice_seam_patch",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "splice_seam_patch"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.408,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1,
+          0.015,
+          0.000889
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "4d23604541c661d677f534494e21049ce77ab6e881d15cb55d0535eda364a783"
+    },
+    {
+      "id": "splice_adhesive",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "splice_adhesive"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.408,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "3a01ddceac6c0b6922b873ea6c9a361e5d8503ec5e980a50a2facc43a5ea2074"
+    },
+    {
+      "id": "root_gussets",
+      "maturity": "source_dimensioned",
+      "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "root_gussets"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.13,
+          0.015,
+          0.006
+        ]
+      },
+      "mesh": {
+        "path": "output/rp1-inspection-geometry/parts/root_gussets.glb",
+        "sha256": "0438e19e8a6f82dba694e4ae4ecb8a34091ae292862c0b0084dce083dfd59b40",
+        "units": "m"
+      },
+      "bounds_m": [
+        [
+          -0.02679857621135334,
+          0.04499999999999993,
+          -0.04341649556857061
+        ],
+        [
+          0.048401000000000007,
+          0.17500000000000004,
+          0.04341649556857062
+        ]
+      ],
+      "physical_verification": "open",
+      "inspection_shape_sha256": "6d83d3698a8b5ce50562afd871a29dcde2ca352e04be908ecddfecd50ede34e1"
+    },
+    {
+      "id": "root_extra_bond_finish",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "root_extra_bond_finish"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.13,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "7d970ab76a1ece9129bd56832dd08f0045bbee7840fee0c26a7dbde5a3364dc8"
+    },
+    {
+      "id": "nose_service_hardware",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "nose_service_hardware"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.174,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.02,
+          0.015,
+          0.008
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "51d391eeaac648f1654835b369ac5839be76e5459407a883e4afcc2e77812f30"
+    },
+    {
+      "id": "c1_forward_root_bond_fill",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "c1_forward_root_bond_fill"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.0122,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "7ad66431fa1d0a84632554ac574d7b58264c576a11b295424af96eb95bf31b5b"
+    },
+    {
+      "id": "c1_aft_bond_fill",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "c1_aft_bond_fill"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.19,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.0122,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "5fd5ddb6a8d19f8c4ced0d6951482abfbc976de2e251a8103e1de30d4beeb483"
+    },
+    {
+      "id": "c1_nose_bond_fill",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "c1_nose_bond_fill"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.178,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.0122,
+          0.004,
+          0.004
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "21bc1dc432b5ad8b82b010018c71b25d50b0ad7f8f9e8b2779727275816611a8"
+    },
+    {
+      "id": "rp1_kevlar_wrap",
+      "maturity": "missing_geometry",
+      "description": "Dressed choker, knots, moving cord route and pack geometry unavailable; stale stowage box is not an installed route.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "rp1_kevlar_wrap"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.55,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "6c8a5f738c849db13f9a6e7c1209950825e8568be915e96e5e7609fa2ed1cad5"
+    },
+    {
+      "id": "rp1_wrap_lock_bond",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "rp1_wrap_lock_bond"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.066,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "b82616ca62ae5b187be8cd9fd2bd28707f5c695c662830d386582bacb2b62d7e"
+    },
+    {
+      "id": "rp1_notch_sealer",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "rp1_notch_sealer"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.06,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "44d90cb50bc6a0ee48c73d545678a9aafac324a4ef61185f39ec9918548debc6"
+    },
+    {
+      "id": "rp1_lip_guard",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "rp1_lip_guard"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.16,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "5aa51539e5b14f524eb7ae1598118bdabc3854c3c7f61b434facbd6d6b4c1285"
+    },
+    {
+      "id": "ad1_cord_sleeve",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "ad1_cord_sleeve"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 0.98,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.08,
+          0.008,
+          0.002
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "f0346a3c27f7e933f7746a372104333a9588a8d7149abd398c3446f9e0fc0a3a"
+    },
+    {
+      "id": "ad1_slot_fill",
+      "maturity": "mass_allowance",
+      "description": "Separate source mass/process allowance; no unique installed solid or qualified spatial distribution.",
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "part_id": "ad1_slot_fill"
+      },
+      "definition_source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+      },
+      "position_m": 1.075,
+      "lateral_offset_m": [
+        0.0,
+        0.0
+      ],
+      "source_dimensions": {
+        "bbox_m": [
+          0.13,
+          0.0003,
+          0.000889
+        ]
+      },
+      "mesh": null,
+      "bounds_m": null,
+      "physical_verification": "open",
+      "inspection_shape_sha256": "4649a92308d1c83fdc49486ae5b81c41181983f7c0c19c4a7cf99eae06816796"
+    }
+  ],
+  "status": "Inspection representation only; source estimates, simplified envelopes and explicit omissions",
+  "engineering_accepted": false,
+  "flight_ready": false,
+  "mass_or_inertia_generated": false,
+  "browser_verified": false
+}

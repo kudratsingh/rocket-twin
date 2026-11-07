@@ -19,7 +19,13 @@ from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.analysis.records import AnalysisRecord, Identity, asset_path, load_compatible
-from src.api import candidate_snapshot, rp1_connections, rp1_inspection
+from src.api import (
+    candidate_snapshot,
+    rp1_connections,
+    rp1_geometry,
+    rp1_inspection,
+    rp1_inspection_view,
+)
 from src.vehicle.aero import center_of_pressure
 from src.vehicle.cad_contract import digest
 from src.vehicle.mass import mass_properties
@@ -760,7 +766,7 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
     def vehicle_detail(vehicle_id: str) -> dict[str, Any]:
         if vehicle_id == rp1_inspection.ID:
             try:
-                return rp1_inspection.build(root)
+                return rp1_inspection_view.build(root)
             except (OSError, ValueError, KeyError) as error:
                 raise HTTPException(409, f"Current AD1 source unavailable: {error}") from error
         if vehicle_id == candidate_snapshot.ALIAS:
@@ -776,6 +782,35 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
                 ),
             },
         }
+
+    @app.get("/api/design/{vehicle_id}/inspection-geometry")
+    def inspection_geometry_manifest(vehicle_id: str) -> dict[str, Any]:
+        if vehicle_id != rp1_inspection.ID:
+            raise HTTPException(404, "Unknown source-derived inspection design")
+        try:
+            return rp1_geometry.build(root)
+        except (OSError, ValueError, KeyError) as error:
+            raise HTTPException(409, f"Inspection geometry unavailable: {error}") from error
+
+    @app.get("/api/design/{vehicle_id}/inspection-mesh/{part_id}")
+    def source_inspection_mesh(
+        vehicle_id: str, part_id: str, spec: str, geometry: str, mesh: str, request: Request
+    ) -> Response:
+        if vehicle_id != rp1_inspection.ID:
+            raise HTTPException(404, "Unknown source-derived inspection design")
+        try:
+            manifest = rp1_geometry.build(root)
+            if (
+                spec != manifest["identity"]["specification_sha256"]
+                or geometry != manifest["identity"]["inspection_geometry_sha256"]
+            ):
+                raise ValueError("Inspection source/geometry revision mismatch")
+            path, expected = rp1_geometry.asset(root, part_id)
+            if mesh != expected:
+                raise ValueError("Inspection part mesh revision mismatch")
+        except (OSError, ValueError, KeyError) as error:
+            raise HTTPException(409, f"Inspection mesh unavailable: {error}") from error
+        return _asset_response(path, expected, request, "model/gltf-binary")
 
     @app.get("/api/vehicles/{vehicle_id}/mass")
     def vehicle_mass(

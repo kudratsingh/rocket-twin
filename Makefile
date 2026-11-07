@@ -28,7 +28,8 @@ workbench: ## Prepare source-checked engineering graphics data; no solver/CAD ru
 	$(PYTHON) scripts/wo04_rp1_connections_export.py
 
 .PHONY: workbench-rp1-ad1
-workbench-rp1-ad1: ## Prepare frozen current AD1 source dimensions/cases; no CAD or physics.
+workbench-rp1-ad1: ## Prepare frozen AD1 inspection meshes and source projection; no physics.
+	$(PYTHON) scripts/wo04_rp1_geometry_export.py
 	$(PYTHON) scripts/wo04_rp1_inspection_export.py
 
 .PHONY: workbench-rp1-connections

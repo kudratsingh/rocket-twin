@@ -25,6 +25,10 @@ import { useWorkspaceLayout } from '../workspaces/workspaceLayoutContext';
 import './inspectionViews.css';
 import { InspectionDisplayReadout } from './InspectionDisplayReadout';
 import { restoreAssembledInspection } from './inspectionDisplay';
+import {
+  inspectionGeometryPresentation,
+  inspectionPartRepresentation,
+} from '../workspaces/inspectionWorkflow';
 import './revampViewer.css';
 
 export interface ViewOverlay {
@@ -198,6 +202,7 @@ function PartMesh({
             <span className="eyebrow">Selected part</span>
             <strong>{partName(part)}</strong>
             <span>{part.material}</span>
+            <span>{inspectionPartRepresentation(part).label}</span>
           </div>
         </Html>
       )}
@@ -476,6 +481,7 @@ export function Viewer({
   const exitIsolate = useInspection((s) => s.exitIsolate);
   const isolatedFrom = useInspection((s) => s.isolatedFrom);
   const length = scalar(vehicle.summary.length_m) || vehicle.geometry?.length_m || 1;
+  const geometry = inspectionGeometryPresentation(vehicle);
   const overallLength = scalar(vehicle.summary.overall_length_m) || length;
   const visible = vehicle.parts.filter((part) => !hiddenIds.includes(part.id));
   const unavailable = vehicle.parts.filter((part) => !part.mesh_url).length;
@@ -498,7 +504,11 @@ export function Viewer({
       <div className="viewport-heading">
         <div>
           <span className="eyebrow">
-            {overlay ? 'Recorded result display' : 'Digital assembly'}
+            {overlay
+              ? 'Recorded result display'
+              : geometry.sourceDerived
+                ? 'Source-derived inspection model'
+                : 'Digital assembly'}
           </span>
           <h2>{overlay ? 'Engineering analysis' : 'Vehicle inspection'}</h2>
         </div>
@@ -683,7 +693,11 @@ export function Viewer({
         <div className="viewport-orientation">
           <b>Y</b>
           <span>axis toward nose</span>
-          <small>Metres · placed CAD geometry</small>
+          <small>
+            {geometry.sourceDerived
+              ? 'Metres · placed inspection geometry'
+              : 'Metres · placed CAD geometry'}
+          </small>
         </div>
         {overlay && (
           <div className="field-legend">
@@ -721,8 +735,10 @@ export function Viewer({
         ) && (
           <div className={`canvas-loading ${loadedIds.length ? 'mesh-progress' : ''}`}>
             <span className="spinner" />
-            Loading CAD-derived part meshes… {loadedIds.length}/
-            {vehicle.parts.filter((part) => part.mesh_url).length}
+            {geometry.sourceDerived
+              ? 'Loading inspection meshes… '
+              : 'Loading CAD-derived part meshes… '}
+            {loadedIds.length}/{vehicle.parts.filter((part) => part.mesh_url).length}
           </div>
         )}
         {visible.length === 0 && (
@@ -741,7 +757,9 @@ export function Viewer({
             <Icon name="warning" />
             {meshErrors.length > 0
               ? `${meshErrors.length} mesh load failure${meshErrors.length > 1 ? 's' : ''}: ${meshErrors.join(', ')}`
-              : `${unavailable} part meshes unavailable`}
+              : geometry.sourceDerived
+                ? `${unavailable} source records have no solid: ${geometry.counts.mass_allowance} mass allowances, ${geometry.counts.missing_geometry} missing geometry`
+                : `${unavailable} part meshes unavailable`}
             . Parts remain inspectable in the tree.
           </div>
         )}
@@ -807,24 +825,32 @@ export function Viewer({
                   <small>Exploded</small>
                 </span>
               </label>
-              <label className="slider-control burn-control">
-                <span>
-                  Propellant consumed <small>{Math.round(burn * 100)}%</small>
-                </span>
-                <input
-                  aria-label="Propellant consumed"
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.05"
-                  value={burn}
-                  onChange={(event) => onBurnChange(Number(event.target.value))}
-                />
-                <span className="slider-labels">
-                  <small>Ignition</small>
-                  <small>Burnout</small>
-                </span>
-              </label>
+              {!geometry.sourceDerived && (
+                <label className="slider-control burn-control">
+                  <span>
+                    Propellant consumed <small>{Math.round(burn * 100)}%</small>
+                  </span>
+                  <input
+                    aria-label="Propellant consumed"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value={burn}
+                    onChange={(event) => onBurnChange(Number(event.target.value))}
+                  />
+                  <span className="slider-labels">
+                    <small>Ignition</small>
+                    <small>Burnout</small>
+                  </span>
+                </label>
+              )}
+              {geometry.sourceDerived && (
+                <p role="status">
+                  Burn-state control unavailable: this inspection model has no admitted complete
+                  flight configuration or canonical inertia.
+                </p>
+              )}
             </div>
           )}
           {!overlay && <InspectionDisplayReadout vehicle={vehicle} />}

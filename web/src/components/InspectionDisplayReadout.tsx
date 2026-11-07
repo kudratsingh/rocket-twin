@@ -3,6 +3,7 @@ import type { InspectionDocument } from '../types';
 import { PartDimensions } from '../workspaces/PartDimensions';
 import { inspectionDisplayModel, restoreAssembledInspection } from './inspectionDisplay';
 import type { InspectionDisplayState } from './inspectionDisplay';
+import { inspectionGeometryPresentation } from '../workspaces/inspectionWorkflow';
 import './inspectionDisplayReadout.css';
 
 /** The same source document and selection as the surrounding viewer; no alternate geometry. */
@@ -27,6 +28,7 @@ export function InspectionDisplayReadoutView({
   onRestore: () => void;
 }) {
   const model = inspectionDisplayModel(vehicle, state);
+  const geometry = inspectionGeometryPresentation(vehicle);
   return (
     <section
       className="inspection-display-readout"
@@ -82,6 +84,13 @@ export function InspectionDisplayReadoutView({
           Source: <code>{vehicle.id}</code>. Mesh references do not confirm successful loading or
           as-built geometry; unavailable meshes remain listed in the parts tree.
         </p>
+        {geometry.sourceDerived && (
+          <p>
+            {geometry.coverage}. Fit and section operate on loaded inspection meshes only;
+            allowances and missing geometry add no placeholder solids or bounds. Restore returns
+            this inspection model to its source placement, not a qualified installed assembly.
+          </p>
+        )}
       </details>
       {state.selectedId ? (
         <details className="inspection-source-dimensions" key={`${vehicle.id}:${state.selectedId}`}>

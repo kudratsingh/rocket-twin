@@ -24,6 +24,10 @@ prepare_snapshot() {
     rm -f -- "$target"
   fi
 }
+# Explicit offline display preparation; requests never generate geometry.
+if ! .venv/bin/python scripts/wo04_rp1_geometry_export.py; then
+  echo "RP1 3D inspection unavailable; source drawings remain usable." >&2
+fi
 prepare_snapshot scripts/wo04_workbench_export.py web/public/engineering-workbench/g80-c1.json
 prepare_snapshot scripts/wo04_workbench_extended_export.py web/public/engineering-workbench/g80-extended.json
 prepare_snapshot scripts/wo04_workbench_a1_export.py web/public/engineering-workbench/g80-a1.json
