@@ -18,8 +18,14 @@ import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } fr
 import { Icon } from './Icons';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
 import { fitOrbitFrame, isPointClipped } from './inspectionCamera';
+import { inspectionSceneBounds } from './inspectionSceneBounds';
+import type { RecordedMeshBounds } from './inspectionSceneBounds';
+import { InspectionTools } from '../workspaces/InspectionWorkspace';
+import { useWorkspaceLayout } from '../workspaces/workspaceLayoutContext';
 import './inspectionViews.css';
 import { InspectionDisplayReadout } from './InspectionDisplayReadout';
+import { restoreAssembledInspection } from './inspectionDisplay';
+import './revampViewer.css';
 
 export interface ViewOverlay {
   partColors: Record<string, string | null>;
@@ -73,7 +79,7 @@ function PartMesh({
 }: {
   part: Part;
   length: number;
-  onLoaded: (id: string) => void;
+  onLoaded: (id: string, bounds: Box3, explodeOffset: Vector3Tuple) => void;
   overlayColor?: string | null;
   analysisMode?: boolean;
   baseOpacity?: number;
@@ -152,14 +158,14 @@ function PartMesh({
     part.cad?.color,
   ]);
   useEffect(() => {
-    onLoaded(part.id);
+    onLoaded(part.id, bounds, translation);
     return () => {
       scene.traverse((object) => {
         if (object instanceof Mesh && object.material instanceof MeshStandardMaterial)
           object.material.dispose();
       });
     };
-  }, [scene, part.id, onLoaded]);
+  }, [scene, part.id, onLoaded, bounds, translation]);
   return (
     <group
       name={`inspection-part:${part.id}`}
@@ -199,18 +205,28 @@ function PartMesh({
   );
 }
 
-type CameraCommand = { id: number; kind: 'fit' | 'zoom-in' | 'zoom-out' };
+type CameraCommand = { id: number; kind: 'fit' | 'fit-assembly' | 'zoom-in' | 'zoom-out' };
 
 function CameraFit({
   group,
   length,
   complete,
   command,
+  meshBounds,
+  allIds,
+  visibleIds,
+  exploded,
+  onStatus,
 }: {
   group: RefObject<Group | null>;
   length: number;
   complete: boolean;
   command: CameraCommand | null;
+  meshBounds: RefObject<Map<string, RecordedMeshBounds>>;
+  allIds: string[];
+  visibleIds: string[];
+  exploded: number;
+  onStatus: (value: string) => void;
 }) {
   const { camera, invalidate, size } = useThree();
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
@@ -219,6 +235,9 @@ function CameraFit({
   const lastStoreCommand = useRef<number | null>(null);
   const pendingFocus = useRef<string | null>(null);
   const pendingFit = useRef(false);
+  const assemblyFit = useRef(false);
+  const intent = useRef<'preset' | 'fit' | 'part' | 'manual'>('preset');
+  const framedPart = useRef<string | null>(null);
   const resetToken = useInspection((s) => s.resetToken);
   const cameraAction = useInspection((s) => s.cameraAction);
   const view = useInspection((s) => s.cameraView);
@@ -226,17 +245,17 @@ function CameraFit({
 
   function frame(mode: 'preset' | 'orbit', selectedId: string | null) {
     group.current?.updateWorldMatrix(true, true);
-    const focused = selectedId
-      ? group.current?.getObjectByName(`inspection-part:${selectedId}`)
-      : null;
-    // A hidden or unavailable selected mesh cannot be focused yet.
-    if (selectedId && !focused) return false;
-    const object = focused || group.current;
-    const bounds = object ? new Box3().setFromObject(object) : new Box3();
-    if (bounds.isEmpty()) bounds.set(new Vector3(0, 0, 0), new Vector3(0, length, 0));
+    const ids = selectedId ? [selectedId] : assemblyFit.current ? allIds : visibleIds;
+    const scope = inspectionSceneBounds(meshBounds.current, ids, exploded);
+    // A waiting/failed GLB never becomes an invented length-only rocket.
+    if (scope.bounds.isEmpty()) {
+      onStatus('No loaded mesh bounds for this view; source properties and 2D remain available.');
+      return false;
+    }
+    const bounds = scope.bounds;
     const perspective = camera as PerspectiveCamera;
     const aspect = size.width / Math.max(size.height, 1);
-    const result =
+    const preset =
       mode === 'preset'
         ? cameraFrame(
             { min: bounds.min.toArray(), max: bounds.max.toArray() },
@@ -244,23 +263,37 @@ function CameraFit({
             perspective.fov,
             view,
           )
-        : fitOrbitFrame(
-            bounds,
-            aspect,
-            perspective.fov,
-            camera.position,
-            controls.current?.target ?? new Vector3(),
-            camera.up,
-          );
+        : null;
+    const result = fitOrbitFrame(
+      bounds,
+      aspect,
+      perspective.fov,
+      preset ? new Vector3(...preset.position) : camera.position,
+      preset ? new Vector3(...preset.target) : (controls.current?.target ?? new Vector3()),
+      preset ? new Vector3(...preset.up) : camera.up,
+      {
+        fill: selectedId || view === 'aft' ? 0.78 : 0.85,
+        insets: {
+          left: 16 / Math.max(size.width, 80),
+          right: Math.min(130, size.width * 0.18) / Math.max(size.width, 1),
+          top: Math.min(84, size.height * 0.18) / Math.max(size.height, 1),
+          bottom: Math.min(92, size.height * 0.18) / Math.max(size.height, 1),
+        },
+      },
+    );
     camera.up.fromArray(result.up);
     camera.position.fromArray(result.position);
-    camera.near = Math.min(0.001, result.near);
-    camera.far = Math.max(100, result.far);
+    camera.near = result.near;
+    camera.far = result.far;
     controls.current?.target.fromArray(result.target);
     camera.lookAt(new Vector3(...result.target));
     camera.updateProjectionMatrix();
     controls.current?.update();
     invalidate();
+    initialComplete.current = true;
+    onStatus(
+      `${scope.available}/${scope.requested} loaded part bounds fitted${useInspection.getState().section ? ' · conservative full-part boxes; section cut does not tighten the fit' : ''}${scope.available < scope.requested ? ' · incomplete geometry' : ''}.`,
+    );
     return true;
   }
 
@@ -278,6 +311,9 @@ function CameraFit({
     lastStoreCommand.current = resetToken;
     pendingFit.current = false;
     pendingFocus.current = cameraAction === 'focus' ? focusId : null;
+    assemblyFit.current = false;
+    intent.current = cameraAction === 'focus' ? 'part' : cameraAction === 'fit' ? 'fit' : 'preset';
+    framedPart.current = pendingFocus.current;
     const mode = cameraAction === 'focus' || cameraAction === 'fit' ? 'orbit' : 'preset';
     if (frame(mode, pendingFocus.current)) pendingFocus.current = null;
     // This token intentionally identifies explicit store commands.
@@ -286,8 +322,7 @@ function CameraFit({
 
   useEffect(() => {
     if (complete && !initialComplete.current) {
-      initialComplete.current = true;
-      if (!interacted.current) frame('preset', null);
+      if (!interacted.current && frame('preset', null)) initialComplete.current = true;
     }
     if (complete && pendingFit.current) {
       pendingFit.current = false;
@@ -302,15 +337,19 @@ function CameraFit({
     interacted.current = true;
     pendingFocus.current = null;
     pendingFit.current = false;
-    if (command.kind === 'fit') {
+    if (command.kind === 'fit' || command.kind === 'fit-assembly') {
+      assemblyFit.current = command.kind === 'fit-assembly';
+      intent.current = 'fit';
+      framedPart.current = null;
       if (complete) frame('orbit', null);
       else pendingFit.current = true;
     } else {
+      intent.current = 'manual';
       const target = controls.current?.target ?? new Vector3();
       const offset = camera.position.clone().sub(target);
       const distance = Math.min(
         20,
-        Math.max(0.03, offset.length() * (command.kind === 'zoom-in' ? 0.8 : 1.25)),
+        Math.max(0.00001, offset.length() * (command.kind === 'zoom-in' ? 0.8 : 1.25)),
       );
       camera.position.copy(target).add(offset.setLength(distance));
       controls.current?.update();
@@ -320,17 +359,25 @@ function CameraFit({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [command]);
 
+  useEffect(() => {
+    if (!initialComplete.current || intent.current === 'manual') return;
+    frame(intent.current === 'preset' ? 'preset' : 'orbit', framedPart.current);
+    // Only a settled canvas resize reapplies a fit intent. Manual orbit is retained.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [size.width, size.height]);
+
   return (
     <OrbitControls
       ref={controls}
       makeDefault
       enableDamping
       dampingFactor={0.1}
-      minDistance={0.03}
-      maxDistance={20}
+      minDistance={0.00001}
+      maxDistance={Math.max(20, length * 20)}
       screenSpacePanning
       onStart={() => {
         interacted.current = true;
+        intent.current = 'manual';
         pendingFocus.current = null;
         pendingFit.current = false;
       }}
@@ -396,6 +443,9 @@ export function Viewer({
   overlay?: ViewOverlay;
 }) {
   const group = useRef<Group>(null);
+  const meshBounds = useRef(new Map<string, RecordedMeshBounds>());
+  const [fitStatus, setFitStatus] = useState('Waiting for actual component mesh bounds.');
+  const layout = useWorkspaceLayout();
   const [loadedIds, setLoadedIds] = useState<string[]>([]);
   const [meshErrors, setMeshErrors] = useState<string[]>([]);
   const [cameraCommand, setCameraCommand] = useState<CameraCommand | null>(null);
@@ -423,12 +473,17 @@ export function Viewer({
   const select = useInspection((s) => s.select);
   const selectedId = useInspection((s) => s.selectedId);
   const isolate = useInspection((s) => s.isolate);
+  const exitIsolate = useInspection((s) => s.exitIsolate);
+  const isolatedFrom = useInspection((s) => s.isolatedFrom);
   const length = scalar(vehicle.summary.length_m) || vehicle.geometry?.length_m || 1;
   const overallLength = scalar(vehicle.summary.overall_length_m) || length;
   const visible = vehicle.parts.filter((part) => !hiddenIds.includes(part.id));
   const unavailable = vehicle.parts.filter((part) => !part.mesh_url).length;
   const onLoaded = useMemo(
-    () => (id: string) => setLoadedIds((ids) => (ids.includes(id) ? ids : [...ids, id])),
+    () => (id: string, bounds: Box3, explodeOffset: Vector3Tuple) => {
+      meshBounds.current.set(id, { bounds: bounds.clone(), explodeOffset });
+      setLoadedIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
+    },
     [],
   );
   const onMeshError = useMemo(
@@ -452,88 +507,96 @@ export function Viewer({
           Read only
         </span>
       </div>
-      <div className="viewport-actions">
-        <div className="button-group">
-          <button onClick={resetCamera} title="Reset camera (R)">
-            <Icon name="reset" />
-            Reset view
+      <div
+        className="viewport-actions revamp-primary-actions"
+        aria-label="Primary inspection actions"
+      >
+        <button
+          onClick={() => commandCamera('fit-assembly')}
+          title="Fit all loaded assembly bounds without changing visibility or display settings"
+        >
+          <Icon name="fit" /> Fit assembly
+        </button>
+        <button
+          onClick={() => {
+            if (!selectedId) return;
+            if (section) toggleSection();
+            focusPart(selectedId);
+          }}
+          disabled={!selectedPart?.mesh_url}
+          title="Frame this part only; reveal it and clear section clipping if necessary (F)"
+        >
+          <Icon name="target" />{' '}
+          {selectedId && (hiddenIds.includes(selectedId) || section)
+            ? 'Show and frame'
+            : 'Frame part'}
+        </button>
+        <button onClick={() => commandCamera('zoom-in')} aria-label="Zoom in">
+          +
+        </button>
+        <button onClick={() => commandCamera('zoom-out')} aria-label="Zoom out">
+          −
+        </button>
+        {!overlay && (
+          <button onClick={() => restoreAssembledInspection(useInspection.getState())}>
+            Restore assembly
           </button>
-          <button onClick={() => commandCamera('zoom-in')} title="Zoom in">
-            + Zoom in
-          </button>
-          <button onClick={() => commandCamera('zoom-out')} title="Zoom out">
-            − Zoom out
-          </button>
-          <button
-            onClick={() => commandCamera('fit')}
-            title="Fit the currently visible parts, keeping this viewing angle"
-          >
-            <Icon name="fit" />
-            Fit visible
-          </button>
-          <button
-            onClick={() => {
-              showAll();
-              commandCamera('fit');
-            }}
-            title="Show all parts and fit the entire assembly, keeping this viewing angle"
-          >
-            Fit entire rocket
-          </button>
-          <button
-            onClick={() => selectedId && focusPart(selectedId)}
-            disabled={!selectedPart?.mesh_url}
-            title="Move the camera close to the selected part (F)"
-          >
-            <Icon name="target" />
-            Focus part
-          </button>
-        </div>
-        <div className="button-group">
-          <button
-            onClick={toggleSection}
-            aria-pressed={section}
-            title="Section cut through the vehicle axis (S); select visible surfaces"
-          >
-            <Icon name="layers" />
+        )}
+        <details
+          className="revamp-camera-menu"
+          onKeyDown={(event) => {
+            if (event.key !== 'Escape') return;
+            event.preventDefault();
+            event.stopPropagation();
+            event.currentTarget.open = false;
+            event.currentTarget.querySelector('summary')?.focus();
+          }}
+        >
+          <summary>Camera</summary>
+          <div>
+            <button onClick={resetCamera}>Reset camera · overview</button>
+            <button onClick={() => commandCamera('fit')}>Fit visible · full-part bounds</button>
+            {CAMERA_VIEWS.map((view) => (
+              <button
+                key={view.id}
+                title={view.description}
+                aria-pressed={cameraView === view.id}
+                onClick={() => setCameraView(view.id)}
+              >
+                {view.label}
+              </button>
+            ))}
+          </div>
+        </details>
+        {overlay && (
+          <button onClick={toggleSection} aria-pressed={section}>
             Section
           </button>
-          {!overlay && (
+        )}
+      </div>
+      <InspectionTools>
+        {!overlay && (
+          <div className="inspection-display-bar" aria-label="Assembly display options">
+            <button onClick={toggleSection} aria-pressed={section}>
+              Section
+            </button>
             <button onClick={toggleMarkers} aria-pressed={markers}>
-              <Icon name="target" />
               CG / CP
             </button>
-          )}
-        </div>
-      </div>
-      <div className="inspection-view-bar" aria-label="Inspection camera views">
-        <span>View</span>
-        {CAMERA_VIEWS.map((view) => (
-          <button
-            key={view.id}
-            title={view.description}
-            aria-pressed={cameraView === view.id}
-            onClick={() => setCameraView(view.id)}
-          >
-            {view.label}
-          </button>
-        ))}
-      </div>
-      {!overlay && (
-        <div className="inspection-display-bar" aria-label="Assembly display options">
-          <button onClick={toggleGhostShell} aria-pressed={ghostShell} disabled={!hasShell}>
-            <Icon name="layers" size={14} />
-            Transparent shell
-          </button>
-          <button onClick={toggleWireframe} aria-pressed={wireframe}>
-            <Icon name="cube" size={14} />
-            Wireframe
-          </button>
-          <button onClick={togglePartLabels} aria-pressed={partLabels}>
-            Selected-part label
-          </button>
-        </div>
-      )}
+            <button onClick={toggleGhostShell} aria-pressed={ghostShell} disabled={!hasShell}>
+              <Icon name="layers" size={14} />
+              Transparent shell
+            </button>
+            <button onClick={toggleWireframe} aria-pressed={wireframe}>
+              <Icon name="cube" size={14} />
+              Wireframe
+            </button>
+            <button onClick={togglePartLabels} aria-pressed={partLabels}>
+              Selected-part label
+            </button>
+          </div>
+        )}
+      </InspectionTools>
       <div className="canvas-wrap">
         <Canvas
           fallback={
@@ -542,6 +605,7 @@ export function Viewer({
             </div>
           }
           shadows
+          frameloop="demand"
           dpr={[1, 2]}
           camera={{ position: [1.4, 0.9, 2.4], fov: 35, near: 0.001, far: 100 }}
           gl={{ antialias: true, localClippingEnabled: true }}
@@ -595,6 +659,11 @@ export function Viewer({
                 meshErrors.includes(partName(part)),
             )}
             command={cameraCommand}
+            meshBounds={meshBounds}
+            allIds={vehicle.parts.filter((part) => part.mesh_url).map((part) => part.id)}
+            visibleIds={visible.filter((part) => part.mesh_url).map((part) => part.id)}
+            exploded={exploded}
+            onStatus={setFitStatus}
           />
           <GizmoHelper alignment="bottom-right" margin={[65, 65]}>
             <GizmoViewport
@@ -604,6 +673,9 @@ export function Viewer({
             />
           </GizmoHelper>
         </Canvas>
+        <p className="revamp-fit-status" role="status">
+          {fitStatus}
+        </p>
         <div className="viewport-scale">
           <span className="scale-line" />
           <span>{millimetres(overallLength)} overall · metre grid</span>
@@ -674,90 +746,101 @@ export function Viewer({
           </div>
         )}
       </div>
-      <div className="visibility-toolbar">
-        <button
-          onClick={() =>
-            hideParts(
-              vehicle.parts.filter((part) => outerBody(part) && !nose(part)).map((part) => part.id),
-            )
-          }
+      <InspectionTools>
+        <div
+          hidden={!!layout && layout.preferences.representation === '2d'}
+          className="revamp-scene-settings"
         >
-          <Icon name="eyeOff" size={14} />
-          Hide outer body
-        </button>
-        {hasNose && (
-          <button onClick={() => hideParts(vehicle.parts.filter(nose).map((part) => part.id))}>
-            Hide nose
-          </button>
-        )}
-        <button onClick={showAll} disabled={!hiddenIds.length}>
-          Show all
-        </button>
-        {selectedId && (
-          <button
-            onClick={() =>
-              isolate(
-                selectedId,
-                vehicle.parts.map((part) => part.id),
-              )
-            }
-          >
-            Isolate selected
-          </button>
-        )}
-      </div>
-      {!overlay && (
-        <div className="viewport-controls">
-          <label className="slider-control">
-            <span>
-              Exploded view <small>{Math.round(exploded * 100)}%</small>
-            </span>
-            <input
-              aria-label="Exploded view"
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={exploded}
-              onChange={(event) => setExploded(Number(event.target.value))}
-            />
-            <span className="slider-labels">
-              <small>Assembled</small>
-              <small>Exploded</small>
-            </span>
-          </label>
-          <label className="slider-control burn-control">
-            <span>
-              Propellant consumed <small>{Math.round(burn * 100)}%</small>
-            </span>
-            <input
-              aria-label="Propellant consumed"
-              type="range"
-              min="0"
-              max="1"
-              step="0.05"
-              value={burn}
-              onChange={(event) => onBurnChange(Number(event.target.value))}
-            />
-            <span className="slider-labels">
-              <small>Ignition</small>
-              <small>Burnout</small>
-            </span>
-          </label>
-        </div>
-      )}
-      {!overlay && <InspectionDisplayReadout vehicle={vehicle} />}
-      <div className="viewport-help">
-        <span>Drag to orbit · scroll to zoom · right-drag to pan</span>
-        <span>
+          <div className="visibility-toolbar">
+            <button
+              onClick={() =>
+                hideParts(
+                  vehicle.parts
+                    .filter((part) => outerBody(part) && !nose(part))
+                    .map((part) => part.id),
+                )
+              }
+            >
+              <Icon name="eyeOff" size={14} />
+              Hide outer body
+            </button>
+            {hasNose && (
+              <button onClick={() => hideParts(vehicle.parts.filter(nose).map((part) => part.id))}>
+                Hide nose
+              </button>
+            )}
+            <button onClick={showAll} disabled={!hiddenIds.length}>
+              Show all
+            </button>
+            {selectedId && (
+              <button
+                onClick={() =>
+                  isolatedFrom
+                    ? exitIsolate()
+                    : isolate(
+                        selectedId,
+                        vehicle.parts.map((part) => part.id),
+                      )
+                }
+              >
+                {isolatedFrom ? 'Exit isolate' : 'Isolate selected'}
+              </button>
+            )}
+          </div>
           {!overlay && (
-            <>
-              <kbd>E</kbd> explode
-            </>
+            <div className="viewport-controls">
+              <label className="slider-control">
+                <span>
+                  Exploded view <small>{Math.round(exploded * 100)}%</small>
+                </span>
+                <input
+                  aria-label="Exploded view"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={exploded}
+                  onChange={(event) => setExploded(Number(event.target.value))}
+                />
+                <span className="slider-labels">
+                  <small>Assembled</small>
+                  <small>Exploded</small>
+                </span>
+              </label>
+              <label className="slider-control burn-control">
+                <span>
+                  Propellant consumed <small>{Math.round(burn * 100)}%</small>
+                </span>
+                <input
+                  aria-label="Propellant consumed"
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.05"
+                  value={burn}
+                  onChange={(event) => onBurnChange(Number(event.target.value))}
+                />
+                <span className="slider-labels">
+                  <small>Ignition</small>
+                  <small>Burnout</small>
+                </span>
+              </label>
+            </div>
           )}
-          <kbd>F</kbd> focus <kbd>R</kbd> reset <kbd>S</kbd> section <kbd>esc</kbd> clear
-        </span>
-      </div>
+          {!overlay && <InspectionDisplayReadout vehicle={vehicle} />}
+          <div className="viewport-help">
+            <span>Drag to orbit · scroll to zoom · right-drag to pan</span>
+            <span>
+              {!overlay && (
+                <>
+                  <kbd>E</kbd> explode
+                </>
+              )}
+              <kbd>F</kbd> focus <kbd>R</kbd> reset <kbd>S</kbd> section <kbd>esc</kbd> clear
+            </span>
+          </div>
+        </div>
+      </InspectionTools>
     </section>
   );
 }

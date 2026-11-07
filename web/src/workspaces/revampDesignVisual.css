@@ -1,0 +1,103 @@
+/* Only the new Design shell uses overlaid chrome; legacy workspaces retain theirs. */
+.revamp-design .research-design-visual {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.revamp-design .research-representation-controls {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  z-index: 24;
+  max-width: calc(100% - 20px);
+  padding: 0;
+  border: 0;
+  gap: 4px;
+  background: #14232ded;
+  border-radius: 5px;
+}
+.revamp-design .research-representation-controls button {
+  min-height: 30px;
+  font-size: 11px;
+  padding: 5px 8px;
+}
+.revamp-design .research-representation-controls > span {
+  display: none; /* Exact source remains in the header and source Details. */
+}
+.revamp-source-state {
+  font-size: 11px;
+  padding: 6px 12px;
+  color: #e9c788;
+}
+.revamp-design .revamp-source-state {
+  position: absolute;
+  top: 42px;
+  right: 10px;
+  z-index: 24;
+  margin: 0;
+  background: #14232ded;
+  max-width: calc(100% - 20px);
+}
+.revamp-design .research-design-visual[data-representation='2d'] .orthographic-design {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+}
+.revamp-design .ortho-toolbar {
+  position: relative;
+  margin-top: 76px;
+  z-index: 23;
+  padding: 4px;
+  flex: 0 0 auto;
+  background: #14232ded;
+}
+.revamp-design .ortho-stage {
+  height: 100%;
+  min-height: 0;
+  flex: 1;
+}
+.revamp-design .research-design-visual > .research-representation:not([hidden]) {
+  height: 100%;
+  min-height: 0;
+}
+.revamp-design .research-design-visual[data-representation='3d'] > .research-representation > * {
+  height: 100%;
+}
+.revamp-design .research-design-visual[data-representation='2d'] > .research-representation {
+  overflow: auto;
+}
+.revamp-design .research-selection-summary {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 24;
+  max-width: min(640px, calc(100% - 120px));
+  padding: 5px 8px;
+  gap: 6px;
+  background: #14232ded;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+.revamp-design .research-selection-summary > div {
+  flex: 0 1 200px;
+}
+.revamp-design .research-selection-summary p,
+.revamp-design .research-selection-summary span {
+  display: none; /* Full function/material/coverage is in the adjacent Details tab. */
+}
+.revamp-design .research-selection-summary button {
+  min-height: 26px;
+  font-size: 10px;
+  padding: 4px 6px;
+}
+@media (max-width: 700px) {
+  .revamp-design .research-selection-summary {
+    flex-direction: row;
+    max-width: calc(100% - 20px);
+    bottom: 40px;
+  }
+  .revamp-design .research-selection-summary > div {
+    flex-basis: 100%;
+  }
+}

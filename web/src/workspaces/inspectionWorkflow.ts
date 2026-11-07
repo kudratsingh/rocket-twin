@@ -32,11 +32,13 @@ export function inspectionSourceContext(
       'Selected design source',
     maturity: !current
       ? 'Requested source not loaded; geometry identity unavailable'
-      : current.snapshot_only
-        ? 'Historical snapshot; geometry availability is stated per component'
-        : meshCount
-          ? `Recorded meshes: ${meshCount}/${current.parts.length} source components; physical qualification open`
-          : 'Source dimensions available; recorded 3D geometry unavailable',
+      : current.snapshot_only && !meshCount
+        ? 'Source definition / concept; matching 3D geometry unavailable; estimates unverified'
+        : current.snapshot_only
+          ? 'Historical snapshot; geometry availability is stated per component'
+          : meshCount
+            ? `Recorded meshes: ${meshCount}/${current.parts.length} source components; physical qualification open`
+            : 'Source dimensions available; recorded 3D geometry unavailable',
     specification: fingerprint(current?.identity, ['resolved_spec_sha256', 'specification_sha256']),
     cadRevision: fingerprint(current?.identity, ['cad_revision_sha256', 'cad_revision']),
     meshCount,

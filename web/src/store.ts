@@ -5,6 +5,7 @@ interface InspectionState {
   selectedId: string | null;
   hoveredId: string | null;
   hiddenIds: string[];
+  isolatedFrom: string[] | null;
   exploded: number;
   section: boolean;
   markers: boolean;
@@ -19,6 +20,7 @@ interface InspectionState {
   hover: (id: string | null) => void;
   togglePart: (id: string) => void;
   isolate: (id: string, allIds: string[]) => void;
+  exitIsolate: () => void;
   hideParts: (ids: string[]) => void;
   showAll: () => void;
   setExploded: (value: number) => void;
@@ -38,6 +40,7 @@ export const useInspection = create<InspectionState>((set) => ({
   selectedId: null,
   hoveredId: null,
   hiddenIds: [],
+  isolatedFrom: null,
   exploded: 0,
   section: false,
   markers: true,
@@ -56,9 +59,14 @@ export const useInspection = create<InspectionState>((set) => ({
         ? s.hiddenIds.filter((item) => item !== id)
         : [...s.hiddenIds, id],
     })),
-  isolate: (id, allIds) => set({ hiddenIds: allIds.filter((item) => item !== id) }),
+  isolate: (id, allIds) =>
+    set((s) => ({
+      isolatedFrom: s.isolatedFrom ?? [...s.hiddenIds],
+      hiddenIds: allIds.filter((item) => item !== id),
+    })),
+  exitIsolate: () => set((s) => ({ hiddenIds: s.isolatedFrom ?? s.hiddenIds, isolatedFrom: null })),
   hideParts: (ids) => set((s) => ({ hiddenIds: [...new Set([...s.hiddenIds, ...ids])] })),
-  showAll: () => set({ hiddenIds: [] }),
+  showAll: () => set({ hiddenIds: [], isolatedFrom: null }),
   setExploded: (exploded) => set({ exploded }),
   toggleSection: () => set((s) => ({ section: !s.section })),
   toggleMarkers: () => set((s) => ({ markers: !s.markers })),
@@ -94,6 +102,7 @@ export const useInspection = create<InspectionState>((set) => ({
       selectedId: null,
       hoveredId: null,
       hiddenIds: [],
+      isolatedFrom: null,
       exploded: 0,
       section: false,
       ghostShell: false,
