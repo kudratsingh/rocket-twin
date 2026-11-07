@@ -1,5 +1,7 @@
 # Current bounded work list
 
+**Owner revamp direction (2026-11-07):** [RP1-first Design inspection](wo04-rp1-revamp-20261107.md). Use frozen G80-F2-RP1-AD1-definition-v2 as the current source/drawing design. Archived modular-performance-v1 is a separate matching-CAD/replay fixture; no historical mesh or inertia substitutes for RP1. Keep all five supplier/lab drafts UNSENT and proceed from repository evidence without waiting for replies. Expose estimates and missing details for later authorized measurement. Two adjacent independently collapsible left columns, dominant visual and a slim tools drawer replace the crowded Design layout. The 21 RV tasks map to the existing 43 FT tasks; code/offline checks and browser acceptance remain separate. WO-03, purchases, physical/test, paid-run, WO-10 and flight gates remain unchanged.
+
 **Owner continuation (2026-11-06):** [VP1 inquiry-to-test decision](wo03-vp1-response-decision-20261106.md). The owner will supply actual send dates and replies for the five prepared inquiries. Track each actual send independently: one day-5 follow-up, day-10 business-day close; no dates or replies are recorded yet. Prepare one room-temperature test recommendation with the lab method, itemized all-in cost and D1 pass/fail meaning; return it for owner approval before purchases or testing. Frozen drafts/package and engineering criteria remain unchanged. Continue the next bounded frontend backlog task; browser observation remains separate from code/offline checks.
 
 **Repository visibility — owner-confirmed public (2026-11-04).**
@@ -10,6 +12,16 @@ change; do not attempt to restore Private. Continue the existing focused
 PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services,
 physical work and flight release still require their existing authorizations.
 The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
+
+## Current revamp first slice — code and source evidence, browser blocked
+
+| Deliverable / owner | Budget | Outcome / stop |
+| --- | --- | --- |
+| Shell/context/drawer / Astra MEDIUM |45min +one correction | Independent left columns, preferences, focus and splitter code; no measured browser ratios |
+| Safe camera fitting / Terra HIGH + primary integration |30min +one correction | Box-corner/safe-inset math and small-part scale checks; actual render/pixel checks blocked |
+| Source readiness / Terra HIGH |15min,10CPU/20wall read/hash | Listed meshes present; extra unlisted G12 retention files excluded; no new geometry/run |
+| AD1 read-only source / Terra HIGH + primary API |35min +one correction |55parts and four saved cases; no CAD/inertia/solver; inquiry drafts stay unsent |
+| Full Design integration / primary |One coherent first slice, focused PRs | Current AD1 drawing and separate archived3D; scope stops at unavailable engineering fields and runtime-ownership block |
 
 ## Current bounded continuation — response tracking and inspection usability
 

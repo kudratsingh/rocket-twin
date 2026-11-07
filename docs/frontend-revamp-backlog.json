@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-11-06",
+  "status": "implementation_in_progress",
+  "source_ledger": "docs/frontend-workbench-backlog.json",
+  "source_ledger_updated_date": "2026-11-06",
+  "check_matrix": "acceptance-matrix.csv",
+  "thresholds": "Proposed for revamp. Prior evidence remains attributed to its recorded implementation slice.",
+  "browser_status": "blocked_runtime_ownership",
+  "tasks": [
+    {
+      "id": "RV-01",
+      "milestone": "M0",
+      "pr": "PR-00",
+      "title": "Freeze the source and design-shell contract",
+      "owner": "primary integrator",
+      "depends_on": [],
+      "ft_ids": [
+        "FT-001",
+        "FT-002"
+      ],
+      "source_ledger_status": {
+        "FT-001": "partial",
+        "FT-002": "partial"
+      },
+      "source_paths": [
+        "web/src/App.tsx",
+        "web/src/workspaces/navigation.ts",
+        "docs/frontend-workbench-backlog.json"
+      ],
+      "check_ids": [
+        "RV-Q01",
+        "RV-Q02"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Capture existing routes, fixtures, actual asset identities, viewport targets and retained controls before extracting the shell.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "docs/wo04-rp1-revamp-20261107.md"
+      ]
+    },
+    {
+      "id": "RV-02",
+      "milestone": "M0",
+      "pr": "PR-00",
+      "title": "Declare data boundaries and audit recorded replay",
+      "owner": "data and analysis owner",
+      "depends_on": [
+        "RV-01"
+      ],
+      "ft_ids": [
+        "FT-003",
+        "FT-005",
+        "FT-018"
+      ],
+      "source_ledger_status": {
+        "FT-003": "partial",
+        "FT-005": "planned",
+        "FT-018": "partial"
+      },
+      "source_paths": [
+        "src/api/experiments.py",
+        "src/sim/frames.py",
+        "src/sim/dynamics.py",
+        "web/src/experiments/replayValidity.ts"
+      ],
+      "check_ids": [
+        "RV-Q03"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Agree additive contracts and verify frame, pose, phase, event and missingness assumptions using saved data independently of shell work.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-03",
+      "milestone": "M0",
+      "pr": "ACCESS",
+      "title": "Resolve supported designated browser ownership",
+      "owner": "designated Terra browser owner",
+      "depends_on": [
+        "RV-01"
+      ],
+      "ft_ids": [
+        "FT-004"
+      ],
+      "source_ledger_status": {
+        "FT-004": "blocked"
+      },
+      "source_paths": [
+        "AGENTS.md",
+        "docs/frontend-workbench-backlog.md"
+      ],
+      "check_ids": [
+        "RV-Q04"
+      ],
+      "status": "blocked_runtime",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Record the exact supported access prerequisite and its status before scheduling browser actions.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-04",
+      "milestone": "M1",
+      "pr": "PR-01",
+      "title": "Extract compact navigation and scroll ownership",
+      "owner": "primary integrator",
+      "depends_on": [
+        "RV-01"
+      ],
+      "ft_ids": [
+        "FT-006",
+        "FT-007",
+        "FT-008",
+        "FT-009",
+        "FT-010"
+      ],
+      "source_ledger_status": {
+        "FT-006": "partial",
+        "FT-007": "partial",
+        "FT-008": "partial",
+        "FT-009": "partial",
+        "FT-010": "partial"
+      },
+      "source_paths": [
+        "web/src/App.tsx",
+        "web/src/workspaces/WorkspaceChrome.tsx",
+        "web/src/workspaces/navigation.ts",
+        "web/src/workspaces/workspaces.css"
+      ],
+      "check_ids": [
+        "RV-Q05",
+        "RV-Q06",
+        "RV-Q07",
+        "RV-Q08"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Preserve links and independent resource loading. Keep the rail, identity and workspace scroll behavior reachable with long or missing content.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "docs/wo04-rp1-revamp-20261107.md"
+      ]
+    },
+    {
+      "id": "RV-05",
+      "milestone": "M1",
+      "pr": "PR-02",
+      "title": "Compose Design with adjacent independent left columns",
+      "owner": "Design owner",
+      "depends_on": [
+        "RV-04"
+      ],
+      "ft_ids": [
+        "FT-011"
+      ],
+      "source_ledger_status": {
+        "FT-011": "partial"
+      },
+      "source_paths": [
+        "web/src/workspaces/InspectionWorkspace.tsx",
+        "web/src/workspaces/DesignVisual.tsx",
+        "web/src/workspaces/workspaces.css",
+        "web/src/components/PartsTree.tsx"
+      ],
+      "check_ids": [
+        "RV-Q09",
+        "RV-Q10",
+        "RV-Q11",
+        "RV-Q12"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Keep one mounted main visual, an icon rail and adjacent context column with independent controls, and a slim bottom tool strip. Open part details on demand.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "docs/wo04-rp1-revamp-20261107.md"
+      ]
+    },
+    {
+      "id": "RV-06",
+      "milestone": "M1",
+      "pr": "PR-03",
+      "title": "Fit actual visible geometry and unify 2D/3D navigation",
+      "owner": "Design owner",
+      "depends_on": [
+        "RV-05"
+      ],
+      "ft_ids": [
+        "FT-012",
+        "FT-013"
+      ],
+      "source_ledger_status": {
+        "FT-012": "partial",
+        "FT-013": "partial"
+      },
+      "source_paths": [
+        "web/src/components/Viewer.tsx",
+        "web/src/components/inspectionCamera.ts",
+        "web/src/design/OrthographicDesign.tsx",
+        "web/src/design/orthographicGeometry.ts"
+      ],
+      "check_ids": [
+        "RV-Q13",
+        "RV-Q14",
+        "RV-Q15",
+        "RV-Q16"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Use safe projected framing and separate Fit, Focus and Reset. Keep same-design 2D sources identifiable and preserve manual camera state.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "docs/wo04-rp1-revamp-20261107.md"
+      ]
+    },
+    {
+      "id": "RV-07",
+      "milestone": "M1",
+      "pr": "PR-04",
+      "title": "Link part evidence and make display transforms recoverable",
+      "owner": "Design owner",
+      "depends_on": [
+        "RV-06"
+      ],
+      "ft_ids": [
+        "FT-014",
+        "FT-015"
+      ],
+      "source_ledger_status": {
+        "FT-014": "partial",
+        "FT-015": "partial"
+      },
+      "source_paths": [
+        "web/src/workspaces/ComponentEvidence.tsx",
+        "web/src/workspaces/PartDimensions.tsx",
+        "web/src/components/InspectionDisplayReadout.tsx",
+        "web/src/store.ts"
+      ],
+      "check_ids": [
+        "RV-Q17",
+        "RV-Q18",
+        "RV-Q19"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Search, pick and inspect source components with clear hidden, clipped, failed and missing states. Restore assembly without resetting selection or camera angle.",
+      "codeVerified": true,
+      "browserObserved": false,
+      "accepted": false,
+      "evidence": [
+        "docs/wo04-rp1-revamp-20261107.md"
+      ]
+    },
+    {
+      "id": "RV-08",
+      "milestone": "M2",
+      "pr": "PR-05",
+      "title": "Consolidate Engineering drawings and evidence exports",
+      "owner": "Engineering owner",
+      "depends_on": [
+        "RV-04",
+        "RV-07"
+      ],
+      "ft_ids": [
+        "FT-016",
+        "FT-017"
+      ],
+      "source_ledger_status": {
+        "FT-016": "partial",
+        "FT-017": "partial"
+      },
+      "source_paths": [
+        "web/src/workbench/EngineeringWorkbench.tsx",
+        "web/src/workbench/Rp1StudyComparison.tsx",
+        "web/src/workbench/Vp1ValidationView.tsx",
+        "web/src/workbench/rp1StudyExport.ts"
+      ],
+      "check_ids": [
+        "RV-Q20",
+        "RV-Q21"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Retain historical topics, separate RP1 studies and VP1 programme. Give one selected diagram the primary workspace with contextual evidence and portable exports.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-09",
+      "milestone": "M3",
+      "pr": "PR-06",
+      "title": "Expose reproducible single runs and saved states",
+      "owner": "experiment and data owners",
+      "depends_on": [
+        "RV-02",
+        "RV-04"
+      ],
+      "ft_ids": [
+        "FT-019",
+        "FT-020",
+        "FT-021"
+      ],
+      "source_ledger_status": {
+        "FT-019": "partial",
+        "FT-020": "partial",
+        "FT-021": "planned"
+      },
+      "source_paths": [
+        "web/src/experiments/Experiment.tsx",
+        "src/api/experiments.py",
+        "web/src/experiments/requestOrder.ts"
+      ],
+      "check_ids": [
+        "RV-Q22",
+        "RV-Q23"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Land the reusable run identity/status adapter before the form. Allow eligible complete configurations and retain request, effective settings, seeds and failed attempts.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-10",
+      "milestone": "M3",
+      "pr": "PR-07",
+      "title": "Add bounded batch execution and run library",
+      "owner": "experiment and data owners",
+      "depends_on": [
+        "RV-09"
+      ],
+      "ft_ids": [
+        "FT-022",
+        "FT-023"
+      ],
+      "source_ledger_status": {
+        "FT-022": "planned",
+        "FT-023": "planned"
+      },
+      "source_paths": [
+        "src/api/experiments.py",
+        "web/src/experiments/Experiment.tsx"
+      ],
+      "check_ids": [
+        "RV-Q24"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Declare count, concurrency and resources before execution. Exercise cancellation, interruption and per-member provenance.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-11",
+      "milestone": "M4",
+      "pr": "PR-08",
+      "title": "Correct replay clock, cursor and phase disclosure",
+      "owner": "replay owner",
+      "depends_on": [
+        "RV-09"
+      ],
+      "ft_ids": [
+        "FT-025",
+        "FT-028"
+      ],
+      "source_ledger_status": {
+        "FT-025": "partial",
+        "FT-028": "partial"
+      },
+      "source_paths": [
+        "web/src/experiments/Experiment.tsx",
+        "web/src/experiments/replayValidity.ts",
+        "web/src/experiments/channels.ts"
+      ],
+      "check_ids": [
+        "RV-Q25",
+        "RV-Q26",
+        "RV-Q27"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Keep replay correctness independent of batch, full comparison and aesthetic changes. Use one authoritative time and expose validity where it affects interpretation.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-12",
+      "milestone": "M4",
+      "pr": "PR-09",
+      "title": "Build scientific run comparison and plot interactions",
+      "owner": "replay owner",
+      "depends_on": [
+        "RV-09",
+        "RV-11"
+      ],
+      "ft_ids": [
+        "FT-024"
+      ],
+      "source_ledger_status": {
+        "FT-024": "partial"
+      },
+      "source_paths": [
+        "web/src/experiments/comparison.ts",
+        "web/src/experiments/plotScale.ts",
+        "web/src/experiments/runExport.ts"
+      ],
+      "check_ids": [
+        "RV-Q28"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Compare compatible channels, preserve absolute time and alignment metadata, and show gaps and partial-run coverage.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-13",
+      "milestone": "M4",
+      "pr": "PR-10",
+      "title": "Improve replay presentation and profile bounded playback",
+      "owner": "replay owner",
+      "depends_on": [
+        "RV-06",
+        "RV-11"
+      ],
+      "ft_ids": [
+        "FT-026",
+        "FT-027",
+        "FT-029"
+      ],
+      "source_ledger_status": {
+        "FT-026": "planned",
+        "FT-027": "planned",
+        "FT-029": "planned"
+      },
+      "source_paths": [
+        "web/src/experiments/Experiment.tsx",
+        "web/src/experiments/experiment.css"
+      ],
+      "check_ids": [
+        "RV-Q27",
+        "RV-Q29",
+        "RV-Q30"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Use recorded trajectory/pose and improved spatial cues. An optional schematic cue stays distinct from physical multi-body recovery.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-14",
+      "milestone": "M5",
+      "pr": "PR-11",
+      "title": "Register true analysis sources and compatibility",
+      "owner": "data and analysis owner",
+      "depends_on": [
+        "RV-02",
+        "RV-09"
+      ],
+      "ft_ids": [
+        "FT-030",
+        "FT-031"
+      ],
+      "source_ledger_status": {
+        "FT-030": "planned",
+        "FT-031": "planned"
+      },
+      "source_paths": [
+        "src/api/app.py",
+        "web/src/analysis/types.ts",
+        "web/src/analysis/display.ts"
+      ],
+      "check_ids": [
+        "RV-Q31"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Inventory available scalar, point, spatial and transient sources with exact mapping identities and unavailable reasons.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-15",
+      "milestone": "M5",
+      "pr": "PR-12",
+      "title": "Display and compare actual structural, thermal and aero results",
+      "owner": "data and analysis owner",
+      "depends_on": [
+        "RV-07",
+        "RV-14"
+      ],
+      "ft_ids": [
+        "FT-032",
+        "FT-033",
+        "FT-034",
+        "FT-035"
+      ],
+      "source_ledger_status": {
+        "FT-032": "planned",
+        "FT-033": "planned",
+        "FT-034": "planned",
+        "FT-035": "planned"
+      },
+      "source_paths": [
+        "web/src/analysis/AnalysisWorkspace.tsx",
+        "web/src/analysis/AnalysisSurface.tsx",
+        "web/src/analysis/HistoryPlot.tsx"
+      ],
+      "check_ids": [
+        "RV-Q32",
+        "RV-Q33"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Stage baseline displays before comparisons. Coordinate with PR-09 only where sharing a compatible comparison primitive.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-16",
+      "milestone": "M6",
+      "pr": "PR-13",
+      "title": "Integrate read-only configuration and workspace transitions",
+      "owner": "primary integrator",
+      "depends_on": [
+        "RV-08",
+        "RV-10",
+        "RV-12",
+        "RV-13",
+        "RV-15"
+      ],
+      "ft_ids": [
+        "FT-036"
+      ],
+      "source_ledger_status": {
+        "FT-036": "partial"
+      },
+      "source_paths": [
+        "web/src/App.tsx",
+        "web/src/api.ts",
+        "web/src/types.ts",
+        "web/src/workspaces/navigation.ts"
+      ],
+      "check_ids": [
+        "RV-Q02",
+        "RV-Q06",
+        "RV-Q34"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Resolve defaults from the actual catalog and preserve exact source/run/case associations across workspaces. Keep Design, Engineering and run-source identities distinct.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-17",
+      "milestone": "M6",
+      "pr": "PR-14",
+      "title": "Optionally compose Mission Control",
+      "owner": "primary integrator",
+      "depends_on": [
+        "RV-16"
+      ],
+      "ft_ids": [
+        "FT-037"
+      ],
+      "source_ledger_status": {
+        "FT-037": "planned"
+      },
+      "source_paths": [
+        "web/src/workspaces/navigation.ts",
+        "web/src/workspaces/WorkspaceChrome.tsx"
+      ],
+      "check_ids": [
+        "RV-Q35"
+      ],
+      "status": "planned",
+      "optional": true,
+      "outside_initial_release": true,
+      "delivery": "Include only with a concrete monitoring task and reused accepted widgets. Link back to the focused workspace.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-18",
+      "milestone": "M7",
+      "pr": "VERIFY-01",
+      "title": "Observe first Design slice in designated Chrome",
+      "owner": "designated Terra browser owner",
+      "depends_on": [
+        "RV-03",
+        "RV-04",
+        "RV-07"
+      ],
+      "ft_ids": [
+        "FT-038"
+      ],
+      "source_ledger_status": {
+        "FT-038": "planned"
+      },
+      "source_paths": [
+        "docs/wo04-inspection-slice-20261103-v3.md",
+        "docs/wo04-inspection-display-20261106.md"
+      ],
+      "check_ids": [
+        "RV-Q05",
+        "RV-Q06",
+        "RV-Q07",
+        "RV-Q09",
+        "RV-Q10",
+        "RV-Q11",
+        "RV-Q12",
+        "RV-Q13",
+        "RV-Q14",
+        "RV-Q15",
+        "RV-Q16",
+        "RV-Q17",
+        "RV-Q18",
+        "RV-Q19"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Observe M1 before Engineering or later integrated acceptance. Record the exact head and scenario-level outcome.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-19",
+      "milestone": "M7",
+      "pr": "VERIFY-02",
+      "title": "Observe integrated workflows and representative performance",
+      "owner": "designated Terra browser owner",
+      "depends_on": [
+        "RV-16",
+        "RV-18"
+      ],
+      "ft_ids": [
+        "FT-039",
+        "FT-040"
+      ],
+      "source_ledger_status": {
+        "FT-039": "planned",
+        "FT-040": "planned"
+      },
+      "source_paths": [
+        "docs/frontend-workbench-backlog.md",
+        "output/frontend-planning-kit-20261103/07-acceptance-and-browser-tests.md"
+      ],
+      "check_ids": [
+        "RV-Q21",
+        "RV-Q22",
+        "RV-Q23",
+        "RV-Q24",
+        "RV-Q25",
+        "RV-Q26",
+        "RV-Q27",
+        "RV-Q28",
+        "RV-Q29",
+        "RV-Q30",
+        "RV-Q32",
+        "RV-Q33",
+        "RV-Q34"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Observe only the authorized running preview, with saved-run identity and representative measurements.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-20",
+      "milestone": "M7",
+      "pr": "PR-15",
+      "title": "Resolve observed defects and publish bounded acceptance",
+      "owner": "primary integrator",
+      "depends_on": [
+        "RV-18",
+        "RV-19"
+      ],
+      "ft_ids": [
+        "FT-041"
+      ],
+      "source_ledger_status": {
+        "FT-041": "planned"
+      },
+      "source_paths": [
+        "docs/frontend-workbench-backlog.md"
+      ],
+      "check_ids": [
+        "RV-Q36"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": false,
+      "delivery": "Return browser defects to the relevant owner, recheck changed flows at the tested head and keep unavailable scenarios visible.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    },
+    {
+      "id": "RV-21",
+      "milestone": "M8",
+      "pr": "SCOPE-01",
+      "title": "Scope future fidelity and controlled parametric editing",
+      "owner": "primary integrator",
+      "depends_on": [
+        "RV-02",
+        "RV-06",
+        "RV-14"
+      ],
+      "ft_ids": [
+        "FT-042",
+        "FT-043"
+      ],
+      "source_ledger_status": {
+        "FT-042": "planned",
+        "FT-043": "planned"
+      },
+      "source_paths": [
+        "output/frontend-planning-kit-20261103/09-model-fidelity-and-scope.md",
+        "docs/wo03-closure-plan.md"
+      ],
+      "check_ids": [
+        "RV-Q37"
+      ],
+      "status": "planned",
+      "optional": false,
+      "outside_initial_release": true,
+      "delivery": "Treat validated recovery, CFD and controlled design editing as separately authorized work. Changes regenerate complete candidate identities and dependent evidence.",
+      "codeVerified": false,
+      "browserObserved": false,
+      "accepted": false
+    }
+  ],
+  "source_kit": {
+    "date": "2026-11-07",
+    "remote_main_at_intake": "a4f7ecc667948f3542b3a256e1bbcb45b463b6e6",
+    "local_git": "Unavailable: workspace has no .git metadata; fingerprint inventory and connector main used. No repository setup repeated.",
+    "kit": "output/rocket-twin-frontend-revamp-kit-20261106",
+    "sources": {
+      "manifest.json": "f3c572b74213a3bac658b5678f3c00add52f151421cb32d5a7aa4bd89e6e9f4a",
+      "CODING-AGENT-PROMPT.md": "92d4a351c62af5c6c0682feac811a845f626e6a5d208c4508bcf0cff2caa9fb6",
+      "PRODUCT-AND-LAYOUT.md": "9741329fe1c4eb2898ef60eac16789752396da8168179b034219b6f502dd73a7",
+      "INSPECTION-AND-CAD.md": "54bc163a3c2bc56ac9b3be0ead753b6db5b3a2ce57fd5bb53c87725025bca8cc",
+      "delivery/backlog.json": "0131a1846a9ad950f76eb55cc848ed8ba9f1cee305f7d9a988266a508002bcc2",
+      "delivery/acceptance-matrix.csv": "e3d98b389580149e20bfbe0ce0e1b7383e85085769a49ba2903fa53734bb0aeb"
+    },
+    "owner_direction": "Current RP1 AD1 v2 source; archived G80 separate CAD/replay; inquiries UNSENT, do not wait for replies.",
+    "browser_verified": false,
+    "browser_block": "Original designated Terra runtime ownership not restored; no supported repair operation exposed, no retry/bypass.",
+    "resource_budget": "One Design slice: Astra45min+onecorrection; Terra camera30min+onecorrection; read-only assets15min/10CPU20wall; source exporter35min+onecorrection. Primary integrates; no CAD/FEA/flight/thermal run.",
+    "scope": "RV01/04/05/06/07 first inspection, remaining workspaces staged. No purchases/contact/physical tests."
+  },
+  "updated_date": "2026-11-07"
+}

@@ -32,6 +32,7 @@ prepare_snapshot scripts/wo04_f2_export.py web/public/engineering-workbench/prep
 prepare_snapshot scripts/wo04_f2_c1_export.py web/public/engineering-workbench/f2-c1.json
 prepare_snapshot scripts/wo04_rp1_studies_export.py web/public/engineering-workbench/rp1-studies.json
 prepare_snapshot scripts/wo04_vp1_validation_export.py web/public/engineering-workbench/rp1-validation.json
+prepare_snapshot scripts/wo04_rp1_inspection_export.py web/public/engineering-workbench/rp1-ad1-inspection.json
 .venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
 preview_api_pid=$!
 cleanup() {
