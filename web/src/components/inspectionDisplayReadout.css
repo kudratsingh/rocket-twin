@@ -1,0 +1,56 @@
+.inspection-display-readout {
+  margin: 12px;
+  padding: 14px 16px;
+  border: 1px solid #405968;
+  border-radius: 7px;
+  background: #111e28;
+  color: #c9d7df;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.inspection-display-readout-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.inspection-display-readout h3 {
+  margin: 0;
+  color: #e2edf3;
+  font-size: 0.9rem;
+}
+.inspection-display-readout p {
+  margin: 8px 0;
+}
+.inspection-display-state {
+  color: #bfe8ec;
+}
+.inspection-display-readout button {
+  border: 1px solid #4a7887;
+  border-radius: 5px;
+  padding: 7px 10px;
+  color: #dcf7f8;
+  background: #1a3441;
+  cursor: pointer;
+}
+.inspection-display-readout button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.inspection-source-dimensions {
+  border-top: 1px solid #405968;
+  margin-top: 12px;
+  padding-top: 8px;
+}
+.inspection-source-dimensions summary,
+.inspection-display-explanation summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 5px 0;
+}
+.inspection-display-readout :is(button, summary):focus-visible {
+  outline: 2px solid #91dfe7;
+  outline-offset: 3px;
+}

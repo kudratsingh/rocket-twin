@@ -19,6 +19,7 @@ import { Icon } from './Icons';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
 import { fitOrbitFrame, isPointClipped } from './inspectionCamera';
 import './inspectionViews.css';
+import { InspectionDisplayReadout } from './InspectionDisplayReadout';
 
 export interface ViewOverlay {
   partColors: Record<string, string | null>;
@@ -745,6 +746,7 @@ export function Viewer({
           </label>
         </div>
       )}
+      {!overlay && <InspectionDisplayReadout vehicle={vehicle} />}
       <div className="viewport-help">
         <span>Drag to orbit · scroll to zoom · right-drag to pan</span>
         <span>

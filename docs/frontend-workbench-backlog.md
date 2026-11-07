@@ -1,5 +1,7 @@
 # Frontend workbench backlog
 
+Latest bounded FT-015 slice: [recoverable section/exploded inspection](wo04-inspection-display-20261106.md). Restore assembled inspection, compact display status and source dimensions implemented;93 integrated web tests/build/lint/format pass. Actual React HTML is an offline source artifact; browser observations remain absent.
+
 Latest bounded FT-001/016/017 slice: [VP1 programme workbench](wo04-vp1-validation-workbench-20261106.md). Selectable stage/part SVG, dated material costs, unavailable all-in cost and five UNSENT copy/download previews are implemented; browser/physical acceptance remains open. No contact or test execution is inferred.
 
 Latest bounded FT-016/evidence increment: [separate FP1/FR1 source-relationship comparison](wo04-rp1-studies-20261104.md), selectable graphics, source hashes and honest unaccepted status. Actual exported React graphs were inspected offline;85 integrated web tests/type/lint/format/build pass. Browser observation fields remain false; this does not complete the43-task plan.
@@ -28,7 +30,7 @@ Browser observations belong to the established designated owner in the authorize
 | FT-012 | P2 | Expose zoom fit reset and selected-part focus | `inspection_owner` | FT-011 | partial |
 | FT-013 | P2 | Build source-derived OpenRocket-style 2D view | `inspection_owner` | FT-001, FT-011 | partial |
 | FT-014 | P2 | Link part search selection and 2D/3D inspection | `inspection_owner` | FT-012, FT-013 | partial |
-| FT-015 | P2 | Expose section explode and dimensional inspection | `inspection_owner` | FT-012, FT-014 | planned |
+| FT-015 | P2 | Expose section explode and dimensional inspection | `inspection_owner` | FT-012, FT-014 | partial |
 | FT-016 | P2 | Create focused construction and load-path views | `inspection_owner` | FT-013, FT-014 | partial |
 | FT-017 | P2 | Deliver mass launch and inspection export slice | `inspection_owner` | FT-015, FT-016 | partial |
 | FT-018 | P3 | Audit replay pose events and recovery model behavior | `data_analysis_owner` | FT-003 | partial |

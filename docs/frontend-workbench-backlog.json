@@ -671,6 +671,16 @@
             "web/tests/inspection-camera.test.mjs"
           ],
           "scope": "Terra section click/pointer-over eligibility uses the rendering world-space clipping plane; clipped hits do not stop visible interior picking. Camera/state suite reported 5/5 passing before freeze. Existing section/explode source boundaries retained; actual browser picking pending."
+        },
+        {
+          "kind": "assembled-inspection-display-code-ssr",
+          "files": [
+            "web/src/components/InspectionDisplayReadout.tsx",
+            "web/src/components/inspectionDisplay.ts",
+            "web/tests/inspection-display.test.mjs",
+            "docs/wo04-inspection-display-20261106.md"
+          ],
+          "scope": "Restore display modes with selection/source/view angle preserved; compact section/explode/hidden state and exact source dimensions. Real store and React SSR checks pass, 93 integrated web tests/build/lint/format pass. Archived modular-performance-v1 actual-source SSR has 42 mesh references; not F2 CAD or browser acceptance."
         }
       ]
     },
