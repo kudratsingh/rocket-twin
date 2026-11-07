@@ -1,5 +1,7 @@
 # Frontend specification — focused engineering workspaces
 
+**FT-015 bounded preview (2026-11-06):** [assembled inspection display](wo04-inspection-display-20261106.md) adds one restore action, compact section/explode state and exact-source dimensions. Code/SSR verified; browser observation and full acceptance remain open. No geometry, physics or engineering criterion changed.
+
 ## Active owner-authorized frontend direction — 2026-11-03
 
 The owner supplied `output/frontend-planning-kit-20261103/` and explicitly
