@@ -1,5 +1,9 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+Repository visibility is public by explicit owner confirmation (2026-11-04).
+Continue focused PRs and required checks; contact, purchase and physical-work
+authorizations remain separate.
+
 **Current delivery: [VP1 owner-review validation package](../validation/rp1-vp1/package-summary.md).**
 One first test lead is ordinary6mm02-20850 birch with WEST105/206/406 fillets;
 this is not vehicle adoption. Four product drafts plus one supervised-lab RFQ
@@ -53,7 +57,7 @@ reference1.5 m. Longer equipment remains unconfirmed. G80 custom building and
 practical performance first; G54 upgrade and committed G12 PID-to-RL separate.
 WO-03, thermal/recovery/installed flutter, physical and flight gates stay open.
 
-[Separate frontend study comparison](wo04-rp1-studies-20261104.md) adds source-linked
+[Separate frontend study comparison](../wo04-rp1-studies-20261104.md) adds source-linked
 selectable relationship graphics. Actual offline PNGs inspected; browser
 interactions remain unverified behind the unchanged ownership prerequisite.
 Preserve inspector/experiments/replay and exact configuration identities.

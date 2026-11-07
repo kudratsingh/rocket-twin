@@ -1,5 +1,14 @@
 # Agent entry point
 
+**Repository visibility — owner-confirmed public (2026-11-04).**
+The owner explicitly confirmed that they made `kudratsingh/rocket-twin` public.
+This supersedes the earlier private-only instruction and resolves the visibility
+publication hold. Keep the repository public unless the owner requests another
+change; do not attempt to restore Private. Continue the existing focused
+PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services,
+physical work and flight release still require their existing authorizations.
+The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
+
 **Current delivery: [VP1 owner-review validation package](docs/validation/rp1-vp1/package-summary.md).**
 One first test lead is ordinary6mm02-20850 birch with WEST105/206/406 fillets;
 this is not vehicle adoption. Four product drafts plus one supervised-lab RFQ
@@ -53,7 +62,7 @@ reference1.5 m. Longer equipment remains unconfirmed. G80 custom building and
 practical performance first; G54 upgrade and committed G12 PID-to-RL separate.
 WO-03, thermal/recovery/installed flutter, physical and flight gates stay open.
 
-[Separate frontend study comparison](wo04-rp1-studies-20261104.md) adds source-linked
+[Separate frontend study comparison](docs/wo04-rp1-studies-20261104.md) adds source-linked
 selectable relationship graphics. Actual offline PNGs inspected; browser
 interactions remain unverified behind the unchanged ownership prerequisite.
 Preserve inspector/experiments/replay and exact configuration identities.
@@ -204,8 +213,9 @@ unknown new CP/full inertia and all G54/G12/shared-interface and release gates.
 
 The owner authorizes GitHub pushes and PRs for this project. This supersedes the
 previous local-only restriction on GitHub changes. The repository is
-`kudratsingh/rocket-twin`; keep it private until the owner explicitly requests
-a visibility change.
+`kudratsingh/rocket-twin`. On 2026-11-04 the owner explicitly confirmed making
+it public. Keep it public unless the owner requests another visibility change.
+This supersedes earlier private-only instructions; do not revert visibility.
 
 - Use a work-order branch and Conventional Commits. Commit and push after
   substantial, coherent work items; open a focused PR and update it as work
