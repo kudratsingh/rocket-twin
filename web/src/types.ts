@@ -93,6 +93,7 @@ export interface Part {
 }
 
 export interface MassSample {
+  recorded_case_label?: string;
   burn_fraction?: number;
   mass_kg?: number;
   total_mass_kg?: number;

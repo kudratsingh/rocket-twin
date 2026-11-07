@@ -34,6 +34,9 @@ test('exact AD1 part and full revision round-trip through Design and Engineering
   assert.deepEqual(readPartLink(engineering.search, document), { part: 'fin_tabs', notice: null });
   const design = url(partHref(engineering.href, document, 'body', 'design'));
   assert.equal(design.searchParams.get('workspace'), 'design');
+  const analysis = url(partHref(design.href, document, 'body', 'analysis'));
+  assert.equal(analysis.searchParams.get('workspace'), 'analysis');
+  assert.deepEqual(readPartLink(analysis.search, document), { part: 'body', notice: null });
   assert.equal(design.searchParams.get('spec'), SPEC);
   assert.deepEqual(readPartLink(design.search, document), { part: 'body', notice: null });
   const clear = url(partHref(design.href, document, null));

@@ -3,7 +3,7 @@
 A custom rocket and its digital twin: YAML vehicle specifications, parametric CAD,
 a JAX flight simulator, and a web workbench for inspecting designs and replaying
 experiments. The project connects mechanical design, materials and recovery
-engineering with a planned PID-to-reinforcement-learning control stack.
+engineering with committed PID-to-reinforcement-learning control development.
 
 The current priority is a conventional fixed-motor **G80** engineering package.
 A **G54** performance upgrade and **G12 thrust-vector-control** trainer remain
@@ -42,11 +42,15 @@ flutter still need evidence. Older modular assemblies and their flight results
 remain reference records, rather than validation of the latest RP1 geometry.
 
 The current design under study is **G80 RP1 / AD1 v2**, presented from its frozen
-55-part source definition, drawings and saved estimated cases. Matching complete
-RP1 CAD and full inertia remain unavailable. The archived G80 CAD assembly is a
+55-part source definition, drawings and saved estimated cases. RP1 now has26 source-derived inspection meshes:10 ideal source-dimensioned parts
+and16 simplified envelopes. All55records remain inspectable, including25mass
+allowances without solids and4missing geometries. Complete manufacturing CAD
+and full inertia remain unavailable. The archived G80 CAD assembly is a
 separate inspection/replay reference. The [frontend revamp](docs/wo04-rp1-revamp-20261107.md)
 implements adjacent collapsible left columns, a larger visual and a bottom tools
-drawer; browser acceptance remains open.
+drawer; [the release candidate](docs/frontend-release-20261107.md) also implements
+bounded experiments/batches, replay/export and recorded Analysis workflows.
+Browser acceptance remains blocked by the unavailable supported access host.
 
 VP1 remains a proposed evidence programme using ordinary birch plywood and WEST
 105/206/406, not vehicle adoption. **The five inquiry drafts remain UNSENT under

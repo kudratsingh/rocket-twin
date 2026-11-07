@@ -1,4 +1,10 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import { recordedMassCases } from './workspaces/recordedMassCases';
+import {
+  experimentConfiguration,
+  experimentHref,
+  savedRunHref,
+} from './workspaces/experimentContext';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { getJson } from './api';
 import { InspectionPanel } from './components/InspectionPanel';
 import { Icon } from './components/Icons';
@@ -47,10 +53,31 @@ export default function App() {
   const [massError, setMassError] = useState('');
   const [mass, setMass] = useState<MassSample | null>(null);
   const [burn, setBurn] = useState(0);
+  const [recordedCaseIndex, setRecordedCaseIndex] = useState(0);
+  const recordedCaseContext = useMemo(() => {
+    if (!vehicle || vehicle.id !== 'G80-F2-RP1-AD1-definition-v2') return { cases: [], error: '' };
+    try {
+      return { cases: recordedMassCases(vehicle), error: '' };
+    } catch (reason) {
+      return {
+        cases: [],
+        error: reason instanceof Error ? reason.message : 'Recorded estimated cases unavailable.',
+      };
+    }
+  }, [vehicle]);
+  const selectedRecordedCase =
+    recordedCaseContext.cases[recordedCaseIndex] || recordedCaseContext.cases[0];
   const [massLoading, setMassLoading] = useState(false);
   const [href, setHref] = useState(currentHref);
   const route = readWorkspace(new URL(href, 'http://local.invalid').search);
   const mode = route.workspace;
+  const [experimentId, setExperimentId] = useState(() =>
+    experimentConfiguration(new URL(currentHref(), 'http://local.invalid').search, vehicleId),
+  );
+  const [experimentVehicle, setExperimentVehicle] = useState<InspectionDocument | null>(null);
+  const [experimentSourceError, setExperimentSourceError] = useState('');
+  const experimentParams = new URL(href, 'http://local.invalid').searchParams;
+
   const navigate = useCallback((next: string) => {
     if (currentHref() !== next) window.history.pushState(null, '', next);
     setHref(currentHref());
@@ -62,6 +89,47 @@ export default function App() {
     },
     [navigate],
   );
+  const changeExperimentConfiguration = useCallback(
+    (id: string) => {
+      setExperimentId(id);
+      navigate(experimentHref(currentHref(), id));
+    },
+    [navigate],
+  );
+  const selectRunRoute = useCallback(
+    (id: string | null, comparison: boolean) => {
+      const next = savedRunHref(currentHref(), id, comparison);
+      if (next !== currentHref()) navigate(next);
+    },
+    [navigate],
+  );
+  useEffect(() => {
+    if (mode !== 'experiments' && mode !== 'replay') return;
+    setExperimentId(
+      experimentConfiguration(new URL(href, 'http://local.invalid').search, vehicleId),
+    );
+  }, [href, vehicleId, mode]);
+  useEffect(() => {
+    if (mode !== 'experiments' && mode !== 'replay') return;
+    const controller = new AbortController();
+    setExperimentVehicle(null);
+    setExperimentSourceError('');
+    void getJson<InspectionDocument>(
+      `/api/vehicles/${encodeURIComponent(experimentId)}`,
+      controller.signal,
+    )
+      .then((value) => {
+        if (!controller.signal.aborted)
+          setExperimentVehicle(requireInspectionSource(value, experimentId));
+      })
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted)
+          setExperimentSourceError(
+            reason instanceof Error ? reason.message : 'Experiment configuration unavailable.',
+          );
+      });
+    return () => controller.abort();
+  }, [experimentId, mode]);
   useEffect(() => {
     const changed = () => setHref(currentHref());
     window.addEventListener('popstate', changed);
@@ -101,6 +169,7 @@ export default function App() {
     setVehicle(null);
     setMass(null);
     setBurn(0);
+    setRecordedCaseIndex(0);
     setVehicleError('');
     setMassError('');
     resetVehicle();
@@ -120,7 +189,7 @@ export default function App() {
 
   const [partLinkNotice, setPartLinkNotice] = useState<string | null>(null);
   useEffect(() => {
-    if (!vehicle || mode !== 'design') return;
+    if (!vehicle || (mode !== 'design' && mode !== 'analysis')) return;
     const link = readPartLink(new URL(href, 'http://local.invalid').search, vehicle);
     setPartLinkNotice(link.notice);
     if (link.notice || link.part !== null) useInspection.getState().select(link.part);
@@ -128,7 +197,7 @@ export default function App() {
     return useInspection.subscribe((state, previous) => {
       if (state.selectedId === previous.selectedId) return;
       if (state.selectedId && !vehicle.parts.some((p) => p.id === state.selectedId)) return;
-      const next = partHref(currentHref(), vehicle, state.selectedId);
+      const next = partHref(currentHref(), vehicle, state.selectedId, mode);
       window.history.replaceState(null, '', next);
       setHref(next);
     });
@@ -136,6 +205,15 @@ export default function App() {
 
   useEffect(() => {
     if (!vehicle) return;
+    if (vehicle.id === 'G80-F2-RP1-AD1-definition-v2') {
+      setMass(selectedRecordedCase?.mass || null);
+      setMassLoading(false);
+      setMassError(
+        recordedCaseContext.error ||
+          (selectedRecordedCase ? '' : 'Saved estimated cases unavailable.'),
+      );
+      return;
+    }
     const controller = new AbortController();
     setMassLoading(true);
     setMass(null);
@@ -162,7 +240,7 @@ export default function App() {
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [vehicle, burn]);
+  }, [vehicle, burn, selectedRecordedCase, recordedCaseContext.error]);
 
   useEffect(() => {
     function keydown(event: KeyboardEvent) {
@@ -410,6 +488,11 @@ export default function App() {
                   </dd>
                   <dt>Recorded CAD revision</dt>
                   <dd>{inspectionContext.cadRevision || 'Unavailable for the requested source'}</dd>
+                  <dt>Inspection geometry revision</dt>
+                  <dd>
+                    {inspectionContext.inspectionGeometry ||
+                      'Unavailable; no source-derived inspection mesh is attached'}
+                  </dd>
                   <dt>Geometry coverage</dt>
                   <dd>
                     {vehicle
@@ -470,13 +553,24 @@ export default function App() {
             </main>
           }
         >
-          <Experiment
-            configurationId={vehicleId}
-            vehicle={vehicle}
-            onConfigurationChange={changeConfiguration}
-            workspace={mode}
-            onOpenReplay={() => navigate(workspaceHref(currentHref(), 'replay'))}
-          />
+          <>
+            {experimentSourceError && (
+              <p role="status">
+                Experiment setup geometry unavailable: {experimentSourceError}. The working Design
+                remains {vehicleId}.
+              </p>
+            )}
+            <Experiment
+              configurationId={experimentId}
+              vehicle={experimentVehicle?.id === experimentId ? experimentVehicle : null}
+              onConfigurationChange={changeExperimentConfiguration}
+              initialRunId={experimentParams.get('run') || undefined}
+              initialComparisonId={experimentParams.get('compare') || undefined}
+              onRunSelect={selectRunRoute}
+              workspace={mode}
+              onOpenReplay={() => navigate(workspaceHref(currentHref(), 'replay'))}
+            />
+          </>
         </Suspense>
       ) : inspectionError ? (
         <main className="center-state">
@@ -516,6 +610,14 @@ export default function App() {
           source={
             <>
               {partLinkNotice && <p role="alert">{partLinkNotice}</p>}
+              {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' &&
+                !vehicle.summary.inspection_geometry && (
+                  <p role="status">
+                    This backend has not supplied the RP1 inspection-model contract. After updating,
+                    restart the normal-terminal preview with make preview; the source drawing
+                    remains available.
+                  </p>
+                )}
               {constructionNotice}
               {catalogError && (
                 <p className="route-notice" role="status">
@@ -539,6 +641,28 @@ export default function App() {
               <DesignVisual
                 key={vehicle.id}
                 vehicle={vehicle}
+                recordedCaseControls={
+                  recordedCaseContext.cases.length > 0 ? (
+                    <label className="saved-mass-case-control">
+                      Recorded estimated case
+                      <select
+                        aria-label="Recorded estimated mass and balance case"
+                        value={recordedCaseIndex}
+                        onChange={(event) => setRecordedCaseIndex(Number(event.target.value))}
+                      >
+                        {recordedCaseContext.cases.map((entry, index) => (
+                          <option key={entry.id} value={index}>
+                            {entry.label}
+                          </option>
+                        ))}
+                      </select>
+                      <small>
+                        {selectedRecordedCase?.description} Markers show saved estimates; no
+                        burn-state or inertia model is admitted.
+                      </small>
+                    </label>
+                  ) : undefined
+                }
                 meshView={
                   <Viewer
                     key={`viewer-${vehicle.id}`}

@@ -34,7 +34,7 @@ export function partHref(
   href: string,
   source: InspectionDocument,
   part: string | null,
-  workspace: 'design' | 'engineering' = 'design',
+  workspace: 'design' | 'engineering' | 'analysis' = 'design',
 ) {
   if (part !== null && !source.parts.some((p) => p.id === part))
     throw new Error('Unknown source part');

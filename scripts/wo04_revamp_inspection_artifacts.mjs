@@ -12,12 +12,13 @@ const vehicle = JSON.parse(bytes);
 if (
   vehicle.id !== "G80-F2-RP1-AD1-definition-v2" ||
   vehicle.parts.length !== 55 ||
-  vehicle.parts.some((p) => p.mesh_url) ||
   vehicle.identity.specification_sha256 !==
     "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
 )
   throw Error("Wrong current inspection source");
-const output = "output/frontend-revamp-20261107";
+const outputFlag = process.argv.indexOf("--output");
+const output = outputFlag >= 0 ? process.argv[outputFlag + 1] : "output/frontend-revamp-20261107";
+if (!output) throw Error("Missing output path");
 fs.mkdirSync(output, { recursive: true });
 const server = await createServer({
   configFile: false,
@@ -75,16 +76,18 @@ try {
         }),
         identity: e(WorkspaceIdentityStrip, {
           name: vehicle.label,
-          maturity: "Current source concept, not complete CAD",
+          maturity: "Current source concept; static 2D export, not a rendered 3D scene",
         }),
         footer: e("small", null, "Preliminary; engineering acceptance open"),
       },
       e(InspectionWorkspace, {
         tree: e(PartsTree, { parts: vehicle.parts }),
-        visual: e(DesignVisual, {
-          vehicle,
-          meshView: e("p", null, "Matching AD1 3D CAD unavailable"),
-        }),
+        visual: vehicle.identity.inspection_geometry_sha256
+          ? e(OrthographicDesign, { vehicle, selectedPartId: "fin_set", onSelectPart: () => {} })
+          : e(DesignVisual, {
+              vehicle,
+              meshView: e("p", null, "Matching AD1 3D CAD unavailable"),
+            }),
         inspector: e(InspectionPanel, { vehicle, mass: null }),
       }),
     ),
@@ -132,7 +135,8 @@ try {
         css_sha256: crypto.createHash("sha256").update(css).digest("hex"),
         raw_spec_sha256: vehicle.identity.specification_sha256,
         parts: 55,
-        representation: "source envelopes / concept, not CAD",
+        representation: "source dimensions / concept 2D export; source-derived 3D requires live viewer",
+        inspection_geometry_sha256: vehicle.identity.inspection_geometry_sha256 ?? null,
         browser_verified: false,
         image_rendered: false,
         engineering_accepted: false,
