@@ -1,3 +1,9 @@
+import Rp1Connections from './Rp1ConnectionsView';
+import {
+  RP1_CONNECTIONS_CONFIGURATION,
+  RP1_CONNECTIONS_SHA256,
+  RP1_CONNECTION_PART_IDS,
+} from './rp1Connections';
 import { useEffect, useState } from 'react';
 import { GeometryViews } from './GeometryViews';
 import { LoadPathViews } from './LoadPathViews';
@@ -58,6 +64,18 @@ export default function EngineeringWorkbench() {
   const [route, setRoute] = useState(() =>
     engineeringRoute(typeof window === 'undefined' ? '' : window.location.search),
   );
+  const params = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search);
+  const requestedPart = params.get('part');
+  const sourceMismatch =
+    ['design', 'spec', 'part', 'connection', 'cad'].some((key) => params.getAll(key).length > 1) ||
+    params.has('cad') ||
+    (params.has('design') && params.get('design') !== RP1_CONNECTIONS_CONFIGURATION) ||
+    (params.has('spec') && params.get('spec') !== RP1_CONNECTIONS_SHA256) ||
+    (requestedPart !== null &&
+      (!params.has('design') ||
+        !params.has('spec') ||
+        !RP1_CONNECTION_PART_IDS.some((id) => id === requestedPart))) ||
+    (params.has('connection') && !['fin-root', 'recovery'].includes(params.get('connection')!));
   const view = route.view;
   const construction = isConstructionTopic(view);
   const needsExtension = extensionModes.includes(view as ExtensionMode);
@@ -207,6 +225,39 @@ export default function EngineeringWorkbench() {
       </nav>
     </>
   );
+  if (view === 'rp1-connections')
+    return (
+      <main className="engineering-workbench">
+        {topicNavigation}
+        {sourceMismatch ? (
+          <p role="alert">
+            RP1 connections unavailable: this link has an incompatible design, revision, part or
+            connection. No historical evidence is substituted.
+          </p>
+        ) : (
+          <Rp1Connections
+            requestedPartId={requestedPart || undefined}
+            connectionId={params.get('connection') || undefined}
+            onSelectConnection={(connection) => {
+              const url = new URL(window.location.href);
+              url.searchParams.set('design', RP1_CONNECTIONS_CONFIGURATION);
+              url.searchParams.set('spec', RP1_CONNECTIONS_SHA256);
+              url.searchParams.set('connection', connection);
+              window.history.replaceState(null, '', url);
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }}
+            onSelectPart={(part) => {
+              const url = new URL(window.location.href);
+              url.searchParams.set('design', RP1_CONNECTIONS_CONFIGURATION);
+              url.searchParams.set('spec', RP1_CONNECTIONS_SHA256);
+              url.searchParams.set('part', part);
+              window.history.replaceState(null, '', url);
+              window.dispatchEvent(new PopStateEvent('popstate'));
+            }}
+          />
+        )}
+      </main>
+    );
   if (view === 'rp1-validation')
     return (
       <main className="engineering-workbench">

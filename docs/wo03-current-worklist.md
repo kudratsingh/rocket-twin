@@ -1,5 +1,7 @@
 # Current bounded work list
 
+**RV-08 / RV-11 continuation (2026-11-07):** [RP1 parts and connection evidence](wo04-rp1-connections-20261107.md) adds exact AD1 design/spec/part links between Design and fin-root/recovery relationship drawings. Failed fin calculations stay separate from unverified installed joints; missing mappings are unavailable. [Independent saved-run pose checks](studies/replay-pose-20261107/report.md) validate production replay math, including the nose-up descent and marker-only invalid-attitude state. Code/source/offline checks do not establish browser interactions; the designated-runtime block remains. All five inquiry drafts stay UNSENT; continue from repository evidence without replies. WO-03, physical/build and flight gates remain open.
+
 **Owner revamp direction (2026-11-07):** [RP1-first Design inspection](wo04-rp1-revamp-20261107.md). Use frozen G80-F2-RP1-AD1-definition-v2 as the current source/drawing design. Archived modular-performance-v1 is a separate matching-CAD/replay fixture; no historical mesh or inertia substitutes for RP1. Keep all five supplier/lab drafts UNSENT and proceed from repository evidence without waiting for replies. Expose estimates and missing details for later authorized measurement. Two adjacent independently collapsible left columns, dominant visual and a slim tools drawer replace the crowded Design layout. The 21 RV tasks map to the existing 43 FT tasks; code/offline checks and browser acceptance remain separate. WO-03, purchases, physical/test, paid-run, WO-10 and flight gates remain unchanged.
 
 **Owner continuation (2026-11-06):** [VP1 inquiry-to-test decision](wo03-vp1-response-decision-20261106.md). The owner will supply actual send dates and replies for the five prepared inquiries. Track each actual send independently: one day-5 follow-up, day-10 business-day close; no dates or replies are recorded yet. Prepare one room-temperature test recommendation with the lab method, itemized all-in cost and D1 pass/fail meaning; return it for owner approval before purchases or testing. Frozen drafts/package and engineering criteria remain unchanged. Continue the next bounded frontend backlog task; browser observation remains separate from code/offline checks.
@@ -12,6 +14,14 @@ change; do not attempt to restore Private. Continue the existing focused
 PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services,
 physical work and flight release still require their existing authorizations.
 The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
+
+## Current completed code packets / pending observation
+
+| Deliverable / owner | Source and budget | Result / stop |
+| --- | --- | --- |
+| RV-08 graphs and pinned export / Astra MEDIUM + Terra HIGH | Frozen AD1 v2, D1 and four saved SVGs; one 40/35-minute implementation plus correction | Two source graphs, 55-part mapping and unavailable states; no new engineering calculation. Stop at unknown evidence and browser ownership. |
+| RV-11 pose validation / Terra HIGH | Exact saved archived run; one read ≤30 CPU/60 wall seconds | Production helper vs independent scalar reference; completed 0.240 CPU/0.350 wall. No rerun or extrapolated actor. |
+| Routes, source guards and acceptance ledger / primary | One integrated source/check/publication slice | Exact source/part URLs and source mismatch checks. Required checks before merge; no browser/build/flight acceptance inferred. |
 
 ## Current revamp first slice — code and source evidence, browser blocked
 

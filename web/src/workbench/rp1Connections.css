@@ -1,0 +1,201 @@
+.rp1-connections {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 22px;
+  color: #dce9f1;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.rp1-connections h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  margin: 8px 0 16px;
+}
+.rp1-connections h2 {
+  font-size: 1.2rem;
+  margin: 22px 0 10px;
+}
+.rp1-connections h3 {
+  font-size: 1rem;
+  color: #e0eef6;
+  margin: 10px 0;
+}
+.rp1-connections p {
+  margin: 10px 0;
+}
+.rp1-connections-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #9ad4f4;
+}
+.rp1-connections-warning {
+  padding: 12px 16px;
+  border-left: 3px solid #efbd74;
+  background: #302b22;
+  color: #f0cf9b;
+}
+.rp1-connections summary {
+  cursor: pointer;
+  padding: 10px 0;
+  font-weight: 600;
+}
+.rp1-connections-tabs,
+.rp1-connections-part-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.rp1-connections button,
+.rp1-connections-design-link {
+  border: 1px solid #607b8d;
+  background: #182f40;
+  color: #ddf3ff;
+  border-radius: 5px;
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.rp1-connections button[aria-pressed='true'] {
+  background: #28506a;
+  border-color: #a2e5ff;
+}
+.rp1-connections-graphs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.rp1-connections-graphs article {
+  border: 1px solid #435a6b;
+  border-radius: 8px;
+  padding: 10px;
+}
+.rp1-connections-graphs article.is-active {
+  border-color: #99d7f5;
+}
+.rp1-connections-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.rp1-connections-graph [role='button'] {
+  cursor: pointer;
+}
+.rp1-connections-graph [role='button']:focus-visible rect {
+  stroke: #fff;
+  stroke-width: 4;
+}
+.rp1-connections ol {
+  list-style: decimal;
+  padding-left: 24px;
+}
+.rp1-connections ol li {
+  margin-bottom: 15px;
+}
+.rp1-connections-selection {
+  margin-top: 22px;
+  padding: 16px 20px;
+  border-left: 3px solid #8bd5f5;
+  background: #142633;
+}
+.rp1-connections-design-link {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 8px;
+}
+.rp1-connections-muted,
+.rp1-connections small {
+  color: #aec4d2;
+}
+.rp1-connections-dimensions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.rp1-connections-dimensions > div {
+  border: 1px solid #435a6b;
+  padding: 14px;
+  border-radius: 5px;
+}
+.rp1-connections-dimensions dt {
+  color: #b9d6e7;
+  font-size: 0.85rem;
+}
+.rp1-connections-dimensions dd {
+  margin: 6px 0 0;
+}
+.rp1-connections-dimensions dd > strong {
+  font-size: 1.1rem;
+}
+.rp1-connections-source {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 8px;
+}
+.rp1-connections-source span {
+  display: block;
+}
+.rp1-connections-findings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.rp1-connections-findings article {
+  padding: 16px;
+  border: 1px solid #687d8b;
+  border-radius: 5px;
+  background: #162632;
+}
+.rp1-connections-findings [data-status='failed-screen'] {
+  border-left: 4px solid #ed9e97;
+}
+.rp1-connections-findings [data-status='unknown'] {
+  border-left: 4px solid #dfbc7f;
+}
+.rp1-connections-finding-status {
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: #e9c79a;
+}
+.rp1-connections-findings [data-status='failed-screen'] .rp1-connections-finding-status {
+  color: #f7b6b1;
+}
+.rp1-connections-drawing {
+  padding: 4px 14px 12px;
+  border: 1px solid #435a6b;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.rp1-connections-drawing img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 10px auto;
+  background: #f5f8fa;
+}
+.rp1-connections a {
+  color: #9edfff;
+}
+.rp1-connections footer {
+  border-top: 1px solid #435a6b;
+  margin-top: 24px;
+  padding-top: 10px;
+}
+.rp1-connections :is(button, a, summary):focus-visible {
+  outline: 2px solid #b5eaff;
+  outline-offset: 3px;
+}
+@media (max-width: 1000px) {
+  .rp1-connections-graphs,
+  .rp1-connections-dimensions,
+  .rp1-connections-findings {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .rp1-connections {
+    padding: 12px;
+  }
+}

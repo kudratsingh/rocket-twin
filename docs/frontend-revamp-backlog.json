@@ -297,19 +297,25 @@
         "web/src/workbench/EngineeringWorkbench.tsx",
         "web/src/workbench/Rp1StudyComparison.tsx",
         "web/src/workbench/Vp1ValidationView.tsx",
-        "web/src/workbench/rp1StudyExport.ts"
+        "web/src/workbench/rp1StudyExport.ts",
+        "web/src/workbench/Rp1ConnectionsView.tsx",
+        "src/api/rp1_connections.py",
+        "web/src/workspaces/partLinks.ts"
       ],
       "check_ids": [
         "RV-Q20",
         "RV-Q21"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Retain historical topics, separate RP1 studies and VP1 programme. Give one selected diagram the primary workspace with contextual evidence and portable exports.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/wo04-rp1-connections-20261107.md"
+      ]
     },
     {
       "id": "RV-09",
@@ -400,7 +406,9 @@
       "source_paths": [
         "web/src/experiments/Experiment.tsx",
         "web/src/experiments/replayValidity.ts",
-        "web/src/experiments/channels.ts"
+        "web/src/experiments/channels.ts",
+        "web/src/experiments/replayPose.ts",
+        "scripts/wo05_replay_pose_reference.py"
       ],
       "check_ids": [
         "RV-Q25",
@@ -415,7 +423,9 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo05-replay-window-20261107.md"
+        "docs/wo05-replay-window-20261107.md",
+        "docs/wo04-rp1-connections-20261107.md",
+        "docs/studies/replay-pose-20261107/report.md"
       ]
     },
     {

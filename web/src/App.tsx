@@ -21,6 +21,8 @@ import {
 } from './workspaces/WorkspaceChrome';
 import { readWorkspace, workspaceHref, designHref } from './workspaces/navigation';
 
+import { readPartLink, partHref } from './workspaces/partLinks';
+
 function currentHref() {
   return typeof window === 'undefined'
     ? '/'
@@ -115,6 +117,22 @@ export default function App() {
       });
     return () => controller.abort();
   }, [vehicleId, retry, resetVehicle]);
+
+  const [partLinkNotice, setPartLinkNotice] = useState<string | null>(null);
+  useEffect(() => {
+    if (!vehicle || mode !== 'design') return;
+    const link = readPartLink(new URL(href, 'http://local.invalid').search, vehicle);
+    setPartLinkNotice(link.notice);
+    if (link.notice || link.part !== null) useInspection.getState().select(link.part);
+    if (link.notice) return;
+    return useInspection.subscribe((state, previous) => {
+      if (state.selectedId === previous.selectedId) return;
+      if (state.selectedId && !vehicle.parts.some((p) => p.id === state.selectedId)) return;
+      const next = partHref(currentHref(), vehicle, state.selectedId);
+      window.history.replaceState(null, '', next);
+      setHref(next);
+    });
+  }, [vehicle, href, mode]);
 
   useEffect(() => {
     if (!vehicle) return;
@@ -497,6 +515,7 @@ export default function App() {
         <InspectionWorkspace
           source={
             <>
+              {partLinkNotice && <p role="alert">{partLinkNotice}</p>}
               {constructionNotice}
               {catalogError && (
                 <p className="route-notice" role="status">

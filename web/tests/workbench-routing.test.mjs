@@ -14,14 +14,14 @@ import {
 } from '../src/workbench/workbenchRouting.ts';
 
 test('current construction defaults independently; explicit historical topics remain addressable', () => {
-  assert.deepEqual(engineeringRoute(''), { view: 'g80-f2', notice: null });
+  assert.deepEqual(engineeringRoute(''), { view: 'rp1-connections', notice: null });
   for (const [view] of engineeringTopics) {
     assert.deepEqual(engineeringRoute(`?workspace=engineering&view=${view}`), {
       view,
       notice: null,
     });
   }
-  assert.equal(engineeringRoute('?view=obsolete').view, 'g80-f2');
+  assert.equal(engineeringRoute('?view=obsolete').view, 'rp1-connections');
   assert.match(engineeringRoute('?view=obsolete').notice, /Unknown engineering topic/);
   for (const view of ['a1', 'g80-fixed', 'g80-f2', 'rp1-validation']) assert.equal(isConstructionTopic(view), true);
   assert.equal(isConstructionTopic('geometry'), false);
@@ -117,8 +117,8 @@ test('default construction shell renders before the absent C1 document guard and
       '/src/workbench/EngineeringWorkbench.tsx',
     );
     const markup = renderToStaticMarkup(React.createElement(EngineeringWorkbench));
-    assert.match(markup, /Independent recorded construction snapshot/);
-    assert.match(markup, /Loading G80-F2 stock construction source snapshot/);
+    assert.match(markup, /Current RP1 connections/);
+    assert.match(markup, /Loading source-pinned AD1 connections/);
     assert.match(markup, /aria-label="Engineering views"/);
     assert.doesNotMatch(markup, /Loading the recorded engineering walkthrough/);
     assert.equal((markup.match(/aria-current="page"/g) || []).length, 1);
