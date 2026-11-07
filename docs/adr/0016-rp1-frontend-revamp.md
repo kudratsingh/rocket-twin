@@ -56,3 +56,10 @@ and other agents abstain. The supported first discovery found no available
 browser host, rather than another ownership rejection. Current consent replaces
 the earlier Terra-only designation, but no live browser acceptance is established.
 See [release scope/dispositions](../frontend-release-20261107.md).
+
+Later November7 observation: documented native Chrome controls succeeded in the
+same owner-authorized window and CUA runtime. The access prerequisite is satisfied;
+extension-host unavailability does not bar this supported route. Current live
+API is stale relative to prepared RP1 assets. Owner normal-terminal preview
+restart precedes combined-release verification; old-backend screenshots are
+baseline evidence only.
