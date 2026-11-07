@@ -307,7 +307,12 @@ test(
       const document = JSON.parse(readFileSync(actualPath, 'utf8'));
       requireInspectionSource(document, AD1);
       assert.equal(document.parts.length, 55);
-      assert.ok(document.parts.every((part) => !part.mesh_url));
+      const meshCount = document.parts.filter((part) => !!part.mesh_url).length;
+      if (document.identity.inspection_geometry_sha256) {
+        assert.equal(meshCount, 26);
+        assert.equal(document.summary.inspection_geometry.source_parts, 55);
+        for (const part of document.parts) if (['mass_allowance', 'missing_geometry'].includes(part.representation.role)) assert.ok(!part.mesh_url);
+      } else assert.equal(meshCount, 0);
       assert.equal(document.summary.mass_cases.length, 4);
       assert.equal(
         document.identity.specification_sha256,
@@ -316,8 +321,13 @@ test(
       assert.equal(document.identity.cad_revision_sha256, null);
       assert.equal(document.summary.physical_inertia, null);
       const html = renderDesign(document, '3d');
-      assert.match(html, /data-representation="2d"/);
-      assert.match(html, /No recorded component meshes/);
+      if (meshCount) {
+        assert.match(html, /data-representation="3d"/);
+        assert.match(html, /Source-derived inspection model/);
+      } else {
+        assert.match(html, /data-representation="2d"/);
+        assert.match(html, /No recorded component meshes/);
+      }
       const panel = renderToStaticMarkup(
         React.createElement(InspectionPanel, { vehicle: document, mass: null }),
       );

@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from src.api.rp1_inspection import build
+from src.api.rp1_inspection_view import build
 
 
 def main() -> None:
