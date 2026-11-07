@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "created_date": "2026-11-06",
-  "status": "source_release_candidate_browser_host_blocked",
+  "status": "source_release_candidate_host_restart_pending",
   "source_ledger": "docs/frontend-workbench-backlog.json",
   "source_ledger_updated_date": "2026-11-07",
   "check_matrix": "acceptance-matrix.csv",
   "thresholds": "Proposed for revamp. Prior evidence remains attributed to its recorded implementation slice.",
-  "browser_status": "blocked_browser_access_host_unavailable",
+  "browser_status": "native_chrome_available_live_backend_restart_pending",
   "tasks": [
     {
       "id": "RV-01",
@@ -32,17 +32,18 @@
         "RV-Q01",
         "RV-Q02"
       ],
-      "status": "partial",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Capture existing routes, fixtures, actual asset identities, viewport targets and retained controls before extracting the shell.",
       "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         "docs/wo04-rp1-revamp-20261107.md",
         "docs/frontend-release-20261107.md"
-      ]
+      ],
+      "acceptance_scope": "This task has offline source-contract/audit criteria only; no browser, engineering or product release is inferred."
     },
     {
       "id": "RV-02",
@@ -72,17 +73,18 @@
       "check_ids": [
         "RV-Q03"
       ],
-      "status": "partial",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Agree additive contracts and verify frame, pose, phase, event and missingness assumptions using saved data independently of shell work.",
       "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         "docs/wo05-replay-window-20261107.md",
         "docs/frontend-release-20261107.md"
-      ]
+      ],
+      "acceptance_scope": "This task has offline source-contract/audit criteria only; no browser, engineering or product release is inferred."
     },
     {
       "id": "RV-03",
@@ -106,17 +108,17 @@
       "check_ids": [
         "RV-Q04"
       ],
-      "status": "blocked_runtime",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Record the exact supported access prerequisite and its status before scheduling browser actions.",
       "codeVerified": false,
-      "browserObserved": false,
-      "accepted": false,
-      "blocker": "Owner authorization resolved; supported browser access host unavailable. Normal-host startup and runtime observations pending.",
+      "browserObserved": true,
+      "accepted": true,
       "evidence": [
         "docs/frontend-release-20261107.md"
-      ]
+      ],
+      "acceptance_scope": "Supported same-window native Chrome access observed under the owner authorized named verifier; not combined-release interaction acceptance."
     },
     {
       "id": "RV-04",
@@ -728,7 +730,7 @@
       "codeVerified": false,
       "browserObserved": false,
       "accepted": false,
-      "blocker": "Owner authorization resolved; supported browser access host unavailable. Normal-host startup and runtime observations pending.",
+      "blocker": "Native Chrome access works. Served live API is stale; owner normal-terminal preview restart then combined-release verification required.",
       "evidence": [
         "docs/frontend-release-20261107.md"
       ]
@@ -777,7 +779,7 @@
       "codeVerified": false,
       "browserObserved": false,
       "accepted": false,
-      "blocker": "Owner authorization resolved; supported browser access host unavailable. Normal-host startup and runtime observations pending.",
+      "blocker": "Native Chrome access works. Served live API is stale; owner normal-terminal preview restart then combined-release verification required.",
       "evidence": [
         "docs/frontend-release-20261107.md"
       ]

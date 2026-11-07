@@ -2,11 +2,65 @@
 
 **Current blocker:** owner consent and the named verifier are resolved. The supported inventory returned **“The browser access host is unavailable”**. Chrome running does not expose a browser tab. The original ownership investigation below is historical; do not use it to ask for the same consent again. Normal-host preview startup and live browser checks remain pending.
 
-Date: 2026-11-07. This records bounded access research, the subsequently
-owner-authorized first discovery call, and an unexecuted verification protocol.
-No browser tab, native application, headless/CDP path, sandbox escalation or
-preview startup was used. It does not establish browser access, a running host
-preview or browser acceptance.
+Date: 2026-11-07. This records bounded access research, subsequent explicit
+owner reassignment, and supported native interaction with the same authorized
+Chrome window. Native Chrome access now works through `cua_repl`; the extension
+browser access host remains unavailable. The served live RP1 API is older than
+the prepared geometry source, so combined-release browser acceptance remains
+pending a normal-host backend restart and recheck. No other app/window,
+headless/CDP path, sandbox escalation or preview startup was used by this agent.
+
+## Current observed state
+
+After the owner explicitly authorized the sole open Chrome window and any tabs
+needed within it, the primary assigned `/root/browser_access_sol` sole browser
+verification ownership. A documented `cua.getApp('Google Chrome')` call succeeded
+and exposed that same sole window, titled `Rocket Twin · Vehicle inspection`,
+with one initial tab at `http://127.0.0.1:5173/`. This is supported native input
+through the existing CUA runtime, not another browser/runtime or a headless/CDP
+route. No automatic approval rejection occurred on either new discovery call.
+The historical ownership rejection remains preserved below.
+
+The actual initial site was reachable at Chrome zoom 125%, showing RP1's older
+drawing-only API source. Reload did not change that state. A second tab in the
+same window displayed `/api/vehicles/G80-F2-RP1-AD1-definition-v2`; native browser
+Find for `inspection_geometry_sha256` returned **No results**. In contrast, the
+served prepared `/engineering-workbench/rp1-ad1-inspection.json` visibly contained
+the current source-derived inspection status and geometry digest
+`238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608`, with matching
+specification `811b3bed…`, record `bc349a24…` and canonical resolved/CAD hashes null.
+These observations isolate a stale live API response alongside an updated
+prepared source. They do not attribute the running API to the combined release.
+
+Chrome zoom was then reset to 100% with the documented native key API. Ordinary
+Chrome DevTools UI, without entering console code or using a remote protocol,
+exposed the responsive viewport controls. Width **1440** and height **900** were
+confirmed in those controls. A native DevTools **Capture screenshot** action
+downloaded the old-backend viewport; Chrome confirmed the download completed.
+The unchanged image is retained at
+`runs/frontend-browser-20261107/old-backend-design-1440x900.png` (2880 × 1800 raster,
+SHA-256 `b45dbc42c6e6a1d2b25e85133712e074dfb7a9539947d2841be8ec229ebc9175`).
+The 2× raster dimensions are observed; a JavaScript `devicePixelRatio` read was
+not performed. This screenshot is explicitly old-source evidence, not the
+current RP1 3D model or release-layout acceptance.
+
+A temporary `chrome://version/` tab in the same window reported Google Chrome
+156.0.8078.80 (Official Build, arm64), revision
+`fb096c0011f9d50f0a264a9376420cdea9c421e3`, macOS 27.2 (Build 26B123), and
+V8 15.6.75.27. That temporary version tab was then closed; the original Design
+tab remains selected with the 1440 × 900 responsive viewport ready for recheck.
+
+Read-only native Console UI showed a failed resource with HTTP 503 for
+`/api/motors/aerotech-g80-10t-SKU78010-provisional/curve`, plus React DevTools
+informational text. This failure belongs to the observed older served state and
+must be rechecked after restart before attributing it to the current source.
+
+The next owner action is to restart the existing preview from the normal host
+terminal (`Ctrl-C`, then `make preview` at this checkout), retain its output, and
+report readiness. The verifier then reloads the same Chrome tab and checks the
+live API's geometry digest, 26 mesh references, four saved mass cases and actual
+rendered model before proceeding with the full protocol. Extension/plugin repair
+is no longer the blocking path while supported native same-window control works.
 
 ## Access result
 
@@ -53,7 +107,7 @@ Neither documented a repair for this project's designated-runtime ownership
 rejection. The general computer-use API does not authorize a replacement
 automation route for this project.
 
-## Earliest required owner/provider action
+## Historical owner/provider handoff before the new reassignment
 
 The owner/runtime provider must identify and restore the original designated
 Terra execution context and its supported ownership of the existing Chrome
@@ -197,3 +251,11 @@ field data additionally missing for covered-field visual paths); optional
 Mission ControlRV-Q35 is not applicable because RV-17 is explicitly deferred.
 This supersedes the initial pre-disposition count of25blocked rows; it does not
 turn any unobserved browser check into a pass.
+
+Latest ledger checkpoint after native control succeeded: RV-01/02 offline tasks
+and RV-03 access are complete within their own scopes. RV-Q04 is now pass;
+13rows have source/access evidence,23current-release browser rows remain pending
+the currentAPIrestart (plus covered-field data where applicable), and optional
+RV-Q35 is not applicable. The old-backend screenshot is not a current-release
+layout or interaction pass. This supersedes the preceding host-only blockage
+and pre-native row counts.

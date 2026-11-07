@@ -50,7 +50,8 @@ separate inspection/replay reference. The [frontend revamp](docs/wo04-rp1-revamp
 implements adjacent collapsible left columns, a larger visual and a bottom tools
 drawer; [the release candidate](docs/frontend-release-20261107.md) also implements
 bounded experiments/batches, replay/export and recorded Analysis workflows.
-Browser acceptance remains blocked by the unavailable supported access host.
+Supported same-window native Chrome verification is available. Combined-release
+acceptance awaits a normal-terminal preview restart and the remaining live checks.
 
 VP1 remains a proposed evidence programme using ordinary birch plywood and WEST
 105/206/406, not vehicle adoption. **The five inquiry drafts remain UNSENT under
