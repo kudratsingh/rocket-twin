@@ -1,4 +1,5 @@
 export const engineeringTopics = [
+  ['rp1-connections', 'Current RP1 connections & evidence'],
   ['g80-f2', 'G80-F2 stock construction'],
   ['rp1-studies', 'RP1 FP1 / FR1 studies'],
   ['rp1-validation', 'VP1 validation programme'],
@@ -24,8 +25,11 @@ export function engineeringRoute(search: string): {
   const value = new URLSearchParams(search).get('view');
   const match = engineeringTopics.find(([id]) => id === value);
   return {
-    view: match?.[0] ?? 'g80-f2',
-    notice: value && !match ? `Unknown engineering topic “${value}”. Showing G80-F2.` : null,
+    view: match?.[0] ?? 'rp1-connections',
+    notice:
+      value && !match
+        ? `Unknown engineering topic “${value}”. Showing current RP1 connections.`
+        : null,
   };
 }
 export function engineeringHref(href: string, view: EngineeringTopic): string {
@@ -36,6 +40,7 @@ export function engineeringHref(href: string, view: EngineeringTopic): string {
 }
 export function isConstructionTopic(view: EngineeringTopic): boolean {
   return (
+    view === 'rp1-connections' ||
     view === 'rp1-studies' ||
     view === 'rp1-validation' ||
     view === 'a1' ||

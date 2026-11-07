@@ -36,7 +36,8 @@ export function workspaceHref(href: string, workspace: WorkspaceId): string {
 export function designHref(href: string, design: string): string {
   const url = new URL(href, 'http://local.invalid');
   if (url.searchParams.get('design') !== design) {
-    for (const key of ['part', 'run', 'result', 'compare']) url.searchParams.delete(key);
+    for (const key of ['part', 'spec', 'cad', 'connection', 'run', 'result', 'compare'])
+      url.searchParams.delete(key);
   }
   url.searchParams.set('design', design);
   return `${url.pathname}${url.search}${url.hash}`;

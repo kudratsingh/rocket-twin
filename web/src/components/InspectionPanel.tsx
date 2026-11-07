@@ -1,3 +1,4 @@
+import { partHref } from '../workspaces/partLinks';
 import { displayValue, grams, label, number, partName, title } from '../format';
 import { useInspection } from '../store';
 import type { InspectionDocument, JsonValue, MassSample, Part } from '../types';
@@ -142,10 +143,12 @@ export function PartInspector({
   part,
   parts,
   evidence,
+  design,
 }: {
   part: Part;
   parts: Part[];
   evidence?: Record<string, JsonValue>;
+  design?: InspectionDocument;
 }) {
   const select = useInspection((s) => s.select);
   const isolate = useInspection((s) => s.isolate);
@@ -172,6 +175,16 @@ export function PartInspector({
           <Icon name="close" />
         </button>
       </div>
+      {design &&
+        (design.id === 'G80-F2-RP1-AD1-definition-v2' ? (
+          <p>
+            <a href={partHref('/', design, part.id, 'engineering')}>
+              Open matching Engineering connections and findings
+            </a>
+          </p>
+        ) : (
+          <p>RP1 connection evidence unavailable for this historical design.</p>
+        ))}
       <div className="part-title">
         <span
           className="large-part-dot"
@@ -709,7 +722,12 @@ export function InspectionPanel({
     >
       <div className="inspector-scroll" key={part?.id || vehicle.id}>
         {part ? (
-          <PartInspector part={part} parts={vehicle.parts} evidence={vehicle.evidence} />
+          <PartInspector
+            part={part}
+            parts={vehicle.parts}
+            evidence={vehicle.evidence}
+            design={vehicle}
+          />
         ) : (
           <VehicleSummary vehicle={vehicle} mass={mass} />
         )}

@@ -1,5 +1,7 @@
 # Frontend workbench backlog
 
+Latest RV-08/RV-11 code/source increment: [RP1 connection links and independent replay pose checks](wo04-rp1-connections-20261107.md). Exact source/part links, two graphics and missingness are checked offline; browser acceptance and all engineering gates remain open.
+
 Bounded replay/data continuation: [per-run recorded windows](wo05-replay-window-20261107.md) correct endpoint-held actors during comparison; pose/recovery validation remains open. The analysis inventory records27 incompatible historical manifests; no current overlay is admitted. Code and metadata evidence remain separate from browser observation.
 
 Latest owner revamp (November7): [RP1-first Design slice](wo04-rp1-revamp-20261107.md), [21-task mapped ledger](frontend-revamp-backlog.json) and [37-check matrix](frontend-revamp-acceptance.csv). Existing43FTtasks and prior evidence remain; current source is frozenAD1v2, archivedCAD is separate, inquiriesUNSENT. Browser acceptance remains blocked.

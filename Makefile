@@ -25,10 +25,16 @@ workbench: ## Prepare source-checked engineering graphics data; no solver/CAD ru
 	$(PYTHON) scripts/wo04_rp1_studies_export.py
 	$(PYTHON) scripts/wo04_vp1_validation_export.py
 	$(PYTHON) scripts/wo04_rp1_inspection_export.py
+	$(PYTHON) scripts/wo04_rp1_connections_export.py
 
 .PHONY: workbench-rp1-ad1
 workbench-rp1-ad1: ## Prepare frozen current AD1 source dimensions/cases; no CAD or physics.
 	$(PYTHON) scripts/wo04_rp1_inspection_export.py
+
+.PHONY: workbench-rp1-connections
+workbench-rp1-connections: ## Prepare frozen connection data and actual React artifacts; no solver/browser.
+	$(PYTHON) scripts/wo04_rp1_connections_export.py
+	node scripts/wo04_rp1_connection_artifacts.mjs
 
 .PHONY: workbench-vp1-validation
 workbench-vp1-validation: ## Prepare the source-pinned, unperformed VP1 programme for inspection.

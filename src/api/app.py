@@ -19,7 +19,7 @@ from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.analysis.records import AnalysisRecord, Identity, asset_path, load_compatible
-from src.api import candidate_snapshot, rp1_inspection
+from src.api import candidate_snapshot, rp1_connections, rp1_inspection
 from src.vehicle.aero import center_of_pressure
 from src.vehicle.cad_contract import digest
 from src.vehicle.mass import mass_properties
@@ -617,6 +617,28 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
     @app.get("/api/health")
     def health() -> dict[str, Any]:
         return {"status": "ok", "mode": "read-only recorded inspection", "flight_ready": False}
+
+    @app.get("/api/engineering/rp1-connections")
+    def rp1_connection_data() -> dict[str, Any]:
+        try:
+            return rp1_connections.build(root)
+        except (OSError, ValueError, KeyError) as exc:
+            raise HTTPException(409, "RP1 connection sources unavailable or incompatible") from exc
+
+    @app.get("/api/engineering/rp1-connections/drawings/{drawing_id}")
+    def rp1_connection_drawing(drawing_id: str, spec: str, sha256: str) -> Response:
+        if drawing_id not in rp1_connections.DRAWING_IDS:
+            raise HTTPException(404, "Unknown RP1 drawing")
+        if spec != rp1_connections.PINS[rp1_connections.SPEC]:
+            raise HTTPException(409, "Incompatible RP1 design revision")
+        try:
+            path, expected = rp1_connections.asset(root, drawing_id)
+            data = path.read_bytes()
+            if expected != sha256 or hashlib.sha256(data).hexdigest() != expected:
+                raise ValueError("Drawing bytes mismatch")
+        except (OSError, ValueError, KeyError) as exc:
+            raise HTTPException(409, "RP1 drawing unavailable or incompatible") from exc
+        return Response(data, media_type="image/svg+xml", headers={"ETag": expected})
 
     @app.get("/api/engineering/workbench")
     def engineering_workbench() -> dict[str, Any]:
