@@ -1,0 +1,15 @@
+# Replay pose and time contract — pre-correction audit, 2026-11-07
+
+This is the frozen pre-correction source audit. The following window mismatch is addressed by the separately documented bounded correction in `docs/wo05-replay-window-20261107.md`; pose/recovery validity remains open.
+
+The saved run confirms nose-up descent in model output; it does not establish a renderer fault or physically valid suspended-body pose. Source identities and the saved raw sample are in [replay-contract-audit.json](replay-contract-audit.json). This audit did not read telemetry, execute Three, simulate, render, use a browser, or edit UI files.
+
+The backend uses NED and body +x noseward; quaternions are scalar-first body-to-world. React constructs Three's `(qx,qy,qz,qw)`, normalizes and interpolates, then composes `sceneFromNed × bodyToNed × bodyFromCad`. CAD +Y maps to body +X; scene axes are east, up, minus north. Position is `(east, −down, −north)`, with CAD shifted by `−(length − cg_station)` along its +Y axis. These are source-level observations, not a rendered landmark check.
+
+One elapsed-time cursor spans the longer comparison run. Scene interpolation clamps each run to an endpoint, including after it ends, while plot readouts return unavailable outside that run’s sample interval. The comparison UI explicitly describes the frozen final pose. Pose helpers assume usable finite, ordered channels; readout helpers validate the time axis and choose the nearest returned sample. Backend playback retains endpoint and event-adjacent samples alongside uniform decimation. Event phase is inferred, and deployment is a modeled apogee-plus-lag marker, not a recorded canopy state.
+
+At T+11.15 s the prior raw diagnostic reports NED downward velocity +5.456039 m/s, nose 4.076303° from up, and landing at T+116.029 s. The stored 11.143–11.182 s playback bracket produced a prior independently calculated 0.000133° quaternion difference from the full-rate sample. This is not a Three or visual test. Current recovery point drag and inflation include angular-rate damping after opening exceeds 0.1; the model has no canopy/line or suspended-body attitude solution. Do not align attitude to velocity or invent an orientation.
+
+**Next increment:** extract a pure per-run pose/time resolver, validate monotonic finite samples and nonzero quaternions, return explicit support/bracket/availability, and use it consistently for the scene, camera and readout coverage. Outside either run's support, retain its path and indicate “outside recorded window” instead of freezing its body as active. Preserve position when pose is unavailable; use marker-only display for unsupported authoritative recovery pose, with any approximate body pose explicitly selected and labeled. Add focused transform, pivot, q/−q, endpoint, malformed data, event boundary and unequal-run tests, including the saved 11.15 fixture. Keep physics and historical records unchanged.
+
+No direct pose-helper fixture was run because current pose functions are private; duplicating their code in a scratch test would not exercise production. Browser and physical validity remain unverified.

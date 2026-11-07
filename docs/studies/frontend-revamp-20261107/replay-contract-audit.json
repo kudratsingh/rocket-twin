@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-07",
+  "scope": "Bounded source read and saved diagnostic reuse. No telemetry read, simulation, CAD, server, network, browser, render, or UI edits. Source hashes bind this local inspection, not a Git revision.",
+  "source_files": [
+    {
+      "path": "web/src/experiments/Experiment.tsx",
+      "sha256": "e6a2469072bc8936425c6aa88170de5ca2a7aba711a415f3558f8d2789311112"
+    },
+    {
+      "path": "web/src/experiments/channels.ts",
+      "sha256": "de43e5ba85991d815892b0ec29b7f63c5b0ec96a1428a414ef46d9dd18d42faa"
+    },
+    {
+      "path": "web/src/experiments/replayValidity.ts",
+      "sha256": "83950d6c0fe4a15882f997633db9f2228c33d2ae064b683527c3568975521bf7"
+    },
+    {
+      "path": "web/src/experiments/runExport.ts",
+      "sha256": "833d2232c80a567241b8b87440ede49aea1bb9ecb3fc09d157f23da6ca5eb7f0"
+    },
+    {
+      "path": "src/sim/frames.py",
+      "sha256": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1"
+    },
+    {
+      "path": "src/sim/dynamics.py",
+      "sha256": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54"
+    },
+    {
+      "path": "src/sim/env.py",
+      "sha256": "9e11d912437893fcc33f70fe7aff62d899c62405e8581d3d0d336cf4e0e6f6f9"
+    },
+    {
+      "path": "src/api/experiments.py",
+      "sha256": "eef524c58a8e5bc11b1bced5324aad02976ffcebabaacdd851d9a7110ab3fa62"
+    },
+    {
+      "path": "src/cad/assembly.py",
+      "sha256": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a"
+    },
+    {
+      "path": "output/rocket-twin-frontend-revamp-kit-20261106/context/saved-replay-diagnostic.json",
+      "sha256": "45c9f41d877e82023a08a0f415dead260d3ce28e7d7c9406a26a3b20860ddc71"
+    },
+    {
+      "path": "runs/exp-cf9e47a650074144856caf50775846d2/record.json",
+      "sha256": "c52dbc2829b1d8e30b3fef1d411eb0ca07afc04cf6d62fb80a63f1715bcc5997"
+    }
+  ],
+  "frames": {
+    "backend": "Model world NED, body +x noseward and +z down; scalar-first wxyz body-to-world quaternion.",
+    "glb": "Coordinates are metres; CAD +Y is noseward. assembly.py constructs [v.x*1e-3, length-v.z*1e-3, v.y*1e-3].",
+    "three": "new Quaternion(qx,qy,qz,qw), normalize endpoints, shortest-path Three slerp.",
+    "body_from_cad": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "scene_from_ned": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ],
+      [
+        -1,
+        0,
+        0
+      ]
+    ],
+    "composition": "sceneFromNed \u00d7 rotation(body-to-NED quaternion) \u00d7 bodyFromCad",
+    "position": "[east_m, -down_m, -north_m]",
+    "pivot": "Child GLBs translated [0, -(vehicle length_m - interpolated cg_station_m), 0] in CAD coordinates under the rotated parent.",
+    "limits": "Private functions in Experiment.tsx, not an exported pose helper; no direct helper test was run. Source inspection alone does not verify actual Three execution, mesh alignment, canvas projection, camera, or browser."
+  },
+  "time_contract": {
+    "cursor": "One React time state in elapsed seconds; animation increments performance.now delta \u00d7 speed; slider step 0.01; plot click sets relative SVG x \u00d7 max run end; A event buttons set recorded event time; range end max(last A,last B), reset to 0 at replay end.",
+    "geometry": "Binary lower bound on playback times; interpolate values linearly and normalize + SLERP quaternions between neighboring samples, fraction clamped to [0,1]. Before first sample returns first. Beyond last sample returns last due to lower-bound endpoint and clamped fraction. Assumes nonempty monotonic arrays and required finite columns; these helpers do not validate them.",
+    "comparison": "Both runs use elapsed time from ignition. B is explicitly clamped at its end; A clamps implicitly. UI discloses finished run remains at last pose. This conflicts with kit requirement for outside-recorded-window indication and means geometry may be frozen while readout is unavailable.",
+    "plot_readout": "prepareSamples requires nonempty finite strictly increasing time axis and equal lengths; nearestSample returns null outside the interval and chooses earlier on exact tie. It never interpolates readouts; nonfinite sample is unavailable.",
+    "server": "Telemetry endpoint returns endpoints, up to 3000 uniformly selected indices plus event-adjacent samples; reports full sample count and channel metadata. Export records returned playback samples only.",
+    "events": "Finite, nonnegative event times used for validity; phase labels inferred from apogee/deployment/landing. Source computes apogee on NED down-velocity sign transition, deployment from apogee plus modeled lag if within saved data, landing from impact. Existing event buttons disable null only. Phase ordering check explicitly rejects deployment before apogee, not a full chronology validation."
+  },
+  "recovery_boundary": {
+    "current_ui": "Renders intact rigid meshes with recorded/interpolated body-to-world quaternion throughout; labels recovery attitude approximate and states canopy, lines and separation not replayed.",
+    "model": "After modeled trigger and lag, opening=clip((t-recovery_time-lag)/max(inflation_time,0.001),0,1), forced zero unless trigger and enabled. Point drag scales with opening; when opening >0.1 angular acceleration becomes -5\u03c9. Source explicitly says recovery attitude dynamics not meaningful. No canopy/line or multibody suspension pose.",
+    "interpretation": "Recorded orientation is numerical model output, not a validated physical suspended-body attitude. Nose-up with downward velocity is not itself a transform error. Avoid forced velocity alignment and fabricated rotation. Preserve position even where pose is unsupported."
+  },
+  "saved_diagnostic": {
+    "path": "output/rocket-twin-frontend-revamp-kit-20261106/context/saved-replay-diagnostic.json",
+    "sha256": "45c9f41d877e82023a08a0f415dead260d3ce28e7d7c9406a26a3b20860ddc71",
+    "run_id": "exp-cf9e47a650074144856caf50775846d2",
+    "configuration": "modular-performance-v1",
+    "artifact_sha256_as_previously_measured": {
+      "runs/exp-cf9e47a650074144856caf50775846d2/record.json": "c52dbc2829b1d8e30b3fef1d411eb0ca07afc04cf6d62fb80a63f1715bcc5997",
+      "runs/exp-cf9e47a650074144856caf50775846d2/telemetry.parquet": "ce81a775e824239e9587b95b932c5385834f56e2a2616ff73069b240d95bf5ae",
+      "runs/exp-cf9e47a650074144856caf50775846d2/resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f"
+    },
+    "telemetry_rehashed": false,
+    "identity": {
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+      "trajectory_complete": true,
+      "flight_ready": false
+    },
+    "sample_11_15": {
+      "time_s": 11.14999999999926,
+      "position_ned_m": [
+        5.812538767976135,
+        -0.586904231728608,
+        -632.675945383719
+      ],
+      "velocity_ned_mps": [
+        0.2141624709838991,
+        -0.02161155054022147,
+        5.456038811777479
+      ],
+      "quaternion_wxyz": [
+        0.7316788979028216,
+        0.002962110943286286,
+        0.6816002378544718,
+        -0.0076375401275380495
+      ],
+      "quaternion_norm": 1.0,
+      "body_nose_ned": [
+        0.07072556747505554,
+        -0.007138502839420698,
+        -0.9974702681697051
+      ],
+      "scene_position_east_up_minus_north_m": [
+        -0.586904231728608,
+        632.675945383719,
+        -5.812538767976135
+      ],
+      "scene_nose": [
+        -0.007138502839420698,
+        0.9974702681697051,
+        -0.07072556747505554
+      ],
+      "tilt_from_up_deg": 4.076303102178451,
+      "nose_velocity_angle_deg": 173.66445122211823,
+      "body_rates_rad_s": [
+        0.0008836096162354207,
+        -0.004200750745397129,
+        -0.0003656272665985942
+      ],
+      "landed": false
+    },
+    "playback_at_11_15": {
+      "bracket_indices_zero_based": [
+        11142,
+        11181
+      ],
+      "bracket_times_s": [
+        11.142999999999263,
+        11.181999999999242
+      ],
+      "fraction": 0.17948717950617285,
+      "interpolated_quaternion_wxyz": [
+        0.7316781296814098,
+        0.0029620127663403783,
+        0.6816010656018731,
+        -0.007637302971430475
+      ],
+      "angular_difference_from_nearest_full_sample_deg": 0.00013269521291026679,
+      "meaning": "Independent implementation of current playback interpolation; does not execute frontend Three code or prove rendered agreement."
+    },
+    "record_events_s": {
+      "ignition": 0.0,
+      "guide_exit": 0.17000000000000012,
+      "burnout": 1.8079,
+      "apogee": 10.394999999999678,
+      "deployment": 10.694999999999679,
+      "landing": 116.02900000018997
+    },
+    "full_sample_count": 116029,
+    "playback_sample_count": 3009,
+    "provenance": "Prior independent NumPy source/Parquet diagnostic; not an execution of current Three or visual evidence."
+  },
+  "next_increment": {
+    "objective": "Introduce one pure, unit-tested per-run replay pose/time resolver and use it as the shared source for scene, follow camera and readout coverage.",
+    "requirements": [
+      "Validate finite strictly increasing time samples, matching finite position/quaternion/CG channels, nonzero finite quaternions, and supported interpolation bracket; fail closed with explicit reason rather than guessing missing data.",
+      "Return requested time, support interval, bracket sample times and fraction, and explicit outside-window/unavailable state; linear position/CG interpolation and normalized shortest-path quaternion interpolation only within supported bracket.",
+      "Keep A/B at same requested elapsed time but resolve each independently; hide ended-run live pose and label outside recorded window; preserve its recorded path.",
+      "Show marker-only position with an explicit recovery-pose limitation when authoritative pose is unavailable; any optional approximate body pose must be separately labeled and user-selected. Do not infer a new recovery pose.",
+      "Tests: finite exact endpoints, 11.15 saved fixture, identity/up/sideways landmarks and q/-q, CG pivot, mismatched/missing/zero quaternion, nonmonotonic times, before/after coverage, short A and short B, event boundaries; no UI/browser claims from unit tests."
+    ],
+    "scope_note": "Small contract and call-site change only; do not alter simulation or historical telemetry. Browser evidence remains separately blocked."
+  },
+  "verification": {
+    "numeric_fixture_test": "Not run: the current pose helpers are private; synthetic duplicated code would not exercise production behavior.",
+    "browser_verified": false,
+    "physical_pose_validated": false,
+    "record_integrity": "Current record hash was read; telemetry and resolved byte hashes are reused from prior diagnostic, not rehashed here."
+  },
+  "timing": {
+    "wall_seconds": 0.003,
+    "cpu_seconds": 0.001,
+    "budget_wall_seconds": 20,
+    "budget_cpu_seconds": 10
+  }
+}

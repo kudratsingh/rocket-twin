@@ -1,5 +1,7 @@
 # Frontend workbench backlog
 
+Bounded replay/data continuation: [per-run recorded windows](wo05-replay-window-20261107.md) correct endpoint-held actors during comparison; pose/recovery validation remains open. The analysis inventory records27 incompatible historical manifests; no current overlay is admitted. Code and metadata evidence remain separate from browser observation.
+
 Latest owner revamp (November7): [RP1-first Design slice](wo04-rp1-revamp-20261107.md), [21-task mapped ledger](frontend-revamp-backlog.json) and [37-check matrix](frontend-revamp-acceptance.csv). Existing43FTtasks and prior evidence remain; current source is frozenAD1v2, archivedCAD is separate, inquiriesUNSENT. Browser acceptance remains blocked.
 
 Latest bounded FT-015 slice: [recoverable section/exploded inspection](wo04-inspection-display-20261106.md). Restore assembled inspection, compact display status and source dimensions implemented;93 integrated web tests/build/lint/format pass. Actual React HTML is an offline source artifact; browser observations remain absent.
@@ -47,7 +49,7 @@ Browser observations belong to the established designated owner in the authorize
 | FT-027 | P4 | Add honest event-linked schematic recovery illustration | `experiment_replay_owner` | FT-003, FT-018, FT-025 | planned |
 | FT-028 | P4 | Surface telemetry evidence and validity during playback | `experiment_replay_owner` | FT-019, FT-025 | partial |
 | FT-029 | P4 | Bound replay data transfer and rendering cost | `experiment_replay_owner` | FT-025, FT-026 | planned |
-| FT-030 | P5 | Inventory compatible structural thermal and aero artifacts | `data_analysis_owner` | FT-001, FT-005 | planned |
+| FT-030 | P5 | Inventory compatible structural thermal and aero artifacts | `data_analysis_owner` | FT-001, FT-005 | partial |
 | FT-031 | P5 | Implement analysis identity and registration adapters | `data_analysis_owner` | FT-019, FT-030 | planned |
 | FT-032 | P5 | Build focused analysis selection and unavailable states | `data_analysis_owner` | FT-002, FT-014, FT-031 | planned |
 | FT-033 | P5 | Display true structural fields and margins | `data_analysis_owner` | FT-031, FT-032 | planned |
