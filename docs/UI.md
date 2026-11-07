@@ -35,6 +35,15 @@ annotation, linked hidden states, selection-only/context and local keyboard
 navigation. See `wo04-inspection-refinement-20261103.md`. A read-only host
 preflight is available; it neither starts a server nor resolves browser ownership.
 
+## VP1 programme review slice — 2026-11-06
+
+Engineering includes a separately versioned read-only VP1 stage/part graphic,
+material-cost versus unquoted-total display, and five exact UNSENT draft previews
+with copy/plain-text download. No approval, send or physical-test action is present.
+The [handoff](wo04-vp1-validation-workbench-20261106.md) records source identities
+and pending browser checks. This implements part of the existing verification/
+construction-view scope; no work-order completion or engineering gate changes.
+
 ## Preserved baseline and detailed requirements
 
 A1 connection follow-up is a separate versioned early-workbench snapshot

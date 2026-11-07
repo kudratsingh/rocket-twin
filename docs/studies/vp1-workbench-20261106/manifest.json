@@ -1,0 +1,117 @@
+{
+  "status": "svg_only_native_render_unavailable",
+  "preview_id": "RP1-VP1-inspection-preview-v1",
+  "package": {
+    "id": "RP1-VP1-plywood-validation-package-v1",
+    "path": "configs/studies/rp1-validation-package.yaml",
+    "sha256": "3bc7ef7a01d20599faec2fb7ad8ca6c225243f273fedf9dcc870aa1d2d98eff8"
+  },
+  "configuration": {
+    "id": "G80-F2-RP1-AD1-definition-v2",
+    "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+  },
+  "prepared_data": {
+    "path": "web/public/engineering-workbench/rp1-validation.json",
+    "sha256": "341d9e4bd7f78ae16ca4c298ebf172d28bb12c152fae324278a693453ff9511e"
+  },
+  "sources": [
+    {
+      "path": "configs/studies/rp1-validation-package.yaml",
+      "sha256": "3bc7ef7a01d20599faec2fb7ad8ca6c225243f273fedf9dcc870aa1d2d98eff8"
+    },
+    {
+      "path": "configs/studies/rp1-vp1-equipment-sources.yaml",
+      "sha256": "23d078c51f37da418d3d2eff721d175d6983fb57de627da027df3793ee3ba88b"
+    },
+    {
+      "path": "configs/studies/rp1-vp1-material-sources.yaml",
+      "sha256": "055655529ebaed0ffe2a06c0ec60f991f3efc6cbfc1f7b68cb8b60b0fb46f9a1"
+    },
+    {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/accounting.json",
+      "sha256": "3e511bdd86517528c6ed3c629577934c36b11774a1707e2064deffefbf95abb6"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/messages/01-aircraft-spruce.txt",
+      "sha256": "2394f0420a038494c2da526516022a930f296d4d7983ac5c9bd8018ffcafe537"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/messages/02-loc.txt",
+      "sha256": "254c63e22e6a7301c60e4f237c07bbfd0b2eac28c1c59ba4f75031e135aa9b27"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/messages/03-aerotech.txt",
+      "sha256": "5057d8b24a7d579470eed87bdea74933e3705ea8ff0a8fe6294807a9e8219c9d"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/messages/04-west-system.txt",
+      "sha256": "32b5255959298dc9a14cbf849fe8568988ee8f2d018efe0ae7edbd3be682a08b"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/messages/05-laboratory-rfq.txt",
+      "sha256": "47450541e1cd17a0309cc185447e302dbb5a07233e1105d7abd45411fa5f3e9d"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/package-summary.md",
+      "sha256": "ba8c5cc8d57cd51a5f3140bb9b373b90846ecfc7012805e0a40449b7725abf0b"
+    },
+    {
+      "path": "docs/validation/rp1-vp1/protocol.md",
+      "sha256": "7941ee02b27255c760cbb9d59002452821596e3e30c86835e7b0ad805e31a2ac"
+    },
+    {
+      "path": "scripts/wo03_rp1_vp1_package.py",
+      "sha256": "624888701752087eb8cc77229b560683175d78dd5207b8ba51122da61534d1ca"
+    },
+    {
+      "path": "configs/engineering/rp1-vp1-preview.yaml",
+      "sha256": "1559c2640897c076a05440afda73d20830597e56046ee0bca123ec9345747017"
+    }
+  ],
+  "rendered_sources": [
+    {
+      "path": "web/src/workbench/Vp1ValidationView.tsx",
+      "sha256": "c09ae000c94a0ae97e9bb095a2cc85a718183767308d1efdc90be5e47f3f0891"
+    },
+    {
+      "path": "web/src/workbench/vp1Validation.ts",
+      "sha256": "7b99105cccf9e4861e1470b3749c159492bf96d1309ba72e5ed8a8ece2baaa4b"
+    },
+    {
+      "path": "web/src/workbench/vp1Validation.css",
+      "sha256": "586b200a830308233441a482a83f0ddfc66cfd18b20c50bba638c4a1e9e1b081"
+    },
+    {
+      "path": "scripts/wo04_vp1_view_drawings.mjs",
+      "sha256": "c9b578b11d879832145e083447f7b80a1cb0b8260aa01ea6ba98406ccb52f9c8"
+    }
+  ],
+  "helper": {
+    "path": "runs/wo04-offline-render-feasibility-20261102-v4/native_image_document.swift",
+    "sha256": "bb27ac9104c06684ce6c71659cb6bd45fc2ffd0cc77e08678257ee52d8c96931"
+  },
+  "artifacts": [
+    {
+      "svg": {
+        "path": "output/vp1-workbench-20261106/vp1-graph-1.svg",
+        "sha256": "9ae38f96f07d55b9857871578e4c0da2bfeb0d47164bfd509f2465d5ce1590d9"
+      },
+      "png": null
+    }
+  ],
+  "native_render_seconds": null,
+  "native_render_limit_seconds": 90,
+  "native_render_attempt": {
+    "path": "docs/studies/vp1-workbench-20261106/native-render-attempt.json",
+    "sha256": "c79b371b2a68402af77e94942c36f9408967059cf8c73d7ac68a878369f8871e"
+  },
+  "native_render_note": "Reported initial 90-second stop produced no PNG; exact timing/output/cause unconfirmed. This export performs no native retry.",
+  "visual_inspection": [],
+  "browser_verified": false,
+  "engineering_accepted": false,
+  "note": "Offline SSR and SVG only; prior native attempt is recorded separately. Stages are not authorized, parts are conceptual and unverified, five drafts remain unsent."
+}

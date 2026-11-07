@@ -1,6 +1,7 @@
 export const engineeringTopics = [
   ['g80-f2', 'G80-F2 stock construction'],
   ['rp1-studies', 'RP1 FP1 / FR1 studies'],
+  ['rp1-validation', 'VP1 validation programme'],
   ['g80-f2-c1', 'F2-C1 connection proposal'],
   ['g80-fixed', 'G80-F1 fixed candidate'],
   ['a1', 'A1 upper connection'],
@@ -36,6 +37,7 @@ export function engineeringHref(href: string, view: EngineeringTopic): string {
 export function isConstructionTopic(view: EngineeringTopic): boolean {
   return (
     view === 'rp1-studies' ||
+    view === 'rp1-validation' ||
     view === 'a1' ||
     view === 'g80-fixed' ||
     view === 'g80-f2' ||

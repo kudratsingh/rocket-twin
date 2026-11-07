@@ -1,5 +1,7 @@
 # Frontend workbench backlog
 
+Latest bounded FT-001/016/017 slice: [VP1 programme workbench](wo04-vp1-validation-workbench-20261106.md). Selectable stage/part SVG, dated material costs, unavailable all-in cost and five UNSENT copy/download previews are implemented; browser/physical acceptance remains open. No contact or test execution is inferred.
+
 Latest bounded FT-016/evidence increment: [separate FP1/FR1 source-relationship comparison](wo04-rp1-studies-20261104.md), selectable graphics, source hashes and honest unaccepted status. Actual exported React graphs were inspected offline;85 integrated web tests/type/lint/format/build pass. Browser observation fields remain false; this does not complete the43-task plan.
 
 The [machine-readable backlog](frontend-workbench-backlog.json) preserves all 43 planning-kit tasks, their dependencies, owner roles, acceptance criteria and evidence fields. This is a conservative snapshot: `partial` identifies bounded evidence, not task completion. A `planned` entry may have earlier work; it has not been established here against the full task criteria. All browser-observed and accepted fields are false for this increment. Source/build checks do not establish usability or acceptance.

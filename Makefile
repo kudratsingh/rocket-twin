@@ -23,6 +23,11 @@ workbench: ## Prepare source-checked engineering graphics data; no solver/CAD ru
 	$(PYTHON) scripts/wo04_f2_c1_export.py --output web/public/engineering-workbench/f2-c1.json
 
 	$(PYTHON) scripts/wo04_rp1_studies_export.py
+	$(PYTHON) scripts/wo04_vp1_validation_export.py
+
+.PHONY: workbench-vp1-validation
+workbench-vp1-validation: ## Prepare the source-pinned, unperformed VP1 programme for inspection.
+	$(PYTHON) scripts/wo04_vp1_validation_export.py
 
 .PHONY: workbench-rp1-studies
 workbench-rp1-studies: ## Prepare separate, unaccepted recorded FP1/FR1 graphics; no physics.

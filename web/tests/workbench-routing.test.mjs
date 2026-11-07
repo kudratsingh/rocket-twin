@@ -23,7 +23,7 @@ test('current construction defaults independently; explicit historical topics re
   }
   assert.equal(engineeringRoute('?view=obsolete').view, 'g80-f2');
   assert.match(engineeringRoute('?view=obsolete').notice, /Unknown engineering topic/);
-  for (const view of ['a1', 'g80-fixed', 'g80-f2']) assert.equal(isConstructionTopic(view), true);
+  for (const view of ['a1', 'g80-fixed', 'g80-f2', 'rp1-validation']) assert.equal(isConstructionTopic(view), true);
   assert.equal(isConstructionTopic('geometry'), false);
   const url = new URL(
     engineeringHref(

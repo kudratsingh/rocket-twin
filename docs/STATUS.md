@@ -9,6 +9,13 @@ PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services
 physical work and flight release still require their existing authorizations.
 The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
 
+**Latest unblocked frontend increment (2026-11-06):** [VP1 programme inside the workbench](wo04-vp1-validation-workbench-20261106.md).
+The separately source-pinned view has a selectable four-stage/nine-part SVG,
+known versus unquoted costs and five exact UNSENT draft previews/copy/downloads.
+Source/code/SSR checks pass; native PNG and browser visual/interaction acceptance
+remain unavailable. There is no authorization, send, purchase or physical-test
+action. Frozen engineering/source records and all owner gates remain unchanged.
+
 **Current delivery: [VP1 owner-review validation package](validation/rp1-vp1/package-summary.md).**
 One first test lead is ordinary6mm02-20850 birch with WEST105/206/406 fillets;
 this is not vehicle adoption. Four product drafts plus one supervised-lab RFQ
