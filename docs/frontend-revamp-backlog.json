@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "created_date": "2026-11-06",
-  "status": "implementation_in_progress",
+  "status": "source_release_candidate_browser_host_blocked",
   "source_ledger": "docs/frontend-workbench-backlog.json",
   "source_ledger_updated_date": "2026-11-07",
   "check_matrix": "acceptance-matrix.csv",
   "thresholds": "Proposed for revamp. Prior evidence remains attributed to its recorded implementation slice.",
-  "browser_status": "blocked_runtime_ownership",
+  "browser_status": "blocked_browser_access_host_unavailable",
   "tasks": [
     {
       "id": "RV-01",
@@ -40,7 +40,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo04-rp1-revamp-20261107.md"
+        "docs/wo04-rp1-revamp-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -75,11 +76,12 @@
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Agree additive contracts and verify frame, pose, phase, event and missingness assumptions using saved data independently of shell work.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo05-replay-window-20261107.md"
+        "docs/wo05-replay-window-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -110,7 +112,11 @@
       "delivery": "Record the exact supported access prerequisite and its status before scheduling browser actions.",
       "codeVerified": false,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "blocker": "Owner authorization resolved; supported browser access host unavailable. Normal-host startup and runtime observations pending.",
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-04",
@@ -155,7 +161,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo04-rp1-revamp-20261107.md"
+        "docs/wo04-rp1-revamp-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -193,7 +200,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo04-rp1-revamp-20261107.md"
+        "docs/wo04-rp1-revamp-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -217,7 +225,9 @@
         "web/src/components/Viewer.tsx",
         "web/src/components/inspectionCamera.ts",
         "web/src/design/OrthographicDesign.tsx",
-        "web/src/design/orthographicGeometry.ts"
+        "web/src/design/orthographicGeometry.ts",
+        "src/inspection/rp1_geometry.py",
+        "src/api/rp1_inspection_view.py"
       ],
       "check_ids": [
         "RV-Q13",
@@ -233,7 +243,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo04-rp1-revamp-20261107.md"
+        "docs/wo04-rp1-revamp-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -272,7 +283,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo04-rp1-revamp-20261107.md"
+        "docs/wo04-rp1-revamp-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -314,7 +326,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo04-rp1-connections-20261107.md"
+        "docs/wo04-rp1-connections-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -346,13 +359,16 @@
         "RV-Q22",
         "RV-Q23"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Land the reusable run identity/status adapter before the form. Allow eligible complete configurations and retain request, effective settings, seeds and failed attempts.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-10",
@@ -373,18 +389,23 @@
       },
       "source_paths": [
         "src/api/experiments.py",
-        "web/src/experiments/Experiment.tsx"
+        "web/src/experiments/Experiment.tsx",
+        "web/src/experiments/runLifecycle.ts",
+        "tests/test_experiment_release_lifecycle.py"
       ],
       "check_ids": [
         "RV-Q24"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Declare count, concurrency and resources before execution. Exercise cancellation, interruption and per-member provenance.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-11",
@@ -425,7 +446,8 @@
       "evidence": [
         "docs/wo05-replay-window-20261107.md",
         "docs/wo04-rp1-connections-20261107.md",
-        "docs/studies/replay-pose-20261107/report.md"
+        "docs/studies/replay-pose-20261107/report.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -452,13 +474,16 @@
       "check_ids": [
         "RV-Q28"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Compare compatible channels, preserve absolute time and alignment metadata, and show gaps and partial-run coverage.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-13",
@@ -489,13 +514,16 @@
         "RV-Q29",
         "RV-Q30"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Use recorded trajectory/pose and improved spatial cues. An optional schematic cue stays distinct from physical multi-body recovery.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-14",
@@ -527,11 +555,12 @@
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Inventory available scalar, point, spatial and transient sources with exact mapping identities and unavailable reasons.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/wo05-replay-window-20261107.md"
+        "docs/wo05-replay-window-20261107.md",
+        "docs/frontend-release-20261107.md"
       ]
     },
     {
@@ -559,19 +588,24 @@
       "source_paths": [
         "web/src/analysis/AnalysisWorkspace.tsx",
         "web/src/analysis/AnalysisSurface.tsx",
-        "web/src/analysis/HistoryPlot.tsx"
+        "web/src/analysis/HistoryPlot.tsx",
+        "web/src/analysis/Rp1RecordedAnalysis.tsx",
+        "web/src/analysis/RecordedCaseComparison.tsx"
       ],
       "check_ids": [
         "RV-Q32",
         "RV-Q33"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Stage baseline displays before comparisons. Coordinate with PR-09 only where sharing a compatible comparison primitive.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-16",
@@ -603,13 +637,16 @@
         "RV-Q06",
         "RV-Q34"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Resolve defaults from the actual catalog and preserve exact source/run/case associations across workspaces. Keep Design, Engineering and run-source identities distinct.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-17",
@@ -633,13 +670,17 @@
       "check_ids": [
         "RV-Q35"
       ],
-      "status": "planned",
+      "status": "deferred",
       "optional": true,
       "outside_initial_release": true,
       "delivery": "Include only with a concrete monitoring task and reused accepted widgets. Link back to the focused workspace.",
       "codeVerified": false,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "disposition": "Outside this release; see explicit dispositions in docs/frontend-release-20261107.md",
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-18",
@@ -678,13 +719,17 @@
         "RV-Q18",
         "RV-Q19"
       ],
-      "status": "planned",
+      "status": "blocked_runtime",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Observe M1 before Engineering or later integrated acceptance. Record the exact head and scenario-level outcome.",
       "codeVerified": false,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "blocker": "Owner authorization resolved; supported browser access host unavailable. Normal-host startup and runtime observations pending.",
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-19",
@@ -723,13 +768,17 @@
         "RV-Q33",
         "RV-Q34"
       ],
-      "status": "planned",
+      "status": "blocked_runtime",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Observe only the authorized running preview, with saved-run identity and representative measurements.",
       "codeVerified": false,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "blocker": "Owner authorization resolved; supported browser access host unavailable. Normal-host startup and runtime observations pending.",
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-20",
@@ -753,13 +802,16 @@
       "check_ids": [
         "RV-Q36"
       ],
-      "status": "planned",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Return browser defects to the relevant owner, recheck changed flows at the tested head and keep unavailable scenarios visible.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     },
     {
       "id": "RV-21",
@@ -787,13 +839,17 @@
       "check_ids": [
         "RV-Q37"
       ],
-      "status": "planned",
+      "status": "deferred",
       "optional": false,
       "outside_initial_release": true,
       "delivery": "Treat validated recovery, CFD and controlled design editing as separately authorized work. Changes regenerate complete candidate identities and dependent evidence.",
       "codeVerified": false,
       "browserObserved": false,
-      "accepted": false
+      "accepted": false,
+      "disposition": "Outside this release; see explicit dispositions in docs/frontend-release-20261107.md",
+      "evidence": [
+        "docs/frontend-release-20261107.md"
+      ]
     }
   ],
   "source_kit": {

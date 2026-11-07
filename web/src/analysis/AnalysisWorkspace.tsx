@@ -1,3 +1,5 @@
+import RecordedCaseComparison from './RecordedCaseComparison';
+import Rp1RecordedAnalysis from './Rp1RecordedAnalysis';
 import { useEffect, useMemo, useState } from 'react';
 import { getJson } from '../api';
 import { Icon } from '../components/Icons';
@@ -21,7 +23,7 @@ import {
 import type { AnalysisCatalog, AnalysisManifest, AnalysisPayload } from './types';
 import './analysis.css';
 
-export default function AnalysisWorkspace({
+function RegisteredAnalysisWorkspace({
   vehicle,
   candidateMessage,
 }: {
@@ -40,6 +42,9 @@ export default function AnalysisWorkspace({
   const [loading, setLoading] = useState(false);
   const [sample, setSample] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [comparisonFieldId, setComparisonFieldId] = useState('');
+  const [comparisonPayload, setComparisonPayload] = useState<AnalysisPayload | null>(null);
+  const [comparisonError, setComparisonError] = useState('');
   const [autoRange, setAutoRange] = useState(false);
   const [minimum, setMinimum] = useState(0);
   const [maximum, setMaximum] = useState(300);
@@ -51,12 +56,16 @@ export default function AnalysisWorkspace({
 
   useEffect(() => {
     useInspection.getState().setExploded(0);
+    setCatalog(null);
+    setCatalogError('');
+    setRunId('');
     const controller = new AbortController();
     void getJson<AnalysisCatalog>(
       `/api/vehicles/${encodeURIComponent(vehicle.id)}/analyses`,
       controller.signal,
     )
       .then((data) => {
+        if (controller.signal.aborted || data.vehicle_id !== vehicle.id) return;
         setCatalog(data);
         setRunId((data.analyses.find((entry) => entry.compatible) || data.analyses[0])?.id || '');
       })
@@ -78,6 +87,7 @@ export default function AnalysisWorkspace({
     const controller = new AbortController();
     void getJson<AnalysisManifest>(`/api/analyses/${encodeURIComponent(runId)}`, controller.signal)
       .then((data) => {
+        if (controller.signal.aborted) return;
         setManifest(data);
         const initial =
           data.fields.find((entry) => entry.evidence.provenance !== 'unavailable') ||
@@ -108,6 +118,7 @@ export default function AnalysisWorkspace({
     setLoading(true);
     void getJson<AnalysisPayload>(manifest.artifacts[field.artifact], controller.signal)
       .then((data) => {
+        if (controller.signal.aborted) return;
         validatePayload(field, data);
         setPayload(data);
       })
@@ -123,6 +134,35 @@ export default function AnalysisWorkspace({
       setLoading(false);
     };
   }, [manifest, field, mismatch, fieldUnavailable]);
+
+  const comparisonField = manifest?.fields.find((item) => item.id === comparisonFieldId);
+  useEffect(() => {
+    setComparisonPayload(null);
+    setComparisonError('');
+    if (!manifest || !comparisonField || mismatch) return;
+    const blocked = fieldBlockReason(comparisonField);
+    if (blocked) {
+      setComparisonError(blocked);
+      return;
+    }
+    const url = comparisonField.artifact && manifest.artifacts[comparisonField.artifact];
+    if (!url || !url.startsWith('/api/analyses/')) {
+      setComparisonError('Comparison artifact unavailable.');
+      return;
+    }
+    const controller = new AbortController();
+    void getJson<AnalysisPayload>(url, controller.signal)
+      .then((value) => {
+        if (controller.signal.aborted) return;
+        validatePayload(comparisonField, value);
+        setComparisonPayload(value);
+      })
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted)
+          setComparisonError(reason instanceof Error ? reason.message : 'Comparison unavailable.');
+      });
+    return () => controller.abort();
+  }, [manifest, comparisonField, mismatch]);
 
   useEffect(() => {
     if (quantity) {
@@ -347,6 +387,32 @@ export default function AnalysisWorkspace({
               : `${missing} of ${vehicle.parts.length} parts have unavailable field coverage.`}
           </p>
         </div>
+        <section className="rp1-recorded-findings">
+          <label>
+            Compare recorded case / quantity
+            <select
+              value={comparisonFieldId}
+              onChange={(event) => setComparisonFieldId(event.target.value)}
+              disabled={!manifest}
+            >
+              <option value="">No comparison selected</option>
+              {manifest?.fields.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.case_id} · {quantityName[item.quantity]} · {item.component}
+                </option>
+              ))}
+            </select>
+          </label>
+          {comparisonError && <p role="alert">{comparisonError}</p>}
+          <RecordedCaseComparison
+            left={manifest && field && payload && !error ? { manifest, field, payload } : null}
+            right={
+              manifest && comparisonField && comparisonPayload && !comparisonError
+                ? { manifest, field: comparisonField, payload: comparisonPayload }
+                : null
+            }
+          />
+        </section>
         <div className="analysis-time">
           <button
             onClick={() => {
@@ -398,5 +464,16 @@ export default function AnalysisWorkspace({
         onSample={setSample}
       />
     </main>
+  );
+}
+
+export default function AnalysisWorkspace(props: {
+  vehicle: InspectionDocument;
+  candidateMessage?: string;
+}) {
+  return props.vehicle.id === 'G80-F2-RP1-AD1-definition-v2' ? (
+    <Rp1RecordedAnalysis {...props} />
+  ) : (
+    <RegisteredAnalysisWorkspace {...props} />
   );
 }

@@ -40,3 +40,19 @@ The existing React/Three.js, Python/JAX, API and asset pipeline stay in place.
 No graphics-engine replacement, new numerical solver, source/load relaxation or
 automatic construction variant is admitted. Full WO-03/04/05 and all physical,
 paid-run, WO-10 review and flight-release gates remain open as recorded.
+
+## November7 completion direction and inspection model
+
+The owner directs completion of all unblocked RV source workflows and explicitly
+authorizes source-derived RP1 3D inspection using available drawings/specifications.
+This extends the earlier source-only view; it does not change frozen AD1 geometry
+inputs or admit a construction/flight vehicle. Use a separate inspection revision,
+classify all55records and retain missing hardware/envelopes and null canonical
+inertia/CAD. Archived CAD/run identities remain separate.
+
+The owner subsequently authorizes the sole current Chrome window and necessary
+tabs. `/root/browser_access_sol` is the sole verifier for this release; primary
+and other agents abstain. The supported first discovery found no available
+browser host, rather than another ownership rejection. Current consent replaces
+the earlier Terra-only designation, but no live browser acceptance is established.
+See [release scope/dispositions](../frontend-release-20261107.md).

@@ -1,5 +1,7 @@
 # Browser verification ownership — recorded blocker
 
+**Current update — November7:** owner Chrome consent/reassignment is resolved for sole verifier `/root/browser_access_sol` in the sole current Chrome window, with necessary tabs allowed. The supported initial inventory found Chrome running but returned **“The browser access host is unavailable”**, with no tabs to claim. No new automatic-review rejection occurred. [Current access record and protocol](studies/frontend-release-20261107/browser-access.md). Restore the supported host/Chrome connection; do not repeat the older ownership question. The original restriction and investigation below are historical evidence, not the current blocker. Normal-host startup remains separately unobserved.
+
 The current inspection increment is code-checked only. Browser, WebGL, click,
 keyboard, scroll, download and replay observations remain pending.
 
