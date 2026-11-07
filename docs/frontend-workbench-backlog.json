@@ -165,6 +165,15 @@
             "docs/frontend-replay-validity.md"
           ],
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
+        },
+        {
+          "kind": "per-run-support-and-source-inventory",
+          "files": [
+            "web/src/experiments/replayWindow.ts",
+            "web/tests/revamp-replay-window.test.mjs",
+            "docs/wo05-replay-window-20261107.md"
+          ],
+          "scope": "Per-run time-window correction, preserved pose/physics, metadata-only analysis inventory. No browser/pose/mesh-registration/engineering acceptance."
         }
       ]
     },
@@ -901,6 +910,15 @@
             "runs/wo04-replay-record-audit-20261103-v1/record.json"
           ],
           "scope": "Four raw saved samples; confirms recorded nose-up descent, not renderer or physical recovery. Strict single-CPU setting unverified."
+        },
+        {
+          "kind": "per-run-support-and-source-inventory",
+          "files": [
+            "web/src/experiments/replayWindow.ts",
+            "web/tests/revamp-replay-window.test.mjs",
+            "docs/wo05-replay-window-20261107.md"
+          ],
+          "scope": "Per-run time-window correction, preserved pose/physics, metadata-only analysis inventory. No browser/pose/mesh-registration/engineering acceptance."
         }
       ]
     },
@@ -1118,6 +1136,15 @@
             "web/src/experiments/channels.ts"
           ],
           "scope": "Source-scoped connections/failure/verification selection and actual saved-sample readouts with time/units;76 integrated tests/build. No browser interaction acceptance."
+        },
+        {
+          "kind": "per-run-support-and-source-inventory",
+          "files": [
+            "web/src/experiments/replayWindow.ts",
+            "web/tests/revamp-replay-window.test.mjs",
+            "docs/wo05-replay-window-20261107.md"
+          ],
+          "scope": "Per-run time-window correction, preserved pose/physics, metadata-only analysis inventory. No browser/pose/mesh-registration/engineering acceptance."
         }
       ]
     },
@@ -1199,7 +1226,16 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "Partial per-run phase and recovery/source explanation: web/src/experiments/Experiment.tsx, replayValidity.ts and docs/frontend-replay-validity.md; focused tests, npm run build and npm run lint passed from web/. Complete channel validity and raw orientation inspection remain open."
+        "Partial per-run phase and recovery/source explanation: web/src/experiments/Experiment.tsx, replayValidity.ts and docs/frontend-replay-validity.md; focused tests, npm run build and npm run lint passed from web/. Complete channel validity and raw orientation inspection remain open.",
+        {
+          "kind": "per-run-support-and-source-inventory",
+          "files": [
+            "web/src/experiments/replayWindow.ts",
+            "web/tests/revamp-replay-window.test.mjs",
+            "docs/wo05-replay-window-20261107.md"
+          ],
+          "scope": "Per-run time-window correction, preserved pose/physics, metadata-only analysis inventory. No browser/pose/mesh-registration/engineering acceptance."
+        }
       ]
     },
     {
@@ -1237,7 +1273,7 @@
         "FT-001",
         "FT-005"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Available-result/coverage catalog",
         "Incompatibility and missing-data reasons"
@@ -1252,7 +1288,17 @@
       "codeVerified": false,
       "browserObserved": false,
       "accepted": false,
-      "evidence": []
+      "evidence": [
+        {
+          "kind": "per-run-support-and-source-inventory",
+          "files": [
+            "web/src/experiments/replayWindow.ts",
+            "web/tests/revamp-replay-window.test.mjs",
+            "docs/wo05-replay-window-20261107.md"
+          ],
+          "scope": "Per-run time-window correction, preserved pose/physics, metadata-only analysis inventory. No browser/pose/mesh-registration/engineering acceptance."
+        }
+      ]
     },
     {
       "id": "FT-031",

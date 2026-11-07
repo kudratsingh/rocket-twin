@@ -1,6 +1,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
 import { replayValidity } from './replayValidity';
+import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWindow';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
 import { exportMetadata, recordedSettingsDraft, telemetryCsv } from './runExport';
@@ -124,7 +125,7 @@ function ReplayCamera({
   fitToken,
   run,
 }: {
-  loc: Vector3;
+  loc: Vector3 | null;
   mode: 'follow' | 'free';
   fitToken: number;
   run: Loaded;
@@ -133,15 +134,10 @@ function ReplayCamera({
   const previous = useRef<Vector3 | null>(null);
   const { camera } = useThree();
   useEffect(() => {
-    const c = run.telemetry.columns;
-    const target = new Vector3(c.east_m[0], -c.down_m[0], -c.north_m[0]);
-    camera.position.copy(target).add(new Vector3(2, 1.5, 3));
-    controls.current?.target.copy(target);
-    controls.current?.update();
-    previous.current = target;
+    previous.current = null;
   }, [camera, run]);
   useEffect(() => {
-    if (!fitToken) return;
+    if (!fitToken || !replayWindow(run.telemetry.columns.time_s)) return;
     const c = run.telemetry.columns;
     const points = c.time_s.map((_, i) => new Vector3(c.east_m[i], -c.down_m[i], -c.north_m[i]));
     const min = points[0].clone(),
@@ -160,7 +156,7 @@ function ReplayCamera({
     previous.current = null;
   }, [fitToken, camera, run]);
   useFrame(() => {
-    if (mode === 'follow' && controls.current) {
+    if (mode === 'follow' && loc && controls.current) {
       if (previous.current) {
         const delta = loc.clone().sub(previous.current);
         camera.position.add(delta);
@@ -198,11 +194,14 @@ function FlightScene({
         ] as [number, number, number],
     );
   const c = run.telemetry.columns;
-  const loc = new Vector3(
-    value(c, 'east_m', time),
-    -value(c, 'down_m', time),
-    -value(c, 'north_m', time),
-  );
+  const primaryWindow = useMemo(() => replayWindow(c.time_s), [c.time_s]);
+  const otherTimes = other?.telemetry.columns.time_s;
+  const comparisonWindow = useMemo(() => replayWindow(otherTimes), [otherTimes]);
+  const primaryInside = replayWindowStatus(primaryWindow, time) === 'inside';
+  const comparisonInside = replayWindowStatus(comparisonWindow, time) === 'inside';
+  const loc = primaryInside
+    ? new Vector3(value(c, 'east_m', time), -value(c, 'down_m', time), -value(c, 'north_m', time))
+    : null;
   const theta = (run.record.settings.wind_direction_deg * Math.PI) / 180;
   const wind = run.record.settings.wind_mps;
   return (
@@ -211,12 +210,10 @@ function FlightScene({
       <directionalLight position={[20, 50, 30]} intensity={2} />
       <ReplayCamera loc={loc} mode={mode} fitToken={fitToken} run={run} />
       <gridHelper args={[100, 20, '#38505b', '#24343c']} />
-      <Line points={path(run)} color="#54d8d2" lineWidth={2} />
-      {other && <Line points={path(other)} color="#f5b960" lineWidth={2} />}
-      <FlightGeometry run={run} time={time} />
-      {other && (
-        <FlightGeometry run={other} time={Math.min(time, other.telemetry.columns.time_s.at(-1)!)} />
-      )}
+      {primaryWindow && <Line points={path(run)} color="#54d8d2" lineWidth={2} />}
+      {other && comparisonWindow && <Line points={path(other)} color="#f5b960" lineWidth={2} />}
+      {primaryInside && <FlightGeometry run={run} time={time} />}
+      {other && comparisonInside && <FlightGeometry run={other} time={time} />}
       {wind > 0 && (
         <arrowHelper
           args={[
@@ -302,6 +299,11 @@ function RunDetails({ run, label }: { run: Loaded; label: string }) {
   );
 }
 function ReplayValidity({ run, time, label }: { run: Loaded; time: number; label: string }) {
+  const window = useMemo(
+    () => replayWindow(run.telemetry.columns.time_s),
+    [run.telemetry.columns.time_s],
+  );
+  const coverage = replayWindowStatus(window, time);
   const validity = replayValidity(run.record, time);
   return (
     <section aria-label={`${label} replay validity`}>
@@ -309,8 +311,23 @@ function ReplayValidity({ run, time, label }: { run: Loaded; time: number; label
       <p>
         {validity.identity} · Controller: {validity.controller}
       </p>
+      <p role="status">
+        {coverage === 'inside'
+          ? 'Inside recorded window'
+          : coverage === 'outside'
+            ? 'Outside recorded window'
+            : 'Recorded window unavailable'}
+      </p>
+      {window && (
+        <p>
+          Recorded support: {window.start.toFixed(3)}–{window.end.toFixed(3)} s · requested{' '}
+          {Number.isFinite(time) ? `${time.toFixed(3)} s` : 'time unavailable'}.
+        </p>
+      )}
       <p>
-        {validity.phase} (inferred from event times, not a recorded phase channel).{' '}
+        {coverage === 'inside'
+          ? `${validity.phase} (inferred from event times, not a recorded phase channel). `
+          : 'Phase unavailable at the requested time. '}
         {validity.completion}
       </p>
       <p>
@@ -542,12 +559,11 @@ export default function Experiment({
     };
   }, [configurationId]);
   const shown = current?.record.vehicle_id === configurationId ? current : null;
-  const replayEnd = shown
-    ? Math.max(
-        shown.telemetry.columns.time_s.at(-1) ?? 0,
-        other?.telemetry.columns.time_s.at(-1) ?? 0,
-      )
-    : 0;
+  const primaryTimes = shown?.telemetry.columns.time_s;
+  const comparisonTimes = other?.telemetry.columns.time_s;
+  const primaryWindow = useMemo(() => replayWindow(primaryTimes), [primaryTimes]);
+  const comparisonWindow = useMemo(() => replayWindow(comparisonTimes), [comparisonTimes]);
+  const replayEnd = shown ? Math.max(primaryWindow?.end ?? 0, comparisonWindow?.end ?? 0, 0) : 0;
   const refresh = useCallback(
     () =>
       json<RecordRun[]>('/api/runs')
@@ -588,7 +604,7 @@ export default function Experiment({
         else {
           onConfigurationChange(record.vehicle_id!);
           setCurrent(item);
-          setTime(0);
+          setTime(firstRecordedTime(replayWindow(telemetry.columns.time_s)));
           setPlaying(false);
         }
         setError('');
@@ -838,7 +854,8 @@ export default function Experiment({
               </button>
               <button
                 onClick={() => {
-                  if (!playing && time >= replayEnd) setTime(0);
+                  if (!playing && time >= replayEnd)
+                    setTime(firstRecordedTime(primaryWindow, comparisonWindow));
                   setPlaying(!playing);
                 }}
               >
@@ -869,16 +886,10 @@ export default function Experiment({
             <p>
               Orbit and zoom with mouse. Teal: {shown.record.run_id}
               {other && ` · Gold: ${other.record.run_id}`}
-              {other && ' · A finished run remains at its last recorded pose.'}
+              {other && ' · Each actor is visible only within its recorded window.'}
             </p>
             <ReplayValidity run={shown} time={time} label="A · teal" />
-            {other && (
-              <ReplayValidity
-                run={other}
-                time={Math.min(time, other.telemetry.columns.time_s.at(-1) ?? time)}
-                label="B · gold"
-              />
-            )}
+            {other && <ReplayValidity run={other} time={time} label="B · gold" />}
             <div className="exp-events">
               {Object.entries(shown.record.events ?? {}).map(([k, v]) => (
                 <button key={k} disabled={v === null} onClick={() => setTime(v!)}>
