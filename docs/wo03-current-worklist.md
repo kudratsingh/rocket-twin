@@ -9,6 +9,20 @@ PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services
 physical work and flight release still require their existing authorizations.
 The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
 
+## Current unblocked implementation — VP1 workbench preview
+
+| Deliverable / owner | Budget / identity | Actual status and stop |
+| --- | --- | --- |
+| Source exporter / Terra HIGH |One25min packet +one correction; fixed package/protocol and13 source pins | Prepared snapshot +6 focused tests; source/approval drift withheld, no calculations/contact |
+| Graphical review / Astra MEDIUM |One35min packet +one presentation correction; same exact VP1/AD1 | Four-stage/nine-part SVG, costs, five drafts; integrated90webchecks/type/lint/format/build pass; no CAD association |
+| Route/startup/data integration / primary | Independent prepared source, preserve viewer/experiments/replay | make workbench-vp1-validation and launcher preparation wired;31related Python checks pass; no new physics |
+| Offline artifacts / Terra HIGH + primary |One20min packet,90s native ceiling, one correction | Actual ReactSVG/staticHTML/gallery/ZIP verified. Reported native stop has no PNG/retained terminal output; no exact elapsed/cause or visual acceptance. No native retry; attempt record preserved |
+| Public workflow / primary | Owner confirmation, required checks before routine merge | Visibility hold resolved; public instructions/source links updated in focusedPR83; unrelated README PR82 preserved |
+
+See [frontend handoff](wo04-vp1-validation-workbench-20261106.md). S0 clock has not
+started. Source package/studies remain frozen; separate outreach approval still
+needed. No installed engineering requirement or full work-order gate closes.
+
 ## Current: VP1 inquiry-ready evidence package
 
 | Deliverable / owner | Budget / source | Actual status and stop |

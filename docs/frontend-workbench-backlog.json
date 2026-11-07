@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_date": "2026-11-03",
+  "updated_date": "2026-11-06",
   "scope": "Conservative planning and partial implementation ledger; task acceptance is not inferred from code checks.",
   "source_kit": {
     "path": "output/frontend-planning-kit-20261103",
@@ -14,7 +14,10 @@
     "docs/wo03-g80-f2-cost-and-placement.md",
     "docs/wo04-f2-construction-walkthrough.md",
     "docs/wo03-g80-f2-c1-decision.md",
-    "docs/wo04-f2-c1-walkthrough-20261103.md"
+    "docs/wo04-f2-c1-walkthrough-20261103.md",
+    "configs/studies/rp1-validation-package.yaml",
+    "docs/validation/rp1-vp1/protocol.md",
+    "docs/wo04-vp1-validation-workbench-20261106.md"
   ],
   "evidence_policy": "False browserObserved means no current increment observation is asserted, not that historical observations cannot exist. Every accepted field remains false pending the task-specific acceptance evidence.",
   "tasks": [
@@ -56,6 +59,16 @@
             "web/tests/inspection-workflow.test.mjs"
           ],
           "scope": "Requested source cannot inherit an older document label, fingerprint or mesh coverage; saved reference identities remain separate from F2/F2-C1."
+        },
+        {
+          "kind": "vp1-recorded-programme-workbench",
+          "files": [
+            "web/src/workbench/Vp1ValidationView.tsx",
+            "scripts/wo04_vp1_validation_export.py",
+            "configs/engineering/rp1-vp1-preview.yaml",
+            "docs/wo04-vp1-validation-workbench-20261106.md"
+          ],
+          "scope": "Implemented selectable stage/part relationships, exact source identity, dated material subtotals/unquoted full cost and five UNSENT draft copy/downloads. No actual CAD association, message send, permission or executed-test evidence. Browser acceptance remains pending."
         }
       ]
     },
@@ -695,7 +708,17 @@
           "scope": "First focused-workspace increment; full task/browser criteria remain pending."
         },
         "docs/wo04-f2-c1-walkthrough-20261103.md",
-        "runs/wo04-f2-c1-walkthrough-20261103-v1/record.json"
+        "runs/wo04-f2-c1-walkthrough-20261103-v1/record.json",
+        {
+          "kind": "vp1-recorded-programme-workbench",
+          "files": [
+            "web/src/workbench/Vp1ValidationView.tsx",
+            "scripts/wo04_vp1_validation_export.py",
+            "configs/engineering/rp1-vp1-preview.yaml",
+            "docs/wo04-vp1-validation-workbench-20261106.md"
+          ],
+          "scope": "Implemented selectable stage/part relationships, exact source identity, dated material subtotals/unquoted full cost and five UNSENT draft copy/downloads. No actual CAD association, message send, permission or executed-test evidence. Browser acceptance remains pending."
+        }
       ],
       "notes": "Separate F2-C1 source graph, section, local inspector, conditional fits and loaded/burnout tables implemented; native graph/section inspected. Browser interactions and complete task acceptance remain pending."
     },
@@ -742,6 +765,16 @@
             "docs/wo04-inspection-refinement-20261103.md"
           ],
           "scope": "Export-safe legend, linked visibility and selected annotations; offline images observed, browser interaction still pending."
+        },
+        {
+          "kind": "vp1-recorded-programme-workbench",
+          "files": [
+            "web/src/workbench/Vp1ValidationView.tsx",
+            "scripts/wo04_vp1_validation_export.py",
+            "configs/engineering/rp1-vp1-preview.yaml",
+            "docs/wo04-vp1-validation-workbench-20261106.md"
+          ],
+          "scope": "Implemented selectable stage/part relationships, exact source identity, dated material subtotals/unquoted full cost and five UNSENT draft copy/downloads. No actual CAD association, message send, permission or executed-test evidence. Browser acceptance remains pending."
         }
       ]
     },

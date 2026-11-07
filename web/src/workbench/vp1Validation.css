@@ -1,0 +1,260 @@
+.vp1-validation {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px;
+  color: #e1eaf0;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.vp1-validation section,
+.vp1-provenance {
+  margin-top: 28px;
+}
+.vp1-validation h1 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  margin: 8px 0 16px;
+}
+.vp1-validation h2 {
+  font-size: 1.25rem;
+}
+.vp1-eyebrow {
+  color: #9edcff;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.8rem;
+}
+.vp1-warning,
+.vp1-limits {
+  border-left: 3px solid #e8bc70;
+  padding: 14px 18px;
+  background: #252624;
+}
+.vp1-muted,
+.vp1-validation small {
+  color: #aec0cd;
+}
+.vp1-validation button,
+.vp1-actions a {
+  border: 1px solid #60788b;
+  border-radius: 6px;
+  padding: 10px 14px;
+  background: #182b3a;
+  color: #e5f4ff;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.vp1-validation button:hover,
+.vp1-actions a:hover {
+  background: #244357;
+}
+.vp1-validation button[aria-pressed='true'] {
+  border-color: #9edcff;
+  background: #244357;
+  box-shadow: inset 0 0 0 1px #9edcff;
+}
+.vp1-validation :is(button, a, summary, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #9edcff;
+  outline-offset: 4px;
+}
+.vp1-stage-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: 24px 0 0;
+}
+.vp1-stage-map button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.vp1-stage-map button:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -22px;
+  top: 40%;
+  color: #aec0cd;
+}
+.vp1-stage-id {
+  font-size: 1.35rem;
+  color: #9edcff;
+}
+.vp1-stage-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 18px;
+  border: 1px solid #526778;
+  border-radius: 8px;
+}
+.vp1-stage-graph [role='button'] {
+  cursor: pointer;
+}
+.vp1-stage-graph [role='button']:focus-visible rect {
+  stroke: #ffffff;
+  stroke-width: 4;
+}
+.vp1-stage-map small {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+.vp1-stage-detail {
+  padding: 20px;
+  border: 1px solid #526778;
+  border-radius: 8px;
+  margin-top: 18px;
+  background: #111e2a;
+}
+.vp1-validation dt {
+  font-weight: 650;
+  color: #c6d6e1;
+}
+.vp1-validation dd {
+  margin: 5px 0 16px;
+}
+.vp1-part-map {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  border-top: 1px solid #526778;
+  margin-top: 28px;
+  padding-top: 22px;
+}
+.vp1-part-map button {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+.vp1-part-map button::before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 22px;
+  background: #526778;
+  top: -23px;
+  left: 24px;
+}
+.vp1-link-label {
+  font-size: 0.8rem;
+  color: #aec0cd;
+}
+.vp1-part-detail {
+  border-left: 2px solid #8ab5ce;
+  margin-top: 22px;
+  padding-left: 16px;
+}
+.vp1-costs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.vp1-costs > div {
+  border: 1px solid #526778;
+  border-radius: 6px;
+  padding: 18px;
+}
+.vp1-costs dd {
+  font-size: 1.4rem;
+  margin: 8px 0 0;
+  color: #e5f4ff;
+}
+.vp1-costs .vp1-unknown {
+  border-style: dashed;
+  background: #252624;
+}
+.vp1-validation summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-weight: 650;
+}
+.vp1-draft {
+  padding: 4px 18px;
+  border: 1px solid #526778;
+  border-radius: 6px;
+  margin: 10px 0;
+  background: #111e2a;
+}
+.vp1-badge {
+  color: #e8bc70;
+  font-size: 0.75rem;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+.vp1-draft-label {
+  display: block;
+  font-weight: 600;
+}
+.vp1-draft textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  min-height: 220px;
+  margin: 10px 0;
+  border: 1px solid #60788b;
+  border-radius: 5px;
+  padding: 14px;
+  background: #0c1620;
+  color: #e1eaf0;
+  font:
+    0.85rem/1.6 ui-monospace,
+    monospace;
+}
+.vp1-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.vp1-actions a {
+  text-decoration: none;
+}
+.vp1-source {
+  display: block;
+  margin: 8px 0;
+}
+.vp1-source small {
+  display: block;
+  font-size: 0.75rem;
+}
+.vp1-table-scroll {
+  overflow-x: auto;
+}
+.vp1-validation table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.vp1-validation th,
+.vp1-validation td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #425568;
+  vertical-align: top;
+}
+.vp1-validation caption {
+  text-align: left;
+  margin: 12px 0;
+}
+.vp1-validation a {
+  color: #9edcff;
+}
+.vp1-validation li {
+  margin-bottom: 8px;
+}
+@media (max-width: 760px) {
+  .vp1-validation {
+    padding: 16px;
+  }
+  .vp1-stage-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .vp1-stage-map button::after {
+    display: none;
+  }
+  .vp1-costs {
+    grid-template-columns: 1fr;
+  }
+}
