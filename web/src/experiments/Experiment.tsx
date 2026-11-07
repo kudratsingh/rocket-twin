@@ -2,12 +2,14 @@ import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'rea
 import { requestOrder } from './requestOrder';
 import { replayValidity } from './replayValidity';
 import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWindow';
+import { replayPose } from './replayPose';
+import type { ReplayPose } from './replayPose';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
 import { exportMetadata, recordedSettingsDraft, telemetryCsv } from './runExport';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Line, OrbitControls, useGLTF } from '@react-three/drei';
-import { Matrix4, Quaternion, Vector3 } from 'three';
+import { Vector3 } from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
 import type { InspectionDocument, Part } from '../types';
 import {
@@ -44,6 +46,8 @@ type RecordRun = {
   limitations: string[];
 };
 type Telemetry = {
+  run_id: string;
+  frame: string;
   columns: Record<string, number[]>;
   channel_metadata?: Record<string, ChannelMeta>;
 };
@@ -61,53 +65,21 @@ async function json<T>(url: string, options?: RequestInit): Promise<T> {
     throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail));
   return data as T;
 }
-function nearest(t: number, times: number[]) {
-  let lo = 0,
-    hi = times.length - 1;
-  while (lo < hi) {
-    const mid = Math.floor((lo + hi) / 2);
-    if (times[mid] < t) lo = mid + 1;
-    else hi = mid;
-  }
-  return lo;
-}
-function value(c: Record<string, number[]>, name: string, t: number) {
-  const i = nearest(t, c.time_s);
-  if (i === 0) return c[name][0];
-  const a = i - 1,
-    f = Math.max(0, Math.min(1, (t - c.time_s[a]) / (c.time_s[i] - c.time_s[a])));
-  return c[name][a] * (1 - f) + c[name][i] * f;
-}
 function MeshPart({ part }: { part: Part }) {
   const model = useGLTF(part.mesh_url!);
   const scene = useMemo(() => model.scene.clone(true), [model]);
   return <primitive object={scene} />;
 }
-function attitude(c: Record<string, number[]>, t: number) {
-  const i = nearest(t, c.time_s);
-  const q = (j: number) => new Quaternion(c.qx[j], c.qy[j], c.qz[j], c.qw[j]).normalize();
-  if (i === 0) return q(0);
-  const a = i - 1,
-    f = Math.max(0, Math.min(1, (t - c.time_s[a]) / (c.time_s[i] - c.time_s[a])));
-  return q(a).slerp(q(i), f);
-}
-function FlightGeometry({ run, time }: { run: Loaded; time: number }) {
-  const c = run.telemetry.columns,
-    q = attitude(c, time);
-  // GLB [body y, forward, -body z]; display [east, up, -north].
-  const bodyFromCad = new Matrix4().set(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1);
-  const sceneFromNed = new Matrix4().set(0, 1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 0, 1);
-  const rot = new Quaternion().setFromRotationMatrix(
-    sceneFromNed.multiply(new Matrix4().makeRotationFromQuaternion(q)).multiply(bodyFromCad),
-  );
-  const length = Number(run.vehicle.summary.length_m);
-  const cg = value(c, 'cg_station_m', time);
+function FlightGeometry({
+  run,
+  pose,
+}: {
+  run: Loaded;
+  pose: Extract<ReplayPose, { kind: 'pose' }>;
+}) {
   return (
-    <group
-      position={[value(c, 'east_m', time), -value(c, 'down_m', time), -value(c, 'north_m', time)]}
-      quaternion={rot}
-    >
-      <group position={[0, -(length - cg), 0]}>
+    <group position={pose.position} quaternion={pose.quaternion}>
+      <group position={pose.pivot}>
         {run.vehicle.parts
           .filter((p) => p.mesh_url)
           .map((p) => (
@@ -139,6 +111,15 @@ function ReplayCamera({
   useEffect(() => {
     if (!fitToken || !replayWindow(run.telemetry.columns.time_s)) return;
     const c = run.telemetry.columns;
+    if (
+      !['east_m', 'down_m', 'north_m'].every(
+        (key) =>
+          Array.isArray(c[key]) &&
+          c[key].length === c.time_s.length &&
+          c[key].every(Number.isFinite),
+      )
+    )
+      return;
     const points = c.time_s.map((_, i) => new Vector3(c.east_m[i], -c.down_m[i], -c.north_m[i]));
     const min = points[0].clone(),
       max = points[0].clone();
@@ -184,8 +165,19 @@ function FlightScene({
   mode: 'follow' | 'free';
   fitToken: number;
 }) {
-  const path = (r: Loaded) =>
-    r.telemetry.columns.time_s.map(
+  const path = (r: Loaded) => {
+    const c = r.telemetry.columns;
+    if (
+      !replayWindow(c.time_s) ||
+      !['east_m', 'down_m', 'north_m'].every(
+        (key) =>
+          Array.isArray(c[key]) &&
+          c[key].length === c.time_s.length &&
+          c[key].every(Number.isFinite),
+      )
+    )
+      return null;
+    return c.time_s.map(
       (_, i) =>
         [
           r.telemetry.columns.east_m[i],
@@ -193,15 +185,15 @@ function FlightScene({
           -r.telemetry.columns.north_m[i],
         ] as [number, number, number],
     );
+  };
+  const primaryPath = useMemo(() => path(run), [run]);
+  const comparisonPath = useMemo(() => (other ? path(other) : null), [other]);
   const c = run.telemetry.columns;
-  const primaryWindow = useMemo(() => replayWindow(c.time_s), [c.time_s]);
-  const otherTimes = other?.telemetry.columns.time_s;
-  const comparisonWindow = useMemo(() => replayWindow(otherTimes), [otherTimes]);
-  const primaryInside = replayWindowStatus(primaryWindow, time) === 'inside';
-  const comparisonInside = replayWindowStatus(comparisonWindow, time) === 'inside';
-  const loc = primaryInside
-    ? new Vector3(value(c, 'east_m', time), -value(c, 'down_m', time), -value(c, 'north_m', time))
+  const primaryPose = replayPose(c, Number(run.vehicle.summary.length_m), time);
+  const comparisonPose = other
+    ? replayPose(other.telemetry.columns, Number(other.vehicle.summary.length_m), time)
     : null;
+  const loc = primaryPose.kind === 'unavailable' ? null : new Vector3(...primaryPose.position);
   const theta = (run.record.settings.wind_direction_deg * Math.PI) / 180;
   const wind = run.record.settings.wind_mps;
   return (
@@ -210,10 +202,24 @@ function FlightScene({
       <directionalLight position={[20, 50, 30]} intensity={2} />
       <ReplayCamera loc={loc} mode={mode} fitToken={fitToken} run={run} />
       <gridHelper args={[100, 20, '#38505b', '#24343c']} />
-      {primaryWindow && <Line points={path(run)} color="#54d8d2" lineWidth={2} />}
-      {other && comparisonWindow && <Line points={path(other)} color="#f5b960" lineWidth={2} />}
-      {primaryInside && <FlightGeometry run={run} time={time} />}
-      {other && comparisonInside && <FlightGeometry run={other} time={time} />}
+      {primaryPath && <Line points={primaryPath} color="#54d8d2" lineWidth={2} />}
+      {comparisonPath && <Line points={comparisonPath} color="#f5b960" lineWidth={2} />}
+      {primaryPose.kind === 'pose' && <FlightGeometry run={run} pose={primaryPose} />}
+      {primaryPose.kind === 'marker' && (
+        <mesh position={primaryPose.position}>
+          <sphereGeometry args={[0.08, 12, 8]} />
+          <meshBasicMaterial color="#54d8d2" />
+        </mesh>
+      )}
+      {other && comparisonPose?.kind === 'pose' && (
+        <FlightGeometry run={other} pose={comparisonPose} />
+      )}
+      {comparisonPose?.kind === 'marker' && (
+        <mesh position={comparisonPose.position}>
+          <sphereGeometry args={[0.08, 12, 8]} />
+          <meshBasicMaterial color="#f5b960" />
+        </mesh>
+      )}
       {wind > 0 && (
         <arrowHelper
           args={[
@@ -304,6 +310,7 @@ function ReplayValidity({ run, time, label }: { run: Loaded; time: number; label
     [run.telemetry.columns.time_s],
   );
   const coverage = replayWindowStatus(window, time);
+  const pose = replayPose(run.telemetry.columns, Number(run.vehicle.summary.length_m), time);
   const validity = replayValidity(run.record, time);
   return (
     <section aria-label={`${label} replay validity`}>
@@ -323,6 +330,10 @@ function ReplayValidity({ run, time, label }: { run: Loaded; time: number; label
           Recorded support: {window.start.toFixed(3)}–{window.end.toFixed(3)} s · requested{' '}
           {Number.isFinite(time) ? `${time.toFixed(3)} s` : 'time unavailable'}.
         </p>
+      )}
+      {pose.kind === 'marker' && <p>Position marker only: {pose.reason}.</p>}
+      {pose.kind === 'unavailable' && coverage === 'inside' && (
+        <p>Current position unavailable: {pose.reason}.</p>
       )}
       <p>
         {coverage === 'inside'
@@ -586,6 +597,14 @@ export default function Experiment({
           json<InspectionDocument>(`/api/vehicles/${record.vehicle_id}`),
         ]);
         if (
+          record.run_id !== id ||
+          telemetry.run_id !== id ||
+          telemetry.frame !== 'NED; body x forward; quaternion scalar first' ||
+          !record.vehicle_id ||
+          record.configuration !== record.vehicle_id ||
+          vehicle.id !== record.vehicle_id ||
+          !/^[a-f0-9]{64}$/.test(record.resolved_sha256 ?? '') ||
+          !/^[a-f0-9]{64}$/.test(record.cad_revision_sha256 ?? '') ||
           vehicle.identity?.resolved_spec_sha256 !== record.resolved_sha256 ||
           vehicle.identity?.cad_revision_sha256 !== record.cad_revision_sha256
         )

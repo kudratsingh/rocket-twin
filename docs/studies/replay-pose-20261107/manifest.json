@@ -1,0 +1,47 @@
+{
+  "scope": "Production Three helper compared with independent scalar matrix/SLERP reference from one bounded saved-run Parquet read; no simulation or browser.",
+  "reference_json_sha256": "26ab159141ab40ff9dd5e7ecab10406fd9efa507121c762409ba846fd3ebf714",
+  "source_sha256": {
+    "scripts/wo05_replay_pose_reference.py": "f7f9d7cca40789ee7d18addc7a9e142e94aa54ab6137a2dce107338689af5518",
+    "web/src/experiments/replayPose.ts": "9f48102b89bedc6749996c53ddd860ed56b9e382def46068d974c678609e1730",
+    "web/src/experiments/Experiment.tsx": "a590719c9c213706b6fc8d7b30d2b81fa9abf91e2f321d00e49137b66a365a32",
+    "web/tests/replay-pose.test.mjs": "c4027c6952a631177365301ac9f5fd8959f7db69c1c607a82e1026eded57ddbf",
+    "src/sim/frames.py": "bc20e6f6681437f14e417c519c51f5ae167782551d0f461c616e5ea25c4035f1",
+    "src/sim/dynamics.py": "42ebc1849f0c9705351659f32dee6bbaa0fe537a21d39fe4562ddad22c8b2b54",
+    "src/api/experiments.py": "eef524c58a8e5bc11b1bced5324aad02976ffcebabaacdd851d9a7110ab3fa62",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a"
+  },
+  "run_id": "exp-cf9e47a650074144856caf50775846d2",
+  "identity": {
+    "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90"
+  },
+  "artifact_sha256": {
+    "runs/exp-cf9e47a650074144856caf50775846d2/record.json": "c52dbc2829b1d8e30b3fef1d411eb0ca07afc04cf6d62fb80a63f1715bcc5997",
+    "runs/exp-cf9e47a650074144856caf50775846d2/resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f",
+    "runs/exp-cf9e47a650074144856caf50775846d2/telemetry.parquet": "ce81a775e824239e9587b95b932c5385834f56e2a2616ff73069b240d95bf5ae"
+  },
+  "timing": {
+    "wall_seconds": 0.35024583304766566,
+    "cpu_seconds": 0.24013099999999998,
+    "wall_limit_seconds": 60,
+    "cpu_limit_seconds": 30
+  },
+  "numerical_tolerances": {
+    "positions_and_pivot_m": 1e-09,
+    "rotation_matrix_and_nose_components": 2e-08,
+    "interpolation_fraction": 1e-09,
+    "descent_tilt_deg": 0.001,
+    "event_nearby_position_m": 0.001,
+    "event_nearby_angle_rad": 1e-05
+  },
+  "limits": [
+    "Observed tests run production helper in Node, not a browser or a rendered scene.",
+    "Recovery attitude is approximate; no canopy or suspended-body physics is established.",
+    "No gap-size policy is recorded by telemetry; optional maxGap exists only for a caller with a declared threshold, and the production scene does not assert one.",
+    "Exact code/run/CAD identities and artifact hashes do not prove historical physical or flight acceptance."
+  ],
+  "generator_executed_before_formatting_sha256": "1dcb9939623e559d43692b1abf60c23886597a7cffa213933059aeaecfc9a332",
+  "generator_note": "Imports, formatting and unused shebang cleaned after the single extraction; saved outputs reused, no second extraction or numerical change."
+}
