@@ -3,9 +3,11 @@ import type { ReactNode } from 'react';
 import { OrthographicDesign } from '../design/OrthographicDesign';
 import { useInspection } from '../store';
 import type { InspectionDocument } from '../types';
-import { useOpenInspectionDetails } from './InspectionWorkspace';
+import { InspectionTools, useOpenInspectionDetails } from './InspectionWorkspace';
+import { useWorkspaceLayout } from './workspaceLayoutContext';
 import { drawingShortcut } from './inspectionWorkflow';
 import { ComponentEvidence } from './ComponentEvidence';
+import './revampDesignVisual.css';
 
 /** Representation changes preserve shared selection and the mounted 3D camera. */
 export function DesignVisual({
@@ -17,9 +19,22 @@ export function DesignVisual({
 }) {
   const id = useId();
   const evidenceRef = useRef<HTMLDetailsElement>(null);
-  const [representation, setRepresentation] = useState<'3d' | '2d'>(() =>
+  const [localRepresentation, setLocalRepresentation] = useState<'3d' | '2d'>(() =>
     vehicle.parts.some((part) => part.mesh_url) ? '3d' : '2d',
   );
+  const layout = useWorkspaceLayout();
+  const preferred = layout?.preferences.representation;
+  const hasMeshes = vehicle.parts.some((part) => part.mesh_url);
+  const representation =
+    preferred === '3d' && !hasMeshes
+      ? '2d'
+      : preferred && preferred !== 'auto'
+        ? preferred
+        : localRepresentation;
+  const setRepresentation = (value: '3d' | '2d') => {
+    setLocalRepresentation(value);
+    layout?.updatePreferences({ representation: value });
+  };
   const selected = useInspection((s) => s.selectedId);
   const hiddenIds = useInspection((s) => s.hiddenIds);
   const select = useInspection((s) => s.select);
@@ -56,6 +71,12 @@ export function DesignVisual({
           type="button"
           aria-controls={`${id}-3d`}
           aria-pressed={representation === '3d'}
+          disabled={!hasMeshes}
+          title={
+            hasMeshes
+              ? 'Inspect matching recorded CAD'
+              : 'No matching 3D assembly exists for this source; use its source drawing'
+          }
           onClick={() => setRepresentation('3d')}
         >
           3D recorded geometry
@@ -75,6 +96,11 @@ export function DesignVisual({
             : 'No recorded component meshes'}
         </span>
       </div>
+      {!hasMeshes && (
+        <p className="revamp-source-state" role="status">
+          Source drawing / concept · matching 3D assembly unavailable
+        </p>
+      )}
       {selectedPart && (
         <div className="research-selection-summary" aria-live="polite">
           <div>
@@ -93,10 +119,13 @@ export function DesignVisual({
           <button
             type="button"
             onClick={() => {
+              layout?.updatePreferences({ toolsOpen: true });
               if (!evidenceRef.current) return;
               evidenceRef.current.open = true;
-              evidenceRef.current.scrollIntoView({ block: 'nearest' });
-              evidenceRef.current.querySelector('summary')?.focus();
+              window.requestAnimationFrame(() => {
+                evidenceRef.current?.scrollIntoView({ block: 'nearest' });
+                evidenceRef.current?.querySelector('summary')?.focus();
+              });
             }}
           >
             Connections & evidence
@@ -113,6 +142,7 @@ export function DesignVisual({
       </div>
       <div id={`${id}-2d`} className="research-representation" hidden={representation !== '2d'}>
         <OrthographicDesign
+          active={representation === '2d'}
           vehicle={vehicle}
           selectedPartId={selected}
           onSelectPart={select}
@@ -123,13 +153,15 @@ export function DesignVisual({
           }}
         />
       </div>
-      <ComponentEvidence
-        vehicle={vehicle}
-        selectedId={selected}
-        onSelect={select}
-        hiddenIds={hiddenIds}
-        disclosureRef={evidenceRef}
-      />
+      <InspectionTools>
+        <ComponentEvidence
+          vehicle={vehicle}
+          selectedId={selected}
+          onSelect={select}
+          hiddenIds={hiddenIds}
+          disclosureRef={evidenceRef}
+        />
+      </InspectionTools>
     </section>
   );
 }

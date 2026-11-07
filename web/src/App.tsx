@@ -36,7 +36,7 @@ export default function App() {
   const [vehicleId, setVehicleId] = useState(
     () =>
       new URL(currentHref(), 'http://local.invalid').searchParams.get('design') ||
-      'modular-performance-v1',
+      'G80-F2-RP1-AD1-definition-v2',
   );
   const [loadedVehicle, setVehicle] = useState<InspectionDocument | null>(null);
   const vehicle = loadedVehicle?.id === vehicleId ? loadedVehicle : null;
@@ -68,9 +68,7 @@ export default function App() {
   useEffect(() => {
     if (!catalog) return;
     const requested = new URL(href, 'http://local.invalid').searchParams.get('design');
-    setVehicleId(
-      requested || catalog.vehicles.find((entry) => entry.available !== false)?.id || '',
-    );
+    setVehicleId(requested || catalog.default_design_id || 'G80-F2-RP1-AD1-definition-v2');
   }, [href, catalog]);
   const [retry, setRetry] = useState(0);
   const resetVehicle = useInspection((s) => s.resetVehicle);
@@ -176,7 +174,10 @@ export default function App() {
       if (event.key.toLowerCase() === 'r') state.resetCamera();
       if (event.key.toLowerCase() === 'f' && state.selectedId) {
         const selected = vehicle?.parts.find((part) => part.id === state.selectedId);
-        if (selected?.mesh_url) state.focusPart(selected.id);
+        if (selected?.mesh_url) {
+          if (state.section) state.toggleSection();
+          state.focusPart(selected.id);
+        }
       }
       if (event.key.toLowerCase() === 'e' && mode === 'design')
         state.setExploded(state.exploded > 0 ? 0 : 1);
@@ -195,8 +196,32 @@ export default function App() {
   );
   const inspectionContext = inspectionSourceContext(vehicleId, vehicle, selectedEntry);
   const inspectionError = vehicleError || (!vehicle ? catalogError : '');
+  const constructionNotice = (
+    <p className="route-notice">
+      Current conventional construction:{' '}
+      <a
+        href="/?workspace=engineering&view=g80-f2"
+        onClick={(event) => {
+          if (
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          )
+            return;
+          event.preventDefault();
+          navigate('/?workspace=engineering&view=g80-f2');
+        }}
+      >
+        open the separate G80-F2 stock-and-joint walkthrough
+      </a>
+      . The CAD selector contains recorded reference assemblies, not a complete F2 assembly.
+    </p>
+  );
   return (
     <WorkspaceFrame
+      workspace={mode}
       header={
         <header className="topbar">
           <a className="brand" href="/" aria-label="Rocket Twin home">
@@ -220,7 +245,23 @@ export default function App() {
               onChange={(event) => changeConfiguration(event.target.value)}
               disabled={!catalog}
             >
-              <optgroup label="Recorded reference CAD configurations">
+              {!catalog && (
+                <option value={vehicleId}>
+                  {vehicleId === 'G80-F2-RP1-AD1-definition-v2'
+                    ? 'G80 RP1 / AD1 v2 · source loading'
+                    : vehicleId}
+                </option>
+              )}
+              <optgroup label="Current engineering definition · source drawings">
+                {catalog?.candidates
+                  .filter((entry) => entry.id === 'G80-F2-RP1-AD1-definition-v2')
+                  .map((entry) => (
+                    <option key={entry.id} value={entry.id} disabled={entry.available === false}>
+                      {entry.label || entry.id}
+                    </option>
+                  ))}
+              </optgroup>
+              <optgroup label="Archived reference CAD · separate designs">
                 {catalog?.vehicles.map((entry) => (
                   <option key={entry.id} value={entry.id} disabled={entry.available === false}>
                     {entry.label || entry.name || entry.id}
@@ -228,12 +269,14 @@ export default function App() {
                 ))}
               </optgroup>
               {!!catalog?.candidates.length && (
-                <optgroup label="Candidate designs — not adopted">
-                  {catalog.candidates.map((entry) => (
-                    <option key={entry.id} value={entry.id} disabled={entry.available === false}>
-                      {entry.label || entry.name || entry.id}
-                    </option>
-                  ))}
+                <optgroup label="Historical candidate designs — not adopted">
+                  {catalog.candidates
+                    .filter((entry) => entry.id !== 'G80-F2-RP1-AD1-definition-v2')
+                    .map((entry) => (
+                      <option key={entry.id} value={entry.id} disabled={entry.available === false}>
+                        {entry.label || entry.name || entry.id}
+                      </option>
+                    ))}
                 </optgroup>
               )}
             </select>
@@ -380,30 +423,7 @@ export default function App() {
         </footer>
       }
     >
-      {mode === 'design' && (
-        <p className="route-notice">
-          Current conventional construction:{' '}
-          <a
-            href="/?workspace=engineering&view=g80-f2"
-            onClick={(event) => {
-              if (
-                event.button !== 0 ||
-                event.metaKey ||
-                event.ctrlKey ||
-                event.shiftKey ||
-                event.altKey
-              )
-                return;
-              event.preventDefault();
-              navigate('/?workspace=engineering&view=g80-f2');
-            }}
-          >
-            open the separate G80-F2 stock-and-joint walkthrough
-          </a>
-          . The CAD selector contains recorded reference assemblies, not a complete F2 assembly.
-        </p>
-      )}
-      {catalogError && vehicle && (mode === 'design' || mode === 'analysis') && (
+      {catalogError && vehicle && mode === 'analysis' && (
         <p className="route-notice" role="status">
           Configuration list unavailable: {catalogError}. The displayed source document is loaded
           independently.
@@ -475,6 +495,17 @@ export default function App() {
         </Suspense>
       ) : (
         <InspectionWorkspace
+          source={
+            <>
+              {constructionNotice}
+              {catalogError && (
+                <p className="route-notice" role="status">
+                  Configuration list unavailable: {catalogError}. The displayed source document is
+                  loaded independently.
+                </p>
+              )}
+            </>
+          }
           tree={
             <>
               <PartsTree

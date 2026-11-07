@@ -14,6 +14,38 @@ function items(value: JsonValue | undefined): JsonValue[] {
   return Array.isArray(value) ? value : [];
 }
 
+function SavedFinEvidence({ evidence }: { evidence?: Record<string, JsonValue> }) {
+  const fin = record(evidence?.fin);
+  if (!Object.keys(fin).length) return null;
+  const rows = items(fin.ideal_composite_strip_lower_deflection_only);
+  const panel = record(rows.at(-1));
+  return (
+    <section className="detail-section">
+      <h3>Recorded AD1 fin finding</h3>
+      <p className="notice small">
+        {fin.bonded_panel_stress_screen_pass_only === false
+          ? 'Failed recorded panel strength screen.'
+          : 'No installed fin pass established.'}{' '}
+        The saved ideal-panel movement excludes the flexible installed attachment; it cannot
+        establish total tip movement.
+      </p>
+      <DataList
+        data={{
+          factored_moment_Nm: fin.factored_moment_Nm,
+          factored_force_N: fin.factored_force_N,
+          optimistic_panel_movement_m: panel.deflection_m,
+          panel_bending_stress_Pa: panel.maximum_bending_Pa,
+        }}
+      />
+      <p className="small muted">
+        The factor of three is already applied once. Installed movement, peel capacity,
+        hot/conditioned properties and flutter remain unavailable or unqualified. Showing this
+        frozen result does not rerun or adopt the failed construction.
+      </p>
+    </section>
+  );
+}
+
 export function DataList({
   data,
   empty = 'Unavailable in the recorded specification.',
@@ -106,7 +138,15 @@ function Traceability({
   );
 }
 
-function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
+export function PartInspector({
+  part,
+  parts,
+  evidence,
+}: {
+  part: Part;
+  parts: Part[];
+  evidence?: Record<string, JsonValue>;
+}) {
   const select = useInspection((s) => s.select);
   const isolate = useInspection((s) => s.isolate);
   const togglePart = useInspection((s) => s.togglePart);
@@ -254,6 +294,7 @@ function PartInspector({ part, parts }: { part: Part; parts: Part[] }) {
           flutter acceptance remain open.
         </div>
       )}
+      {/fin/.test(part.type) && <SavedFinEvidence evidence={evidence} />}
       <section className="detail-section">
         <h3>How it is made</h3>
         <DataList
@@ -443,7 +484,9 @@ function VehicleSummary({
             {grams(mass?.mass_kg ?? mass?.total_mass_kg ?? numeric(summary.nominal_mass_kg))}
           </strong>
           <small>
-            {Math.round((mass?.burn_fraction || 0) * 100)}% propellant consumed · model estimate
+            {Array.isArray(summary.mass_cases)
+              ? 'Saved cases below; no compatible burn-state model'
+              : `${Math.round((mass?.burn_fraction || 0) * 100)}% propellant consumed · model estimate`}
           </small>
         </div>
         <div>
@@ -454,6 +497,57 @@ function VehicleSummary({
           <small>One calibre = one body diameter</small>
         </div>
       </div>
+      {Array.isArray(summary.mass_cases) && (
+        <section className="detail-section">
+          <h3>Recorded AD1 mass and launch cases</h3>
+          <p className="small muted">
+            Source estimates, not measurements. Each total already includes its separate full 50 g
+            growth allowance. The 55 g and 68 g harness values are unverified probes, not
+            uncertainty bounds. The adverse case also includes 20 g aft and its saved motor-balance
+            probe.
+          </p>
+          <div className="recorded-cases-table" style={{ overflowX: 'auto' }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Case / harness</th>
+                  <th>Total incl. growth (g)</th>
+                  <th>Balance from nose (mm)</th>
+                  <th>Margin (cal)</th>
+                  <th>1.5 m departure (m/s)</th>
+                  <th>15 formal margin (m/s)</th>
+                  <th>15.5 planning margin (m/s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {summary.mass_cases.map((raw, index) => {
+                  const row = record(raw);
+                  const speeds = record(row.guide_mps);
+                  return (
+                    <tr key={index}>
+                      <th>
+                        {String(row.case)} / {String(row.nylon_mass_probe_g)} g
+                      </th>
+                      <td>{number(numeric(row.total_mass_g), 3)}</td>
+                      <td>{number(numeric(row.cg_mm), 3)}</td>
+                      <td>{number(numeric(row.margin_cal), 3)}</td>
+                      <td>{number(numeric(speeds['1.5']), 6)}</td>
+                      <td>{number(numeric(row.formal_speed_margin_mps), 6)}</td>
+                      <td>{number(numeric(row.planning_speed_margin_mps), 6)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="small muted">
+            Negative margin remains a failed screen; rounding does not establish a pass. Longer
+            guides are conditional on unconfirmed equipment. Full rotational inertia and matching
+            complete 3D CAD remain unavailable. These records do not authorize a build or flight.
+          </p>
+        </section>
+      )}
+      <SavedFinEvidence evidence={vehicle.evidence} />
       {margin != null && margin < 0 && (
         <div className="notice negative small">
           <Icon name="warning" />
@@ -615,7 +709,7 @@ export function InspectionPanel({
     >
       <div className="inspector-scroll" key={part?.id || vehicle.id}>
         {part ? (
-          <PartInspector part={part} parts={vehicle.parts} />
+          <PartInspector part={part} parts={vehicle.parts} evidence={vehicle.evidence} />
         ) : (
           <VehicleSummary vehicle={vehicle} mass={mass} />
         )}

@@ -16,6 +16,7 @@ export interface CatalogEntry {
 }
 
 export interface Catalog {
+  default_design_id?: string;
   vehicles: CatalogEntry[];
   status: string;
   candidates: CatalogEntry[];

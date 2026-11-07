@@ -11,6 +11,7 @@ import {
 } from './designPresentation';
 import type { DrawingView as View } from './designPresentation';
 import './orthographicDesign.css';
+import { InspectionTools } from '../workspaces/InspectionWorkspace';
 
 export type OrthographicDesignProps = {
   vehicle: InspectionDocument;
@@ -18,6 +19,7 @@ export type OrthographicDesignProps = {
   onSelectPart: (id: string | null) => void;
   hiddenPartIds?: readonly string[];
   onRevealPart?: (id: string) => void;
+  active?: boolean;
 };
 const colors: Record<DesignLayer, string> = {
   body: '#8dbacc',
@@ -43,6 +45,7 @@ function DesignDrawing({
   onSelectPart,
   hiddenPartIds = [],
   onRevealPart,
+  active = true,
 }: OrthographicDesignProps) {
   const clipId = `drawing-${useId()}`;
   const model = useMemo(() => orthographicModel(vehicle), [vehicle]);
@@ -205,49 +208,53 @@ function DesignDrawing({
           </div>
         </details>
       </div>
-      <label className="ortho-component-picker">
-        Component
-        <select
-          aria-label="Select source component"
-          value={selectedPartId ?? ''}
-          onChange={(event) => onSelectPart(event.target.value || null)}
-        >
-          <option value="">No selected component</option>
-          {vehicle.parts.map((part) => (
-            <option key={part.id} value={part.id}>
-              {part.name ?? part.id}
-              {hiddenPartIds.includes(part.id) ? ' — hidden' : ''}
-              {model.unavailable.some((item) => item.part.id === part.id)
-                ? ' — geometry unavailable'
-                : ''}
-            </option>
-          ))}
-        </select>
-      </label>
-      <fieldset className="ortho-layers">
-        <legend>Source layers</legend>
-        {designLayers.map((layer) => (
-          <label key={layer}>
-            <input
-              type="checkbox"
-              checked={layers.includes(layer)}
-              onChange={() =>
-                setLayers((current) =>
-                  current.includes(layer)
-                    ? current.filter((item) => item !== layer)
-                    : [...current, layer],
-                )
-              }
-            />
-            {layer}
+      <InspectionTools>
+        <div hidden={!active}>
+          <label className="ortho-component-picker">
+            Component
+            <select
+              aria-label="Select source component"
+              value={selectedPartId ?? ''}
+              onChange={(event) => onSelectPart(event.target.value || null)}
+            >
+              <option value="">No selected component</option>
+              {vehicle.parts.map((part) => (
+                <option key={part.id} value={part.id}>
+                  {part.name ?? part.id}
+                  {hiddenPartIds.includes(part.id) ? ' — hidden' : ''}
+                  {model.unavailable.some((item) => item.part.id === part.id)
+                    ? ' — geometry unavailable'
+                    : ''}
+                </option>
+              ))}
+            </select>
           </label>
-        ))}
-      </fieldset>
-      <p className="ortho-help">
-        Drag to pan; use zoom buttons. Wheel scrolls the page. Select an outline or use the parts
-        tree. Focus the drawing to use arrow keys to pan, +/− to zoom, F to focus and R to reset.
-        These are simplified source envelopes, not CAD projections.
-      </p>
+          <fieldset className="ortho-layers">
+            <legend>Source layers</legend>
+            {designLayers.map((layer) => (
+              <label key={layer}>
+                <input
+                  type="checkbox"
+                  checked={layers.includes(layer)}
+                  onChange={() =>
+                    setLayers((current) =>
+                      current.includes(layer)
+                        ? current.filter((item) => item !== layer)
+                        : [...current, layer],
+                    )
+                  }
+                />
+                {layer}
+              </label>
+            ))}
+          </fieldset>
+          <p className="ortho-help">
+            Drag to pan; use zoom buttons. Wheel scrolls the page. Select an outline or use the
+            parts tree. Focus the drawing to use arrow keys to pan, +/− to zoom, F to focus and R to
+            reset. These are simplified source envelopes, not CAD projections.
+          </p>
+        </div>
+      </InspectionTools>
       <div className="ortho-stage">
         <svg
           ref={svg}
@@ -324,7 +331,9 @@ function DesignDrawing({
               {vehicle.id} · specification{' '}
               {typeof vehicle.identity?.resolved_spec_sha256 === 'string'
                 ? vehicle.identity.resolved_spec_sha256.slice(0, 16)
-                : 'unavailable'}{' '}
+                : typeof vehicle.identity?.specification_sha256 === 'string'
+                  ? vehicle.identity.specification_sha256.slice(0, 16)
+                  : 'unavailable'}{' '}
               · CAD{' '}
               {typeof vehicle.identity?.cad_revision_sha256 === 'string'
                 ? vehicle.identity.cad_revision_sha256.slice(0, 16)
@@ -493,90 +502,97 @@ function DesignDrawing({
           from another design. <button onClick={() => onSelectPart(null)}>Clear selection</button>
         </p>
       )}
-      <div className="ortho-selection" aria-live="polite">
-        <strong>
-          {selectedPart?.name ??
-            selectedPart?.id ??
-            'Select a component to inspect its source dimensions'}
-        </strong>
-        {selectedPart && (
-          <>
-            <p>{selectedPart.function ?? selectedPart.learn}</p>
-            <p>
-              Material: {selectedPart.material} · Source role:{' '}
-              {selected?.representation ?? 'unavailable'}
-            </p>
-            <p>
-              {selected
-                ? sourceMaturity(selected)
-                : 'Drawing geometry unavailable; no replacement shape is inferred.'}
-            </p>
-            <p>{selected?.note ?? selectedMissing?.reason}</p>
-            {visibility === 'hidden-part' && (
-              <p role="status">
-                Selected component is hidden by the shared parts visibility control.{' '}
-                {onRevealPart ? (
-                  <button onClick={revealAndFocus}>Reveal & focus this part</button>
-                ) : (
-                  'Reveal it in the parts tree to inspect its drawing.'
+      <InspectionTools>
+        <div hidden={!active}>
+          <div className="ortho-selection" aria-live="polite">
+            <strong>
+              {selectedPart?.name ??
+                selectedPart?.id ??
+                'Select a component to inspect its source dimensions'}
+            </strong>
+            {selectedPart && (
+              <>
+                <p>{selectedPart.function ?? selectedPart.learn}</p>
+                <p>
+                  Material: {selectedPart.material} · Source role:{' '}
+                  {selected?.representation ?? 'unavailable'}
+                </p>
+                <p>
+                  {selected
+                    ? sourceMaturity(selected)
+                    : 'Drawing geometry unavailable; no replacement shape is inferred.'}
+                </p>
+                <p>{selected?.note ?? selectedMissing?.reason}</p>
+                {visibility === 'hidden-part' && (
+                  <p role="status">
+                    Selected component is hidden by the shared parts visibility control.{' '}
+                    {onRevealPart ? (
+                      <button onClick={revealAndFocus}>Reveal & focus this part</button>
+                    ) : (
+                      'Reveal it in the parts tree to inspect its drawing.'
+                    )}
+                  </p>
                 )}
-              </p>
-            )}
-            {selected && (
-              <p>
-                Source axial interval: {selected.bounds[0].toFixed(2)}–
-                {selected.bounds[2].toFixed(2)} mm. Displaying an envelope does not establish
-                manufactured geometry.
-              </p>
-            )}
-            {selected && !layers.includes(selected.layer) && (
-              <p role="status">
-                Selected component is in a hidden {selected.layer} layer.{' '}
-                <button onClick={revealAndFocus}>Reveal layer & focus</button>
-              </p>
-            )}
-            <details>
-              <summary>Recorded dimensions & source</summary>
-              <pre>
-                {JSON.stringify(
-                  {
-                    dimensions: selectedPart.dimensions ?? selectedPart.geometry ?? null,
-                    location: selectedPart.location ?? {
-                      position_m: selectedPart.position_m ?? null,
-                    },
-                    source: selectedPart.source ?? null,
-                  },
-                  null,
-                  2,
+                {selected && (
+                  <p>
+                    Source axial interval: {selected.bounds[0].toFixed(2)}–
+                    {selected.bounds[2].toFixed(2)} mm. Displaying an envelope does not establish
+                    manufactured geometry.
+                  </p>
                 )}
-              </pre>
-            </details>
-          </>
-        )}
-      </div>
-      <details className="ortho-unavailable">
-        <summary>Unavailable geometry ({model.unavailable.length}) & representation scope</summary>
-        <p>
-          No dimension is inferred from mass, CAD display bounds or another design. Nose profiles,
-          holes, joints and fin clocking are not reconstructed.
-        </p>
-        {model.unavailable.map(({ part, reason }) => (
-          <p key={part.id}>
-            <button onClick={() => onSelectPart(part.id)}>{part.name ?? part.id}</button> {reason}
-          </p>
-        ))}
-        <pre>
-          {JSON.stringify(
-            {
-              configuration: vehicle.id,
-              identity: vehicle.identity ?? null,
-              representation: metadata.representation,
-            },
-            null,
-            2,
-          )}
-        </pre>
-      </details>
+                {selected && !layers.includes(selected.layer) && (
+                  <p role="status">
+                    Selected component is in a hidden {selected.layer} layer.{' '}
+                    <button onClick={revealAndFocus}>Reveal layer & focus</button>
+                  </p>
+                )}
+                <details>
+                  <summary>Recorded dimensions & source</summary>
+                  <pre>
+                    {JSON.stringify(
+                      {
+                        dimensions: selectedPart.dimensions ?? selectedPart.geometry ?? null,
+                        location: selectedPart.location ?? {
+                          position_m: selectedPart.position_m ?? null,
+                        },
+                        source: selectedPart.source ?? null,
+                      },
+                      null,
+                      2,
+                    )}
+                  </pre>
+                </details>
+              </>
+            )}
+          </div>
+          <details className="ortho-unavailable">
+            <summary>
+              Unavailable geometry ({model.unavailable.length}) & representation scope
+            </summary>
+            <p>
+              No dimension is inferred from mass, CAD display bounds or another design. Nose
+              profiles, holes, joints and fin clocking are not reconstructed.
+            </p>
+            {model.unavailable.map(({ part, reason }) => (
+              <p key={part.id}>
+                <button onClick={() => onSelectPart(part.id)}>{part.name ?? part.id}</button>{' '}
+                {reason}
+              </p>
+            ))}
+            <pre>
+              {JSON.stringify(
+                {
+                  configuration: vehicle.id,
+                  identity: vehicle.identity ?? null,
+                  representation: metadata.representation,
+                },
+                null,
+                2,
+              )}
+            </pre>
+          </details>
+        </div>
+      </InspectionTools>
     </section>
   );
 }
