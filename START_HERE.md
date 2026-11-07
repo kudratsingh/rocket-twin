@@ -1,13 +1,18 @@
 # Start here (owner)
 
-1. The project repository is `kudratsingh/rocket-twin`, private by owner direction.
-   Keep it private until the owner explicitly requests a visibility change. Agents
+1. The project repository is `kudratsingh/rocket-twin`, public by owner confirmation
+   on November 4, 2026. Keep it public unless the owner requests a change. Agents
    push substantial work on branches and use PRs without routine owner review.
    Required checks and repository protections still apply; WO-10 firmware/abort
    logic retains its explicit owner-review gate. See `AGENTS.md`.
-2. Active direction is the [modular custom-build rebaseline](docs/wo01-rebaseline.md):
-   maximum practical no-HPR performance plus committed PID/RL, with shared upper
-   equipment and distinct performance, finned TVC and eventual finless modes.
+2. Start with a dedicated conventional fixed-motor G80 custom build. Physical
+   interchangeability with G12 is optional under ADR-0013; shared software,
+   instrumentation and the digital twin remain useful. Maximum practical no-HPR
+   performance and committed G12 PID/RL remain core goals; G54 is a separate
+   upgrade track. The next engineering milestone is [VP1](docs/wo03-vp1-response-decision-20261106.md):
+   use actual inquiry send dates/replies to prepare one room-temperature test
+   decision, including the lab method and all-in quote, for owner approval before
+   purchases or testing. The original modular rebaseline is historical context.
 3. Confirm the actual club/site and discuss each intended configuration with its
    RSO before hardware release. ROC/Lucerne is a planning assumption, not approval.
    A policy for active stabilization is not established by a numerical model pass.

@@ -1,5 +1,7 @@
 # Current engineering and inspection checkpoint
 
+**Owner continuation (2026-11-06):** [VP1 inquiry-to-test decision](wo03-vp1-response-decision-20261106.md). The owner will supply actual send dates and replies for the five prepared inquiries. Track each actual send independently: one day-5 follow-up, day-10 business-day close; no dates or replies are recorded yet. Prepare one room-temperature test recommendation with the lab method, itemized all-in cost and D1 pass/fail meaning; return it for owner approval before purchases or testing. Frozen drafts/package and engineering criteria remain unchanged. Continue the next bounded frontend backlog task; browser observation remains separate from code/offline checks.
+
 **Repository visibility — owner-confirmed public (2026-11-04).**
 The owner explicitly confirmed that they made `kudratsingh/rocket-twin` public.
 This supersedes the earlier private-only instruction and resolves the visibility
@@ -19,9 +21,11 @@ action. Frozen engineering/source records and all owner gates remain unchanged.
 **Current delivery: [VP1 owner-review validation package](validation/rp1-vp1/package-summary.md).**
 One first test lead is ordinary6mm02-20850 birch with WEST105/206/406 fillets;
 this is not vehicle adoption. Four product drafts plus one supervised-lab RFQ
-are complete and UNSENT. Recommended first authorization is inquiries only,
-$0; no purchase, paid consultation, fabrication or loading. No email-sending
-connector is available; owner-ready drafts/forms are supplied.
+remain frozen source drafts. No actual send dates or replies are recorded yet;
+the owner will provide them for the separate response tracker. Each actual send
+starts its own day-5 follow-up/day-10 business-day response window. No agent
+outreach is performed. The next owner decision is the room-temperature method,
+itemized all-in quote and pass/fail meaning before purchase or testing.
 
 Room-pilot stock lists$236.75; conditional full stock reserve$269.49. Services,
 fixtures, calibrated channels and delivery are unquoted, so the all-in total

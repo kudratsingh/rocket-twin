@@ -10,6 +10,8 @@ A **G54** performance upgrade and **G12 thrust-vector-control** trainer remain
 separate tracks. Custom construction and practical performance are core goals;
 certified commercial motors and suitable purchased parts complement the build.
 
+**Repository:** public by owner confirmation (November 4, 2026). The next G80 engineering milestone is [VP1 material and attachment validation](docs/validation/rp1-vp1/package-summary.md). Physical interchangeability with G12 is optional; the first G80 remains a dedicated conventional build.
+
 ## What works today
 
 - **Vehicle models:** typed YAML parts, geometry, mass, centre of gravity, full
@@ -31,13 +33,17 @@ certified commercial motors and suitable purchased parts complement the build.
 
 ## Current evidence
 
-**Engineering acceptance is open (WO-03; November 4, 2026).** The latest
+**Engineering acceptance is open (WO-03; November 6, 2026).** The latest
 [RP1 load and attachment decision](docs/wo03-rp1-load-attachment-decision.md)
 reconciles the carbon-faced plywood and solid-carbon fin studies. Neither is
 adopted, and neither establishes an installed fin pass. Recovery joints,
 conditioned material properties, thermal limits, exact motor fit and installed
 flutter still need evidence. Older modular assemblies and their flight results
 remain reference records, rather than validation of the latest RP1 geometry.
+
+VP1 starts with documentation and one proposed room-temperature test round using ordinary birch plywood and WEST 105/206/406. This selects a first material/process to investigate, not vehicle construction. The owner will supply actual send dates and replies for the five prepared inquiries. Each response window starts from its actual send date, with one day-5 follow-up and a day-10 close. No send date or reply has been recorded yet.
+
+The next owner decision will include the lab's method, calibration and uncertainty, an itemized all-in quote, and what passing or failing would establish under the unchanged D1 criteria. Material stock subtotals are **not** the total test cost; fixtures, calibrated measurement, services and delivery remain unquoted. Purchases and testing require owner approval. Supplier/lab messages are never sent by the workbench.
 
 The [recorded flight studies](docs/wo02-flight-study.md) compare unguided ascent
 against RocketPy under matched assumptions. Passing numerical comparisons do not
@@ -47,7 +53,9 @@ run identities, assumptions, discrepancies and negative results.
 The early workbench is implemented while full WO-04/05 acceptance remains open.
 Source, test and offline-render checks are recorded separately from pending
 browser interaction acceptance. See the [current project state](docs/CURRENT.md)
-and [frontend handoff](docs/wo04-focused-preview-20261103.md).
+and [frontend handoff](docs/wo04-focused-preview-20261103.md). The separate
+[VP1 programme view](docs/wo04-vp1-validation-workbench-20261106.md) displays the frozen plan, conceptual parts, known/unquoted costs and five draft messages at
+`/?workspace=engineering&view=rp1-validation`; it cannot authorize or execute tests.
 
 **PID/RL training, embedded policy deployment, firmware/HIL and real flights are
 later milestones.** The eventual finless vehicle needs its own active-control and

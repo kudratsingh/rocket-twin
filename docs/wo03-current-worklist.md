@@ -1,5 +1,7 @@
 # Current bounded work list
 
+**Owner continuation (2026-11-06):** [VP1 inquiry-to-test decision](wo03-vp1-response-decision-20261106.md). The owner will supply actual send dates and replies for the five prepared inquiries. Track each actual send independently: one day-5 follow-up, day-10 business-day close; no dates or replies are recorded yet. Prepare one room-temperature test recommendation with the lab method, itemized all-in cost and D1 pass/fail meaning; return it for owner approval before purchases or testing. Frozen drafts/package and engineering criteria remain unchanged. Continue the next bounded frontend backlog task; browser observation remains separate from code/offline checks.
+
 **Repository visibility — owner-confirmed public (2026-11-04).**
 The owner explicitly confirmed that they made `kudratsingh/rocket-twin` public.
 This supersedes the earlier private-only instruction and resolves the visibility
@@ -8,6 +10,14 @@ change; do not attempt to restore Private. Continue the existing focused
 PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services,
 physical work and flight release still require their existing authorizations.
 The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
+
+## Current bounded continuation — response tracking and inspection usability
+
+| Deliverable / owner | Budget and identity | Status / stop |
+| --- | --- | --- |
+| Inquiry tracking and one test-decision template / Terra HIGH | One25min implementation +one correction; separate records, frozen VP1/D1 untouched | Blank five-inquiry tracker; dates/replies/quote pending actual owner input. Read-only day5/day10 helper, no scheduler/contact. Stop at missing evidence; prepare one owner decision before execution |
+| FT-015 assembled inspection / Astra MEDIUM | One35min slice +one correction; existing Design inspector/source identities | Restore assembled display and readable section/explode/source-dimension state implemented; local checks/publication follow. No browser claim; unsupported geometry remains unavailable |
+| Integration/publication and current README / primary | Focused source whitelist, required checks before merge | Public visibility and dedicated G80-first README synchronized from current published base; PR84 merged after both exact-head checks. No engineering acceptance inferred |
 
 ## Current unblocked implementation — VP1 workbench preview
 
@@ -20,8 +30,8 @@ The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility
 | Public workflow / primary | Owner confirmation, required checks before routine merge | Visibility hold resolved; public instructions/source links updated in focusedPR83; unrelated README PR82 preserved |
 
 See [frontend handoff](wo04-vp1-validation-workbench-20261106.md). S0 clock has not
-started. Source package/studies remain frozen; separate outreach approval still
-needed. No installed engineering requirement or full work-order gate closes.
+started. Source package/studies remain frozen; actual owner-supplied send dates and
+replies are pending. Agent outreach, purchases and testing are not inferred. No installed engineering requirement or full work-order gate closes.
 
 ## Current: VP1 inquiry-ready evidence package
 
