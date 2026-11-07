@@ -1,9 +1,10 @@
+import { recordedMassCases } from './workspaces/recordedMassCases';
 import {
   experimentConfiguration,
   experimentHref,
   savedRunHref,
 } from './workspaces/experimentContext';
-import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { getJson } from './api';
 import { InspectionPanel } from './components/InspectionPanel';
 import { Icon } from './components/Icons';
@@ -52,6 +53,20 @@ export default function App() {
   const [massError, setMassError] = useState('');
   const [mass, setMass] = useState<MassSample | null>(null);
   const [burn, setBurn] = useState(0);
+  const [recordedCaseIndex, setRecordedCaseIndex] = useState(0);
+  const recordedCaseContext = useMemo(() => {
+    if (!vehicle || vehicle.id !== 'G80-F2-RP1-AD1-definition-v2') return { cases: [], error: '' };
+    try {
+      return { cases: recordedMassCases(vehicle), error: '' };
+    } catch (reason) {
+      return {
+        cases: [],
+        error: reason instanceof Error ? reason.message : 'Recorded estimated cases unavailable.',
+      };
+    }
+  }, [vehicle]);
+  const selectedRecordedCase =
+    recordedCaseContext.cases[recordedCaseIndex] || recordedCaseContext.cases[0];
   const [massLoading, setMassLoading] = useState(false);
   const [href, setHref] = useState(currentHref);
   const route = readWorkspace(new URL(href, 'http://local.invalid').search);
@@ -154,6 +169,7 @@ export default function App() {
     setVehicle(null);
     setMass(null);
     setBurn(0);
+    setRecordedCaseIndex(0);
     setVehicleError('');
     setMassError('');
     resetVehicle();
@@ -189,6 +205,15 @@ export default function App() {
 
   useEffect(() => {
     if (!vehicle) return;
+    if (vehicle.id === 'G80-F2-RP1-AD1-definition-v2') {
+      setMass(selectedRecordedCase?.mass || null);
+      setMassLoading(false);
+      setMassError(
+        recordedCaseContext.error ||
+          (selectedRecordedCase ? '' : 'Saved estimated cases unavailable.'),
+      );
+      return;
+    }
     const controller = new AbortController();
     setMassLoading(true);
     setMass(null);
@@ -215,7 +240,7 @@ export default function App() {
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [vehicle, burn]);
+  }, [vehicle, burn, selectedRecordedCase, recordedCaseContext.error]);
 
   useEffect(() => {
     function keydown(event: KeyboardEvent) {
@@ -616,6 +641,28 @@ export default function App() {
               <DesignVisual
                 key={vehicle.id}
                 vehicle={vehicle}
+                recordedCaseControls={
+                  recordedCaseContext.cases.length > 0 ? (
+                    <label className="saved-mass-case-control">
+                      Recorded estimated case
+                      <select
+                        aria-label="Recorded estimated mass and balance case"
+                        value={recordedCaseIndex}
+                        onChange={(event) => setRecordedCaseIndex(Number(event.target.value))}
+                      >
+                        {recordedCaseContext.cases.map((entry, index) => (
+                          <option key={entry.id} value={index}>
+                            {entry.label}
+                          </option>
+                        ))}
+                      </select>
+                      <small>
+                        {selectedRecordedCase?.description} Markers show saved estimates; no
+                        burn-state or inertia model is admitted.
+                      </small>
+                    </label>
+                  ) : undefined
+                }
                 meshView={
                   <Viewer
                     key={`viewer-${vehicle.id}`}

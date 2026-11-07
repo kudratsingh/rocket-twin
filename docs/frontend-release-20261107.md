@@ -61,7 +61,10 @@ finished joints are not modeled as qualified geometry.
 
 Inspection identity `238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608`
 is separate from canonical CAD/resolved-flight identities, which remain null.
-No mass or inertia is generated from these display solids. The exporter is
+No mass or inertia is generated from these display solids. The3Dmass/CG/CP markers
+use an explicitly selected saved estimated case (55/68g harness probes and full
+50g growth already included), with nominal/adverse cases separately labeled.
+They do not call or infer a canonical burn-state model. The exporter is
 outside `src/cad` so archived CAD identity `1193713d…` remains unchanged.
 The active specification, AD1/D1 records, FP1/FR1 status and original load gates
 are frozen. A matching RP1 flight model is not created by a display mesh.

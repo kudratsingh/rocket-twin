@@ -405,8 +405,8 @@ function Markers({ length, mass }: { length: number; mass: MassSample | null }) 
             <meshBasicMaterial color="#55d5d3" depthTest={false} />
           </mesh>
           <Html position={[0.012, 0, 0]} center distanceFactor={1.8} zIndexRange={[10, 0]}>
-            <div className="model-label cg-label">
-              CG <span>balance point</span>
+            <div className="model-label cg-label" title={mass.recorded_case_label}>
+              CG <span>balance point{mass.recorded_case_label ? ' · saved estimate' : ''}</span>
             </div>
           </Html>
         </group>
@@ -419,7 +419,10 @@ function Markers({ length, mass }: { length: number; mass: MassSample | null }) 
           </mesh>
           <Html position={[0.012, 0, 0]} center distanceFactor={1.8} zIndexRange={[10, 0]}>
             <div className="model-label">
-              CP <span>aerodynamic force point</span>
+              CP{' '}
+              <span>
+                aerodynamic force point{mass.recorded_case_label ? ' · saved estimate' : ''}
+              </span>
             </div>
           </Html>
         </group>

@@ -17,9 +17,11 @@ import './revampDesignVisual.css';
 export function DesignVisual({
   vehicle,
   meshView,
+  recordedCaseControls,
 }: {
   vehicle: InspectionDocument;
   meshView: ReactNode;
+  recordedCaseControls?: ReactNode;
 }) {
   const id = useId();
   const evidenceRef = useRef<HTMLDetailsElement>(null);
@@ -106,6 +108,7 @@ export function DesignVisual({
           source record remains selectable in the parts tree. Physical qualification open.
         </p>
       )}
+      {recordedCaseControls && <InspectionTools>{recordedCaseControls}</InspectionTools>}
       {!hasMeshes && (
         <p className="revamp-source-state" role="status">
           Source drawing / concept · matching 3D assembly unavailable
