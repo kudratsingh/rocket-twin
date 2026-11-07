@@ -1,5 +1,14 @@
 # Current bounded work list
 
+**Repository visibility — owner-confirmed public (2026-11-04).**
+The owner explicitly confirmed that they made `kudratsingh/rocket-twin` public.
+This supersedes the earlier private-only instruction and resolves the visibility
+publication hold. Keep the repository public unless the owner requests another
+change; do not attempt to restore Private. Continue the existing focused
+PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services,
+physical work and flight release still require their existing authorizations.
+The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
+
 ## Current: VP1 inquiry-ready evidence package
 
 | Deliverable / owner | Budget / source | Actual status and stop |
@@ -10,7 +19,7 @@
 | Owner review / primary |Five inquiries,$0; no purchase/test |Await exact Stage0 authorization; one follow-upday5, closeday10; quotes/method before later spending |
 | Review drawing pack / primary |Existing native offline route,120wall ceiling, one visual correction |Final1280x900 offline image inspected, explicit arrows/radial-schematic warning; final0.723s, first elapsedunrecorded; no browser acceptance |
 | Frontend export / Astra MEDIUM |One25min code packet, owned export/view/test files |86integratedwebchecks/type/lint/format/build; PR79 merged after required jobs at0cdff6be; no browser |
-| Publication / primary |Focused private PR, required jobs before merge |Exact PR state is on GitHub; no added owner review gate |
+| Publication / primary |Focused public-repository PR, required jobs before merge |Exact PR state is on GitHub; no added owner review gate |
 
 See [owner summary](validation/rp1-vp1/package-summary.md) and [protocol](validation/rp1-vp1/protocol.md).
 No installed engineering gate closes; root execution is still conditional and source failures remain preserved.

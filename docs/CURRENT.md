@@ -1,5 +1,14 @@
 # Current engineering and inspection checkpoint
 
+**Repository visibility — owner-confirmed public (2026-11-04).**
+The owner explicitly confirmed that they made `kudratsingh/rocket-twin` public.
+This supersedes the earlier private-only instruction and resolves the visibility
+publication hold. Keep the repository public unless the owner requests another
+change; do not attempt to restore Private. Continue the existing focused
+PR/required-check/merge workflow. Supplier/lab contact, purchases, paid services,
+physical work and flight release still require their existing authorizations.
+The five VP1 inquiry drafts remain UNSENT; this confirmation concerns visibility only.
+
 **Current delivery: [VP1 owner-review validation package](validation/rp1-vp1/package-summary.md).**
 One first test lead is ordinary6mm02-20850 birch with WEST105/206/406 fillets;
 this is not vehicle adoption. Four product drafts plus one supervised-lab RFQ
