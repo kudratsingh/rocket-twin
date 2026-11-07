@@ -1,14 +1,8 @@
-# rocket-twin
+# Rocket Twin — Rocket Digital Twin & Flight Control
 
-A custom rocket and its digital twin: YAML vehicle specifications, parametric CAD,
-a JAX flight simulator, and a web workbench for inspecting designs and replaying
-experiments. The project connects mechanical design, materials and recovery
-engineering with a planned PID-to-reinforcement-learning control stack.
+A **rocket digital twin and flight-control platform** connecting parametric CAD, coupled mass and aerodynamic models, **JAX six-degree-of-freedom simulation**, thrust-vector control, and PID-to-reinforcement-learning control research. A source-linked **3D engineering workbench** brings vehicle design, structural and thermal analysis, experiments and flight replay into one inspection environment.
 
-The current priority is a conventional fixed-motor **G80** engineering package.
-A **G54** performance upgrade and **G12 thrust-vector-control** trainer remain
-separate tracks. Custom construction and practical performance are core goals;
-certified commercial motors and suitable purchased parts complement the build.
+Typed YAML vehicle specifications tie geometry, mass, centre of gravity, inertia, motor curves and analysis records to exact configurations. The **G80 fixed-motor**, **G54 performance** and **G12 thrust-vector-control** tracks connect custom mechanical construction with simulation, instrumentation and control-system development.
 
 ## What works today
 
