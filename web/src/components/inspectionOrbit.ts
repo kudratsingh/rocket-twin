@@ -270,3 +270,12 @@ export function inspectionMaterial(
   result.userData.inspectionBaseColor = `#${result.color.getHexString()}`;
   return result;
 }
+
+/** Clearing a group must not leave an empty selection as the next fit scope. */
+export function inspectionFitScope(
+  groupSelected: boolean,
+  previousScope: 'assembly' | 'selection',
+  ids: string[],
+): string[] | null {
+  return (groupSelected || previousScope === 'selection') && ids.length > 0 ? ids : null;
+}

@@ -69,3 +69,11 @@ test('detail layers retain separate cloned colours while core surfaces use decla
   const core=inspectionMaterial(ply,'cardboard','#89bdcf');assert.equal(core.color.getHexString(),'89bdcf');assert.equal(core.metalness,0);
   for(const material of [ply,bond,a,b,core])material.dispose();
 });
+
+ test('clearing the selected subsystem fits restored visible assembly rather than empty selection',async()=>{
+ const {inspectionFitScope}=await import('../src/components/inspectionOrbit.ts');
+ assert.equal(inspectionFitScope(false,'selection',[]),null);
+ assert.deepEqual(inspectionFitScope(true,'assembly',['ring']),['ring']);
+ assert.deepEqual(inspectionFitScope(false,'selection',['motor']),['motor']);
+ assert.equal(inspectionFitScope(false,'assembly',['motor']),null);
+ });

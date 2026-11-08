@@ -21,6 +21,7 @@ import {
   applyOrbit,
   bindInspectionOrbit,
   inspectionMaterial,
+  inspectionFitScope,
   inspectionNormals,
   orbitAngles,
   orbitClips,
@@ -424,8 +425,8 @@ function CameraFit({
     pendingFocus.current =
       cameraAction === 'focus' && focusId
         ? [focusId]
-        : cameraAction === 'fit' && (groupSelected || targetScope.current === 'selection')
-          ? selectionIds
+        : cameraAction === 'fit'
+          ? inspectionFitScope(groupSelected, targetScope.current, selectionIds)
           : null;
     assemblyFit.current = false;
     intent.current = cameraAction === 'focus' ? 'part' : cameraAction === 'fit' ? 'fit' : 'preset';
