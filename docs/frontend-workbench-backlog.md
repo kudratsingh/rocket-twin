@@ -2,7 +2,7 @@
 
 Current source: dedicated G80 RP1/AD1 v2; archived CAD/runs remain separate. G54 and G12 PID-to-RL remain committed tracks. No inquiry/contact, purchase, physical test or engineering/flight release is implied.
 
-**November8 reconciliation:** the43-task ledger is synchronized with the28-task RV map and merged PR101–104 evidence. Six source-contract/audit/ownership tasks are complete at their limited scope;33 tasks remain partial, three optional/future tasks are deferred, and FT027 schematic recovery illustration remains planned. These are task states, not a completion percentage. No new acceptance check was passed by updating this document.
+**November8 reconciliation:** the43-task ledger is synchronized with the28-task RV map and merged PR101–104 evidence. Six source-contract/audit/ownership tasks are complete at their limited scope;34 tasks remain partial and three optional/future tasks are deferred. FT027 now has an implemented, observed event-linked schematic; it does not validate recovery dynamics. These are task states, not a completion percentage. No new acceptance check was passed by updating this document.
 
 Use [the current release worklist](frontend-release-worklist.md), [machine-readable FT tasks](frontend-workbench-backlog.json), [RV tasks](frontend-revamp-backlog.json) and [acceptance checks](frontend-revamp-acceptance.csv). The supported sole native owner is `/root/browser_access_sol` in the authorized current Chrome window. Earlier ownership/extension blockers are historical; the separate rejected DevTools/viewport setup is still blocked. No headless/CDP, other-window or denied-method retry.
 
@@ -38,7 +38,7 @@ The original planning kit remains in `output/frontend-planning-kit-20261103/`, m
 | FT-024 | P3 | Implement synchronized scientific run comparison | `experiment_replay_owner` | FT-019, FT-021 | partial |
 | FT-025 | P3 | Correct replay clock scrubbing and phase disclosures | `experiment_replay_owner` | FT-018, FT-019, FT-021 | partial |
 | FT-026 | P4 | Improve camera scale lighting and trajectory context | `experiment_replay_owner` | FT-012, FT-025 | partial |
-| FT-027 | P4 | Add honest event-linked schematic recovery illustration | `experiment_replay_owner` | FT-003, FT-018, FT-025 | planned |
+| FT-027 | P4 | Add honest event-linked schematic recovery illustration | `experiment_replay_owner` | FT-003, FT-018, FT-025 | partial |
 | FT-028 | P4 | Surface telemetry evidence and validity during playback | `experiment_replay_owner` | FT-019, FT-025 | partial |
 | FT-029 | P4 | Bound replay data transfer and rendering cost | `experiment_replay_owner` | FT-025, FT-026 | partial |
 | FT-030 | P5 | Inventory compatible structural thermal and aero artifacts | `data_analysis_owner` | FT-001, FT-005 | partial |

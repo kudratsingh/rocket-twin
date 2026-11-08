@@ -137,6 +137,8 @@ export default function Rp1RecordedAnalysis({
   candidateMessage?: string;
 }) {
   const selectedId = useInspection((s) => s.selectedId);
+  const selectedGroupId = useInspection((s) => s.selectedGroupId);
+  const selectedGroupPartIds = useInspection((s) => s.selectedGroupPartIds);
   const part = vehicle.parts.find((p) => p.id === selectedId);
   const [document, setDocument] = useState<Rp1ConnectionsDocument | null>(null);
   const [error, setError] = useState('');
@@ -156,7 +158,7 @@ export default function Rp1RecordedAnalysis({
   const connection = document?.connections.find((c) => c.id === connectionId);
   return (
     <main className="inspection-workspace analysis-workspace rp1-recorded-analysis">
-      <PartsTree parts={vehicle.parts} candidateMessage={candidateMessage} />
+      <PartsTree parts={vehicle.parts} vehicle={vehicle} candidateMessage={candidateMessage} />
       <section className="analysis-center">
         <header className="rp1-analysis-heading">
           <h1>RP1 recorded engineering evidence</h1>
@@ -188,6 +190,8 @@ export default function Rp1RecordedAnalysis({
         </header>
         <Viewer
           vehicle={vehicle}
+          selectionIds={selectedId ? [selectedId] : selectedGroupPartIds}
+          presentationGroupId={selectedGroupId}
           mass={null}
           burn={0}
           onBurnChange={() => undefined}

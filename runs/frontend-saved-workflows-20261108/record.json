@@ -1,0 +1,318 @@
+{
+  "schema_version": "rocket-twin.browser-saved-workflows.20261108.v1",
+  "status": "completed_with_analysis_framing_failure",
+  "owner": "/root/browser_access_sol",
+  "transport": "Supported native CUA in same existing authorized Google Chrome window; no DevTools/viewport workaround",
+  "budget": {
+    "active_cap_s": 480,
+    "actual_active_s": 326.531,
+    "basis": "Persistent CUA Date.now from first fresh AX call through final settled screenshot",
+    "play_started": false,
+    "new_jobs": 0,
+    "case_retries": 0
+  },
+  "source_provenance": {
+    "normal_same_tab_reloads": 1,
+    "primary_declared_source_frozen": true,
+    "publication_scope": "Primary reported monitor/Analysis PR105 merged; drawing/storyboard/visible HUD remained local unpublished frozen source at capture. Primary owns final source fingerprints/publication attribution.",
+    "design_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "batch": {
+    "id": "batch-b4e4867083bf44c6b9b601f255a1a870",
+    "action": "Observe saved attempt / batch status then Export saved attempt metadata",
+    "members": [
+      {
+        "id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+        "status": "complete",
+        "seed": 20261107,
+        "resources": {
+          "backend": "cpu",
+          "concurrency": 1,
+          "dt_s": 0.005,
+          "max_time_s": 45,
+          "max_steps": 9000,
+          "seed": 20261107,
+          "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+          "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+        }
+      },
+      {
+        "id": "exp-d57656d638d5412d95b03198e9fb73d7",
+        "status": "complete",
+        "seed": 20261108,
+        "resources": {
+          "backend": "cpu",
+          "concurrency": 1,
+          "dt_s": 0.005,
+          "max_time_s": 45,
+          "max_steps": 9000,
+          "seed": 20261108,
+          "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+          "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+        }
+      }
+    ],
+    "missing_members": [],
+    "telemetry_included_in_metadata": false,
+    "observation": "Both complete existing45second partial trajectories; not a new run or cancellation/worker-failure test."
+  },
+  "comparison": {
+    "a": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+    "b": "exp-d57656d638d5412d95b03198e9fb73d7",
+    "identity_a": {
+      "configuration": "modular-performance-v1",
+      "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b"
+    },
+    "identity_b": {
+      "configuration": "modular-performance-v1",
+      "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b"
+    },
+    "identity_equal": true,
+    "differences": [
+      [
+        "Recorded random seed",
+        20261107,
+        20261108
+      ],
+      [
+        "setting: seed",
+        20261107,
+        20261108
+      ]
+    ],
+    "alignment": "burnout",
+    "recorded_offsets_s": {
+      "a": 1.8079,
+      "b": 1.8079
+    },
+    "visible_ranges_s": {
+      "absolute_initial": [
+        0.005,
+        45
+      ],
+      "burnout_full": [
+        -1.803,
+        43.192
+      ],
+      "zoom_once": [
+        9.446,
+        31.943
+      ],
+      "pan_right_once": [
+        15.07,
+        37.568
+      ]
+    },
+    "export_selection": {
+      "start_s": 15.070225000001717,
+      "end_s": 37.567725000004,
+      "offset_s": 1.8079,
+      "peer_offset_s": 1.8079,
+      "alignment_event": "burnout",
+      "clock": "display_s = recorded_time_s - offset_s; CSV keeps original recorded time_s",
+      "selected_sample_count": 1500,
+      "range_policy": "inclusive recorded samples only; no synthetic boundary samples"
+    },
+    "export_audit": {
+      "rows": 1500,
+      "first_original_time_s": 16.880000000000926,
+      "last_original_time_s": 39.37000000000169,
+      "strictly_increasing": true,
+      "inside_selected_aligned_inclusive_range": true,
+      "clock": "CSV keeps original recorded time_s; display_s=recorded_time_s-offset_s",
+      "metadata_format": "rocket-twin-decimated-playback-export-v1"
+    },
+    "reset_after_export": "Reset plot range; Absolute elapsed time; full0.005–45s then Clear comparison."
+  },
+  "recovery_story": {
+    "run_id": "exp-cf9e47a650074144856caf50775846d2",
+    "configuration": "modular-performance-v1",
+    "returned_rows": 3009,
+    "raw_rows": 116029,
+    "recorded_window_s": [
+      0.001,
+      116.029
+    ],
+    "requested_exact_s": 11.15,
+    "nearest_bounded_sample_s": 11.143,
+    "nearest_tilt_deg": 4.074581992984311,
+    "nearest_total_speed_mps": 5.446069915438504,
+    "vertical_velocity_displayed": false,
+    "disclosure_opened": true,
+    "visible_events_s": {
+      "apogee": 10.395,
+      "deployment": 10.695,
+      "landing": 116.029
+    },
+    "observation": "Actual schematic-only/event-derived three-panel explanation and model limits; canopy shape,line forces,section poses unavailable. At capture the 3D body is above visible portion; no new actual3Dnose-up-pose acceptance is claimed.",
+    "limits": "Recorded attitude unchanged; approximate suspended-body orientation; symbol not deployment success or physical geometry."
+  },
+  "analysis": {
+    "scalar_and_missing_field_copy": "pass_current_window",
+    "visible_saved_scalar_examples": {
+      "optimistic_component_stress_MPa": 7.301,
+      "stress_status": "FAILED SCREEN",
+      "optimistic_component_tip_movement_mm": 1.805,
+      "retained_total_limit_mm": 1,
+      "installed_root_movement": "unavailable",
+      "installed_adhesive_peel_capacity": "unavailable",
+      "finished_recovery_attachment_capacity": "unavailable"
+    },
+    "spatial_fields": "No compatible recorded stress/deformation/temperature field; no historical baffle attached; neutral geometry not colored by scalar calculations.",
+    "recorded_comparison": "Unavailable",
+    "visual_framing": "failed_or_limited: actual screenshot shows rendered orientation gizmo and only a tiny/clipped neutral rocket tip despite26/26loaded-part-bounds-fitted text. No correction/recheck in this packet.",
+    "ax_canvas_fallback": "AX includes WebGL unavailable fallbackHTML; screenshot proves rendered WebGL content, so this is NOT classified as WebGL unavailable.",
+    "grouping_copy": "Functional grouping unavailable for this source; flat source records do not imply physical attachments."
+  },
+  "missing_saved_route": {
+    "requested_run": "missing-browser-closure-20261108",
+    "request_scope": "one normal read-only saved run GET through URL",
+    "visible_error": "Error: HTTP404 Experiment not found (GET /api/runs/missing-browser-closure-20261108)",
+    "final_load_status": "Saved-run load failed",
+    "navigation_usable": true,
+    "recovery_action": "Select existing exp-cf9e47a650074144856caf50775846d2",
+    "recovery_outcome": "Loaded with matching source and bounded samples; both ordinary and visible-HUD buttons show Play; paused."
+  },
+  "hud": {
+    "visible_button_labels_observed": [
+      "Play visible replay",
+      "Fit visible trajectory",
+      "Save visible replay diagnostics"
+    ],
+    "button_actions_executed": false,
+    "performance_claim": false
+  },
+  "final_state": {
+    "workspace": "design",
+    "design_id": "G80-F2-RP1-AD1-definition-v2",
+    "meshes_visible": [
+      26,
+      26
+    ],
+    "selection": null,
+    "camera": {
+      "horizontal_deg": 45,
+      "tilt_deg": 54.7,
+      "roll_deg": 0,
+      "target": "Assembly",
+      "drag_mode": "Move"
+    },
+    "scene_tools": "closed",
+    "context_tab": "Parts",
+    "navigation": "open",
+    "parts_sidebar": "open",
+    "replay": "bounded and paused",
+    "source_detail": "on",
+    "actual_screenshot": "final-rp1-settled.jpg",
+    "loading_transition_preserved": "final-rp1.jpg contains19/26mesh-loading transition; settled capture shows complete exterior."
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-saved-workflows-20261108/aligned-range.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    },
+    {
+      "path": "runs/frontend-saved-workflows-20261108/batch-observed.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    },
+    {
+      "path": "runs/frontend-saved-workflows-20261108/final-rp1-settled.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    },
+    {
+      "path": "runs/frontend-saved-workflows-20261108/final-rp1.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    },
+    {
+      "path": "runs/frontend-saved-workflows-20261108/missing-saved-run.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    },
+    {
+      "path": "runs/frontend-saved-workflows-20261108/recovery-storyboard.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    },
+    {
+      "path": "runs/frontend-saved-workflows-20261108/rp1-analysis.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "unchanged_native_bytes": true
+    }
+  ],
+  "css_viewport": "Not newly measured in P3; native raster does not establish CSS viewport or prescribed viewport acceptance.",
+  "downloads": [
+    {
+      "original": "/Users/kudratsingh/Downloads/exp-d0baf4168f7f41e687a1b5f12e14cc3e-attempt.json",
+      "copy": "runs/frontend-saved-workflows-20261108/saved-batch-attempt.json",
+      "original_mtime_utc": "2026-11-08T12:23:01.668041+00:00",
+      "sha256": "12977c4b7cfc53079d16cefc2d062c0af355cf4a6d9d15c5437bf43b96366686",
+      "byte_identical": true
+    },
+    {
+      "original": "/Users/kudratsingh/Downloads/exp-d0baf4168f7f41e687a1b5f12e14cc3e-playback (1).csv",
+      "copy": "runs/frontend-saved-workflows-20261108/aligned-range.csv",
+      "original_mtime_utc": "2026-11-08T12:24:10.453417+00:00",
+      "sha256": "045b4669fb0a5aee01f39c69fd40381c7e417f77a234bbf8f2a07ffae9414725",
+      "byte_identical": true
+    },
+    {
+      "original": "/Users/kudratsingh/Downloads/exp-d0baf4168f7f41e687a1b5f12e14cc3e-playback (1).json",
+      "copy": "runs/frontend-saved-workflows-20261108/aligned-range-metadata.json",
+      "original_mtime_utc": "2026-11-08T12:24:20.770081+00:00",
+      "sha256": "69445f048ea9354597ffc5d54bd023916cba150cb7307c7814a7955a855c22ff",
+      "byte_identical": true
+    }
+  ],
+  "guards": {
+    "user_change_interruptions": 0,
+    "automatic_rejections": 0,
+    "access_errors": 0
+  },
+  "remaining": [
+    "Analysis neutral3Dframing failure requires separate source correction and explicitly authorized browser followup",
+    "No new visible-canvas FPS/performance acceptance; P2 rawflagfalse/offscreen and older failures unchanged",
+    "Exact prescribed viewports,fullkeyboard/retainedlayout matrix and delayed/malformed data branches unexecuted",
+    "Cancellation/workerfailure software-only; no newrun to fabricate a state",
+    "No new3Dposecapture at11.150 in this packet; earlier evidence remains separately attributed"
+  ],
+  "simulation_started": false,
+  "engineering_or_flight_approval": false
+}

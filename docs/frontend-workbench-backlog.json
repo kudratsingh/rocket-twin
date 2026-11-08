@@ -336,7 +336,7 @@
       "browser_required": true,
       "risk": "Global CSS changes can regress canvas sizing and dialogs.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -379,6 +379,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -405,7 +413,7 @@
       "browser_required": true,
       "risk": "Selection and fetch state may race during navigation.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -430,6 +438,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -457,7 +473,7 @@
       "browser_required": true,
       "risk": "Legacy parent components gate unrelated resources on C1.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -492,6 +508,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -518,7 +542,7 @@
       "browser_required": true,
       "risk": "Nested scroll containers can trap input and hide selected content.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -569,6 +593,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -596,7 +628,7 @@
       "browser_required": false,
       "risk": "A passing component suite cannot prove rendered navigation usability.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -621,6 +653,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -648,7 +688,7 @@
       "browser_required": true,
       "risk": "No admitted current F1 CAD may exist; useful concept inspection must remain honest.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -690,6 +730,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -715,7 +763,7 @@
       "browser_required": true,
       "risk": "Bounding-box fit can reset orbit or clip narrow/tall parts.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -759,6 +807,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -785,7 +841,7 @@
       "browser_required": true,
       "risk": "A visually plausible section can imply nonexistent geometry or unvalidated internal fit.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -835,6 +891,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -861,7 +925,7 @@
       "browser_required": true,
       "risk": "Different source part-ID spaces may be incompatible.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -924,6 +988,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -950,7 +1022,7 @@
       "browser_required": true,
       "risk": "Display transforms can be mistaken for physical movement or assembly clearance.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -996,6 +1068,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1022,7 +1102,7 @@
       "browser_required": true,
       "risk": "Dense diagrams may repeat the original overload or imply qualified joints.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1066,6 +1146,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "notes": "Separate F2-C1 source graph, section, local inspector, conditional fits and loaded/burnout tables implemented; native graph/section inspected. Browser interactions and complete task acceptance remain pending.",
@@ -1093,7 +1181,7 @@
       "browser_required": true,
       "risk": "Conditional guide assumptions and old candidate results can be confused with current acceptance.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1138,6 +1226,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1223,7 +1319,7 @@
       "browser_required": false,
       "risk": "Metadata gaps must remain unknown rather than inferred from appearance.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "Partial legacy-record adapter: web/src/experiments/replayValidity.ts and web/tests/replay-validity.test.mjs; node --experimental-strip-types --test tests/replay-validity.test.mjs passed from web/. This does not implement full channel/frame/unit validity.",
@@ -1240,6 +1336,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1267,7 +1371,7 @@
       "browser_required": true,
       "risk": "Loose motor overrides can create a physically inconsistent vehicle.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1291,6 +1395,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1316,8 +1428,8 @@
       "estimate_class": "M",
       "browser_required": false,
       "risk": "Request retries may duplicate runs or overwrite incomplete results.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1333,6 +1445,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1357,8 +1477,8 @@
       "estimate_class": "L",
       "browser_required": false,
       "risk": "Large batches can exhaust resources or turn incomplete members into biased statistics.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1374,6 +1494,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1400,8 +1528,8 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "Progress and summaries can conceal partial failures or unsupported experiment settings.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1417,6 +1545,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1443,7 +1579,7 @@
       "browser_required": true,
       "risk": "Automatic alignment or averaging can suggest a false causal comparison.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "Partial comparison disclosure: web/src/experiments/Experiment.tsx and comparison.ts; node --experimental-strip-types --test tests/comparison.test.mjs passed from web/. Event alignment and full scientific comparison remain open.",
@@ -1469,6 +1605,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1496,7 +1640,7 @@
       "browser_required": true,
       "risk": "Interpolation through events can invent motion or obscure telemetry gaps.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "Partial phase/completion disclosure: web/src/experiments/replayValidity.ts and Experiment.tsx; focused replay-validity tests passed; npm run build and npm run lint passed from web/. Replay synchronization, raw pose and browser behavior remain open.",
@@ -1539,6 +1683,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1564,8 +1716,8 @@
       "estimate_class": "M",
       "browser_required": true,
       "risk": "Cinematic camera behavior can obscure trajectory magnitude or attitude limitations.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1581,6 +1733,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1595,7 +1755,7 @@
         "FT-018",
         "FT-025"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Clearly schematic canopy/status illustration, if useful",
         "Unavailable separate-pose state and recovery model explanation"
@@ -1607,8 +1767,8 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "A labeled but realistic animation can still imply physical separation or recovery dynamics that the record does not contain.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1624,9 +1784,17 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
-      "release_disposition": "Schematic recovery illustration remains unimplemented. Current replay preserves recorded monolithic pose and explains its limitation; no fabricated canopy/separation animation. This presentation feature does not qualify recovery dynamics."
+      "release_disposition": "Event-linked recovery schematic implemented and observed at exact11.150; raw3Dpose unchanged. Missing/before/outside event states have source tests; no validated canopy/separation dynamics."
     },
     {
       "id": "FT-028",
@@ -1650,7 +1818,7 @@
       "browser_required": true,
       "risk": "Too much text could overload replay; too little could conceal scientific limits.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "Partial per-run phase and recovery/source explanation: web/src/experiments/Experiment.tsx, replayValidity.ts and docs/frontend-replay-validity.md; focused tests, npm run build and npm run lint passed from web/. Complete channel validity and raw orientation inspection remain open.",
@@ -1684,6 +1852,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1709,8 +1885,8 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "Decimation can erase peaks or asynchronous loads can desynchronize playback.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1726,6 +1902,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1751,8 +1935,8 @@
       "estimate_class": "M",
       "browser_required": false,
       "risk": "Historical solver output may appear more mature than the selected configuration.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1777,6 +1961,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1802,7 +1994,7 @@
       "estimate_class": "L",
       "browser_required": false,
       "risk": "Bad registration can produce convincing but physically meaningless colored geometry.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
       "evidence": [
@@ -1819,9 +2011,17 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
-      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
+      "acceptance_scope": "Current RP1 scalar/unavailable fallback is observed; true field registration, transient field display or compatible field comparison lacks eligible current data and is not browser accepted. Code/source fixtures stay distinct."
     },
     {
       "id": "FT-032",
@@ -1845,8 +2045,8 @@
       "estimate_class": "M",
       "browser_required": true,
       "risk": "Unavailable data can make a page look broken unless the reason and available evidence are clear.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -1862,6 +2062,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -1887,7 +2095,7 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "Smooth colors or amplified deformation can misrepresent resolution and engineering validity.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
       "evidence": [
@@ -1906,7 +2114,8 @@
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
       ],
-      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
+      "acceptance_scope": "Current RP1 scalar/unavailable fallback is observed; true field registration, transient field display or compatible field comparison lacks eligible current data and is not browser accepted. Code/source fixtures stay distinct.",
+      "release_disposition": "Spatialrenderer/sourceguards implemented; no realcompatibleRP1fields. Preserve unavailable/incompatiblehistoricalevidence; no current3Dfield acceptance."
     },
     {
       "id": "FT-034",
@@ -1929,7 +2138,7 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "Time coupling and flow artwork can imply a CFD or thermal solution that does not exist.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
       "evidence": [
@@ -1946,9 +2155,17 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
-      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
+      "acceptance_scope": "Current RP1 scalar/unavailable fallback is observed; true field registration, transient field display or compatible field comparison lacks eligible current data and is not browser accepted. Code/source fixtures stay distinct."
     },
     {
       "id": "FT-035",
@@ -1972,7 +2189,7 @@
       "estimate_class": "M",
       "browser_required": true,
       "risk": "Auto-ranging can hide larger loads or different missing regions.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
       "accepted": false,
       "evidence": [
@@ -1989,9 +2206,17 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
-      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
+      "acceptance_scope": "Current RP1 scalar/unavailable fallback is observed; true field registration, transient field display or compatible field comparison lacks eligible current data and is not browser accepted. Code/source fixtures stay distinct."
     },
     {
       "id": "FT-036",
@@ -2020,7 +2245,7 @@
       "browser_required": true,
       "risk": "Parallel adapters can diverge despite individually passing checks.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -2053,6 +2278,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -2120,8 +2353,8 @@
       "estimate_class": "M",
       "browser_required": true,
       "risk": "Runtime access may remain blocked; offline images and unit tests cannot replace this evidence.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -2137,6 +2370,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -2162,8 +2403,8 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "A source-only implementation can fail when API timing and WebGL interact.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -2179,6 +2420,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -2204,8 +2453,8 @@
       "estimate_class": "L",
       "browser_required": true,
       "risk": "Synthetic short clips cannot establish long-run responsiveness or memory behavior.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -2221,6 +2470,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
@@ -2247,8 +2504,8 @@
       "estimate_class": "M",
       "browser_required": true,
       "risk": "A new merge head can invalidate earlier screenshots and interaction evidence.",
-      "codeVerified": false,
-      "browserObserved": false,
+      "codeVerified": true,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         {
@@ -2264,6 +2521,14 @@
           "kind": "current-ledger-reconciliation",
           "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
           "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
+        },
+        {
+          "kind": "scoped-current-window",
+          "files": [
+            "docs/studies/frontend-saved-workflows-20261108/browser.md",
+            "docs/studies/frontend-final-checks-20261108/browser.md"
+          ],
+          "scope": "Only named subpaths observed; partial task/remainingdata/responsive/performance states stay explicit."
         }
       ],
       "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."

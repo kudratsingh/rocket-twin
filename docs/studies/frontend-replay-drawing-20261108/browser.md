@@ -1,0 +1,21 @@
+# P2 saved G54 browser observation — 2026-11-08
+
+The single changed-source attempt completed in **168.720 active seconds** against the declared 300-second cap. It **does not pass the 60 fps requirement**: the exported recent 600 RAF intervals have mean 16.66766666666665ms, exceeding 16.666666666666668ms. Median 16.70ms, p95 17.60ms and maximum 17.70ms are scheduling observations, not GPU completion. Both earlier native-rate failures remain unchanged. No optimization, repeat playback or threshold change followed this result.
+
+The same authorized Chrome window was controlled through supported native CUA. One normal same-tab reload loaded the frozen integration. The exact fixture is `exp-ab60bd4ac5c2412a9dd85f712072bca2`, archived `modular-performance-g54-hypothesis`:132856 native samples, declared 1 ms spacing,0.001–132.8560000002703s recorded support, source/spec/CAD checks admitted. It is not the older `exp-da02…` run. Local module fingerprints and full run identities are in the [session record](../../../runs/frontend-replay-drawing-20261108/record.json); no unpublished snapshot is described as merged.
+
+| Case | Actual observation | Outcome |
+| --- | --- | --- |
+| Native payload and bounded drawing |132856/132856 rows, 1006 trajectory positions drawn under 3000 cap, 1 segment, 14 mandatory samples / 12 event neighbours; ignition outside native support unavailable. Load 3531.0 ms, 113412840 response Content-Length bytes. | Passed admission/count observation |
+| One1×play |24.470 s click-to-pause, exact cursor24.3233 s; recent 600 RAF cover 10.0006 s. No second play. | Mean target failed; representative visible-scene scope incomplete |
+| Diagnostic export |Two actual app-owned JSON downloads retain all 600 unrounded RAF intervals, exact run identities, current CSS dimensions, counts/load/scrub/heap. Copies byte-identical to downloads. | Passed |
+| Exact T60 scrub |Exact input 60; slider accessibility display60.001;one completed two-RAF presentation 23.799999952316284 ms. | Passed current-window display path |
+| Restore |Bounded 3009/132856, paused; RP1 Design 3D 26/26, whole Assembly45°/54.7°/0°, Move on, selection cleared, Parts/both panels open, tools closed. | Passed |
+
+The application reports **1965×1074CSS pixels**, DPR 2 and 1226×620.9140625canvas CSS pixels. This is measurement of the current window, not prescribed 1440×900acceptance. No DevTools, resizing, other window/runtime or viewport workaround was used. Host identity is limited to the app-reported Mac/Chrome 156 user agent. CPU time/affinity and process/GPUmemory remain unavailable.
+
+A material scope limit was found by inspecting the genuine captures: activating instrumentation through native AX scrolled the viewport to the instrumentation and four visible plots; the 3D canvas is above the visible area in the paused/T60 captures. Therefore this packet does not establish a representative simultaneously visible 3D-plus-plots benchmark. The four current plots are height, speed, net acceleration and tilt. Current diagnostic JSON exports trajectory counts, not per-plot counts; the offline 4208-vertex result uses other channels and is not asserted as this browser's count. No retry was attempted.
+
+The paused diagnostic JavaScript heap reports 161782497 used / 243073513 allocated bytes; the T60 export reports 159299199 used / 212914339 allocated, both with 4395630592 limit. These nonstandard host estimates cover JavaScript only. Load timing includes API/identity checks; Content-Length is not total transferred bytes. The scrub timing includes scheduling to the second callback, not painted/GPU completion. No memory/endurance/physical/flight acceptance follows.
+
+Unchanged native JPEG screenshots and AX states are retained under `runs/frontend-replay-drawing-20261108/`. The screenshot raster 3930×2390 includes Chrome and is not used to infer content viewport. Earlier evidence inventories remain immutable. This packet used no new simulation, comparison/event-alignment branch or engineering change. Exact viewport, long-duration and broader workflow branches remain unexecuted. Current-window measurement ended without access errors, user-change guards or automatic rejections; CUA is idle and the owner-ready final state is preserved.

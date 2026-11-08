@@ -11,6 +11,11 @@ import {
 import type { AttemptStatus } from './attemptMonitor';
 import { playbackStep } from './playbackStep';
 import { ExactReplayTime } from './ExactReplayTime.tsx';
+import { RecoveryStoryboard } from './RecoveryStoryboard.tsx';
+import { ReplayDrawingReadout, ReplayTrajectory } from '../components/ReplayTrajectory';
+import type { ReplayTrajectoryDiagnostics } from '../components/ReplayTrajectory';
+import { replayDrawingDiagnostics, selectReplayDrawing } from './replayDrawing';
+import { replayDiagnosticReport } from './replayDiagnosticReport';
 import { replayValidity } from './replayValidity';
 import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWindow';
 import { replayPose } from './replayPose';
@@ -26,7 +31,7 @@ import { filterRuns, frameProfile } from './playbackProfile';
 import { browserHeap, telemetryUrl, validatePlaybackProfile } from './playbackMode';
 import type { PlaybackMode } from './playbackMode';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Line, OrbitControls, useGLTF } from '@react-three/drei';
+import { OrbitControls, useGLTF } from '@react-three/drei';
 import { Vector3 } from 'three';
 import type { OrbitControls as OrbitControlsType } from 'three-stdlib';
 import type { InspectionDocument, Part } from '../types';
@@ -191,6 +196,8 @@ function FlightScene({
   mode,
   fitToken,
   offsets,
+  onPrimaryDiagnostics,
+  onComparisonDiagnostics,
 }: {
   run: Loaded;
   other: Loaded | null;
@@ -198,30 +205,9 @@ function FlightScene({
   offsets: { a: number; b: number };
   mode: 'follow' | 'pad' | 'free';
   fitToken: number;
+  onPrimaryDiagnostics: (value: ReplayTrajectoryDiagnostics) => void;
+  onComparisonDiagnostics: (value: ReplayTrajectoryDiagnostics) => void;
 }) {
-  const path = (r: Loaded) => {
-    const c = r.telemetry.columns;
-    if (
-      !replayWindow(c.time_s) ||
-      !['east_m', 'down_m', 'north_m'].every(
-        (key) =>
-          Array.isArray(c[key]) &&
-          c[key].length === c.time_s.length &&
-          c[key].every(Number.isFinite),
-      )
-    )
-      return null;
-    return c.time_s.map(
-      (_, i) =>
-        [
-          r.telemetry.columns.east_m[i],
-          -r.telemetry.columns.down_m[i],
-          -r.telemetry.columns.north_m[i],
-        ] as [number, number, number],
-    );
-  };
-  const primaryPath = useMemo(() => path(run), [run]);
-  const comparisonPath = useMemo(() => (other ? path(other) : null), [other]);
   const c = run.telemetry.columns;
   const primaryPose = replayPose(c, Number(run.vehicle.summary.length_m), time + offsets.a);
   const comparisonPose = other
@@ -236,8 +222,24 @@ function FlightScene({
       <directionalLight position={[20, 50, 30]} intensity={2} />
       <ReplayCamera loc={loc} mode={mode} fitToken={fitToken} run={run} />
       <gridHelper args={[100, 20, '#38505b', '#24343c']} />
-      {primaryPath && <Line points={primaryPath} color="#54d8d2" lineWidth={2} />}
-      {comparisonPath && <Line points={comparisonPath} color="#f5b960" lineWidth={2} />}
+      <ReplayTrajectory
+        key={`primary-${run.record.run_id}-${run.playbackMode}`}
+        columns={run.telemetry.columns}
+        events={run.record.events}
+        color="#54d8d2"
+        maxVertices={3000}
+        onDiagnostics={onPrimaryDiagnostics}
+      />
+      {other && (
+        <ReplayTrajectory
+          key={`comparison-${other.record.run_id}-${other.playbackMode}`}
+          columns={other.telemetry.columns}
+          events={other.record.events}
+          color="#f5b960"
+          maxVertices={3000}
+          onDiagnostics={onComparisonDiagnostics}
+        />
+      )}
       {primaryPose.kind === 'pose' && (
         <>
           <FlightGeometry run={run} pose={primaryPose} />
@@ -422,6 +424,7 @@ function ReplayValidity({ run, time, label }: { run: Loaded; time: number; label
           be checked for historical correspondence.
         </p>
       </details>
+      <RecoveryStoryboard record={run.record} time={time} window={window} />
     </section>
   );
 }
@@ -495,25 +498,59 @@ function Plot({
         : [];
     const available = [...a.flat(), ...b.flat()].map(([, value]) => value);
     const bounds = available.length ? plotScale(available) : { min: 0, max: 1 };
+    const aDrawing = selectReplayDrawing(
+      run.telemetry.columns.time_s,
+      [run.telemetry.columns[name] ?? []],
+      {
+        maxVertices: 1200,
+        events: run.record.events,
+        window: { start: window.start, end: window.end },
+        offset: offsets.a,
+      },
+    );
+    const bDrawing =
+      other && !mismatch
+        ? selectReplayDrawing(
+            other.telemetry.columns.time_s,
+            [other.telemetry.columns[name] ?? []],
+            {
+              maxVertices: 1200,
+              events: other.record.events,
+              window: { start: window.start, end: window.end },
+              offset: offsets.b,
+            },
+          )
+        : null;
     const x = (t: number) => ((t - window.start) / (window.end - window.start || 1)) * 100;
     const y = (v: number) => 95 - ((v - bounds.min) / (bounds.max - bounds.min || 1)) * 90;
     const curves = [
-      { segments: a, color: '#54d8d2' },
-      { segments: b, color: '#f5b960' },
-    ].flatMap(({ segments, color }, runIndex) =>
-      segments.map((segment, i) =>
+      { drawing: aDrawing, columns: run.telemetry.columns, offset: offsets.a, color: '#54d8d2' },
+      ...(other && bDrawing
+        ? [
+            {
+              drawing: bDrawing,
+              columns: other.telemetry.columns,
+              offset: offsets.b,
+              color: '#f5b960',
+            },
+          ]
+        : []),
+    ].flatMap(({ drawing, columns, offset, color }, runIndex) =>
+      drawing.segments.map((segment, i) =>
         segment.length === 1 ? (
           <circle
             key={`${runIndex}-${i}`}
-            cx={x(segment[0][0])}
-            cy={y(segment[0][1])}
+            cx={x(columns.time_s[segment[0]] - offset)}
+            cy={y(columns[name][segment[0]])}
             r="1"
             fill={color}
           />
         ) : (
           <polyline
             key={`${runIndex}-${i}`}
-            points={segment.map(([t, v]) => `${x(t)},${y(v)}`).join(' ')}
+            points={segment
+              .map((index) => `${x(columns.time_s[index] - offset)},${y(columns[name][index])}`)
+              .join(' ')}
             fill="none"
             stroke={color}
             vectorEffect="non-scaling-stroke"
@@ -521,7 +558,13 @@ function Plot({
         ),
       ),
     );
-    return { ...bounds, available, curves };
+    return {
+      ...bounds,
+      available,
+      curves,
+      aDiagnostics: replayDrawingDiagnostics(aDrawing),
+      bDiagnostics: bDrawing ? replayDrawingDiagnostics(bDrawing) : null,
+    };
   }, [run, other, name, mismatch, offsets.a, offsets.b, window.start, window.end]);
   const { min, max, available } = chart;
   const [minLabel, maxLabel] = scaleLabels(min, max);
@@ -608,6 +651,22 @@ function Plot({
         )}
       </svg>
       {!available.length && <p>No samples in this range. Missing data is not zero.</p>}
+      {chart.aDiagnostics.status === 'withheld' && (
+        <p role="status">
+          Run A plot drawing withheld: {chart.aDiagnostics.reason} Raw sample readouts and exports
+          remain available where recorded.
+        </p>
+      )}
+      {chart.bDiagnostics?.status === 'withheld' && (
+        <p role="status">
+          Run B plot drawing withheld: {chart.bDiagnostics.reason} Raw sample readouts and exports
+          remain available where recorded.
+        </p>
+      )}
+      <ReplayDrawingReadout label={`${label(name)} · A`} diagnostics={chart.aDiagnostics} />
+      {other && (
+        <ReplayDrawingReadout label={`${label(name)} · B`} diagnostics={chart.bDiagnostics} />
+      )}
       {!aSamples && <p>Run A channel unavailable; missing data is not zero.</p>}
       {other && !bSamples && <p>Run B channel unavailable; missing data is not zero.</p>}
       {mismatch && <p>{mismatch}</p>}
@@ -650,6 +709,14 @@ export default function Experiment({
     [libraryQuery, setLibraryQuery] = useState(''),
     [libraryStatus, setLibraryStatus] = useState('all'),
     [profile, setProfile] = useState<ReturnType<typeof frameProfile>>(null),
+    [primaryDrawing, setPrimaryDrawing] = useState<{
+      key: string;
+      value: ReplayTrajectoryDiagnostics;
+    } | null>(null),
+    [comparisonDrawing, setComparisonDrawing] = useState<{
+      key: string;
+      value: ReplayTrajectoryDiagnostics;
+    } | null>(null),
     [fullRateBenchmark, setFullRateBenchmark] = useState(false),
     [loadingIds, setLoadingIds] = useState<string[]>([]),
     [loadStatus, setLoadStatus] = useState(''),
@@ -689,6 +756,7 @@ export default function Experiment({
     [resetPreview, setResetPreview] = useState(0),
     [plotChannels, setPlotChannels] = useState(defaultChannels);
   const frameDeltas = useRef<number[]>([]);
+  const replayCanvasHost = useRef<HTMLDivElement>(null);
   const playbackModeRef = useRef<PlaybackMode>('bounded');
   const activeLoads = useRef<{
     primary: AbortController | null;
@@ -742,6 +810,24 @@ export default function Experiment({
     current.playbackMode === playbackModeRef.current
       ? current
       : null;
+  const primaryDrawingKey = shown ? `${shown.record.run_id}:${shown.playbackMode}` : '';
+  const comparisonDrawingKey = other ? `${other.record.run_id}:${other.playbackMode}` : '';
+  const onPrimaryDiagnostics = useCallback(
+    (value: ReplayTrajectoryDiagnostics) => {
+      setPrimaryDrawing({ key: primaryDrawingKey, value });
+    },
+    [primaryDrawingKey],
+  );
+  const onComparisonDiagnostics = useCallback(
+    (value: ReplayTrajectoryDiagnostics) => {
+      setComparisonDrawing({ key: comparisonDrawingKey, value });
+    },
+    [comparisonDrawingKey],
+  );
+  const primaryDiagnostics =
+    primaryDrawing?.key === primaryDrawingKey ? primaryDrawing.value : null;
+  const comparisonDiagnostics =
+    comparisonDrawing?.key === comparisonDrawingKey ? comparisonDrawing.value : null;
   const primaryTimes = shown?.telemetry.columns.time_s;
   const comparisonTimes = other?.telemetry.columns.time_s;
   const primaryWindow = useMemo(() => replayWindow(primaryTimes), [primaryTimes]);
@@ -1076,6 +1162,49 @@ export default function Experiment({
       setError(`Export unavailable: ${String(e)}`);
     }
   }
+  function downloadDiagnostics() {
+    if (!shown) return;
+    try {
+      const rect = replayCanvasHost.current?.querySelector('canvas')?.getBoundingClientRect();
+      const report = replayDiagnosticReport({
+        primary: shown.record,
+        comparison: other?.record,
+        profileMode: shown.playbackMode,
+        frameDeltas: frameDeltas.current,
+        sourceRows: shown.telemetry.full_sample_count ?? null,
+        returnedRows: shown.telemetry.columns.time_s.length,
+        drawingA: primaryDiagnostics,
+        drawingB: comparisonDiagnostics,
+        loadProfile,
+        scrubProfile,
+        heap: browserHeap(performance),
+        viewport: {
+          width: window.innerWidth,
+          height: window.innerHeight,
+          devicePixelRatio: window.devicePixelRatio,
+          ...(rect
+            ? {
+                canvasWidth: rect.width,
+                canvasHeight: rect.height,
+                canvasLeft: rect.left,
+                canvasTop: rect.top,
+              }
+            : {}),
+        },
+        userAgent: navigator.userAgent,
+      });
+      const url = URL.createObjectURL(
+        new Blob([JSON.stringify(report, null, 2) + '\n'], { type: 'application/json' }),
+      );
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${shown.record.run_id.replace(/[^a-zA-Z0-9_-]/g, '_')}-replay-diagnostics.json`;
+      link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (reason) {
+      setError(`Replay diagnostic export unavailable: ${String(reason)}`);
+    }
+  }
   function reuseRequest(record: RecordRun) {
     try {
       const draft = requestDraft(record, configurationId);
@@ -1407,11 +1536,11 @@ export default function Experiment({
             checked={fullRateBenchmark}
             onChange={(e) => changePlaybackProfile(e.target.checked)}
           />{' '}
-          Opt in: full-rate benchmark load
+          Opt in: native telemetry · bounded drawing benchmark
         </label>
         <p>
           {fullRateBenchmark
-            ? 'FULL-RATE BENCHMARK: every native sample is loaded, up to 150,000 rows and 64 raw / 73 returned numeric channels per run. At the cap, numeric float64 storage alone is 87.6 MB and the conservative numeric JSON envelope is 350.4 MB per run; parsing, CAD, arrays and metadata add memory. Two runs double these bounds. No new simulation is started.'
+            ? 'NATIVE TELEMETRY · BOUNDED DRAWING: every native sample is loaded, up to 150,000 rows and 64 raw / 73 returned numeric channels per run. At the cap, numeric float64 storage alone is 87.6 MB and the conservative numeric JSON envelope is 350.4 MB per run; parsing, CAD, arrays and metadata add memory. Two runs double these bounds. Trail/plot drawing is separately bounded; original native samples remain the source of pose, readouts, metrics and exports. No new simulation is started.'
             : 'Normal bounded playback: approximately 3,000 samples plus recorded event neighbours per run. Arrow download remains bounded.'}
         </p>
         <p>
@@ -1559,7 +1688,38 @@ export default function Experiment({
       <main>
         {shown ? (
           <>
-            <div className="exp-replay">
+            <div className="exp-replay" ref={replayCanvasHost}>
+              <div className="exp-scene-controls" role="group" aria-label="Visible replay controls">
+                <button
+                  type="button"
+                  aria-label={playing ? 'Pause visible replay' : 'Play visible replay'}
+                  onClick={() => {
+                    replayCanvasHost.current?.scrollIntoView({ block: 'nearest' });
+                    if (!playing && time >= replayEnd) setTime(replayStart);
+                    setPlaying(!playing);
+                  }}
+                >
+                  {playing ? 'Pause' : 'Play'} flight
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMode('free');
+                    setFitToken((n) => n + 1);
+                  }}
+                >
+                  Fit visible trajectory
+                </button>
+                <button type="button" onClick={downloadDiagnostics}>
+                  Save visible replay diagnostics
+                </button>
+                <output>
+                  T+{time.toFixed(3)} s · {speed}×
+                  {profile
+                    ? ` · recent mean ${profile.mean_ms.toFixed(3)} ms (not acceptance)`
+                    : ''}
+                </output>
+              </div>
               <FlightScene
                 run={shown}
                 other={other}
@@ -1567,6 +1727,8 @@ export default function Experiment({
                 mode={mode}
                 fitToken={fitToken}
                 offsets={alignment}
+                onPrimaryDiagnostics={onPrimaryDiagnostics}
+                onComparisonDiagnostics={onComparisonDiagnostics}
               />
             </div>
             <div className="exp-controls">
@@ -1647,13 +1809,33 @@ export default function Experiment({
               action.
             </p>
             <p>
-              Playback profile: {shown.playbackMode} · A returned{' '}
+              Playback profile:{' '}
+              {shown.playbackMode === 'full-rate-benchmark'
+                ? 'native telemetry · bounded drawing (full-rate-benchmark)'
+                : 'bounded telemetry · bounded drawing (bounded)'}{' '}
+              · A returned{' '}
               {shown.telemetry.returned_sample_count ?? shown.telemetry.columns.time_s.length} /{' '}
               {shown.telemetry.full_sample_count ?? 'unavailable'} raw samples
               {other &&
                 ` · B returned ${other.telemetry.returned_sample_count ?? other.telemetry.columns.time_s.length} / ${other.telemetry.full_sample_count ?? 'unavailable'} raw samples`}
               . {shown.telemetry.sampling?.policy}
             </p>
+            <p>
+              Drawing caps: 3,000 native positions per trajectory and 1,200 native samples per
+              plot/run, at most 128 disconnected segments. Gaps and mandatory event/extrema anchors
+              are preserved or drawing is withheld. Earlier failed native-rate FPS observations
+              remain failed; this changed drawing path has no browser performance acceptance.
+            </p>
+            {primaryDiagnostics?.status === 'withheld' && (
+              <p role="status">A trajectory drawing withheld: {primaryDiagnostics.reason}</p>
+            )}
+            {comparisonDiagnostics?.status === 'withheld' && (
+              <p role="status">B trajectory drawing withheld: {comparisonDiagnostics.reason}</p>
+            )}
+            <ReplayDrawingReadout label="A trajectory" diagnostics={primaryDiagnostics} />
+            {other && (
+              <ReplayDrawingReadout label="B trajectory" diagnostics={comparisonDiagnostics} />
+            )}
             <ReplayValidity run={shown} time={time + alignment.a} label="A · teal" />
             {other && <ReplayValidity run={other} time={time + alignment.b} label="B · gold" />}
             <div className="exp-events">
@@ -1672,10 +1854,10 @@ export default function Experiment({
             </div>
             <p>
               Choose recorded or backend-derived channels. Unrecognized names are shown exactly as
-              recorded; their units and meaning are not inferred. Plots use returned playback
-              samples in the selected profile. Readouts use the nearest returned sample within each
-              run’s recorded time range, without interpolation; they do not establish full-rate
-              extremes.
+              recorded; their units and meaning are not inferred. Plots draw a bounded selection of
+              returned native indices. Axis limits use all valid returned samples in the selected
+              range. Readouts use the nearest returned sample within each run’s recorded time range,
+              without interpolation; they do not establish full-rate extremes.
             </p>
             <div className="exp-controls" aria-label="Comparison clock and plot range">
               <label>
@@ -1726,10 +1908,20 @@ export default function Experiment({
               <p>
                 Scenario: one or two identified recorded runs,{' '}
                 {fullRateBenchmark
-                  ? 'full native-rate benchmark samples'
+                  ? 'native telemetry · bounded drawing'
                   : 'bounded playback samples'}
                 , four linked plots and matching CAD. Frame intervals include UI scheduling; they
                 are not GPU render-only timings. The rolling window retains at most 600 frames.
+              </p>
+              <button type="button" onClick={downloadDiagnostics}>
+                Download replay diagnostics JSON
+              </button>
+              <p>
+                Read-only export: exact run/source identities, unrounded recent RAF intervals,
+                current app-reported viewport/canvas dimensions, drawing counts and preparation
+                time, load/scrub observations and supported JavaScript heap reporting. Missing
+                measurements stay unavailable. It does not establish GPU/process memory, full
+                benchmark acceptance or a new FPS pass.
               </p>
               {loadProfile && (
                 <p>

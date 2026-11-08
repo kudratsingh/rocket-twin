@@ -1,6 +1,6 @@
 # Current frontend release worklist
 
-**Working source:** merged PR104/main `ecd0f74bae33ec3ef019e690ef95c023b92ecbe9` at packet intake. G80 RP1/AD1 v2 Design is current; archived G80/G54/G12 meshes and experiments keep their own identities. This is a usable preview, not full frontend/work-order acceptance or physical approval.
+**Published baseline:** merged PR105/main `6a3cd5ac8c7a404ec9f9b4e12283f89c4add4895`; PR104 is the frozen intake predecessor. G80 RP1/AD1 v2 Design is current; archived G80/G54/G12 meshes and experiments keep their own identities. This is a usable preview, not full frontend/work-order acceptance or physical approval.
 
 | Outcome | Owner | Actual state / next evidence | Stop / dependency |
 | --- | --- | --- | --- |
@@ -23,3 +23,11 @@ Some compound checks still lack browser branches; exact responsive setup remains
 VP1 is complete for source/inquiry and lab-quotation review; frozen D1/AD1/FP1/FR1 remain untouched. All five drafts remain UNSENT, no actual send dates/replies or lab quote exist and no clock starts. A credible installed-fin decision still needs the staged evidence/method and later owner-authorized measurements. No purchases, lab/supplier contact, physical test, new construction variant or stopped numerical campaign follows from frontend autonomy.
 
 [Packet budgets/evidence policy](studies/frontend-release-closure-20261108/ledger-reconciliation.md). Update this short list at each coherent outcome; historical logs are supporting evidence, not current engineering acceptance.
+
+## Latest integrated outcome
+
+PR105 is merged after exact-head required checks. New drawing/storyboard/visible controls/diagnostics and full Analysis canvas correction are implemented; source and native observations are linked in [integration](studies/frontend-replay-drawing-20261108/integration.md). P1/P3/P4 genuine functional paths are recorded; P2 is diagnostic-only, not60fps acceptance. The one new Tiny batch completed both9000-row members; actual cancellation is inconclusive and was not retried.
+
+The next required owner action is [manual sizing of the same Chrome window](studies/frontend-final-checks-20261108/owner-action.md). No supported runtime setter exists and the rejected DevTools route is not retried. Native work is idle while this action is pending; code checks/publication continue. Engineering remains at the same VP1 evidence gate, with all five drafts UNSENT.
+
+The additional ordinary-edge feasibility observation stopped after22.279s with no gesture: the cropped native view did not establish a usable edge or resizable mode. This does not prove resizing impossible. [Record](studies/frontend-window-resize-20261108/browser.md). Browser control is idle; the requested owner manual step remains pending.
