@@ -218,3 +218,24 @@
   line-height: 1.5;
   color: #bfd0d8;
 }
+/* Keep the camera toolbar compact; reserve the left edge for the representation bar. */
+.revamp-design .revamp-primary-actions {
+  max-width: calc(100% - 24px);
+  gap: 5px;
+}
+.revamp-design .revamp-primary-actions > button {
+  min-height: 34px;
+  padding: 6px 9px;
+}
+.inspection-camera-surface canvas {
+  cursor: grab;
+}
+.inspection-camera-surface canvas[data-orbit-dragging='true'] {
+  cursor: grabbing;
+}
+.inspection-camera-surface ~ .canvas-loading {
+  pointer-events: none;
+}
+.inspection-gesture-hint {
+  user-select: none;
+}

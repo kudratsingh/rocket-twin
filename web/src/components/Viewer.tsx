@@ -17,7 +17,15 @@ import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
 import { SceneLabel } from './SceneLabel';
-import { applyOrbit, orbitAngles, orbitClips, panOrbit } from './inspectionOrbit';
+import {
+  applyOrbit,
+  bindInspectionOrbit,
+  inspectionMaterial,
+  inspectionNormals,
+  orbitAngles,
+  orbitClips,
+  panOrbit,
+} from './inspectionOrbit';
 import type { OrbitAngles, OrbitReadout } from './inspectionOrbit';
 import { OrbitCameraControls } from './OrbitCameraControls';
 import { getRp1Presentation, rp1BreakdownOffset } from './rp1Breakdown';
@@ -87,6 +95,7 @@ function PartMesh({
   baseOpacity = 1,
   groupHighlighted = false,
   displayOffset,
+  displayMeshUrl,
 }: {
   part: Part;
   length: number;
@@ -101,8 +110,9 @@ function PartMesh({
   baseOpacity?: number;
   groupHighlighted?: boolean;
   displayOffset?: Vector3Tuple;
+  displayMeshUrl?: string;
 }) {
-  const gltf = useGLTF(part.mesh_url!);
+  const gltf = useGLTF(displayMeshUrl ?? part.mesh_url!);
   const selected = useInspection((s) => s.selectedId === part.id);
   const hovered = useInspection((s) => s.hoveredId === part.id);
   const exploded = useInspection((s) => s.exploded);
@@ -117,18 +127,20 @@ function PartMesh({
     copy.traverse((object) => {
       if (object instanceof Mesh) {
         const color = part.color || part.cad?.color || '#899da5';
-        object.material = new MeshStandardMaterial({
-          color,
-          roughness: 0.64,
-          metalness: 0.12,
-          side: 2,
-        });
+        const makeMaterial = (source: unknown) =>
+          inspectionMaterial(source, part.material, color, !!displayMeshUrl);
+        object.material = Array.isArray(object.material)
+          ? object.material.map(makeMaterial)
+          : makeMaterial(object.material);
+        const normals = inspectionNormals(object.geometry);
+        object.geometry = normals.geometry;
+        object.userData.inspectionOwnedGeometry = normals.owned;
         object.castShadow = true;
         object.receiveShadow = true;
       }
     });
     return copy;
-  }, [gltf.scene, part.color, part.cad?.color]);
+  }, [gltf.scene, part.color, part.cad?.color, part.material, displayMeshUrl]);
   const bounds = useMemo(() => new Box3().setFromObject(scene), [scene]);
   const center = useMemo(() => bounds.getCenter(new Vector3()), [bounds]);
   const size = useMemo(() => bounds.getSize(new Vector3()), [bounds]);
@@ -146,27 +158,32 @@ function PartMesh({
   }, [center, part.location?.explode_offset, part.explode_offset, length]);
   useEffect(() => {
     scene.traverse((object) => {
-      if (!(object instanceof Mesh) || !(object.material instanceof MeshStandardMaterial)) return;
-      object.material.color.set(
-        analysisMode ? overlayColor || '#4d5b63' : part.color || part.cad?.color || '#899da5',
-      );
-      const opacity = ghost ? 0.14 : baseOpacity;
-      object.material.opacity = opacity;
-      object.material.transparent = opacity < 1;
-      object.material.depthWrite = opacity >= 1;
-      object.material.wireframe = !analysisMode && wireframe;
-      object.material.emissive = new Color(
-        analysisMode
-          ? '#000000'
-          : selected || groupHighlighted
-            ? '#26b5ba'
-            : hovered
-              ? '#3b858b'
-              : '#000000',
-      );
-      object.material.emissiveIntensity = selected ? 0.55 : 0.35;
-      object.material.clippingPlanes = section ? [CUT_PLANE] : [];
-      object.material.needsUpdate = true;
+      if (!(object instanceof Mesh)) return;
+      for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
+        if (!(material instanceof MeshStandardMaterial)) continue;
+        material.color.set(
+          analysisMode
+            ? overlayColor || '#4d5b63'
+            : (material.userData.inspectionBaseColor ?? part.color ?? part.cad?.color ?? '#899da5'),
+        );
+        const opacity = ghost ? 0.14 : baseOpacity;
+        material.opacity = opacity;
+        material.transparent = opacity < 1;
+        material.depthWrite = opacity >= 1;
+        material.wireframe = !analysisMode && wireframe;
+        material.emissive = new Color(
+          analysisMode
+            ? '#000000'
+            : selected || groupHighlighted
+              ? '#26b5ba'
+              : hovered
+                ? '#3b858b'
+                : '#000000',
+        );
+        material.emissiveIntensity = selected ? 0.16 : groupHighlighted ? 0.1 : hovered ? 0.08 : 0;
+        material.clippingPlanes = section ? [CUT_PLANE] : [];
+        material.needsUpdate = true;
+      }
     });
   }, [
     scene,
@@ -188,8 +205,13 @@ function PartMesh({
   useEffect(() => {
     return () => {
       scene.traverse((object) => {
-        if (object instanceof Mesh && object.material instanceof MeshStandardMaterial)
-          object.material.dispose();
+        if (object instanceof Mesh) {
+          for (const material of Array.isArray(object.material)
+            ? object.material
+            : [object.material])
+            material.dispose();
+          if (object.userData.inspectionOwnedGeometry) object.geometry.dispose();
+        }
       });
     };
   }, [scene]);
@@ -553,71 +575,19 @@ function CameraFit({
       },
     };
   });
-  useEffect(() => {
-    const canvas = gl.domElement;
-    const pointers = new Map<number, { x: number; y: number; kind: string }>();
-    const down = (event: PointerEvent) => {
-      if (event.button > 2) return;
-      handlers.current.begin();
-      pointers.set(event.pointerId, {
-        x: event.clientX,
-        y: event.clientY,
-        kind: event.altKey
-          ? 'roll'
-          : event.button === 2 || event.shiftKey || event.ctrlKey
-            ? 'pan'
-            : 'orbit',
-      });
-      canvas.setPointerCapture(event.pointerId);
-    };
-    const move = (event: PointerEvent) => {
-      const previous = pointers.get(event.pointerId);
-      if (!previous) return;
-      const old = [...pointers.values()];
-      const oldDistance =
-        old.length === 2 ? Math.hypot(old[0].x - old[1].x, old[0].y - old[1].y) : 0;
-      const dx = event.clientX - previous.x,
-        dy = event.clientY - previous.y;
-      if (dx === 0 && dy === 0) return;
-      previous.x = event.clientX;
-      previous.y = event.clientY;
-      if (pointers.size === 2) {
-        const next = [...pointers.values()];
-        const nextDistance = Math.hypot(next[0].x - next[1].x, next[0].y - next[1].y);
-        handlers.current.move(dx / 2, dy / 2, 'pan');
-        if (oldDistance > 0 && nextDistance > 0) handlers.current.zoom(oldDistance / nextDistance);
-      } else handlers.current.move(dx, dy, previous.kind);
-    };
-    const up = (event: PointerEvent) => {
-      pointers.delete(event.pointerId);
-      if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
-    };
-    const wheel = (event: WheelEvent) => {
-      event.preventDefault();
-      handlers.current.zoom(Math.exp(Math.max(-1, Math.min(1, event.deltaY * 0.001))));
-    };
-    const context = (event: Event) => event.preventDefault();
-    const priorTouchAction = canvas.style.touchAction;
-    canvas.style.touchAction = 'none';
-    canvas.addEventListener('pointerdown', down);
-    canvas.addEventListener('pointermove', move);
-    canvas.addEventListener('pointerup', up);
-    canvas.addEventListener('pointercancel', up);
-    canvas.addEventListener('lostpointercapture', up);
-    canvas.addEventListener('wheel', wheel, { passive: false });
-    canvas.addEventListener('contextmenu', context);
-    return () => {
-      canvas.style.touchAction = priorTouchAction;
-      canvas.removeEventListener('pointerdown', down);
-      canvas.removeEventListener('pointermove', move);
-      canvas.removeEventListener('pointerup', up);
-      canvas.removeEventListener('pointercancel', up);
-      canvas.removeEventListener('lostpointercapture', up);
-      canvas.removeEventListener('wheel', wheel);
-      canvas.removeEventListener('contextmenu', context);
-      pointers.clear();
-    };
-  }, [gl]);
+  useEffect(
+    () =>
+      bindInspectionOrbit(
+        gl.domElement,
+        {
+          begin: () => handlers.current.begin(),
+          move: (dx, dy, kind) => handlers.current.move(dx, dy, kind),
+          zoom: (factor) => handlers.current.zoom(factor),
+        },
+        () => gl.domElement.clientHeight,
+      ),
+    [gl],
+  );
   return null;
 }
 
@@ -686,6 +656,8 @@ export function Viewer({
   burn,
   onBurnChange,
   overlay,
+  presentationVisual,
+  detailMeshes,
   selectionIds: suppliedSelectionIds,
   presentationGroupId = null,
 }: {
@@ -694,6 +666,8 @@ export function Viewer({
   burn: number;
   onBurnChange: (burn: number) => void;
   overlay?: ViewOverlay;
+  presentationVisual?: ReactNode;
+  detailMeshes?: Record<string, string>;
   selectionIds?: string[];
   presentationGroupId?: string | null;
 }) {
@@ -847,11 +821,12 @@ export function Viewer({
             : 'Frame selection'}
         </button>
         <button onClick={() => commandCamera('zoom-in')} aria-label="Zoom in">
-          +
+          + Zoom in
         </button>
         <button onClick={() => commandCamera('zoom-out')} aria-label="Zoom out">
-          −
+          − Zoom out
         </button>
+        <button onClick={resetCamera}>Reset view</button>
         {!overlay && (
           <button onClick={() => restoreAssembledInspection(useInspection.getState())}>
             Restore assembly
@@ -917,6 +892,7 @@ export function Viewer({
       </InspectionTools>
       <div className="canvas-wrap" ref={setCanvasElement}>
         <Canvas
+          className="inspection-camera-surface"
           fallback={
             <div className="canvas-loading">
               WebGL is unavailable. Use the parts tree to inspect the recorded specification.
@@ -930,10 +906,10 @@ export function Viewer({
           onPointerMissed={() => select(null)}
         >
           <color attach="background" args={['#141c22']} />
-          <ambientLight intensity={1.25} />
-          <hemisphereLight args={['#dbeaf0', '#23313d', 0.65]} />
-          <directionalLight position={[2, 3, 3]} intensity={2.5} />
-          <directionalLight position={[-2, 1, -1]} intensity={1.2} color="#66a3b8" />
+          <ambientLight intensity={0.35} />
+          <hemisphereLight args={['#dbeaf0', '#23313d', 0.55]} />
+          <directionalLight position={[2, 3, 3]} intensity={2} />
+          <directionalLight position={[-2, 1, -1]} intensity={0.6} color="#a5bdc8" />
           <Grid
             position={[0, -0.015, 0]}
             args={[4, 4]}
@@ -961,6 +937,7 @@ export function Viewer({
                       overlayColor={overlay?.partColors[part.id]}
                       baseOpacity={overlay?.baseOpacity}
                       displayOffset={displayOffsets.get(part.id) ?? undefined}
+                      displayMeshUrl={detailMeshes?.[part.id]}
                       groupHighlighted={
                         !!presentationGroupId && !selectedId && cameraSelectionIds.includes(part.id)
                       }
@@ -969,6 +946,7 @@ export function Viewer({
                 </MeshBoundary>
               ))}
             {overlay?.surface}
+            {presentationVisual}
           </group>
           {!overlay && <Markers length={length} mass={mass} />}
           <CameraFit
