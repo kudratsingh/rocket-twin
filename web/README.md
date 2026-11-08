@@ -92,6 +92,10 @@ The viewer does not apply the YAML part station a second time. It computes only
 camera/display transforms; mass, CG, CP, static margin and all flight/engineering
 results come from the backend or recorded artifacts.
 
+Current RP1 has recorded scalar findings only; compatible spatial stress, displacement
+and temperature overlays are unavailable. The following display capabilities require
+compatible source results and do not imply RP1 coverage.
+
 Analysis reuses the same three-column assembly layout. It lists compatible and
 incompatible historical runs, then selects an exact load/thermal case and field.
 Compatible thermal results color each covered physical part uniformly and are
@@ -131,3 +135,13 @@ new fit is wanted. Optional part labels can be turned off for unobstructed close
 A child-workspace rendering failure keeps navigation available and offers a
 context-preserving reload. The `__previewFault` rendering fixture is development
 only; it never starts a simulation or changes saved records.
+
+**Scene + telemetry:** the Replay centre places the rocket, camera/playback/exact-time
+controls and four linked plots together when the centre is wide enough; smaller
+centres stack, with normal scrolling. Telemetry means the recorded flight values.
+Channel source/drawing details, comparison alignment/range, events, recovery
+limitations, diagnostics and exports remain available. An event-aligned clock is
+labelled **Time from burnout** (or the selected event); **T+** means absolute
+time since ignition. The new layout does not change recorded data or the recovery model.
+Native current-window evidence and remaining limitations are in the
+[layout report](../docs/studies/frontend-replay-layout-20261108/browser.md).

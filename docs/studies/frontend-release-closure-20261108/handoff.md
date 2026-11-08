@@ -2,7 +2,7 @@
 
 The preview supports read-only RP1 Design/Engineering, compatible archived experiments, saved-run replay/comparison/export and recorded Analysis. It is not complete frontend acceptance or engineering/build/flight approval. This handoff summarizes recorded source and runtime evidence; full acceptance remains open.
 
-**Publication:** PR105 and PR106 are merged. PR106 head `4a38238f2d02fa0d5ede1f586cc94c143d155823` passed required web and preliminary-model jobs in [workflow42483112385](https://github.com/kudratsingh/rocket-twin/actions/runs/42483112385); merge/main is `575b50513005c46e702e61c408e71ec2a6684c2e`. Hosted web has224 passes,7 explicitly skipped generated-asset cases and zero failures. These checks do not establish engineering or all-browser acceptance.
+**Publication checkpoint:** PR105–107 are merged. PR107 head `e2315c63aba277e1f465b5bb439db750c4634aa9` passed both required jobs/workflow42485762004; merge/main at this follow-up's intake is `e7a62a7baa619aa3b7940a80dce17e11607b536c`. The separate Scene+telemetry source increment is published through its own focused required-check PR; source/native records below do not imply full acceptance.
 
 ## Open and use
 
@@ -42,6 +42,14 @@ G80 RP1/AD1 v2 remains preliminary. G54 and G12 PID-to-RL are separate committed
 
 ## Latest inspected correction
 
-[P6](../frontend-current-functional-20261108/browser.md) verifies actual nose and separated-motor picks, Motor/Recovery stage displays, restored zero, target selection and keyboard pan at2240×1109CSS. The collapsed invalid-link warning failure remains recorded. [P7](../frontend-part-link-recovery-20261108/browser.md) verifies its one correction: visible warning plus Clear invalid part link, exact-source recovery and new valid part selection. Final fresh wholeRP1view has26/26, Move on, both panels/Parts and Frame disabled. Source checks are local until the focused correction PR passes required hosted jobs.
+[P6](../frontend-current-functional-20261108/browser.md) verifies actual nose and separated-motor picks, Motor/Recovery stage displays, restored zero, target selection and keyboard pan at2240×1109CSS. The collapsed invalid-link warning failure remains recorded. [P7](../frontend-part-link-recovery-20261108/browser.md) verifies its one correction: visible warning plus Clear invalid part link, exact-source recovery and new valid part selection. Final fresh wholeRP1view has26/26, Move on, both panels/Parts and Frame disabled. That correction is merged as PR107 after required hosted jobs passed.
 
 Actual local images: [Motor breakdown](../../../runs/frontend-current-functional-20261108/motor-breakdown.jpg), [Recovery breakdown](../../../runs/frontend-current-functional-20261108/recovery-breakdown.jpg), [corrected whole Analysis](../../../runs/frontend-final-checks-20261108/analysis-initial.jpg). These are genuine native captures at their recorded window/source; offline image viewing is separate from browser interaction evidence.
+
+## Scene + telemetry
+
+The [layout increment](../frontend-replay-layout-20261108/integration.md) puts the scene/timecontrols beside four plots at a wide centre. [P8](../frontend-replay-layout-20261108/browser.md) verifies actual wide readability and explicit state retention across2240→1120→2240CSS. Full lower narrow-scroll coverage and numeric free-camera pose remain unverified. [Actual wide capture](../../../runs/frontend-replay-layout-20261108/wide-initial.jpg).
+
+[P9](../frontend-replay-unequal-windows-20261108/browser.md) verifies G80/G54 admission and both-valid100s, but native input did not establish125. Final restore exceeded260s by3.484s; budgetFAIL is retained. The copy-only clock fix has live AX/core confirmation. No outside-A/inside-B or FPS pass. The subsequent owner-assisted P10 resolves the applied125 clock/readout branch; CUA is idle.
+
+[P10](../frontend-replay-manual-boundary-20261108/browser.md) independently observes owner-entered125: A outside116.029/all four readouts unavailable, B inside132.856/recorded125.014 values. This is status/scalar evidence, not independent body-pixel proof. The comparison is preserved paused at125 for owner review, with no further action needed for this increment's publication.

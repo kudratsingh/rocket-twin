@@ -1,0 +1,233 @@
+{
+  "schema_version": "rocket-twin.replay-unequal-windows-p9.20261108.v1",
+  "status": "partial_T125_unexecuted_and_cap_overrun",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "cap_active_s": 260,
+    "actual_active_s": 263.484,
+    "overrun_s": 3.484,
+    "budget_pass": false,
+    "basis": "CUA Date.now firstfreshstate through finalRP1capture; finalsafeWhole/capturefinished3.484saftercap",
+    "extension_claimed": false
+  },
+  "source": {
+    "hashes": {
+      "web/src/experiments/Experiment.tsx": "144b6e5b2b71cdf5c1fa39fb61a7402ac9b023de968d0705201e405df2b8bec5",
+      "web/src/experiments/experiment.css": "b01bde9076e3fc3927b18a58c912ee41dbc153b1dd5ccc32967a4b73a7e84203",
+      "web/src/App.tsx": "a59c2cc9d05a6eb29d2a62ce5a740008d4446ac6ceb4cf966846a64ea3e36692"
+    },
+    "boundary": "NewExperiment144b\u2026copycorrection only; P8a0b\u2026HUDambiguity/inventory remainsimmutable. Currentlocalfrozenincrementnotclaimedmerged."
+  },
+  "actors": {
+    "a": {
+      "run_id": "exp-cf9e47a650074144856caf50775846d2",
+      "configuration": "modular-performance-v1",
+      "code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b"
+    },
+    "b": {
+      "run_id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+      "configuration": "modular-performance-g54-hypothesis",
+      "code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+      "resolved_sha256": "481706d1c4768d944ad42fd917ef4216196de50a277743b1cedb76954940e45f",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b"
+    },
+    "actual_live_admission": "Both loaded with matching source and bounded samples; no config/mesh mismatch observed.",
+    "different_complete_configs": true,
+    "shared_code_and_CAD": true,
+    "a_coverage": {
+      "returned": 3009,
+      "raw": 116029,
+      "window_s": [
+        0.001,
+        116.02900000018997
+      ]
+    },
+    "b_coverage": {
+      "returned": 3009,
+      "raw": 132856,
+      "window_s": [
+        0.001,
+        132.8560000002703
+      ]
+    },
+    "absolute_full_export_selection": {
+      "start_s": 0.001,
+      "end_s": 132.8560000002703,
+      "offset_s": 0,
+      "peer_offset_s": 0,
+      "alignment_event": null,
+      "clock": "display_s = recorded_time_s - offset_s; CSV keeps original recorded time_s",
+      "selected_sample_count": 3009,
+      "range_policy": "inclusive recorded samples only; no synthetic boundary samples"
+    }
+  },
+  "cases": [
+    {
+      "case": "Source/config/window admission",
+      "outcome": "pass_current_window",
+      "observation": "A=cf9G80andB=ab60G54, bothbounded3009rows, differentconfigs/specs, samecodedd e080\u2026/CAD119371\u2026, fullplotunion0.001\u2013132.856."
+    },
+    {
+      "case": "T100 bothvalid",
+      "outcome": "pass",
+      "observation": "Exact100; Ainside0.001\u2013116.029 andBinside0.001\u2013132.856; allfourplotreadouts have separate actualsource timestamps."
+    },
+    {
+      "case": "T125 unequal boundary",
+      "outcome": "unexecuted_native_input_not_established",
+      "observation": "Paste125.000+Enter leftfield/cursor100. Draft-onlypaste125also100. One documentedsetValue125 clearednumericdraft; Go producedEnter a finite time in seconds, cursorstill100. No extraentry/sliderattempt, no clamp/extrapolationclaim."
+    },
+    {
+      "case": "Correctedalignedcopy",
+      "outcome": "pass_liveAX_copy_and_visible_core_only",
+      "observation": "Burnoutdropdown resetcanonicaldisplaytime0; HUDliveAXTime from burnout:0.000s/coreTime from burnout:0.00s. Aabsolute1.8079/B3.026 withseparate readouts. Screenshotshowscorelabel, HUDabovevisiblecropafterdropdownscroll; no fullHUDvisualcaptureclaim."
+    },
+    {
+      "case": "Restore",
+      "outcome": "pass_final_state_budget_overrun_retained",
+      "observation": "CanonicalRP1Designwithout run/compare/part; Whole26/26,Assembly45/54.7/0,Moveon,Parts/bothpanelsopen,toolsclosed,Frame disabled. No furtherCUAaftercapture."
+    }
+  ],
+  "T100": {
+    "requested_s": 100,
+    "A_nearest_s": 100.011,
+    "B_nearest_s": 99.985,
+    "height_m": {
+      "a": 95.3941019323222,
+      "b": 202.57208024254837
+    },
+    "speed_mps": {
+      "a": 5.969512724974517,
+      "b": 6.193666601462456
+    },
+    "net_acceleration_mps2": {
+      "a": 0.00174815620954039,
+      "b": 0.001886591204105418
+    },
+    "tilt_deg": {
+      "a": 4.1246221106110506,
+      "b": 4.573493442790127
+    }
+  },
+  "native_input_sequence": {
+    "first100_entry": "click119,super+a,paste100.000,Return succeeded",
+    "125_attempt": "sameclick/paste125.000/Return left100",
+    "draft_observation": "paste125 withoutReturn still100",
+    "one_alternative": "documentedApp.setValue(119,125string) leftempty; Go displayedfiniteerror",
+    "actual_after_failure_s": 100,
+    "not_diagnosed": "No proofwhether sourcecomponent/nativefocus/paste/valueadapter causedissue; notclassifiedas corewindow clamp.",
+    "artifact_rename": "Originalt125 filenames renamedattempted-t125-still-t100 beforefreeze toavoidfalse resultlabel."
+  },
+  "aligned_copy": {
+    "event": "burnout",
+    "canonical_time_s": 0,
+    "hud_live_AX": "Time from burnout:0.000s",
+    "core_live_AX_and_image": "Time from burnout:0.00s",
+    "offsets_s": {
+      "a": 1.8079,
+      "b": 3.026
+    },
+    "A_nearest_s": 1.808,
+    "B_nearest_s": 3.026
+  },
+  "download": {
+    "original": "/Users/kudratsingh/Downloads/exp-cf9e47a650074144856caf50775846d2-playback.json",
+    "mtime_utc": "2026-11-08T14:04:22.288860+00:00",
+    "copy": "pair-metadata.json",
+    "sha256": "60cd6c79aa8f253e6bb7f5b5992c17c24fcfb5cdf1b4568ede476c43e1d7059a",
+    "byte_identical": true
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-replay-unequal-windows-20261108/aligned-hud.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-unequal-windows-20261108/attempted-t125-still-t100.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-unequal-windows-20261108/final-rp1.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-unequal-windows-20261108/native-time-entry-unavailable.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-unequal-windows-20261108/t100.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    }
+  ],
+  "environment": "SameexistingChrome atlastmeasured2240\u00d71109CSS,DPR2; notnewlyremeasuredinP9/noresize/noprescribedviewportacceptance.",
+  "final_state": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "workspace": "design",
+    "run_compare_part_params": null,
+    "visible_meshes": [
+      26,
+      26
+    ],
+    "camera": {
+      "horizontal_deg": 45,
+      "tilt_deg": 54.7,
+      "roll_deg": 0,
+      "target": "Assembly",
+      "dragmode": "Move"
+    },
+    "frame_selection_enabled": false,
+    "normal_panels": "open/Parts",
+    "scene_tools": "closed",
+    "replay": "bounded/paused;noPlay"
+  },
+  "guards": {
+    "access_errors": 0,
+    "user_change_interruptions": 0,
+    "automatic_rejections": 0
+  },
+  "actions": {
+    "Play": 0,
+    "full_native_profile": 0,
+    "new_simulation": 0,
+    "resize": 0,
+    "other_app_window": 0,
+    "devtools_console_cdp": 0,
+    "source_mutations": 0
+  },
+  "remaining": [
+    "RV11/25/26T125outside-A/inside-Bnativeboundary not executed",
+    "No Aposition/attitudewithholding or unavailableAplotreadout acceptance beyondAend",
+    "Alandingeventjump notattempted; optional25susedforHUDcopy",
+    "FullHUDvisualalignedcapture notobtained",
+    "Exactviewport/performance/physical/flightgates unchanged"
+  ],
+  "engineering_or_flight_approval": false
+}
