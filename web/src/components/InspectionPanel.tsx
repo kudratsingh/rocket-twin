@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { partHref } from '../workspaces/partLinks';
 import { displayValue, grams, label, number, partName, title } from '../format';
 import { useInspection } from '../store';
@@ -6,6 +7,8 @@ import { Icon } from './Icons';
 import { representationLabel, recordedQuantity } from './presentationGroups';
 import { FinAlternatives } from './FinAlternatives';
 import { ThrustCurve } from './ThrustCurve';
+
+const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
 
 function numeric(value: JsonValue | undefined): number | undefined {
   return typeof value === 'number' ? value : undefined;
@@ -241,6 +244,19 @@ export function PartInspector({
             'Function is not available in the recorded specification.'}
         </p>
       </section>
+      {part.id === 'high_g_accel' && design && (
+        <Suspense fallback={<p>Loading manufacturer PCB reference…</p>}>
+          <HighGBoardDetail
+            partId={part.id}
+            configurationId={design.id}
+            specificationSha256={
+              typeof design.identity?.specification_sha256 === 'string'
+                ? design.identity.specification_sha256
+                : null
+            }
+          />
+        </Suspense>
+      )}
       <section className="detail-section">
         <h3>Location & connections</h3>
         <DataList

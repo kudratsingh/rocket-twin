@@ -1,3 +1,4 @@
+import { ownedByOpenDialog } from './modalOwnership';
 import {
   createContext,
   useCallback,
@@ -131,6 +132,7 @@ export function WorkspaceLayoutProvider({
   useEffect(() => {
     function keyboard(event: KeyboardEvent) {
       if (event.defaultPrevented || event.ctrlKey || event.altKey || event.metaKey) return;
+      if (ownedByOpenDialog(event.target)) return;
       if (event.key === 'Escape' && state.focusSnapshot) {
         event.preventDefault();
         event.stopImmediatePropagation();

@@ -1,5 +1,7 @@
 # Agent entry point
 
+**High-g PCB reference (November8):** [Source-detail integration](docs/studies/frontend-hardware-detail-sources-20261108/integration.md). The exact Adafruit5374 source board now has a selectable, licensed 2D footprint view in RP1 Details. Recorded board/envelope differences, ADXL343 source label and missing heights remain explicit; no 3D fit or silicon identity is inferred. Native browser opening is observed, Escape failed and its source correction awaits browser recheck. Offline900×810 SVG/PNG was visually inspected. Core geometry/AD1/D1 and engineering gates stay unchanged; inquiries UNSENT.
+
 **Interior inspection continuation (November8):** [Source-supported interior workflow](docs/studies/frontend-interiors-20261108/report.md). The owner requests easy direct manipulation, visibly useful internals and alternatives. Normal-flow Inspect interior/subsystem controls, optional hashed detail assets, missing-normal/depth/lighting corrections and a separate recorded fin-construction schematic are implemented. Core238…/all55 IDs and physical AD1/D1 remain unchanged. Optional ring/tube detail does not invent PCB/retainer/rope internals; FP1/FR1 remain unadopted. Current-window interior, framing, ring and fin-preview interactions are observed; final app restored to whole assembly. Code checks and browser evidence remain separate; the prior DevTools rejection and viewport limits remain. Supplier/lab drafts stay UNSENT, engineering/build/flight gates open.
 
 

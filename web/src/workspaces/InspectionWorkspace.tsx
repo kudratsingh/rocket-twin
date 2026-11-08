@@ -1,3 +1,4 @@
+import { ownedByOpenDialog } from './modalOwnership';
 import { createContext, useCallback, useContext, useEffect, useId, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
@@ -201,6 +202,7 @@ function LayoutSplitter({
       aria-valuenow={value}
       aria-valuetext={`${value} pixels; arrow keys resize, Enter collapses`}
       onKeyDown={(event) => {
+        if (ownedByOpenDialog(event.target)) return;
         if (event.key === 'Enter') {
           event.preventDefault();
           onCollapse();
@@ -270,6 +272,7 @@ function RevampedInspectionWorkspace({
             aria-label="Parts sidebar"
             hidden={!preferences.contextOpen}
             onKeyDown={(event) => {
+              if (ownedByOpenDialog(event.target)) return;
               if (event.key === 'Escape' && !event.defaultPrevented) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -289,6 +292,7 @@ function RevampedInspectionWorkspace({
                   tabIndex={preferences.contextTab === tab ? 0 : -1}
                   onClick={() => layout.updatePreferences({ contextTab: tab })}
                   onKeyDown={(event) => {
+                    if (ownedByOpenDialog(event.target)) return;
                     if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
                       event.preventDefault();
                       const next =
@@ -383,6 +387,7 @@ function RevampedInspectionWorkspace({
               className="revamp-tools-content"
               hidden={!preferences.toolsOpen}
               onKeyDown={(event) => {
+                if (ownedByOpenDialog(event.target)) return;
                 if (event.key === 'Escape' && !event.defaultPrevented) {
                   event.preventDefault();
                   event.stopPropagation();

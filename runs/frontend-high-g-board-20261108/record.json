@@ -1,0 +1,89 @@
+{
+  "session": "frontend-high-g-board-20261108",
+  "verifier": "/root/browser_access_sol",
+  "status": "partial; drawing visible, Escape/sidebar interaction failed; recovered",
+  "started_at_utc": "2026-11-08T10:22:43+00:00",
+  "last_capture_at_utc": "2026-11-08T10:25:41.745459+00:00",
+  "elapsed_to_last_capture_seconds": 178.745459,
+  "maximum_seconds": 180,
+  "within_cap": true,
+  "source": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part_id": "high_g_accel",
+    "drawing_id": "adafruit-5374-pcb-2d-4a768fc9-v1",
+    "manufacturer_source_sha256": "7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c",
+    "manufacturer_blob": "4a768fc9f113ba6f95c6e930a3fac436d066f82a"
+  },
+  "observed": {
+    "drawing": "actual footprint graphic visible with four mounting holes and U1 highlighted",
+    "dimensions": "PCB25.4x17.78mm versus nominal envelope25.6x17.7x4.6mm; datums/tolerances undefined; no fit or scale correction",
+    "u1": "ADXL343 retained from official ADXL375/PID5374 source; silicon identity and heights unverified",
+    "escape": "part URL retained but parent sidebar hidden; native AX app content empty while screenshot remains rendered",
+    "source_diagnosis": "Dialog nested in Details; provider capture Escape hides parent context before native cancel. Corroborated source, not a browser-console diagnosis.",
+    "recovery": "Normal same-source navigation withoutpart; sidebar reopened; Reset+Fit; full assembly visible in final screenshot"
+  },
+  "unexecuted": [
+    "footprint chooser change",
+    "Close drawing button",
+    "export/download",
+    "Escape correction recheck",
+    "exact responsive viewport matrix"
+  ],
+  "final_state": {
+    "individual_part_url": null,
+    "interior": false,
+    "navigation_open": true,
+    "parts_sidebar_open": true,
+    "sidebar_tab": "Details vehicle summary",
+    "source_detail": true,
+    "tools_open": false,
+    "camera": [
+      45,
+      54.7,
+      0
+    ],
+    "target": "Assembly",
+    "whole_model_visibly_rendered": true
+  },
+  "guards": 0,
+  "devtools_attempts": 0,
+  "viewport_workarounds": 0,
+  "simulations": 0,
+  "performance_attempts": 0,
+  "screenshots": [
+    {
+      "path": "runs/frontend-high-g-board-20261108/final-recovered.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "7297946e53b1f2eb816d837cda016bd59c68fe004a4e8c4c01fa680424f5697f",
+      "unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-high-g-board-20261108/pcb-after-escape.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "fd29984742f0418b2d37012052049a282a53f269c5ded126430ca7b8a3bb6f57",
+      "unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-high-g-board-20261108/pcb-layout-open.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "e4105a7e33d0f99efea38cde1368b42e02fa31e7e832b6b2b4562c772f95c8b2",
+      "unchanged": true,
+      "css_viewport_claim": null
+    }
+  ]
+}
