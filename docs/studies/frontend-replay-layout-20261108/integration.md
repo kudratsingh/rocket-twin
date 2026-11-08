@@ -1,0 +1,23 @@
+# Replay scene and telemetry layout — bounded integration
+
+G80 RP1/AD1 v2 remains current; saved archived runs retain their own exact configuration/geometry. PR107 is merged at e7a62a7baa619aa3b7940a80dce17e11607b536c after both required jobs/workflow42485762004 passed. This separate follow-up changes presentation only. It is not a new numerical method, physics result or performance retry.
+
+Astra MEDIUM owns one45-minute source packet and at most one targeted layout correction: Experiment.tsx, experiment.css and one critical single-mounted-scene binding guard. Primary retains integration/acceptance; the designated Sol agent alone owns native Chrome. No dependency/pin, backend, telemetry, pose, clock, raw export, physical specification or engineering evidence changes.
+
+The scene, camera/playback/exact-time controls and four synchronized plots precede details. The centre uses a container query: at least760CSSpx gives adjacent scene/plots; smaller centres stack; at most900CSSpx viewport gives reachable workspace scrolling. Canvas parent is explicitly clamp(300px,36vh,420px). This changes visible render area and is not directly comparable to an older performance capture. Current validity/missing/withheld warnings remain visible in their applicable sections. Source/drawing interpretation, alignment/range, recovery explanation, events, diagnostics and exports remain reachable.
+
+Local237tests pass, including four preserved/unpublished A2 cases;233belong to this publication. Typecheck/lint/format/build pass. The one new guard checks the critical single-scene/shared-binding source boundary; CSS dimensions require actual browser evidence, not matching declarations. The initial undeclared PostCSS test dependency and exact-CSS mirror check were removed before publication; no dependency was added. The existing large-bundle warning remains.
+
+Primary independently compared the actual pre/post TypeScript trees: all Experiment pre-return state/callback statements, interaction callback expressions and FlightScene/Plot bindings are unchanged. This is source preservation, not native rendering or measured physics. Source hash freeze and browser cases are recorded separately.
+
+P8 is one480-active-second native functional packet at the actual available size, using existing saved data only. Optional one observed ordinary-window tile/restore can exercise a different actual centre width; no guessed edge, DevTools, alternate window or exact-size substitution. No new run, native-rate benchmark or FPS acceptance attempt. Original failed performance evidence and prescribed-size matrix remain open. Stop on source/access/guard/cap; at most one targeted correction if an actual bounded layout defect appears.
+
+All five VP1 inquiries remain UNSENT. No supplier/lab contact, purchase, physical work, paid run or engineering/build/flight approval. G54 and G12 PID-to-RL stay committed separately; full WO03/04/05/10 and physical/thermal/recovery/flutter gates stay open.
+
+## One source correction after P8
+
+P8 completed452.815s/480 with wide scene/controls/fourplots readable. One observed native Left/Fill changed2240×1109→1120×1109→2240×1109CSS/DPR2; time20, Free mode, thrust channel, event alignment and range persisted. Numeric free-camera pose was not measured. Stacking was observed at the smaller centre; the one scroll did not establish all lower plot reachability, so that branch remains partial. All three downloaded diagnostics have zero rawRAF samples, unavailable status and null profile: this is not a performance attempt.
+
+P8 also preserved a wording error: HUD saidT+20 while the comparison clock was aligned20 relative to burnout (absolute21.808). One copy-only correction makes both HUD/core readouts say Time from burnout when aligned, retaining T+ for absolute time. No time, offset, event, pose or calculation changed. P8 sourceExperiment a0b8… remains frozen; corrected sourceExperiment144b6e5b2b71cdf5c1fa39fb61a7402ac9b023de968d0705201e405df2b8bec5 belongs to P9. The one permitted runtime correction is now consumed.
+
+P9 is a distinct260-second saved-data boundary check: normal bounded G80cf9e(116.029s) versus G54ab60(132.856s), matching historical code/dimensions per each own configuration. At125s A must be unavailable while B remains valid; neither actor/plot may extrapolate. Live source admission is still required. The optional event subcase checks corrected relative-clock wording instead of another landing jump. No resize, new run, Play/profile/nativefull load or resource increase. Stop at guard/cap/failure; preserve results rather than another correction loop.

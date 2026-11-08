@@ -227,9 +227,6 @@
   color: #e0f2f1;
   font-weight: 600;
 }
-.experiment--replay .exp-replay {
-  height: max(440px, 58vh);
-}
 @media (max-width: 700px) {
   .experiment--experiments {
     grid-template-columns: minmax(0, 1fr);
@@ -295,4 +292,98 @@
 .exp-scene-controls output {
   border-radius: 4px;
   color: #d7ecef;
+}
+
+/* Replay uses the available centre width, including when side panels change. */
+.experiment--replay {
+  grid-template-columns: clamp(180px, 17vw, 250px) minmax(0, 1fr) clamp(220px, 21vw, 310px);
+}
+.experiment main {
+  container: replay-center / inline-size;
+}
+.exp-replay-heading h2,
+.exp-replay-heading p,
+.exp-telemetry-panel > h3,
+.exp-info > h3 {
+  margin: 0 0 8px;
+}
+.exp-replay-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+.exp-replay-dashboard > section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.exp-replay-dashboard .exp-replay {
+  /* Definite Canvas parent height; content and controls never determine it. */
+  height: clamp(300px, 36vh, 420px);
+  min-height: 300px;
+}
+.exp-replay-dashboard .exp-controls {
+  gap: 8px;
+}
+.exp-replay-dashboard .exp-controls input[type='range'] {
+  flex-basis: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.exp-replay-dashboard .exp-plots {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}
+.exp-replay-dashboard .exp-plot p {
+  margin: 6px 0;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.exp-replay-dashboard .exp-plot span {
+  float: none;
+  display: block;
+}
+.exp-replay-dashboard .exp-plot svg {
+  height: 100px;
+  display: block;
+}
+.experiment summary {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.experiment summary:focus-visible {
+  outline: 2px solid #54d8d2;
+  outline-offset: 3px;
+}
+.exp-plot-evidence {
+  margin-top: 6px;
+}
+@container replay-center (min-width: 760px) {
+  .exp-replay-dashboard {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  }
+}
+@container replay-center (max-width: 440px) {
+  .exp-replay-dashboard .exp-plots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .experiment--replay {
+    grid-template-columns: minmax(0, 1fr);
+    overflow-y: auto;
+  }
+  .experiment--replay > aside {
+    max-height: 300px;
+    overflow: auto;
+  }
+  .experiment--replay > main {
+    overflow: visible;
+  }
+  .experiment--replay > .exp-results {
+    max-height: none;
+    overflow: visible;
+    border-left: 0;
+    border-top: 1px solid #2b3d46;
+  }
 }

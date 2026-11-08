@@ -663,18 +663,21 @@ function Plot({
           remain available where recorded.
         </p>
       )}
-      <ReplayDrawingReadout label={`${label(name)} · A`} diagnostics={chart.aDiagnostics} />
-      {other && (
-        <ReplayDrawingReadout label={`${label(name)} · B`} diagnostics={chart.bDiagnostics} />
-      )}
       {!aSamples && <p>Run A channel unavailable; missing data is not zero.</p>}
       {other && !bSamples && <p>Run B channel unavailable; missing data is not zero.</p>}
       {mismatch && <p>{mismatch}</p>}
-      <p>
-        {displayed?.meta
-          ? `Run ${displayed.run}: ${displayed.meta.description} · ${displayed.meta.source} · ${displayed.meta.unit ?? 'units unknown'}`
-          : 'Channel meaning, units and source unavailable.'}
-      </p>
+      <details className="exp-plot-evidence">
+        <summary>Channel source and drawing details</summary>
+        <p>
+          {displayed?.meta
+            ? `Run ${displayed.run}: ${displayed.meta.description} · ${displayed.meta.source} · ${displayed.meta.unit ?? 'units unknown'}`
+            : 'Channel meaning, units and source unavailable.'}
+        </p>{' '}
+        <ReplayDrawingReadout label={`${label(name)} · A`} diagnostics={chart.aDiagnostics} />
+        {other && (
+          <ReplayDrawingReadout label={`${label(name)} · B`} diagnostics={chart.bDiagnostics} />
+        )}
+      </details>
     </div>
   );
 }
@@ -1688,219 +1691,278 @@ export default function Experiment({
       <main>
         {shown ? (
           <>
-            <div className="exp-replay" ref={replayCanvasHost}>
-              <div className="exp-scene-controls" role="group" aria-label="Visible replay controls">
-                <button
-                  type="button"
-                  aria-label={playing ? 'Pause visible replay' : 'Play visible replay'}
-                  onClick={() => {
-                    replayCanvasHost.current?.scrollIntoView({ block: 'nearest' });
-                    if (!playing && time >= replayEnd) setTime(replayStart);
-                    setPlaying(!playing);
-                  }}
-                >
-                  {playing ? 'Pause' : 'Play'} flight
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMode('free');
-                    setFitToken((n) => n + 1);
-                  }}
-                >
-                  Fit visible trajectory
-                </button>
-                <button type="button" onClick={downloadDiagnostics}>
-                  Save visible replay diagnostics
-                </button>
-                <output>
-                  T+{time.toFixed(3)} s · {speed}×
-                  {profile
-                    ? ` · recent mean ${profile.mean_ms.toFixed(3)} ms (not acceptance)`
-                    : ''}
-                </output>
-              </div>
-              <FlightScene
-                run={shown}
-                other={other}
-                time={time}
-                mode={mode}
-                fitToken={fitToken}
-                offsets={alignment}
-                onPrimaryDiagnostics={onPrimaryDiagnostics}
-                onComparisonDiagnostics={onComparisonDiagnostics}
-              />
-            </div>
-            <div className="exp-controls">
-              <select
-                aria-label="Replay camera"
-                value={mode}
-                onChange={(e) => setMode(e.target.value as 'follow' | 'pad' | 'free')}
-              >
-                <option value="follow">Camera: follow</option>
-                <option value="pad">Camera: fixed pad</option>
-                <option value="free">Camera: free</option>
-              </select>
-              <button
-                onClick={() => {
-                  setMode('free');
-                  setFitToken((n) => n + 1);
-                }}
-              >
-                Fit trajectory
-              </button>
-              <button
-                onClick={() => {
-                  if (!playing && time >= replayEnd) setTime(replayStart);
-                  setPlaying(!playing);
-                }}
-              >
-                {playing ? 'Pause' : 'Play'}
-              </button>
-              <select
-                aria-label="Replay speed"
-                value={speed}
-                onChange={(e) => setSpeed(Number(e.target.value))}
-              >
-                {[0.25, 0.5, 1, 2, 4].map((n) => (
-                  <option key={n} value={n}>
-                    {n}×
-                  </option>
-                ))}
-              </select>
-              <input
-                type="range"
-                aria-label="Replay time"
-                min={replayStart}
-                max={replayEnd}
-                step="0.01"
-                value={time}
-                onChange={(e) => scrubTo(Number(e.target.value))}
-              />
-              <span>
-                {alignment.event ? 'Aligned' : 'T+'}
-                {time.toFixed(2)} s
-              </span>
-              <ExactReplayTime
-                key={`${rangeKey}-${fullRateBenchmark}`}
-                time={time}
-                start={replayStart}
-                end={replayEnd}
-                aligned={!!alignment.event}
-                onApply={scrubTo}
-              />
-            </div>
-            <p>
-              Orbit and zoom with mouse. Teal: {shown.record.run_id}
-              {other && ` · Gold: ${other.record.run_id}`}
-              {other && ' · Each actor is visible only within its recorded window.'}
-            </p>
-            <p>
-              Spatial scale: 1 scene unit = 1 m; ground grid is 100 m wide with 5 m squares. White
-              dot: recorded centre of mass. Paths and body poses use recorded telemetry; the wind
-              arrow represents request settings and is illustrative, not a measured local vector. No
-              canopy or line-load geometry is inferred.
-            </p>
-            <p>
-              {reducedMotion
-                ? 'Reduced-motion preference detected; playback starts paused and remains user controlled.'
-                : 'Playback is paused until Play is selected.'}{' '}
-              Gimbal angles remain recorded channels; locked-gimbal runs add no animated control
-              action.
-            </p>
-            <p>
-              Playback profile:{' '}
-              {shown.playbackMode === 'full-rate-benchmark'
-                ? 'native telemetry · bounded drawing (full-rate-benchmark)'
-                : 'bounded telemetry · bounded drawing (bounded)'}{' '}
-              · A returned{' '}
-              {shown.telemetry.returned_sample_count ?? shown.telemetry.columns.time_s.length} /{' '}
-              {shown.telemetry.full_sample_count ?? 'unavailable'} raw samples
-              {other &&
-                ` · B returned ${other.telemetry.returned_sample_count ?? other.telemetry.columns.time_s.length} / ${other.telemetry.full_sample_count ?? 'unavailable'} raw samples`}
-              . {shown.telemetry.sampling?.policy}
-            </p>
-            <p>
-              Drawing caps: 3,000 native positions per trajectory and 1,200 native samples per
-              plot/run, at most 128 disconnected segments. Gaps and mandatory event/extrema anchors
-              are preserved or drawing is withheld. Earlier failed native-rate FPS observations
-              remain failed; this changed drawing path has no browser performance acceptance.
-            </p>
-            {primaryDiagnostics?.status === 'withheld' && (
-              <p role="status">A trajectory drawing withheld: {primaryDiagnostics.reason}</p>
-            )}
-            {comparisonDiagnostics?.status === 'withheld' && (
-              <p role="status">B trajectory drawing withheld: {comparisonDiagnostics.reason}</p>
-            )}
-            <ReplayDrawingReadout label="A trajectory" diagnostics={primaryDiagnostics} />
-            {other && (
-              <ReplayDrawingReadout label="B trajectory" diagnostics={comparisonDiagnostics} />
-            )}
-            <ReplayValidity run={shown} time={time + alignment.a} label="A · teal" />
-            {other && <ReplayValidity run={other} time={time + alignment.b} label="B · gold" />}
-            <div className="exp-events">
-              {Object.entries(shown.record.events ?? {}).map(([k, v]) => (
-                <button
-                  key={k}
-                  disabled={v === null}
-                  onClick={() => {
-                    setPlaying(false);
-                    scrubTo(v! - alignment.a);
-                  }}
-                >
-                  {k.replace('_', ' ')}: {v === null ? 'not recorded' : `T+${v.toFixed(2)} s`}
-                </button>
-              ))}
-            </div>
-            <p>
-              Choose recorded or backend-derived channels. Unrecognized names are shown exactly as
-              recorded; their units and meaning are not inferred. Plots draw a bounded selection of
-              returned native indices. Axis limits use all valid returned samples in the selected
-              range. Readouts use the nearest returned sample within each run’s recorded time range,
-              without interpolation; they do not establish full-rate extremes.
-            </p>
-            <div className="exp-controls" aria-label="Comparison clock and plot range">
-              <label>
-                Clock alignment
-                <select
-                  value={alignmentEvent}
-                  onChange={(e) => {
-                    setPlaying(false);
-                    setAlignmentEvent(e.target.value);
-                    setTime(0);
-                  }}
-                  disabled={!other}
-                >
-                  <option value="absolute">Absolute elapsed time</option>
-                  {['guide_exit', 'burnout', 'apogee', 'deployment', 'landing'].map((event) => (
-                    <option key={event} value={event}>
-                      {event.replace('_', ' ')} recorded event
-                    </option>
+            <header className="exp-replay-heading">
+              <h2>Scene + telemetry</h2>
+              <p>
+                One shared cursor. Select a plot or use the time controls to inspect the recorded
+                flight.
+              </p>
+            </header>
+            <div className="exp-replay-dashboard">
+              <section className="exp-flight-panel" aria-label="Flight scene and playback">
+                <div className="exp-replay" ref={replayCanvasHost}>
+                  <div
+                    className="exp-scene-controls"
+                    role="group"
+                    aria-label="Visible replay controls"
+                  >
+                    <button
+                      type="button"
+                      aria-label={playing ? 'Pause visible replay' : 'Play visible replay'}
+                      onClick={() => {
+                        replayCanvasHost.current?.scrollIntoView({ block: 'nearest' });
+                        if (!playing && time >= replayEnd) setTime(replayStart);
+                        setPlaying(!playing);
+                      }}
+                    >
+                      {playing ? 'Pause' : 'Play'} flight
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMode('free');
+                        setFitToken((n) => n + 1);
+                      }}
+                    >
+                      Fit visible trajectory
+                    </button>
+                    <button type="button" onClick={downloadDiagnostics}>
+                      Save visible replay diagnostics
+                    </button>
+                    <output>
+                      {alignment.event
+                        ? `Time from ${alignment.event.replaceAll('_', ' ')}: `
+                        : 'T+'}
+                      {time.toFixed(3)} s · {speed}×
+                      {profile
+                        ? ` · recent mean ${profile.mean_ms.toFixed(3)} ms (not acceptance)`
+                        : ''}
+                    </output>
+                  </div>
+                  <FlightScene
+                    run={shown}
+                    other={other}
+                    time={time}
+                    mode={mode}
+                    fitToken={fitToken}
+                    offsets={alignment}
+                    onPrimaryDiagnostics={onPrimaryDiagnostics}
+                    onComparisonDiagnostics={onComparisonDiagnostics}
+                  />
+                </div>
+                <div className="exp-controls">
+                  <select
+                    aria-label="Replay camera"
+                    value={mode}
+                    onChange={(e) => setMode(e.target.value as 'follow' | 'pad' | 'free')}
+                  >
+                    <option value="follow">Camera: follow</option>
+                    <option value="pad">Camera: fixed pad</option>
+                    <option value="free">Camera: free</option>
+                  </select>
+                  <button
+                    onClick={() => {
+                      setMode('free');
+                      setFitToken((n) => n + 1);
+                    }}
+                  >
+                    Fit trajectory
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (!playing && time >= replayEnd) setTime(replayStart);
+                      setPlaying(!playing);
+                    }}
+                  >
+                    {playing ? 'Pause' : 'Play'}
+                  </button>
+                  <select
+                    aria-label="Replay speed"
+                    value={speed}
+                    onChange={(e) => setSpeed(Number(e.target.value))}
+                  >
+                    {[0.25, 0.5, 1, 2, 4].map((n) => (
+                      <option key={n} value={n}>
+                        {n}×
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="range"
+                    aria-label="Replay time"
+                    min={replayStart}
+                    max={replayEnd}
+                    step="0.01"
+                    value={time}
+                    onChange={(e) => scrubTo(Number(e.target.value))}
+                  />
+                  <span>
+                    {alignment.event ? `Time from ${alignment.event.replaceAll('_', ' ')}: ` : 'T+'}
+                    {time.toFixed(2)} s
+                  </span>
+                  <ExactReplayTime
+                    key={`${rangeKey}-${fullRateBenchmark}`}
+                    time={time}
+                    start={replayStart}
+                    end={replayEnd}
+                    aligned={!!alignment.event}
+                    onApply={scrubTo}
+                  />
+                </div>
+                <p>
+                  Orbit and zoom with mouse. Teal: {shown.record.run_id}
+                  {other && ` · Gold: ${other.record.run_id}`}
+                  {other && ' · Each actor is visible only within its recorded window.'}
+                </p>
+                {primaryDiagnostics?.status === 'withheld' && (
+                  <p role="status">A trajectory drawing withheld: {primaryDiagnostics.reason}</p>
+                )}
+                {comparisonDiagnostics?.status === 'withheld' && (
+                  <p role="status">B trajectory drawing withheld: {comparisonDiagnostics.reason}</p>
+                )}
+              </section>
+              <section className="exp-telemetry-panel" aria-label="Synchronized telemetry">
+                <h3>Synchronized telemetry</h3>
+                <p>
+                  {alignment.event
+                    ? `Aligned to ${alignment.event.replace('_', ' ')}`
+                    : 'Absolute elapsed time'}
+                  {' · '}Plot/export range: {plotWindow.start.toFixed(3)}–
+                  {plotWindow.end.toFixed(3)} s. Teal: A{other && ' · Gold: B'}.
+                </p>
+                <div className="exp-plots">
+                  {plotChannels.map((name, index) => (
+                    <Plot
+                      key={index}
+                      run={shown}
+                      other={other}
+                      name={name}
+                      time={time}
+                      window={plotWindow}
+                      offsets={alignment}
+                      setTime={scrubTo}
+                      setName={(next) =>
+                        setPlotChannels((previous) =>
+                          previous.map((value, i) => (i === index ? next : value)),
+                        )
+                      }
+                    />
                   ))}
-                </select>
-              </label>
-              <span>
-                Display time = recorded time − offset. A offset {alignment.a.toFixed(3)} s; B offset{' '}
-                {alignment.b.toFixed(3)} s. {alignment.reason}
-              </span>
-              <span>
-                Plot/export range: {plotWindow.start.toFixed(3)}–{plotWindow.end.toFixed(3)} s
-              </span>
-              {(['in', 'out', 'left', 'right'] as const).map((action) => (
-                <button
-                  key={action}
-                  onClick={() =>
-                    setChartRange({
-                      ...adjustPlotWindow(plotWindow, fullRange, action),
-                      key: rangeKey,
-                    })
-                  }
-                >
-                  {action === 'in' ? 'Zoom in' : action === 'out' ? 'Zoom out' : `Pan ${action}`}
-                </button>
-              ))}
-              <button onClick={() => setChartRange(null)}>Reset plot range</button>
+                </div>
+              </section>
             </div>
+            <section className="exp-info" aria-label="Recorded events">
+              <h3>Recorded events · A</h3>
+              <div className="exp-events">
+                {Object.entries(shown.record.events ?? {}).map(([k, v]) => (
+                  <button
+                    key={k}
+                    disabled={v === null}
+                    onClick={() => {
+                      setPlaying(false);
+                      scrubTo(v! - alignment.a);
+                    }}
+                  >
+                    {k.replace('_', ' ')}: {v === null ? 'not recorded' : `T+${v.toFixed(2)} s`}
+                  </button>
+                ))}
+              </div>
+            </section>
+            <details className="exp-info">
+              <summary>Comparison clock and plot/export range</summary>
+              <div className="exp-controls" aria-label="Comparison clock and plot range">
+                <label>
+                  Clock alignment
+                  <select
+                    value={alignmentEvent}
+                    onChange={(e) => {
+                      setPlaying(false);
+                      setAlignmentEvent(e.target.value);
+                      setTime(0);
+                    }}
+                    disabled={!other}
+                  >
+                    <option value="absolute">Absolute elapsed time</option>
+                    {['guide_exit', 'burnout', 'apogee', 'deployment', 'landing'].map((event) => (
+                      <option key={event} value={event}>
+                        {event.replace('_', ' ')} recorded event
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <span>
+                  Display time = recorded time − offset. A offset {alignment.a.toFixed(3)} s; B
+                  offset {alignment.b.toFixed(3)} s. {alignment.reason}
+                </span>
+                <span>
+                  Plot/export range: {plotWindow.start.toFixed(3)}–{plotWindow.end.toFixed(3)} s
+                </span>
+                {(['in', 'out', 'left', 'right'] as const).map((action) => (
+                  <button
+                    key={action}
+                    onClick={() =>
+                      setChartRange({
+                        ...adjustPlotWindow(plotWindow, fullRange, action),
+                        key: rangeKey,
+                      })
+                    }
+                  >
+                    {action === 'in' ? 'Zoom in' : action === 'out' ? 'Zoom out' : `Pan ${action}`}
+                  </button>
+                ))}
+                <button onClick={() => setChartRange(null)}>Reset plot range</button>
+              </div>
+            </details>
+            <section className="exp-info" aria-label="Current replay validity">
+              <ReplayValidity run={shown} time={time + alignment.a} label="A · teal" />
+              {other && <ReplayValidity run={other} time={time + alignment.b} label="B · gold" />}
+            </section>
+            <details className="exp-info">
+              <summary>Scene scale, sampling and channel interpretation</summary>
+              <p>
+                Spatial scale: 1 scene unit = 1 m; ground grid is 100 m wide with 5 m squares. White
+                dot: recorded centre of mass. Paths and body poses use recorded telemetry; the wind
+                arrow represents request settings and is illustrative, not a measured local vector.
+                No canopy or line-load geometry is inferred.
+              </p>
+              <p>
+                {reducedMotion
+                  ? 'Reduced-motion preference detected; playback starts paused and remains user controlled.'
+                  : 'Playback is paused until Play is selected.'}{' '}
+                Gimbal angles remain recorded channels; locked-gimbal runs add no animated control
+                action.
+              </p>
+              <p>
+                Playback profile:{' '}
+                {shown.playbackMode === 'full-rate-benchmark'
+                  ? 'native telemetry · bounded drawing (full-rate-benchmark)'
+                  : 'bounded telemetry · bounded drawing (bounded)'}{' '}
+                · A returned{' '}
+                {shown.telemetry.returned_sample_count ?? shown.telemetry.columns.time_s.length} /{' '}
+                {shown.telemetry.full_sample_count ?? 'unavailable'} raw samples
+                {other &&
+                  ` · B returned ${other.telemetry.returned_sample_count ?? other.telemetry.columns.time_s.length} / ${other.telemetry.full_sample_count ?? 'unavailable'} raw samples`}
+                . {shown.telemetry.sampling?.policy}
+              </p>
+              <p>
+                Drawing caps: 3,000 native positions per trajectory and 1,200 native samples per
+                plot/run, at most 128 disconnected segments. Gaps and mandatory event/extrema
+                anchors are preserved or drawing is withheld. Earlier failed native-rate FPS
+                observations remain failed; this changed drawing path has no browser performance
+                acceptance.
+              </p>
+              <p>
+                Choose recorded or backend-derived channels. Unrecognized names are shown exactly as
+                recorded; their units and meaning are not inferred. Plots draw a bounded selection
+                of returned native indices. Axis limits use all valid returned samples in the
+                selected range. Readouts use the nearest returned sample within each run’s recorded
+                time range, without interpolation; they do not establish full-rate extremes.
+              </p>
+              <ReplayDrawingReadout label="A trajectory" diagnostics={primaryDiagnostics} />
+              {other && (
+                <ReplayDrawingReadout label="B trajectory" diagnostics={comparisonDiagnostics} />
+              )}
+            </details>
             <details className="exp-info">
               <summary>
                 Playback instrumentation (browser observation required for acceptance)
@@ -1954,25 +2016,6 @@ export default function Experiment({
                 do not pass it.
               </p>
             </details>
-            <div className="exp-plots">
-              {plotChannels.map((name, index) => (
-                <Plot
-                  key={index}
-                  run={shown}
-                  other={other}
-                  name={name}
-                  time={time}
-                  window={plotWindow}
-                  offsets={alignment}
-                  setTime={scrubTo}
-                  setName={(next) =>
-                    setPlotChannels((previous) =>
-                      previous.map((value, i) => (i === index ? next : value)),
-                    )
-                  }
-                />
-              ))}
-            </div>
           </>
         ) : (
           <>
