@@ -60,7 +60,7 @@ stays visible in every mode.
 
 Inspect controls:
 
-- Drag to orbit, scroll to zoom, right-drag to pan. **Fit assembly** frames loaded bounds; **Camera → Reset camera** or **R** restores the overview. Neither command invents missing geometry.
+- **Move view** is the default: left-drag moves the rocket across the view without changing its angle. Choose **Rotate view** to turn it with left-drag. Scroll or use **Zoom in/out** to change viewing distance. **Whole rocket** restores the overview and frames the loaded assembly; **Fit assembly** retains the current angles. **Frame selected** focuses a component with geometry. Missing geometry remains unavailable.
 - Click a tree row or mesh to select it; hover links the tree and geometry.
   **Escape** or the inspector’s close button returns to the vehicle summary.
 - Eye buttons hide individual parts. **Isolate selected**, **Show all**,

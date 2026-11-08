@@ -1,0 +1,150 @@
+{
+  "schema_version": "rocket-twin.part-link-recovery-p7.20261108.v1",
+  "status": "passed_scoped_design_recheck",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "cap_active_s": 150,
+    "actual_active_s": 97.282,
+    "basis": "CUA Date.now from fresh initial state through final screenshot",
+    "attempts": 1,
+    "automatic_retries": 0
+  },
+  "source": {
+    "served_App_sha256": "a59c2cc9d05a6eb29d2a62ce5a740008d4446ac6ceb4cf966846a64ea3e36692",
+    "primary_reported_part_link_test_sha256": "f6061df96da01fdf59823c4f97d5207263972790a59e555c158e84fc34fc63d7",
+    "freeze_manifest": "source-freeze.json",
+    "P6_served_App_sha256": "dad597467a57fe55a1ff86b9f7a3c409680e4c687feb1640f061bef0c4a8a183",
+    "boundary": "P6 hidden-warning failure preserved; P7 tests the explicitly changed local source. Publication/remoteCI attribution remains primary-owned.",
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "environment": {
+    "window": "Same authorized Google Chrome / Rocket Twin \u00b7 Vehicle inspection",
+    "CSS_context": "Unchanged existing window; latest actual helper measurement in P6 was2240\u00d71109CSS,DPR2; no new helper measurement or resizing in P7.",
+    "native_raster": [
+      4480,
+      2460
+    ],
+    "exact_viewport_acceptance": false
+  },
+  "cases": [
+    {
+      "id": "Stale spec + valid nose",
+      "outcome": "pass",
+      "input_spec": "0000000000000000000000000000000000000000000000000000000000000000",
+      "input_part": "nose",
+      "observation": "Warning visible directly below header in normalflow, source disclosure not opened. Frame selection disabled; no historical substitution."
+    },
+    {
+      "id": "Clear stale link",
+      "outcome": "pass",
+      "action": "Clear invalid part link",
+      "result_url": "127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "part_parameter": null,
+      "notice_removed": true
+    },
+    {
+      "id": "Missing part",
+      "outcome": "pass",
+      "input_part": "missing-p7-part",
+      "input_spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "observation": "Same warning and Clear control visible in normalflow; Frame selection disabled."
+    },
+    {
+      "id": "Clear missing link",
+      "outcome": "pass",
+      "action": "Clear invalid part link",
+      "result_url": "127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "part_parameter": null,
+      "notice_removed": true
+    },
+    {
+      "id": "Valid source selection",
+      "outcome": "pass",
+      "observation": "Exact valid nose route selects nose(Value1)/fin_set(Value0); actualfin_settreeclick selects fin_set(Value1)/nose(Value0) andURLpart=fin_set."
+    },
+    {
+      "id": "Restore",
+      "outcome": "pass",
+      "observation": "Fresh canonicalpart-free route, Whole Assembly45/54.7/0,26/26,Moveon,Parts/navigation/contextopen,toolsclosed,Frame selectiondisabled."
+    }
+  ],
+  "warning_text": "Part link unavailable: the design, revision or part does not match this source. No historical part is substituted.",
+  "warning_visual_review": "Both unchanged native stale-visible.jpg/missing-visible.jpg reviewed offline: normalflowwarning and button visibly rendered, not only AX text.",
+  "final_state": {
+    "url": "127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part_parameter": null,
+    "source_notice": null,
+    "frame_selection_enabled": false,
+    "mesh_visibility": [
+      26,
+      26
+    ],
+    "camera": {
+      "horizontal_deg": 45,
+      "tilt_deg": 54.7,
+      "roll_deg": 0,
+      "target": "Assembly",
+      "drag_mode": "Move"
+    },
+    "navigation": "open",
+    "context": "open / Parts",
+    "scene_tools": "closed",
+    "helper": "not mounted",
+    "replay": "not opened or played; prior bounded paused state retained"
+  },
+  "actions": {
+    "ordinary_route_loads": "Stale, missing, validnose and canonicalrestore; no separateReload shortcut needed",
+    "clear_button_clicks": 2,
+    "valid_fin_tree_clicks": 1,
+    "whole_rocket_clicks": 1,
+    "source_disclosure_opens": 0,
+    "resize": 0,
+    "performance_play": 0,
+    "new_jobs": 0,
+    "other_app_window": 0,
+    "devtools_console_cdp": 0
+  },
+  "guards": {
+    "user_change": 0,
+    "automatic_rejection": 0,
+    "access_error": 0
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-part-link-recovery-20261108/final-rp1.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-part-link-recovery-20261108/missing-visible.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-part-link-recovery-20261108/stale-visible.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    }
+  ],
+  "remaining": [
+    "Analysis-mode warning visibility not browser-tested in P7",
+    "Other malformed/foreign/duplicate identity combinations not added to this bounded packet",
+    "Exact prescribed viewport matrix and representative60fps gate remain pending",
+    "P6 Frameenabled residual not diagnosed/fixed here; fresh route nowdisabled is only actualP7observation"
+  ],
+  "engineering_or_flight_approval": false
+}

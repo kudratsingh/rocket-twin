@@ -2,7 +2,7 @@
 
 Owner direction: continue all unblocked work autonomously. Current published source at intake is PR104/main ecd0f74bae33ec3ef019e690ef95c023b92ecbe9. G80 RP1/AD1 v2 remains current; no physical/source changes. G54/G12 PID-to-RL separate; all five inquiries UNSENT.
 
-The older43-task ledger incorrectly kept browser ownership blocked and many implemented experiments/Analysis tasks planned. It is reconciled to the existing28-task RV map, not silently marked complete. Six source-contract/audit/ownership tasks are complete at their defined scope. Three optional/future tasks are explicitly deferred. FT027 schematic recovery illustration remains unimplemented. All other tasks remain partial; compound browser checks cannot be passed by one path or CI.
+The older43-task ledger incorrectly kept browser ownership blocked and many implemented experiments/Analysis tasks planned. It is reconciled to the existing28-task RV map, not silently marked complete. Six source-contract/audit/ownership tasks are complete at their defined scope. Three optional/future tasks are explicitly deferred. At intake FT027 schematic recovery illustration was unimplemented; PR106 subsequently added the observed event-linked explanatory graphic. Actual recovery dynamics remain unavailable. All other tasks remain partial; compound browser checks cannot be passed by one path or CI.
 
 The intake source_kit browser-block text is explicitly a historical snapshot. Current supported sole native owner is /root/browser_access_sol in the authorized current Chrome window. Earlier rejected DevTools/viewport setup remains blocked, so no alternate window/headless/CDP route is attempted.
 

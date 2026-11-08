@@ -1,6 +1,6 @@
 # Status
 
-**Replay/workflow closure (November8):** [Current worklist](frontend-release-worklist.md) records merged PR105, bounded native-data drawing, actual saved-batch/comparison/CSV/recovery/404 checks and corrected full Analysis framing. P2 remains diagnostic-only with failed mean target/offscreen scene. Cancellation is inconclusive; no repeated batch. The read-only viewport helper now enables owner manual sizing; exact matrix remains blocked until the requested size is ready. RP1/AD1/D1 and G54/G12 unchanged, inquiries UNSENT.
+**Merged preview checkpoint (November8):** [Current worklist](frontend-release-worklist.md) records PR105/106 merged after required exact-head checks. Native saved-batch/comparison/CSV/recovery/404 and corrected whole Analysis framing are observed; cancellation is inconclusive and performance remains unaccepted. Owner-authorized native Window→Zoom changed content to2240×1109/DPR2; exact-size matrix remains pending, while independent current-window checks continue. RP1/AD1/D1 and committed G54/G12 remain unchanged; five inquiries UNSENT.
 
 **Autonomous release closure (November8):** [Current worklist](frontend-release-worklist.md) owns task reconciliation, experiment-monitor recovery, strict Analysis identity, bounded replay drawing and new targeted native checks. PR104 camera fix is merged. G80 RP1/AD1 v2 unchanged; all inquiries UNSENT. Engineering evidence/physical work and initial frontend release remain separate.
 

@@ -561,6 +561,17 @@ export default function App() {
           {route.notice}
         </p>
       )}
+      {partLinkNotice && vehicle && (mode === 'design' || mode === 'analysis') && (
+        <div className="route-notice" role="alert">
+          <p>{partLinkNotice}</p>
+          <button
+            type="button"
+            onClick={() => navigate(partHref(currentHref(), vehicle, null, mode))}
+          >
+            Clear invalid part link
+          </button>
+        </div>
+      )}
       <WorkspaceFailureBoundary key={`${mode}:${vehicleId}`} workspace={mode}>
         {workspaceRenderFailureRequested(import.meta.env.DEV, currentHref(), mode) ? (
           <WorkspaceRenderFailureFixture />
@@ -638,7 +649,6 @@ export default function App() {
           <InspectionWorkspace
             source={
               <>
-                {partLinkNotice && <p role="alert">{partLinkNotice}</p>}
                 {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' &&
                   !vehicle.summary.inspection_geometry && (
                     <p role="status">
