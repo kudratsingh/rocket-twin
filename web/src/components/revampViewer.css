@@ -80,6 +80,21 @@
   margin: 0;
   line-height: 1.5;
 }
+.inspection-analysis-status {
+  display: grid;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 8px 12px;
+}
+.inspection-analysis-status .field-legend,
+.inspection-analysis-status .revamp-fit-status,
+.inspection-analysis-status .mesh-warning {
+  position: static;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  line-height: 1.5;
+}
 @media (max-width: 700px) {
   .revamp-design .revamp-primary-actions {
     top: 46px;

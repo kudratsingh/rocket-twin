@@ -716,7 +716,7 @@ export function Viewer({
             />
           </GizmoHelper>
         </Canvas>
-        {!statusInTools && fitReadout}
+        {!statusInTools && !overlay && fitReadout}
         <div className="viewport-scale">
           <span className="scale-line" />
           <span>{millimetres(overallLength)} overall · metre grid</span>
@@ -730,28 +730,6 @@ export function Viewer({
               : 'Metres · placed CAD geometry'}
           </small>
         </div>
-        {overlay && (
-          <div className="field-legend">
-            <strong>{overlay.caption}</strong>
-            {overlay.legend && (
-              <>
-                <div className="color-gradient" />
-                <div className="legend-values">
-                  <span>
-                    {overlay.legend.minimum} {overlay.legend.unit}
-                  </span>
-                  <span>
-                    {overlay.legend.maximum} {overlay.legend.unit}
-                  </span>
-                </div>
-              </>
-            )}
-            <span className="unavailable-key">
-              <i />
-              Neutral grey = unavailable / outside field coverage
-            </span>
-          </div>
-        )}
         {!overlay && (ghostShell || wireframe) && (
           <div className="inspection-display-note" role="status">
             {ghostShell && <span>Transparent shell: select internal parts through the body.</span>}
@@ -783,8 +761,34 @@ export function Viewer({
             recorded specifications.
           </div>
         )}
-        {!statusInTools && meshWarning}
+        {!statusInTools && !overlay && meshWarning}
       </div>
+      {overlay && (
+        <div className="inspection-analysis-status" aria-label="Recorded analysis display status">
+          <div className="field-legend">
+            <strong>{overlay.caption}</strong>
+            {overlay.legend && (
+              <>
+                <div className="color-gradient" />
+                <div className="legend-values">
+                  <span>
+                    {overlay.legend.minimum} {overlay.legend.unit}
+                  </span>
+                  <span>
+                    {overlay.legend.maximum} {overlay.legend.unit}
+                  </span>
+                </div>
+              </>
+            )}
+            <span className="unavailable-key">
+              <i />
+              Neutral grey = unavailable / outside field coverage
+            </span>
+          </div>
+          {fitReadout}
+          {meshWarning}
+        </div>
+      )}
       <InspectionTools>
         {statusInTools && (
           <div className="revamp-scene-status" aria-label="Inspection geometry and framing status">

@@ -10,9 +10,11 @@ or build/flight criterion changes; the five inquiry drafts remain UNSENT.
 | Observed finding | Correction | Actual recheck and limit |
 | --- | --- | --- |
 | React synchronous-unmount console errors at CG/CP `Html` labels | Replace static inspection labels with owned text nodes projected by the existing Three camera; keep React StrictMode and dependency pins | Reload, clear console display, clear selection and fit assembly; then section/hide/restore. Verifier reported zero new console messages in that flow. Remaining workspaces still need their checks. |
-| Selected-part summary covered framing status and missing-solid warning | Move framing and geometry status to a stacked Scene tools readout; keep source-maturity banner on canvas | Verifier opened Scene tools and observed both readouts separately and legibly at 1440 × 900. Smaller sizes pending. |
+| Selected-part summary covered framing status and missing-solid warning | Move framing and geometry status to a stacked Scene tools readout; keep source-maturity banner on canvas | Verifier opened Scene tools and observed both readouts separately and legibly at 1440 × 900. Compact drawer and final Details control additionally checked at 900 × 720; full layout criteria remain separate. |
 | Orientation caption overlapped overall length at lower left | Clear inherited `left` when right-aligning the orientation caption | Verifier observed orientation at right, separate from the overall length caption. |
-| RP1 summary claimed live burn-state requests | Explicit saved estimated case language; no compatible burn-state model for RP1 | Code correction; remaining summary browser recheck pending. |
+| RP1 summary claimed live burn-state requests | Explicit saved estimated case language; no compatible burn-state model for RP1 | Verifier observed the corrected wording in the live summary. |
+| Compact Parts/Details drawer received focus but was invisible | Clear the zero-width named grid area for the absolute drawer below 1100 px and layer it above scene controls | At 900 × 720, both drawers painted correctly; Details scrolled to its final source/limitations control and the close button remained reachable. |
+| Analysis legend, status and geometry warning overlapped the gizmo | Move all three into a normal stacked block below the Analysis canvas | Actual 1440 × 900 screenshot confirms separate labels below the canvas, without gizmo overlap. |
 | Header Parts appeared to open Details under emulation | No application correction: native accessibility-index click coordinates were offset in the DevTools responsive viewport | Actual visible button coordinates selected Parts and Details correctly. Record the interaction-method limitation, not an application pass from the misdirected click. |
 
 `SceneLabel` uses text-only DOM nodes, camera/world transforms and explicit node
@@ -45,3 +47,10 @@ Images are genuine native Chrome captures, excluded as generated bulk files.
 The browser protocol and compound acceptance rows remain open until their full
 applicable paths are observed; these individual rechecks do not blanket-pass
 layout, replay, experiments, Analysis or engineering acceptance.
+
+The clean Analysis proof is
+`runs/frontend-browser-20261107/rp1-analysis-fixed-status-1440x900.png`,
+SHA-256 `b0cad2f3577f649c08f9b324d620a8fd488c1eefafd8070cb9251f4eb2c1ca0e`.
+The native motor-curve view also displayed its recorded source after restart;
+the historical motor-curve 503 was not reproduced. No supplier evidence was
+changed or motor hypothesis promoted.
