@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFile} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
 import postcss from 'postcss';
 import React from '../node_modules/react/index.js';
 import {renderToStaticMarkup} from '../node_modules/react-dom/server.node.js';
@@ -19,8 +20,7 @@ test('RP1 Analysis gives the renderer a definite grid row independent of flowing
   const units=declarations('.rp1-recorded-analysis .canvas-wrap > .viewport-scale');assert.equal(units['grid-area'],'3 / 1');assert.equal(units.position,'static');
 });
 
-test('real RP1 Analysis keeps renderer/control/evidence structure and does not mutate source or global inspection state',async()=>{
-  const vehicle=JSON.parse(await readFile(new URL('../public/engineering-workbench/rp1-ad1-inspection.json',import.meta.url),'utf8'));
+async function assertLayout(vehicle){
   const source=JSON.stringify(vehicle);
   const server=await createServer({configFile:false,root:new URL('..',import.meta.url).pathname,server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'});
   try{
@@ -32,4 +32,15 @@ test('real RP1 Analysis keeps renderer/control/evidence structure and does not m
     assert.ok(html.indexOf('inspection-orbit-controls')<html.indexOf('inspection-analysis-status'));
     assert.equal(JSON.stringify(useInspection.getState()),before);assert.equal(JSON.stringify(vehicle),source);
   }finally{await server.close();}
+}
+
+
+// Always runs in clean checkouts. These are source dimensions/identities from the
+// tracked manifest, not prepared meshes, measured properties or a browser render.
+test('tracked RP1 layout fixture preserves renderer/control/evidence structure and source/global state',async()=>{
+ const manifest=JSON.parse(await readFile(new URL('../../docs/studies/rp1-inspection-geometry-20261107/manifest.json',import.meta.url),'utf8'));
+ const vehicle={id:manifest.id,label:'Source-layout fixture; no prepared geometry',snapshot_only:true,identity:manifest.identity,summary:{length_m:manifest.length_m},evidence:{},parts:manifest.parts.map(part=>({id:part.id,type:'source-layout-record',parent:null,material:'unavailable in layout fixture',learn:'',mesh_url:null,dimensions:part.source_dimensions??{},representation:{role:part.maturity,description:part.description}}))};
+ await assertLayout(vehicle);
 });
+const prepared=new URL('../public/engineering-workbench/rp1-ad1-inspection.json',import.meta.url);
+test('optional generated RP1 inspection also satisfies the layout contract', {skip:!existsSync(prepared)},async()=>{await assertLayout(JSON.parse(await readFile(prepared,'utf8')));});

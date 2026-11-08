@@ -9,3 +9,5 @@ http://127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&veri
 Keep page zoom at100%. Resize the existing window manually until the panel says1440×900CSSpx and Requested size matches, then tell the agent Ready. Do not create a second verification window. The panel only reads dimensions; it does not resize or set zoom. Browser screenshots include chrome and use different raster dimensions, so matching screenshot pixels is not sufficient.
 
 The sole designated agent will verify fresh state, hide the measurement panel and run the remaining bounded checks. Later requested sizes can be set the same way. No purchase, supplier/lab contact, test specimen, flight or source-design authorization is requested.
+
+The helper dropdown only selects the target; it never resizes Chrome. Match the first **Content area** line, not just the dropdown. The first Ready observation still showed1965×1074, so the verifier stopped without interactions. If the window is full screen, the owner may leave full screen and resize it manually. The agent will not guess a fullscreen toggle or hidden edge.
