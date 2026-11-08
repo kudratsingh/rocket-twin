@@ -88,7 +88,9 @@ export function orbitClips(bounds: Box3, camera: PerspectiveCamera, target: Vect
   return { near, far };
 }
 
-/** Pan in the actual rolled camera plane, using CSS-pixel motion. */
+/** Grab the scene in CSS pixels: camera/pivot move opposite its screen displacement.
+ * Camera-up points upward in world space, whereas positive CSS dy points down.
+ */
 export function panOrbit(
   target: Vector3,
   camera: PerspectiveCamera,
@@ -98,7 +100,7 @@ export function panOrbit(
 ) {
   const metresPerPixel =
     (2 * Math.tan((camera.fov * radians) / 2) * camera.position.distanceTo(target)) /
-    Math.max(height, 1);
+    (Math.max(height, 1) * camera.zoom);
   const right = new Vector3(1, 0, 0).applyQuaternion(camera.quaternion);
   const up = new Vector3(0, 1, 0).applyQuaternion(camera.quaternion);
   const translation = right
@@ -106,6 +108,7 @@ export function panOrbit(
     .addScaledVector(up, dy * metresPerPixel);
   target.add(translation);
   camera.position.add(translation);
+  camera.updateMatrixWorld();
 }
 
 /** Normalize wheel line/page units and the ctrl-wheel stream emitted by trackpad pinches. */
@@ -126,6 +129,7 @@ export function bindInspectionOrbit(
     begin: () => void;
     move: (dx: number, dy: number, kind: string) => void;
     zoom: (factor: number) => void;
+    dragMode?: () => 'orbit' | 'pan';
   },
   height: () => number,
 ) {
@@ -156,9 +160,9 @@ export function bindInspectionOrbit(
       startY: event.clientY,
       kind: event.altKey
         ? 'roll'
-        : event.button === 2 || event.shiftKey || event.ctrlKey
+        : event.button === 1 || event.button === 2 || event.shiftKey || event.ctrlKey
           ? 'pan'
-          : 'orbit',
+          : (handlers.dragMode?.() ?? 'orbit'),
     });
     canvas.setPointerCapture(event.pointerId);
     if (pointers.size === 2) start();

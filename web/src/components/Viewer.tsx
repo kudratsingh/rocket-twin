@@ -287,6 +287,7 @@ function CameraFit({
   selectionLabel,
   groupSelected,
   presentationGroupId,
+  dragMode,
   exploded,
   onStatus,
   onReadout,
@@ -302,6 +303,7 @@ function CameraFit({
   selectionLabel: string;
   groupSelected: boolean;
   presentationGroupId: string | null;
+  dragMode: 'orbit' | 'pan';
   exploded: number;
   onStatus: (value: string) => void;
   onReadout: (value: OrbitReadout) => void;
@@ -428,7 +430,7 @@ function CameraFit({
         : cameraAction === 'fit'
           ? inspectionFitScope(groupSelected, targetScope.current, selectionIds)
           : null;
-    assemblyFit.current = false;
+    assemblyFit.current = cameraAction === 'reset';
     intent.current = cameraAction === 'focus' ? 'part' : cameraAction === 'fit' ? 'fit' : 'preset';
     framedPart.current = pendingFocus.current;
     if (
@@ -581,13 +583,14 @@ function CameraFit({
       bindInspectionOrbit(
         gl.domElement,
         {
+          dragMode: () => dragMode,
           begin: () => handlers.current.begin(),
           move: (dx, dy, kind) => handlers.current.move(dx, dy, kind),
           zoom: (factor) => handlers.current.zoom(factor),
         },
         () => gl.domElement.clientHeight,
       ),
-    [gl],
+    [gl, dragMode],
   );
   return null;
 }
@@ -678,6 +681,7 @@ export function Viewer({
   const layout = useWorkspaceLayout();
   const [loadedIds, setLoadedIds] = useState<string[]>([]);
   const [meshErrors, setMeshErrors] = useState<string[]>([]);
+  const [dragMode, setDragMode] = useState<'orbit' | 'pan'>('pan');
   const [cameraCommand, setCameraCommand] = useState<CameraCommand | null>(null);
   const [cameraReadout, setCameraReadout] = useState<OrbitReadout>({
     azimuth: 45,
@@ -800,6 +804,31 @@ export function Viewer({
         className="viewport-actions revamp-primary-actions"
         aria-label="Primary inspection actions"
       >
+        <div className="inspection-drag-mode" role="group" aria-label="Mouse drag action">
+          <button
+            type="button"
+            aria-pressed={dragMode === 'pan'}
+            onClick={() => setDragMode('pan')}
+            title="Grab and move the rocket across the screen without rotating it"
+          >
+            Move view
+          </button>
+          <button
+            type="button"
+            aria-pressed={dragMode === 'orbit'}
+            onClick={() => setDragMode('orbit')}
+            title="Drag to turn around the rocket"
+          >
+            Rotate view
+          </button>
+        </div>
+        <button
+          type="button"
+          onClick={resetCamera}
+          title="Return to the overview angle and frame the entire rocket, keeping visibility settings"
+        >
+          Whole rocket
+        </button>
         <button
           onClick={() => commandCamera('fit-assembly')}
           title="Fit all loaded assembly bounds without changing visibility or display settings"
@@ -960,6 +989,7 @@ export function Viewer({
                 meshErrors.includes(partName(part)),
             )}
             command={cameraCommand}
+            dragMode={dragMode}
             meshBounds={meshBounds}
             allIds={vehicle.parts.filter((part) => part.mesh_url).map((part) => part.id)}
             visibleIds={visible.filter((part) => part.mesh_url).map((part) => part.id)}
@@ -1025,6 +1055,7 @@ export function Viewer({
         </InspectionTools>
         <OrbitCameraControls
           readout={cameraReadout}
+          dragMode={dragMode}
           canTargetSelection={cameraSelectionIds.length > 0}
           selectionLabel={
             selectedPart ? partName(selectedPart) : (openedGroupLabel ?? 'Selected group / part')
@@ -1237,7 +1268,10 @@ export function Viewer({
           )}
           {!overlay && <InspectionDisplayReadout vehicle={vehicle} />}
           <div className="viewport-help">
-            <span>Drag to orbit · scroll to zoom · right-drag to pan</span>
+            <span>
+              {dragMode === 'pan' ? 'Drag to move the view' : 'Drag to rotate'} · scroll to zoom ·
+              Whole rocket to return
+            </span>
             <span>
               {!overlay && (
                 <>

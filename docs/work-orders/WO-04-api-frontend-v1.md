@@ -1,5 +1,7 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+**Direct pan correction:** [Move/Rotate packet](../studies/frontend-pan-20261108/report.md) makes plain drag move the scene by default, with explicit rotation and a Whole rocket overview action. The initial native failure and corrected recheck remain separate; no engineering or physical acceptance follows.
+
 **Interior usability continuation:** RV-26–28 /RV-Q43–45 deliver direct manipulation, missing-normal rendering correction, persistent subsystem inspection, optional source-detail assets and separate fin-construction previews. See [report](../studies/frontend-interiors-20261108/report.md). Finished hardware CAD, actual installed strength and exact responsive matrix remain separate; no physics or build/flight gate changes.
 
 
