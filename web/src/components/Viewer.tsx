@@ -1,7 +1,7 @@
 import { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { ComponentRef, ErrorInfo, ReactNode, RefObject } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { GizmoHelper, GizmoViewport, Grid, Html, OrbitControls, useGLTF } from '@react-three/drei';
+import { GizmoHelper, GizmoViewport, Grid, OrbitControls, useGLTF } from '@react-three/drei';
 import {
   Box3,
   Color,
@@ -16,6 +16,7 @@ import { useInspection } from '../store';
 import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
+import { SceneLabel } from './SceneLabel';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
 import { fitOrbitFrame, isPointClipped } from './inspectionCamera';
 import { inspectionSceneBounds } from './inspectionSceneBounds';
@@ -193,18 +194,18 @@ function PartMesh({
     >
       <primitive object={scene} />
       {!analysisMode && selected && partLabels && (
-        <Html
+        <SceneLabel
           position={[center.x + size.x / 2 + 0.014, center.y, center.z]}
           zIndexRange={[12, 0]}
           className="selected-part-anchor"
-        >
-          <div className="selected-part-label">
-            <span className="eyebrow">Selected part</span>
-            <strong>{partName(part)}</strong>
-            <span>{part.material}</span>
-            <span>{inspectionPartRepresentation(part).label}</span>
-          </div>
-        </Html>
+          contentClassName="selected-part-label"
+          lines={[
+            { text: 'Selected part', className: 'eyebrow' },
+            { text: partName(part), tag: 'strong' },
+            { text: part.material },
+            { text: inspectionPartRepresentation(part).label },
+          ]}
+        />
       )}
     </group>
   );
@@ -404,11 +405,18 @@ function Markers({ length, mass }: { length: number; mass: MassSample | null }) 
             <sphereGeometry args={[0.008, 20, 20]} />
             <meshBasicMaterial color="#55d5d3" depthTest={false} />
           </mesh>
-          <Html position={[0.012, 0, 0]} center distanceFactor={1.8} zIndexRange={[10, 0]}>
-            <div className="model-label cg-label" title={mass.recorded_case_label}>
-              CG <span>balance point{mass.recorded_case_label ? ' · saved estimate' : ''}</span>
-            </div>
-          </Html>
+          <SceneLabel
+            position={[0.012, 0, 0]}
+            center
+            distanceFactor={1.8}
+            zIndexRange={[10, 0]}
+            contentClassName="model-label cg-label"
+            title={mass.recorded_case_label}
+            text="CG"
+            lines={[
+              { text: `balance point${mass.recorded_case_label ? ' · saved estimate' : ''}` },
+            ]}
+          />
         </group>
       )}
       {cp != null && (
@@ -417,14 +425,19 @@ function Markers({ length, mass }: { length: number; mass: MassSample | null }) 
             <sphereGeometry args={[0.009, 16, 12]} />
             <meshBasicMaterial color="#dce8ec" wireframe depthTest={false} />
           </mesh>
-          <Html position={[0.012, 0, 0]} center distanceFactor={1.8} zIndexRange={[10, 0]}>
-            <div className="model-label">
-              CP{' '}
-              <span>
-                aerodynamic force point{mass.recorded_case_label ? ' · saved estimate' : ''}
-              </span>
-            </div>
-          </Html>
+          <SceneLabel
+            position={[0.012, 0, 0]}
+            center
+            distanceFactor={1.8}
+            zIndexRange={[10, 0]}
+            contentClassName="model-label"
+            text="CP"
+            lines={[
+              {
+                text: `aerodynamic force point${mass.recorded_case_label ? ' · saved estimate' : ''}`,
+              },
+            ]}
+          />
         </group>
       )}
       {cg != null && cp != null && (
@@ -502,6 +515,23 @@ export function Viewer({
   const hasNose = vehicle.parts.some(nose);
   const hasShell = vehicle.parts.some(outerBody);
   const selectedPart = vehicle.parts.find((part) => part.id === selectedId);
+  const statusInTools = !!layout && !overlay;
+  const fitReadout = (
+    <p className="revamp-fit-status" role="status">
+      {fitStatus}
+    </p>
+  );
+  const meshWarning = (meshErrors.length > 0 || unavailable > 0) && (
+    <div className="mesh-warning" role="status">
+      <Icon name="warning" />
+      {meshErrors.length > 0
+        ? `${meshErrors.length} mesh load failure${meshErrors.length > 1 ? 's' : ''}: ${meshErrors.join(', ')}`
+        : geometry.sourceDerived
+          ? `${unavailable} source records have no solid: ${geometry.counts.mass_allowance} mass allowances, ${geometry.counts.missing_geometry} missing geometry`
+          : `${unavailable} part meshes unavailable`}
+      . Parts remain inspectable in the tree.
+    </div>
+  );
   return (
     <section className="viewport-panel" aria-label="Three-dimensional vehicle inspection">
       <div className="viewport-heading">
@@ -686,9 +716,7 @@ export function Viewer({
             />
           </GizmoHelper>
         </Canvas>
-        <p className="revamp-fit-status" role="status">
-          {fitStatus}
-        </p>
+        {!statusInTools && !overlay && fitReadout}
         <div className="viewport-scale">
           <span className="scale-line" />
           <span>{millimetres(overallLength)} overall · metre grid</span>
@@ -702,28 +730,6 @@ export function Viewer({
               : 'Metres · placed CAD geometry'}
           </small>
         </div>
-        {overlay && (
-          <div className="field-legend">
-            <strong>{overlay.caption}</strong>
-            {overlay.legend && (
-              <>
-                <div className="color-gradient" />
-                <div className="legend-values">
-                  <span>
-                    {overlay.legend.minimum} {overlay.legend.unit}
-                  </span>
-                  <span>
-                    {overlay.legend.maximum} {overlay.legend.unit}
-                  </span>
-                </div>
-              </>
-            )}
-            <span className="unavailable-key">
-              <i />
-              Neutral grey = unavailable / outside field coverage
-            </span>
-          </div>
-        )}
         {!overlay && (ghostShell || wireframe) && (
           <div className="inspection-display-note" role="status">
             {ghostShell && <span>Transparent shell: select internal parts through the body.</span>}
@@ -755,19 +761,41 @@ export function Viewer({
             recorded specifications.
           </div>
         )}
-        {(meshErrors.length > 0 || unavailable > 0) && (
-          <div className="mesh-warning" role="status">
-            <Icon name="warning" />
-            {meshErrors.length > 0
-              ? `${meshErrors.length} mesh load failure${meshErrors.length > 1 ? 's' : ''}: ${meshErrors.join(', ')}`
-              : geometry.sourceDerived
-                ? `${unavailable} source records have no solid: ${geometry.counts.mass_allowance} mass allowances, ${geometry.counts.missing_geometry} missing geometry`
-                : `${unavailable} part meshes unavailable`}
-            . Parts remain inspectable in the tree.
+        {!statusInTools && !overlay && meshWarning}
+      </div>
+      {overlay && (
+        <div className="inspection-analysis-status" aria-label="Recorded analysis display status">
+          <div className="field-legend">
+            <strong>{overlay.caption}</strong>
+            {overlay.legend && (
+              <>
+                <div className="color-gradient" />
+                <div className="legend-values">
+                  <span>
+                    {overlay.legend.minimum} {overlay.legend.unit}
+                  </span>
+                  <span>
+                    {overlay.legend.maximum} {overlay.legend.unit}
+                  </span>
+                </div>
+              </>
+            )}
+            <span className="unavailable-key">
+              <i />
+              Neutral grey = unavailable / outside field coverage
+            </span>
+          </div>
+          {fitReadout}
+          {meshWarning}
+        </div>
+      )}
+      <InspectionTools>
+        {statusInTools && (
+          <div className="revamp-scene-status" aria-label="Inspection geometry and framing status">
+            {fitReadout}
+            {meshWarning}
           </div>
         )}
-      </div>
-      <InspectionTools>
         <div
           hidden={!!layout && layout.preferences.representation === '2d'}
           className="revamp-scene-settings"

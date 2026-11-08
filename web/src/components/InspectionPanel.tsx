@@ -593,8 +593,10 @@ function VehicleSummary({
         />
         <p className="small muted">
           The balance point (centre of gravity, CG) and aerodynamic force point (centre of pressure,
-          CP) are measured aft from the nose. The browser requests burn-state values from the
-          backend.
+          CP) are measured aft from the nose.{' '}
+          {Array.isArray(summary.mass_cases)
+            ? 'These are saved estimated cases from the recorded backend evidence. No compatible burn-state model is available for this design.'
+            : 'The browser requests burn-state values from the backend.'}
         </p>
       </section>
       <section className="detail-section">

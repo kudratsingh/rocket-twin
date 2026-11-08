@@ -60,12 +60,40 @@
   height: 100%;
 }
 .revamp-design .viewport-orientation {
+  left: auto;
   top: auto;
   bottom: 18px;
   right: 120px;
 }
 .revamp-scene-settings[hidden] {
   display: none;
+}
+.revamp-scene-status {
+  display: grid;
+  gap: 6px;
+  padding: 8px 12px;
+}
+.revamp-scene-status .revamp-fit-status,
+.revamp-scene-status .mesh-warning {
+  position: static;
+  max-width: none;
+  margin: 0;
+  line-height: 1.5;
+}
+.inspection-analysis-status {
+  display: grid;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 8px 12px;
+}
+.inspection-analysis-status .field-legend,
+.inspection-analysis-status .revamp-fit-status,
+.inspection-analysis-status .mesh-warning {
+  position: static;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  line-height: 1.5;
 }
 @media (max-width: 700px) {
   .revamp-design .revamp-primary-actions {
