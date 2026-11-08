@@ -1,5 +1,7 @@
 # Current engineering and inspection checkpoint
 
+**Replay/workflow closure (November8):** [Current worklist](frontend-release-worklist.md) records merged PR105, bounded native-data drawing, actual saved-batch/comparison/CSV/recovery/404 checks and corrected full Analysis framing. P2 remains diagnostic-only with failed mean target/offscreen scene. Cancellation is inconclusive; no repeated batch. The read-only viewport helper now enables owner manual sizing; exact matrix remains blocked until the requested size is ready. RP1/AD1/D1 and G54/G12 unchanged, inquiries UNSENT.
+
 **Autonomous release closure (November8):** [Current worklist](frontend-release-worklist.md) owns task reconciliation, experiment-monitor recovery, strict Analysis identity, bounded replay drawing and new targeted native checks. PR104 camera fix is merged. G80 RP1/AD1 v2 unchanged; all inquiries UNSENT. Engineering evidence/physical work and initial frontend release remain separate.
 
 **Direct Move/Rotate correction (November8):** [Camera packet](studies/frontend-pan-20261108/report.md) makes Move view the default left-drag action and exposes Rotate view separately. Whole rocket returns to Overview/all loaded bounds; Fit assembly retains angles. Pan projection/gesture tests pass. Initial native Move-mode failure is preserved. After explicit mode-dependent gesture ownership and normal reload, the sole verifier observed translation with unchanged angles, rotation, zoom without recentering, and aft-ring Frame→Whole rocket. No geometry/engineering/flight change; inquiries UNSENT.

@@ -267,3 +267,32 @@
     scroll-behavior: auto;
   }
 }
+
+.exp-replay {
+  position: relative;
+}
+.exp-scene-controls {
+  position: absolute;
+  z-index: 5;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+.exp-scene-controls > * {
+  pointer-events: auto;
+}
+.exp-scene-controls button,
+.exp-scene-controls output {
+  background: #132b36ed;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+.exp-scene-controls output {
+  border-radius: 4px;
+  color: #d7ecef;
+}

@@ -1,5 +1,7 @@
 # WO-05 — Experiments, 3D replay, telemetry, compare
 
+**November8 release closure:** [Current frontend worklist](../frontend-release-worklist.md) records merged monitoring/Analysis guards and the integrated bounded drawing, event-linked recovery explanation, source-preserving saved comparisons/exports and full Analysis framing correction. P2 remains diagnostic-only, not a60fps pass; cancellation remains inconclusive. Exact responsive checks await supported owner manual sizing. Full milestone prerequisites and all engineering/build/flight gates stay open.
+
 **November 7 preview closeout:** [Actual release evidence](../frontend-release-20261107.md)
 records the source-derived RP1 inspection model, live interactions and measured
 layout/Side fit. Single/batch experiments and recorded replay have actual local

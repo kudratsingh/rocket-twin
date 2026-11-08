@@ -326,13 +326,64 @@
 .rp1-recorded-findings .rp1-finding-unknown {
   border-color: #edc071;
 }
+/* RP1 evidence is a scrolling document. Its Viewer must not squeeze the 3D
+   percentage-height chain between a fixed panel budget and flowing evidence. */
 .rp1-recorded-analysis .analysis-center {
+  display: block;
   min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .rp1-recorded-analysis .analysis-center > .viewport-panel {
-  min-height: 430px;
-  flex: 0 0 520px;
+  display: block;
+  height: auto;
+  min-height: 0;
+  flex: none;
+  overflow: visible;
+}
+.rp1-recorded-analysis .viewport-panel > .viewport-actions {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.rp1-recorded-analysis .viewport-panel > .canvas-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: clamp(380px, 56vh, 620px) auto auto;
+  height: auto;
+  min-height: 0;
+  flex: none;
+  overflow: visible;
+}
+/* R3F's height:100% wrappers resolve against this definite grid row. */
+.rp1-recorded-analysis .canvas-wrap > .inspection-camera-surface {
+  grid-area: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+}
+.rp1-recorded-analysis .canvas-wrap > .inspection-orbit-controls {
+  grid-area: 2 / 1;
+  position: relative;
+  inset: auto;
+  width: auto;
+  max-width: none;
+  margin: 8px 12px;
+}
+.rp1-recorded-analysis .inspection-orbit-controls form {
+  position: static;
+  width: auto;
+  max-height: none;
+  overflow: visible;
+}
+.rp1-recorded-analysis .canvas-wrap > .viewport-scale {
+  grid-area: 3 / 1;
+  position: static;
+  margin: 0 12px 10px;
+}
+.rp1-recorded-analysis .canvas-wrap > .viewport-orientation,
+.rp1-recorded-analysis .canvas-wrap > .inspection-framing-guide,
+.rp1-recorded-analysis .canvas-wrap > .inspection-display-note,
+.rp1-recorded-analysis .canvas-wrap > .canvas-loading {
+  grid-area: 1 / 1;
 }
 
 .recorded-case-comparison {

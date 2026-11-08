@@ -1,0 +1,393 @@
+{
+  "schema_version": "rocket-twin.browser-p2.20261108.v1",
+  "status": "completed_measurement_target_failed_acceptance_incomplete",
+  "purpose": "One explicitly authorized changed-source saved G54 native-telemetry/bounded-drawing observation; prior failed profiles immutable.",
+  "browser_observed": true,
+  "owner": "/root/browser_access_sol",
+  "transport": "Supported native CUA, same existing authorized Google Chrome window",
+  "budget": {
+    "cap_active_s": 300,
+    "actual_active_s": 168.72,
+    "active_basis": "Persistent CUA Date.now from initial fresh AX call through final screenshot; excludes earlier documentation refresh and offline reporting.",
+    "play_cap_s": 30,
+    "target_play_s": 20,
+    "actual_play_click_to_pause_s": 24.47,
+    "cursor_start_s": 0.001,
+    "cursor_paused_exact_s": 24.3233,
+    "attempts": 1,
+    "retries": 0
+  },
+  "source": {
+    "fixture": {
+      "run_id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+      "status": "complete",
+      "progress": "Complete",
+      "created_at": "2026-10-31T08:31:05.933476+00:00",
+      "configuration": "modular-performance-g54-hypothesis",
+      "configuration_path": "configs/vehicle/wo02/performance-g54.yaml",
+      "settings": {
+        "configuration": "modular-performance-g54-hypothesis",
+        "wind_mps": 0,
+        "wind_direction_deg": 0,
+        "gust_mps": 0,
+        "preset": "sim"
+      },
+      "controller": "locked, unguided",
+      "flight_ready": false,
+      "limitations": [
+        "Preliminary numerical source hypothesis; no hardware or flight approval.",
+        "Wind and attitude predictions are not independently validated; high angle of attack exceeds the supported aerodynamic model.",
+        "Recovery is a simplified point-drag and inflation model; structural, thermal and motion gates remain open.",
+        "G54 source identity remains conditional; G12 is plugged and has no motor ejection backup."
+      ],
+      "case": {
+        "dt_s": 0.001,
+        "max_time_s": 360,
+        "sensor_noise": true,
+        "elevation_m": 850,
+        "wind_north_mps": 0,
+        "wind_east_mps": 0,
+        "gust_amplitude_mps": 0
+      },
+      "vehicle_id": "modular-performance-g54-hypothesis",
+      "input_sha256": {
+        "configs/vehicle/wo02/performance-g54.yaml": "17a6f791eb40a3ba5acc2f4f8d1601c3fccc0ebbd2616e28b6b5ff2c8d727d96",
+        "configs/vehicle/wo02/../platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+        "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.eng": "4c51d63484fa4fdd7147fd46835e69879f4b5a0e8f6e27fa6db957e815046253",
+        "configs/studies/wo02/motors/CTI_G54_RSE_hypothesis.yaml": "779383496d11ef9197cfb59441bc8a8827e5b28cc98f0d88d3a6ae74e47b1eba",
+        "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c"
+      },
+      "code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+      "resolved_sha256": "481706d1c4768d944ad42fd917ef4216196de50a277743b1cedb76954940e45f",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "metrics": {
+        "effective_loaded_mass_kg": 0.8179908932114034,
+        "effective_depletion_mass_kg": 0.0968,
+        "effective_burnout_mass_kg": 0.7211908932114034,
+        "powered_net_acceleration_peak_g": 14.304379039058283,
+        "finite": true,
+        "apogee_agl_m": 755.5303467088061,
+        "apogee_time_s": 11.511999999999059,
+        "max_speed_mps": 141.20875237659098,
+        "guide_exit_s": 0.16500000000000012,
+        "guide_exit_mps": 19.974547717316927,
+        "powered_specific_force_peak_g": 15.304379039058281,
+        "accel_range_exceeded": false,
+        "powered_max_mach": 0.4200562912081119,
+        "powered_max_alpha_deg": 0.24185522711535476,
+        "powered_max_tilt_deg": 0.44744673352654535,
+        "max_dynamic_pressure_pa": 11010.164454729704,
+        "apogee_downrange_m": 7.1082601595932475,
+        "electronic_apogee_trigger_s": 11.512999999999058,
+        "inflation_complete_s": 12.11299999999906,
+        "impact_time_s": 132.8560000002703,
+        "impact_speed_mps": 6.132411310012294,
+        "landing_downrange_m": 2.164851508034246,
+        "recovery_horizon_complete": true,
+        "motor_delay_probes": [
+          {
+            "delay_s": 3,
+            "time_s": 6.026,
+            "relative_to_apogee_s": -5.485999999999059,
+            "height_agl_m": 596.2778124084008,
+            "vertical_velocity_down_mps": -62.90062439957266,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 5,
+            "time_s": 8.026,
+            "relative_to_apogee_s": -3.485999999999059,
+            "height_agl_m": 694.1785663099653,
+            "vertical_velocity_down_mps": -36.257300323766195,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 6,
+            "time_s": 9.026,
+            "relative_to_apogee_s": -2.485999999999059,
+            "height_agl_m": 724.7780836280092,
+            "vertical_velocity_down_mps": -25.104268304331807,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 7,
+            "time_s": 10.026,
+            "relative_to_apogee_s": -1.4859999999990592,
+            "height_agl_m": 744.6439331163607,
+            "vertical_velocity_down_mps": -14.725202521432719,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 9,
+            "time_s": 12.026,
+            "relative_to_apogee_s": 0.5140000000009408,
+            "height_agl_m": 754.2573163159324,
+            "vertical_velocity_down_mps": 4.706716083159273,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 10,
+            "time_s": 13.026,
+            "relative_to_apogee_s": 1.5140000000009408,
+            "height_agl_m": 748.4185642489058,
+            "vertical_velocity_down_mps": 6.27967713960006,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          },
+          {
+            "delay_s": 12,
+            "time_s": 15.026,
+            "relative_to_apogee_s": 3.514000000000941,
+            "height_agl_m": 735.7235790236671,
+            "vertical_velocity_down_mps": 6.35890585916827,
+            "meaning": "timing probe only; offered delays require exact-variant verification"
+          }
+        ],
+        "burnout_s": 3.026
+      },
+      "events": {
+        "ignition": 0,
+        "guide_exit": 0.16500000000000012,
+        "burnout": 3.026,
+        "apogee": 11.512999999999058,
+        "deployment": 11.81299999999906,
+        "landing": 132.8560000002703
+      },
+      "trajectory_complete": true,
+      "telemetry_samples": 132856,
+      "validity": [
+        "Free-flight powered angle of attack: 0.2°; within the 15° screening bound; aerodynamic derivatives remain unvalidated.",
+        "Peak powered Mach: 0.420; within the 0.8 screening bound; this is not physical validation.",
+        "Steady wind 0 m/s, gust 0 m/s: wind and attitude remain unvalidated; the archived sensitivity case used a different height profile.",
+        "G54 motor identity and source correspondence remain conditional.",
+        "Guide conditions are assumptions, not an installed hardware or site validation.",
+        "Accelerometer model range was not exceeded in the powered portion; sensor behavior remains unvalidated."
+      ]
+    },
+    "fixture_record_sha256": "a21d8edd08c452f0b21a94c039971c5bfcd6145ee29330afd66c086da50ff49b",
+    "fixture_parquet_sha256": "7bad495686018a6f97c6ccd19b87a7388cb1290540489a44b83629e2e052c845",
+    "current_module_hashes": {
+      "web/src/experiments/Experiment.tsx": "b91d3c6a4ce0d6c9fb98846012effa90849113b95e4adbab3d1ab4a307ebe317",
+      "web/src/experiments/replayDiagnosticReport.ts": "9cdb49aff21a1e81e830bf491b4a2e986b006bca9c3249d90aa7df5d3cac98b9",
+      "web/src/experiments/replayDrawing.ts": "9f26d292e5c3f4ca51eba929233f45ebe938206f57d251354688c05c1c4c767a",
+      "web/src/experiments/replayWorkProfile.ts": "4f88cd49afdb300324eee975b788612f003d6e319abc78dee2d5e4a40f9d8d1c",
+      "web/src/experiments/playbackProfile.ts": "95d9349f63fb2329706db6471374b5da88313f2ca676f9bedbf5962467d12697",
+      "web/src/components/ReplayTrajectory.tsx": "a3b008045237c22c8537cb2e28d79f5a6000c456a3a32bd24303ad1c2808fe2b"
+    },
+    "publication_claim": "Local source snapshot served after one normal same-tab reload; publication attribution remains primary-owned."
+  },
+  "environment": {
+    "viewport_css_pixels": {
+      "width": 1965,
+      "height": 1074,
+      "devicePixelRatio": 2,
+      "canvasWidth": 1226,
+      "canvasHeight": 620.9140625
+    },
+    "viewport_basis": "Reported by the running application; no viewport resizing, DevTools, CDP or inferred raster dimensions.",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "cpu_time": null,
+    "cpu_affinity": null,
+    "gpu_process_memory": null
+  },
+  "native_payload": {
+    "rows": 132856,
+    "source_rows": 132856,
+    "window_s": [
+      0.001,
+      132.8560000002703
+    ],
+    "declared_dt_s": 0.001,
+    "profile": "full-rate-benchmark",
+    "drawing": {
+      "a": {
+        "status": "ready",
+        "reason": null,
+        "source_samples": 132856,
+        "valid_samples": 132856,
+        "drawn_samples": 1006,
+        "max_vertices": 3000,
+        "segments": 1,
+        "mandatory_samples": 14,
+        "event_neighbours": 12,
+        "unavailable_events": [
+          "ignition"
+        ],
+        "preparation_ms": 29.200000047683716,
+        "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+      },
+      "b": null
+    },
+    "load": {
+      "id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+      "ms": 3531,
+      "bytes": 113412840,
+      "samples": 132856
+    },
+    "four_visible_plots": [
+      "Height above launch (m)",
+      "Speed (m/s)",
+      "Net acceleration (m/s²)",
+      "Tilt from vertical (°)"
+    ],
+    "plot_actual_vertex_counts": "Not exported by current diagnostic schema or opened in this packet; offline4208 counts are different channel selection and are not promoted to browser counts."
+  },
+  "frame_observation": {
+    "status": "app_observed",
+    "scope": "Rolling last at most600 requestAnimationFrame intervals in milliseconds; not all playback, GPU completion or endurance.",
+    "received_interval_count": 600,
+    "recent_duration_ms": 10000.599999999991,
+    "profile": {
+      "samples": 600,
+      "p50_ms": 16.69999999999709,
+      "p95_ms": 17.59999999999127,
+      "max_ms": 17.70000000001164,
+      "mean_ms": 16.66766666666665
+    },
+    "target_fps": 60,
+    "target_interval_ms": 16.666666666666668,
+    "mean_interval_target_met": false,
+    "acceptance": "No automatic full benchmark acceptance; use exact source, representative data, host, viewport, load/scrub/memory limits and separately observed native behavior."
+  },
+  "raw_intervals_artifacts": [
+    "paused-diagnostics.json",
+    "t60-diagnostics.json"
+  ],
+  "performance_outcome": {
+    "mean_target_met": false,
+    "sixty_fps_acceptance": false,
+    "visible_scene_coverage": "Instrumentation disclosure activation auto-scrolled to instrumentation and four plots. Paused/T60 captures show the 3D canvas above the visible area; complete visible 3D-plus-plots workload is unestablished.",
+    "limit": "Recent600RAF intervals cover10.0006s, not the full24.47s action interval; scheduling intervals are not GPU-completion/frame-presentation measurements. Current CSS viewport is measured1965x1074, not prescribed1440x900. No retry/optimization."
+  },
+  "scrub": {
+    "requested_exact_s": 60,
+    "exact_field_s": 60,
+    "slider_display_s": 60.001,
+    "measure": {
+      "count": 1,
+      "last_ms": 23.799999952316284,
+      "max_ms": 23.799999952316284
+    },
+    "meaning": "Second animation-frame callback, includes scheduling; not GPU-only completion."
+  },
+  "heap": {
+    "paused_export": {
+      "used": 161782497,
+      "total": 243073513,
+      "limit": 4395630592
+    },
+    "t60_export": {
+      "used": 159299199,
+      "total": 212914339,
+      "limit": 4395630592
+    },
+    "scope": "Nonstandard supported performance.memory JavaScript heap only; no process/GPU-memory or CPU measurement."
+  },
+  "downloads": [
+    {
+      "original": "/Users/kudratsingh/Downloads/exp-ab60bd4ac5c2412a9dd85f712072bca2-replay-diagnostics.json",
+      "original_mtime_utc": "2026-11-08T12:14:46.182874+00:00",
+      "copy": "runs/frontend-replay-drawing-20261108/paused-diagnostics.json",
+      "sha256": "9b793050fc6a7de6f5292eb6d3c6dbdeae58e0d821c6c6c268c69d8287bbcabb",
+      "byte_identical": true
+    },
+    {
+      "original": "/Users/kudratsingh/Downloads/exp-ab60bd4ac5c2412a9dd85f712072bca2-replay-diagnostics (1).json",
+      "original_mtime_utc": "2026-11-08T12:15:17.903882+00:00",
+      "copy": "runs/frontend-replay-drawing-20261108/t60-diagnostics.json",
+      "sha256": "d10daadff1af84ea6749291e368c5a9f04d22f9d96acbcf3d80457c67eac8072",
+      "byte_identical": true
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "runs/frontend-replay-drawing-20261108/final-rp1-whole-move.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "scope": "Unchanged native screenshot, no crop or viewport inference"
+    },
+    {
+      "path": "runs/frontend-replay-drawing-20261108/paused-native-bounded.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "scope": "Unchanged native screenshot, no crop or viewport inference"
+    },
+    {
+      "path": "runs/frontend-replay-drawing-20261108/t60-native-bounded.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        3930,
+        2390
+      ],
+      "scope": "Unchanged native screenshot, no crop or viewport inference"
+    }
+  ],
+  "scenarios": [
+    {
+      "case": "Exact native fixture admission",
+      "outcome": "pass",
+      "observation": "132856/132856 source-checked native samples; one actor, separately bounded drawing1006trajectorypositions."
+    },
+    {
+      "case": "Single1x playback",
+      "outcome": "failed_target_incomplete_representative_view",
+      "observation": "24.470s click-to-pause, rolling600RAF mean16.66766666666665ms exceeds16.666666666666668ms;3Dcanvasoffscreen."
+    },
+    {
+      "case": "App-owned diagnostic export",
+      "outcome": "pass",
+      "observation": "Two fresh UI downloads, unchanged bytes retained; raw600intervals and actualCSSdimensions present."
+    },
+    {
+      "case": "T60 exact scrub",
+      "outcome": "pass_current_window",
+      "observation": "Exactfield60;slider60.001;onecompletedpresentation23.799999952316284ms."
+    },
+    {
+      "case": "Restore",
+      "outcome": "pass",
+      "observation": "Bounded3009/132856,paused;RP1Design3D26/26,WholeAssembly45/54.7/0,Moveon,Rotategrey/off,noPartselection,Parts/bothpanelsopen,toolsclosed."
+    }
+  ],
+  "unexecuted": [
+    "Prescribed1440x900/1280x720/900x720 viewports: noDevTools or bounds-control workaround",
+    "Visible3D-plus-fourplots representative frame benchmark",
+    "Long-duration endurance,process/GPUmemory,CPUtime/affinity",
+    "Comparison/eventalignment/plotrange cases reserved for another packet",
+    "No new simulation,second performanceplay,thresholdrelaxation or automaticretry"
+  ],
+  "guards": {
+    "user_change_interruptions": 0,
+    "automatic_rejections": 0,
+    "access_errors": 0,
+    "devtools_attempts": 0
+  },
+  "final_state": {
+    "configuration": "G80-F2-RP1-AD1-definition-v2",
+    "spec_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "workspace": "design",
+    "meshes_visible": [
+      26,
+      26
+    ],
+    "camera": {
+      "horizontal_deg": 45,
+      "tilt_deg": 54.7,
+      "roll_deg": 0,
+      "target": "Assembly",
+      "drag_mode": "Move"
+    },
+    "selection": null,
+    "scene_tools": "closed",
+    "replay_profile": "bounded",
+    "replay_returned_rows": 3009,
+    "playing": false
+  },
+  "simulation_started": false,
+  "engineering_or_flight_approval": false
+}

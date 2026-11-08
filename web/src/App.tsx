@@ -32,6 +32,7 @@ import {
   WorkspaceIdentityStrip,
 } from './workspaces/WorkspaceChrome';
 import { readWorkspace, workspaceHref, designHref } from './workspaces/navigation';
+import { ViewportVerification } from './workspaces/ViewportVerification';
 
 import { readPartLink, partHref } from './workspaces/partLinks';
 
@@ -545,6 +546,10 @@ export default function App() {
         </footer>
       }
     >
+      {import.meta.env.DEV &&
+        new URL(href, 'http://local.invalid').searchParams.get('verifyViewport') === '1' && (
+          <ViewportVerification />
+        )}
       {catalogError && vehicle && mode === 'analysis' && (
         <p className="route-notice" role="status">
           Configuration list unavailable: {catalogError}. The displayed source document is loaded

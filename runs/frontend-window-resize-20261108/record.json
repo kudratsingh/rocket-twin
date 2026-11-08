@@ -1,0 +1,53 @@
+{
+  "schema_version": "rocket-twin.window-resize-feasibility.20261108.v1",
+  "status": "stopped_edge_or_mode_unclear",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "cap_active_s": 120,
+    "actual_active_s": 22.279,
+    "basis": "Persistent CUA Date.now from first fresh native inventory through saved screenshot"
+  },
+  "authority": "Explicit primary handoff: owner manual resizing held; same authorized Chrome only; one ordinary visible border gesture only if windowed edge/control clear; stop if unclear.",
+  "supported_api": "App.drag([x,y],[x,y]) ordinary native pointer input; no documented content-only restriction for native App. No window-bounds setter exposed.",
+  "observed": {
+    "app_id": "com.google.Chrome",
+    "app_name": "Google Chrome",
+    "window_title": "Rocket Twin \u00b7 Vehicle inspection",
+    "native_window_id": null,
+    "native_window_id_reason": "Returned listApps Chrome entry has no windows/id field; AX root is0standardwindow, an accessibility index rather than stable native window ID.",
+    "url": "127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660&verifyViewport=1",
+    "screen": "Native app screenshot shows only Chrome and rounded outer corner outline; no outside framing/context or identifiable windowed resize handle/control.",
+    "ax": "Standard-window title/URL; no window resize/fullscreen/native window controls in returned AX.",
+    "viewport_helper": "verifyViewport=1 remains in URL, but panel hidden in current mount. No reload/unhide and no new actual CSS size measured.",
+    "window_mode": "Not established; no fullscreen inference made."
+  },
+  "decision": "Usable windowed edge/control not sufficiently established, so stop before gesture per authorization. Absence of a bounds setter is not proof ordinary border dragging is impossible.",
+  "actions": {
+    "feasibility_observations": 1,
+    "drag_gestures": 0,
+    "adjustment_drags": 0,
+    "ui_mutations": 0,
+    "reloads": 0,
+    "devtools": 0,
+    "fullscreen_toggles": 0,
+    "other_app_or_window_interactions": 0,
+    "viewport_or_zoom_changes": 0
+  },
+  "screenshots": {
+    "path": "runs/frontend-window-resize-20261108/edge-observation.jpg",
+    "format": "JPEG",
+    "raster_size": [
+      3930,
+      2390
+    ],
+    "unchanged_native_bytes": true,
+    "css_size_inferred": false
+  },
+  "guards": {
+    "user_change": 0,
+    "automatic_rejection": 0,
+    "access_error": 0
+  },
+  "final_state": "Owner-ready RP1 view preserved unchanged; no responsive-case acceptance or resize success claimed.",
+  "next_dependency": "Owner/provider coordination can establish a visible resizable windowed edge or perform manual sizing; no further method cascade or action authorized by this evidence."
+}

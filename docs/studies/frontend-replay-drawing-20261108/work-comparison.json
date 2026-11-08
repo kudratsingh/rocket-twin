@@ -1,0 +1,308 @@
+{
+  "schema": "replay-drawing-work-comparison-v1",
+  "status": "passed",
+  "scope": "One after-correction saved-data JavaScript/geometry work comparison; not browser paint/GPU/FPS or a third native playback attempt",
+  "budget": {
+    "additional_cpu_limit_s": 6,
+    "additional_wall_limit_s": 15,
+    "attempts": 1
+  },
+  "browser_observed": false,
+  "new_simulation": false,
+  "frozen_baseline": {
+    "source_run_id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "record_sha256_before": "a21d8edd08c452f0b21a94c039971c5bfcd6145ee29330afd66c086da50ff49b",
+    "record_sha256_after": "a21d8edd08c452f0b21a94c039971c5bfcd6145ee29330afd66c086da50ff49b",
+    "scope": "Read-only saved-data JavaScript/geometry preparation; not browser paint, GPU timing, FPS, or proof of rendering dominance",
+    "rows": 132856,
+    "trajectory": {
+      "line_instances": 132855,
+      "base_triangles": 6,
+      "potential_instanced_triangles": 797130,
+      "attribute_bytes": 4251520,
+      "preparation_ms": 24.633500000000026
+    },
+    "four_svg_series": {
+      "channels": [
+        "north_m",
+        "east_m",
+        "down_m",
+        "thrust_n"
+      ],
+      "vertices": 531424,
+      "point_string_characters": 17343474,
+      "preparation_ms": 215.59612500000003
+    },
+    "budget": {
+      "attempts": 1,
+      "max_cpu_seconds": 10,
+      "max_wall_seconds": 30,
+      "observed_python_cpu_seconds": 0.623217,
+      "observed_child_cpu_seconds": 0.660581,
+      "observed_wall_seconds": 1.5171689999988303
+    },
+    "temporary_fixture_deleted": true,
+    "new_simulation": false,
+    "browser_observed": false
+  },
+  "owner_files_before_sha256": {
+    "record.json": "a21d8edd08c452f0b21a94c039971c5bfcd6145ee29330afd66c086da50ff49b",
+    "telemetry.parquet": "7bad495686018a6f97c6ccd19b87a7388cb1290540489a44b83629e2e052c845"
+  },
+  "frozen_source_before_sha256": {
+    "web/src/components/ReplayTrajectory.tsx": "a3b008045237c22c8537cb2e28d79f5a6000c456a3a32bd24303ad1c2808fe2b",
+    "web/src/experiments/replayDrawing.ts": "9f26d292e5c3f4ca51eba929233f45ebe938206f57d251354688c05c1c4c767a",
+    "web/src/experiments/replayWorkProfile.ts": "4f88cd49afdb300324eee975b788612f003d6e319abc78dee2d5e4a40f9d8d1c",
+    "web/tests/replay-drawing.test.mjs": "f6db2e9e807ce7157985393260b0348d03712768b46bdb47feb3fa9dcb58ff8b",
+    "web/tests/replay-drawing-work.test.mjs": "17e1a3376dce8a6638b81d1f6fa5fa12ccd1323a29e6f819c86439fad0e5632c"
+  },
+  "after_correction": {
+    "raw_rows": 132856,
+    "time_axis_admission_ms": 16.42279199999996,
+    "trajectory": {
+      "drawing": {
+        "status": "ready",
+        "reason": null,
+        "source_samples": 132856,
+        "valid_samples": 132856,
+        "drawn_samples": 1006,
+        "max_vertices": 3000,
+        "segments": 1,
+        "mandatory_samples": 14,
+        "event_neighbours": 12,
+        "unavailable_events": [
+          "ignition"
+        ],
+        "preparation_ms": 36.79604200000006,
+        "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+      },
+      "selection_ms": 36.98616700000002,
+      "geometry_preparation_ms": 4.623749999999973,
+      "total_preparation_ms": 41.609916999999996,
+      "line_instances": 1005,
+      "potential_instanced_triangles": 6030,
+      "attribute_bytes": 32320,
+      "checks": {
+        "range_window_s": [
+          0.001,
+          132.8560000002703
+        ],
+        "raw_minimum": [
+          -0.7540051426851081,
+          -755.5303467088061,
+          0
+        ],
+        "raw_maximum": [
+          0,
+          0,
+          7.466233248211703
+        ],
+        "raw_extrema_indices_preserved": true,
+        "native_endpoints_preserved": true,
+        "explicit_valid_segments": 1,
+        "explicit_missing_samples": 0,
+        "no_gap_joining": true,
+        "event_neighbour_checks": 12,
+        "all_drawable_event_neighbours_preserved": true
+      }
+    },
+    "plots": {
+      "series": [
+        {
+          "channel": "north_m",
+          "drawing": {
+            "status": "ready",
+            "reason": null,
+            "source_samples": 132856,
+            "valid_samples": 132856,
+            "drawn_samples": 1197,
+            "max_vertices": 1200,
+            "segments": 1,
+            "mandatory_samples": 14,
+            "event_neighbours": 12,
+            "unavailable_events": [
+              "ignition"
+            ],
+            "preparation_ms": 6.267749999999978,
+            "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+          },
+          "selection_ms": 6.294958000000065,
+          "string_preparation_ms": 1.3953329999999369,
+          "total_preparation_ms": 7.690291000000002,
+          "svg_point_characters": 43663,
+          "checks": {
+            "range_window_s": [
+              0.001,
+              132.8560000002703
+            ],
+            "raw_minimum": [
+              0
+            ],
+            "raw_maximum": [
+              7.466233248211703
+            ],
+            "raw_extrema_indices_preserved": true,
+            "native_endpoints_preserved": true,
+            "explicit_valid_segments": 1,
+            "explicit_missing_samples": 0,
+            "no_gap_joining": true,
+            "event_neighbour_checks": 12,
+            "all_drawable_event_neighbours_preserved": true
+          }
+        },
+        {
+          "channel": "east_m",
+          "drawing": {
+            "status": "ready",
+            "reason": null,
+            "source_samples": 132856,
+            "valid_samples": 132856,
+            "drawn_samples": 1197,
+            "max_vertices": 1200,
+            "segments": 1,
+            "mandatory_samples": 14,
+            "event_neighbours": 12,
+            "unavailable_events": [
+              "ignition"
+            ],
+            "preparation_ms": 7.154584,
+            "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+          },
+          "selection_ms": 7.177500000000009,
+          "string_preparation_ms": 1.0310420000000704,
+          "total_preparation_ms": 8.20854200000008,
+          "svg_point_characters": 43314,
+          "checks": {
+            "range_window_s": [
+              0.001,
+              132.8560000002703
+            ],
+            "raw_minimum": [
+              -0.7540051426851081
+            ],
+            "raw_maximum": [
+              0
+            ],
+            "raw_extrema_indices_preserved": true,
+            "native_endpoints_preserved": true,
+            "explicit_valid_segments": 1,
+            "explicit_missing_samples": 0,
+            "no_gap_joining": true,
+            "event_neighbour_checks": 12,
+            "all_drawable_event_neighbours_preserved": true
+          }
+        },
+        {
+          "channel": "down_m",
+          "drawing": {
+            "status": "ready",
+            "reason": null,
+            "source_samples": 132856,
+            "valid_samples": 132856,
+            "drawn_samples": 1196,
+            "max_vertices": 1200,
+            "segments": 1,
+            "mandatory_samples": 13,
+            "event_neighbours": 12,
+            "unavailable_events": [
+              "ignition"
+            ],
+            "preparation_ms": 16.93708300000003,
+            "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+          },
+          "selection_ms": 16.95404199999996,
+          "string_preparation_ms": 0.7959999999999354,
+          "total_preparation_ms": 17.750041999999894,
+          "svg_point_characters": 43430,
+          "checks": {
+            "range_window_s": [
+              0.001,
+              132.8560000002703
+            ],
+            "raw_minimum": [
+              -755.5303467088061
+            ],
+            "raw_maximum": [
+              0
+            ],
+            "raw_extrema_indices_preserved": true,
+            "native_endpoints_preserved": true,
+            "explicit_valid_segments": 1,
+            "explicit_missing_samples": 0,
+            "no_gap_joining": true,
+            "event_neighbour_checks": 12,
+            "all_drawable_event_neighbours_preserved": true
+          }
+        },
+        {
+          "channel": "thrust_n",
+          "drawing": {
+            "status": "ready",
+            "reason": null,
+            "source_samples": 132856,
+            "valid_samples": 132856,
+            "drawn_samples": 618,
+            "max_vertices": 1200,
+            "segments": 1,
+            "mandatory_samples": 14,
+            "event_neighbours": 12,
+            "unavailable_events": [
+              "ignition"
+            ],
+            "preparation_ms": 7.749459000000002,
+            "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+          },
+          "selection_ms": 7.765125000000012,
+          "string_preparation_ms": 0.3324999999999818,
+          "total_preparation_ms": 8.097624999999994,
+          "svg_point_characters": 13547,
+          "checks": {
+            "range_window_s": [
+              0.001,
+              132.8560000002703
+            ],
+            "raw_minimum": [
+              0
+            ],
+            "raw_maximum": [
+              121.71199999999999
+            ],
+            "raw_extrema_indices_preserved": true,
+            "native_endpoints_preserved": true,
+            "explicit_valid_segments": 1,
+            "explicit_missing_samples": 0,
+            "no_gap_joining": true,
+            "event_neighbour_checks": 12,
+            "all_drawable_event_neighbours_preserved": true
+          }
+        }
+      ],
+      "total_vertices": 4208,
+      "total_point_characters": 143954,
+      "total_preparation_ms": 41.74649999999997
+    },
+    "raw_columns_sha256_before": "6e3b2b1fa1b0ed3df8d45f06e5f25a4f53fc152f9114646cd8bcd1ee2f450b27",
+    "raw_columns_sha256_after": "6e3b2b1fa1b0ed3df8d45f06e5f25a4f53fc152f9114646cd8bcd1ee2f450b27",
+    "raw_columns_unchanged": true,
+    "scope": "Changed-source native-index drawing preparation in Node only; no browser paint, GPU timing, frame rate or acceptance"
+  },
+  "owner_files_after_sha256": {
+    "record.json": "a21d8edd08c452f0b21a94c039971c5bfcd6145ee29330afd66c086da50ff49b",
+    "telemetry.parquet": "7bad495686018a6f97c6ccd19b87a7388cb1290540489a44b83629e2e052c845"
+  },
+  "frozen_source_after_sha256": {
+    "web/src/components/ReplayTrajectory.tsx": "a3b008045237c22c8537cb2e28d79f5a6000c456a3a32bd24303ad1c2808fe2b",
+    "web/src/experiments/replayDrawing.ts": "9f26d292e5c3f4ca51eba929233f45ebe938206f57d251354688c05c1c4c767a",
+    "web/src/experiments/replayWorkProfile.ts": "4f88cd49afdb300324eee975b788612f003d6e319abc78dee2d5e4a40f9d8d1c",
+    "web/tests/replay-drawing.test.mjs": "f6db2e9e807ce7157985393260b0348d03712768b46bdb47feb3fa9dcb58ff8b",
+    "web/tests/replay-drawing-work.test.mjs": "17e1a3376dce8a6638b81d1f6fa5fa12ccd1323a29e6f819c86439fad0e5632c"
+  },
+  "owner_files_unchanged": true,
+  "frozen_source_unchanged": true,
+  "temporary_fixture_deleted": true,
+  "additional_python_cpu_seconds": 0.878468,
+  "additional_child_cpu_seconds": 0.807329,
+  "additional_wall_seconds": 2.0157172919716686,
+  "aggregate_cpu_seconds": 2.969595,
+  "aggregate_wall_seconds": 3.532886291970499
+}
