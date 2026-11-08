@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-08",
+  "scope": "Bounded primary-source identity/CAD readiness research only; no code/CAD execution, geometry generation, installs, contact, purchase or owner measurement",
+  "bounds": {
+    "maximum_products": 3,
+    "logical_official_resources": 6,
+    "research_limit_minutes": 10
+  },
+  "frozen_source": {
+    "id": "G80-F2-RP1-AD1-definition-v2",
+    "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "recorded_sha256_pin": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "remote_bytes_independently_rehashed": false,
+    "url": "https://github.com/kudratsingh/rocket-twin/blob/main/configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml"
+  },
+  "resources": [
+    {"id": "rp1-spec", "url": "https://api.github.com/repos/kudratsingh/rocket-twin/contents/configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml?ref=main", "status": "published source contents read", "role": "exact identity gate"},
+    {"id": "adafruit-5374", "url": "https://www.adafruit.com/product/5374", "status": "read", "role": "exact PID dimensions, holes and revision note"},
+    {"id": "adafruit-pcb-directory", "url": "https://api.github.com/repos/adafruit/Adafruit_ADXL375_PCB/contents?ref=main", "status": "read", "role": "official PCB artifact inventory"},
+    {"id": "adafruit-pcb-license", "url": "https://api.github.com/repos/adafruit/Adafruit_ADXL375_PCB/contents/license.txt?ref=main", "status": "read", "role": "CC BY-SA 3.0 Unported text"},
+    {"id": "eggtimer-apogee", "url": "https://eggtimerrocketry.com/eggtimer-apogee/", "status": "inaccessible via bounded web request", "role": "no drawing/CAD/license verified"},
+    {"id": "aerotech-19002", "status": "exact product resource not established by bounded manufacturer URL request", "role": "no controlled mating drawing/CAD/license verified; not a claim that none exists"}
+  ],
+  "preferred_target": {
+    "part_id": "high_g_accel",
+    "manufacturer": "Adafruit",
+    "product_id": "5374",
+    "product_name": "ADXL375 High G Accelerometer breakout",
+    "frozen_envelope_mm": [25.6, 17.7, 4.6],
+    "official_product_dimensions_mm": [25.6, 17.7, 4.6],
+    "dimensions_correspond": true,
+    "official_mounting_holes": {"count": 4, "diameter_mm": 2.5},
+    "board_revision_in_rp1": null,
+    "manufacturer_revision_note": "May 15 2023 PCB update changes silkscreen; supplied connector colours may vary",
+    "cad_format_verified": "EagleCAD board/schematic repository; no ready STEP/VRML/DXF verified",
+    "license": "Creative Commons Attribution-ShareAlike 3.0 Unported",
+    "board_artifact": {"name": "Adafruit ADXL375.brd", "git_blob_sha": "4a768fc9f113ba6f95c6e930a3fac436d066f82a", "listed_bytes": 269123, "downloaded_or_parsed": false},
+    "schematic_artifact": {"name": "Adafruit ADXL375.sch", "git_blob_sha": "d96b4274f5074944088ed732eb5591b8a4d3993e", "listed_bytes": 429426, "downloaded_or_parsed": false},
+    "license_git_blob_sha": "1d1e1d6e88579dd32086b23e95723a0f4864c22a",
+    "next_layer_candidate": "Separately pinned PCB outline/holes/layout only; component heights and actual header/connector population remain unverified",
+    "adopted": false,
+    "installed_fit_verified": false
+  },
+  "other_assessed_products": [
+    {"part_id": "independent_recovery", "identity": "Eggtimer Apogee single-apogee kit", "frozen_envelope_mm": [44.45, 22.86, 8], "height_basis": "source estimate/budget", "exact_revision": null, "official_mechanical_cad_verified": false, "license_verified": false, "action": "Retain envelope pending exact revision and accessible official mechanical data"},
+    {"part_id": "motor_retainer", "identity": "AeroTech 19002", "related_source_identities": ["provisional G80 SKU78010", "AeroTech12912 tube"], "frozen_length_mm": 45, "frozen_outer_diameter_mm": 44.4, "inner_radius_placeholder_mm": 14, "official_mechanical_cad_verified": false, "license_verified": false, "action": "Retain historical envelope; no cap/thread/seat/contact geometry inferred"}
+  ],
+  "unidentified_before_search": ["flight_computer", "imu", "baro", "micro_sd", "battery", "nose_recovery_eye", "recovery_connectors", "recovery_protection", "parachute"],
+  "screened_not_researched": [
+    {"part_id": "shock_cord", "recorded_identity": "LOC NW-12 variant39778657730751", "reason": "Three-product limit; sewn-end/packing topology still not a rigid installed model"},
+    {"part_id": "recovery_battery", "recorded_identity": "120mAh shop URL versus110mAh starter-pack description", "reason": "Identity correspondence requires reconciliation before CAD selection"}
+  ],
+  "downloaded_step_vrml_dxf_or_dimension_drawings": [],
+  "current_geometry_or_ui_changed": false,
+  "current_core_and_detail_publication_packet_changed": false,
+  "engineering_accepted": false,
+  "flight_ready": false
+}

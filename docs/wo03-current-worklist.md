@@ -266,3 +266,7 @@ first isolates SVG/trajectory/host cost, then allows one justified display-only
 correction and one separately declared measurement. It is not an automatic third
 attempt or engine change. Material/assembly validation remains VP1 and owner-gated;
 no inquiry is sent or physical work executed by this handoff.
+
+## Bounded PCB detail closeout — November8
+
+One exact-product source-board import and one corrective dialog-ownership cycle complete. Manufacturer outline/footprints and offline drawing are available; native opening observed, Escape failed and source fix is pending native recheck. No further CUA retries in this exhausted packet. See [integration](studies/frontend-hardware-detail-sources-20261108/integration.md). No manufacturing or engineering requirement closed.

@@ -1,0 +1,2731 @@
+{
+  "schema_version": 1,
+  "id": "adafruit-5374-pcb-2d-4a768fc9-v1",
+  "part_id": "high_g_accel",
+  "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+  "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+  "source": {
+    "manufacturer": "Adafruit Industries",
+    "product_id": "5374",
+    "url": "https://github.com/adafruit/Adafruit_ADXL375_PCB/blob/main/Adafruit%20ADXL375.brd",
+    "immutable_blob_url": "https://api.github.com/repos/adafruit/Adafruit_ADXL375_PCB/git/blobs/4a768fc9f113ba6f95c6e930a3fac436d066f82a",
+    "git_blob_sha": "4a768fc9f113ba6f95c6e930a3fac436d066f82a",
+    "sha256": "7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c",
+    "bytes": 269123,
+    "eagle_version": "9.6.2"
+  },
+  "license": {
+    "name": "Creative Commons Attribution-ShareAlike 3.0 Unported",
+    "spdx": "CC-BY-SA-3.0",
+    "url": "https://github.com/adafruit/Adafruit_ADXL375_PCB/blob/main/license.txt",
+    "credit": "Designed by Limor Fried/Ladyada for Adafruit Industries",
+    "upstream_notice": "## Adafruit ADXL375 - High G Accelerometer (+-200g) PCB\n\n<a href=\"http://www.adafruit.com/products/5374\"><img src=\"assets/5374.jpg?raw=true\" width=\"500px\"><br/>\nClick here to purchase one from the Adafruit shop</a>\n\nPCB files for the Adafruit ADXL375 - High G Accelerometer (+-200g). \n\nFormat is EagleCAD schematic and board layout\n* https://www.adafruit.com/product/5374\n\n### Description\n\nHey rocket man (burnin' out your fuse out there alone) ever wonder how fast you're rocketing? The Adafruit ADXL375 High G Accelerometer is an epic +-200g 3-axis accelerometer may be able to tell the answer.\n\nYou read that right, this accelerometer can sense up to 200 g's of force in three axes of measurements (X Y Z) has and pins that can be used either as I2C or SPI digital interfacing. for easy integration into any fast project. Built-in motion detection features make shock detection easy to implement. There's two interrupt pins, and you can map any of the interrupts independently to either of them. Incredible! Not surprisingly, we couldn't say \"no\" to a breakout for this sensor.\n\nThe ADXL375 looks and acts nearly identically to its in specifications to the little sisters ADXL345 and ADXL343. Those are only +-16g max, and have adjustable ranges. This sensor acts and looks the same except that you cannot change the range, and it's fixed at 200g. Otherwise, existing library code will 'just work' so if you happen to be using something other than Arduino or CircuitPython, the port is pretty easy and code written for the '345/'343 will likely work on the '375 with just a scaling adjustment.\n\n### License\n\nAdafruit invests time and resources providing this open source design, please support Adafruit and open-source hardware by purchasing products from [Adafruit](https://www.adafruit.com)!\n\nDesigned by Limor Fried/Ladyada for Adafruit Industries.\n\nCreative Commons Attribution/Share-Alike, all text above must be included in any redistribution. \nSee license.txt for additional details.\n"
+  },
+  "units": "mm",
+  "frame": "Manufacturer PCB XY, origin retained, +Y up; no installed vehicle registration",
+  "outline_segments_mm": [
+    [
+      [0.0, 15.24],
+      [0.0, 2.54]
+    ],
+    [
+      [0.0, 2.5400000000000005],
+      [0.009665466846966453, 2.318624413420949],
+      [0.038588307348991435, 2.0989336287259976],
+      [0.08654840122576646, 1.8825996254395974],
+      [0.1531807432037926, 1.6712688359528016],
+      [0.2379782209269088, 1.466549615178624],
+      [0.3402954743875255, 1.2700000000000007],
+      [0.4593538075059609, 1.0831158516683428],
+      [0.5942471144777959, 0.9073194713961903],
+      [0.7439487757861689, 0.7439487757861694],
+      [0.9073194713961898, 0.5942471144777961],
+      [1.0831158516683421, 0.45935380750596133],
+      [1.269999999999999, 0.3402954743875264],
+      [1.4665496151786241, 0.2379782209269088],
+      [1.671268835952802, 0.1531807432037926],
+      [1.8825996254395976, 0.08654840122576646],
+      [2.098933628725997, 0.038588307348991435],
+      [2.318624413420948, 0.009665466846966453],
+      [2.5399999999999996, 0.0]
+    ],
+    [
+      [2.54, 0.0],
+      [22.86, 0.0]
+    ],
+    [
+      [22.86, 0.0],
+      [23.08137558657905, 0.009665466846966453],
+      [23.301066371274004, 0.038588307348991435],
+      [23.517400374560403, 0.08654840122576646],
+      [23.728731164047197, 0.15318074320379305],
+      [23.933450384821377, 0.23797822092690923],
+      [24.13, 0.3402954743875255],
+      [24.316884148331656, 0.4593538075059609],
+      [24.49268052860381, 0.5942471144777957],
+      [24.65605122421383, 0.7439487757861694],
+      [24.805752885522203, 0.9073194713961901],
+      [24.94064619249404, 1.0831158516683426],
+      [25.059704525612474, 1.2699999999999998],
+      [25.16202177907309, 1.4665496151786233],
+      [25.246819256796208, 1.6712688359528012],
+      [25.313451598774233, 1.8825996254395965],
+      [25.361411692651007, 2.0989336287259963],
+      [25.390334533153034, 2.318624413420948],
+      [25.4, 2.5399999999999996]
+    ],
+    [
+      [25.4, 2.54],
+      [25.4, 15.24]
+    ],
+    [
+      [25.4, 15.24],
+      [25.39033453315303, 15.461375586579052],
+      [25.361411692651007, 15.681066371274003],
+      [25.313451598774233, 15.897400374560403],
+      [25.246819256796208, 16.1087311640472],
+      [25.16202177907309, 16.313450384821376],
+      [25.059704525612474, 16.51],
+      [24.94064619249404, 16.696884148331655],
+      [24.805752885522203, 16.87268052860381],
+      [24.65605122421383, 17.036051224213832],
+      [24.49268052860381, 17.185752885522206],
+      [24.316884148331656, 17.32064619249404],
+      [24.130000000000003, 17.439704525612473],
+      [23.933450384821377, 17.542021779073092],
+      [23.7287311640472, 17.626819256796207],
+      [23.517400374560403, 17.693451598774235],
+      [23.301066371274004, 17.74141169265101],
+      [23.081375586579053, 17.770334533153033],
+      [22.860000000000003, 17.78]
+    ],
+    [
+      [22.86, 17.78],
+      [2.54, 17.78]
+    ],
+    [
+      [2.54, 17.78],
+      [2.318624413420949, 17.770334533153033],
+      [2.098933628725997, 17.74141169265101],
+      [1.8825996254395978, 17.693451598774235],
+      [1.6712688359528016, 17.62681925679621],
+      [1.4665496151786235, 17.542021779073092],
+      [1.2700000000000002, 17.439704525612477],
+      [1.0831158516683437, 17.32064619249404],
+      [0.907319471396191, 17.185752885522206],
+      [0.7439487757861705, 17.036051224213832],
+      [0.5942471144777968, 16.872680528603812],
+      [0.4593538075059618, 16.69688414833166],
+      [0.34029547438752683, 16.51],
+      [0.23797822092690968, 16.313450384821376],
+      [0.15318074320379393, 16.1087311640472],
+      [0.08654840122576779, 15.897400374560403],
+      [0.03858830734899277, 15.681066371274005],
+      [0.009665466846967785, 15.461375586579054],
+      [1.3322676295501878e-15, 15.240000000000002]
+    ]
+  ],
+  "outline_bounds_mm": [
+    [0.0, 0.0],
+    [25.4, 17.78]
+  ],
+  "pcb_size_mm": [25.4, 17.78],
+  "drawing_bounds_mm": [
+    [0.0, 0.0],
+    [25.4, 17.78]
+  ],
+  "nominal_product_envelope_mm": [25.6, 17.7, 4.6],
+  "pcb_minus_nominal_xy_mm": [-0.2, 0.08],
+  "mating_tolerance_mm": null,
+  "placements": [
+    {
+      "ref": "C2",
+      "value": "10uF",
+      "library": "microbuilder",
+      "package": "_0805MP",
+      "position_mm": [7.366, 5.5245],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "U2",
+      "value": "AP2112K-3.3",
+      "library": "adafruit_power",
+      "package": "SOT23-5",
+      "position_mm": [7.747, 8.509],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "C3",
+      "value": "10uF",
+      "library": "microbuilder",
+      "package": "0805-NO",
+      "position_mm": [5.842, 12.573],
+      "rotation_deg": 90.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "C1",
+      "value": "0.1uF",
+      "library": "microbuilder",
+      "package": "0603-NO",
+      "position_mm": [12.954, 11.176],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "R3",
+      "value": "10K",
+      "library": "microbuilder",
+      "package": "RESPACK_4X0603",
+      "position_mm": [17.7165, 9.7155],
+      "rotation_deg": 270.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "Q2",
+      "value": "BSS138",
+      "library": "microbuilder",
+      "package": "SOT363",
+      "position_mm": [17.78, 6.096],
+      "rotation_deg": 90.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "JP1",
+      "value": "",
+      "library": "microbuilder",
+      "package": "1X06_ROUND_70",
+      "position_mm": [12.7, 2.54],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "U$1",
+      "value": "MOUNTINGHOLE2.5",
+      "library": "adafruit_electromech",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "position_mm": [2.54, 15.24],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null
+    },
+    {
+      "ref": "U$17",
+      "value": "MOUNTINGHOLE2.5",
+      "library": "adafruit_electromech",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "position_mm": [22.86, 15.24],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null
+    },
+    {
+      "ref": "CONN3",
+      "value": "STEMMA_I2C_QT",
+      "library": "microbuilder",
+      "package": "JST_SH4",
+      "position_mm": [22.733, 8.89],
+      "rotation_deg": 90.0,
+      "side": "top",
+      "source_texts": [">NAME", "JST SH 4"],
+      "height_mm": null
+    },
+    {
+      "ref": "CONN4",
+      "value": "STEMMA_I2C_QT",
+      "library": "microbuilder",
+      "package": "JST_SH4",
+      "position_mm": [2.667, 8.89],
+      "rotation_deg": 270.0,
+      "side": "top",
+      "source_texts": [">NAME", "JST SH 4"],
+      "height_mm": null
+    },
+    {
+      "ref": "FID3",
+      "value": "FIDUCIAL_1MM",
+      "library": "microbuilder",
+      "package": "FIDUCIAL_1MM",
+      "position_mm": [20.2565, 0.8255],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null
+    },
+    {
+      "ref": "FID4",
+      "value": "FIDUCIAL_1MM",
+      "library": "microbuilder",
+      "package": "FIDUCIAL_1MM",
+      "position_mm": [1.9685, 8.89],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null
+    },
+    {
+      "ref": "U$19",
+      "value": "MOUNTINGHOLE2.5",
+      "library": "adafruit_electromech",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "position_mm": [2.54, 2.54],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null
+    },
+    {
+      "ref": "U$21",
+      "value": "MOUNTINGHOLE2.5",
+      "library": "adafruit_electromech",
+      "package": "MOUNTINGHOLE_2.5_PLATED",
+      "position_mm": [22.86, 2.54],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null
+    },
+    {
+      "ref": "U$25",
+      "value": "",
+      "library": "microbuilder",
+      "package": "PCBFEAT-REV-040",
+      "position_mm": [19.939, 13.208],
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "source_texts": [">REV"],
+      "height_mm": null,
+      "drawing_note": "Bottom/mirrored source footprint listed; not projected in this bounded top view"
+    },
+    {
+      "ref": "U$30",
+      "value": "",
+      "library": "silks",
+      "package": "STEMMAQT",
+      "position_mm": [22.479, 4.445],
+      "rotation_deg": 90.0,
+      "side": "bottom",
+      "source_texts": [],
+      "height_mm": null,
+      "drawing_note": "Bottom/mirrored source footprint listed; not projected in this bounded top view"
+    },
+    {
+      "ref": "U$31",
+      "value": "",
+      "library": "silks",
+      "package": "STEMMAQT",
+      "position_mm": [2.921, 13.335],
+      "rotation_deg": 270.0,
+      "side": "bottom",
+      "source_texts": [],
+      "height_mm": null,
+      "drawing_note": "Bottom/mirrored source footprint listed; not projected in this bounded top view"
+    },
+    {
+      "ref": "D1",
+      "value": "GREEN",
+      "library": "microbuilder",
+      "package": "CHIPLED_0603_NOOUTLINE",
+      "position_mm": [3.556, 12.573],
+      "rotation_deg": 90.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "D2",
+      "value": "1N4148",
+      "library": "microbuilder",
+      "package": "SOD-323",
+      "position_mm": [19.685, 12.7],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "U1",
+      "value": "ADXL343",
+      "library": "microbuilder",
+      "package": "LGA14",
+      "position_mm": [12.7, 8.636],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">Name", ">Value"],
+      "height_mm": null
+    },
+    {
+      "ref": "JP2",
+      "value": "",
+      "library": "microbuilder",
+      "package": "1X04_ROUND",
+      "position_mm": [12.7, 15.24],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "R1",
+      "value": "10K",
+      "library": "microbuilder",
+      "package": "RESPACK_4X0603",
+      "position_mm": [8.636, 12.065],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null
+    },
+    {
+      "ref": "U$4",
+      "value": "",
+      "library": "microbuilder",
+      "package": "ADAFRUIT_3.5MM",
+      "position_mm": [4.3815, 13.9065],
+      "rotation_deg": 0.0,
+      "side": "top",
+      "source_texts": [],
+      "height_mm": null,
+      "drawing_note": "Decorative manufacturer artwork listed; omitted from footprint drawing"
+    },
+    {
+      "ref": "SJ1",
+      "value": "",
+      "library": "microbuilder",
+      "package": "SOLDERJUMPER_CLOSEDWIRE",
+      "position_mm": [6.604, 12.7],
+      "rotation_deg": 180.0,
+      "side": "bottom",
+      "source_texts": [">NAME", ">VALUE"],
+      "height_mm": null,
+      "drawing_note": "Bottom/mirrored source footprint listed; not projected in this bounded top view"
+    },
+    {
+      "ref": "U$11",
+      "value": "",
+      "library": "microbuilder",
+      "package": "ADAFRUIT_3.5MM",
+      "position_mm": [21.2725, 14.1605],
+      "rotation_deg": 0.0,
+      "side": "bottom",
+      "source_texts": [],
+      "height_mm": null,
+      "drawing_note": "Bottom/mirrored source footprint listed; not projected in this bounded top view"
+    }
+  ],
+  "shapes": [
+    {
+      "kind": "polyline",
+      "ref": "C2",
+      "points_mm": [
+        [6.856, 6.0595],
+        [7.8759999999999994, 6.0595]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "C2",
+      "points_mm": [
+        [6.856, 4.9895],
+        [7.8759999999999994, 4.9895]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "C2",
+      "points_mm": [
+        [7.366, 6.0325],
+        [7.366, 5.0165]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "C2",
+      "points_mm": [
+        [5.75, 4.874499999999999],
+        [6.949999999999999, 4.874499999999999],
+        [6.949999999999999, 6.1745],
+        [5.75, 6.1745]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C2",
+      "points_mm": [
+        [7.782, 4.874499999999999],
+        [8.982, 4.874499999999999],
+        [8.982, 6.1745],
+        [7.782, 6.1745]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C2",
+      "points_mm": [
+        [7.772399999999999, 4.874499999999999],
+        [8.366, 4.874499999999999],
+        [8.366, 6.1745],
+        [7.772399999999999, 6.1745]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C2",
+      "points_mm": [
+        [6.366, 4.874499999999999],
+        [6.949199999999999, 4.874499999999999],
+        [6.949199999999999, 6.1745],
+        [6.366, 6.1745]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [9.1694, 9.3194],
+        [9.1694, 7.698600000000001]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [9.1694, 7.698600000000001],
+        [6.3246, 7.698600000000001]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [6.3246, 7.698600000000001],
+        [6.3246, 9.3194]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [6.3246, 9.3194],
+        [9.1694, 9.3194]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [6.0969999999999995, 9.309000000000001],
+        [6.0969999999999995, 7.7090000000000005]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [9.397, 9.309000000000001],
+        [9.397, 7.7090000000000005]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [6.522, 6.6089],
+        [7.072, 6.6089],
+        [7.072, 7.8089],
+        [6.522, 7.8089]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [7.4719999999999995, 6.6089],
+        [8.022, 6.6089],
+        [8.022, 7.8089],
+        [7.4719999999999995, 7.8089]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [8.422, 6.6089],
+        [8.972, 6.6089],
+        [8.972, 7.8089],
+        [8.422, 7.8089]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [8.422, 9.209100000000001],
+        [8.972, 9.209100000000001],
+        [8.972, 10.4091],
+        [8.422, 10.4091]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [6.522, 9.209100000000001],
+        [7.072, 9.209100000000001],
+        [7.072, 10.4091],
+        [6.522, 10.4091]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [6.547, 7.009],
+        [7.047, 7.009],
+        [7.047, 7.659000000000001],
+        [6.547, 7.659000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [7.497, 7.009],
+        [7.997, 7.009],
+        [7.997, 7.659000000000001],
+        [7.497, 7.659000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [8.447, 7.009],
+        [8.947, 7.009],
+        [8.947, 7.659000000000001],
+        [8.447, 7.659000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [8.447, 9.359],
+        [8.947, 9.359],
+        [8.947, 10.009],
+        [8.447, 10.009]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U2",
+      "points_mm": [
+        [6.547, 9.359],
+        [7.047, 9.359],
+        [7.047, 10.009],
+        [6.547, 10.009]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "U2",
+      "points_mm": [
+        [7.3469999999999995, 9.559000000000001],
+        [8.147, 9.559000000000001]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "C3",
+      "points_mm": [
+        [5.1819999999999995, 12.192],
+        [5.1819999999999995, 12.954]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "C3",
+      "points_mm": [
+        [6.502, 12.217],
+        [6.502, 12.954]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polygon",
+      "ref": "C3",
+      "points_mm": [
+        [6.592, 11.003],
+        [6.592, 12.243],
+        [5.092, 12.243],
+        [5.092, 11.003]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C3",
+      "points_mm": [
+        [6.592, 12.903],
+        [6.592, 14.143],
+        [5.092, 14.143],
+        [5.092, 12.903]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C3",
+      "points_mm": [
+        [6.565899999999999, 11.4808],
+        [6.565899999999999, 12.2309],
+        [5.1158, 12.2309],
+        [5.1158, 11.4808]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C3",
+      "points_mm": [
+        [6.565899999999999, 12.928600000000001],
+        [6.565899999999999, 13.678700000000001],
+        [5.1158, 13.678700000000001],
+        [5.1158, 12.928600000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "C3",
+      "points_mm": [
+        [5.334, 12.573],
+        [6.35, 12.573]
+      ],
+      "width_mm": 0.3048,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "C1",
+      "points_mm": [
+        [12.598, 11.608],
+        [13.31, 11.608]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "C1",
+      "points_mm": [
+        [12.598, 10.757],
+        [13.31, 10.757]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polygon",
+      "ref": "C1",
+      "points_mm": [
+        [11.566500000000001, 10.676],
+        [12.6415, 10.676],
+        [12.6415, 11.676],
+        [11.566500000000001, 11.676]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C1",
+      "points_mm": [
+        [13.2665, 10.676],
+        [14.3415, 10.676],
+        [14.3415, 11.676],
+        [13.2665, 11.676]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C1",
+      "points_mm": [
+        [12.1158, 10.7061],
+        [12.6159, 10.7061],
+        [12.6159, 11.6561],
+        [12.1158, 11.6561]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "C1",
+      "points_mm": [
+        [13.2842, 10.7061],
+        [13.7843, 10.7061],
+        [13.7843, 11.6561],
+        [13.2842, 11.6561]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "C1",
+      "points_mm": [
+        [12.954, 11.576],
+        [12.954, 10.776]
+      ],
+      "width_mm": 0.3048,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R3",
+      "points_mm": [
+        [18.5165, 11.3155],
+        [18.5165, 8.1155]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R3",
+      "points_mm": [
+        [18.5165, 8.1155],
+        [16.9165, 8.1155]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R3",
+      "points_mm": [
+        [16.9165, 8.1155],
+        [16.9165, 11.3155]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R3",
+      "points_mm": [
+        [16.9165, 11.3155],
+        [18.5165, 11.3155]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R3",
+      "points_mm": [
+        [19.1165, 7.8155],
+        [16.3165, 7.8155]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R3",
+      "points_mm": [
+        [16.3165, 11.6155],
+        [19.1165, 11.6155]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [18.1165, 11.2405],
+        [18.1165, 10.7905],
+        [19.0165, 10.7905],
+        [19.0165, 11.2405]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [16.4165, 11.2405],
+        [16.4165, 10.7905],
+        [17.3165, 10.7905],
+        [17.3165, 11.2405]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [18.1165, 10.3405],
+        [18.1165, 9.890500000000001],
+        [19.0165, 9.890500000000001],
+        [19.0165, 10.3405]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [18.1165, 9.5405],
+        [18.1165, 9.0905],
+        [19.0165, 9.0905],
+        [19.0165, 9.5405]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [18.1165, 8.640500000000001],
+        [18.1165, 8.1905],
+        [19.0165, 8.1905],
+        [19.0165, 8.640500000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [16.4165, 8.640500000000001],
+        [16.4165, 8.1905],
+        [17.3165, 8.1905],
+        [17.3165, 8.640500000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [16.4165, 10.3405],
+        [16.4165, 9.890500000000001],
+        [17.3165, 9.890500000000001],
+        [17.3165, 10.3405]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [16.4165, 9.5405],
+        [16.4165, 9.0905],
+        [17.3165, 9.0905],
+        [17.3165, 9.5405]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R3",
+      "points_mm": [
+        [17.2165, 11.265500000000001],
+        [17.2165, 8.1655],
+        [18.2165, 8.1655],
+        [18.2165, 11.265500000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "Q2",
+      "points_mm": [
+        [17.155, 7.096],
+        [18.405, 7.096]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "Q2",
+      "points_mm": [
+        [18.405, 7.096],
+        [18.405, 5.096]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "Q2",
+      "points_mm": [
+        [18.405, 5.096],
+        [17.155, 5.096]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "Q2",
+      "points_mm": [
+        [17.155, 5.096],
+        [17.155, 7.096]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "Q2",
+      "points_mm": [
+        [17.330000000000002, 4.996],
+        [18.23, 4.996]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "Q2",
+      "points_mm": [
+        [17.330000000000002, 7.196],
+        [18.23, 7.196]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "circle",
+      "ref": "Q2",
+      "center_mm": [18.130000000000003, 4.596],
+      "radius_mm": 0.1,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [18.93, 5.096],
+        [18.93, 5.596],
+        [18.43, 5.596],
+        [18.43, 5.096]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [18.93, 5.896],
+        [18.93, 6.296],
+        [18.43, 6.296],
+        [18.43, 5.896]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [18.93, 6.596],
+        [18.93, 7.096],
+        [18.43, 7.096],
+        [18.43, 6.596]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [17.130000000000003, 6.596],
+        [17.130000000000003, 7.096],
+        [16.630000000000003, 7.096],
+        [16.630000000000003, 6.596]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [17.130000000000003, 5.896],
+        [17.130000000000003, 6.296],
+        [16.630000000000003, 6.296],
+        [16.630000000000003, 5.896]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [17.130000000000003, 5.096],
+        [17.130000000000003, 5.596],
+        [16.630000000000003, 5.596],
+        [16.630000000000003, 5.096]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [18.830000000000002, 5.971],
+        [18.830000000000002, 6.221],
+        [18.48, 6.221],
+        [18.48, 5.971]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [18.830000000000002, 5.321],
+        [18.830000000000002, 5.571],
+        [18.48, 5.571],
+        [18.48, 5.321]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [18.830000000000002, 6.621],
+        [18.830000000000002, 6.871],
+        [18.48, 6.871],
+        [18.48, 6.621]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [17.080000000000002, 5.321],
+        [17.080000000000002, 5.571],
+        [16.73, 5.571],
+        [16.73, 5.321]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [17.080000000000002, 5.971],
+        [17.080000000000002, 6.221],
+        [16.73, 6.221],
+        [16.73, 5.971]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "Q2",
+      "points_mm": [
+        [17.080000000000002, 6.621],
+        [17.080000000000002, 6.871],
+        [16.73, 6.871],
+        [16.73, 6.621]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "JP1",
+      "points_mm": [
+        [5.079999999999999, 3.175],
+        [5.079999999999999, 1.905]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP1",
+      "center_mm": [6.35, 2.54],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP1",
+      "center_mm": [8.889999999999999, 2.54],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "2",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP1",
+      "center_mm": [11.43, 2.54],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "3",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP1",
+      "center_mm": [13.969999999999999, 2.54],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "4",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP1",
+      "center_mm": [16.509999999999998, 2.54],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "5",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP1",
+      "center_mm": [19.049999999999997, 2.54],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "6",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP1",
+      "points_mm": [
+        [16.256, 2.286],
+        [16.764, 2.286],
+        [16.764, 2.794],
+        [16.256, 2.794]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP1",
+      "points_mm": [
+        [13.716, 2.286],
+        [14.224, 2.286],
+        [14.224, 2.794],
+        [13.716, 2.794]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP1",
+      "points_mm": [
+        [11.175999999999998, 2.286],
+        [11.684, 2.286],
+        [11.684, 2.794],
+        [11.175999999999998, 2.794]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP1",
+      "points_mm": [
+        [8.636, 2.286],
+        [9.143999999999998, 2.286],
+        [9.143999999999998, 2.794],
+        [8.636, 2.794]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP1",
+      "points_mm": [
+        [6.096, 2.286],
+        [6.603999999999999, 2.286],
+        [6.603999999999999, 2.794],
+        [6.096, 2.794]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP1",
+      "points_mm": [
+        [18.796, 2.286],
+        [19.304, 2.286],
+        [19.304, 2.794],
+        [18.796, 2.794]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "circle",
+      "ref": "U$1",
+      "center_mm": [2.54, 15.24],
+      "radius_mm": 2.0,
+      "role": "silk"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$1",
+      "center_mm": [2.54, 15.24],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$17",
+      "center_mm": [22.86, 15.24],
+      "radius_mm": 2.0,
+      "role": "silk"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$17",
+      "center_mm": [22.86, 15.24],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.994, 8.690000000000001],
+        [19.444000000000003, 8.690000000000001],
+        [19.444000000000003, 8.09],
+        [20.994, 8.09]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.994, 9.690000000000001],
+        [19.444000000000003, 9.690000000000001],
+        [19.444000000000003, 9.09],
+        [20.994, 9.09]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.994, 7.69],
+        [19.444000000000003, 7.69],
+        [19.444000000000003, 7.090000000000001],
+        [20.994, 7.090000000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.994, 10.690000000000001],
+        [19.444000000000003, 10.690000000000001],
+        [19.444000000000003, 10.09],
+        [20.994, 10.09]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN3",
+      "points_mm": [
+        [25.019000000000002, 6.690000000000001],
+        [23.219, 6.690000000000001],
+        [23.219, 5.49],
+        [25.019000000000002, 5.49]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN3",
+      "points_mm": [
+        [25.019000000000002, 12.290000000000001],
+        [23.219, 12.290000000000001],
+        [23.219, 11.09],
+        [25.019000000000002, 11.09]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [24.819, 5.890000000000001],
+        [20.569, 5.890000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.569, 5.890000000000001],
+        [20.569, 11.99]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.569, 11.99],
+        [24.819, 11.99]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [24.819, 11.99],
+        [24.819, 5.890000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [23.119, 5.890000000000001],
+        [20.519000000000002, 5.890000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.519000000000002, 5.890000000000001],
+        [20.519000000000002, 6.99]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.519000000000002, 10.790000000000001],
+        [20.519000000000002, 11.99]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [20.519000000000002, 11.99],
+        [23.119, 11.99]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN3",
+      "points_mm": [
+        [24.819, 6.790000000000001],
+        [24.819, 10.99]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.406, 9.09],
+        [5.9559999999999995, 9.09],
+        [5.9559999999999995, 9.690000000000001],
+        [4.406, 9.690000000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.406, 8.09],
+        [5.9559999999999995, 8.09],
+        [5.9559999999999995, 8.690000000000001],
+        [4.406, 8.690000000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.406, 10.09],
+        [5.9559999999999995, 10.09],
+        [5.9559999999999995, 10.690000000000001],
+        [4.406000000000001, 10.690000000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.405999999999999, 7.090000000000001],
+        [5.9559999999999995, 7.09],
+        [5.9559999999999995, 7.6899999999999995],
+        [4.406, 7.69]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN4",
+      "points_mm": [
+        [0.3810000000000002, 11.09],
+        [2.1810000000000005, 11.09],
+        [2.1810000000000005, 12.290000000000001],
+        [0.3810000000000002, 12.290000000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "CONN4",
+      "points_mm": [
+        [0.38099999999999934, 5.49],
+        [2.1809999999999996, 5.49],
+        [2.1809999999999996, 6.690000000000001],
+        [0.38099999999999934, 6.690000000000001]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [0.5810000000000004, 11.89],
+        [4.831, 11.89]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.831, 11.89],
+        [4.8309999999999995, 5.790000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.8309999999999995, 5.790000000000001],
+        [0.5809999999999995, 5.790000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [0.5809999999999995, 5.790000000000001],
+        [0.5810000000000004, 11.89]
+      ],
+      "width_mm": 0.1524,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [2.281, 11.89],
+        [4.881, 11.89]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.881, 11.89],
+        [4.881, 10.790000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.880999999999999, 6.99],
+        [4.880999999999999, 5.790000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [4.880999999999999, 5.790000000000001],
+        [2.2809999999999993, 5.790000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "CONN4",
+      "points_mm": [
+        [0.5810000000000004, 10.99],
+        [0.5809999999999995, 6.790000000000001]
+      ],
+      "width_mm": 0.1524,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "FID3",
+      "points_mm": [
+        [19.7565, 0.3255],
+        [20.7565, 0.3255],
+        [20.7565, 1.3255],
+        [19.7565, 1.3255]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 100.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "FID4",
+      "points_mm": [
+        [1.4685, 8.39],
+        [2.4684999999999997, 8.39],
+        [2.4684999999999997, 9.39],
+        [1.4685, 9.39]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 100.0
+    },
+    {
+      "kind": "circle",
+      "ref": "U$19",
+      "center_mm": [2.54, 2.54],
+      "radius_mm": 2.0,
+      "role": "silk"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$19",
+      "center_mm": [2.54, 2.54],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$21",
+      "center_mm": [22.86, 2.54],
+      "radius_mm": 2.0,
+      "role": "silk"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$21",
+      "center_mm": [22.86, 2.54],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D1",
+      "points_mm": [
+        [2.7560000000000002, 12.273],
+        [2.781315985695758, 12.276288681622093],
+        [2.80626245111341, 12.281709790523898],
+        [2.830660109113929, 12.289224365871117],
+        [2.8543336167688222, 12.298778401346928],
+        [2.8771128355279125, 12.310303233288645],
+        [2.898834053983905, 12.323716034164912],
+        [2.9193411644458704, 12.338920407846851],
+        [2.938486784865777, 12.355807082395032],
+        [2.9561333180549036, 12.374254695383286],
+        [2.9721539405776953, 12.394130666115341],
+        [2.986433514215993, 12.415292148465776],
+        [2.998869413453064, 12.437587057497318],
+        [3.0093722630304054, 12.460855162476346],
+        [3.017866580276592, 12.484929238431208],
+        [3.02429131759183, 12.50963626797726],
+        [3.028600301189455, 12.534798684771255],
+        [3.030762562941181, 12.560235649658528],
+        [3.030762562941181, 12.585764350341472],
+        [3.028600301189455, 12.611201315228746],
+        [3.02429131759183, 12.63636373202274],
+        [3.017866580276592, 12.661070761568793],
+        [3.0093722630304054, 12.685144837523655],
+        [2.998869413453064, 12.708412942502683],
+        [2.9864335142159923, 12.730707851534225],
+        [2.972153940577695, 12.75186933388466],
+        [2.9561333180549036, 12.771745304616715],
+        [2.938486784865777, 12.79019291760497],
+        [2.9193411644458704, 12.80707959215315],
+        [2.898834053983905, 12.822283965835089],
+        [2.8771128355279125, 12.835696766711356],
+        [2.8543336167688222, 12.847221598653073],
+        [2.830660109113929, 12.856775634128883],
+        [2.80626245111341, 12.864290209476103],
+        [2.781315985695758, 12.869711318377908],
+        [2.756, 12.873000000000001]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D1",
+      "points_mm": [
+        [4.381, 12.298],
+        [4.357032170744394, 12.29904645802477],
+        [4.333246751141594, 12.302177867921642],
+        [4.309824762596807, 12.307370397770507],
+        [4.286944460585441, 12.314584529283875],
+        [4.264779978021307, 12.323765358564922],
+        [4.2435, 12.33484301395928],
+        [4.2232664800034625, 12.347733187820527],
+        [4.2042334073362015, 12.362337778142281],
+        [4.186545635173699, 12.3785456351737],
+        [4.170337778142281, 12.396233407336203],
+        [4.155733187820527, 12.415266480003464],
+        [4.142843013959279, 12.435500000000001],
+        [4.131765358564921, 12.456779978021308],
+        [4.122584529283875, 12.478944460585442],
+        [4.115370397770506, 12.501824762596808],
+        [4.110177867921642, 12.525246751141594],
+        [4.10704645802477, 12.549032170744395],
+        [4.106, 12.573],
+        [4.10704645802477, 12.596967829255606],
+        [4.110177867921642, 12.620753248858406],
+        [4.115370397770507, 12.644175237403193],
+        [4.122584529283875, 12.667055539414559],
+        [4.131765358564921, 12.689220021978693],
+        [4.142843013959279, 12.7105],
+        [4.155733187820527, 12.730733519996537],
+        [4.170337778142281, 12.749766592663798],
+        [4.186545635173699, 12.767454364826301],
+        [4.2042334073362015, 12.78366222185772],
+        [4.2232664800034625, 12.798266812179474],
+        [4.2435, 12.811156986040722],
+        [4.264779978021307, 12.82223464143508],
+        [4.286944460585441, 12.831415470716125],
+        [4.309824762596807, 12.838629602229494],
+        [4.333246751141594, 12.843822132078358],
+        [4.357032170744394, 12.84695354197523],
+        [4.381, 12.848]
+      ],
+      "width_mm": 0.0508,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D1",
+      "points_mm": [
+        [3.181, 12.173],
+        [3.906, 12.173]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D1",
+      "points_mm": [
+        [3.206, 12.973],
+        [3.906, 12.973]
+      ],
+      "width_mm": 0.1016,
+      "role": "documentation"
+    },
+    {
+      "kind": "circle",
+      "ref": "D1",
+      "center_mm": [2.931, 12.223],
+      "radius_mm": 0.075,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [3.206, 12.173],
+        [3.206, 12.973],
+        [2.406, 12.973],
+        [2.406, 12.173]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [4.7059999999999995, 12.173],
+        [4.7059999999999995, 12.973],
+        [3.906, 12.973],
+        [3.906, 12.173]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [2.856, 12.123000000000001],
+        [2.856, 12.323],
+        [2.7060000000000004, 12.323],
+        [2.7060000000000004, 12.123000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [3.0060000000000002, 12.298],
+        [3.0060000000000002, 12.348],
+        [2.9560000000000004, 12.348],
+        [2.9560000000000004, 12.298]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [3.206, 12.123000000000001],
+        [3.206, 12.173],
+        [2.831, 12.173],
+        [2.831, 12.123000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [3.0060000000000002, 12.823],
+        [3.0060000000000002, 13.023],
+        [2.7060000000000004, 13.023],
+        [2.7060000000000004, 12.823]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [3.206, 12.123000000000001],
+        [3.206, 13.023],
+        [2.981, 13.023],
+        [2.981, 12.123000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [4.406, 12.123000000000001],
+        [4.406, 12.323],
+        [3.906, 12.323],
+        [3.906, 12.123000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [4.406, 12.823],
+        [4.406, 13.023],
+        [3.906, 13.023],
+        [3.906, 12.823]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [4.131, 12.298],
+        [4.131, 12.848],
+        [3.906, 12.848],
+        [3.906, 12.298]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [4.206, 12.298],
+        [4.206, 12.398],
+        [4.106, 12.398],
+        [4.106, 12.298]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [4.206, 12.748000000000001],
+        [4.206, 12.848],
+        [4.106, 12.848],
+        [4.106, 12.748000000000001]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D1",
+      "points_mm": [
+        [3.4163, 12.192],
+        [3.4163, 12.954],
+        [3.2893, 12.954],
+        [3.2893, 12.192]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D2",
+      "points_mm": [
+        [17.74, 12.299999999999999],
+        [19.09, 12.299999999999999],
+        [19.09, 13.1],
+        [17.74, 13.1]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "D2",
+      "points_mm": [
+        [20.279999999999998, 12.299999999999999],
+        [21.63, 12.299999999999999],
+        [21.63, 13.1],
+        [20.279999999999998, 13.1]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [18.685, 13.399999999999999],
+        [20.685, 13.399999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [20.685, 13.399999999999999],
+        [20.685, 12.0]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [20.685, 12.0],
+        [18.685, 12.0]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [18.685, 12.0],
+        [18.685, 13.399999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [19.435, 12.7],
+        [20.035, 13.1]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [20.035, 13.1],
+        [20.035, 12.299999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "D2",
+      "points_mm": [
+        [20.035, 12.299999999999999],
+        [19.435, 12.7]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "D2",
+      "points_mm": [
+        [19.235, 12.2],
+        [19.435, 12.2],
+        [19.435, 13.2],
+        [19.235, 13.2]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [15.2, 10.136],
+        [10.2, 10.136]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [10.2, 10.136],
+        [10.2, 7.135999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [10.2, 7.135999999999999],
+        [15.2, 7.135999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [15.2, 7.135999999999999],
+        [15.2, 10.136]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [15.2, 10.136],
+        [15.2, 9.335999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [15.2, 7.935999999999999],
+        [15.2, 7.135999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [10.2, 7.135999999999999],
+        [10.2, 7.935999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "U1",
+      "points_mm": [
+        [10.2, 9.335999999999999],
+        [10.2, 10.136]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "circle",
+      "ref": "U1",
+      "center_mm": [15.7, 9.636],
+      "radius_mm": 0.15,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [10.95, 10.335999999999999],
+        [10.45, 10.335999999999999],
+        [10.45, 9.136],
+        [10.95, 9.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [11.75, 10.335999999999999],
+        [11.25, 10.335999999999999],
+        [11.25, 9.136],
+        [11.75, 9.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [12.549999999999999, 10.335999999999999],
+        [12.049999999999999, 10.335999999999999],
+        [12.049999999999999, 9.136],
+        [12.549999999999999, 9.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [13.35, 10.335999999999999],
+        [12.85, 10.335999999999999],
+        [12.85, 9.136],
+        [13.35, 9.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [14.149999999999999, 10.335999999999999],
+        [13.649999999999999, 10.335999999999999],
+        [13.649999999999999, 9.136],
+        [14.149999999999999, 9.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [14.45, 9.136],
+        [14.95, 9.136],
+        [14.95, 10.335999999999999],
+        [14.45, 10.335999999999999]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [15.399999999999999, 8.386],
+        [15.399999999999999, 8.886],
+        [14.2, 8.886],
+        [14.2, 8.386]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [14.45, 6.935999999999999],
+        [14.95, 6.935999999999999],
+        [14.95, 8.136],
+        [14.45, 8.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [13.649999999999999, 6.935999999999999],
+        [14.149999999999999, 6.935999999999999],
+        [14.149999999999999, 8.136],
+        [13.649999999999999, 8.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [12.85, 6.935999999999999],
+        [13.35, 6.935999999999999],
+        [13.35, 8.136],
+        [12.85, 8.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [12.049999999999999, 6.935999999999999],
+        [12.549999999999999, 6.935999999999999],
+        [12.549999999999999, 8.136],
+        [12.049999999999999, 8.136]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [11.75, 8.136],
+        [11.25, 8.136],
+        [11.25, 6.935999999999999],
+        [11.75, 6.935999999999999]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [10.95, 8.136],
+        [10.45, 8.136],
+        [10.45, 6.935999999999999],
+        [10.95, 6.935999999999999]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "U1",
+      "points_mm": [
+        [10.0, 8.886],
+        [10.0, 8.386],
+        [11.2, 8.386],
+        [11.2, 8.886]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "JP2",
+      "points_mm": [
+        [7.619999999999999, 15.875],
+        [7.619999999999999, 14.605]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP2",
+      "center_mm": [8.889999999999999, 15.24],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP2",
+      "center_mm": [11.43, 15.24],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "2",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP2",
+      "center_mm": [13.969999999999999, 15.24],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "3",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "JP2",
+      "center_mm": [16.509999999999998, 15.24],
+      "radius_mm": 0.5,
+      "role": "drill",
+      "name": "4",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP2",
+      "points_mm": [
+        [13.716, 14.986],
+        [14.224, 14.986],
+        [14.224, 15.494],
+        [13.716, 15.494]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP2",
+      "points_mm": [
+        [11.175999999999998, 14.986],
+        [11.684, 14.986],
+        [11.684, 15.494],
+        [11.175999999999998, 15.494]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP2",
+      "points_mm": [
+        [8.636, 14.986],
+        [9.143999999999998, 14.986],
+        [9.143999999999998, 15.494],
+        [8.636, 15.494]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "JP2",
+      "points_mm": [
+        [16.256, 14.986],
+        [16.764, 14.986],
+        [16.764, 15.494],
+        [16.256, 15.494]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polyline",
+      "ref": "R1",
+      "points_mm": [
+        [7.036, 12.865],
+        [10.235999999999999, 12.865]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R1",
+      "points_mm": [
+        [10.235999999999999, 12.865],
+        [10.235999999999999, 11.264999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R1",
+      "points_mm": [
+        [10.235999999999999, 11.264999999999999],
+        [7.036, 11.264999999999999]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R1",
+      "points_mm": [
+        [7.036, 11.264999999999999],
+        [7.036, 12.865]
+      ],
+      "width_mm": 0.2032,
+      "role": "documentation"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R1",
+      "points_mm": [
+        [10.536, 13.465],
+        [10.536, 10.665]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polyline",
+      "ref": "R1",
+      "points_mm": [
+        [6.735999999999999, 10.665],
+        [6.735999999999999, 13.465]
+      ],
+      "width_mm": 0.2032,
+      "role": "silk"
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [7.110999999999999, 12.465],
+        [7.560999999999999, 12.465],
+        [7.560999999999999, 13.365],
+        [7.110999999999999, 13.365]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [7.110999999999999, 10.764999999999999],
+        [7.560999999999999, 10.764999999999999],
+        [7.560999999999999, 11.665],
+        [7.110999999999999, 11.665]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [8.011, 12.465],
+        [8.460999999999999, 12.465],
+        [8.460999999999999, 13.365],
+        [8.011, 13.365]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [8.811, 12.465],
+        [9.261, 12.465],
+        [9.261, 13.365],
+        [8.811, 13.365]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [9.710999999999999, 12.465],
+        [10.161, 12.465],
+        [10.161, 13.365],
+        [9.710999999999999, 13.365]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [9.710999999999999, 10.764999999999999],
+        [10.161, 10.764999999999999],
+        [10.161, 11.665],
+        [9.710999999999999, 11.665]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [8.011, 10.764999999999999],
+        [8.460999999999999, 10.764999999999999],
+        [8.460999999999999, 11.665],
+        [8.011, 11.665]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [8.811, 10.764999999999999],
+        [9.261, 10.764999999999999],
+        [9.261, 11.665],
+        [8.811, 11.665]
+      ],
+      "role": "pad",
+      "source_roundness_percent": 0.0
+    },
+    {
+      "kind": "polygon",
+      "ref": "R1",
+      "points_mm": [
+        [7.085999999999999, 11.565],
+        [10.186, 11.565],
+        [10.186, 12.565],
+        [7.085999999999999, 12.565]
+      ],
+      "role": "silk",
+      "source_roundness_percent": 0.0
+    }
+  ],
+  "mounting_holes": [
+    {
+      "kind": "circle",
+      "ref": "U$1",
+      "center_mm": [2.54, 15.24],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$17",
+      "center_mm": [22.86, 15.24],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$19",
+      "center_mm": [2.54, 2.54],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    },
+    {
+      "kind": "circle",
+      "ref": "U$21",
+      "center_mm": [22.86, 2.54],
+      "radius_mm": 1.25,
+      "role": "drill",
+      "name": "P$1",
+      "copper_outer_shape": "not inferred when not explicit"
+    }
+  ],
+  "maturity": "Manufacturer PCB layout drawing only; not incoming hardware, full 3D assembly or installed fit",
+  "missing": [
+    "All component/package heights and actual header population undefined",
+    "Board revision of incoming hardware unverified",
+    "Bottom/mirrored source graphics listed but not projected; routing, decorative artwork and true font outlines omitted",
+    "Pad/drill outlines are footprints, not installed package bodies",
+    "SMD pad corner roundness is retained in data but drawn as rectangular footprints",
+    "U1 source value is ADXL343 in official ADXL375/PID5374 file; source label retained, silicon identity not inferred",
+    "PCB25.4\u00d717.78mm versus nominal product25.6\u00d717.7mm: datums/tolerances undefined; no fit pass or silent scale correction"
+  ],
+  "engineering_accepted": false
+}

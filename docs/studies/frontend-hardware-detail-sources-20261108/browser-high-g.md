@@ -1,0 +1,13 @@
+# High-g PCB drawing — bounded live check
+
+The source-gated PCB view was opened in the same authorized Chrome window on November 8, within the final three-minute allowance. This packet is separate from the frozen 13-artifact baseline and 29-artifact integrated interior inventories; neither was modified.
+
+Inspect interior→Avionics and power→`high_g_accel`→Details→Open PCB layout displayed the actual manufacturer footprint graphic. The drawing, four mounting holes and selected U1 footprint were visible. Both the sidebar and drawing explain **25.4×17.78 mm PCB** versus **25.6×17.7×4.6 mm nominal product envelope**, with undefined datums/tolerances and no silent scale correction or fit pass. U1's retained **ADXL343** source value is explicit despite the official ADXL375/PID5374 file; silicon identity and component heights are not inferred. Source SHA-256 `7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c` was displayed.
+
+**Escape did not pass.** It hid the parent Parts sidebar while retaining `part=high_g_accel` in the URL. The app remained visibly rendered, but its native accessibility content became empty. The source corroborates the interaction: the native dialog is nested in Details, while the layout's capture listener intercepts Escape from any context descendant and hides that context before native dialog cancel. This is consistent with an open hidden dialog/inert-background state, not evidence of a backend or physics failure.
+
+`pcb-layout-open.jpg` preserves the open drawing. `pcb-after-escape.jpg` preserves the unexpected sidebar/view state. No second modal attempt, footprint-selector test or export/download was performed. The verifier recovered by normal navigation to the same RP1/spec URL without a part, reopened the sidebar, then used Reset view and Fit assembly. `final-recovered.jpg` visibly shows the whole assembled rocket, both panels open, Details/vehicle summary, interior off, no individual part URL and 45°/54.7°/0° with Assembly target. Source detail remains on and tools are closed.
+
+No user-change guard, DevTools call, viewport workaround, simulation or performance attempt occurred. The packet ended before its three-minute cap. Escape/focus correction remains source work for the primary; there is no browser recheck budget in this packet. Exact viewport acceptance remains unavailable. Native images are unchanged local-only JPEGs including browser chrome, not a CSS viewport-size claim.
+
+See the [record](../../../runs/frontend-high-g-board-20261108/record.json) and [hash inventory](browser-high-g-evidence.json). No source geometry, manufacturing fit, purchased-board revision, engineering/build or flight acceptance is implied.

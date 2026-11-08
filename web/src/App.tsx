@@ -1,3 +1,4 @@
+import { ownedByOpenDialog } from './workspaces/modalOwnership';
 import { recordedMassCases } from './workspaces/recordedMassCases';
 import {
   experimentConfiguration,
@@ -264,6 +265,7 @@ export default function App() {
     function keydown(event: KeyboardEvent) {
       if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
       if (mode !== 'design' && mode !== 'analysis') return;
+      if (ownedByOpenDialog(event.target)) return;
       if (
         event.target instanceof HTMLElement &&
         (['INPUT', 'SELECT', 'TEXTAREA'].includes(event.target.tagName) ||
