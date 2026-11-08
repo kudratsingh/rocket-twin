@@ -1,8 +1,8 @@
 {
-  "source_inventory_sha256": "af9b5e23e0bb7a9e72eb19f09e2ef7583b36972ff4303d14912847749b9a34d4",
+  "source_inventory_sha256": "95e085296981841e258b8f282c546c4c8bfdf24929183d162cbd7ea7d0c55a6b",
   "scope": "Final frozen source packet. Earlier captures belong to the staged fixes/scenarios in browser reports, not an asserted single commit at all times.",
   "files": {
-    "scripts/wo04_browser_capture_measurements.py": "b11e5b77375b15729f63db149b9160044db5bf5e3187d5518bb687b5bf4a1851",
+    "scripts/wo04_browser_capture_measurements.py": "49abed27f85fb40eaf7645560c0b44cc62b90ae6a6b18777cda4d69744e38197",
     "src/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/api/app.py": "04d83d808491629eef5906a2274b073b10d494f257cc9a2ced07b553cf51591c",
     "src/api/candidate_snapshot.py": "5ff88c0ed7a874e7491b380709627ebd0b1c15efd817ef700e082e61bf9189ff",
@@ -74,7 +74,6 @@
     "web/src/types.ts": "b797385c4c9c376ecc351042a4dde87a33c536e8f31fbabade13f2da278af8ed",
     "web/src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
     "web/src/workbench/A1ConnectionViews.tsx": "07773636dc3d1e6d7f0117f0a4ed914403f92041e0c0c4e7564b536a7e1d5cb8",
-    "web/src/workbench/A2BackboneViews.tsx": "7f8cfbbc1ed0161f1dae8b357fdeb3707a76fe927cc1d9bdb53985b740ece0b3",
     "web/src/workbench/ConventionalG80Views.tsx": "29ea79fbe5d8495be6128bdb8fc14e93f6c2470ec2e6ed4ad14c35db8ec4ce54",
     "web/src/workbench/EngineeringWorkbench.tsx": "269a8de58ebf3703b63e4c81fbb67d2ba48aa3e991b683f63217ae03f20c2f53",
     "web/src/workbench/ExtensionViews.tsx": "33aa704c61071d205dcefba08300dbe731f43c04625fbc90b15ecdda8c245cf6",
@@ -88,8 +87,6 @@
     "web/src/workbench/Vp1ValidationView.tsx": "c09ae000c94a0ae97e9bb095a2cc85a718183767308d1efdc90be5e47f3f0891",
     "web/src/workbench/a1ConnectionViews.css": "704ed544644bc431e971e1d3a2a0b9c7eb061f48f34a27a653786fee9736407a",
     "web/src/workbench/a1Types.ts": "a18afa288f64051d9f94b1fd52b16e6699cbac6172f0878840cb34166a5a80a9",
-    "web/src/workbench/a2BackboneViews.css": "7d3a961b02dc4f3e36fc0c3757d9dad57847c0f4b710b2ea7a1ae5c8dae3112a",
-    "web/src/workbench/a2Types.ts": "f290cbfb2b6b3083ee75f12e67b14f054422b1723e5e0802669745b6d8fead6a",
     "web/src/workbench/conventionalG80.css": "2febcbfd80b1f96be58ae4a4c2d1f0a0c9994cdccf86e836084fe5c0e7820398",
     "web/src/workbench/conventionalG80Types.ts": "d1e2651d826866ec1b24affde899bb0123a9b5687381a994cb991c70d4fc1c29",
     "web/src/workbench/exportSvg.ts": "a8f63643490583e976ad9f627cc25233542c612df09cb502fe2fbb5badf52176",
@@ -152,5 +149,21 @@
     "sha256": "7bd208322dc8d866b56e4422d369d06d1a06b8966b7cc614a22c086bef1aa6a4",
     "verified_unchanged": true
   },
-  "current_flight_code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f"
+  "current_flight_code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+  "excluded_local_unpublished_work": {
+    "reason": "Unrelated saved A2 study modules/test have no production importers and are absent from the published release tree. Preserve them locally; do not adopt/delete or silently publish them in the RP1 release.",
+    "files": {
+      "web/src/workbench/A2BackboneViews.tsx": "7f8cfbbc1ed0161f1dae8b357fdeb3707a76fe927cc1d9bdb53985b740ece0b3",
+      "web/src/workbench/a2BackboneViews.css": "7d3a961b02dc4f3e36fc0c3757d9dad57847c0f4b710b2ea7a1ae5c8dae3112a",
+      "web/src/workbench/a2Types.ts": "f290cbfb2b6b3083ee75f12e67b14f054422b1723e5e0802669745b6d8fead6a",
+      "web/tests/a2-backbone-boundary.test.mjs": "7e8a05762ba91d0413d31c122f794adc1e7ca997d68cc88ea756dbf0ffeeda7a"
+    },
+    "local_test_cases": 4
+  },
+  "check_scope": {
+    "local_web_tests_passed": 169,
+    "local_unpublished_A2_cases_included": 4,
+    "published_scope_case_count": 165,
+    "published_scope_note": "165 is the passing subset of the169-case local run. Hosted checks execute the actual published51test files separately; no separate local165-case execution is claimed."
+  }
 }

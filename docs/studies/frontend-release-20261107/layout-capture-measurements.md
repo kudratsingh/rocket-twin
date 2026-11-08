@@ -3,9 +3,10 @@
 Current captured default canvases clear the 72% width/78% height thresholds at
 1440×900 and 1280×720; actual Focus captures clear 95% width at both sizes.
 Explicit Side fits with visible guides measure 83.03% and 83.25% height with
-conservative minimum clearances of 7.92% and 7.63%. The annotated isolated
-barometer's exposed bounding extent clears the tight-part raster thresholds;
-its clean, unannotated counterpart remains pending.
+conservative minimum clearances of 7.92% and 7.63%. The preferred clean,
+tools-closed isolated barometer measures 78.31% limiting fill with at least
+10.48% conservative edge clearance. Its open-tools clean companion is also
+retained. Earlier annotated and failed-state evidence remains separate.
 
 This packet measures actual native Chrome PNG pixels. The sole browser verifier
 confirmed 100% zoom and full application viewports. Raster dimensions are exactly
@@ -72,6 +73,7 @@ excluded from the target mask.
 | `rp1-side-tools-closed-focus-guide-fixed-1440x900.png` | `[17,137,1309,741]` | `[632.5,189.5,697.5,691]` | **83.03%** | **8.28%**, bottom |
 | `rp1-side-tools-closed-default-guide-fixed-1280x720-refit.png` | `[330,137,1149,561]` | `[718,173.5,764,526.5]` | **83.25%** | **8.14%**, bottom |
 | `rp1-baro-isolated-guide-fixed-1440x900.png` | `[330,137,1309,741]` | `[771,202.5,868,675.5]` | **78.31%**, limiting height | **10.84%**, top/bottom |
+| `rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png` | `[330,137,1309,741]` | `[771,202.5,868,675.5]` | **78.31%**, limiting height | **10.84%**, top/bottom; unobstructed |
 
 For the 1440 Side captures, allowing ±1 CSS pixel per target/guide edge gives
 an 82.43–83.64% height interval. The conservative minimum clearance lower bound
@@ -136,16 +138,51 @@ as Focus evidence.
 These screenshot measurements are separate from keyboard/pointer interaction
 evidence, hidden-vertex visibility, engineering acceptance and physical release.
 
-## Handoff limit
+## Initial handoff and one clean-barometer addendum
 
-The sole verifier paused after repeated user-change guards on the browser
-window. At the primary's direction, this packet is finalized from the existing
-captures. The clean same-target barometer capture with its optional selected-part
-label switched off is **pending**, so no unobstructed-part screenshot is claimed.
-It can be appended after the owner returns the permitted window to the verifier.
-The annotated counterpart, wrong-size captures, wrong-Focus capture and
-pre-refit resize transition remain immutable evidence with their original hashes.
-No further browser/computer use occurred in this measurement lane.
+The initial handoff preserved the annotated barometer when the sole verifier
+paused after repeated user-change guards. The owner then returned the permitted
+window, and the primary authorized one clean-barometer addendum with open- and
+closed-tools companions. This measurement lane performed no browser/computer
+use; it read the two newly supplied PNGs.
+
+The addendum is
+`rp1-baro-isolated-unannotated-guide-fixed-1440x900.png`, confirmed 2880×1800,
+SHA-256 `9cdb70f93e6d493e559a882a8600d096055db194152a60c0c52bd2ff98e97c17`.
+The optional floating selected-part label is **off**, with no annotation over
+the solid. The same simplified barometer envelope is selected and isolated
+(54 hidden; one of one bounds). This changes a display label, not geometry,
+supplier detail, physical dimensions or thresholds.
+
+Scene tools are **open in this actual capture**. Its own magenta guide has
+conservative interior `[330,137,1309,495]`, or **979×358 CSS pixels**. The
+unobstructed silhouette is `[788,175.5,851,456.5]`, or **63×281 CSS pixels**.
+Limiting height fill is **78.49%** (uncertainty interval **77.50–79.49%**),
+top/bottom clearances are **10.75%**, and left/right clearances are **46.78%**.
+The conservative minimum clearance lower bound is **10.14%**. These actual
+pixels clear the scoped 65–85% tight-part and ≥5% edge criteria. The open-drawer
+canvas is not used for tools-closed default-layout acceptance, and the earlier
+closed-tools guide dimensions are not borrowed for this image.
+
+The preferred tools-**closed** companion is
+`rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png`, confirmed
+2880×1800, SHA-256
+`9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4`.
+It visibly has no annotation over the solid and uses its own measured guide
+interior `[330,137,1309,741]`, **979×604 CSS pixels**. Its unobstructed silhouette
+is `[771,202.5,868,675.5]`, **97×473 CSS pixels**, matching the exposed extrema
+in the original annotated counterpart. Height/limiting fill is **78.31%**
+(uncertainty interval **77.72–78.90%**); top/bottom clearances are **10.84%** and
+left/right clearances **45.05%**. The conservative minimum clearance lower bound
+is **10.48%**. It clears the scoped 65–85% tight-part and ≥5% edge criteria
+without a label occluding the projected silhouette. The canvas after selection
+is still **1127×782 CSS pixels**, the same size measured in the unselected
+1440 default. No geometry or threshold was changed to obtain this counterpart.
+
+The original annotated counterpart, wrong-size captures, wrong-Focus capture
+and pre-refit resize transition remain immutable evidence with their original
+hashes. The clean image establishes an unobstructed **projected silhouette**,
+not visibility of hidden/back surfaces or engineering/physical acceptance.
 
 The new measurement script passes Ruff and Black. It uses existing Pillow and
 NumPy, measures known native pixels and writes only these new report artifacts;

@@ -1,10 +1,10 @@
 {
   "date": "2026-11-07",
-  "status": "scoped screenshot measurements complete; clean unannotated barometer capture pending",
+  "status": "scoped screenshot measurements complete with one clean-barometer addendum",
   "method": "Actual native screenshot raster dimensions, manually identified borders/overlay boundaries, manually reviewed target search regions and RGB segmentation; CSS scale confirmed by sole browser verifier. No camera/geometry math.",
   "source_id": "G80-F2-RP1-AD1-definition-v2",
   "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
-  "script_sha256": "b11e5b77375b15729f63db149b9160044db5bf5e3187d5518bb687b5bf4a1851",
+  "script_sha256": "49abed27f85fb40eaf7645560c0b44cc62b90ae6a6b18777cda4d69744e38197",
   "captures": [
     {
       "phase": "before screen-right basis correction; no visible declared safe guide",
@@ -1344,13 +1344,321 @@
         "visible_target_edge": 1,
         "overlay_band_edge": 2
       }
+    },
+    {
+      "phase": "sole clean-barometer addendum after owner returned the permitted browser window; no geometry/threshold change",
+      "file": "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-guide-fixed-1440x900.png",
+      "sha256": "9cdb70f93e6d493e559a882a8600d096055db194152a60c0c52bd2ff98e97c17",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Clean barometer addendum: same source envelope, selected baro/54 hidden/1of1 bounds; optional floating selected-part label OFF; Scene tools OPEN; guide visible; no annotation over solid",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2880,
+        1176
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1440.0,
+        588.0
+      ],
+      "canvas_css_size": [
+        1127.0,
+        536.0
+      ],
+      "canvas_viewport_fraction": [
+        0.7826388888888889,
+        0.5955555555555555
+      ],
+      "object_search_raster_rect": [
+        1500,
+        300,
+        1800,
+        1000
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1576,
+        351,
+        1702,
+        913
+      ],
+      "visible_object_css_bbox": [
+        788.0,
+        175.5,
+        851.0,
+        456.5
+      ],
+      "visible_object_css_size": [
+        63.0,
+        281.0
+      ],
+      "matched_color_pixels": 69959,
+      "target_kind": "tight_part",
+      "fit_threshold_applicable": true,
+      "criterion_applicability": "small_part",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            658,
+            659
+          ],
+          [
+            2618,
+            2619
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            990,
+            991
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          660,
+          274,
+          2618,
+          990
+        ],
+        "conservative_inner_css_rect": [
+          330.0,
+          137.0,
+          1309.0,
+          495.0
+        ],
+        "conservative_inner_css_size": [
+          979.0,
+          358.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.06435137895812053,
+          "height": 0.7849162011173184
+        },
+        "edge_clearance_css_px": {
+          "left": 458.0,
+          "right": 458.0,
+          "top": 38.5,
+          "bottom": 38.5
+        },
+        "edge_clearance_fraction": {
+          "left": 0.46782431052093976,
+          "right": 0.46782431052093976,
+          "top": 0.10754189944134078,
+          "bottom": 0.10754189944134078
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4648318042813456,
+          "right": 0.4648318042813456,
+          "top": 0.10138888888888889,
+          "bottom": 0.10138888888888889
+        },
+        "height_fraction_uncertainty_interval": [
+          0.775,
+          0.7949438202247191
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.775,
+          0.7949438202247191
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": true,
+        "side_height_80_to_90pct_with_uncertainty": null,
+        "tight_part_65_to_85pct_with_uncertainty": true,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
+    },
+    {
+      "phase": "same sole clean-barometer addendum; closed-tools companion; no geometry/threshold change",
+      "file": "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png",
+      "sha256": "9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Preferred clean barometer companion: same source envelope selected/isolated; optional floating selected-part label OFF; Scene tools CLOSED; visible guide; unobstructed projected solid",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2880,
+        1668
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1440.0,
+        834.0
+      ],
+      "canvas_css_size": [
+        1127.0,
+        782.0
+      ],
+      "canvas_viewport_fraction": [
+        0.7826388888888889,
+        0.8688888888888889
+      ],
+      "object_search_raster_rect": [
+        1500,
+        350,
+        1800,
+        1400
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1542,
+        405,
+        1736,
+        1351
+      ],
+      "visible_object_css_bbox": [
+        771.0,
+        202.5,
+        868.0,
+        675.5
+      ],
+      "visible_object_css_size": [
+        97.0,
+        473.0
+      ],
+      "matched_color_pixels": 182895,
+      "target_kind": "tight_part",
+      "fit_threshold_applicable": true,
+      "criterion_applicability": "small_part",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            658,
+            659
+          ],
+          [
+            2618,
+            2619
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            1482,
+            1483
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          660,
+          274,
+          2618,
+          1482
+        ],
+        "conservative_inner_css_rect": [
+          330.0,
+          137.0,
+          1309.0,
+          741.0
+        ],
+        "conservative_inner_css_size": [
+          979.0,
+          604.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.09908069458631256,
+          "height": 0.7831125827814569
+        },
+        "edge_clearance_css_px": {
+          "left": 441.0,
+          "right": 441.0,
+          "top": 65.5,
+          "bottom": 65.5
+        },
+        "edge_clearance_fraction": {
+          "left": 0.45045965270684374,
+          "right": 0.45045965270684374,
+          "top": 0.10844370860927152,
+          "bottom": 0.10844370860927152
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4475025484199796,
+          "right": 0.4475025484199796,
+          "top": 0.10478547854785479,
+          "bottom": 0.10478547854785479
+        },
+        "height_fraction_uncertainty_interval": [
+          0.7772277227722773,
+          0.7890365448504983
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.7772277227722773,
+          0.7890365448504983
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": true,
+        "side_height_80_to_90pct_with_uncertainty": null,
+        "tight_part_65_to_85pct_with_uncertainty": true,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
     }
   ],
-  "pending_captures": [
+  "pending_captures": [],
+  "addenda": [
     {
-      "case": "Same isolated barometer and visible guide with optional selected-part label switched off",
-      "purpose": "Unobstructed projected silhouette; annotated capture only establishes exposed bounding extrema",
-      "reason": "Sole verifier paused after repeated user-change guards; primary requested current evidence handoff without further browser use"
+      "case": "Clean isolated barometer after owner returned the permitted window",
+      "files": [
+        "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-guide-fixed-1440x900.png",
+        "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png"
+      ],
+      "display_change": "Optional floating selected-part label switched OFF; source/model geometry and thresholds unchanged",
+      "actual_layout": "Both OPEN-tools and preferred CLOSED-tools clean companions; each uses its own actual guide pixels",
+      "scope": "Unobstructed projected silhouette; original annotated image and all earlier failures remain preserved"
     }
   ],
   "preserved_nonmatching_captures": [

@@ -148,6 +148,34 @@ CAPTURES: list[dict[str, Any]] = [
         "safe_raster": None,
         "expected_sha256": "8c909cd91385d9ebecfb6ce2af15002ab486a9e4edab5442fbd69a7d45074f24",
     },
+    {
+        "file": "rp1-baro-isolated-unannotated-guide-fixed-1440x900.png",
+        "viewport_css": [1440, 900],
+        "state": "Clean barometer addendum: same source envelope, selected baro/54 hidden/1of1 bounds; optional floating selected-part label OFF; Scene tools OPEN; guide visible; no annotation over solid",
+        "phase": "sole clean-barometer addendum after owner returned the permitted browser window; no geometry/threshold change",
+        "criterion": "small_part",
+        "visible_guide": True,
+        "target_kind": "tight_part",
+        "canvas_raster": [626, 104, 2880, 1176],
+        "object_search_raster": [1500, 300, 1800, 1000],
+        "object_exclusions_raster": [],
+        "safe_raster": None,
+        "expected_sha256": "9cdb70f93e6d493e559a882a8600d096055db194152a60c0c52bd2ff98e97c17",
+    },
+    {
+        "file": "rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png",
+        "viewport_css": [1440, 900],
+        "state": "Preferred clean barometer companion: same source envelope selected/isolated; optional floating selected-part label OFF; Scene tools CLOSED; visible guide; unobstructed projected solid",
+        "phase": "same sole clean-barometer addendum; closed-tools companion; no geometry/threshold change",
+        "criterion": "small_part",
+        "visible_guide": True,
+        "target_kind": "tight_part",
+        "canvas_raster": [626, 104, 2880, 1668],
+        "object_search_raster": [1500, 350, 1800, 1400],
+        "object_exclusions_raster": [],
+        "safe_raster": None,
+        "expected_sha256": "9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4",
+    },
 ]
 
 
@@ -350,17 +378,23 @@ def main() -> None:
         results.append(measured)
     result = {
         "date": "2026-11-07",
-        "status": "scoped screenshot measurements complete; clean unannotated barometer capture pending",
+        "status": "scoped screenshot measurements complete with one clean-barometer addendum",
         "method": "Actual native screenshot raster dimensions, manually identified borders/overlay boundaries, manually reviewed target search regions and RGB segmentation; CSS scale confirmed by sole browser verifier. No camera/geometry math.",
         "source_id": "G80-F2-RP1-AD1-definition-v2",
         "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
         "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "captures": results,
-        "pending_captures": [
+        "pending_captures": [],
+        "addenda": [
             {
-                "case": "Same isolated barometer and visible guide with optional selected-part label switched off",
-                "purpose": "Unobstructed projected silhouette; annotated capture only establishes exposed bounding extrema",
-                "reason": "Sole verifier paused after repeated user-change guards; primary requested current evidence handoff without further browser use",
+                "case": "Clean isolated barometer after owner returned the permitted window",
+                "files": [
+                    "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-guide-fixed-1440x900.png",
+                    "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png",
+                ],
+                "display_change": "Optional floating selected-part label switched OFF; source/model geometry and thresholds unchanged",
+                "actual_layout": "Both OPEN-tools and preferred CLOSED-tools clean companions; each uses its own actual guide pixels",
+                "scope": "Unobstructed projected silhouette; original annotated image and all earlier failures remain preserved",
             }
         ],
         "preserved_nonmatching_captures": [

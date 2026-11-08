@@ -1,6 +1,6 @@
 # Current bounded work list
 
-**Live verification checkpoint (2026-11-07):** [Actual browser evidence](studies/frontend-release-20261107/browser-access.md). Sole verifier `/root/browser_access_sol` observed the current RP1 source and all 26 inspection meshes in the owner-authorized Chrome window. Actual captures establish the desktop canvas/Focus dimensions and explicit Side fits; mapped fin/recovery links, Analysis missingness, single/batch execution, replay/comparison and exports have live evidence. Source fixes include label cleanup, compact drawers, exact-time entry, deferred-clock correction, immutable time-axis validation and correct camera handedness. Both full native-rate G54 measurements still miss the 60 fps target; the second p95 was 17.70 ms, so performance acceptance remains open. Browser work is now paused on repeated external-user-change guards: clean-label baro, last configuration switches and final owner-ready restoration are pending a free window. No renewed permission or extension repair is needed. PR96 is merged after both required checks; final source checks pass 169 web tests, type/lint/format/build and make check. Supplier/lab drafts remain UNSENT. WO-03, engineering, prototype-build and flight gates remain open.
+**Live verification checkpoint (2026-11-07):** [Actual browser evidence](studies/frontend-release-20261107/browser-access.md). Sole verifier `/root/browser_access_sol` completed the bounded normal-workflow checks in the owner-authorized Chrome window and restored RP1 Design at 1440×900/100%: 26 meshes, explicit Fit, no selection, guide off, both left columns open and tools closed. Actual captures establish default canvas/Focus dimensions, Side fits and a clean isolated barometer fit. Mapped fin/recovery links, all recorded configuration switches, Analysis missingness, real single/batch execution, replay/comparison/exports and request/render recovery have live evidence. Both full native-rate G54 measurements still miss the 60 fps target; follow-up p95 was 17.70 ms. Broader unexecuted/data-blocked branches remain partial; full frontend/work-order acceptance is open. No browser-owner input is pending. PR96 is merged; PR97 carries the closeout source/evidence through required checks. Local169tests include four unrelated saved A2 cases;165cases belong to the published scope, with orphan A2 work preserved locally. All five supplier/lab drafts remain UNSENT; WO-03, engineering, build and flight gates remain open.
 
 ## Active frontend closeout packet
 
@@ -247,3 +247,13 @@ tangents. One straight/circular fixture and one full<=120s render passed; V1–V
 failures/source archives remain. No generic renderer, browser or install project.
 New extension image packets reuse that proven offline route under their own
 120s caps. Later regeneration defaults use build/ so historical records survive.
+
+## Next bounded frontend action after this closeout
+
+The source and ordinary inspection/experiment workflows are handed over with
+actual images and a restored owner preview. Keep the60fps failed result open;
+[the proposed performance packet](studies/frontend-release-20261107/performance-next-packet.md)
+first isolates SVG/trajectory/host cost, then allows one justified display-only
+correction and one separately declared measurement. It is not an automatic third
+attempt or engine change. Material/assembly validation remains VP1 and owner-gated;
+no inquiry is sent or physical work executed by this handoff.

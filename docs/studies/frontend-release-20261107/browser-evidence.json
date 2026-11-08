@@ -36,6 +36,33 @@
       "sha256": "a1d755732842a0c0268ff87d3e3bec5ed69d521bc6edb8a435e19bf0fcf77fef"
     },
     {
+      "path": "runs/frontend-browser-20261107/design-g12-finless-inspection-1440x900.png",
+      "bytes": 655954,
+      "sha256": "6a3dd2620a20981c96b3d8d76fc29a9b61f80f2c6585672596dadc66c8501d2c",
+      "raster_px": [
+        2880,
+        1800
+      ]
+    },
+    {
+      "path": "runs/frontend-browser-20261107/design-g12-finned-inspection-1440x900.png",
+      "bytes": 629918,
+      "sha256": "18180e3c2ab9e13fd14de64190d52fcc1042f62d10b3f71b2f253f62c9715919",
+      "raster_px": [
+        2880,
+        1800
+      ]
+    },
+    {
+      "path": "runs/frontend-browser-20261107/design-g54-archived-inspection-1440x900.png",
+      "bytes": 632790,
+      "sha256": "21bb5515a1500b1d5aaaf03e8fcd283bee0c2c11b3e36580fff3c4cb83b010a0",
+      "raster_px": [
+        2880,
+        1800
+      ]
+    },
+    {
       "path": "runs/frontend-browser-20261107/exp-d0baf4168f7f41e687a1b5f12e14cc3e-playback.csv",
       "bytes": 2526923,
       "sha256": "39c6ab2b1738996115ac37f1e0633b34a2f6cc4a2ecd19e79368f1fd02ae98a4"
@@ -56,8 +83,8 @@
     },
     {
       "path": "runs/frontend-browser-20261107/record.json",
-      "bytes": 25148,
-      "sha256": "c835c78ebe41a94af491f098b75ae3ffd3999e6779e3574843ae7d187a984b47"
+      "bytes": 31175,
+      "sha256": "80ed9ba221678c96391ec673ac12025433823ca6671ca9cd7c12d39487ee297e"
     },
     {
       "path": "runs/frontend-browser-20261107/replay-compatible-pair-1440x900.png",
@@ -153,6 +180,24 @@
       "path": "runs/frontend-browser-20261107/rp1-baro-isolated-guide-fixed-1440x900.png",
       "bytes": 378119,
       "sha256": "5f9e74502758945b62678bd0b87d976e20472c9ee8961c2d641e45561602c534",
+      "raster_px": [
+        2880,
+        1800
+      ]
+    },
+    {
+      "path": "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-guide-fixed-1440x900.png",
+      "bytes": 526520,
+      "sha256": "9cdb70f93e6d493e559a882a8600d096055db194152a60c0c52bd2ff98e97c17",
+      "raster_px": [
+        2880,
+        1800
+      ]
+    },
+    {
+      "path": "runs/frontend-browser-20261107/rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png",
+      "bytes": 403257,
+      "sha256": "9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4",
       "raster_px": [
         2880,
         1800
@@ -466,5 +511,40 @@
       "total_process_gpu_memory": "unmeasured",
       "screenshot": "replay-full-rate-followup-1440x900.png"
     }
-  ]
+  ],
+  "capture_dispositions": {
+    "rp1-side-default-1440x900.png": "Actually tools OPEN; preserved also as rp1-side-tools-open-1440x900.png. Not closed-tools default evidence.",
+    "*guide-fixed-1280x720.png": "Original files actually2560x1800 raster, i.e.1280x900. Preserved unchanged and explicit1280x900-mis-sized copies; not720 criteria.",
+    "rp1-side-tools-closed-default-guide-fixed-1280x720-verified.png": "Actual2560x1440 but resize-transition/manual fit retained; measured90.92%height and4.13%bottomclearance fail fit criteria. Not final explicit-fit fixture.",
+    "rp1-side-tools-closed-focus-guide-fixed-1280x720-verified.png": "Actual2560x1440 but Details remained open; not Focus evidence. Preserved failed interaction.",
+    "rp1-side-tools-closed-default-guide-fixed-1280x720-refit.png": "Final actual explicit Side/Fit at1280x720; pixel-measured guide83.25%height, minimum8.14%clearance.",
+    "rp1-side-tools-closed-focus-fixed-1280x720.png": "Actual2560x1440 with Exitfocus/bothcolumnsabsent/toolsclosed. Guideoff afterworkspace remount; use for Focus canvas-width only.",
+    "rp1-baro-isolated-guide-fixed-1440x900.png": "Actual selectedbaro,54/55hidden,1/1bounds; optional annotationobscurescenter. Preserved alongside clean-label companion.",
+    "rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png": "Final clean-label isolatedbaro;2880x1800, guidevisible, toolsclosed, actualsolid unobstructed."
+  },
+  "owner_ready_state": {
+    "verified": true,
+    "workspace": "Design",
+    "configuration": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "representation": "3D inspection model",
+    "actual_model": "full source-derived body/nose/fins/motor rendered after explicitFitassembly",
+    "selected_part": null,
+    "workspace_rail": "open",
+    "context_sidebar": "Parts/open",
+    "scene_tools": "closed",
+    "framing_guide": false,
+    "camera": "overview + explicitFitassembly",
+    "viewport_css_px": [
+      1440,
+      900
+    ],
+    "browser_zoom_percent": 100,
+    "network": "No throttling",
+    "last_saved_replay_profile": "bounded",
+    "last_saved_replay_state": "paused",
+    "last_replay_camera": "follow",
+    "last_replay_speed": 1,
+    "no_more_cua_after_restoration": true
+  }
 }

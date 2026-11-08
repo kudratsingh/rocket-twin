@@ -27,9 +27,7 @@ No engineering or flight criterion is inferred from frontend behavior or CI.
 Actual visible-guide Side fits measure 83.03% height at 1440 and 83.25% at 1280,
 with conservative minimum edge-clearance bounds of 7.92% and 7.63%. Explicit Fit
 after resizing matters: the retained unrefitted 720 transition fails the
-safe-area screen and is preserved. The isolated barometer's exposed extrema
-fit 78.31%, but its optional annotation covers part of it; a clean-label image
-is still pending. No measurement was supplied by camera math.
+safe-area screen and is preserved. The clean isolated barometer fits 78.31% of the limiting guide dimension, with conservative minimum clearance10.48%. Its optional floating label was turned off; geometry did not change. No measurement was supplied by camera math.
 
 One real UI single and a two-member Tiny batch completed exactly 27,000 declared
 model steps. They are separate archived G80 experiments, each 45 s and incomplete
@@ -44,11 +42,14 @@ was 33.20 ms; after the bounded clock/cache correction it was 17.70 ms (mean
 performance guarantee; no third attempt was made. Browser heap snapshots are
 not process/GPU memory, and process CPU time/core affinity were unavailable.
 
-Browser work is paused after repeated external-user-change guards. The window
-must be free before the sole verifier resumes the clean-label capture, final
-configuration switches and owner-ready restoration. No access permission is
-being requested again. Other unexecuted keyboard/zoom/fault branches and absent
-compatible spatial fields remain explicit; no blanket browser pass is claimed.
+The owner confirmed the Chrome window was free after the recorded external-change
+pause. The sole verifier completed the clean-part capture, G54/finned-G12/finless
+inspection switches, exact invalid-time rejection, landing jump, camera/speed
+selectors and corrected Offline load-status recovery. RP1 Design is restored at
+1440 × 900, 100% zoom, both columns open, tools/guide off and explicit Fit. Saved
+replay is bounded/paused, follow camera/1×, and network throttling is disabled.
+No browser-owner input is pending. Wider unexecuted keyboard/zoom/fault branches
+and absent compatible spatial fields remain explicit; no blanket pass is claimed.
 
 ## Start and inspect
 
@@ -115,7 +116,7 @@ Dimensions cannot establish joint strength, hot behavior or flutter.
 
 | Workflow | Implemented and checked in repository | Still needs observation/evidence |
 | --- | --- | --- |
-| Design | Independent left panels, source-linked2D/3D, fit/focus, visibility/section/explode/restore,55part details and maturity | Actual default/Focus/Side pixels measured at both desktop sizes; narrow drawer/scroll observed. Clean-label baro and last configuration switches pending a free window; retained keyboard/zoom matrix incomplete |
+| Design | Independent left panels, source-linked2D/3D, fit/focus, visibility/section/explode/restore,55part details and maturity | Actual default/Focus/Side pixels measured at both desktop sizes; narrow drawer/scroll observed. Clean unannotated baro and all recorded configuration switches observed; retained keyboard/zoom matrix incomplete |
 | Engineering | Fin/recovery source drawings, exact part/revision links, dimensions, failed/unknown findings and portable source exports | Mapped fin/recovery round trips, FP1 SVG and VP1 local draft exports observed; full stale/legacy/keyboard/error matrix remains partial |
 | Single experiments | Complete supported configurations, seed/preset/wind/gust, effective request/model identity, idempotency, saved attempts/draft reuse/errors | One live Tiny single completed; saved-record Offline recovery observed. Nonzero wind execution, worker failure and submit-retry branches unexecuted |
 | Batches |2–4members, one serial CPU slot, declared steps/storage, failure retention, cooperative cancellation and interruption | Two Tiny members completed and were reloaded/compared. Cancellation, failure retention and retry branches unexecuted |
@@ -178,7 +179,7 @@ listener, browser transfer, browser heap or FPS observation.
 
 The 21-task/37-check ledger retains the original 43-task mapping. Source checks
 pass: 169 web tests, TypeScript, lint, formatting, production build and make check.
-The existing large-chunk warning remains visible. Passing these checks does not
+The169local cases include four unrelated saved A2 tests;165cases belong to the published release scope. The three orphan A2 modules and that test are preserved locally without production importers and are excluded from this PR. The source fingerprint explicitly records the exclusion; hosted checks run the published file set. The existing large-chunk warning remains visible. Passing these checks does not
 close browser, engineering, build, firmware or flight acceptance.
 
 The actual browser packet covers all five workspaces, mapped fin/recovery round
@@ -195,12 +196,10 @@ revalidate, and invalid windows remain unavailable. The camera regression now
 uses Three's actual projection rather than reproducing the former sign error.
 [Independent projection regression](studies/frontend-release-20261107/camera-projection-regression.json).
 
-Remaining acceptance work is specific: a free Chrome window for the last normal
-checks; unavailable controlled data-error/worker-cancellation fixture branches;
+Remaining acceptance work is specific: unavailable controlled data-error/worker-cancellation fixture branches;
 a compatible spatial-analysis dataset; and an explicitly replanned performance
 packet before any further benchmark attempt. Keep the 60 fps target unchanged.
-No new solver, engine, physics campaign or automatic performance retry is admitted
-by this handoff. Existing preview features remain usable while these rows are open.
+[A separately bounded next performance packet](studies/frontend-release-20261107/performance-next-packet.md) is proposed. No new solver, engine, physics campaign or automatic performance retry is admitted by this handoff. Existing preview features remain usable while these rows are open.
 
 Offline artifacts are separately useful: the actual-GLB contact sheet at
 `output/frontend-release-20261107/rp1-inspection-contact-sheet.png`, its hash
@@ -208,3 +207,9 @@ manifest, source inspector HTML/SVG under `output/frontend-release-20261107/sour
 and the RP1 connection pack at `output/rp1-connections-20261107/`. They preserve
 source/configuration/status. None is a browser screenshot; static selection
 buttons are inert. [Offline geometry QA](studies/frontend-release-20261107/offline-geometry.md).
+
+The main matrix's RV-Q10 pass is scoped to the measured default/Focus dimensions
+and observed Focus restoration. The raw browser record retains its wider
+keyboard/zoom submatrix as partial; these are different stated scopes, not a
+claim that unexecuted branches passed. The37rows currently contain14pass,
+21partial,1fail and1not-applicable; the failed row is the measured60fps benchmark.

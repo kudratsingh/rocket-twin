@@ -78,8 +78,7 @@ changed or motor hypothesis promoted.
 The changed-source full-rate follow-up improved the observed p95 to 17.70 ms but
 still failed 60 fps; mean was 17.50 ms. This is not a passing performance screen
 or a repeated statistical study. No third attempt ran. Browser work later paused
-on repeated external-user-change guards; the clean-label baro image, final
-configuration switches and owner-ready restoration remain pending a free window.
+on repeated external-user-change guards. After the owner confirmed the window was free, the sole verifier completed clean-label baro capture, configuration switches, corrected Offline load-status recovery and owner-ready RP1 restoration. No browser-owner input is now pending.
 The final source check set passes 169 web tests, type/lint/format/build and
 make check. Exact hosted checks are still required for publication. All physical,
 material, engineering and flight gates remain open; all five drafts remain UNSENT.

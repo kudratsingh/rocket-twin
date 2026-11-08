@@ -87,21 +87,21 @@
       "check_id": "RV-Q04",
       "status": "pass",
       "fixture": "Existing authorized Chrome window containing Atlas Fibre G11 PDF",
-      "actual_observation": "Owner explicitly reassigned sole current Chrome window to /root/browser_access_sol. Documented same-runtime native Chrome control succeeded. Extension access-host error is historical transport limitation.",
+      "actual_observation": "Owner explicitly reassigned sole current Chrome window to /root/browser_access_sol. Documented same-runtime native Chrome control succeeded. Extension access-host error is historical transport limitation. After temporary external-user-change guards, owner confirmed windowfree; supported freshstate and bounded remaining native actions completed, followed by verified owner-ready restoration.",
       "evidence": "Native getApp + actual window/tab; current API exact geometry238d01e5...28b608."
     },
     {
       "check_id": "RV-Q05",
       "status": "partial",
       "fixture": "Design, Engineering, Experiments, Replay, Analysis, legacy URLs",
-      "actual_observation": "All five workspace tabs visited; current source/part preserved Design→Engineering→Back. Exact saved run/comparison URL reloaded with matching source. Unknown/stale/legacy URL and Forward matrix unexecuted.",
+      "actual_observation": "All five workspace tabs visited; current source/part preserved Design→Engineering→Back. Exact saved run/comparison URL reloaded with matching source. Unknown/stale/legacy URL and Forward matrix unexecuted. Actual configuration-menu switches additionally resolved separate archivedG54(42parts),finnedG12(53parts),finlessG12(51parts); finalRP1restored.",
       "evidence": "Native UI; exact RP1 spec811b3bed…; replay URL selected two actual runs."
     },
     {
       "check_id": "RV-Q06",
       "status": "partial",
       "fixture": "Controlled missing-route, missing-source, malformed, HTTP 500 and delayed A/B responses",
-      "actual_observation": "One explicit DEV render fixture showed explanatory workspace error inside intact navigation. Reload link removed only diagnostic flag and preserved design/spec/part/run; normal Design navigation recovered. Ordinary Chrome Offline saved-run request displayed TypeError: Failed to fetch; No throttling restored and same record loaded. Missing/malformed/500/delayed response matrix remains unexecuted.",
+      "actual_observation": "One explicit DEV render fixture showed explanatory workspace error inside intact navigation. Reload link removed only diagnostic flag and preserved design/spec/part/run; normal Design navigation recovered. Ordinary Chrome Offline saved-run request displayed TypeError: Failed to fetch; No throttling restored and same record loaded. Missing/malformed/500/delayed response matrix remains unexecuted. Changed-source catch-status recheck: one Offline savedG54 selection explicitly ended Saved-run load failed: TypeError: Failed to fetch; after NoThrottling restoration, same record recovered matching source. No POST/jobfailure claimed.",
       "evidence": "replay-controlled-render-failure-1440x900.png; native transport failure and recovery. No worker/job failure claimed."
     },
     {
@@ -143,8 +143,8 @@
       "check_id": "RV-Q14",
       "status": "partial",
       "fixture": "Loaded archived G80 assembly plus small same-design part",
-      "actual_observation": "Current26-meshRP1 renders. Corrected Side+explicit Fit captures pass screenshot-derived guide height/clearance:1440 83.03%/≥8.28%;1280 83.25%/≥8.14%. Isolatedbaro Frame1/1bounds and54/55hidden; silhouette78.31%guideheight/≥10.84%clearance, but optional label occludes center. Clean-label companion pending external-user guard. End/tight presets remain unexecuted.",
-      "evidence": "Current guide-fixed1440 default;true1280x720-refit;rp1-baro-isolated-guide-fixed-1440x900.png. Priorbasis,mis-sized,unrefit andwrongFocus captures explicitly preserved."
+      "actual_observation": "Current26-meshRP1 renders. Corrected Side+explicitFit current captures pass screenshot-derived guide height/clearance:1440 83.03%/≥8.28%;1280 83.25%/≥8.14%. Genuine isolatedbaro Frame1/1bounds and54/55hidden captured; optional label OFF companion visually unobstructed,2880x1800,guidevisible,toolsclosed. End/tight presets remain unexecuted.",
+      "evidence": "Current defaultguide-fixed1440;true1280x720-refit;rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png SHA9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4. Priorfailure/annotatedcapturesretained."
     },
     {
       "check_id": "RV-Q15",
@@ -164,7 +164,7 @@
       "check_id": "RV-Q17",
       "status": "partial",
       "fixture": "Interior part, hidden exterior, section and exploded arrangement",
-      "actual_observation": "SectionON then Hide outer body shows interior and3/55 hidden; Restore assembly resetsSectionOFF,0/55hidden,26/26fit, selectedbaro retained. Explode/isolate/clipped picking subpaths unexecuted. Genuine isolatedbaro54/55hidden and Frame1/1bounds captured; Restore assembly subsequentlyobserved26/26fit,0/55hidden. Clean-label companion not executed before external-user guard.",
+      "actual_observation": "SectionON then Hide outer body shows interior and3/55 hidden; Restore assembly resetsSectionOFF,0/55hidden,26/26fit, selectedbaro retained. Explode/isolate/clipped picking subpaths unexecuted. Genuine isolatedbaro54/55hidden and Frame1/1bounds captured; Restore assembly subsequentlyobserved26/26fit,0/55hidden. After owner confirmed freewindow, clean-label companion completed with guidevisible andtoolsclosed; annotationtoggleOFFpreserves actualsolid.",
       "evidence": "rp1-restored-tools-1440x900.png"
     },
     {
@@ -185,7 +185,7 @@
       "check_id": "RV-Q22",
       "status": "partial",
       "fixture": "Supported archived complete config and an unadmitted RP1 choice",
-      "actual_observation": "RP1 flight unsupported with disabled run. Explicit archivedG80 Tiny single completed seed20261107; saved/source-checked reload and wind2m/s→90deg draft previews verified then restored without execution. Request-error/worker-error branches unexecuted.",
+      "actual_observation": "RP1 flight unsupported with disabled run. Explicit archivedG80 Tiny single completed seed20261107; saved/source-checked reload and wind2m/s→90deg draft previews verified then restored without execution. Request-error/worker-error branches unexecuted. Finless actual staticinspection selected; RunCPUdisabled and explicit Finless unguided simulation is unsupported explanation. ArchivedG54/finnedG12/finlessG12 geometryswitches completed withoutnewruns.",
       "evidence": "exp-3a22d9988a384951a3a5a5901c67ce5d;9000declaredsteps;12.77s observed submit-to-terminal."
     },
     {
@@ -199,7 +199,7 @@
       "check_id": "RV-Q25",
       "status": "partial",
       "fixture": "Saved diagnostic and one incomplete fixture",
-      "actual_observation": "Actual saved replay loaded independently checked sources; Play→Pause advances58.77→62.52s; scrub22.745s shows nearest exact22.750s on compatible batch pair. Event/speed/full camera and exact11.150 regression pending. After explicit .tsx import fix, exact input11.150 requested11.150s; landing116.029 yields nearest endpoint height0/speed0. Exact field and validity preserve requested value while native range AX quantizes11.151/116.021. Nearest bounded11.143s remains separately labelled.",
+      "actual_observation": "Actual saved replay loaded independently checked sources; Play→Pause advances58.77→62.52s; scrub22.745s shows nearest exact22.750s on compatible batch pair. Event/speed/full camera and exact11.150 regression pending. After explicit .tsx import fix, exact input11.150 requested11.150s; landing116.029 yields nearest endpoint height0/speed0. Exact field and validity preserve requested value while native range AX quantizes11.151/116.021. Nearest bounded11.143s remains separately labelled. Settled200s exactdraft rejected with Time must be inside recorded replay window0.001–116.029…inclusive; cursorunchanged. Escape restores0.001. Actuallandingevent jumps requested116.029. Follow→fixedpad→free→follow and2x→1x selectorchanges verified paused. Event-alignment/plotrange and measured speed-multiplier accuracy remain unexecuted.",
       "evidence": "replay-compatible-pair-1440x900.png;3004returned/9000raw each."
     },
     {
@@ -220,7 +220,7 @@
       "check_id": "RV-Q29",
       "status": "partial",
       "fixture": "Known assembly and trajectory, reduced-motion preference",
-      "actual_observation": "Actual Side camera preset/explicitFit/Focus/default and saved follow-camera geometry observed. UI explains physical scale, recorded pose and approximate recovery. Pad/free/speed/reduced-motion matrix not executed.",
+      "actual_observation": "Actual Side preset/explicitFit/Focus/default and saved follow-camera geometry observed. Replaycamera selectors switchedfollow→fixedpad→free→follow while cursor stayed116.029; speedselector2x→1x verified paused. UI explains scale/recordedpose/approximaterecovery. Fullcamera visual-clearance/reduced-motion/measuredspeedaccuracy matrix unexecuted.",
       "evidence": "Current Side/Focus screenshot set; genuine saved replay captures. No physical or canopy geometry inference."
     },
     {
@@ -248,7 +248,7 @@
       "check_id": "RV-Q34",
       "status": "partial",
       "fixture": "RP1 and historical design, supported run and compatible/unsupported analysis",
-      "actual_observation": "Allfiveworkspaces actualvisited; RP1current source distinct from archivedG80 savedrun source, currentfinding labels preserved. Full historical analysis/dashboard links unexecuted.",
+      "actual_observation": "Allfiveworkspaces actualvisited; RP1current source distinct from archivedG80 savedrun source, currentfinding labels preserved. Full historical analysis/dashboard links unexecuted. Finalconfigurationmenu correctly separatedG54/finnedG12/finlessG12 actualmodels, thenRP1restored; no historicalmeshsubstitution inRP1.",
       "evidence": "Actual native navigation; no foreignmesh substitution."
     },
     {
@@ -417,7 +417,8 @@
     "rp1-side-tools-closed-focus-guide-fixed-1280x720-verified.png": "Actual2560x1440 but Details remained open; not Focus evidence. Preserved failed interaction.",
     "rp1-side-tools-closed-default-guide-fixed-1280x720-refit.png": "Final actual explicit Side/Fit at1280x720; pixel-measured guide83.25%height, minimum8.14%clearance.",
     "rp1-side-tools-closed-focus-fixed-1280x720.png": "Actual2560x1440 with Exitfocus/bothcolumnsabsent/toolsclosed. Guideoff afterworkspace remount; use for Focus canvas-width only.",
-    "rp1-baro-isolated-guide-fixed-1440x900.png": "Actual selectedbaro,54/55hidden,1/1bounds. Optional selected-part label obscures center; clean-label companion pending."
+    "rp1-baro-isolated-guide-fixed-1440x900.png": "Actual selectedbaro,54/55hidden,1/1bounds; optional annotationobscurescenter. Preserved alongside clean-label companion.",
+    "rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png": "Final clean-label isolatedbaro;2880x1800, guidevisible, toolsclosed, actualsolid unobstructed."
   },
   "access_prerequisite_passed": true,
   "combined_release_verified": false,
@@ -425,17 +426,127 @@
   "build_authorized": false,
   "flight_ready": false,
   "inquiries": "AllfiveUNSENT; one local download/copy preserves exact frozen SHA2394f0420a038494c2da526516022a930f296d4d7983ac5c9bd8018ffcafe537",
-  "remaining": "CUA yielded after repeated external-user-change guards; clean-label isolated baro, final G54/G12-finned/finless configuration switches, exact invalid-time/camera/speed/event-alignment branches and final owner-ready restoration remain pending. No new simulation/performance attempt.",
+  "remaining": "Compound branches remain partial: controlled missing/malformed/500/delayed data, compatible current-source spatial fields, workerfailure/cancel/retry, fullretainedzoom/keyboardmatrix, end/tightpresets, event-alignment/plotrange, reduced-motion and measuredspeed accuracy. 60fps failed inbothauthorizedprofiles. No blocking access issue or owner-ready restoration pending.",
   "last_observed_native_guard": {
     "message": "The user changed /Applications/Google Chrome.app. Re-query latest state with get_app_state before sending more actions.",
     "consecutive_short_step_interruptions": 2,
     "supported_requery": "returned DevTools Console prompt focus; free window not established",
-    "disposition": "yielded CUA; no stale-state retry",
+    "disposition": "Historical temporary yield; superseded by ownerfreeconfirmation and successful bounded resumption/restoration",
     "last_resize_observation": {
       "width_css_px": 1440,
-      "height": "auto/empty",
-      "not_a_new_1440x900_capture": true
+      "height_css_px": 900,
+      "verified_in_native_toolbar_and_final_actual_view": true
     },
-    "owner_ready_restoration_verified": false
+    "owner_ready_restoration_verified": true
+  },
+  "resumed_bounded_packet": {
+    "authorization": "Owner answered yes that authorized Chrome window was free; primary explicitly resumed sole native verifier",
+    "stable_access": "Fresh supported state succeeded. One subsequent guard after download was honored with fresh state; expected Moreoptions focus returned, then native controls remained stable. No stale-state input.",
+    "new_simulations": 0,
+    "new_performance_attempts": 0,
+    "clean_baro": {
+      "source_part": "baro",
+      "isolated_hidden_source_records": 54,
+      "source_records": 55,
+      "framed_loaded_bounds": "1/1",
+      "selected_part_label": false,
+      "cg_cp_markers": false,
+      "framing_guide": true,
+      "scene_tools": "closed",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "artifact": "rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png",
+      "sha256": "9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4"
+    },
+    "configuration_switches": [
+      {
+        "id": "modular-performance-g54-hypothesis",
+        "label": "G54 conditional upgrade",
+        "parts": 42,
+        "representation": "3D recorded geometry; matching recorded CAD",
+        "artifact": "design-g54-archived-inspection-1440x900.png"
+      },
+      {
+        "id": "modular-tvc-finned-v1",
+        "label": "G12 finned TVC trainer",
+        "parts": 53,
+        "representation": "3D recorded geometry with visiblefins/TVC",
+        "artifact": "design-g12-finned-inspection-1440x900.png"
+      },
+      {
+        "id": "modular-tvc-finless-v1",
+        "label": "G12 eventual finless TVC",
+        "parts": 51,
+        "representation": "3D recorded geometry with nofins",
+        "artifact": "design-g12-finless-inspection-1440x900.png",
+        "experiment_selector": "Finless trainer · static inspection only",
+        "run_control": "disabled",
+        "explanation": "Finless unguided simulation is unsupported. The actual design is shown for inspection."
+      }
+    ],
+    "exact_time_rejection": {
+      "run_id": "exp-cf9e47a650074144856caf50775846d2",
+      "entered_s": 200,
+      "cursor_before_s": 0.001,
+      "cursor_after_s": 0.001,
+      "actual_error": "Time must be inside the recorded replay window 0.001–116.02900000018997 seconds (inclusive).",
+      "escape_reset_s": 0.001,
+      "landing_event_requested_s": 116.029,
+      "nearest_endpoint_height_m": 0,
+      "nearest_endpoint_speed_mps": 0
+    },
+    "camera_speed_controls": {
+      "camera_sequence": [
+        "follow",
+        "fixed pad",
+        "free",
+        "follow"
+      ],
+      "requested_time_unchanged_s": 116.029,
+      "speed_sequence": [
+        1,
+        2,
+        1
+      ],
+      "playback": "paused; no new frameprofile or numeric multiplier qualification"
+    },
+    "changed_source_saved_load_regression": {
+      "mode": "ordinary Chrome Throttling Offline",
+      "action": "select existing exp-ab60bd4ac5c2412a9dd85f712072bca2; noPOST/simulation",
+      "actual_failure_status": "Saved-run load failed: TypeError: Failed to fetch",
+      "restored_transport": "Disabled: No throttling",
+      "recovery": "same savedrecord loaded matching source and bounded samples"
+    }
+  },
+  "owner_ready_state": {
+    "verified": true,
+    "workspace": "Design",
+    "configuration": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "representation": "3D inspection model",
+    "actual_model": "full source-derived body/nose/fins/motor rendered after explicitFitassembly",
+    "selected_part": null,
+    "workspace_rail": "open",
+    "context_sidebar": "Parts/open",
+    "scene_tools": "closed",
+    "framing_guide": false,
+    "camera": "overview + explicitFitassembly",
+    "viewport_css_px": [
+      1440,
+      900
+    ],
+    "browser_zoom_percent": 100,
+    "network": "No throttling",
+    "last_saved_replay_profile": "bounded",
+    "last_saved_replay_state": "paused",
+    "last_replay_camera": "follow",
+    "last_replay_speed": 1,
+    "no_more_cua_after_restoration": true
   }
 }
