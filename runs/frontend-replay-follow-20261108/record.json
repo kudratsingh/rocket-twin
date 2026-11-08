@@ -1,0 +1,158 @@
+{
+  "schema_version": "rocket-twin.replay-follow-p11.20261108.v1",
+  "status": "Auto_B_visual_pass_explicit_modes_unexecuted_cap_overrun",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "cap_active_s": 150,
+    "actual_active_s": 152.599,
+    "overrun_s": 2.599,
+    "budget_pass": false,
+    "extension_claimed": false,
+    "basis": "CUA Date.now firstfreshstate through finalcapture; finalread/capturecompletedaftercap"
+  },
+  "source": {
+    "merged_base_main": "47bc74a12b6d186bf8a9b68ef6e7ad45f044410a",
+    "local_new_camera_source": {
+      "web/src/experiments/Experiment.tsx": "18dbf51fc34ee3ba0a3ffe047c0fa23a3bee5040b48df95eeab825947b61fb20",
+      "web/src/experiments/replayFollowTarget.ts": "b89d0aa6c17749388efb0608cbe4ba8e2c2b778fa90702a191a36ca749e44888",
+      "web/src/experiments/experiment.css": "b01bde9076e3fc3927b18a58c912ee41dbc153b1dd5ccc32967a4b73a7e84203",
+      "web/src/App.tsx": "a59c2cc9d05a6eb29d2a62ce5a740008d4446ac6ceb4cf966846a64ea3e36692"
+    },
+    "publication": "Newcandidatewaslocalfrozenatcapture; do notclaimmergedbasecontainsnewcamera withoutprimarypublicationverification.",
+    "preservation": "Primaryreports recordedpose/time/rawdata/visibilitymath unchanged; no driverinspectionorfrontendphysics bythisagent."
+  },
+  "setup": {
+    "a": "exp-cf9e47a650074144856caf50775846d2",
+    "b": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "clock": "absolute",
+    "applied_time_s": 125,
+    "HMR_preserved": true,
+    "bounded": true,
+    "paused": true,
+    "initial_mode": "Camera: Auto follow A, then B"
+  },
+  "cases": [
+    {
+      "case": "Entry/source/state",
+      "outcome": "pass",
+      "observation": "Exactmanualcomparison125survivedHMR; HUD125.000/core125.00/exact125, absoluteclock/fullrange, benchmarkcheckbox0, Playbuttonpaused."
+    },
+    {
+      "case": "Auto B fallback",
+      "outcome": "pass_current_window_visual_and_status",
+      "observation": "Trackinglabel Camera follows B recorded position \u00b7 Auto fallback; A: Outside recorded window \u00b7 view only. ActualnativeimageclearlyshowsrecognizablerocketbodyalonggoldBtrail; Aallfourreadoutsunavailable/Bvaluesunchanged."
+    },
+    {
+      "case": "Explicit A-only",
+      "outcome": "unexecuted_native_selection_not_established",
+      "observation": "DropdownopenedandshowedAuto/Aonly/Bonly/pad/free. Down+ReturnattemptleftAuto unchanged. NextfreshpopupclickyieldednoAXtreechange/noopenedmenuitems. No explicitA-onlystateorheldreason established; notclassifiedas sourcebug."
+    },
+    {
+      "case": "Explicit B-only",
+      "outcome": "unexecuted",
+      "observation": "Skippedafterunresolvednativecontrolpath; no mode-switch pass."
+    },
+    {
+      "case": "Free",
+      "outcome": "unexecuted",
+      "observation": "Skipped; nofollow-label nottested."
+    },
+    {
+      "case": "Ownerfinalstate",
+      "outcome": "Auto_B125_preserved_budget_overrun_retained",
+      "observation": "Finalsourcepair125AutoBsamecomparison, cameraAuto, paused/bounded; noDesignreset or numericentry. Finalcaptureoverran150by2.599s."
+    }
+  ],
+  "mode_options_observed": [
+    "Camera: Auto follow A, then B",
+    "Camera: follow A only",
+    "Camera: follow B only",
+    "Camera: fixed pad",
+    "Camera: free"
+  ],
+  "native_response_limit": "No automatic sourcecorrection or alternatepointer/keyboardcascade followed. Nativefocus/menuadapter versus sourcecontrol cause remains undiagnosed.",
+  "body_visibility_scope": {
+    "B_body": "ClearlyvisibleinAutoBimageandfinalcapture, alignedwithgoldBtrail andBfollowinglabel; view-only recordedmodel, notphysicalrecoveryqualification",
+    "A_body": "No separateAbody identified; Astatus/readoutoutsidewindowevidence remains separate fromglobalpixelabsenceproof",
+    "numeric_camera_pose": "Notmeasured; followlabel+actualBbodyvisibility only",
+    "historical_trails": "SourceA/Btrails remainhistory, notextrapolatedcurrentApose"
+  },
+  "readouts": {
+    "A_all_four": "unavailable at this time",
+    "B_nearest_sample_s": 125.014,
+    "B_height_m": 48.142042534510715,
+    "B_speed_mps": 6.146887368499118,
+    "B_net_acceleration_mps2": 0.0018515856783503314,
+    "B_tilt_deg": 4.573493442790127
+  },
+  "actions": {
+    "normal_scroll_to_scene": 1,
+    "scroll_pages_up": 2,
+    "popup_opens_attempted": 2,
+    "keyboard_Down_Return_selection_attempt": 1,
+    "numeric_entry_or_setter": 0,
+    "newload_reload": 0,
+    "Play": 0,
+    "full_native": 0,
+    "resize": 0,
+    "new_simulation": 0,
+    "other_window_app": 0,
+    "devtools_console_cdp": 0,
+    "source_edit": 0
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-replay-follow-20261108/attempted-a-only-still-auto-b.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-follow-20261108/auto-b.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-follow-20261108/final-auto-b.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    }
+  ],
+  "artifact_names": "a-only preliminaryartifactsrenamedattempted-a-only-still-auto-b beforefreeze; bytesunchanged andnotpassedA-only evidence.",
+  "final_state": {
+    "workspace": "replay",
+    "actor_a": "exp-cf9e47a650074144856caf50775846d2",
+    "actor_b": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "clock": "absolute",
+    "time_s": 125,
+    "camera_mode": "Auto follow A, then B",
+    "tracking": "B recorded position; fallbackAoutside",
+    "paused": true,
+    "profile": "bounded",
+    "owner_comparison_preserved": true,
+    "Design_reset": false
+  },
+  "guards": {
+    "access_error": 0,
+    "user_change": 0,
+    "automatic_rejection": 0
+  },
+  "remaining": [
+    "ExplicitAonlyheld/Bonly/Free nativeinteraction branchesunexecuted",
+    "Cap150missedby2.599s; no budgetpass",
+    "Numericcamera/pivot/physicalposeaccuracy notmeasured",
+    "Prescribedviewport/performance/physics/physical/flightgates unchanged"
+  ],
+  "engineering_or_flight_approval": false
+}

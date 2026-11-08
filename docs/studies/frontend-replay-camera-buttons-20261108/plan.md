@@ -1,0 +1,7 @@
+# P12 explicit camera-button check
+
+One targeted current-source nativeChrome packet,120seconds overall with **all native actions ended by90seconds**, targetfinish80. BeforeeachCUAinvocation checkwallremaining inJS; do notstartnativework withless15seconds to90 orless30seconds to120. Lowbudget meansskipremainder/stopWITHOUTfinalcapture; no capoverrun justified byrestore/capture. No mode/input/reload/methodcascade,Play/sim/resize/DevTools/otherwindow/sourceedit.
+
+Fresh exactcf9A/ab60B,absoluteAPPLIED125,boundedpaused,AutoB musthold; stoplostsetupwithoutrepair. One actualclickper observedbutton: Follow A only→pressed/heldAoutside; Follow B only→pressed/Bfollowing+bodyonlyifpixelsclear; Free orbit→pressed/no run followed; Auto A→B→pressed/Bfallback/125. EachclickfollowedfreshAX. Capturewithinbudget; nooptionalPad. Preserveownercomparison125, notDesign.
+
+Sourcefreeze: Experiment21b67f694e10a5f75917243ca7a5d3085957f65b49a39ca7af7e22ce0325443b, CSSbd0b0811ed20bf462c269f0a94ec287ce555820d1c4b8c58800e990d151340dd, helperb89d0aa6c17749388efb0608cbe4ba8e2c2b778fa90702a191a36ca749e44888, Appa59c2cc9d05a6eb29d2a62ce5a740008d4446ac6ceb4cf966846a64ea3e36692. Camera/actor/time/math unchangedperprimary; onecamera runtimecorrectionbudgetconsumed, no newfixloop. OldP11popupfailure and152.599/150overrun immutable. Labels/pressedstates separatefromactualbodypixels andnumericpose/performance/engineering acceptance.

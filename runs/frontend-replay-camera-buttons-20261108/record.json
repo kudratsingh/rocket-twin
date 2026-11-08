@@ -1,0 +1,157 @@
+{
+  "schema_version": "rocket-twin.replay-camera-buttons-p12.20261108.v1",
+  "status": "passed_scoped_camera_button_cases_within_hard_native_cutoff",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "overall_cap_s": 120,
+    "hard_native_end_s": 90,
+    "target_finish_s": 80,
+    "actual_native_active_s": 48.382,
+    "budget_pass": true,
+    "before_action_checks_s": [
+      12.561,
+      24.647,
+      35.332,
+      47.264
+    ],
+    "minimum_before_call_requirement": "No nativework launched after75s, retaining>=15s to90 and>=45s to120",
+    "native_ended_before90": true,
+    "overall_reserve_left_s": 71.618,
+    "basis": "CUA Date.now firstfreshstate through finalcapture; allnewnativecalls selfcheckedelapsedbeforeaction"
+  },
+  "source": {
+    "local_frozen_hashes": {
+      "web/src/experiments/Experiment.tsx": "21b67f694e10a5f75917243ca7a5d3085957f65b49a39ca7af7e22ce0325443b",
+      "web/src/experiments/experiment.css": "bd0b0811ed20bf462c269f0a94ec287ce555820d1c4b8c58800e990d151340dd",
+      "web/src/experiments/replayFollowTarget.ts": "b89d0aa6c17749388efb0608cbe4ba8e2c2b778fa90702a191a36ca749e44888",
+      "web/src/App.tsx": "a59c2cc9d05a6eb29d2a62ce5a740008d4446ac6ceb4cf966846a64ea3e36692"
+    },
+    "boundary": "This is newvisiblebutton source21b67\u2026/CSSbd0\u2026; P11oldpopupsource18db\u2026failure/budgetoverrununchanged. Publicationstatus remainsprimary-owned.",
+    "helper_actor_time_math": "Unchangedperprimary; no newphysics/data/hook/driverinspectionbybrowseragent."
+  },
+  "setup": {
+    "a": "exp-cf9e47a650074144856caf50775846d2",
+    "b": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "clock": "absolute",
+    "applied_time_s": 125,
+    "profile": "bounded",
+    "paused": true,
+    "HMR_preserved": true,
+    "initial_mode": "Auto A\u2192B / followsBfallbackAoutside"
+  },
+  "cases": [
+    {
+      "case": "Follow A only",
+      "outcome": "pass_pressed_state_and_status",
+      "actual_clicks": 1,
+      "pressed": true,
+      "other_modes_pressed": false,
+      "label": "Camera held \u00b7 A: Outside recorded window",
+      "scope": "No silentBlabel substitution; heldlabel/selectionverified, no numericcamerapose/moving-targetmeasurement."
+    },
+    {
+      "case": "Follow B only",
+      "outcome": "pass_pressed_state_status_and_body_capture",
+      "actual_clicks": 1,
+      "pressed": true,
+      "label": "Camera follows B recorded position \u00b7 view only",
+      "body_pixels": "ActualBrocketbodyrecognizableinb-only.jpg, goldtrail/trackinglabel; notnumericposeaccuracy."
+    },
+    {
+      "case": "Free orbit",
+      "outcome": "pass_pressed_state_and_liveAX_label",
+      "actual_clicks": 1,
+      "pressed": true,
+      "label": "Camera: free orbit \u00b7 no run followed",
+      "scope": "AXonlycapturefree.ax.txt; no drag/manualnumericposeclaim."
+    },
+    {
+      "case": "Auto A\u2192B restore",
+      "outcome": "pass_pressed_state_status_and_body_capture",
+      "actual_clicks": 1,
+      "pressed": true,
+      "label": "Camera follows B recorded position \u00b7 Auto fallback; A: Outside recorded window \u00b7 view only",
+      "body_pixels": "ActualBrocketbodyrecognizableinfinal-auto-b.jpg",
+      "time_s": 125
+    }
+  ],
+  "unchanged_readouts": {
+    "A_all_four": "unavailable at this time",
+    "B_nearest_sample_s": 125.014,
+    "B_values": {
+      "height_m": 48.142042534510715,
+      "speed_mps": 6.146887368499118,
+      "net_acceleration_mps2": 0.0018515856783503314,
+      "tilt_deg": 4.573493442790127
+    }
+  },
+  "actions": {
+    "mode_button_clicks": 4,
+    "clicks_per_required_mode": 1,
+    "Fixed_pad": 0,
+    "popup_or_alternative_method": 0,
+    "reload_newload": 0,
+    "numeric_input_setter": 0,
+    "Play_FPS": 0,
+    "new_simulation": 0,
+    "resize": 0,
+    "other_app_window": 0,
+    "devtools_console_cdp": 0,
+    "source_edit": 0
+  },
+  "guards": {
+    "user_change": 0,
+    "automatic_rejection": 0,
+    "access_error": 0,
+    "source_regression_observed": false
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-replay-camera-buttons-20261108/a-only.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-camera-buttons-20261108/b-only.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-camera-buttons-20261108/final-auto-b.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    }
+  ],
+  "final_state": {
+    "workspace": "replay",
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "clock": "absolute",
+    "time_s": 125,
+    "camera": "Auto A\u2192B / followsBfallback",
+    "paused": true,
+    "profile": "bounded",
+    "owner_review_preserved": true,
+    "Design_reset": false
+  },
+  "remaining": [
+    "Fixedpadoptionalbranch notexecuted",
+    "Bdisabledwithoutcomparison nottestedwithcurrentpairpresent",
+    "Numericcamera/pivot/physicalposeaccuracy notmeasured",
+    "Exactviewport/performance/physical/flightgates unchanged"
+  ],
+  "prior_packets_immutable": true,
+  "engineering_or_flight_approval": false
+}

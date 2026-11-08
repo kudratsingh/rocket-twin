@@ -387,3 +387,21 @@
     border-top: 1px solid #2b3d46;
   }
 }
+
+.exp-camera-modes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  flex-basis: 100%;
+  min-width: 0;
+}
+.exp-camera-modes > span {
+  flex-basis: 100%;
+  font-size: 12px;
+  color: #a6bbc2;
+}
+.exp-camera-modes button[aria-pressed='true'] {
+  border-color: #72d5ce;
+  background: #204b50;
+}

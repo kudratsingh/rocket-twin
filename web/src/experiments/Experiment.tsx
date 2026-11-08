@@ -20,6 +20,8 @@ import { replayValidity } from './replayValidity';
 import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWindow';
 import { replayPose } from './replayPose';
 import type { ReplayPose } from './replayPose';
+import { replayFollowTarget } from './replayFollowTarget';
+import type { ReplayCameraMode } from './replayFollowTarget';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
 import { exportMetadata, telemetryCsv } from './runExport';
@@ -203,7 +205,7 @@ function FlightScene({
   other: Loaded | null;
   time: number;
   offsets: { a: number; b: number };
-  mode: 'follow' | 'pad' | 'free';
+  mode: ReplayCameraMode;
   fitToken: number;
   onPrimaryDiagnostics: (value: ReplayTrajectoryDiagnostics) => void;
   onComparisonDiagnostics: (value: ReplayTrajectoryDiagnostics) => void;
@@ -213,14 +215,15 @@ function FlightScene({
   const comparisonPose = other
     ? replayPose(other.telemetry.columns, Number(other.vehicle.summary.length_m), time + offsets.b)
     : null;
-  const loc = primaryPose.kind === 'unavailable' ? null : new Vector3(...primaryPose.position);
+  const followTarget = replayFollowTarget(mode, primaryPose, comparisonPose);
+  const loc = followTarget.position ? new Vector3(...followTarget.position) : null;
   const theta = (run.record.settings.wind_direction_deg * Math.PI) / 180;
   const wind = run.record.settings.wind_mps;
   return (
     <Canvas camera={{ position: [2, 1.5, 3], fov: 45, near: 0.01, far: 5000 }}>
       <ambientLight intensity={1.4} />
       <directionalLight position={[20, 50, 30]} intensity={2} />
-      <ReplayCamera loc={loc} mode={mode} fitToken={fitToken} run={run} />
+      <ReplayCamera loc={loc} mode={followTarget.cameraMode} fitToken={fitToken} run={run} />
       <gridHelper args={[100, 20, '#38505b', '#24343c']} />
       <ReplayTrajectory
         key={`primary-${run.record.run_id}-${run.playbackMode}`}
@@ -275,6 +278,38 @@ function FlightScene({
         />
       )}
     </Canvas>
+  );
+}
+function CameraTrackingReadout({
+  run,
+  other,
+  time,
+  mode,
+  offsets,
+}: {
+  run: Loaded;
+  other: Loaded | null;
+  time: number;
+  mode: ReplayCameraMode;
+  offsets: { a: number; b: number };
+}) {
+  const tracking = replayFollowTarget(
+    mode,
+    replayPose(run.telemetry.columns, Number(run.vehicle.summary.length_m), time + offsets.a),
+    other
+      ? replayPose(
+          other.telemetry.columns,
+          Number(other.vehicle.summary.length_m),
+          time + offsets.b,
+        )
+      : null,
+  );
+  return (
+    <div className="exp-scene-controls" style={{ top: 'auto', bottom: 8 }}>
+      <output aria-label="Camera tracking" style={{ overflowWrap: 'anywhere' }}>
+        {tracking.label}
+      </output>
+    </div>
   );
 }
 function StaticPreview({ vehicle, reset }: { vehicle: InspectionDocument; reset: number }) {
@@ -754,7 +789,7 @@ export default function Experiment({
     [time, setTime] = useState(0),
     [playing, setPlaying] = useState(false),
     [speed, setSpeed] = useState(1),
-    [mode, setMode] = useState<'follow' | 'pad' | 'free'>('follow'),
+    [mode, setMode] = useState<ReplayCameraMode>('follow'),
     [fitToken, setFitToken] = useState(0),
     [resetPreview, setResetPreview] = useState(0),
     [plotChannels, setPlotChannels] = useState(defaultChannels);
@@ -1724,7 +1759,7 @@ export default function Experiment({
                         setFitToken((n) => n + 1);
                       }}
                     >
-                      Fit visible trajectory
+                      Fit A trajectory
                     </button>
                     <button type="button" onClick={downloadDiagnostics}>
                       Save visible replay diagnostics
@@ -1749,24 +1784,49 @@ export default function Experiment({
                     onPrimaryDiagnostics={onPrimaryDiagnostics}
                     onComparisonDiagnostics={onComparisonDiagnostics}
                   />
+                  <CameraTrackingReadout
+                    run={shown}
+                    other={other}
+                    time={time}
+                    mode={mode}
+                    offsets={alignment}
+                  />
                 </div>
                 <div className="exp-controls">
-                  <select
-                    aria-label="Replay camera"
-                    value={mode}
-                    onChange={(e) => setMode(e.target.value as 'follow' | 'pad' | 'free')}
-                  >
-                    <option value="follow">Camera: follow</option>
-                    <option value="pad">Camera: fixed pad</option>
-                    <option value="free">Camera: free</option>
-                  </select>
+                  <div className="exp-camera-modes" role="group" aria-label="Replay camera">
+                    <span>Camera view · display only</span>
+                    {(
+                      [
+                        ['follow', 'Auto A → B'],
+                        ['follow-a', 'Follow A only'],
+                        ['follow-b', 'Follow B only'],
+                        ['pad', 'Fixed pad'],
+                        ['free', 'Free orbit'],
+                      ] satisfies [ReplayCameraMode, string][]
+                    ).map(([value, text]) => (
+                      <button
+                        key={value}
+                        type="button"
+                        aria-pressed={mode === value}
+                        disabled={value === 'follow-b' && !other}
+                        title={
+                          value === 'follow-b' && !other
+                            ? 'Load comparison run B to follow its recorded position.'
+                            : 'Change the camera view; recorded rocket poses are unchanged.'
+                        }
+                        onClick={() => setMode(value)}
+                      >
+                        {text}
+                      </button>
+                    ))}
+                  </div>
                   <button
                     onClick={() => {
                       setMode('free');
                       setFitToken((n) => n + 1);
                     }}
                   >
-                    Fit trajectory
+                    Fit A trajectory
                   </button>
                   <button
                     onClick={() => {
