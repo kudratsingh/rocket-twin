@@ -12,6 +12,16 @@ certified commercial motors and suitable purchased parts complement the build.
 
 **Repository:** public by owner confirmation (November 4, 2026). The next G80 engineering milestone is [VP1 material and attachment validation](docs/validation/rp1-vp1/package-summary.md). Physical interchangeability with G12 is optional; the first G80 remains a dedicated conventional build.
 
+The current RP1 preview includes its own source-derived 3D inspection model,
+linked Engineering drawings and recorded findings. Archived supported vehicles
+can run local CPU experiments and replay/compare saved telemetry. Live browser
+checks and actual screenshots are recorded in
+[the release handoff](docs/frontend-release-20261107.md). Desktop layout and
+explicit Side fitting pass measured thresholds; the full native-rate 60 fps
+benchmark remains failed. Final browser checks are paused until the authorized
+Chrome window is free. This is a preliminary inspection/experiment preview,
+not engineering, prototype-build or flight approval.
+
 ## What works today
 
 - **Vehicle models:** typed YAML parts, geometry, mass, centre of gravity, full
@@ -51,7 +61,7 @@ implements adjacent collapsible left columns, a larger visual and a bottom tools
 drawer; [the release candidate](docs/frontend-release-20261107.md) also implements
 bounded experiments/batches, replay/export and recorded Analysis workflows.
 Supported same-window native Chrome verification is available. Combined-release
-acceptance awaits a normal-terminal preview restart and the remaining live checks.
+acceptance is being checked in the permitted Chrome window after the owner restarted the normal-terminal preview.
 
 VP1 remains a proposed evidence programme using ordinary birch plywood and WEST
 105/206/406, not vehicle adoption. **The five inquiry drafts remain UNSENT under

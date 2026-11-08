@@ -1,5 +1,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
+import { playbackStep } from './playbackStep';
+import { ExactReplayTime } from './ExactReplayTime.tsx';
 import { replayValidity } from './replayValidity';
 import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWindow';
 import { replayPose } from './replayPose';
@@ -834,6 +836,7 @@ export default function Experiment({
           );
         if (!isCurrent() || requestedMode !== playbackModeRef.current || controller.signal.aborted)
           return;
+        if (Array.isArray(telemetry.columns.time_s)) Object.freeze(telemetry.columns.time_s);
         const item = { record, telemetry, vehicle, playbackMode: requestedMode };
         setLoadProfile({
           id,
@@ -856,8 +859,14 @@ export default function Experiment({
         setLoadStatus(`Loaded ${id} with matching source and ${requestedMode} samples.`);
         setError('');
       } catch (e) {
-        if (isCurrent() && !controller.signal.aborted && requestedMode === playbackModeRef.current)
+        if (
+          isCurrent() &&
+          !controller.signal.aborted &&
+          requestedMode === playbackModeRef.current
+        ) {
           setError(String(e));
+          setLoadStatus(`Saved-run load failed: ${String(e)}`);
+        }
       } finally {
         if (activeLoads.current[lane] === controller) {
           activeLoads.current[lane] = null;
@@ -930,7 +939,9 @@ export default function Experiment({
       frame = 0;
     frameDeltas.current = [];
     const tick = (now: number) => {
-      frameDeltas.current.push(now - last);
+      const elapsedMs = now - last;
+      const advance = playbackStep(elapsedMs, speed, replayEnd);
+      frameDeltas.current.push(elapsedMs);
       if (frameDeltas.current.length > 600) frameDeltas.current.shift();
       if (now - lastProfile >= 1000) {
         setProfile(frameProfile(frameDeltas.current));
@@ -938,7 +949,7 @@ export default function Experiment({
         lastProfile = now;
       }
       setTime((t) => {
-        const next = t + ((now - last) / 1000) * speed;
+        const next = advance(t);
         if (next >= replayEnd) {
           setPlaying(false);
           return replayEnd;
@@ -1478,6 +1489,14 @@ export default function Experiment({
                 {alignment.event ? 'Aligned' : 'T+'}
                 {time.toFixed(2)} s
               </span>
+              <ExactReplayTime
+                key={`${rangeKey}-${fullRateBenchmark}`}
+                time={time}
+                start={replayStart}
+                end={replayEnd}
+                aligned={!!alignment.event}
+                onApply={scrubTo}
+              />
             </div>
             <p>
               Orbit and zoom with mouse. Teal: {shown.record.run_id}
@@ -1575,9 +1594,12 @@ export default function Experiment({
                 Playback instrumentation (browser observation required for acceptance)
               </summary>
               <p>
-                Scenario: one or two identified recorded runs, bounded playback samples, four linked
-                plots and matching CAD. Frame intervals include UI scheduling; they are not GPU
-                render-only timings. The rolling window retains at most 600 frames.
+                Scenario: one or two identified recorded runs,{' '}
+                {fullRateBenchmark
+                  ? 'full native-rate benchmark samples'
+                  : 'bounded playback samples'}
+                , four linked plots and matching CAD. Frame intervals include UI scheduling; they
+                are not GPU render-only timings. The rolling window retains at most 600 frames.
               </p>
               {loadProfile && (
                 <p>

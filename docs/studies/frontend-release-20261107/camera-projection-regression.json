@@ -1,0 +1,36 @@
+{
+  "kind": "software projection regression, not browser or engineering acceptance",
+  "baseline_commit": "c389d310189ed44653d6a8aea3f0870a912c5615",
+  "before_source_sha256": "36023ac00fbfdb073f9c01a187b5769ec18e2e7861273bc345593299bea96a35",
+  "after_source_sha256": "0977863dde9dbb5a9d1e655906c4dee72316432208249aaeda15a8cab427c220",
+  "projection": "Actual Three PerspectiveCamera and Vector3.project; independent of fitter basis algebra",
+  "inset": {
+    "left": 0.25,
+    "right": 0.05,
+    "top": 0.1,
+    "bottom": 0.05
+  },
+  "fill": 0.8,
+  "results": {
+    "before": {
+      "projected_center_x_ndc": -0.20000000000000007,
+      "expected_center_x_ndc": 0.2,
+      "min_x": -0.7599999999403038,
+      "max_x": 0.3599999999403036,
+      "allowed_min_x": -0.35999999999999993,
+      "allowed_max_x": 0.76,
+      "center_pass": false,
+      "horizontal_fit_pass": false
+    },
+    "after": {
+      "projected_center_x_ndc": 0.20000000000000007,
+      "expected_center_x_ndc": 0.2,
+      "min_x": -0.3599999999403036,
+      "max_x": 0.7599999999403038,
+      "allowed_min_x": -0.35999999999999993,
+      "allowed_max_x": 0.76,
+      "center_pass": true,
+      "horizontal_fit_pass": true
+    }
+  }
+}

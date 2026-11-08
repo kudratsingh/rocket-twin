@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "evidence": "Read-only audit of owner-authorized live UI-created run records; not a browser interaction substitute or flight validation.",
+  "source_configuration": "Archived modular-performance-v1; never RP1 geometry or flight admission.",
+  "total_declared_max_steps": 27000,
+  "serial_worker_concurrency": 1,
+  "physical_core_affinity": "unavailable",
+  "process_cpu_seconds": "unavailable",
+  "runs": [
+    {
+      "run_id": "exp-3a22d9988a384951a3a5a5901c67ce5d",
+      "record_path": "runs/exp-3a22d9988a384951a3a5a5901c67ce5d/record.json",
+      "status": "complete",
+      "batch_id": null,
+      "batch_members": null,
+      "settings": {
+        "configuration": "modular-performance-v1",
+        "wind_mps": 0.0,
+        "wind_direction_deg": 0.0,
+        "gust_mps": 0.0,
+        "preset": "tiny",
+        "seed": 20261107
+      },
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "sensor_noise": true,
+        "elevation_m": 850,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0
+      },
+      "controller": "locked, unguided",
+      "configuration": "modular-performance-v1",
+      "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "created_at": "2026-11-08T04:10:10.397096+00:00",
+      "finished_at": "2026-11-08T04:10:13.669937+00:00",
+      "worker_complete": true,
+      "trajectory_complete": false,
+      "apogee_agl_m": 635.2486690232791,
+      "guide_exit_mps": 19.093365021969927,
+      "landing": null,
+      "resources": {
+        "backend": "cpu",
+        "concurrency": 1,
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "max_steps": 9000,
+        "seed": 20261107,
+        "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+        "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+      },
+      "artifact_sha256": {
+        "record.json": "c110387e120da38620da2f21c31013c8670f21ca95bdec0add94103c237ca4d2",
+        "resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f",
+        "telemetry.parquet": "df8fa5027885fd14d61ce2a0e3d46379dfa286722aee35e89cddf04d41edfc20"
+      }
+    },
+    {
+      "run_id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+      "record_path": "runs/exp-d0baf4168f7f41e687a1b5f12e14cc3e/record.json",
+      "status": "complete",
+      "batch_id": "batch-b4e4867083bf44c6b9b601f255a1a870",
+      "batch_members": [
+        "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+        "exp-d57656d638d5412d95b03198e9fb73d7"
+      ],
+      "settings": {
+        "configuration": "modular-performance-v1",
+        "wind_mps": 0.0,
+        "wind_direction_deg": 0.0,
+        "gust_mps": 0.0,
+        "preset": "tiny",
+        "seed": 20261107
+      },
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "sensor_noise": true,
+        "elevation_m": 850,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0
+      },
+      "controller": "locked, unguided",
+      "configuration": "modular-performance-v1",
+      "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "created_at": "2026-11-08T04:16:28.547851+00:00",
+      "finished_at": "2026-11-08T04:16:29.038241+00:00",
+      "worker_complete": true,
+      "trajectory_complete": false,
+      "apogee_agl_m": 635.2486690232791,
+      "guide_exit_mps": 19.093365021969927,
+      "landing": null,
+      "resources": {
+        "backend": "cpu",
+        "concurrency": 1,
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "max_steps": 9000,
+        "seed": 20261107,
+        "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+        "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+      },
+      "artifact_sha256": {
+        "record.json": "5acd508733529ff9588a7f0d6e759b03371d155ac94c0c38726b6db413506559",
+        "resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f",
+        "telemetry.parquet": "df8fa5027885fd14d61ce2a0e3d46379dfa286722aee35e89cddf04d41edfc20"
+      }
+    },
+    {
+      "run_id": "exp-d57656d638d5412d95b03198e9fb73d7",
+      "record_path": "runs/exp-d57656d638d5412d95b03198e9fb73d7/record.json",
+      "status": "complete",
+      "batch_id": "batch-b4e4867083bf44c6b9b601f255a1a870",
+      "batch_members": [
+        "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+        "exp-d57656d638d5412d95b03198e9fb73d7"
+      ],
+      "settings": {
+        "configuration": "modular-performance-v1",
+        "wind_mps": 0.0,
+        "wind_direction_deg": 0.0,
+        "gust_mps": 0.0,
+        "preset": "tiny",
+        "seed": 20261108
+      },
+      "case": {
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "sensor_noise": true,
+        "elevation_m": 850,
+        "wind_north_mps": 0.0,
+        "wind_east_mps": 0.0,
+        "gust_amplitude_mps": 0.0
+      },
+      "controller": "locked, unguided",
+      "configuration": "modular-performance-v1",
+      "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+      "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+      "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "created_at": "2026-11-08T04:16:28.548740+00:00",
+      "finished_at": "2026-11-08T04:16:29.322202+00:00",
+      "worker_complete": true,
+      "trajectory_complete": false,
+      "apogee_agl_m": 635.2486690232791,
+      "guide_exit_mps": 19.093365021969927,
+      "landing": null,
+      "resources": {
+        "backend": "cpu",
+        "concurrency": 1,
+        "dt_s": 0.005,
+        "max_time_s": 45,
+        "max_steps": 9000,
+        "seed": 20261108,
+        "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+        "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+      },
+      "artifact_sha256": {
+        "record.json": "470bb27ea02709c9133c169a3c9f0d81a8f801d9ec4fd710ac56085fef6f618e",
+        "resolved.json": "6ba69951e46f57334155a7a9d101ad8a935ed381c9594eef79e915dc4d02e31f",
+        "telemetry.parquet": "2d0f53b89d5e2171c06dc8902963c95142b1297e7e7f5b03e36a675e0d9515db"
+      }
+    }
+  ],
+  "single_vs_same_request_batch_member": {
+    "settings_equal": true,
+    "metrics_equal": true,
+    "events_equal": true,
+    "resolved_bytes_equal": true,
+    "telemetry_parquet_bytes_equal": true
+  },
+  "different_seed_member": {
+    "plant_metrics_equal": true,
+    "telemetry_parquet_bytes_equal": false,
+    "interpretation": "Calm unguided plant metrics are unchanged; saved measurement telemetry differs. Seed change alone does not demonstrate controller or wind behavior."
+  },
+  "engineering_accepted": false,
+  "prototype_build_authorized": false,
+  "flight_ready": false
+}

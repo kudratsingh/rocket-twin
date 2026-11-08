@@ -54,3 +54,32 @@ SHA-256 `b0cad2f3577f649c08f9b324d620a8fd488c1eefafd8070cb9251f4eb2c1ca0e`.
 The native motor-curve view also displayed its recorded source after restart;
 the historical motor-curve 503 was not reproduced. No supplier evidence was
 changed or motor hypothesis promoted.
+
+## Subsequent bounded closeout corrections
+
+- Exact-time entry accepts finite in-window decimals independently of the slider
+  step, then uses the existing pause/scrub path. The initial `.ts`/`.tsx` basename
+  collision was preserved as a failed browser reload; distinct helper naming and
+  explicit component extension corrected Vite's cached resolution.
+- A child-workspace error boundary preserves navigation and reload context. One
+  explicitly development-only render fixture demonstrated recovery without any
+  calculation; normal builds disable that fixture. Saved-run Offline loading and
+  recovery were also observed. A failed request now ends the loading-status text
+  under the existing stale-request guards.
+- Playback captures elapsed time before a deferred React state update. Frozen,
+  source-admitted time axes cache immutable validated windows; mutable, sealed
+  and accessor arrays remain revalidated. No pose math, physics or samples change.
+- The fitter used a mirrored horizontal basis. An independent actual Three
+  projection reproduces the old failing asymmetric case and verifies the fix in
+  `camera-projection-regression.json`; the former test duplicated the wrong basis.
+  A display-only guide uses the fitter's shared insets, while actual screenshot
+  pixels independently establish the scoped layout/Side fit results.
+
+The changed-source full-rate follow-up improved the observed p95 to 17.70 ms but
+still failed 60 fps; mean was 17.50 ms. This is not a passing performance screen
+or a repeated statistical study. No third attempt ran. Browser work later paused
+on repeated external-user-change guards; the clean-label baro image, final
+configuration switches and owner-ready restoration remain pending a free window.
+The final source check set passes 169 web tests, type/lint/format/build and
+make check. Exact hosted checks are still required for publication. All physical,
+material, engineering and flight gates remain open; all five drafts remain UNSENT.

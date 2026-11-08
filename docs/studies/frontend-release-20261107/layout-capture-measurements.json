@@ -1,0 +1,1409 @@
+{
+  "date": "2026-11-07",
+  "status": "scoped screenshot measurements complete; clean unannotated barometer capture pending",
+  "method": "Actual native screenshot raster dimensions, manually identified borders/overlay boundaries, manually reviewed target search regions and RGB segmentation; CSS scale confirmed by sole browser verifier. No camera/geometry math.",
+  "source_id": "G80-F2-RP1-AD1-definition-v2",
+  "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+  "script_sha256": "b11e5b77375b15729f63db149b9160044db5bf5e3187d5518bb687b5bf4a1851",
+  "captures": [
+    {
+      "phase": "before screen-right basis correction; no visible declared safe guide",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-open-1440x900.png",
+      "sha256": "5db9aed6c7a7f1b2b4a9418a58e2eda0843135d847519f0d8265051d5b85c86d",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Side preset, rail/context open, Scene tools open; preserved earlier misnamed default",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2880,
+        1176
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1440.0,
+        588.0
+      ],
+      "canvas_css_size": [
+        1127.0,
+        536.0
+      ],
+      "canvas_viewport_fraction": [
+        0.7826388888888889,
+        0.5955555555555555
+      ],
+      "object_search_raster_rect": [
+        1750,
+        280,
+        2000,
+        1000
+      ],
+      "excluded_overlay_raster_rects": [
+        [
+          1750,
+          674,
+          2000,
+          776
+        ]
+      ],
+      "visible_object_raster_bbox": [
+        1825,
+        335,
+        1903,
+        932
+      ],
+      "visible_object_css_bbox": [
+        912.5,
+        167.5,
+        951.5,
+        466.0
+      ],
+      "visible_object_css_size": [
+        39.0,
+        298.5
+      ],
+      "matched_color_pixels": 16989,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "inapplicable_tools_open",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      }
+    },
+    {
+      "phase": "before screen-right basis correction; no visible declared safe guide",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-default-1440x900.png",
+      "sha256": "2b2e0ea3643bb0b8957fbb229d5c61f948e6c6b112f23b61c29c63c30d5bc44d",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Side preset; rail/context open; Scene tools closed; no selected part; CG/CP off",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2880,
+        1668
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1440.0,
+        834.0
+      ],
+      "canvas_css_size": [
+        1127.0,
+        782.0
+      ],
+      "canvas_viewport_fraction": [
+        0.7826388888888889,
+        0.8688888888888889
+      ],
+      "object_search_raster_rect": [
+        1750,
+        280,
+        2000,
+        1430
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1798,
+        379,
+        1928,
+        1382
+      ],
+      "visible_object_css_bbox": [
+        899.0,
+        189.5,
+        964.0,
+        691.0
+      ],
+      "visible_object_css_size": [
+        65.0,
+        501.5
+      ],
+      "matched_color_pixels": 56446,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "default",
+      "rv_q10": {
+        "default_width_at_least_72pct": true,
+        "default_height_at_least_78pct": true,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "screenshot_defined_usable_band": {
+        "raster_rect": [
+          626,
+          264,
+          2880,
+          1438
+        ],
+        "css_rect": [
+          313.0,
+          132.0,
+          1440.0,
+          719.0
+        ],
+        "definition": "Full canvas width below visible source banner and above the first pixels of the bottom-right axes overlay; no camera-derived insets",
+        "matches_declared_camera_safe_rectangle": "unmeasured; no such boundary is drawn",
+        "object_fraction": {
+          "width": 0.05767524401064774,
+          "height": 0.854344122657581
+        },
+        "edge_clearance_fraction": {
+          "left": 0.5199645075421473,
+          "right": 0.422360248447205,
+          "top": 0.09795570698466781,
+          "bottom": 0.04770017035775128
+        },
+        "all_point_estimates_at_least_5pct": false,
+        "side_height_80_to_90pct_point_estimate": true,
+        "rv_q14_acceptance": "unmeasured; screenshot-defined band is not a demonstrated declared camera safe rectangle; borderline edge clearances are not rounded into a pass",
+        "remaining_overlay_note": "Local axes/scale overlays are excluded conservatively by the band boundary; target search excludes UI. This does not recover hidden or occluded vertices."
+      }
+    },
+    {
+      "phase": "before screen-right basis correction; no visible declared safe guide",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-focus-1440x900.png",
+      "sha256": "1382cd4aabb0007dfce6df5f9feef44fef88bd6aac3ee50adccadf0f5a09eb0c",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Side preset; Exit focus visible; both columns absent; tools closed; CG/CP off",
+      "canvas_raster_rect": [
+        0,
+        104,
+        2880,
+        1668
+      ],
+      "canvas_css_rect": [
+        0.0,
+        52.0,
+        1440.0,
+        834.0
+      ],
+      "canvas_css_size": [
+        1440.0,
+        782.0
+      ],
+      "canvas_viewport_fraction": [
+        1.0,
+        0.8688888888888889
+      ],
+      "object_search_raster_rect": [
+        1400,
+        280,
+        1700,
+        1430
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1485,
+        379,
+        1615,
+        1382
+      ],
+      "visible_object_css_bbox": [
+        742.5,
+        189.5,
+        807.5,
+        691.0
+      ],
+      "visible_object_css_size": [
+        65.0,
+        501.5
+      ],
+      "matched_color_pixels": 56446,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "focus",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": true
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "screenshot_defined_usable_band": {
+        "raster_rect": [
+          0,
+          238,
+          2880,
+          1438
+        ],
+        "css_rect": [
+          0.0,
+          119.0,
+          1440.0,
+          719.0
+        ],
+        "definition": "Full canvas width below visible source banner and above the first pixels of the bottom-right axes overlay; no camera-derived insets",
+        "matches_declared_camera_safe_rectangle": "unmeasured; no such boundary is drawn",
+        "object_fraction": {
+          "width": 0.04513888888888889,
+          "height": 0.8358333333333333
+        },
+        "edge_clearance_fraction": {
+          "left": 0.515625,
+          "right": 0.4392361111111111,
+          "top": 0.1175,
+          "bottom": 0.04666666666666667
+        },
+        "all_point_estimates_at_least_5pct": false,
+        "side_height_80_to_90pct_point_estimate": true,
+        "rv_q14_acceptance": "unmeasured; screenshot-defined band is not a demonstrated declared camera safe rectangle; borderline edge clearances are not rounded into a pass",
+        "remaining_overlay_note": "Local axes/scale overlays are excluded conservatively by the band boundary; target search excludes UI. This does not recover hidden or occluded vertices."
+      }
+    },
+    {
+      "phase": "before screen-right basis correction; no visible declared safe guide",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-default-1280x720.png",
+      "sha256": "b58644e202f8ac87c7c95877ab3f0943d9f0350bddb32549b24945d45cc5dfd9",
+      "viewport_css_px": [
+        1280,
+        720
+      ],
+      "raster_px": [
+        2560,
+        1440
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Side inherited across resize; both columns open; tools closed; no selected part; CG/CP off",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2560,
+        1308
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1280.0,
+        654.0
+      ],
+      "canvas_css_size": [
+        967.0,
+        602.0
+      ],
+      "canvas_viewport_fraction": [
+        0.75546875,
+        0.8361111111111111
+      ],
+      "object_search_raster_rect": [
+        1600,
+        300,
+        1800,
+        1150
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1658,
+        346,
+        1749,
+        1053
+      ],
+      "visible_object_css_bbox": [
+        829.0,
+        173.0,
+        874.5,
+        526.5
+      ],
+      "visible_object_css_size": [
+        45.5,
+        353.5
+      ],
+      "matched_color_pixels": 28358,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "default",
+      "rv_q10": {
+        "default_width_at_least_72pct": true,
+        "default_height_at_least_78pct": true,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "screenshot_defined_usable_band": {
+        "raster_rect": [
+          626,
+          264,
+          2560,
+          1078
+        ],
+        "css_rect": [
+          313.0,
+          132.0,
+          1280.0,
+          539.0
+        ],
+        "definition": "Full canvas width below visible source banner and above the first pixels of the bottom-right axes overlay; no camera-derived insets",
+        "matches_declared_camera_safe_rectangle": "unmeasured; no such boundary is drawn",
+        "object_fraction": {
+          "width": 0.04705274043433299,
+          "height": 0.8685503685503686
+        },
+        "edge_clearance_fraction": {
+          "left": 0.5336091003102379,
+          "right": 0.41933815925542917,
+          "top": 0.10073710073710074,
+          "bottom": 0.030712530712530713
+        },
+        "all_point_estimates_at_least_5pct": false,
+        "side_height_80_to_90pct_point_estimate": true,
+        "rv_q14_acceptance": "unmeasured; screenshot-defined band is not a demonstrated declared camera safe rectangle; borderline edge clearances are not rounded into a pass",
+        "remaining_overlay_note": "Local axes/scale overlays are excluded conservatively by the band boundary; target search excludes UI. This does not recover hidden or occluded vertices."
+      }
+    },
+    {
+      "phase": "before screen-right basis correction; no visible declared safe guide",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-focus-1280x720.png",
+      "sha256": "8ea1662f6999875c27631942ad8c8ee09f9bcdfa7b58a93a93bb6e5388023af6",
+      "viewport_css_px": [
+        1280,
+        720
+      ],
+      "raster_px": [
+        2560,
+        1440
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Side inherited across resize; Exit focus visible; both columns absent; tools closed; CG/CP off",
+      "canvas_raster_rect": [
+        0,
+        104,
+        2560,
+        1308
+      ],
+      "canvas_css_rect": [
+        0.0,
+        52.0,
+        1280.0,
+        654.0
+      ],
+      "canvas_css_size": [
+        1280.0,
+        602.0
+      ],
+      "canvas_viewport_fraction": [
+        1.0,
+        0.8361111111111111
+      ],
+      "object_search_raster_rect": [
+        1300,
+        300,
+        1500,
+        1150
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1345,
+        346,
+        1436,
+        1053
+      ],
+      "visible_object_css_bbox": [
+        672.5,
+        173.0,
+        718.0,
+        526.5
+      ],
+      "visible_object_css_size": [
+        45.5,
+        353.5
+      ],
+      "matched_color_pixels": 28358,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "focus",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": true
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "screenshot_defined_usable_band": {
+        "raster_rect": [
+          0,
+          264,
+          2560,
+          1078
+        ],
+        "css_rect": [
+          0.0,
+          132.0,
+          1280.0,
+          539.0
+        ],
+        "definition": "Full canvas width below visible source banner and above the first pixels of the bottom-right axes overlay; no camera-derived insets",
+        "matches_declared_camera_safe_rectangle": "unmeasured; no such boundary is drawn",
+        "object_fraction": {
+          "width": 0.035546875,
+          "height": 0.8685503685503686
+        },
+        "edge_clearance_fraction": {
+          "left": 0.525390625,
+          "right": 0.4390625,
+          "top": 0.10073710073710074,
+          "bottom": 0.030712530712530713
+        },
+        "all_point_estimates_at_least_5pct": false,
+        "side_height_80_to_90pct_point_estimate": true,
+        "rv_q14_acceptance": "unmeasured; screenshot-defined band is not a demonstrated declared camera safe rectangle; borderline edge clearances are not rounded into a pass",
+        "remaining_overlay_note": "Local axes/scale overlays are excluded conservatively by the band boundary; target search excludes UI. This does not recover hidden or occluded vertices."
+      }
+    },
+    {
+      "phase": "after screen-right basis correction; declared framing guide visible",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-default-guide-fixed-1440x900.png",
+      "sha256": "c88f63958f5bdb0995cba8c273305f23c8785498ecdc65b2d15c459ef1bd9143",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Post-correction Side and explicit Fit; both columns open; tools closed; no selection/CG/CP; visible magenta guide",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2880,
+        1668
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1440.0,
+        834.0
+      ],
+      "canvas_css_size": [
+        1127.0,
+        782.0
+      ],
+      "canvas_viewport_fraction": [
+        0.7826388888888889,
+        0.8688888888888889
+      ],
+      "object_search_raster_rect": [
+        1500,
+        300,
+        1800,
+        1430
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1578,
+        379,
+        1708,
+        1382
+      ],
+      "visible_object_css_bbox": [
+        789.0,
+        189.5,
+        854.0,
+        691.0
+      ],
+      "visible_object_css_size": [
+        65.0,
+        501.5
+      ],
+      "matched_color_pixels": 56453,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": true,
+      "criterion_applicability": "default",
+      "rv_q10": {
+        "default_width_at_least_72pct": true,
+        "default_height_at_least_78pct": true,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            658,
+            659
+          ],
+          [
+            2618,
+            2619
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            1482,
+            1483
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          660,
+          274,
+          2618,
+          1482
+        ],
+        "conservative_inner_css_rect": [
+          330.0,
+          137.0,
+          1309.0,
+          741.0
+        ],
+        "conservative_inner_css_size": [
+          979.0,
+          604.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.06639427987742594,
+          "height": 0.8302980132450332
+        },
+        "edge_clearance_css_px": {
+          "left": 459.0,
+          "right": 455.0,
+          "top": 52.5,
+          "bottom": 50.0
+        },
+        "edge_clearance_fraction": {
+          "left": 0.46884576098059244,
+          "right": 0.4647599591419816,
+          "top": 0.0869205298013245,
+          "bottom": 0.08278145695364239
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4658511722731906,
+          "right": 0.4617737003058104,
+          "top": 0.08333333333333333,
+          "bottom": 0.07920792079207921
+        },
+        "height_fraction_uncertainty_interval": [
+          0.8242574257425742,
+          0.8363787375415282
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.8242574257425742,
+          0.8363787375415282
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": true,
+        "side_height_80_to_90pct_with_uncertainty": true,
+        "tight_part_65_to_85pct_with_uncertainty": null,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
+    },
+    {
+      "phase": "after screen-right basis correction; declared framing guide visible",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-focus-guide-fixed-1440x900.png",
+      "sha256": "e392b4665001c28f58d82b0a415fcdab82851c1c39a1b9db74a7c6e8d62973ff",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Post-correction Side and explicit Fit; Exit focus; both columns absent; tools closed; CG/CP off; visible magenta guide",
+      "canvas_raster_rect": [
+        0,
+        104,
+        2880,
+        1668
+      ],
+      "canvas_css_rect": [
+        0.0,
+        52.0,
+        1440.0,
+        834.0
+      ],
+      "canvas_css_size": [
+        1440.0,
+        782.0
+      ],
+      "canvas_viewport_fraction": [
+        1.0,
+        0.8688888888888889
+      ],
+      "object_search_raster_rect": [
+        1100,
+        300,
+        1500,
+        1430
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1265,
+        379,
+        1395,
+        1382
+      ],
+      "visible_object_css_bbox": [
+        632.5,
+        189.5,
+        697.5,
+        691.0
+      ],
+      "visible_object_css_size": [
+        65.0,
+        501.5
+      ],
+      "matched_color_pixels": 56453,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": true,
+      "criterion_applicability": "focus",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": true
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            32,
+            33
+          ],
+          [
+            2618,
+            2619
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            1482,
+            1483
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          34,
+          274,
+          2618,
+          1482
+        ],
+        "conservative_inner_css_rect": [
+          17.0,
+          137.0,
+          1309.0,
+          741.0
+        ],
+        "conservative_inner_css_size": [
+          1292.0,
+          604.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.05030959752321981,
+          "height": 0.8302980132450332
+        },
+        "edge_clearance_css_px": {
+          "left": 615.5,
+          "right": 611.5,
+          "top": 52.5,
+          "bottom": 50.0
+        },
+        "edge_clearance_fraction": {
+          "left": 0.47639318885448917,
+          "right": 0.47329721362229105,
+          "top": 0.0869205298013245,
+          "bottom": 0.08278145695364239
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4741112828438949,
+          "right": 0.4710200927357032,
+          "top": 0.08333333333333333,
+          "bottom": 0.07920792079207921
+        },
+        "height_fraction_uncertainty_interval": [
+          0.8242574257425742,
+          0.8363787375415282
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.8242574257425742,
+          0.8363787375415282
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": true,
+        "side_height_80_to_90pct_with_uncertainty": true,
+        "tight_part_65_to_85pct_with_uncertainty": null,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
+    },
+    {
+      "phase": "after screen-right basis correction; declared framing guide visible",
+      "file": "runs/frontend-browser-20261107/rp1-baro-isolated-guide-fixed-1440x900.png",
+      "sha256": "5f9e74502758945b62678bd0b87d976e20472c9ee8961c2d641e45561602c534",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Post-correction isolated barometer; 1 visible/54 hidden; Frame part; tools closed; selected-part card overlaps the middle/right, bounding extremes remain visible",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2880,
+        1668
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1440.0,
+        834.0
+      ],
+      "canvas_css_size": [
+        1127.0,
+        782.0
+      ],
+      "canvas_viewport_fraction": [
+        0.7826388888888889,
+        0.8688888888888889
+      ],
+      "object_search_raster_rect": [
+        1500,
+        350,
+        1800,
+        1400
+      ],
+      "excluded_overlay_raster_rects": [
+        [
+          1570,
+          870,
+          1800,
+          1090
+        ]
+      ],
+      "visible_object_raster_bbox": [
+        1542,
+        405,
+        1736,
+        1351
+      ],
+      "visible_object_css_bbox": [
+        771.0,
+        202.5,
+        868.0,
+        675.5
+      ],
+      "visible_object_css_size": [
+        97.0,
+        473.0
+      ],
+      "matched_color_pixels": 146375,
+      "target_kind": "tight_part",
+      "fit_threshold_applicable": true,
+      "criterion_applicability": "small_part",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            658,
+            659
+          ],
+          [
+            2618,
+            2619
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            1482,
+            1483
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          660,
+          274,
+          2618,
+          1482
+        ],
+        "conservative_inner_css_rect": [
+          330.0,
+          137.0,
+          1309.0,
+          741.0
+        ],
+        "conservative_inner_css_size": [
+          979.0,
+          604.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.09908069458631256,
+          "height": 0.7831125827814569
+        },
+        "edge_clearance_css_px": {
+          "left": 441.0,
+          "right": 441.0,
+          "top": 65.5,
+          "bottom": 65.5
+        },
+        "edge_clearance_fraction": {
+          "left": 0.45045965270684374,
+          "right": 0.45045965270684374,
+          "top": 0.10844370860927152,
+          "bottom": 0.10844370860927152
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4475025484199796,
+          "right": 0.4475025484199796,
+          "top": 0.10478547854785479,
+          "bottom": 0.10478547854785479
+        },
+        "height_fraction_uncertainty_interval": [
+          0.7772277227722773,
+          0.7890365448504983
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.7772277227722773,
+          0.7890365448504983
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": true,
+        "side_height_80_to_90pct_with_uncertainty": null,
+        "tight_part_65_to_85pct_with_uncertainty": true,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
+    },
+    {
+      "phase": "after screen-right correction; resize transition before new requested fit; retained threshold misses are not an explicit-after-resize fit result",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-default-guide-fixed-1280x720-verified.png",
+      "sha256": "c97d5a475c4bdcd85efa5f0bc54437d7e9c39c7446fb419f4ea63ec9ef9253de",
+      "viewport_css_px": [
+        1280,
+        720
+      ],
+      "raster_px": [
+        2560,
+        1440
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "True committed1280x720 immediately after resize with prior camera state; NO new explicit Side/Fit after commit; both columns open; tools closed",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2560,
+        1308
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1280.0,
+        654.0
+      ],
+      "canvas_css_size": [
+        967.0,
+        602.0
+      ],
+      "canvas_viewport_fraction": [
+        0.75546875,
+        0.8361111111111111
+      ],
+      "object_search_raster_rect": [
+        1350,
+        280,
+        1650,
+        1150
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1458,
+        316,
+        1558,
+        1087
+      ],
+      "visible_object_css_bbox": [
+        729.0,
+        158.0,
+        779.0,
+        543.5
+      ],
+      "visible_object_css_size": [
+        50.0,
+        385.5
+      ],
+      "matched_color_pixels": 34149,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "default",
+      "rv_q10": {
+        "default_width_at_least_72pct": true,
+        "default_height_at_least_78pct": true,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            658,
+            659
+          ],
+          [
+            2298,
+            2299
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            1122,
+            1123
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          660,
+          274,
+          2298,
+          1122
+        ],
+        "conservative_inner_css_rect": [
+          330.0,
+          137.0,
+          1149.0,
+          561.0
+        ],
+        "conservative_inner_css_size": [
+          819.0,
+          424.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.06105006105006105,
+          "height": 0.9091981132075472
+        },
+        "edge_clearance_css_px": {
+          "left": 399.0,
+          "right": 370.0,
+          "top": 21.0,
+          "bottom": 17.5
+        },
+        "edge_clearance_fraction": {
+          "left": 0.48717948717948717,
+          "right": 0.4517704517704518,
+          "top": 0.049528301886792456,
+          "bottom": 0.041273584905660375
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4835566382460414,
+          "right": 0.4482338611449452,
+          "top": 0.04460093896713615,
+          "bottom": 0.036384976525821594
+        },
+        "height_fraction_uncertainty_interval": [
+          0.9002347417840375,
+          0.9182464454976303
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.9002347417840375,
+          0.9182464454976303
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": false,
+        "side_height_80_to_90pct_with_uncertainty": false,
+        "tight_part_65_to_85pct_with_uncertainty": null,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
+    },
+    {
+      "phase": "after screen-right basis correction; declared framing guide visible",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-default-guide-fixed-1280x720-refit.png",
+      "sha256": "9720ffe6f7d821f794c4170c5df44c3100d6c0ee85815763364f699778f52838",
+      "viewport_css_px": [
+        1280,
+        720
+      ],
+      "raster_px": [
+        2560,
+        1440
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "True1280x720; explicit Side and Fit AFTER committed height; both columns restored; tools closed; no selection/CG/CP; visible guide",
+      "canvas_raster_rect": [
+        626,
+        104,
+        2560,
+        1308
+      ],
+      "canvas_css_rect": [
+        313.0,
+        52.0,
+        1280.0,
+        654.0
+      ],
+      "canvas_css_size": [
+        967.0,
+        602.0
+      ],
+      "canvas_viewport_fraction": [
+        0.75546875,
+        0.8361111111111111
+      ],
+      "object_search_raster_rect": [
+        1350,
+        280,
+        1650,
+        1150
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1436,
+        347,
+        1528,
+        1053
+      ],
+      "visible_object_css_bbox": [
+        718.0,
+        173.5,
+        764.0,
+        526.5
+      ],
+      "visible_object_css_size": [
+        46.0,
+        353.0
+      ],
+      "matched_color_pixels": 27859,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": true,
+      "criterion_applicability": "default",
+      "rv_q10": {
+        "default_width_at_least_72pct": true,
+        "default_height_at_least_78pct": true,
+        "focus_width_at_least_95pct": null
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      },
+      "visible_declared_guide": {
+        "boundary_core_raster_cols": [
+          [
+            658,
+            659
+          ],
+          [
+            2298,
+            2299
+          ]
+        ],
+        "boundary_core_raster_rows": [
+          [
+            272,
+            273
+          ],
+          [
+            1122,
+            1123
+          ]
+        ],
+        "conservative_inner_raster_rect": [
+          660,
+          274,
+          2298,
+          1122
+        ],
+        "conservative_inner_css_rect": [
+          330.0,
+          137.0,
+          1149.0,
+          561.0
+        ],
+        "conservative_inner_css_size": [
+          819.0,
+          424.0
+        ],
+        "method": "Distinct magenta raster pixels; long row/column runs identify dashed guide borders. Interior excludes every solid border pixel; label text does not meet long-run criterion.",
+        "object_fraction": {
+          "width": 0.05616605616605617,
+          "height": 0.8325471698113207
+        },
+        "edge_clearance_css_px": {
+          "left": 388.0,
+          "right": 385.0,
+          "top": 36.5,
+          "bottom": 34.5
+        },
+        "edge_clearance_fraction": {
+          "left": 0.47374847374847373,
+          "right": 0.4700854700854701,
+          "top": 0.08608490566037735,
+          "bottom": 0.08136792452830188
+        },
+        "conservative_clearance_fraction_lower_bound": {
+          "left": 0.4701583434835566,
+          "right": 0.46650426309378806,
+          "top": 0.08098591549295775,
+          "bottom": 0.07629107981220658
+        },
+        "height_fraction_uncertainty_interval": [
+          0.823943661971831,
+          0.8412322274881516
+        ],
+        "limiting_dimension": "height",
+        "limiting_fraction_uncertainty_interval": [
+          0.823943661971831,
+          0.8412322274881516
+        ],
+        "inside_visible_guide": true,
+        "all_edges_at_least_5pct_with_uncertainty": true,
+        "side_height_80_to_90pct_with_uncertainty": true,
+        "tight_part_65_to_85pct_with_uncertainty": null,
+        "uncertainty_basis": "\u00b11 CSS px for each target/guide edge; size/gap intervals allow \u00b12 CSS px, independent of camera values",
+        "scope": "Actual visible silhouette versus visible declared guide; no hidden-vertex, interaction or engineering acceptance"
+      }
+    },
+    {
+      "phase": "after screen-right correction; true Focus; guide absent, no visible-guide fit claim",
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-focus-guide-fixed-1280x720-refit.png",
+      "sha256": "8c909cd91385d9ebecfb6ce2af15002ab486a9e4edab5442fbd69a7d45074f24",
+      "viewport_css_px": [
+        1280,
+        720
+      ],
+      "raster_px": [
+        2560,
+        1440
+      ],
+      "raster_per_css_px": [
+        2.0,
+        2.0
+      ],
+      "state": "Actual true1280x720 Focus; Exit focus visible, both columns absent, tools closed; guide OFF after remount despite legacy filename; width-only criterion",
+      "canvas_raster_rect": [
+        0,
+        104,
+        2560,
+        1308
+      ],
+      "canvas_css_rect": [
+        0.0,
+        52.0,
+        1280.0,
+        654.0
+      ],
+      "canvas_css_size": [
+        1280.0,
+        602.0
+      ],
+      "canvas_viewport_fraction": [
+        1.0,
+        0.8361111111111111
+      ],
+      "object_search_raster_rect": [
+        950,
+        280,
+        1350,
+        1150
+      ],
+      "excluded_overlay_raster_rects": [],
+      "visible_object_raster_bbox": [
+        1123,
+        347,
+        1215,
+        1053
+      ],
+      "visible_object_css_bbox": [
+        561.5,
+        173.5,
+        607.5,
+        526.5
+      ],
+      "visible_object_css_size": [
+        46.0,
+        353.0
+      ],
+      "matched_color_pixels": 27859,
+      "target_kind": "assembly",
+      "fit_threshold_applicable": false,
+      "criterion_applicability": "focus",
+      "rv_q10": {
+        "default_width_at_least_72pct": null,
+        "default_height_at_least_78pct": null,
+        "focus_width_at_least_95pct": true
+      },
+      "uncertainty_css_px": {
+        "canvas_edge": 1,
+        "visible_target_edge": 1,
+        "overlay_band_edge": 2
+      }
+    }
+  ],
+  "pending_captures": [
+    {
+      "case": "Same isolated barometer and visible guide with optional selected-part label switched off",
+      "purpose": "Unobstructed projected silhouette; annotated capture only establishes exposed bounding extrema",
+      "reason": "Sole verifier paused after repeated user-change guards; primary requested current evidence handoff without further browser use"
+    }
+  ],
+  "preserved_nonmatching_captures": [
+    {
+      "file": "runs/frontend-browser-20261107/rp1-assembly-fixed-labels-1440x900.png",
+      "sha256": "3d793b264a565684ab64185eaee31d161c169603fb6c907d3119012d3dfc3929",
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "reason_not_used_for_fit_acceptance": "Overview and pre-orientation-fix state; not Side preset"
+    },
+    {
+      "file": "runs/frontend-browser-20261107/rp1-baro-framed-1440x900.png",
+      "sha256": "543119eaae2e37adffc897083ba1a38b6a4b1ca0a6e35dc4e3bc67a912d31411",
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "reason_not_used_for_fit_acceptance": "Selected barometer amid surrounding assembled geometry; not isolated, target bounds/clearance unmeasured"
+    },
+    {
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-default-guide-fixed-1280x900-mis-sized.png",
+      "sha256": "bff685ed73ed0f92285f64503d9d24d9ae1f7d9c257c980aa0d76e70e8b62f8b",
+      "raster_px": [
+        2560,
+        1800
+      ],
+      "reason_not_used_for_fit_acceptance": "Named1280x720 but actual raster2560x1800; inconsistent with confirmed uniform2x scaling, not the1280x720 criterion"
+    },
+    {
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-focus-guide-fixed-1280x900-mis-sized.png",
+      "sha256": "2ed5bcadef103956792c8c084d89ca2bbc9e07d95b3b43b964365e728a3c3d93",
+      "raster_px": [
+        2560,
+        1800
+      ],
+      "reason_not_used_for_fit_acceptance": "Named1280x720 but actual raster2560x1800; inconsistent with confirmed uniform2x scaling, not the1280x720 criterion"
+    },
+    {
+      "file": "runs/frontend-browser-20261107/rp1-side-tools-closed-focus-guide-fixed-1280x720-verified.png",
+      "sha256": "d9daf1fdf187055d6373dbace830df4c36f45c9b7d3d4de5831b4e21dad25b52",
+      "raster_px": [
+        2560,
+        1440
+      ],
+      "reason_not_used_for_fit_acceptance": "True size but Details remains open and header says Focus, not Exit focus; not a Focus layout. Verifier preserved failed interaction/capture state."
+    }
+  ],
+  "limitations": [
+    "These are screenshot measurements, separate from interaction observations and engineering acceptance",
+    "Visible raster silhouette bounds do not prove every source vertex is visible",
+    "Pre-correction captures lack a declared guide; post-correction guide measurements use actual magenta raster boundaries",
+    "Canvas/app dimensions use the captured full application viewport; browser chrome is outside these PNGs"
+  ]
+}

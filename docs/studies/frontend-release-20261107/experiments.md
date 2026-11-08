@@ -1,5 +1,15 @@
 # Experiments and replay release source packet — 2026-11-07
 
+**Subsequent live evidence:** the source-only packet below is preserved as its
+original checkpoint. [Browser outcomes](browser-results.csv) and the
+[current handoff](../../frontend-release-20261107.md) now record one real Tiny
+single, a two-member batch, saved comparisons/exports and exact-time recovery.
+Both full native-rate performance attempts failed the 60 fps target. Later clock,
+immutable-window and request-status corrections are separately tested; the pose
+math remains unchanged. Unexecuted worker-error/cancellation and data fixtures
+remain explicit. No engineering or flight acceptance follows.
+
+
 This packet implements the remaining bounded source workflows for RV-09, RV-10,
 RV-12 and RV-13. It does not establish browser interaction, runtime performance,
 engineering readiness, physical acceptance or full WO-05 completion. The

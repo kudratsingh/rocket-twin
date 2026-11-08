@@ -1,15 +1,34 @@
 /** A run's recorded playback support; invalid time axes never imply coverage. */
-export type ReplayWindow = { start: number; end: number } | null;
+export type ReplayWindow = Readonly<{ start: number; end: number }> | null;
 export type ReplayWindowStatus = 'inside' | 'outside' | 'unavailable';
 
+// Frozen data arrays cannot change after admission. Mutable/accessor arrays are
+// always inspected again; neither a previous pass nor a previous failure is trusted.
+const frozenWindows = new WeakMap<readonly number[], ReplayWindow>();
+
 export function replayWindow(times: readonly number[] | undefined): ReplayWindow {
-  if (
-    !Array.isArray(times) ||
-    times.length === 0 ||
-    !times.every((time, index) => Number.isFinite(time) && (index === 0 || time > times[index - 1]))
-  )
-    return null;
-  return { start: times[0], end: times[times.length - 1] };
+  if (!Array.isArray(times)) return null;
+  const cached = frozenWindows.get(times);
+  if (cached !== undefined) return cached;
+  const frozen = Object.isFrozen(times);
+  let cacheable = frozen;
+  let valid = times.length > 0;
+  let previous = -Infinity;
+  let first = NaN;
+  for (let index = 0; index < times.length; index++) {
+    if (frozen) {
+      const descriptor = Object.getOwnPropertyDescriptor(times, index);
+      // A frozen getter can still read mutable external state; it is not immutable data.
+      if (!descriptor || !('value' in descriptor)) cacheable = false;
+    }
+    const time = times[index];
+    if (index === 0) first = time;
+    if (!Number.isFinite(time) || (index > 0 && time <= previous)) valid = false;
+    previous = time;
+  }
+  const window = valid ? Object.freeze({ start: first, end: previous }) : null;
+  if (cacheable) frozenWindows.set(times, window);
+  return window;
 }
 
 export function replayWindowStatus(window: ReplayWindow, time: number): ReplayWindowStatus {

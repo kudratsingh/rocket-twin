@@ -18,7 +18,7 @@ import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } fr
 import { Icon } from './Icons';
 import { SceneLabel } from './SceneLabel';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
-import { fitOrbitFrame, isPointClipped } from './inspectionCamera';
+import { fitOrbitFrame, inspectionFrameInsets, isPointClipped } from './inspectionCamera';
 import { inspectionSceneBounds } from './inspectionSceneBounds';
 import type { RecordedMeshBounds } from './inspectionSceneBounds';
 import { InspectionTools } from '../workspaces/InspectionWorkspace';
@@ -250,6 +250,10 @@ function CameraFit({
   const focusId = useInspection((s) => s.focusId);
 
   function frame(mode: 'preset' | 'orbit', selectedId: string | null) {
+    if (size.width <= 0 || size.height <= 0) {
+      onStatus('Waiting for a visible canvas before framing loaded geometry.');
+      return false;
+    }
     group.current?.updateWorldMatrix(true, true);
     const ids = selectedId ? [selectedId] : assemblyFit.current ? allIds : visibleIds;
     const scope = inspectionSceneBounds(meshBounds.current, ids, exploded);
@@ -279,12 +283,7 @@ function CameraFit({
       preset ? new Vector3(...preset.up) : camera.up,
       {
         fill: selectedId || view === 'aft' ? 0.78 : 0.85,
-        insets: {
-          left: 16 / Math.max(size.width, 80),
-          right: Math.min(130, size.width * 0.18) / Math.max(size.width, 1),
-          top: Math.min(84, size.height * 0.18) / Math.max(size.height, 1),
-          bottom: Math.min(92, size.height * 0.18) / Math.max(size.height, 1),
-        },
+        insets: inspectionFrameInsets(size.width, size.height),
       },
     );
     camera.up.fromArray(result.up);
@@ -470,6 +469,21 @@ export function Viewer({
   const [loadedIds, setLoadedIds] = useState<string[]>([]);
   const [meshErrors, setMeshErrors] = useState<string[]>([]);
   const [cameraCommand, setCameraCommand] = useState<CameraCommand | null>(null);
+  const [framingGuide, setFramingGuide] = useState(false);
+  const [canvasElement, setCanvasElement] = useState<HTMLDivElement | null>(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
+  useEffect(() => {
+    if (!canvasElement) return;
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setCanvasSize((previous) =>
+        previous.width === width && previous.height === height ? previous : { width, height },
+      );
+    });
+    observer.observe(canvasElement);
+    return () => observer.disconnect();
+  }, [canvasElement]);
+  const guideInsets = inspectionFrameInsets(canvasSize.width, canvasSize.height);
   const commandCamera = (kind: CameraCommand['kind']) =>
     setCameraCommand((previous) => ({ id: (previous?.id ?? 0) + 1, kind }));
   const exploded = useInspection((s) => s.exploded);
@@ -599,6 +613,9 @@ export function Viewer({
           <div>
             <button onClick={resetCamera}>Reset camera · overview</button>
             <button onClick={() => commandCamera('fit')}>Fit visible · full-part bounds</button>
+            <button aria-pressed={framingGuide} onClick={() => setFramingGuide((value) => !value)}>
+              Framing area guide
+            </button>
             {CAMERA_VIEWS.map((view) => (
               <button
                 key={view.id}
@@ -640,7 +657,7 @@ export function Viewer({
           </div>
         )}
       </InspectionTools>
-      <div className="canvas-wrap">
+      <div className="canvas-wrap" ref={setCanvasElement}>
         <Canvas
           fallback={
             <div className="canvas-loading">
@@ -716,6 +733,20 @@ export function Viewer({
             />
           </GizmoHelper>
         </Canvas>
+        {framingGuide && canvasSize.width > 0 && canvasSize.height > 0 && (
+          <div
+            className="inspection-framing-guide"
+            aria-label="Framing area: display guide excluding controls, not rocket geometry"
+            style={{
+              left: guideInsets.left * canvasSize.width,
+              right: guideInsets.right * canvasSize.width,
+              top: guideInsets.top * canvasSize.height,
+              bottom: guideInsets.bottom * canvasSize.height,
+            }}
+          >
+            <span>Framing area · display guide, not a rocket part</span>
+          </div>
+        )}
         {!statusInTools && !overlay && fitReadout}
         <div className="viewport-scale">
           <span className="scale-line" />
