@@ -1002,43 +1002,48 @@ export function Viewer({
             />
           </GizmoHelper>
         </Canvas>
-        {!overlay && geometry.sourceDerived && (
-          <div className="inspection-display-shortcuts">
-            <div role="group" aria-label="Assembly display mode">
-              <button
-                aria-pressed={exploded === 0 && !section}
-                onClick={() => restoreAssembledInspection(useInspection.getState())}
-              >
-                Assembled
-              </button>
-              <button
-                aria-pressed={exploded > 0}
-                disabled={!presentation}
-                onClick={() => {
-                  if (section) toggleSection();
-                  setExploded(1);
-                  commandCamera(cameraSelectionIds.length ? 'frame-selection' : 'fit-assembly');
-                }}
-              >
-                Breakdown
-              </button>
-              <button
-                aria-pressed={section}
-                onClick={() => {
-                  setExploded(0);
-                  if (!section) toggleSection();
-                }}
-              >
-                Section
-              </button>
+        <InspectionTools>
+          {!overlay && geometry.sourceDerived && (
+            <div className="inspection-display-shortcuts">
+              <div role="group" aria-label="Assembly display mode">
+                <button
+                  aria-pressed={exploded === 0 && !section}
+                  onClick={() => restoreAssembledInspection(useInspection.getState())}
+                >
+                  Assembled
+                </button>
+                <button
+                  aria-pressed={exploded > 0}
+                  disabled={!presentation}
+                  onClick={() => {
+                    if (section) toggleSection();
+                    setExploded(1);
+                    commandCamera(cameraSelectionIds.length ? 'frame-selection' : 'fit-assembly');
+                  }}
+                >
+                  Breakdown
+                </button>
+                <button
+                  aria-pressed={section}
+                  onClick={() => {
+                    setExploded(0);
+                    if (!section) toggleSection();
+                  }}
+                >
+                  Section
+                </button>
+              </div>
+              <details>
+                <summary>How breakdown works</summary>
+                <p>
+                  {!presentation
+                    ? 'Breakdown unavailable: exact source-pinned presentation metadata is missing.'
+                    : `Display separation: first half separates six functional groups; second half opens ${openedGroupLabel ?? 'no detailed group — select a functional group in Parts to open it'}. Display illustration only; no manufactured clearance or physical assembly sequence is implied.`}
+                </p>
+              </details>
             </div>
-            <p>
-              {!presentation
-                ? 'Breakdown unavailable: exact source-pinned presentation metadata is missing.'
-                : `Display separation: first half separates six functional groups; second half opens ${openedGroupLabel ?? 'no detailed group — select a functional group in Parts to open it'}. Display illustration only; no manufactured clearance or physical assembly sequence is implied.`}
-            </p>
-          </div>
-        )}
+          )}
+        </InspectionTools>
         <OrbitCameraControls
           readout={cameraReadout}
           canTargetSelection={cameraSelectionIds.length > 0}

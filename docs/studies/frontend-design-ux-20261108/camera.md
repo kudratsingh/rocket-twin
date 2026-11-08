@@ -103,3 +103,7 @@ The sole authorized verifier must still observe full rotation, numeric
 group targets, close/pullback clipping, panel-width preservation, pointer/touch
 behavior and breakdown picking/framing. Existing frontend and engineering/
 physical/build/flight gates remain open. All five inquiry drafts remain UNSENT.
+
+### Integrated visual correction
+
+Actual native-window observations found overlap with representation tabs and selected-part actions. Assembly display modes were moved into the existing Scene tools drawer, with their explanation in a details disclosure. Camera/gesture controls remain visible with tools closed. The selected-part summary's owning stylesheet now keeps it above the camera readout. Native captures show both areas clear after correction; exact responsive sizes remain unverified because automatic approval review rejected DevTools opening. See the integrated report for the preserved failed observations.

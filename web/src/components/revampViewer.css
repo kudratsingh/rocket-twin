@@ -189,15 +189,15 @@
     font-size: 9px;
   }
 }
+/* Assembly display belongs in the Scene tools drawer, not over representation tabs. */
 .inspection-display-shortcuts {
-  position: absolute;
-  z-index: 25;
-  left: 12px;
-  top: 8px;
-  width: min(300px, calc(100% - 24px));
+  position: static;
+  width: 100%;
+  padding: 8px 12px;
 }
 .inspection-display-shortcuts [role='group'] {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 .inspection-display-shortcuts button {
@@ -205,20 +205,16 @@
   font-size: 11px;
   background: #172833ed;
 }
+.inspection-display-shortcuts details {
+  font-size: 11px;
+  margin-top: 5px;
+}
+.inspection-display-shortcuts summary {
+  cursor: pointer;
+}
 .inspection-display-shortcuts p {
   margin: 4px 0 0;
-  font-size: 9px;
-  line-height: 1.4;
+  font-size: 11px;
+  line-height: 1.5;
   color: #bfd0d8;
-  background: #13222acc;
-  padding: 3px 5px;
-}
-@media (max-width: 700px) {
-  .inspection-display-shortcuts {
-    top: 8px;
-    width: calc(100% - 24px);
-  }
-  .inspection-display-shortcuts p {
-    max-width: 280px;
-  }
 }
