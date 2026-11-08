@@ -64,18 +64,15 @@ test('Design shell keeps one visual, mounted hidden panels, keyboard controls an
     assert.match(html, /aria-valuenow="264"/);
     assert.match(html, /aria-valuenow="240"/);
     for (const label of [
-      'Show workspace rail',
+      'Hide navigation',
+      'Hide parts sidebar',
       'Parts',
       'Details',
       'Focus',
       'Reset layout',
       'Scene tools',
     ])
-      assert.ok(
-        html.includes(label) ||
-          (label === 'Show workspace rail' && html.includes('Hide workspace rail')),
-        label,
-      );
+      assert.ok(html.includes(label), label);
     assert.match(html, /aria-label="Flight Replay"/);
     assert.match(html, /workspace=replay&amp;design=source-ad1/);
     assert.match(html, /class="revamp-context-panel revamp-details-panel"[^>]*hidden=""/);
@@ -113,7 +110,47 @@ test('Design shell keeps one visual, mounted hidden panels, keyboard controls an
       assert.ok(collapsed.includes(marker), marker);
     assert.equal((collapsed.match(/data-canvas-identity/g) ?? []).length, 1);
     assert.match(collapsed, /aria-valuenow="340"/);
-    assert.match(collapsed, /Show workspace rail/);
+    assert.match(collapsed, /Show navigation/);
+    assert.match(collapsed, /Show parts sidebar/);
+    assert.doesNotMatch(html, /-open-parts|-open-details|Hide context sidebar/);
+    assert.match(html, /role="group" aria-label="Design panels"/);
+    assert.ok(html.indexOf('Design panels') < html.indexOf('Current source picker'));
+    for (const railOpen of [false, true]) {
+      for (const contextOpen of [false, true]) {
+        writeLayout('design', {
+          ...defaultLayout(),
+          railOpen,
+          contextOpen,
+          contextTab: 'details',
+          contextWidth: 340,
+        });
+        const combination = render('design');
+        assert.match(combination, new RegExp(`data-rail="${railOpen}"`));
+        assert.match(combination, new RegExp(`data-context="${contextOpen}"`));
+        assert.match(
+          combination,
+          new RegExp(
+            `id="[^"]+-rail-toggle"[^>]+aria-expanded="${railOpen}"[^>]*>${railOpen ? 'Hide' : 'Show'} navigation</button>`,
+          ),
+        );
+        assert.match(
+          combination,
+          new RegExp(
+            `id="[^"]+-context-toggle"[^>]+aria-controls="[^"]+-context" aria-expanded="${contextOpen}"[^>]*>${contextOpen ? 'Hide' : 'Show'} parts sidebar</button>`,
+          ),
+        );
+        assert.match(combination, /aria-selected="true" tabindex="0">Details<\/button>/);
+        assert.match(combination, /aria-valuenow="340"/);
+        assert.equal((combination.match(/data-canvas-identity/g) ?? []).length, 1);
+        assert.equal((combination.match(/role="tab"/g) ?? []).length, 2);
+        for (const marker of [
+          'Selected source details',
+          'Find source component',
+          'exact-source-hash',
+        ])
+          assert.ok(combination.includes(marker));
+      }
+    }
     const legacy = render('engineering');
     assert.doesNotMatch(legacy, /revamp-design-shell/);
     assert.match(legacy, />Flight Replay<\/a>/);
@@ -124,6 +161,56 @@ test('Design shell keeps one visual, mounted hidden panels, keyboard controls an
     );
     assert.equal(fallback, 'Inline fallback');
   } finally {
+    await server.close();
+  }
+});
+
+test('panel focus waits for commit and falls back when its original opener is removed or hidden', async () => {
+  const server = await createServer({
+    configFile: false,
+    root: new URL('..', import.meta.url).pathname,
+    server: { middlewareMode: true, hmr: false, ws: false },
+    appType: 'custom',
+  });
+  const previousWindow = globalThis.window;
+  const previousDocument = globalThis.document;
+  try {
+    const { restorePanelFocus } = await server.ssrLoadModule(
+      '/src/workspaces/workspaceLayoutContext.tsx',
+    );
+    const frames = [];
+    const focused = [];
+    const toggle = { focus: () => focused.push('toggle') };
+    globalThis.window = { requestAnimationFrame: (callback) => frames.push(callback) };
+    globalThis.document = { getElementById: (id) => (id === 'stable-toggle' ? toggle : null) };
+    const opener = {
+      isConnected: true,
+      tabIndex: 0,
+      closest: () => null,
+      focus: () => focused.push('opener'),
+    };
+    restorePanelFocus('stable-toggle', opener);
+    assert.deepEqual(focused, [], 'focus must wait until panel hidden state has committed');
+    frames.shift()();
+    assert.deepEqual(focused, ['opener']);
+    for (const candidate of [
+      null,
+      { ...opener, isConnected: false },
+      { ...opener, closest: () => ({ hidden: true }) },
+      { ...opener, tabIndex: -1 },
+    ]) {
+      restorePanelFocus('stable-toggle', candidate);
+      frames.shift()();
+      assert.equal(focused.at(-1), 'toggle');
+    }
+    restorePanelFocus('missing-toggle');
+    frames.shift()(); // A workspace unmount between scheduling and focus is safe.
+    assert.equal(focused.length, 5);
+  } finally {
+    if (previousWindow === undefined) delete globalThis.window;
+    else globalThis.window = previousWindow;
+    if (previousDocument === undefined) delete globalThis.document;
+    else globalThis.document = previousDocument;
     await server.close();
   }
 });

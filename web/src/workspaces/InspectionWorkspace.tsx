@@ -267,13 +267,13 @@ function RevampedInspectionWorkspace({
           <aside
             className="revamp-context"
             id={`${id}-context`}
-            aria-label="Design context sidebar"
+            aria-label="Parts sidebar"
             hidden={!preferences.contextOpen}
             onKeyDown={(event) => {
               if (event.key === 'Escape' && !event.defaultPrevented) {
                 event.preventDefault();
                 event.stopPropagation();
-                layout.closeContext();
+                layout.dismissContext();
               }
             }}
           >
@@ -310,7 +310,7 @@ function RevampedInspectionWorkspace({
               <button
                 type="button"
                 className="revamp-context-close"
-                aria-label="Close context sidebar"
+                aria-label="Hide parts sidebar"
                 onClick={layout.closeContext}
               >
                 ×

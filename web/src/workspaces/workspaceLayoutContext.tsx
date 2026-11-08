@@ -6,6 +6,7 @@ import {
   useId,
   useMemo,
   useReducer,
+  useRef,
 } from 'react';
 import type { ReactNode } from 'react';
 import {
@@ -26,6 +27,8 @@ interface WorkspaceLayout {
   updatePreferences: (patch: Partial<LayoutPreferences>) => void;
   openContext: (tab: 'parts' | 'details') => void;
   closeContext: () => void;
+  dismissContext: () => void;
+  toggleContext: () => void;
   toggleFocus: () => void;
   resetLayout: () => void;
   toggleRail: () => void;
@@ -40,9 +43,16 @@ function localStorageOrNull(): LayoutStorage | null {
     return null;
   }
 }
-function focusById(id: string) {
+/** Wait for hidden state to commit, then return to a usable opener or the stable panel control. */
+export function restorePanelFocus(id: string, opener: HTMLElement | null = null) {
   if (typeof window !== 'undefined')
-    window.requestAnimationFrame(() => document.getElementById(id)?.focus());
+    window.requestAnimationFrame(() => {
+      const target =
+        opener?.isConnected && opener.tabIndex >= 0 && !opener.closest('[hidden]')
+          ? opener
+          : document.getElementById(id);
+      target?.focus();
+    });
 }
 export function WorkspaceLayoutProvider({
   workspace,
@@ -54,6 +64,7 @@ export function WorkspaceLayoutProvider({
   children: ReactNode;
 }) {
   const id = useId();
+  const contextOpener = useRef<HTMLElement | null>(null);
   const [state, dispatch] = useReducer(layoutReducer, undefined, () => ({
     preferences: compactEntryLayout(
       readLayout(workspace, localStorageOrNull()),
@@ -70,6 +81,13 @@ export function WorkspaceLayoutProvider({
   );
   const openContext = useCallback(
     (tab: 'parts' | 'details') => {
+      if (
+        typeof document !== 'undefined' &&
+        document.activeElement instanceof HTMLElement &&
+        document.activeElement.tabIndex >= 0 &&
+        !document.getElementById(`${id}-context`)?.contains(document.activeElement)
+      )
+        contextOpener.current = document.activeElement;
       dispatch({ type: 'update', patch: { contextOpen: true, contextTab: tab } });
       if (typeof window !== 'undefined')
         window.requestAnimationFrame(() => {
@@ -84,23 +102,31 @@ export function WorkspaceLayoutProvider({
   );
   const closeContext = useCallback(() => {
     dispatch({ type: 'update', patch: { contextOpen: false } });
-    focusById(`${id}-open-${state.preferences.contextTab}`);
-  }, [id, state.preferences.contextTab]);
+    restorePanelFocus(`${id}-context-toggle`);
+  }, [id]);
+  const dismissContext = useCallback(() => {
+    dispatch({ type: 'update', patch: { contextOpen: false } });
+    restorePanelFocus(`${id}-context-toggle`, contextOpener.current);
+  }, [id]);
+  const toggleContext = useCallback(() => {
+    if (state.preferences.contextOpen) closeContext();
+    else openContext(state.preferences.contextTab);
+  }, [state.preferences.contextOpen, state.preferences.contextTab, closeContext, openContext]);
   const toggleFocus = useCallback(() => {
     dispatch({ type: 'focus' });
-    focusById(`${id}-focus`);
+    restorePanelFocus(`${id}-focus`);
   }, [id]);
   const resetLayout = useCallback(() => {
     dispatch({ type: 'reset' });
-    focusById(`${id}-open-parts`);
+    restorePanelFocus(`${id}-context-toggle`);
   }, [id]);
-  const toggleRail = useCallback(
-    () => dispatch({ type: 'update', patch: { railOpen: !state.preferences.railOpen } }),
-    [state.preferences.railOpen],
-  );
+  const toggleRail = useCallback(() => {
+    dispatch({ type: 'update', patch: { railOpen: !state.preferences.railOpen } });
+    if (state.preferences.railOpen) restorePanelFocus(`${id}-rail-toggle`);
+  }, [id, state.preferences.railOpen]);
   const toggleTools = useCallback(() => {
     dispatch({ type: 'update', patch: { toolsOpen: !state.preferences.toolsOpen } });
-    if (state.preferences.toolsOpen) focusById(`${id}-tools-toggle`);
+    if (state.preferences.toolsOpen) restorePanelFocus(`${id}-tools-toggle`);
   }, [id, state.preferences.toolsOpen]);
   useEffect(() => {
     function keyboard(event: KeyboardEvent) {
@@ -109,7 +135,31 @@ export function WorkspaceLayoutProvider({
         event.preventDefault();
         event.stopImmediatePropagation();
         dispatch({ type: 'exit-focus' });
-        focusById(`${id}-focus`);
+        restorePanelFocus(`${id}-focus`);
+        return;
+      }
+      // Capture before the global selection shortcut, including Escape in the search input.
+      if (
+        event.key === 'Escape' &&
+        state.preferences.contextOpen &&
+        event.target instanceof Node &&
+        document.getElementById(`${id}-context`)?.contains(event.target)
+      ) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        dismissContext();
+        return;
+      }
+      if (
+        event.key === 'Escape' &&
+        window.innerWidth <= 680 &&
+        state.preferences.railOpen &&
+        event.target instanceof Node &&
+        document.getElementById(`${id}-rail`)?.contains(event.target)
+      ) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        toggleRail();
         return;
       }
       if (
@@ -126,7 +176,15 @@ export function WorkspaceLayoutProvider({
     }
     window.addEventListener('keydown', keyboard, true);
     return () => window.removeEventListener('keydown', keyboard, true);
-  }, [id, openContext, state.focusSnapshot]);
+  }, [
+    id,
+    openContext,
+    dismissContext,
+    toggleRail,
+    state.focusSnapshot,
+    state.preferences.contextOpen,
+    state.preferences.railOpen,
+  ]);
   const value = useMemo(
     () => ({
       preferences: state.preferences,
@@ -136,6 +194,8 @@ export function WorkspaceLayoutProvider({
       updatePreferences,
       openContext,
       closeContext,
+      dismissContext,
+      toggleContext,
       toggleFocus,
       resetLayout,
       toggleRail,
@@ -148,6 +208,8 @@ export function WorkspaceLayoutProvider({
       updatePreferences,
       openContext,
       closeContext,
+      dismissContext,
+      toggleContext,
       toggleFocus,
       resetLayout,
       toggleRail,
