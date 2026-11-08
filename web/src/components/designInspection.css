@@ -1,0 +1,58 @@
+.functional-group {
+  border-bottom: 1px solid #34434b;
+  padding: 0.65rem 0.5rem;
+}
+.functional-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.functional-group-heading > button:last-child {
+  flex: 1;
+  text-align: left;
+}
+.functional-group-heading small {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+.group-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.4rem 0;
+}
+.compare-fin-alternatives {
+  margin: 0.45rem 0;
+}
+.fin-alternatives-dialog {
+  width: min(1100px, 94vw);
+  max-height: 90dvh;
+  overflow: auto;
+  color: #e9f0f3;
+  background: #142129;
+  border: 1px solid #6b859a;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.fin-alternatives-dialog::backdrop {
+  background: #030a10bb;
+}
+.fin-alternatives-dialog > header {
+  position: sticky;
+  top: -1rem;
+  background: #142129;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  z-index: 1;
+}
+.fin-alternatives-dialog code {
+  overflow-wrap: anywhere;
+}
+.fin-alternatives-dialog > section {
+  padding: 0.8rem;
+  border: 1px solid #526571;
+  margin: 1rem 0;
+}

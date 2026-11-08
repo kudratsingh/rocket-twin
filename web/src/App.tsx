@@ -73,6 +73,9 @@ export default function App() {
   const selectedRecordedCase =
     recordedCaseContext.cases[recordedCaseIndex] || recordedCaseContext.cases[0];
   const [massLoading, setMassLoading] = useState(false);
+  const inspectionSelectedId = useInspection((s) => s.selectedId);
+  const inspectionGroupId = useInspection((s) => s.selectedGroupId);
+  const inspectionGroupPartIds = useInspection((s) => s.selectedGroupPartIds);
   const [href, setHref] = useState(currentHref);
   const route = readWorkspace(new URL(href, 'http://local.invalid').search);
   const mode = route.workspace;
@@ -183,7 +186,15 @@ export default function App() {
       controller.signal,
     )
       .then((data) => {
-        if (!controller.signal.aborted) setVehicle(requireInspectionSource(data, vehicleId));
+        if (!controller.signal.aborted) {
+          const verified = requireInspectionSource(data, vehicleId);
+          useInspection
+            .getState()
+            .setAvailableMeshes(
+              verified.parts.filter((part) => part.mesh_url).map((part) => part.id),
+            );
+          setVehicle(verified);
+        }
       })
       .catch((error: unknown) => {
         if (!controller.signal.aborted)
@@ -254,7 +265,8 @@ export default function App() {
       if (
         event.target instanceof HTMLElement &&
         (['INPUT', 'SELECT', 'TEXTAREA'].includes(event.target.tagName) ||
-          event.target.isContentEditable)
+          event.target.isContentEditable ||
+          event.target.closest('dialog[open]'))
       )
         return;
       const state = useInspection.getState();
@@ -640,6 +652,7 @@ export default function App() {
                 <PartsTree
                   key={`parts-${vehicle.id}`}
                   parts={vehicle.parts}
+                  vehicle={vehicle}
                   candidateMessage={catalog?.candidate_message}
                 />
               </>
@@ -678,6 +691,10 @@ export default function App() {
                       mass={mass}
                       burn={burn}
                       onBurnChange={setBurn}
+                      selectionIds={
+                        inspectionSelectedId ? [inspectionSelectedId] : inspectionGroupPartIds
+                      }
+                      presentationGroupId={inspectionGroupId}
                     />
                   }
                 />

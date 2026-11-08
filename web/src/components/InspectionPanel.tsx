@@ -3,6 +3,8 @@ import { displayValue, grams, label, number, partName, title } from '../format';
 import { useInspection } from '../store';
 import type { InspectionDocument, JsonValue, MassSample, Part } from '../types';
 import { Icon } from './Icons';
+import { representationLabel, recordedQuantity } from './presentationGroups';
+import { FinAlternatives } from './FinAlternatives';
 import { ThrustCurve } from './ThrustCurve';
 
 function numeric(value: JsonValue | undefined): number | undefined {
@@ -208,19 +210,28 @@ export function PartInspector({
               parts.map((item) => item.id),
             )
           }
+          disabled={!part.mesh_url}
         >
           <Icon name="target" size={14} />
           Isolate part
         </button>
-        <button onClick={() => togglePart(part.id)}>
+        <button disabled={!part.mesh_url} onClick={() => togglePart(part.id)}>
           <Icon name={hidden ? 'eye' : 'eyeOff'} size={14} />
           {hidden ? 'Show part' : 'Hide part'}
         </button>
       </div>
       {!part.mesh_url && (
         <div className="notice small">
-          This part has no available display mesh. Its specification remains inspectable.
+          This source record has no display solid. Frame and Isolate are unavailable; selecting it
+          keeps the other solids visible. Its details and matching drawings remain inspectable.
         </div>
+      )}
+      <p className="small muted">
+        {representationLabel(part)}
+        {recordedQuantity(part) ? ` · ${recordedQuantity(part)}` : ''}
+      </p>
+      {design?.id === 'G80-F2-RP1-AD1-definition-v2' && /fin/.test(part.id) && (
+        <FinAlternatives design={design} />
       )}
       <section className="detail-section">
         <h3>What this part does</h3>
@@ -242,9 +253,13 @@ export function PartInspector({
         <p className="small muted">
           Positions are measured aft from the nose along the vehicle axis.
         </p>
+        <p className="small muted">
+          Record parent/child links organize the source ledger. They do not establish physical
+          attachment or a verified force path; use the linked connection evidence.
+        </p>
         {parent && (
           <div className="connection-line">
-            <span>Attached to</span>
+            <span>Source-record parent</span>
             <button className="text-button" onClick={() => select(parent.id)}>
               {partName(parent)} <Icon name="chevron" size={12} />
             </button>
@@ -252,7 +267,7 @@ export function PartInspector({
         )}
         {children.length > 0 && (
           <div className="connection-line">
-            <span>Supports</span>
+            <span>Source-record children</span>
             <div>
               {children.map((child) => (
                 <button key={child.id} className="text-button" onClick={() => select(child.id)}>

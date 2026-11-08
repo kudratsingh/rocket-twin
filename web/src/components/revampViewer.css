@@ -122,3 +122,103 @@
     bottom: 115px;
   }
 }
+
+.inspection-orbit-controls {
+  position: absolute;
+  z-index: 26;
+  left: 12px;
+  bottom: 10px;
+  max-width: calc(100% - 170px);
+  color: #c4dce4;
+  font-size: 10px;
+  background: #11212be8;
+  border: 1px solid #355361;
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+.inspection-orbit-controls summary {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+.inspection-orbit-controls output,
+.inspection-gesture-hint {
+  display: block;
+  margin-top: 3px;
+}
+.inspection-orbit-controls form {
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 0;
+  width: min(365px, calc(100vw - 45px));
+  max-height: min(440px, 65vh);
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid #456471;
+  background: #10212bf5;
+  border-radius: 5px;
+}
+.inspection-orbit-controls form p {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.inspection-orbit-controls label {
+  display: block;
+  margin: 8px 0;
+}
+.inspection-orbit-controls input,
+.inspection-orbit-controls select {
+  width: 100%;
+  margin-top: 3px;
+  padding: 6px;
+  color: #e3eef2;
+  background: #152c37;
+  border: 1px solid #496b78;
+}
+.inspection-orbit-controls button {
+  margin: 3px 5px 3px 0;
+  padding: 6px;
+}
+@media (max-width: 700px) {
+  .inspection-orbit-controls {
+    max-width: calc(100% - 24px);
+    bottom: 6px;
+  }
+  .inspection-gesture-hint {
+    max-width: 250px;
+    font-size: 9px;
+  }
+}
+.inspection-display-shortcuts {
+  position: absolute;
+  z-index: 25;
+  left: 12px;
+  top: 8px;
+  width: min(300px, calc(100% - 24px));
+}
+.inspection-display-shortcuts [role='group'] {
+  display: flex;
+  gap: 4px;
+}
+.inspection-display-shortcuts button {
+  padding: 6px 8px;
+  font-size: 11px;
+  background: #172833ed;
+}
+.inspection-display-shortcuts p {
+  margin: 4px 0 0;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #bfd0d8;
+  background: #13222acc;
+  padding: 3px 5px;
+}
+@media (max-width: 700px) {
+  .inspection-display-shortcuts {
+    top: 8px;
+    width: calc(100% - 24px);
+  }
+  .inspection-display-shortcuts p {
+    max-width: 280px;
+  }
+}

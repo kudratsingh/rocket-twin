@@ -1,34 +1,38 @@
-import { useMemo, useState } from 'react';
-import { grams, partName, title } from '../format';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { grams, partName } from '../format';
 import { useInspection } from '../store';
-import type { Part } from '../types';
+import type { InspectionDocument, Part } from '../types';
 import { Icon } from './Icons';
 import { matchesPartSearch } from './partSearch';
+import { presentationGroups, recordedQuantity, representationLabel } from './presentationGroups';
+import { FinAlternatives } from './FinAlternatives';
 
 export function PartsTree({
   parts,
+  vehicle,
   candidateMessage,
 }: {
   parts: Part[];
+  vehicle?: InspectionDocument;
   candidateMessage?: string;
 }) {
   const [query, setQuery] = useState('');
   const [collapsed, setCollapsed] = useState<string[]>([]);
+  const tree = useRef<HTMLDivElement>(null);
   const selectedId = useInspection((s) => s.selectedId);
+  const selectedGroupId = useInspection((s) => s.selectedGroupId);
   const hiddenIds = useInspection((s) => s.hiddenIds);
-  const select = useInspection((s) => s.select);
-  const hover = useInspection((s) => s.hover);
-  const togglePart = useInspection((s) => s.togglePart);
-  const showAll = useInspection((s) => s.showAll);
-  const ids = useMemo(() => new Set(parts.map((part) => part.id)), [parts]);
-  const children = useMemo(() => {
-    const map = new Map<string | null, Part[]>();
-    for (const part of parts) {
-      const parent = part.parent && ids.has(part.parent) ? part.parent : null;
-      map.set(parent, [...(map.get(parent) || []), part]);
-    }
-    return map;
-  }, [parts, ids]);
+  const groups = useMemo(() => presentationGroups(vehicle), [vehicle]);
+  const selectedGroup = groups.find((g) => g.part_ids.includes(selectedId ?? ''));
+  useEffect(() => {
+    if (selectedGroup)
+      useInspection.setState({
+        selectedGroupId: selectedGroup.id,
+        selectedGroupPartIds: selectedGroup.part_ids,
+      });
+    tree.current?.querySelector('[data-selected="true"]')?.scrollIntoView?.({ block: 'nearest' });
+  }, [selectedId, selectedGroup]);
+  const meshes = parts.filter((p) => p.mesh_url);
   const filtered = query.trim().toLowerCase();
   const matches = (part: Part) =>
     matchesPartSearch(filtered, {
@@ -37,42 +41,21 @@ export function PartsTree({
       type: part.type,
       material: part.material,
     });
-  const hasMatch = (part: Part): boolean =>
-    matches(part) || (children.get(part.id) || []).some(hasMatch);
-  function renderPart(part: Part, level: number) {
-    if (filtered && !hasMatch(part)) return null;
-    const descendants = children.get(part.id) || [];
-    const isClosed = !filtered && collapsed.includes(part.id);
+  function row(part: Part) {
     const hidden = hiddenIds.includes(part.id);
     return (
       <li key={part.id}>
         <div
           className={`tree-row ${selectedId === part.id ? 'selected' : ''} ${hidden ? 'is-hidden' : ''}`}
-          style={{ paddingLeft: `${10 + level * 15}px` }}
-          onMouseEnter={() => hover(part.id)}
-          onMouseLeave={() => hover(null)}
+          data-selected={selectedId === part.id}
+          onMouseEnter={() => useInspection.getState().hover(part.id)}
+          onMouseLeave={() => useInspection.getState().hover(null)}
         >
-          {descendants.length > 0 ? (
-            <button
-              className={`tree-expand ${isClosed ? '' : 'open'}`}
-              aria-label={`${isClosed ? 'Expand' : 'Collapse'} ${partName(part)}`}
-              aria-expanded={!isClosed}
-              onClick={() =>
-                setCollapsed((list) =>
-                  list.includes(part.id) ? list.filter((id) => id !== part.id) : [...list, part.id],
-                )
-              }
-            >
-              <Icon name="chevron" size={12} />
-            </button>
-          ) : (
-            <span className="tree-leaf" />
-          )}
           <button
             className="tree-select"
             aria-pressed={selectedId === part.id}
-            onClick={() => select(part.id)}
             title={part.id}
+            onClick={() => useInspection.getState().select(part.id)}
           >
             <span
               className="part-dot"
@@ -80,63 +63,132 @@ export function PartsTree({
             />
             <span className="tree-name">
               {partName(part)}
-              <small>{title(part.type)}</small>
+              <small>{representationLabel(part)}</small>
+              {recordedQuantity(part) && <small>{recordedQuantity(part)}</small>}
             </span>
-            <span
-              className="tree-mass"
-              title={
-                descendants.length
-                  ? `Subtree: ${grams(part.subtree_mass_kg)}; this part: ${grams(part.mass_kg)}`
-                  : undefined
-              }
-            >
-              {grams(descendants.length ? part.subtree_mass_kg : part.mass_kg)}
-              {descendants.length > 0 && <small>subtree</small>}
-            </span>
+            <span className="tree-mass">{grams(part.mass_kg)}</span>
           </button>
           <button
             className="icon-button visibility-button"
-            title={`${hidden ? 'Show' : 'Hide'} ${partName(part)}`}
+            disabled={!part.mesh_url}
+            title={
+              part.mesh_url
+                ? `${hidden ? 'Show' : 'Hide'} ${partName(part)}`
+                : 'No separate display solid'
+            }
             aria-label={`${hidden ? 'Show' : 'Hide'} ${partName(part)}`}
-            aria-pressed={!hidden}
-            onClick={() => togglePart(part.id)}
+            aria-pressed={!hidden && !!part.mesh_url}
+            onClick={() => useInspection.getState().togglePart(part.id)}
           >
             <Icon name={hidden ? 'eyeOff' : 'eye'} size={14} />
           </button>
         </div>
-        {!isClosed && descendants.length > 0 && (
-          <ul>{descendants.map((child) => renderPart(child, level + 1))}</ul>
-        )}
       </li>
     );
   }
   return (
     <aside className="parts-panel" aria-label="Parts tree">
       <div className="panel-heading">
-        <span className="eyebrow">Assembly</span>
-        <span className="count">{parts.length} parts</span>
+        <span className="eyebrow">Functional assemblies</span>
+        <span className="count">
+          {parts.length} records · {meshes.length} meshes
+        </span>
       </div>
       <h2>Parts explorer</h2>
       <label className="search-field">
         <Icon name="search" size={15} />
         <input
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
           placeholder="Find name or part ID…"
           aria-label="Search parts"
         />
-        <kbd>/</kbd>
       </label>
       <div className="tree-toolbar">
-        <span>{parts.length - hiddenIds.length} visible</span>
-        <button onClick={showAll} disabled={!hiddenIds.length}>
+        <span>
+          {meshes.filter((p) => !hiddenIds.includes(p.id)).length} / {meshes.length} meshes visible
+        </span>
+        <button onClick={() => useInspection.getState().showAll()} disabled={!hiddenIds.length}>
           Show all
         </button>
       </div>
-      <div className="tree-scroll">
-        <ul className="parts-tree">
-          {(children.get(null) || []).map((part) => renderPart(part, 0))}
-        </ul>
+      <div className="tree-scroll" ref={tree}>
+        {groups.length ? (
+          groups.map((group) => {
+            const entries = parts.filter(
+              (p) => group.part_ids.includes(p.id) && (!filtered || matches(p)),
+            );
+            if (filtered && !entries.length) return null;
+            const open =
+              !!filtered || selectedGroup?.id === group.id || !collapsed.includes(group.id);
+            const meshIds = entries.filter((p) => p.mesh_url).map((p) => p.id);
+            return (
+              <section className="functional-group" key={group.id}>
+                <div className="functional-group-heading">
+                  <button
+                    aria-label={`${open ? 'Collapse' : 'Expand'} ${group.label}`}
+                    aria-expanded={open}
+                    onClick={() =>
+                      setCollapsed((ids) =>
+                        ids.includes(group.id)
+                          ? ids.filter((id) => id !== group.id)
+                          : [...ids, group.id],
+                      )
+                    }
+                  >
+                    <Icon name="chevron" size={12} />
+                  </button>
+                  <button
+                    aria-pressed={selectedGroupId === group.id}
+                    onClick={() => useInspection.getState().selectGroup(group.id, group.part_ids)}
+                  >
+                    {group.label}
+                    <small>
+                      {group.part_ids.length} records ·{' '}
+                      {parts.filter((p) => group.part_ids.includes(p.id) && p.mesh_url).length}{' '}
+                      meshes
+                    </small>
+                  </button>
+                </div>
+                {open && (
+                  <>
+                    <p className="small muted">{group.description}</p>
+                    <div className="group-actions">
+                      <button
+                        disabled={!meshIds.length}
+                        onClick={() => {
+                          useInspection.getState().selectGroup(group.id, group.part_ids);
+                          useInspection.getState().fitVisible();
+                        }}
+                      >
+                        Frame group
+                      </button>
+                      <button
+                        disabled={!meshIds.length}
+                        onClick={() => {
+                          useInspection.getState().selectGroup(group.id, group.part_ids);
+                          useInspection.getState().isolateGroup(group.part_ids);
+                        }}
+                      >
+                        Isolate group
+                      </button>
+                    </div>
+                    {group.id === 'fins_roots' && vehicle && <FinAlternatives design={vehicle} />}
+                    <ul className="parts-tree">{entries.map(row)}</ul>
+                  </>
+                )}
+              </section>
+            );
+          })
+        ) : (
+          <>
+            <p className="small muted">
+              Functional grouping unavailable for this source. Flat source records below do not
+              imply physical attachments.
+            </p>
+            <ul className="parts-tree">{parts.filter((p) => !filtered || matches(p)).map(row)}</ul>
+          </>
+        )}
         {filtered && !parts.some(matches) && (
           <p className="empty-copy">No parts match “{query}”.</p>
         )}
@@ -148,9 +200,8 @@ export function PartsTree({
       <div className="parts-footer">
         <Icon name="cube" size={15} />
         <span>
-          Click any part to inspect.
-          <br />
-          Eye controls change visibility only.
+          Records can describe several pieces or a mass allowance. Grouping describes function, not
+          a verified joint.
         </span>
       </div>
     </aside>
