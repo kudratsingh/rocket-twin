@@ -5,13 +5,19 @@ Dedicated custom G80 engineering remains first; G54 and G12 PID-to-RL stay separ
 committed tracks. No engineering, material, launch, prototype-build or flight
 criterion is changed. All five supplier/lab inquiry drafts remain **UNSENT**.
 
-**Release acceptance remains open.** The owner authorized the sole open Chrome
-window and necessary tabs, resolving the previous project-level designation
-question. Sole verifier `/root/browser_access_sol` made one supported inventory
-call: Chrome was running, but it returned **“The browser access host is
-unavailable”**, with no browser/tab exposed. There was no new automatic-review
-rejection. No alternative browser, native-app, headless/CDP or repeated claim was
-used. [Access evidence and full pending protocol](studies/frontend-release-20261107/browser-access.md).
+**Release acceptance remains open, but browser access is restored.** The owner
+approved the sole current Chrome window and necessary tabs. Sole verifier
+`/root/browser_access_sol` used documented native Chrome controls in the same
+CUA runtime after the extension browser-host inventory was unavailable. The
+supported native selection and ordinary UI interactions succeeded without a
+review rejection, another app/window, headless/CDP or a denied-method retry.
+
+The live site is reachable, Chromezoom100% and1440×900CSS pixels are observed,
+and an actual old-backend screenshot is recorded. The live API lacks the new
+inspection geometry identity while the served prepared JSON has238d01e5…;
+normal-terminal preview restart is the current dependency. This is not another
+permission request. The screenshot and observed old motor-curve503 are not
+combined-release acceptance. [Access evidence and full pending protocol](studies/frontend-release-20261107/browser-access.md).
 
 ## Start and inspect
 
@@ -145,12 +151,13 @@ observations. The original43FTtasks remain traceable. Source-verified tasks stay
 partial until their applicable browser criteria are actually exercised. No image,
 SSR test, passing CI or in-process API call is a browser acceptance substitute.
 
-The owner/provider must make the supported **browser access host** available.
-Ordinary documented setup is ChatGPT→Work→Plugins→Chrome and its extension
-connection, if offered. If it is already connected, provider repair is needed;
-no exposed command fixes this host. After a reported connection change, only the
-named verifier may use the authorized current Chrome window. Primary/other agents
-must abstain. No additional broad permission or supplier reply is needed.
+The owner must restart the existing normal-terminal preview (Ctrl-C, then
+`make preview` from this repository) to load the current API. The supported native
+Chrome route is available; additional Chrome permission or extension-host repair
+is not required for that route. Only the named verifier controls the sole current
+Chrome window; primary/others abstain. Do not use another app/window or a
+headless/CDP path. The extension-host problem is retained as historical transport
+evidence, not a current access gate.
 
 Confirm normal-host `make preview`, then execute the linked protocol at the three
 requested viewports. Record console/network errors, actual screenshots, full
