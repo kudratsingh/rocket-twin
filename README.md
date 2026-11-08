@@ -12,6 +12,15 @@ certified commercial motors and suitable purchased parts complement the build.
 
 **Repository:** public by owner confirmation (November 4, 2026). The next G80 engineering milestone is [VP1 material and attachment validation](docs/validation/rp1-vp1/package-summary.md). Physical interchangeability with G12 is optional; the first G80 remains a dedicated conventional build.
 
+The current RP1 preview includes its own source-derived 3D inspection model,
+linked Engineering drawings and recorded findings. Archived supported vehicles
+can run local CPU experiments and replay/compare saved telemetry. Live browser
+checks and actual screenshots are recorded in
+[the release handoff](docs/frontend-release-20261107.md). Desktop layout and
+explicit Side fitting pass measured thresholds; the full native-rate 60 fps
+benchmark remains failed. Bounded live browser checks are recorded, and the app is restored to current RP1 Design for owner use. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
+not engineering, prototype-build or flight approval.
+
 ## What works today
 
 - **Vehicle models:** typed YAML parts, geometry, mass, centre of gravity, full
@@ -51,7 +60,7 @@ implements adjacent collapsible left columns, a larger visual and a bottom tools
 drawer; [the release candidate](docs/frontend-release-20261107.md) also implements
 bounded experiments/batches, replay/export and recorded Analysis workflows.
 Supported same-window native Chrome verification is available. Combined-release
-acceptance awaits a normal-terminal preview restart and the remaining live checks.
+acceptance is being checked in the permitted Chrome window after the owner restarted the normal-terminal preview.
 
 VP1 remains a proposed evidence programme using ordinary birch plywood and WEST
 105/206/406, not vehicle adoption. **The five inquiry drafts remain UNSENT under
@@ -67,9 +76,8 @@ establish physical flight accuracy. The [results log](docs/results.md) retains
 run identities, assumptions, discrepancies and negative results.
 
 The early workbench is implemented while full WO-04/05 acceptance remains open.
-Source, test and offline-render checks are recorded separately from pending
-browser interaction acceptance. See the [current project state](docs/CURRENT.md)
-and [frontend handoff](docs/wo04-focused-preview-20261103.md). The separate
+Source, test and offline-render checks are separate from the recorded browser outcomes and remaining compound acceptance gaps. See the [current project state](docs/CURRENT.md)
+and [current frontend handoff](docs/frontend-release-20261107.md). The separate
 [VP1 programme view](docs/wo04-vp1-validation-workbench-20261106.md) displays the frozen plan, conceptual parts, known/unquoted costs and five draft messages at
 `/?workspace=engineering&view=rp1-validation`; it cannot authorize or execute tests.
 

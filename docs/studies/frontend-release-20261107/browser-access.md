@@ -1,16 +1,44 @@
 # Frontend release: supported access findings and browser protocol
 
-**Current blocker:** owner consent and the named verifier are resolved. The supported inventory returned **“The browser access host is unavailable”**. Chrome running does not expose a browser tab. The original ownership investigation below is historical; do not use it to ask for the same consent again. Normal-host preview startup and live browser checks remain pending.
+**Current result:** the owner explicitly reassigned the sole current Chrome window to this verifier. Supported native Chrome control works in the same CUA runtime, and after the owner restarted the normal-host preview the live API and rendered 26-mesh RP1 model match the exact current inspection source. Genuine Design, Engineering, Analysis and saved-run observations are recorded below and in [browser-results.csv](browser-results.csv). The extension browser-host failure and original ownership investigation are historical; compound acceptance rows remain partial where subpaths are unexecuted.
+
+**Latest correction and measurement:** the exact-time component import collision was reproduced and corrected with an explicit `.tsx` import, then a normal Chrome reload succeeded. Exact recovery and landing requests now work. Two separately authorized source-state G54 browser profiles loaded all 132,856 saved rows: the initial attempt failed 60 fps (p95 33.20 ms, mean 17.83 ms), and one changed-source follow-up improved but still failed (p95 17.70 ms, mean 17.50 ms). No third attempt was made. Ordinary Offline request recovery and an explicit development render-error fixture were observed; normal transport and bounded playback were restored. See the current outcome section below.
+
+**Final owner-ready state:** after the owner confirmed the window was free, the remaining bounded native checks completed and RP1 Design was restored at 1440 × 900, Chrome100%, No throttling, 3D inspection model with explicit Fit assembly, no selected part, guide off, both left columns open and Scene tools closed. Saved replay remains bounded/paused, follow camera and1× speed. CUA is now released for the primary’s source checks/publication. Compound unexecuted branches and both failed60fps profiles remain explicit.
 
 Date: 2026-11-07. This records bounded access research, subsequent explicit
 owner reassignment, and supported native interaction with the same authorized
 Chrome window. Native Chrome access now works through `cua_repl`; the extension
-browser access host remains unavailable. The served live RP1 API is older than
-the prepared geometry source, so combined-release browser acceptance remains
-pending a normal-host backend restart and recheck. No other app/window,
+browser access host remains unavailable. After the owner restarted the normal
+host preview, the live RP1 API visibly matched geometry digest `238d01e5…28b608`
+and the app actually rendered all 26 inspection meshes. Verification is now in
+progress, with compound acceptance rows tracked in [browser-results.csv](browser-results.csv).
+No other app/window,
 headless/CDP path, sandbox escalation or preview startup was used by this agent.
 
 ## Current observed state
+
+**Post-restart update:** The owner reported restarting the preview. A fresh native
+Chrome visit to `/api/vehicles/G80-F2-RP1-AD1-definition-v2` visibly showed exact
+geometry hash `238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608`,
+matching spec/record identities and null canonical resolved/CAD identity.
+The actual Design canvas rendered the source-derived nose, body, fins and motor,
+with 26/26 loaded bounds and saved nominal-55 CG/CP estimate labels. Source part
+`baro` was found through search, selected in the tree and explicitly framed;
+its simplified-envelope label and 1/1 loaded bounds were observed.
+Screenshot `runs/frontend-browser-20261107/rp1-baro-framed-1440x900.png` is the
+unchanged native capture (2880 × 1800 raster, SHA-256
+`543119eaae2e37adffc897083ba1a38b6a4b1ca0a6e35dc4e3bc67a912d31411`).
+The earlier stale-backend observations below are historical, not the current
+blocker. Browser interactions are now executable in the authorized window.
+
+That first selected-part capture exposed overlapping bottom selection/framing/
+missing-solid messages. The primary subsequently moved the framing and
+missing-solid readouts into Scene tools; the actual restored assembly and open drawer recheck showed both readable without overlap. The primary also replaced nested React roots for scene labels and corrected orientation placement. A reload/console-display clear followed by selection, section, hide/restore and workspace transitions showed no new synchronous-unmount errors; the pinned upstream THREE.Clock deprecation remains visible.
+Native AX-index clicks also proved offset for adjacent app buttons within
+Chrome's scaled responsive viewport. Screenshot-coordinate clicks correctly
+selected visible Parts and Details; no header-dispatch code defect was found.
+DevTools controls outside the emulated page remain usable by native AX index.
 
 After the owner explicitly authorized the sole open Chrome window and any tabs
 needed within it, the primary assigned `/root/browser_access_sol` sole browser
@@ -55,7 +83,7 @@ Read-only native Console UI showed a failed resource with HTTP 503 for
 informational text. This failure belongs to the observed older served state and
 must be rechecked after restart before attributing it to the current source.
 
-The next owner action is to restart the existing preview from the normal host
+The historical next owner action was to restart the existing preview from the normal host
 terminal (`Ctrl-C`, then `make preview` at this checkout), retain its output, and
 report readiness. The verifier then reloads the same Chrome tab and checks the
 live API's geometry digest, 26 mesh references, four saved mass cases and actual
@@ -153,13 +181,13 @@ Browsers: Error: The browser access host is unavailable
 ```
 
 No browser/tab was exposed for a supported claim. There was no new automatic
-approval rejection. No native Chrome app, alternative runtime, reconnect, retry
-or other route was attempted. Browser access is now blocked by the unavailable
+approval rejection. At that point no native Chrome app, alternative runtime, reconnect, retry
+or other route had been attempted. Browser-tab transport was blocked by the unavailable
 browser access host, despite the newly explicit owner authorization. The next
 provider/owner action is to make the supported Chrome browser access host
 available and expose the permitted existing window/tab. The available evidence
-does not establish an exact repair setting or command. Browser rows remain
-blocked, with this new concrete prerequisite replacing uncertainty about consent.
+does not establish an exact repair setting or command. At that historical checkpoint browser rows remained
+blocked. The later supported native same-window path above resolved execution access.
 
 The primary's subsequent plugin-directory search returned no matching Chrome
 entry; that bounded result is not proof the plugin is absent. The documented
@@ -209,7 +237,7 @@ Full-rate browser workload and measured host statistics remain unobserved, so
 RV-Q30 is pending rather than a performance pass. Offline RV-Q02/Q03/Q13 remain
 separate geometry/replay evidence obligations.
 
-## Grouped live-browser protocol — pending
+## Grouped live-browser protocol — execution coverage below
 
 Use the combined release source and build, not an earlier component branch.
 Before every session record exact commit or source hashes, dirty state, served
@@ -245,17 +273,84 @@ to RV-Q36; no browser result may be promoted from this protocol, source checks,
 SSR, offline images or another revision's observations. WO-03, physical/build,
 paid-run, WO-10 firmware review and flight gates remain open.
 
-Final release-ledger disposition: all37rows remain traceable. Twelveoffline rows
+Historical pre-native release-ledger disposition: all37rows remain traceable. Twelveoffline rows
 have source evidence;24access/browser rows are blocked by runtime (with compatible
 field data additionally missing for covered-field visual paths); optional
 Mission ControlRV-Q35 is not applicable because RV-17 is explicitly deferred.
 This supersedes the initial pre-disposition count of25blocked rows; it does not
 turn any unobserved browser check into a pass.
 
-Latest ledger checkpoint after native control succeeded: RV-01/02 offline tasks
+Historical checkpoint immediately after native control succeeded: RV-01/02 offline tasks
 and RV-03 access are complete within their own scopes. RV-Q04 is now pass;
 13rows have source/access evidence,23current-release browser rows remain pending
 the currentAPIrestart (plus covered-field data where applicable), and optional
 RV-Q35 is not applicable. The old-backend screenshot is not a current-release
 layout or interaction pass. This supersedes the preceding host-only blockage
 and pre-native row counts.
+
+
+## Live verification outcome — current
+
+The native session used Chrome100% zoom and responsive1440×900,1280×720 and900×720 CSS viewport controls. Raster captures are2×those dimensions. Current RP1 exactsource matched the post-restart API and actual26-mesh canvas. Both desktop columns collapse independently; Focus/Escape restores state. Narrow drawer failure was reproduced and rechecked after the primary corrected compact grid-area inheritance. Details reaches the final source/limitations control. Actual fit, baro selection/frame, section/hide/restore and exactsource Engineering/Back roundtrip worked. Camera fit ratios, all retained zoom sizes and the complete keyboard/race/failure matrix remain unmeasured or unexecuted.
+
+Actual browser defects and corrections are preserved by paired screenshots: overlapping scene messages moved to readable stacked tools; nested React scene-label roots replaced; lower-left orientation overlap corrected; compact context drawer made visible; Analysis status/legend placed in a static stack. A reload and console-display clear followed by normal transitions did not reproduce synchronous-unmount errors. THREE.Clock upstream deprecation remains visible. The current RP1 motor curve is available from exactsource digest e79138a0…; the initial503 was old-backend evidence.
+
+Analysis shows neutral RP1 geometry, scalar failed-screen findings and unavailable installed joint/compatible-spatial-field quantities. The actual exported comparisonCSV has one unavailable row with blank values, preserving unknowns. No compatible spatial field source exists for the unexecuted overlay/difference branches.
+
+The new local execution scope was exactly one Tiny single and one two-member Tiny batch:27,000 declared modelsteps, serial CPU worker/concurrency1. The single completed in12.77s observed submit-to-terminal; the initial180s whole-packet stop was honored at~200s after UI work/compaction with batch unattempted. The primary explicitly replanned that remaining unattempted batch as one separate submission with167.23s execution allowance. Both batch members were terminal by the~27.82s observation bound. This does not turn the original packet stop into a pass. Process CPU time, core affinity and the intended120CPU-s ceiling were not measured. No extra run was made for cancellation/failure. Exact settings/IDs/exports are recorded in the row CSV; all three trajectories are45s partial records, not landing evidence.
+
+The actual older116.029s G80 replay and new45s single demonstrate unequal windows. At58.651s the short actor/readouts are outside their recorded support; the older run remains inside support. Their simulation code identities differ, and quantitative B plots correctly remain withheld. Fresh batch members share code and source, permit real numeric comparison and preserve exact nearest-sample times. Same-seed single/batch comparison reports zero setting differences. Both new runs return3004/9000samples in the bounded profile. Genuine browser CSV/metadata exports retain exact inputs, source/CAD identity, selected range, offsets and timestamps; they are explicitly not full-rate telemetry.
+
+See [browser-results.csv](browser-results.csv) for per-row partial/pass/unavailable coverage. These are actual interaction observations, not blanket completion of compound acceptance rows or engineering/physical/flight acceptance. Screenshot and export files remain unchanged in ignored runs/frontend-browser-20261107.
+
+
+A subsequent exact-time control integration initially failed a real browser reload with `Uncaught SyntaxError: The requested module /src/experiments/ExactReplayTime.ts does not provide an export named ExactReplayTime` at Experiment.tsx:3:10, followed by the React error-boundary warning. The primary identified a case-insensitive macOS module-basename collision between the component and helper. Exact-time/recovery and full-rate profiling paused pending its correction; this new failure is distinct from the earlier resolved scene-label errors.
+
+The unchanged screenshot/download inventory, dimensions and full SHA-256 digests are in [browser-evidence.json](browser-evidence.json).
+
+
+## Exact recovery, profiling and failure recovery — completed observations
+
+After the explicit `ExactReplayTime.tsx` import correction, a normal browser Reload succeeded. On sole saved G80 run `exp-cf9e47a650074144856caf50775846d2`, entering 11.150 and pressing Enter produced validity text “requested 11.150 s” and an actual nose-up, tilted vehicle with CG marker after modeled deployment. The separately labelled nearest bounded sample is at 11.143 s: tilt 4.074581992984311° and total speed 5.446069915438504 m/s. Vertical velocity was not displayed; the browser observation does not infer downward speed from total speed. The approximate recovery/suspended-body limitation remains visible. Native range AX reports 11.151 because that slider quantizes its representation; the exact input and pose request remain 11.150. At exact request 116.029 s, nearest endpoint height and speed both display zero, with no impact/contact-force inference.
+
+One saved G54 full-rate attempt used `exp-ab60bd4ac5c2412a9dd85f712072bca2` in the same Chrome window, 1440 × 900 CSS px, 100% browser zoom, 1× playback. It loaded **132,856 / 132,856** native rows over 0.001–132.856 s with matching source. The displayed last load was **2652.4 ms**, including API/identity checks; response Content-Length was **113,412,840 bytes**, distinct from transfer/heap totals. Playback advanced 0.131→6.641 s and paused. Its rolling **600 recent frame intervals** were median **16.70 ms**, p95 **33.20 ms**, maximum **50.00 ms**, mean **17.83 ms**. This measured attempt does not meet a 60 fps requirement. It is not a full-duration real-time endurance pass or a repeated optimization attempt.
+
+One exact 60.000 s full-rate scrub completed in **35.80 ms to the second animation-frame callback**, including scheduling rather than GPU-only completion. Nearest native sample was labelled 60.000 s. Host-reported JavaScript heap was 228,819,354 used / 264,020,494 allocated bytes after load; 214,933,232 / 283,395,348 after playback; 180,765,116 / 287,577,656 after scrub; limit 4,395,630,592 bytes. This nonstandard host estimate is not total process or GPU memory. No zero substitutes for unmeasured memory. The instrumentation scenario still said “bounded playback samples” while the actual profile and count were full-rate; this copy mismatch was reported. Normal bounded playback was restored afterward.
+
+Ordinary Chrome responsive Throttling → Offline caused a saved-run selection to show `TypeError: Failed to fetch` and ERR_INTERNET_DISCONNECTED, including periodic run-library polls. No simulation was submitted. The failed load still said “Loading saved run…” alongside the explicit error; that copy issue was reported. Throttling was restored to **Disabled: No throttling**, and selecting the same saved record loaded it with matching source. This is transport/request recovery, not worker failure or an idempotent submission test.
+
+The primary's explicit development-only `__previewFault=replay-render` fixture was exercised once. The actual shell retained workspace navigation and showed “This workspace could not be displayed” with the intentional display-fixture/no-calculation reason. The visible Reload link removed only the diagnostic flag while preserving AD1, spec, baro and saved-run context; the source-checked replay loaded. Normal Design navigation then preserved the same AD1/spec/baro. This is one controlled render recovery branch, not malformed, missing-source, HTTP 500 or delayed-data coverage. The fixture made no physics or backend-job change.
+
+Current RP1 connections also showed genuinely mapped fin-set selection updating the diagram and URL to `part=fin_set`, with an exact AD1/spec Design target. The successful target click and VP1/study/historical export paths were not established by that observation and remain partial.
+
+
+## Final bounded packet disposition
+
+After immutable elapsed capture, accepted time-axis caching and profile-specific copy were corrected, the primary explicitly authorized one changed-source follow-up on the same saved G54 data. This loaded the same 132,856 native rows in 2547.4 ms with 113,412,840 response Content-Length bytes. The intended roughly 20 s interval actually took 26.347 s from immediately before native Play click to immediately before Pause; the cursor advanced 0.001→25.49 s at 1×. The rolling 600 intervals were median 16.70 ms, p95 17.70 ms, maximum 34.30 ms, mean 17.50 ms. One 60.000 s scrub took 29.30 ms to the second animation-frame callback. JavaScript heap used/allocated was 231,987,546/266,067,386 bytes after load, 240,596,762/306,745,106 after playback, and 181,922,573/186,652,141 after scrub; limit 4,395,630,592. This improved profile still misses 60 fps, so performance work stopped without a third attempt or threshold change.
+
+Actual Side captures exposed a mirrored screen-right basis in asymmetric fitting. The primary corrected it and supplied a visible magenta framing-area guide from the same inset helper; no fit threshold or geometry changed. With Side and an explicit current-viewport Fit, screenshot-derived measurements were: 1440 default guide height 83.03% with at least 8.28% vertical clearance, and true 1280 × 720 default 83.25% with at least 8.14% (conservative 7.63%) clearance. Default canvas ratios were 78.26% width/86.89% height at 1440 and 75.55%/83.61% at 1280. These measurements come from genuine unchanged captures, not camera-math substitution. Focus captures show both columns absent and tools closed; the true 1280 Focus capture has guide off after a workspace remount and is used only for its visible layout.
+
+The prior valid 720 resize-transition capture is retained: its manually retained camera gave 90.92% guide height and only 4.13% bottom clearance before the explicit current-viewport Fit. Original files labelled guide-fixed-1280x720 were actually 2560 × 1800 rasters (1280 × 900) and remain unchanged with explicit mis-sized copies. One supposed Focus capture was visually caught with Details still open and is preserved as a failed interaction. Only the distinct `...1280x720-refit.png` default and Focus files establish the final required-size states.
+
+Baro was genuinely selected, isolated (54/55 hidden) and framed (1/1 bounds) with visible guide; its silhouette measured 78.31% of guide height with at least 10.84% clearance. The optional selected-part annotation covers its center, so the annotated capture is retained and the requested clean-label companion remains pending. Restore assembly subsequently showed 26/26 bounds and zero hidden parts.
+
+Mapped fin-set and recovery-wrap Design→Engineering→Design roundtrips retained exact AD1/spec/part identity; Engineering selected the applicable fin-panel or recovery route. FP1 graph zoom/reset and SVG download worked, preserving UNACCEPTED/not-adopted, units and source hashes. VP1 S1 selection worked, all five inquiry labels remained UNSENT, and Aircraft Spruce preview/download/copy retained exact frozen SHA-256 `2394f0420a038494c2da526516022a930f296d4d7983ac5c9bd8018ffcafe537`; local feedback explicitly said “Still UNSENT”. The separate historical G80-F1 view correctly disclosed no same-design detailed CAD. No supplier/lab message was sent.
+
+Native control then returned “The user changed /Applications/Google Chrome.app. Re-query the latest state with get_app_state before sending more actions” twice during short keyboard steps. The verifier honored the guard, re-queried supported state and found focus in the native DevTools Console prompt; that does not establish a free window. CUA work was yielded to avoid stale-state input. The clean-label baro companion, final G54/G12-finned/finless configuration-switch matrix, and final owner-ready restoration remain explicitly unexecuted. No console code, workaround, new app/window or new simulation followed. Last confirmed normal transport was No throttling and bounded replay paused before subsequent Design work; interrupted final resizing had Width 1440 with Height auto/empty, so no new screenshot is claimed as 1440 × 900 after that interruption.
+
+`runs/frontend-browser-20261107/record.json` now preserves the initial old-backend baseline as historical and records fresh source identity, scenarios, exact runs/resources, both failed performance profiles and capture dispositions. The artifact hash inventory was regenerated after that session-record update. Final source fingerprints/publication attribution belong to the primary; this record does not claim an unpublished local head was merged.
+
+
+## Resumed final controls and verified restoration
+
+The owner subsequently answered yes that the authorized Chrome window was free. Fresh supported native state succeeded, and the primary explicitly resumed this bounded verifier. One later change guard after a download was honored by re-querying state; expected More options focus returned and the following native controls were stable. No stale-state input, other window/app, new simulation or performance attempt was used.
+
+The requested clean companion is `rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png`, unchanged 2880 × 1800, SHA-256 `9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4`. Baro was selected, genuinely isolated with 54/55 source records hidden, framed with 1/1 loaded bounds, and its Selected-part label and CG/CP markers were toggled off. The actual solid is unobstructed inside the visible guide; Scene tools is closed. An additional unannotated tools-open capture is also retained with its actual state, rather than relabelled.
+
+Actual native configuration-menu choices rendered separate archived G54 (`modular-performance-g54-hypothesis`,42 parts), finned G12 (`modular-tvc-finned-v1`,53 parts with visible fins/TVC), and finless G12 (`modular-tvc-finless-v1`,51 parts without fins). All remain labelled 3D recorded geometry, separate from RP1. Finless Experiments selected “Finless trainer · static inspection only”, disabled Run on CPU, and displayed “Finless unguided simulation is unsupported. The actual design is shown for inspection.” No run was submitted. Separate unchanged captures retain all three rendered models.
+
+On the sole saved116.029s G80 diagnostic, a settled exact-time draft of200s produced “Time must be inside the recorded replay window0.001–116.02900000018997 seconds (inclusive).” The cursor stayed0.001s; Escape reset the draft to0.001s. The actual landing-event button then requested116.029s and showed nearest endpoint height/speed zero. Camera selectors changed follow→fixed pad→free→follow without changing requested116.029s; speed selection changed1×→2×→1× while paused. No numeric speed-multiplier, camera-clearance or new performance qualification is inferred from selector changes.
+
+The corrected load-failure status was rechecked once: ordinary Chrome Offline plus selecting existing G54 produced **Saved-run load failed: TypeError: Failed to fetch**, replacing the earlier lingering Loading copy. Chrome was restored to **Disabled: No throttling** and selecting the same saved record recovered matching-source bounded samples. This is a saved-load transport test, not a POST/job failure or cancellation test.
+
+The final native view was visibly verified as current exact-source RP1 Design, 3D inspection model, no selected part, both left columns open, Scene tools closed, framing guide off (toggle0), and full source-derived assembly after explicit Fit assembly. Native toolbar showed1440×900 and No throttling. Chrome remained100%; saved replay was bounded/paused with follow/1× restored. No further CUA or captures follow that prescribed restoration. The earlier temporary guard/unfinished-restoration paragraphs are historical checkpoints superseded by this completed resumption. Remaining compound branches stay partial in the row CSV; both60fps measurements remain failed and all engineering/physical/flight gates remain unchanged.

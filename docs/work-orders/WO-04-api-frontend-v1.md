@@ -1,5 +1,13 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+**November 7 preview closeout:** [Actual release evidence](../frontend-release-20261107.md)
+records source-derived RP1 inspection, live interactions and pixel-measured
+layout/Side fit. The 55 inspection records classify 26 mesh-bearing records,
+25 allowances and four missing geometries; this is not manufacturing CAD.
+Missing compatible spatial fields remain unavailable. Full work-order
+prerequisites and WO-03, engineering, prototype-build and flight gates remain open.
+
+
 **Owner revamp direction (2026-11-07):** [RP1-first Design inspection](../wo04-rp1-revamp-20261107.md). Use frozen G80-F2-RP1-AD1-definition-v2 as the current source/drawing design. Archived modular-performance-v1 is a separate matching-CAD/replay fixture; no historical mesh or inertia substitutes for RP1. Keep all five supplier/lab drafts UNSENT and proceed from repository evidence without waiting for replies. Expose estimates and missing details for later authorized measurement. Two adjacent independently collapsible left columns, dominant visual and a slim tools drawer replace the crowded Design layout. The 21 RV tasks map to the existing 43 FT tasks; code/offline checks and browser acceptance remain separate. WO-03, purchases, physical/test, paid-run, WO-10 and flight gates remain unchanged.
 
 The separate F2-C1 connection preview is recorded in

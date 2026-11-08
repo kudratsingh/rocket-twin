@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "created_date": "2026-11-06",
-  "status": "source_release_candidate_host_restart_pending",
+  "status": "usable_browser_observed_preview_full_acceptance_open",
   "source_ledger": "docs/frontend-workbench-backlog.json",
   "source_ledger_updated_date": "2026-11-07",
-  "check_matrix": "acceptance-matrix.csv",
+  "check_matrix": "docs/frontend-revamp-acceptance.csv",
   "thresholds": "Proposed for revamp. Prior evidence remains attributed to its recorded implementation slice.",
-  "browser_status": "native_chrome_available_live_backend_restart_pending",
+  "browser_status": "bounded_checks_complete_owner_ready_full_rate_performance_failed",
   "tasks": [
     {
       "id": "RV-01",
@@ -116,7 +116,9 @@
       "browserObserved": true,
       "accepted": true,
       "evidence": [
-        "docs/frontend-release-20261107.md"
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
       ],
       "acceptance_scope": "Supported same-window native Chrome access observed under the owner authorized named verifier; not combined-release interaction acceptance."
     },
@@ -160,12 +162,15 @@
       "outside_initial_release": false,
       "delivery": "Preserve links and independent resource loading. Keep the rail, identity and workspace scroll behavior reachable with long or missing content.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo04-rp1-revamp-20261107.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-05",
@@ -199,12 +204,15 @@
       "outside_initial_release": false,
       "delivery": "Keep one mounted main visual, an icon rail and adjacent context column with independent controls, and a slim bottom tool strip. Open part details on demand.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo04-rp1-revamp-20261107.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-06",
@@ -242,12 +250,15 @@
       "outside_initial_release": false,
       "delivery": "Use safe projected framing and separate Fit, Focus and Reset. Keep same-design 2D sources identifiable and preserve manual camera state.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo04-rp1-revamp-20261107.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-07",
@@ -284,12 +295,15 @@
       "outside_initial_release": false,
       "delivery": "Search, pick and inspect source components with clear hidden, clipped, failed and missing states. Restore assembly without resetting selection or camera angle.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo04-rp1-revamp-20261107.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-08",
@@ -327,12 +341,15 @@
       "outside_initial_release": false,
       "delivery": "Retain historical topics, separate RP1 studies and VP1 programme. Give one selected diagram the primary workspace with contextual evidence and portable exports.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo04-rp1-connections-20261107.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-09",
@@ -368,11 +385,14 @@
       "outside_initial_release": false,
       "delivery": "Land the reusable run identity/status adapter before the form. Allow eligible complete configurations and retain request, effective settings, seeds and failed attempts.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-10",
@@ -405,11 +425,14 @@
       "outside_initial_release": false,
       "delivery": "Declare count, concurrency and resources before execution. Exercise cancellation, interruption and per-member provenance.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-11",
@@ -445,14 +468,17 @@
       "outside_initial_release": false,
       "delivery": "Keep replay correctness independent of batch, full comparison and aesthetic changes. Use one authoritative time and expose validity where it affects interpretation.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo05-replay-window-20261107.md",
         "docs/wo04-rp1-connections-20261107.md",
         "docs/studies/replay-pose-20261107/report.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-12",
@@ -483,11 +509,14 @@
       "outside_initial_release": false,
       "delivery": "Compare compatible channels, preserve absolute time and alignment metadata, and show gaps and partial-run coverage.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-13",
@@ -523,11 +552,14 @@
       "outside_initial_release": false,
       "delivery": "Use recorded trajectory/pose and improved spatial cues. An optional schematic cue stays distinct from physical multi-body recovery.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-14",
@@ -560,12 +592,15 @@
       "outside_initial_release": false,
       "delivery": "Inventory available scalar, point, spatial and transient sources with exact mapping identities and unavailable reasons.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
         "docs/wo05-replay-window-20261107.md",
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-15",
@@ -605,11 +640,14 @@
       "outside_initial_release": false,
       "delivery": "Stage baseline displays before comparisons. Coordinate with PR-09 only where sharing a compatible comparison primitive.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-16",
@@ -646,11 +684,14 @@
       "outside_initial_release": false,
       "delivery": "Resolve defaults from the actual catalog and preserve exact source/run/case associations across workspaces. Keep Design, Engineering and run-source identities distinct.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-17",
@@ -684,7 +725,8 @@
       "disposition": "Outside this release; see explicit dispositions in docs/frontend-release-20261107.md",
       "evidence": [
         "docs/frontend-release-20261107.md"
-      ]
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-18",
@@ -723,17 +765,20 @@
         "RV-Q18",
         "RV-Q19"
       ],
-      "status": "blocked_runtime",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Observe M1 before Engineering or later integrated acceptance. Record the exact head and scenario-level outcome.",
       "codeVerified": false,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "blocker": "Native Chrome access works. Served live API is stale; owner normal-terminal preview restart then combined-release verification required.",
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-19",
@@ -772,17 +817,20 @@
         "RV-Q33",
         "RV-Q34"
       ],
-      "status": "blocked_runtime",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Observe only the authorized running preview, with saved-run identity and representative measurements.",
       "codeVerified": false,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "blocker": "Native Chrome access works. Served live API is stale; owner normal-terminal preview restart then combined-release verification required.",
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-20",
@@ -811,11 +859,14 @@
       "outside_initial_release": false,
       "delivery": "Return browser defects to the relevant owner, recheck changed flows at the tested head and keep unavailable scenarios visible.",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/frontend-release-20261107.md"
-      ]
+        "docs/frontend-release-20261107.md",
+        "docs/studies/frontend-release-20261107/browser-results.csv",
+        "docs/studies/frontend-release-20261107/layout-capture-measurements.md"
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     },
     {
       "id": "RV-21",
@@ -853,7 +904,8 @@
       "disposition": "Outside this release; see explicit dispositions in docs/frontend-release-20261107.md",
       "evidence": [
         "docs/frontend-release-20261107.md"
-      ]
+      ],
+      "acceptance_scope": "Compound criteria retain unexecuted or data-blocked branches; actual browser evidence is scoped, not blanket release/engineering acceptance."
     }
   ],
   "source_kit": {

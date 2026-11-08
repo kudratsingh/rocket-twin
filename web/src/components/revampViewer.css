@@ -95,6 +95,21 @@
   margin: 0;
   line-height: 1.5;
 }
+.inspection-framing-guide {
+  position: absolute;
+  z-index: 15;
+  border: 1px dashed #ef83dd;
+  pointer-events: none;
+}
+.inspection-framing-guide > span {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  padding: 2px 4px;
+  color: #ffb5ef;
+  background: #141c22ed;
+  font-size: 9px;
+}
 @media (max-width: 700px) {
   .revamp-design .revamp-primary-actions {
     top: 46px;

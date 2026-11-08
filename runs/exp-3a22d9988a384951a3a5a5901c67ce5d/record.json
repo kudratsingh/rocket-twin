@@ -1,0 +1,182 @@
+{
+  "run_id": "exp-3a22d9988a384951a3a5a5901c67ce5d",
+  "status": "complete",
+  "progress": "Complete",
+  "created_at": "2026-11-08T04:10:10.397096+00:00",
+  "worker_session": "a42212d5c3bd498fbf8f3b42d9995224",
+  "configuration": "modular-performance-v1",
+  "configuration_path": "configs/vehicle/platform/performance.yaml",
+  "settings": {
+    "configuration": "modular-performance-v1",
+    "wind_mps": 0.0,
+    "wind_direction_deg": 0.0,
+    "gust_mps": 0.0,
+    "preset": "tiny",
+    "seed": 20261107
+  },
+  "normalized_request_sha256": "a523d4c322b879910eb5bda620e04faf55dfe0df3c464e2de00508f6a1a48ba0",
+  "resources": {
+    "backend": "cpu",
+    "concurrency": 1,
+    "dt_s": 0.005,
+    "max_time_s": 45,
+    "max_steps": 9000,
+    "seed": 20261107,
+    "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+    "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+  },
+  "random_seed": 20261107,
+  "batch_id": null,
+  "controller": "locked, unguided",
+  "flight_ready": false,
+  "limitations": [
+    "Preliminary numerical source hypothesis; no hardware or flight approval.",
+    "Wind and attitude predictions are not independently validated; high angle of attack exceeds the supported aerodynamic model.",
+    "Recovery is a simplified point-drag and inflation model; structural, thermal and motion gates remain open.",
+    "G54 source identity remains conditional; G12 is plugged and lacks motor ejection backup."
+  ],
+  "submission_key": "540b17c3-6699-4b49-85c0-b88645f251dd",
+  "submission_payload": "{\"batch\": false, \"cases\": [{\"configuration\": \"modular-performance-v1\", \"gust_mps\": 0.0, \"preset\": \"tiny\", \"seed\": 20261107, \"wind_direction_deg\": 0.0, \"wind_mps\": 0.0}]}",
+  "batch_members": null,
+  "case": {
+    "dt_s": 0.005,
+    "max_time_s": 45,
+    "sensor_noise": true,
+    "elevation_m": 850,
+    "wind_north_mps": 0.0,
+    "wind_east_mps": 0.0,
+    "gust_amplitude_mps": 0.0
+  },
+  "vehicle_id": "modular-performance-v1",
+  "input_sha256": {
+    "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+    "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+    "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+    "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c"
+  },
+  "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+  "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+  "rng": "jax.random.PRNGKey; sensor noise enabled",
+  "effective_settings": {
+    "configuration": "modular-performance-v1",
+    "wind_mps": 0.0,
+    "wind_direction_deg": 0.0,
+    "gust_mps": 0.0,
+    "preset": "tiny",
+    "seed": 20261107,
+    "dt_s": 0.005,
+    "max_time_s": 45,
+    "sensor_noise": true,
+    "elevation_m": 850,
+    "wind_north_mps": 0.0,
+    "wind_east_mps": 0.0,
+    "gust_amplitude_mps": 0.0,
+    "controller": "locked, unguided"
+  },
+  "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+  "metrics": {
+    "effective_loaded_mass_kg": 0.739462164600174,
+    "effective_depletion_mass_kg": 0.0625,
+    "effective_burnout_mass_kg": 0.676962164600174,
+    "powered_net_acceleration_peak_g": 13.078183274692762,
+    "finite": true,
+    "apogee_agl_m": 635.2486690232791,
+    "apogee_time_s": 10.395000000000225,
+    "max_speed_mps": 149.5768425405521,
+    "guide_exit_s": 0.17000000000000007,
+    "guide_exit_mps": 19.093365021969927,
+    "powered_specific_force_peak_g": 14.078183274692764,
+    "accel_range_exceeded": false,
+    "powered_max_mach": 0.4444476019234056,
+    "powered_max_alpha_deg": 0.22998705093932728,
+    "powered_max_tilt_deg": 0.439702799956446,
+    "max_dynamic_pressure_pa": 12471.43119303407,
+    "apogee_downrange_m": 5.609303713360856,
+    "electronic_apogee_trigger_s": 10.400000000000226,
+    "inflation_complete_s": 11.000000000000227,
+    "impact_time_s": null,
+    "impact_speed_mps": null,
+    "landing_downrange_m": null,
+    "recovery_horizon_complete": false,
+    "motor_delay_probes": [
+      {
+        "delay_s": 3,
+        "time_s": 4.8079,
+        "relative_to_apogee_s": -5.587100000000225,
+        "height_agl_m": 468.4246945593605,
+        "vertical_velocity_down_mps": -65.41606288872961,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      },
+      {
+        "delay_s": 5,
+        "time_s": 6.8079,
+        "relative_to_apogee_s": -3.587100000000225,
+        "height_agl_m": 570.0091939855431,
+        "vertical_velocity_down_mps": -37.63600583429677,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      },
+      {
+        "delay_s": 6,
+        "time_s": 7.8079,
+        "relative_to_apogee_s": -2.587100000000225,
+        "height_agl_m": 601.8623587952967,
+        "vertical_velocity_down_mps": -26.256543259417338,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      },
+      {
+        "delay_s": 7,
+        "time_s": 8.8079,
+        "relative_to_apogee_s": -1.587100000000225,
+        "height_agl_m": 622.8165521964486,
+        "vertical_velocity_down_mps": -15.764268031505884,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      },
+      {
+        "delay_s": 9,
+        "time_s": 10.8079,
+        "relative_to_apogee_s": 0.4128999999997749,
+        "height_agl_m": 634.4162706986403,
+        "vertical_velocity_down_mps": 3.974762268871984,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      },
+      {
+        "delay_s": 10,
+        "time_s": 11.8079,
+        "relative_to_apogee_s": 1.412899999999775,
+        "height_agl_m": 628.8890235523791,
+        "vertical_velocity_down_mps": 6.043156314347716,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      },
+      {
+        "delay_s": 12,
+        "time_s": 13.8079,
+        "relative_to_apogee_s": 3.412899999999775,
+        "height_agl_m": 616.6622852524746,
+        "vertical_velocity_down_mps": 6.1247951323638405,
+        "meaning": "timing probe only; offered delays require exact-variant verification"
+      }
+    ],
+    "burnout_s": 1.8079
+  },
+  "events": {
+    "ignition": 0.0,
+    "guide_exit": 0.17000000000000007,
+    "burnout": 1.8079,
+    "apogee": 10.400000000000226,
+    "deployment": 10.700000000000227,
+    "landing": null
+  },
+  "trajectory_complete": false,
+  "result_state": "partial_trajectory",
+  "telemetry_samples": 9000,
+  "validity": [
+    "Free-flight powered angle of attack: 0.2\u00b0; within the 15\u00b0 screening bound; aerodynamic derivatives remain unvalidated.",
+    "Peak powered Mach: 0.444; within the 0.8 screening bound; this is not physical validation.",
+    "Steady wind 0 m/s, gust 0 m/s: wind and attitude remain unvalidated; the archived sensitivity case used a different height profile.",
+    "Motor source is a preliminary numerical hypothesis.",
+    "Guide conditions are assumptions, not an installed hardware or site validation.",
+    "Accelerometer model range was not exceeded in the powered portion; sensor behavior remains unvalidated."
+  ],
+  "finished_at": "2026-11-08T04:10:13.669937+00:00"
+}

@@ -5,19 +5,51 @@ Dedicated custom G80 engineering remains first; G54 and G12 PID-to-RL stay separ
 committed tracks. No engineering, material, launch, prototype-build or flight
 criterion is changed. All five supplier/lab inquiry drafts remain **UNSENT**.
 
-**Release acceptance remains open, but browser access is restored.** The owner
-approved the sole current Chrome window and necessary tabs. Sole verifier
-`/root/browser_access_sol` used documented native Chrome controls in the same
-CUA runtime after the extension browser-host inventory was unavailable. The
-supported native selection and ordinary UI interactions succeeded without a
-review rejection, another app/window, headless/CDP or a denied-method retry.
+**The preview is usable and has live browser evidence; full release acceptance remains open.**
+The owner restarted the normal-terminal preview, and the sole verifier observed
+exact RP1 inspection identity `238d01e5…28b608`, frozen spec/record pins and all
+26 meshes. Supported native Chrome control uses the same authorized window;
+the old extension-host and stale-API blockers are historical.
 
-The live site is reachable, Chromezoom100% and1440×900CSS pixels are observed,
-and an actual old-backend screenshot is recorded. The live API lacks the new
-inspection geometry identity while the served prepared JSON has238d01e5…;
-normal-terminal preview restart is the current dependency. This is not another
-permission request. The screenshot and observed old motor-curve503 are not
-combined-release acceptance. [Access evidence and full pending protocol](studies/frontend-release-20261107/browser-access.md).
+[Actual interaction outcomes](studies/frontend-release-20261107/browser-results.csv),
+[artifact hashes](studies/frontend-release-20261107/browser-evidence.json) and
+[pixel measurements](studies/frontend-release-20261107/layout-capture-measurements.md)
+separate observed flows from remaining compound-row gaps. The source fixes are
+recorded in [live corrections](studies/frontend-release-20261107/live-fixes.md).
+No engineering or flight criterion is inferred from frontend behavior or CI.
+
+| Observed Design state | Actual canvas CSS pixels | Window width / height |
+| --- | ---: | ---: |
+| Default 1440 × 900, tools closed | 1127 × 782 | 78.26% / 86.89% |
+| Default 1280 × 720, tools closed | 967 × 602 | 75.55% / 83.61% |
+| Focus at 1440 / 1280 | 1440 × 782 / 1280 × 602 | 100% width at both |
+
+Actual visible-guide Side fits measure 83.03% height at 1440 and 83.25% at 1280,
+with conservative minimum edge-clearance bounds of 7.92% and 7.63%. Explicit Fit
+after resizing matters: the retained unrefitted 720 transition fails the
+safe-area screen and is preserved. The clean isolated barometer fits 78.31% of the limiting guide dimension, with conservative minimum clearance10.48%. Its optional floating label was turned off; geometry did not change. No measurement was supplied by camera math.
+
+One real UI single and a two-member Tiny batch completed exactly 27,000 declared
+model steps. They are separate archived G80 experiments, each 45 s and incomplete
+before landing, not RP1 performance predictions. The identical-request single
+and batch member have identical resolved and Parquet bytes.
+[Saved-record audit](studies/frontend-release-20261107/live-run-record-audit.json).
+
+Both saved G54 full native-rate profiles failed the 60 fps target. Initial p95
+was 33.20 ms; after the bounded clock/cache correction it was 17.70 ms (mean
+17.50 ms), with a 29.30 ms exact-60-second scrub. The changed-source load was
+2547.4 ms for 132,856 rows. These are one-host observations, not a statistical
+performance guarantee; no third attempt was made. Browser heap snapshots are
+not process/GPU memory, and process CPU time/core affinity were unavailable.
+
+The owner confirmed the Chrome window was free after the recorded external-change
+pause. The sole verifier completed the clean-part capture, G54/finned-G12/finless
+inspection switches, exact invalid-time rejection, landing jump, camera/speed
+selectors and corrected Offline load-status recovery. RP1 Design is restored at
+1440 × 900, 100% zoom, both columns open, tools/guide off and explicit Fit. Saved
+replay is bounded/paused, follow camera/1×, and network throttling is disabled.
+No browser-owner input is pending. Wider unexecuted keyboard/zoom/fault branches
+and absent compatible spatial fields remain explicit; no blanket pass is claimed.
 
 ## Start and inspect
 
@@ -30,8 +62,7 @@ make preview
 
 The launcher explicitly generates the separate RP1 display assets, prepares
 source snapshots, starts the Python API on8000 and Vite on5173. Requests never
-run CAD. Normal-host listener/startup observation is still pending; sandbox tests
-and the owner's opened page do not prove a particular backend revision.
+run CAD. The normal-host page and live API identity were observed after the owner's restart. Source attribution remains separate from interaction acceptance.
 
 - Design: `http://127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2`.
 - Engineering: `http://127.0.0.1:5173/?workspace=engineering&view=rp1-connections`.
@@ -85,13 +116,13 @@ Dimensions cannot establish joint strength, hot behavior or flutter.
 
 | Workflow | Implemented and checked in repository | Still needs observation/evidence |
 | --- | --- | --- |
-| Design | Independent left panels, source-linked2D/3D, fit/focus, visibility/section/explode/restore,55part details and maturity | Actual layouts/picks/scroll/keyboard at1440×900,1280×720 and narrow viewport |
-| Engineering | Fin/recovery source drawings, exact part/revision links, dimensions, failed/unknown findings and portable source exports | Browser round trip/history/download/error/readability |
-| Single experiments | Complete supported configurations, seed/preset/wind/gust, effective request/model identity, idempotency, saved attempts/draft reuse/errors | Live Run button/progress/error recovery on normal host |
-| Batches |2–4members, one serial CPU slot, declared steps/storage, failure retention, cooperative cancellation and interruption | Reload/member selection/cancel-before-termination in browser |
-| Replay/comparison | Actual quaternion/position/CG interpolation, exact windows/events, event alignment, plot ranges/gaps, metric/familiar units, CSV/JSON/Arrow | Scrub/event/camera/unequal-window visual behavior and downloads |
-| Analysis | RP1 failed component vs unknown installed evidence; exact field guards; recorded-case comparison/CSV with independent clocks and fixed legend | Browser missing-data behavior; a real compatible field pair for covered-data visual paths |
-| Navigation | Design/evidence links and separate experimental context; saved primary/comparison routes; current source status | Back/Forward/reload and cross-workspace browser transitions |
+| Design | Independent left panels, source-linked2D/3D, fit/focus, visibility/section/explode/restore,55part details and maturity | Actual default/Focus/Side pixels measured at both desktop sizes; narrow drawer/scroll observed. Clean unannotated baro and all recorded configuration switches observed; retained keyboard/zoom matrix incomplete |
+| Engineering | Fin/recovery source drawings, exact part/revision links, dimensions, failed/unknown findings and portable source exports | Mapped fin/recovery round trips, FP1 SVG and VP1 local draft exports observed; full stale/legacy/keyboard/error matrix remains partial |
+| Single experiments | Complete supported configurations, seed/preset/wind/gust, effective request/model identity, idempotency, saved attempts/draft reuse/errors | One live Tiny single completed; saved-record Offline recovery observed. Nonzero wind execution, worker failure and submit-retry branches unexecuted |
+| Batches |2–4members, one serial CPU slot, declared steps/storage, failure retention, cooperative cancellation and interruption | Two Tiny members completed and were reloaded/compared. Cancellation, failure retention and retry branches unexecuted |
+| Replay/comparison | Actual quaternion/position/CG interpolation, exact windows/events, event alignment, plot ranges/gaps, metric/familiar units, CSV/JSON/Arrow | Exact-time/landing/unequal-window and compatible comparison/CSV observations recorded. Full native-rate60fps failed; remaining camera/alignment/reduced-motion branches scoped in browser results |
+| Analysis | RP1 failed component vs unknown installed evidence; exact field guards; recorded-case comparison/CSV with independent clocks and fixed legend | Neutral RP1/scalar missingness and unavailable comparison export observed. Covered-field/compatible-pair paths lack actual matching data |
+| Navigation | Design/evidence links and separate experimental context; saved primary/comparison routes; current source status | Exact mapped round trips/Back and selected saved-run reload observed; full Forward/stale/unknown-route matrix remains partial |
 
 [Experiment implementation and resource contract](studies/frontend-release-20261107/experiments.md)
 records one local CPU worker, bounded batches and immutable terminal attempts.
@@ -144,27 +175,31 @@ listener, browser transfer, browser heap or FPS observation.
   do not manufacture engineering results to fill a panel. Full covered-field
   visual acceptance still needs a compatible dataset as well as browser access.
 
-## Verification and remaining owner/runtime action
+## Verification and remaining work
 
-The21task ledger and37check matrix distinguish source checks from browser
-observations. The original43FTtasks remain traceable. Source-verified tasks stay
-partial until their applicable browser criteria are actually exercised. No image,
-SSR test, passing CI or in-process API call is a browser acceptance substitute.
+The 21-task/37-check ledger retains the original 43-task mapping. Source checks
+pass: 169 web tests, TypeScript, lint, formatting, production build and make check.
+The169local cases include four unrelated saved A2 tests;165cases belong to the published release scope. The three orphan A2 modules and that test are preserved locally without production importers and are excluded from this PR. The source fingerprint explicitly records the exclusion; hosted checks run the published file set. The existing large-chunk warning remains visible. Passing these checks does not
+close browser, engineering, build, firmware or flight acceptance.
 
-The owner must restart the existing normal-terminal preview (Ctrl-C, then
-`make preview` from this repository) to load the current API. The supported native
-Chrome route is available; additional Chrome permission or extension-host repair
-is not required for that route. Only the named verifier controls the sole current
-Chrome window; primary/others abstain. Do not use another app/window or a
-headless/CDP path. The extension-host problem is retained as historical transport
-evidence, not a current access gate.
+The actual browser packet covers all five workspaces, mapped fin/recovery round
+trips, local-only draft exports, request-offline recovery and a development-only
+render-failure recovery fixture. The boundary keeps navigation outside a failed
+workspace; its reload action removes only the diagnostic flag. Production mode
+disables that fixture. No supplier/lab message, purchase or physical test occurred.
 
-Confirm normal-host `make preview`, then execute the linked protocol at the three
-requested viewports. Record console/network errors, actual screenshots, full
-scroll/selection/export states, timed long-run workload and compatible-data gaps.
-Failures require fixes and affected rechecks on the combined release. Browser
-acceptance, engineering acceptance, prototype-build authorization, firmware review
-and flight release remain distinct.
+The original exact-time filename collision and the initial failed full-rate
+profile remain preserved. The explicit component import and independently
+captured elapsed-time updater correct the demonstrated software defects. Frozen
+time arrays are cached only after admission; mutable/accessor arrays still
+revalidate, and invalid windows remain unavailable. The camera regression now
+uses Three's actual projection rather than reproducing the former sign error.
+[Independent projection regression](studies/frontend-release-20261107/camera-projection-regression.json).
+
+Remaining acceptance work is specific: unavailable controlled data-error/worker-cancellation fixture branches;
+a compatible spatial-analysis dataset; and an explicitly replanned performance
+packet before any further benchmark attempt. Keep the 60 fps target unchanged.
+[A separately bounded next performance packet](studies/frontend-release-20261107/performance-next-packet.md) is proposed. No new solver, engine, physics campaign or automatic performance retry is admitted by this handoff. Existing preview features remain usable while these rows are open.
 
 Offline artifacts are separately useful: the actual-GLB contact sheet at
 `output/frontend-release-20261107/rp1-inspection-contact-sheet.png`, its hash
@@ -172,3 +207,9 @@ manifest, source inspector HTML/SVG under `output/frontend-release-20261107/sour
 and the RP1 connection pack at `output/rp1-connections-20261107/`. They preserve
 source/configuration/status. None is a browser screenshot; static selection
 buttons are inert. [Offline geometry QA](studies/frontend-release-20261107/offline-geometry.md).
+
+The main matrix's RV-Q10 pass is scoped to the measured default/Focus dimensions
+and observed Focus restoration. The raw browser record retains its wider
+keyboard/zoom submatrix as partial; these are different stated scopes, not a
+claim that unexecuted branches passed. The37rows currently contain14pass,
+21partial,1fail and1not-applicable; the failed row is the measured60fps benchmark.

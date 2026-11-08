@@ -21,6 +21,11 @@ import {
 import { DesignVisual } from './workspaces/DesignVisual';
 import { InspectionWorkspace } from './workspaces/InspectionWorkspace';
 import {
+  WorkspaceFailureBoundary,
+  WorkspaceRenderFailureFixture,
+  workspaceRenderFailureRequested,
+} from './workspaces/WorkspaceFailureBoundary';
+import {
   WorkspaceFrame,
   WorkspaceNavigation,
   WorkspaceIdentityStrip,
@@ -535,153 +540,157 @@ export default function App() {
           {route.notice}
         </p>
       )}
-      {mode === 'engineering' ? (
-        <Suspense
-          fallback={
-            <main className="center-state" role="status">
-              Loading engineering walkthrough…
-            </main>
-          }
-        >
-          <EngineeringWorkbench />
-        </Suspense>
-      ) : mode === 'experiments' || mode === 'replay' ? (
-        <Suspense
-          fallback={
-            <main className="center-state" role="status">
-              Loading experiments and recorded flights…
-            </main>
-          }
-        >
-          <>
-            {experimentSourceError && (
-              <p role="status">
-                Experiment setup geometry unavailable: {experimentSourceError}. The working Design
-                remains {vehicleId}.
-              </p>
-            )}
-            <Experiment
-              configurationId={experimentId}
-              vehicle={experimentVehicle?.id === experimentId ? experimentVehicle : null}
-              onConfigurationChange={changeExperimentConfiguration}
-              initialRunId={experimentParams.get('run') || undefined}
-              initialComparisonId={experimentParams.get('compare') || undefined}
-              onRunSelect={selectRunRoute}
-              workspace={mode}
-              onOpenReplay={() => navigate(workspaceHref(currentHref(), 'replay'))}
-            />
-          </>
-        </Suspense>
-      ) : inspectionError ? (
-        <main className="center-state">
-          <h1>Selected inspection source unavailable</h1>
-          <p>{inspectionError}</p>
-          <p>
-            Engineering drawings and saved experiments remain independently available. Start the
-            local Python API on port 8000 to load inspection data.
-          </p>
-          <button className="primary-button" onClick={() => setRetry((n) => n + 1)}>
-            Retry inspection source
-          </button>
-        </main>
-      ) : !vehicle ? (
-        <main className="center-state" role="status">
-          <span className="spinner" />
-          <h1>Loading resolved configuration</h1>
-          <p className="muted">Retrieving specification, CAD identity and recorded evidence…</p>
-        </main>
-      ) : mode === 'analysis' ? (
-        <Suspense
-          fallback={
-            <main className="center-state" role="status">
-              <span className="spinner" />
-              Loading recorded analysis workspace…
-            </main>
-          }
-        >
-          <AnalysisWorkspace
-            key={vehicle.id}
-            vehicle={vehicle}
-            candidateMessage={catalog?.candidate_message}
-          />
-        </Suspense>
-      ) : (
-        <InspectionWorkspace
-          source={
+      <WorkspaceFailureBoundary key={`${mode}:${vehicleId}`} workspace={mode}>
+        {workspaceRenderFailureRequested(import.meta.env.DEV, currentHref(), mode) ? (
+          <WorkspaceRenderFailureFixture />
+        ) : mode === 'engineering' ? (
+          <Suspense
+            fallback={
+              <main className="center-state" role="status">
+                Loading engineering walkthrough…
+              </main>
+            }
+          >
+            <EngineeringWorkbench />
+          </Suspense>
+        ) : mode === 'experiments' || mode === 'replay' ? (
+          <Suspense
+            fallback={
+              <main className="center-state" role="status">
+                Loading experiments and recorded flights…
+              </main>
+            }
+          >
             <>
-              {partLinkNotice && <p role="alert">{partLinkNotice}</p>}
-              {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' &&
-                !vehicle.summary.inspection_geometry && (
-                  <p role="status">
-                    This backend has not supplied the RP1 inspection-model contract. After updating,
-                    restart the normal-terminal preview with make preview; the source drawing
-                    remains available.
-                  </p>
-                )}
-              {constructionNotice}
-              {catalogError && (
-                <p className="route-notice" role="status">
-                  Configuration list unavailable: {catalogError}. The displayed source document is
-                  loaded independently.
+              {experimentSourceError && (
+                <p role="status">
+                  Experiment setup geometry unavailable: {experimentSourceError}. The working Design
+                  remains {vehicleId}.
                 </p>
               )}
-            </>
-          }
-          tree={
-            <>
-              <PartsTree
-                key={`parts-${vehicle.id}`}
-                parts={vehicle.parts}
-                candidateMessage={catalog?.candidate_message}
+              <Experiment
+                configurationId={experimentId}
+                vehicle={experimentVehicle?.id === experimentId ? experimentVehicle : null}
+                onConfigurationChange={changeExperimentConfiguration}
+                initialRunId={experimentParams.get('run') || undefined}
+                initialComparisonId={experimentParams.get('compare') || undefined}
+                onRunSelect={selectRunRoute}
+                workspace={mode}
+                onOpenReplay={() => navigate(workspaceHref(currentHref(), 'replay'))}
               />
             </>
-          }
-          visual={
-            <>
-              <DesignVisual
-                key={vehicle.id}
-                vehicle={vehicle}
-                recordedCaseControls={
-                  recordedCaseContext.cases.length > 0 ? (
-                    <label className="saved-mass-case-control">
-                      Recorded estimated case
-                      <select
-                        aria-label="Recorded estimated mass and balance case"
-                        value={recordedCaseIndex}
-                        onChange={(event) => setRecordedCaseIndex(Number(event.target.value))}
-                      >
-                        {recordedCaseContext.cases.map((entry, index) => (
-                          <option key={entry.id} value={index}>
-                            {entry.label}
-                          </option>
-                        ))}
-                      </select>
-                      <small>
-                        {selectedRecordedCase?.description} Markers show saved estimates; no
-                        burn-state or inertia model is admitted.
-                      </small>
-                    </label>
-                  ) : undefined
-                }
-                meshView={
-                  <Viewer
-                    key={`viewer-${vehicle.id}`}
-                    vehicle={vehicle}
-                    mass={mass}
-                    burn={burn}
-                    onBurnChange={setBurn}
-                  />
-                }
-              />
-            </>
-          }
-          inspector={
-            <>
-              <InspectionPanel key={`inspector-${vehicle.id}`} vehicle={vehicle} mass={mass} />
-            </>
-          }
-        />
-      )}
+          </Suspense>
+        ) : inspectionError ? (
+          <main className="center-state">
+            <h1>Selected inspection source unavailable</h1>
+            <p>{inspectionError}</p>
+            <p>
+              Engineering drawings and saved experiments remain independently available. Start the
+              local Python API on port 8000 to load inspection data.
+            </p>
+            <button className="primary-button" onClick={() => setRetry((n) => n + 1)}>
+              Retry inspection source
+            </button>
+          </main>
+        ) : !vehicle ? (
+          <main className="center-state" role="status">
+            <span className="spinner" />
+            <h1>Loading resolved configuration</h1>
+            <p className="muted">Retrieving specification, CAD identity and recorded evidence…</p>
+          </main>
+        ) : mode === 'analysis' ? (
+          <Suspense
+            fallback={
+              <main className="center-state" role="status">
+                <span className="spinner" />
+                Loading recorded analysis workspace…
+              </main>
+            }
+          >
+            <AnalysisWorkspace
+              key={vehicle.id}
+              vehicle={vehicle}
+              candidateMessage={catalog?.candidate_message}
+            />
+          </Suspense>
+        ) : (
+          <InspectionWorkspace
+            source={
+              <>
+                {partLinkNotice && <p role="alert">{partLinkNotice}</p>}
+                {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' &&
+                  !vehicle.summary.inspection_geometry && (
+                    <p role="status">
+                      This backend has not supplied the RP1 inspection-model contract. After
+                      updating, restart the normal-terminal preview with make preview; the source
+                      drawing remains available.
+                    </p>
+                  )}
+                {constructionNotice}
+                {catalogError && (
+                  <p className="route-notice" role="status">
+                    Configuration list unavailable: {catalogError}. The displayed source document is
+                    loaded independently.
+                  </p>
+                )}
+              </>
+            }
+            tree={
+              <>
+                <PartsTree
+                  key={`parts-${vehicle.id}`}
+                  parts={vehicle.parts}
+                  candidateMessage={catalog?.candidate_message}
+                />
+              </>
+            }
+            visual={
+              <>
+                <DesignVisual
+                  key={vehicle.id}
+                  vehicle={vehicle}
+                  recordedCaseControls={
+                    recordedCaseContext.cases.length > 0 ? (
+                      <label className="saved-mass-case-control">
+                        Recorded estimated case
+                        <select
+                          aria-label="Recorded estimated mass and balance case"
+                          value={recordedCaseIndex}
+                          onChange={(event) => setRecordedCaseIndex(Number(event.target.value))}
+                        >
+                          {recordedCaseContext.cases.map((entry, index) => (
+                            <option key={entry.id} value={index}>
+                              {entry.label}
+                            </option>
+                          ))}
+                        </select>
+                        <small>
+                          {selectedRecordedCase?.description} Markers show saved estimates; no
+                          burn-state or inertia model is admitted.
+                        </small>
+                      </label>
+                    ) : undefined
+                  }
+                  meshView={
+                    <Viewer
+                      key={`viewer-${vehicle.id}`}
+                      vehicle={vehicle}
+                      mass={mass}
+                      burn={burn}
+                      onBurnChange={setBurn}
+                    />
+                  }
+                />
+              </>
+            }
+            inspector={
+              <>
+                <InspectionPanel key={`inspector-${vehicle.id}`} vehicle={vehicle} mass={mass} />
+              </>
+            }
+          />
+        )}
+      </WorkspaceFailureBoundary>
     </WorkspaceFrame>
   );
 }

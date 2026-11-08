@@ -1,37 +1,552 @@
 {
-  "id": "frontend-native-chrome-baseline-20261107",
-  "status": "baseline_only_not_release_accepted",
+  "id": "frontend-native-chrome-session-20261107",
+  "status": "actual_browser_coverage_partial_per_row_not_blanket_release_acceptance",
   "owner": "/root/browser_access_sol",
-  "authorization": "Owner sole current Chrome window, necessary tabs, November7",
-  "transport": "documented CUA native Google Chrome app; same runtime and window",
+  "authorization": "Owner explicitly reassigned sole current Chrome window and necessary same-window tabs; primary and other agents abstained from CUA",
+  "transport": "Documented CUA native Google Chrome app in the same runtime and authorized window; extension browser-host unavailable historically",
   "site": "http://127.0.0.1:5173/",
-  "observations": {
-    "chrome_version": "156.0.8078.80 arm64",
+  "host": {
+    "browser": "Chrome156.0.8078.80 arm64",
     "chrome_revision": "fb096c0011f9d50f0a264a9376420cdea9c421e3",
-    "macos": "27.2 (26B123)",
+    "os": "macOS27.2 Build26B123",
     "zoom_percent": 100,
-    "responsive_viewport_css_px": [
-      1440,
-      900
+    "viewport_css_px_verified": [
+      [
+        1440,
+        900
+      ],
+      [
+        1280,
+        720
+      ],
+      [
+        900,
+        720
+      ]
     ],
-    "screenshot_raster_px": [
-      2880,
-      1800
-    ],
-    "live_api_inspection_geometry_sha256": null,
-    "prepared_static_inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
-    "old_console_error": "HTTP503 /api/motors/aerotech-g80-10t-SKU78010-provisional/curve"
+    "raster_scale_observed": 2,
+    "device_pixel_ratio_js_read": "not performed"
   },
-  "screenshot": {
-    "path": "runs/frontend-browser-20261107/old-backend-design-1440x900.png",
-    "sha256": "b45dbc42c6e6a1d2b25e85133712e074dfb7a9539947d2841be8ec229ebc9175",
-    "publication": "local generated artifact; PNG bulk not committed"
+  "historical_baseline": {
+    "id": "frontend-native-chrome-baseline-20261107",
+    "status": "baseline_only_not_release_accepted",
+    "owner": "/root/browser_access_sol",
+    "authorization": "Owner sole current Chrome window, necessary tabs, November7",
+    "transport": "documented CUA native Google Chrome app; same runtime and window",
+    "site": "http://127.0.0.1:5173/",
+    "observations": {
+      "chrome_version": "156.0.8078.80 arm64",
+      "chrome_revision": "fb096c0011f9d50f0a264a9376420cdea9c421e3",
+      "macos": "27.2 (26B123)",
+      "zoom_percent": 100,
+      "responsive_viewport_css_px": [
+        1440,
+        900
+      ],
+      "screenshot_raster_px": [
+        2880,
+        1800
+      ],
+      "live_api_inspection_geometry_sha256": null,
+      "prepared_static_inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+      "old_console_error": "HTTP503 /api/motors/aerotech-g80-10t-SKU78010-provisional/curve"
+    },
+    "screenshot": {
+      "path": "runs/frontend-browser-20261107/old-backend-design-1440x900.png",
+      "sha256": "b45dbc42c6e6a1d2b25e85133712e074dfb7a9539947d2841be8ec229ebc9175",
+      "publication": "local generated artifact; PNG bulk not committed"
+    },
+    "access_prerequisite_passed": true,
+    "combined_release_verified": false,
+    "next_action": "Owner normal-terminal Ctrl-C then make preview; verifier reloads/attributes currentAPI then executes matrix",
+    "engineering_accepted": false,
+    "build_authorized": false,
+    "flight_ready": false,
+    "inquiries": "UNSENT"
+  },
+  "fresh_api": {
+    "owner_restart_observed": true,
+    "path": "/api/vehicles/G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "record_sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "canonical_resolved_spec_sha256": null,
+    "canonical_cad_revision_sha256": null,
+    "source_records": 55,
+    "inspection_meshes": 26,
+    "source_dimensioned": 10,
+    "simplified_envelopes": 16,
+    "mass_allowances_without_solids": 25,
+    "missing_geometry": 4,
+    "complete_manufacturing_cad": false
+  },
+  "source_publication": "Primary owns final source-file fingerprints and publication metadata; local HMR observations do not assert an unpublished head was merged",
+  "browser_results_csv": "docs/studies/frontend-release-20261107/browser-results.csv",
+  "scenarios": [
+    {
+      "check_id": "RV-Q04",
+      "status": "pass",
+      "fixture": "Existing authorized Chrome window containing Atlas Fibre G11 PDF",
+      "actual_observation": "Owner explicitly reassigned sole current Chrome window to /root/browser_access_sol. Documented same-runtime native Chrome control succeeded. Extension access-host error is historical transport limitation. After temporary external-user-change guards, owner confirmed windowfree; supported freshstate and bounded remaining native actions completed, followed by verified owner-ready restoration.",
+      "evidence": "Native getApp + actual window/tab; current API exact geometry238d01e5...28b608."
+    },
+    {
+      "check_id": "RV-Q05",
+      "status": "partial",
+      "fixture": "Design, Engineering, Experiments, Replay, Analysis, legacy URLs",
+      "actual_observation": "All five workspace tabs visited; current source/part preserved Design→Engineering→Back. Exact saved run/comparison URL reloaded with matching source. Unknown/stale/legacy URL and Forward matrix unexecuted. Actual configuration-menu switches additionally resolved separate archivedG54(42parts),finnedG12(53parts),finlessG12(51parts); finalRP1restored.",
+      "evidence": "Native UI; exact RP1 spec811b3bed…; replay URL selected two actual runs."
+    },
+    {
+      "check_id": "RV-Q06",
+      "status": "partial",
+      "fixture": "Controlled missing-route, missing-source, malformed, HTTP 500 and delayed A/B responses",
+      "actual_observation": "One explicit DEV render fixture showed explanatory workspace error inside intact navigation. Reload link removed only diagnostic flag and preserved design/spec/part/run; normal Design navigation recovered. Ordinary Chrome Offline saved-run request displayed TypeError: Failed to fetch; No throttling restored and same record loaded. Missing/malformed/500/delayed response matrix remains unexecuted. Changed-source catch-status recheck: one Offline savedG54 selection explicitly ended Saved-run load failed: TypeError: Failed to fetch; after NoThrottling restoration, same record recovered matching source. No POST/jobfailure claimed.",
+      "evidence": "replay-controlled-render-failure-1440x900.png; native transport failure and recovery. No worker/job failure claimed."
+    },
+    {
+      "check_id": "RV-Q07",
+      "status": "partial",
+      "fixture": "Long source tree/details plus 1280×720 and 1440×900 CSS px and <1100 CSS px",
+      "actual_observation": "Actual1440x900,1280x720,900x720 atChrome100%. Narrow Details scrolled through exact-source footer to final limitations control. Compact drawer bug fixed/rechecked. Complete keyboard/overflow/retained-zoom matrix unexecuted.",
+      "evidence": "rp1-panels-1280x720.png;rp1-narrow-details-fixed-900x720.png"
+    },
+    {
+      "check_id": "RV-Q09",
+      "status": "partial",
+      "fixture": "Desktop default Design",
+      "actual_observation": "All four independent left-rail/context combinations exercised at1280x720; Parts/Details correct by visible-coordinate input. Native AX index offset under emulation is a transport limitation. Broader keyboard matrix unexecuted.",
+      "evidence": "rp1-panels-1280x720.png"
+    },
+    {
+      "check_id": "RV-Q10",
+      "status": "partial",
+      "fixture": "1440×900 and 1280×720 CSS px default and focus view",
+      "actual_observation": "Actual1440 default and Focus captured; true1280 default and Focus captured separately. Pixel measurements on current default captures:1440 canvas78.26%width/86.89%height;1280 canvas75.55%width/83.61%height. Focus hides both columns; Escape restores state. Full retained zoom/keyboard matrix unexecuted.",
+      "evidence": "rp1-side-tools-closed-default-guide-fixed-1440x900.png;rp1-side-tools-closed-default-guide-fixed-1280x720-refit.png;rp1-side-tools-closed-focus-fixed-1280x720.png. Screenshot-derived measurements by primary/offline agent."
+    },
+    {
+      "check_id": "RV-Q11",
+      "status": "partial",
+      "fixture": "Same-design loaded CAD and selected body_upper",
+      "actual_observation": "Search baro selects exact simplified-envelope record and source URL; Frame part1/1 bounds. Details scroll to source hash/footer. Engineering correctly says baro has no connection mapping. Full mapped-evidence and keyboard matrix pending.",
+      "evidence": "rp1-baro-framed-1440x900.png;rp1-narrow-details-fixed-900x720.png"
+    },
+    {
+      "check_id": "RV-Q12",
+      "status": "partial",
+      "fixture": "Width <1100 CSS px, including browser zoom where reproducible",
+      "actual_observation": "At900x720 actual Parts/Details drawer initially invisible despite AX; primary fixed compact grid-area inheritance. Recheck visible, above scene, scroll reaches final limitations control and Close. Browser zoom variants unexecuted.",
+      "evidence": "rp1-narrow-drawer-900x720.png failure;rp1-narrow-details-fixed-900x720.png corrected"
+    },
+    {
+      "check_id": "RV-Q14",
+      "status": "partial",
+      "fixture": "Loaded archived G80 assembly plus small same-design part",
+      "actual_observation": "Current26-meshRP1 renders. Corrected Side+explicitFit current captures pass screenshot-derived guide height/clearance:1440 83.03%/≥8.28%;1280 83.25%/≥8.14%. Genuine isolatedbaro Frame1/1bounds and54/55hidden captured; optional label OFF companion visually unobstructed,2880x1800,guidevisible,toolsclosed. End/tight presets remain unexecuted.",
+      "evidence": "Current defaultguide-fixed1440;true1280x720-refit;rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png SHA9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4. Priorfailure/annotatedcapturesretained."
+    },
+    {
+      "check_id": "RV-Q15",
+      "status": "partial",
+      "fixture": "Manual orbit/pan/zoom and delayed part loads",
+      "actual_observation": "Manual orbit preserved source/selection. Resize transition intentionally retains manual camera: valid720 capture before explicitfit measured90.92%guideheight/4.13%bottomclearance and is preserved as failing that fit fixture. Explicit Side/Fit at720 thenpasses83.25%/≥8.14%. Controlled late-load continuity unexecuted.",
+      "evidence": "RP1 geometry238d01e5…; native drag and actual canvas."
+    },
+    {
+      "check_id": "RV-Q16",
+      "status": "partial",
+      "fixture": "Horizontal 2D plus compatible and unsupported mappings",
+      "actual_observation": "Genuine mapped fin_set and rp1_kevlar_wrap Design→Engineering→Design roundtrips retain AD1/spec/selectedpart; Engineering auto-selects Finpanel or Recoveryleader relationship respectively. Unsupportedbaro connection mapping explicitly unavailable. Full2D camera mapping matrix unexecuted.",
+      "evidence": "Actual Engineering/Back interaction; no fabricated relationship."
+    },
+    {
+      "check_id": "RV-Q17",
+      "status": "partial",
+      "fixture": "Interior part, hidden exterior, section and exploded arrangement",
+      "actual_observation": "SectionON then Hide outer body shows interior and3/55 hidden; Restore assembly resetsSectionOFF,0/55hidden,26/26fit, selectedbaro retained. Explode/isolate/clipped picking subpaths unexecuted. Genuine isolatedbaro54/55hidden and Frame1/1bounds captured; Restore assembly subsequentlyobserved26/26fit,0/55hidden. After owner confirmed freewindow, clean-label companion completed with guidevisible andtoolsclosed; annotationtoggleOFFpreserves actualsolid.",
+      "evidence": "rp1-restored-tools-1440x900.png"
+    },
+    {
+      "check_id": "RV-Q18",
+      "status": "partial",
+      "fixture": "One delayed GLB, one unavailable GLB, no complete RP1 asset",
+      "actual_observation": "26/26 actual meshes loaded;29 no-solid records disclosed as25allowances+4missing. Controlled delayed/failedGLB and identity-switchrace unexecuted.",
+      "evidence": "Actual source + renderedmodel + scene status;no artificialsolid."
+    },
+    {
+      "check_id": "RV-Q21",
+      "status": "partial",
+      "fixture": "RP1 studies, VP1 validation, at least one historical construction view",
+      "actual_observation": "Mapped fin/recovery roundtrips, FP1/FR1 separate unaccepted studies, VP1 and historicalG80-F1 actualviews opened. FP1 graph zoom125%→reset100% and localSVG export verified exactAD1/spec/study/maturity/units. VP1S1 selected; allfiveUNSENT labels, AircraftSpruce source preview/download/copy verified StillUNSENT and exact frozenhash. HistoricalG80-F1 explicitly lacks same-design detailedCAD. Remaining graphpan/stage/part/export branches unexecuted.",
+      "evidence": "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1-unaccepted-relationships.svg SHAb1f61c5a17f96dd0b14aae6d1779243c821dc3ee2d4c8764b83bfdd959ca047c;aircraft-spruce-UNSENT.txt SHA2394f0420a038494c2da526516022a930f296d4d7983ac5c9bd8018ffcafe537."
+    },
+    {
+      "check_id": "RV-Q22",
+      "status": "partial",
+      "fixture": "Supported archived complete config and an unadmitted RP1 choice",
+      "actual_observation": "RP1 flight unsupported with disabled run. Explicit archivedG80 Tiny single completed seed20261107; saved/source-checked reload and wind2m/s→90deg draft previews verified then restored without execution. Request-error/worker-error branches unexecuted. Finless actual staticinspection selected; RunCPUdisabled and explicit Finless unguided simulation is unsupported explanation. ArchivedG54/finnedG12/finlessG12 geometryswitches completed withoutnewruns.",
+      "evidence": "exp-3a22d9988a384951a3a5a5901c67ce5d;9000declaredsteps;12.77s observed submit-to-terminal."
+    },
+    {
+      "check_id": "RV-Q24",
+      "status": "partial",
+      "fixture": "Declared bounded two-member local/fixture batch",
+      "actual_observation": "Initial whole-packet180s stop honored aftersingle; batch unattempted at~200s. Primary explicitly replanned remaining batch as separate167.23s execution subpacket. One2memberTiny batch queued/running→bothcomplete within27.82s observation bound;18ksteps. Cancel/failure/retry unexecuted, no extra runs.",
+      "evidence": "batch-b4e4867083bf44c6b9b601f255a1a870;members exp-d0baf4168f7f41e687a1b5f12e14cc3e / exp-d57656d638d5412d95b03198e9fb73d7;CPUtime unavailable."
+    },
+    {
+      "check_id": "RV-Q25",
+      "status": "partial",
+      "fixture": "Saved diagnostic and one incomplete fixture",
+      "actual_observation": "Actual saved replay loaded independently checked sources; Play→Pause advances58.77→62.52s; scrub22.745s shows nearest exact22.750s on compatible batch pair. Event/speed/full camera and exact11.150 regression pending. After explicit .tsx import fix, exact input11.150 requested11.150s; landing116.029 yields nearest endpoint height0/speed0. Exact field and validity preserve requested value while native range AX quantizes11.151/116.021. Nearest bounded11.143s remains separately labelled. Settled200s exactdraft rejected with Time must be inside recorded replay window0.001–116.029…inclusive; cursorunchanged. Escape restores0.001. Actuallandingevent jumps requested116.029. Follow→fixedpad→free→follow and2x→1x selectorchanges verified paused. Event-alignment/plotrange and measured speed-multiplier accuracy remain unexecuted.",
+      "evidence": "replay-compatible-pair-1440x900.png;3004returned/9000raw each."
+    },
+    {
+      "check_id": "RV-Q27",
+      "status": "partial",
+      "fixture": "Recorded coarse-damping run without separated-body poses",
+      "actual_observation": "Sole G80 exp-cf9e47a650074144856caf50775846d2 at exact requested11.150s visibly nose-up/tilted after modeled deployment, with unsupported suspended-body limitation. Nearest bounded sample11.143s tilt4.07458199deg,total speed5.4460699m/s. No vertical-speed channel displayed; no downward-velocity numeric inference. At116.029s nearest endpoint height0/speed0 shown; no impact/contact-force claim.",
+      "evidence": "replay-exact-recovery-11.150-1440x900.png SHA d4863a2e3f605ae37f50403c20f0fb3229ea72f10dc966a9110c8c9770f68fa1"
+    },
+    {
+      "check_id": "RV-Q28",
+      "status": "partial",
+      "fixture": "Two run records with unequal durations and one absent channel/event",
+      "actual_observation": "Actual unequal windows A0.005–45s/B0.001–116.029s; at58.651 Aoutside and readoutsunavailable whileBinside. Old code mismatch correctly withholds numeric B. Fresh batch pair samecode permits numeric values; same-seed single/batch reports0settingdifferences. CSV+metadata browser exports verified3004rows and timestamps. Clock alignment/plot zoom subpaths pending.",
+      "evidence": "replay-unequal-window-1440x900.png;replay-compatible-pair-1440x900.png;exp-d0baf4168f7f41e687a1b5f12e14cc3e-playback.csv/json"
+    },
+    {
+      "check_id": "RV-Q29",
+      "status": "partial",
+      "fixture": "Known assembly and trajectory, reduced-motion preference",
+      "actual_observation": "Actual Side preset/explicitFit/Focus/default and saved follow-camera geometry observed. Replaycamera selectors switchedfollow→fixedpad→free→follow while cursor stayed116.029; speedselector2x→1x verified paused. UI explains scale/recordedpose/approximaterecovery. Fullcamera visual-clearance/reduced-motion/measuredspeedaccuracy matrix unexecuted.",
+      "evidence": "Current Side/Focus screenshot set; genuine saved replay captures. No physical or canopy geometry inference."
+    },
+    {
+      "check_id": "RV-Q30",
+      "status": "fail",
+      "fixture": "Actual full-recovery telemetry ≥120 s at 1 kHz and measured host",
+      "actual_observation": "One initial full-rate G54 attempt132856rows failed60fps:600intervals median16.70,p9533.20,max50.00,mean17.83ms;load2652.4ms;scrub35.80ms. One explicitly authorized changed-source followup after elapsed/cache correction stillfailed:median16.70,p9517.70,max34.30,mean17.50ms;load2547.4ms;scrub29.30ms. Declared~20s interval actual26.347s pre-click→pre-pause/cursor0.001→25.49s at1x. No thirdattempt. JSheap measured; totalprocess/GPU memoryunmeasured. Boundedprofile restored.",
+      "evidence": "replay-full-rate-profile-1440x900.png;replay-full-rate-followup-1440x900.png;record.json exact load/heap/counts/source. Both profilesfailed; no endurance or60fps acceptance."
+    },
+    {
+      "check_id": "RV-Q32",
+      "status": "partial",
+      "fixture": "Covered/uncovered region, valid zero, missing time and scalar-only case",
+      "actual_observation": "RP1 neutral geometry and scalar findings7.301MPa failedscreen,1.805mm against1mmlimit visible. Installed joint capacity/movement unavailable. Missing-compatible-field path observed; no actual valid spatial field/zero/gap fixture.",
+      "evidence": "rp1-analysis-fixed-status-1440x900.png"
+    },
+    {
+      "check_id": "RV-Q33",
+      "status": "partial",
+      "fixture": "Compatible and incompatible cases, supported aero curve and missing CFD",
+      "actual_observation": "Strict unavailable comparison displayed; actual comparisonCSV export has1unavailable row with exact reason and blank values/difference. Current motor curve now visible with exactsource e79138a0…; historical oldbackend503 resolved. Compatible spatial pair/CFD remains data-blocked.",
+      "evidence": "analysis-unavailable-comparison.csv SHA a1d755732842a0c0268ff87d3e3bec5ed69d521bc6edb8a435e19bf0fcf77fef"
+    },
+    {
+      "check_id": "RV-Q34",
+      "status": "partial",
+      "fixture": "RP1 and historical design, supported run and compatible/unsupported analysis",
+      "actual_observation": "Allfiveworkspaces actualvisited; RP1current source distinct from archivedG80 savedrun source, currentfinding labels preserved. Full historical analysis/dashboard links unexecuted. Finalconfigurationmenu correctly separatedG54/finnedG12/finlessG12 actualmodels, thenRP1restored; no historicalmeshsubstitution inRP1.",
+      "evidence": "Actual native navigation; no foreignmesh substitution."
+    },
+    {
+      "check_id": "RV-Q35",
+      "status": "not_applicable",
+      "fixture": "Only when optional Mission Control is implemented",
+      "actual_observation": "Optional Mission Control is deferred by integrated scope; no dashboard acceptance claimed.",
+      "evidence": "Primary integrated scope disposition; focused workspaces tested separately."
+    }
+  ],
+  "local_execution": {
+    "configuration": "modular-performance-v1",
+    "single": {
+      "id": "exp-3a22d9988a384951a3a5a5901c67ce5d",
+      "seed": 20261107,
+      "preset": "tiny",
+      "status": "complete",
+      "trajectory": "partial45s",
+      "max_steps": 9000,
+      "observed_submit_to_terminal_s": 12.77
+    },
+    "initial_whole_packet_stop": {
+      "limit_wall_s": 180,
+      "observed_elapsed_s": 200.146,
+      "includes": "UI verification/setup/compaction",
+      "batch_submitted_at_stop": false,
+      "disposition": "stopped; original whole-packet timing not a pass"
+    },
+    "replanned_remaining_batch": {
+      "id": "batch-b4e4867083bf44c6b9b601f255a1a870",
+      "authorization": "Explicit primary replan of previously unattempted batch",
+      "execution_wall_limit_s": 167.23,
+      "observed_submit_to_terminal_upper_bound_s": 27.82,
+      "members": [
+        {
+          "id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+          "seed": 20261107,
+          "status": "complete"
+        },
+        {
+          "id": "exp-d57656d638d5412d95b03198e9fb73d7",
+          "seed": 20261108,
+          "status": "complete"
+        }
+      ],
+      "preset": "tiny",
+      "max_steps_total": 18000,
+      "wind_mps": 0,
+      "wind_direction_deg": 0,
+      "gust_mps": 0
+    },
+    "declared_steps_total": 27000,
+    "backend": "CPU",
+    "worker_concurrency": 1,
+    "physical_core_affinity": "not measured or established",
+    "process_cpu_seconds": "unavailable; intended120CPU-s ceiling unverified",
+    "additional_simulations": "none",
+    "failure_cancellation_retry": "not executed; no extra cases manufactured"
+  },
+  "performance_profiles": [
+    {
+      "id": "initial",
+      "source_state": "before immutable elapsed capture/time-axis cache correction",
+      "run_id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+      "profile": "full-rate-benchmark",
+      "returned_samples": 132856,
+      "raw_samples": 132856,
+      "window_s": [
+        0.001,
+        132.856
+      ],
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "zoom_percent": 100,
+      "load_ms": 2652.4,
+      "content_length_bytes": 113412840,
+      "playback_speed": 1,
+      "observed_cursor_s": [
+        0.131,
+        6.641
+      ],
+      "recent_frame_intervals": 600,
+      "median_ms": 16.7,
+      "p95_ms": 33.2,
+      "max_ms": 50.0,
+      "mean_ms": 17.83,
+      "scrub_request_s": 60,
+      "scrub_second_raf_ms": 35.8,
+      "heap_bytes": {
+        "after_load": {
+          "used": 228819354,
+          "allocated": 264020494
+        },
+        "after_playback": {
+          "used": 214933232,
+          "allocated": 283395348
+        },
+        "after_scrub": {
+          "used": 180765116,
+          "allocated": 287577656
+        },
+        "limit": 4395630592
+      },
+      "sixty_fps_requirement": "failed",
+      "total_process_gpu_memory": "unmeasured",
+      "screenshot": "replay-full-rate-profile-1440x900.png"
+    },
+    {
+      "id": "one_changed_source_followup",
+      "authorization": "Primary explicitly authorized one follow-up after immutable elapsed capture and accepted-time-axis cache corrections; no third attempt",
+      "run_id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+      "profile": "full-rate-benchmark",
+      "returned_samples": 132856,
+      "raw_samples": 132856,
+      "window_s": [
+        0.001,
+        132.856
+      ],
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "zoom_percent": 100,
+      "load_ms": 2547.4,
+      "content_length_bytes": 113412840,
+      "playback_speed": 1,
+      "declared_interval_s": "approximately20",
+      "observed_preclick_to_pre_pause_wall_s": 26.347,
+      "observed_cursor_s": [
+        0.001,
+        25.49
+      ],
+      "recent_frame_intervals": 600,
+      "median_ms": 16.7,
+      "p95_ms": 17.7,
+      "max_ms": 34.3,
+      "mean_ms": 17.5,
+      "scrub_request_s": 60,
+      "scrub_second_raf_ms": 29.3,
+      "heap_bytes": {
+        "after_load": {
+          "used": 231987546,
+          "allocated": 266067386
+        },
+        "after_playback": {
+          "used": 240596762,
+          "allocated": 306745106
+        },
+        "after_scrub": {
+          "used": 181922573,
+          "allocated": 186652141
+        },
+        "limit": 4395630592
+      },
+      "sixty_fps_requirement": "still_failed",
+      "total_process_gpu_memory": "unmeasured",
+      "screenshot": "replay-full-rate-followup-1440x900.png"
+    }
+  ],
+  "capture_dispositions": {
+    "rp1-side-default-1440x900.png": "Actually tools OPEN; preserved also as rp1-side-tools-open-1440x900.png. Not closed-tools default evidence.",
+    "*guide-fixed-1280x720.png": "Original files actually2560x1800 raster, i.e.1280x900. Preserved unchanged and explicit1280x900-mis-sized copies; not720 criteria.",
+    "rp1-side-tools-closed-default-guide-fixed-1280x720-verified.png": "Actual2560x1440 but resize-transition/manual fit retained; measured90.92%height and4.13%bottomclearance fail fit criteria. Not final explicit-fit fixture.",
+    "rp1-side-tools-closed-focus-guide-fixed-1280x720-verified.png": "Actual2560x1440 but Details remained open; not Focus evidence. Preserved failed interaction.",
+    "rp1-side-tools-closed-default-guide-fixed-1280x720-refit.png": "Final actual explicit Side/Fit at1280x720; pixel-measured guide83.25%height, minimum8.14%clearance.",
+    "rp1-side-tools-closed-focus-fixed-1280x720.png": "Actual2560x1440 with Exitfocus/bothcolumnsabsent/toolsclosed. Guideoff afterworkspace remount; use for Focus canvas-width only.",
+    "rp1-baro-isolated-guide-fixed-1440x900.png": "Actual selectedbaro,54/55hidden,1/1bounds; optional annotationobscurescenter. Preserved alongside clean-label companion.",
+    "rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png": "Final clean-label isolatedbaro;2880x1800, guidevisible, toolsclosed, actualsolid unobstructed."
   },
   "access_prerequisite_passed": true,
   "combined_release_verified": false,
-  "next_action": "Owner normal-terminal Ctrl-C then make preview; verifier reloads/attributes currentAPI then executes matrix",
   "engineering_accepted": false,
   "build_authorized": false,
   "flight_ready": false,
-  "inquiries": "UNSENT"
+  "inquiries": "AllfiveUNSENT; one local download/copy preserves exact frozen SHA2394f0420a038494c2da526516022a930f296d4d7983ac5c9bd8018ffcafe537",
+  "remaining": "Compound branches remain partial: controlled missing/malformed/500/delayed data, compatible current-source spatial fields, workerfailure/cancel/retry, fullretainedzoom/keyboardmatrix, end/tightpresets, event-alignment/plotrange, reduced-motion and measuredspeed accuracy. 60fps failed inbothauthorizedprofiles. No blocking access issue or owner-ready restoration pending.",
+  "last_observed_native_guard": {
+    "message": "The user changed /Applications/Google Chrome.app. Re-query latest state with get_app_state before sending more actions.",
+    "consecutive_short_step_interruptions": 2,
+    "supported_requery": "returned DevTools Console prompt focus; free window not established",
+    "disposition": "Historical temporary yield; superseded by ownerfreeconfirmation and successful bounded resumption/restoration",
+    "last_resize_observation": {
+      "width_css_px": 1440,
+      "height_css_px": 900,
+      "verified_in_native_toolbar_and_final_actual_view": true
+    },
+    "owner_ready_restoration_verified": true
+  },
+  "resumed_bounded_packet": {
+    "authorization": "Owner answered yes that authorized Chrome window was free; primary explicitly resumed sole native verifier",
+    "stable_access": "Fresh supported state succeeded. One subsequent guard after download was honored with fresh state; expected Moreoptions focus returned, then native controls remained stable. No stale-state input.",
+    "new_simulations": 0,
+    "new_performance_attempts": 0,
+    "clean_baro": {
+      "source_part": "baro",
+      "isolated_hidden_source_records": 54,
+      "source_records": 55,
+      "framed_loaded_bounds": "1/1",
+      "selected_part_label": false,
+      "cg_cp_markers": false,
+      "framing_guide": true,
+      "scene_tools": "closed",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "raster_px": [
+        2880,
+        1800
+      ],
+      "artifact": "rp1-baro-isolated-unannotated-tools-closed-guide-fixed-1440x900.png",
+      "sha256": "9dc54d07b84c147f731152712df0c13cf4a833415d43b31fa8722549cd7186c4"
+    },
+    "configuration_switches": [
+      {
+        "id": "modular-performance-g54-hypothesis",
+        "label": "G54 conditional upgrade",
+        "parts": 42,
+        "representation": "3D recorded geometry; matching recorded CAD",
+        "artifact": "design-g54-archived-inspection-1440x900.png"
+      },
+      {
+        "id": "modular-tvc-finned-v1",
+        "label": "G12 finned TVC trainer",
+        "parts": 53,
+        "representation": "3D recorded geometry with visiblefins/TVC",
+        "artifact": "design-g12-finned-inspection-1440x900.png"
+      },
+      {
+        "id": "modular-tvc-finless-v1",
+        "label": "G12 eventual finless TVC",
+        "parts": 51,
+        "representation": "3D recorded geometry with nofins",
+        "artifact": "design-g12-finless-inspection-1440x900.png",
+        "experiment_selector": "Finless trainer · static inspection only",
+        "run_control": "disabled",
+        "explanation": "Finless unguided simulation is unsupported. The actual design is shown for inspection."
+      }
+    ],
+    "exact_time_rejection": {
+      "run_id": "exp-cf9e47a650074144856caf50775846d2",
+      "entered_s": 200,
+      "cursor_before_s": 0.001,
+      "cursor_after_s": 0.001,
+      "actual_error": "Time must be inside the recorded replay window 0.001–116.02900000018997 seconds (inclusive).",
+      "escape_reset_s": 0.001,
+      "landing_event_requested_s": 116.029,
+      "nearest_endpoint_height_m": 0,
+      "nearest_endpoint_speed_mps": 0
+    },
+    "camera_speed_controls": {
+      "camera_sequence": [
+        "follow",
+        "fixed pad",
+        "free",
+        "follow"
+      ],
+      "requested_time_unchanged_s": 116.029,
+      "speed_sequence": [
+        1,
+        2,
+        1
+      ],
+      "playback": "paused; no new frameprofile or numeric multiplier qualification"
+    },
+    "changed_source_saved_load_regression": {
+      "mode": "ordinary Chrome Throttling Offline",
+      "action": "select existing exp-ab60bd4ac5c2412a9dd85f712072bca2; noPOST/simulation",
+      "actual_failure_status": "Saved-run load failed: TypeError: Failed to fetch",
+      "restored_transport": "Disabled: No throttling",
+      "recovery": "same savedrecord loaded matching source and bounded samples"
+    }
+  },
+  "owner_ready_state": {
+    "verified": true,
+    "workspace": "Design",
+    "configuration": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "representation": "3D inspection model",
+    "actual_model": "full source-derived body/nose/fins/motor rendered after explicitFitassembly",
+    "selected_part": null,
+    "workspace_rail": "open",
+    "context_sidebar": "Parts/open",
+    "scene_tools": "closed",
+    "framing_guide": false,
+    "camera": "overview + explicitFitassembly",
+    "viewport_css_px": [
+      1440,
+      900
+    ],
+    "browser_zoom_percent": 100,
+    "network": "No throttling",
+    "last_saved_replay_profile": "bounded",
+    "last_saved_replay_state": "paused",
+    "last_replay_camera": "follow",
+    "last_replay_speed": 1,
+    "no_more_cua_after_restoration": true
+  }
 }

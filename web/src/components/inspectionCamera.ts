@@ -7,6 +7,16 @@ export type OrbitFitOptions = {
   fill?: number;
 };
 
+/** Fractions of the actual canvas; shared by the fitter and its visible display guide. */
+export function inspectionFrameInsets(width: number, height: number) {
+  return {
+    left: 16 / Math.max(width, 80),
+    right: Math.min(130, width * 0.18) / Math.max(width, 1),
+    top: Math.min(84, height * 0.18) / Math.max(height, 1),
+    bottom: Math.min(92, height * 0.18) / Math.max(height, 1),
+  };
+}
+
 function boxCorners(bounds: Box3): Vector3[] {
   const points: Vector3[] = [];
   for (const x of [bounds.min.x, bounds.max.x]) {
@@ -59,14 +69,14 @@ export function fitOrbitFrame(
   if (direction.lengthSq() === 0) direction.set(1, 1, 1);
   direction.normalize();
   const upHint = cameraUp.clone().normalize();
-  let right = new Vector3().crossVectors(direction, upHint);
+  let right = new Vector3().crossVectors(upHint, direction);
   if (right.lengthSq() < 1e-12) {
     upHint.set(0, 0, 1);
     if (Math.abs(direction.dot(upHint)) > 0.99) upHint.set(0, 1, 0);
-    right = new Vector3().crossVectors(direction, upHint);
+    right = new Vector3().crossVectors(upHint, direction);
   }
   right.normalize();
-  const up = new Vector3().crossVectors(right, direction).normalize();
+  const up = new Vector3().crossVectors(direction, right).normalize();
   const tanV = Math.tan((fov * Math.PI) / 360);
   const tanH = tanV * aspect;
   const centerX = left - insetRight;

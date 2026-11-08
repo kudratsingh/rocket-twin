@@ -1,5 +1,13 @@
 # WO-05 — Experiments, 3D replay, telemetry, compare
 
+**November 7 preview closeout:** [Actual release evidence](../frontend-release-20261107.md)
+records the source-derived RP1 inspection model, live interactions and measured
+layout/Side fit. Single/batch experiments and recorded replay have actual local
+browser evidence; the full native-rate 60 fps benchmark remains failed. Missing
+spatial fields and unexecuted compound checks are not passes. Full WO prerequisites,
+WO-03, engineering, physical-build, WO-10 and flight-release gates remain unchanged.
+
+
 F2-C1 is an inspection-only connection proposal, not a supported experiment
 configuration. Its recorded guide/static/burnout comparisons are exposed in
 `docs/wo04-f2-c1-walkthrough-20261103.md` without creating new flight results.

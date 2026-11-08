@@ -63,3 +63,8 @@ extension-host unavailability does not bar this supported route. Current live
 API is stale relative to prepared RP1 assets. Owner normal-terminal preview
 restart precedes combined-release verification; old-backend screenshots are
 baseline evidence only.
+
+The owner then restarted the normal-terminal preview. The sole verifier confirmed
+the exact current inspection digest and all 26 mesh records loaded in Design.
+The stale-API prerequisite is closed; current-release browser acceptance proceeds
+through the recorded protocol, with defects and unobserved paths tracked separately.

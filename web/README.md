@@ -1,15 +1,23 @@
 # Rocket Twin inspection workspace
 
-Latest2026-11-03 preview uses focused **Design, Engineering, Experiments,
+The November 7 preview has focused **Design, Engineering, Experiments,
 Flight Replay and Analysis** workspaces. Start with `make preview` from the
-repository root. Engineering defaults to the separate G80-F2 construction
-snapshot; the CAD selector contains recorded reference assemblies, not a
-complete F2 vehicle. Design has explicit camera controls, collapsible panels
-and linked2D source-dimension envelopes. Experiments/Replay retain real backend
-runs, saved poses and source limitations. Missing spatial analysis stays
-unavailable. See `docs/wo04-focused-preview-20261103.md` for source identities,
-URLs, runtime blockers and unexecuted browser checks. Source/build verification
-is not observed WebGL/interaction acceptance.
+repository root; it prepares RP1 display meshes and source snapshots, then starts
+the Python API and Vite at `http://127.0.0.1:5173/`.
+
+Current Design is frozen `G80-F2-RP1-AD1-definition-v2`: 26 source-derived
+inspection meshes across 55 records, with simplified/missing geometry and
+allowances labeled. Manufacturing CAD and full physical inertia remain
+unavailable. Archived G80/G54/G12 geometry and matching saved runs are separate
+sources; RP1 cannot run a flight through a borrowed model. Finless flight is
+explicitly unsupported before its controller validation.
+
+Mapped fin/recovery drawings, real single/batch CPU experiments, exact-time
+replay, compatible comparisons, exports and current scalar Analysis findings
+have native Chrome evidence. Desktop layouts/Side fits have actual pixel
+measurements. The full native-rate 60 fps benchmark remains failed; wider
+unexecuted/data-blocked branches stay explicit in the [current handoff](../docs/frontend-release-20261107.md).
+All supplier/lab drafts remain UNSENT. Engineering/build/flight gates stay open.
 
 Read-only local inspection of the actual resolved vehicle specifications and
 CAD-derived part meshes. This is a limited early WO-04 increment authorized while
@@ -45,15 +53,14 @@ npm run format:check
 The initial dependencies are pinned exactly in `package.json`; the install lock
 records their transitive dependencies. Do not upgrade pins as part of UI edits.
 
-The top bar selects the G80 reference, conditional G54 upgrade, G12 finned trainer
+The top bar selects current RP1 or separate archived G80 reference, conditional G54 upgrade, G12 finned trainer
 or eventual G12 finless concept. Candidate studies have a separate catalog section
 and are not represented as adopted designs. The preliminary engineering banner
 stays visible in every mode.
 
 Inspect controls:
 
-- Drag to orbit, scroll to zoom, right-drag to pan. **Reset view**, **Fit rocket**
-  or **R** fits the loaded geometry, including the full hardware envelope.
+- Drag to orbit, scroll to zoom, right-drag to pan. **Fit assembly** frames loaded bounds; **Camera → Reset camera** or **R** restores the overview. Neither command invents missing geometry.
 - Click a tree row or mesh to select it; hover links the tree and geometry.
   **Escape** or the inspector’s close button returns to the vehicle summary.
 - Eye buttons hide individual parts. **Isolate selected**, **Show all**,
@@ -61,10 +68,7 @@ Inspect controls:
 - The exploded slider or **E** spreads the existing placed CAD geometry for
   inspection; it does not edit the design or represent an assembly instruction.
 - **Section** or **S** clips the display through its longitudinal axis.
-- The burn slider requests mass and balance-point values from the backend.
-  CG means centre of gravity (balance point); CP means centre of pressure
-  (aerodynamic force point). Markers are hidden in exploded views, where a
-  physical balance-point overlay would be misleading.
+- Archived models can request burn-state mass from the backend. RP1 instead selects a saved estimated case with its separate 50 g growth allowance already included; no burn/inertia model is inferred. CG means centre of gravity (balance point); CP means centre of pressure (aerodynamic force point). Markers are hidden in exploded views.
 - **Terms & units** provides the plain-English key to the abbreviations used
   in the specification and engineering evidence.
 
@@ -115,3 +119,15 @@ before attaching a field; the backend also validates artifacts and hashes.
 `src/analysis/` contains the recorded-result viewer and evidence/history panels.
 `npm test` smoke-checks the identity and missing-data boundary. Expanded WO-04/05
 acceptance remains separate from these early inspection/analysis increments.
+
+Exact replay time can be entered in seconds and applied with Enter or **Go to
+exact time**. Invalid/out-of-window entries leave the cursor unchanged. The slider
+and nearest sampled graph readout retain their stated precision. Recovery attitude
+is approximate and is never cosmetically aligned with the velocity.
+
+**Camera → Framing area guide** shows the display-only safe rectangle. Use an
+explicit **Fit assembly** after changing a manual viewing state/viewport when a
+new fit is wanted. Optional part labels can be turned off for unobstructed close-ups.
+A child-workspace rendering failure keeps navigation available and offers a
+context-preserving reload. The `__previewFault` rendering fixture is development
+only; it never starts a simulation or changes saved records.
