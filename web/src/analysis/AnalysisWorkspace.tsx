@@ -22,6 +22,7 @@ import {
 } from './display';
 import type { AnalysisCatalog, AnalysisManifest, AnalysisPayload } from './types';
 import './analysis.css';
+import { analysisArtifactUrl, parseAnalysisCatalog, parseAnalysisManifest } from './responseGuard';
 
 function RegisteredAnalysisWorkspace({
   vehicle,
@@ -30,12 +31,19 @@ function RegisteredAnalysisWorkspace({
   vehicle: InspectionDocument;
   candidateMessage?: string;
 }) {
-  const [catalog, setCatalog] = useState<AnalysisCatalog | null>(null);
+  const [loadedCatalog, setCatalog] = useState<AnalysisCatalog | null>(null);
+  const catalog = loadedCatalog?.vehicle_id === vehicle.id ? loadedCatalog : null;
   const [runId, setRunId] = useState('');
-  const [manifest, setManifest] = useState<AnalysisManifest | null>(null);
+  const [loadedManifest, setManifest] = useState<AnalysisManifest | null>(null);
+  const manifest =
+    loadedManifest?.api_id === runId && loadedManifest.identity.configuration_id === vehicle.id
+      ? loadedManifest
+      : null;
   const [caseId, setCaseId] = useState('');
   const [fieldId, setFieldId] = useState('');
-  const [payload, setPayload] = useState<AnalysisPayload | null>(null);
+  const [payloadResult, setPayload] = useState<{ key: string; value: AnalysisPayload } | null>(
+    null,
+  );
   const [catalogError, setCatalogError] = useState('');
   const [manifestError, setManifestError] = useState('');
   const [payloadError, setPayloadError] = useState('');
@@ -43,13 +51,22 @@ function RegisteredAnalysisWorkspace({
   const [sample, setSample] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [comparisonFieldId, setComparisonFieldId] = useState('');
-  const [comparisonPayload, setComparisonPayload] = useState<AnalysisPayload | null>(null);
+  const [comparisonResult, setComparisonPayload] = useState<{
+    key: string;
+    value: AnalysisPayload;
+  } | null>(null);
   const [comparisonError, setComparisonError] = useState('');
   const [autoRange, setAutoRange] = useState(false);
   const [minimum, setMinimum] = useState(0);
   const [maximum, setMaximum] = useState(300);
   const [outline, setOutline] = useState(false);
+  const [catalogRetry, setCatalogRetry] = useState(0);
+  const [manifestRetry, setManifestRetry] = useState(0);
+  const [payloadRetry, setPayloadRetry] = useState(0);
+  const [comparisonRetry, setComparisonRetry] = useState(0);
   const field = manifest?.fields.find((entry) => entry.id === fieldId && entry.case_id === caseId);
+  const payloadKey = JSON.stringify([manifest?.api_id, field?.id, field?.artifact_sha256]);
+  const payload = payloadResult?.key === payloadKey ? payloadResult.value : null;
   const quantity = field?.quantity;
   const mismatch = manifest ? identityMismatch(manifest, vehicle.id, vehicle.identity) : null;
   const fieldUnavailable = fieldBlockReason(field);
@@ -60,12 +77,13 @@ function RegisteredAnalysisWorkspace({
     setCatalogError('');
     setRunId('');
     const controller = new AbortController();
-    void getJson<AnalysisCatalog>(
+    void getJson<unknown>(
       `/api/vehicles/${encodeURIComponent(vehicle.id)}/analyses`,
       controller.signal,
     )
-      .then((data) => {
-        if (controller.signal.aborted || data.vehicle_id !== vehicle.id) return;
+      .then((value) => {
+        if (controller.signal.aborted) return;
+        const data = parseAnalysisCatalog(value, vehicle.id);
         setCatalog(data);
         setRunId((data.analyses.find((entry) => entry.compatible) || data.analyses[0])?.id || '');
       })
@@ -74,7 +92,7 @@ function RegisteredAnalysisWorkspace({
           setCatalogError(error instanceof Error ? error.message : 'Analysis catalog unavailable.');
       });
     return () => controller.abort();
-  }, [vehicle.id]);
+  }, [vehicle.id, catalogRetry]);
 
   useEffect(() => {
     setManifest(null);
@@ -83,11 +101,13 @@ function RegisteredAnalysisWorkspace({
     setPayloadError('');
     setSample(0);
     setPlaying(false);
-    if (!runId) return;
+    const selectedRun = catalog?.analyses.find((entry) => entry.id === runId);
+    if (!runId || !selectedRun) return;
     const controller = new AbortController();
-    void getJson<AnalysisManifest>(`/api/analyses/${encodeURIComponent(runId)}`, controller.signal)
-      .then((data) => {
+    void getJson<unknown>(`/api/analyses/${encodeURIComponent(runId)}`, controller.signal)
+      .then((value) => {
         if (controller.signal.aborted) return;
+        const data = parseAnalysisManifest(value, runId, selectedRun.run_id, vehicle.id);
         setManifest(data);
         const initial =
           data.fields.find((entry) => entry.evidence.provenance !== 'unavailable') ||
@@ -102,7 +122,7 @@ function RegisteredAnalysisWorkspace({
           );
       });
     return () => controller.abort();
-  }, [runId]);
+  }, [runId, catalog, manifestRetry, vehicle.id]);
 
   useEffect(() => {
     setPayload(null);
@@ -110,17 +130,20 @@ function RegisteredAnalysisWorkspace({
     setSample(0);
     setPlaying(false);
     if (!manifest || !field || mismatch || fieldUnavailable) return;
-    if (!field.artifact || !manifest.artifacts[field.artifact]?.startsWith('/api/analyses/')) {
-      setPayloadError('No allowlisted recorded field artifact is available.');
+    let url: string;
+    try {
+      url = analysisArtifactUrl(manifest, field);
+    } catch (reason) {
+      setPayloadError(reason instanceof Error ? reason.message : 'Recorded artifact unavailable.');
       return;
     }
     const controller = new AbortController();
     setLoading(true);
-    void getJson<AnalysisPayload>(manifest.artifacts[field.artifact], controller.signal)
+    void getJson<AnalysisPayload>(url, controller.signal)
       .then((data) => {
         if (controller.signal.aborted) return;
         validatePayload(field, data);
-        setPayload(data);
+        setPayload({ key: payloadKey, value: data });
       })
       .catch((error: unknown) => {
         if (!controller.signal.aborted)
@@ -133,9 +156,15 @@ function RegisteredAnalysisWorkspace({
       controller.abort();
       setLoading(false);
     };
-  }, [manifest, field, mismatch, fieldUnavailable]);
+  }, [manifest, field, mismatch, fieldUnavailable, payloadKey, payloadRetry]);
 
   const comparisonField = manifest?.fields.find((item) => item.id === comparisonFieldId);
+  const comparisonKey = JSON.stringify([
+    manifest?.api_id,
+    comparisonField?.id,
+    comparisonField?.artifact_sha256,
+  ]);
+  const comparisonPayload = comparisonResult?.key === comparisonKey ? comparisonResult.value : null;
   useEffect(() => {
     setComparisonPayload(null);
     setComparisonError('');
@@ -145,9 +174,13 @@ function RegisteredAnalysisWorkspace({
       setComparisonError(blocked);
       return;
     }
-    const url = comparisonField.artifact && manifest.artifacts[comparisonField.artifact];
-    if (!url || !url.startsWith('/api/analyses/')) {
-      setComparisonError('Comparison artifact unavailable.');
+    let url: string;
+    try {
+      url = analysisArtifactUrl(manifest, comparisonField);
+    } catch (reason) {
+      setComparisonError(
+        reason instanceof Error ? reason.message : 'Comparison artifact unavailable.',
+      );
       return;
     }
     const controller = new AbortController();
@@ -155,14 +188,14 @@ function RegisteredAnalysisWorkspace({
       .then((value) => {
         if (controller.signal.aborted) return;
         validatePayload(comparisonField, value);
-        setComparisonPayload(value);
+        setComparisonPayload({ key: comparisonKey, value });
       })
       .catch((reason: unknown) => {
         if (!controller.signal.aborted)
           setComparisonError(reason instanceof Error ? reason.message : 'Comparison unavailable.');
       });
     return () => controller.abort();
-  }, [manifest, comparisonField, mismatch]);
+  }, [manifest, comparisonField, mismatch, comparisonKey, comparisonRetry]);
 
   useEffect(() => {
     if (quantity) {
@@ -287,6 +320,28 @@ function RegisteredAnalysisWorkspace({
             </select>
           </label>
         </div>
+        {(catalogError || manifestError || payloadError) && (
+          <div className="analysis-status">
+            {catalogError && (
+              <button type="button" onClick={() => setCatalogRetry((value) => value + 1)}>
+                Retry analysis catalog
+              </button>
+            )}
+            {manifestError && (
+              <button type="button" onClick={() => setManifestRetry((value) => value + 1)}>
+                Retry selected manifest
+              </button>
+            )}
+            {payloadError && (
+              <button type="button" onClick={() => setPayloadRetry((value) => value + 1)}>
+                Retry recorded field
+              </button>
+            )}
+            <small>
+              Retries load existing recorded evidence only; no solver or flight run is started.
+            </small>
+          </div>
+        )}
         <div className={`analysis-status ${error ? 'analysis-error' : ''}`} role="status">
           <Icon name={error ? 'warning' : 'layers'} size={14} />
           {error ||
@@ -403,7 +458,14 @@ function RegisteredAnalysisWorkspace({
               ))}
             </select>
           </label>
-          {comparisonError && <p role="alert">{comparisonError}</p>}
+          {comparisonError && (
+            <p role="alert">
+              {comparisonError}{' '}
+              <button type="button" onClick={() => setComparisonRetry((value) => value + 1)}>
+                Retry comparison artifact
+              </button>
+            </p>
+          )}
           <RecordedCaseComparison
             left={manifest && field && payload && !error ? { manifest, field, payload } : null}
             right={
@@ -450,7 +512,9 @@ function RegisteredAnalysisWorkspace({
             </span>
           )}
           <small className="sample-rate">
-            {field?.times_s ? '8 recorded samples/s · no flight mapping' : 'Recorded static result'}
+            {field?.times_s
+              ? 'Playback: 8 samples/s · exact solver timestamps · no flight mapping'
+              : 'Recorded static result'}
           </small>
         </div>
       </section>

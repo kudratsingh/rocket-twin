@@ -1,34 +1,22 @@
 # Frontend workbench backlog
 
-**Frontend release candidate (2026-11-07):** [RP1 3D and remaining source workflows](frontend-release-20261107.md). Frozen RP1/AD1 v2 now has26 source-derived inspection meshes across55 audited records:10 source-dimensioned,16 simplified envelopes,25 mass allowances and4 missing geometries. Inspection identity is separate; no canonical inertia/flight/CAD adoption. Single/batch CPU experiments, replay comparisons/exports and recorded Analysis are implemented; experiments have their own context and cannot replace the working Design. All inquiries remain UNSENT. Owner authorizes the sole open Chrome window and necessary tabs, with `/root/browser_access_sol` as sole verifier; the first supported inventory returned **“The browser access host is unavailable.”** Consent is resolved, live verification/startup and required browser rows remain open. No alternate runtime/bypass or engineering/build/flight acceptance. Optional Mission Control and future editing/fidelity have explicit deferred dispositions.
+Current source: dedicated G80 RP1/AD1 v2; archived CAD/runs remain separate. G54 and G12 PID-to-RL remain committed tracks. No inquiry/contact, purchase, physical test or engineering/flight release is implied.
 
-Latest RV-08/RV-11 code/source increment: [RP1 connection links and independent replay pose checks](wo04-rp1-connections-20261107.md). Exact source/part links, two graphics and missingness are checked offline; browser acceptance and all engineering gates remain open.
+**November8 reconciliation:** the43-task ledger is synchronized with the28-task RV map and merged PR101–104 evidence. Six source-contract/audit/ownership tasks are complete at their limited scope;33 tasks remain partial, three optional/future tasks are deferred, and FT027 schematic recovery illustration remains planned. These are task states, not a completion percentage. No new acceptance check was passed by updating this document.
 
-Bounded replay/data continuation: [per-run recorded windows](wo05-replay-window-20261107.md) correct endpoint-held actors during comparison; pose/recovery validation remains open. The analysis inventory records27 incompatible historical manifests; no current overlay is admitted. Code and metadata evidence remain separate from browser observation.
+Use [the current release worklist](frontend-release-worklist.md), [machine-readable FT tasks](frontend-workbench-backlog.json), [RV tasks](frontend-revamp-backlog.json) and [acceptance checks](frontend-revamp-acceptance.csv). The supported sole native owner is `/root/browser_access_sol` in the authorized current Chrome window. Earlier ownership/extension blockers are historical; the separate rejected DevTools/viewport setup is still blocked. No headless/CDP, other-window or denied-method retry.
 
-Latest owner revamp (November7): [RP1-first Design slice](wo04-rp1-revamp-20261107.md), [21-task mapped ledger](frontend-revamp-backlog.json) and [37-check matrix](frontend-revamp-acceptance.csv). Existing43FTtasks and prior evidence remain; current source is frozenAD1v2, archivedCAD is separate, inquiriesUNSENT. Browser acceptance remains blocked.
+Source and live evidence: [RP1 source release](frontend-release-20261107.md), [interior workflow](studies/frontend-interiors-20261108/report.md), [PCB source reference](studies/frontend-hardware-detail-sources-20261108/integration.md), [Move/Rotate and Whole rocket correction](studies/frontend-pan-20261108/report.md). Browser checks are attributed to their actual code/data/window; earlier captures do not accept later changes.
 
-Latest bounded FT-015 slice: [recoverable section/exploded inspection](wo04-inspection-display-20261106.md). Restore assembled inspection, compact display status and source dimensions implemented;93 integrated web tests/build/lint/format pass. Actual React HTML is an offline source artifact; browser observations remain absent.
-
-Latest bounded FT-001/016/017 slice: [VP1 programme workbench](wo04-vp1-validation-workbench-20261106.md). Selectable stage/part SVG, dated material costs, unavailable all-in cost and five UNSENT copy/download previews are implemented; browser/physical acceptance remains open. No contact or test execution is inferred.
-
-Latest bounded FT-016/evidence increment: [separate FP1/FR1 source-relationship comparison](wo04-rp1-studies-20261104.md), selectable graphics, source hashes and honest unaccepted status. Actual exported React graphs were inspected offline;85 integrated web tests/type/lint/format/build pass. Browser observation fields remain false; this does not complete the43-task plan.
-
-The [machine-readable backlog](frontend-workbench-backlog.json) preserves all 43 planning-kit tasks, their dependencies, owner roles, acceptance criteria and evidence fields. This is a conservative snapshot: `partial` identifies bounded evidence, not task completion. A `planned` entry may have earlier work; it has not been established here against the full task criteria. All browser-observed and accepted fields are false for this increment. Source/build checks do not establish usability or acceptance.
-
-Planning source: `output/frontend-planning-kit-20261103/` — manifest SHA-256 `4e2c647017b36ed5368ac757e873fe30d9f314f5e02fc01cf98943432ce93010`; backlog JSON SHA-256 `e0a717dabaf59794841861fd6febd8999e4bbec23464e1cd6e7e247840c0d20c`. These hashes bind the named files; the manifest lists individual kit files and excludes itself. The source snapshot has no Git metadata, so no commit identity is asserted.
-
-Independent F2 engineering context: [decision](wo03-g80-f2-decision.md), [coupled accounting](wo03-g80-f2-coupled-accounting.md), [cost and placement](wo03-g80-f2-cost-and-placement.md), and [construction walkthrough](wo04-f2-construction-walkthrough.md). These are source context, not evidence of frontend task completion or engineering acceptance.
-
-Browser observations belong to the established designated owner in the authorized window. No browser, download, performance or visual acceptance is claimed by this ledger. Phase P7 remains a continuous acceptance lane; later fidelity work in P8 requires its own scope.
+The original planning kit remains in `output/frontend-planning-kit-20261103/`, manifest SHA-256 `4e2c647017b36ed5368ac757e873fe30d9f314f5e02fc01cf98943432ce93010`. Its frozen intake and prior execution records remain historical. Current public GitHub publication uses focused PRs and required checks; engineering/build/WO10/flight gates stay separate.
 
 | ID | Phase | Task | Owner | Dependencies | Status |
 | --- | --- | --- | --- | --- | --- |
-| FT-001 | P0 | Record source and configuration identity baseline | `primary_integrator` | — | partial |
-| FT-002 | P0 | Define focused page and selection contracts | `primary_integrator` | FT-001 | partial |
-| FT-003 | P0 | Specify telemetry phase and presentation validity | `data_analysis_owner` | FT-001 | partial |
-| FT-004 | P0 | Resolve designated browser runtime prerequisite | `designated_terra_browser_owner` | FT-001 | blocked |
-| FT-005 | P0 | Define recorded analysis and batch extension contracts | `primary_integrator` | FT-001, FT-003 | planned |
+| FT-001 | P0 | Record source and configuration identity baseline | `primary_integrator` | — | complete |
+| FT-002 | P0 | Define focused page and selection contracts | `primary_integrator` | FT-001 | complete |
+| FT-003 | P0 | Specify telemetry phase and presentation validity | `data_analysis_owner` | FT-001 | complete |
+| FT-004 | P0 | Resolve designated browser runtime prerequisite | `designated_sol_browser_owner` | FT-001 | complete |
+| FT-005 | P0 | Define recorded analysis and batch extension contracts | `primary_integrator` | FT-001, FT-003 | complete |
 | FT-006 | P1 | Replace oversized universal shell with focused page frame | `primary_integrator` | FT-002 | partial |
 | FT-007 | P1 | Synchronize deep links URL history and navigation | `primary_integrator` | FT-002, FT-006 | partial |
 | FT-008 | P1 | Load independent candidate resources independently | `primary_integrator` | FT-001, FT-002, FT-006 | partial |
@@ -41,29 +29,29 @@ Browser observations belong to the established designated owner in the authorize
 | FT-015 | P2 | Expose section explode and dimensional inspection | `inspection_owner` | FT-012, FT-014 | partial |
 | FT-016 | P2 | Create focused construction and load-path views | `inspection_owner` | FT-013, FT-014 | partial |
 | FT-017 | P2 | Deliver mass launch and inspection export slice | `inspection_owner` | FT-015, FT-016 | partial |
-| FT-018 | P3 | Audit replay pose events and recovery model behavior | `data_analysis_owner` | FT-003 | partial |
+| FT-018 | P3 | Audit replay pose events and recovery model behavior | `data_analysis_owner` | FT-003 | complete |
 | FT-019 | P3 | Implement reusable validity and provenance adapters | `data_analysis_owner` | FT-005, FT-018 | partial |
 | FT-020 | P3 | Build concise complete-configuration experiment setup | `experiment_replay_owner` | FT-002, FT-005, FT-019 | partial |
-| FT-021 | P3 | Implement reproducible run lifecycle and errors | `data_analysis_owner` | FT-005, FT-019 | planned |
-| FT-022 | P3 | Add bounded local batch backend orchestration | `data_analysis_owner` | FT-021 | planned |
-| FT-023 | P3 | Build batch setup progress and run library | `experiment_replay_owner` | FT-020, FT-021, FT-022 | planned |
+| FT-021 | P3 | Implement reproducible run lifecycle and errors | `data_analysis_owner` | FT-005, FT-019 | partial |
+| FT-022 | P3 | Add bounded local batch backend orchestration | `data_analysis_owner` | FT-021 | partial |
+| FT-023 | P3 | Build batch setup progress and run library | `experiment_replay_owner` | FT-020, FT-021, FT-022 | partial |
 | FT-024 | P3 | Implement synchronized scientific run comparison | `experiment_replay_owner` | FT-019, FT-021 | partial |
 | FT-025 | P3 | Correct replay clock scrubbing and phase disclosures | `experiment_replay_owner` | FT-018, FT-019, FT-021 | partial |
-| FT-026 | P4 | Improve camera scale lighting and trajectory context | `experiment_replay_owner` | FT-012, FT-025 | planned |
+| FT-026 | P4 | Improve camera scale lighting and trajectory context | `experiment_replay_owner` | FT-012, FT-025 | partial |
 | FT-027 | P4 | Add honest event-linked schematic recovery illustration | `experiment_replay_owner` | FT-003, FT-018, FT-025 | planned |
 | FT-028 | P4 | Surface telemetry evidence and validity during playback | `experiment_replay_owner` | FT-019, FT-025 | partial |
-| FT-029 | P4 | Bound replay data transfer and rendering cost | `experiment_replay_owner` | FT-025, FT-026 | planned |
+| FT-029 | P4 | Bound replay data transfer and rendering cost | `experiment_replay_owner` | FT-025, FT-026 | partial |
 | FT-030 | P5 | Inventory compatible structural thermal and aero artifacts | `data_analysis_owner` | FT-001, FT-005 | partial |
-| FT-031 | P5 | Implement analysis identity and registration adapters | `data_analysis_owner` | FT-019, FT-030 | planned |
-| FT-032 | P5 | Build focused analysis selection and unavailable states | `data_analysis_owner` | FT-002, FT-014, FT-031 | planned |
-| FT-033 | P5 | Display true structural fields and margins | `data_analysis_owner` | FT-031, FT-032 | planned |
-| FT-034 | P5 | Display thermal histories and supported aero results | `data_analysis_owner` | FT-031, FT-032 | planned |
-| FT-035 | P5 | Compare compatible analysis cases with stable scales | `data_analysis_owner` | FT-024, FT-033, FT-034 | planned |
+| FT-031 | P5 | Implement analysis identity and registration adapters | `data_analysis_owner` | FT-019, FT-030 | partial |
+| FT-032 | P5 | Build focused analysis selection and unavailable states | `data_analysis_owner` | FT-002, FT-014, FT-031 | partial |
+| FT-033 | P5 | Display true structural fields and margins | `data_analysis_owner` | FT-031, FT-032 | partial |
+| FT-034 | P5 | Display thermal histories and supported aero results | `data_analysis_owner` | FT-031, FT-032 | partial |
+| FT-035 | P5 | Compare compatible analysis cases with stable scales | `data_analysis_owner` | FT-024, FT-033, FT-034 | partial |
 | FT-036 | P6 | Integrate focused pages and end-to-end identity flow | `primary_integrator` | FT-010, FT-017, FT-023, FT-025, FT-028, FT-029, FT-035 | partial |
-| FT-037 | P6 | Optionally compose one dense Mission Control page | `primary_integrator` | FT-036 | planned |
-| FT-038 | P7 | Continuously observe first inspection slice in permitted Chrome | `designated_terra_browser_owner` | FT-004, FT-010, FT-017 | planned |
-| FT-039 | P7 | Observe experiments batches replay comparison and analysis | `designated_terra_browser_owner` | FT-036, FT-038 | planned |
-| FT-040 | P7 | Measure representative long-run browser performance | `designated_terra_browser_owner` | FT-029, FT-039 | planned |
-| FT-041 | P7 | Close observed defects and publish bounded acceptance | `primary_integrator` | FT-038, FT-039, FT-040 | planned |
-| FT-042 | P8 | Scope future validated recovery CFD and controls fidelity separately | `primary_integrator` | FT-018, FT-030 | planned |
-| FT-043 | P8 | Scope controlled parametric design editing with regenerated candidates | `primary_integrator` | FT-001, FT-005, FT-013 | planned |
+| FT-037 | P6 | Optionally compose one dense Mission Control page | `primary_integrator` | FT-036 | deferred |
+| FT-038 | P7 | Continuously observe first inspection slice in permitted Chrome | `designated_sol_browser_owner` | FT-004, FT-010, FT-017 | partial |
+| FT-039 | P7 | Observe experiments batches replay comparison and analysis | `designated_sol_browser_owner` | FT-036, FT-038 | partial |
+| FT-040 | P7 | Measure representative long-run browser performance | `designated_sol_browser_owner` | FT-029, FT-039 | partial |
+| FT-041 | P7 | Close observed defects and publish bounded acceptance | `primary_integrator` | FT-038, FT-039, FT-040 | partial |
+| FT-042 | P8 | Scope future validated recovery CFD and controls fidelity separately | `primary_integrator` | FT-018, FT-030 | deferred |
+| FT-043 | P8 | Scope controlled parametric design editing with regenerated candidates | `primary_integrator` | FT-001, FT-005, FT-013 | deferred |

@@ -58,14 +58,35 @@ export function identityMismatch(
     return manifest.incompatible_reason || 'The API rejected this historical analysis identity.';
   if (!expected) return 'The current vehicle identity is unavailable.';
   const actual: AnalysisIdentity = manifest.identity;
+  if (!actual || typeof actual !== 'object') return 'Recorded analysis identity is unavailable.';
   if (actual.configuration_id !== vehicleId || expected.configuration_id !== vehicleId)
     return 'Configuration identifier does not match the current vehicle.';
-  if (actual.resolved_spec_sha256 !== expected.resolved_spec_sha256)
+  const sha = (value: unknown) => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
+  if (
+    !sha(actual.resolved_spec_sha256) ||
+    !sha(expected.resolved_spec_sha256) ||
+    actual.resolved_spec_sha256 !== expected.resolved_spec_sha256
+  )
     return 'Resolved specification fingerprint does not match the current vehicle.';
-  if (actual.cad_revision_sha256 !== expected.cad_revision_sha256)
+  if (
+    !sha(actual.cad_revision_sha256) ||
+    !sha(expected.cad_revision_sha256) ||
+    actual.cad_revision_sha256 !== expected.cad_revision_sha256
+  )
     return 'CAD generator fingerprint does not match the current geometry.';
   const expectedParts = expected.part_shape_sha256;
-  if (!expectedParts || typeof expectedParts !== 'object' || Array.isArray(expectedParts))
+  const actualParts = actual.part_shape_sha256;
+  if (
+    !expectedParts ||
+    typeof expectedParts !== 'object' ||
+    Array.isArray(expectedParts) ||
+    !actualParts ||
+    typeof actualParts !== 'object' ||
+    Array.isArray(actualParts) ||
+    !Object.keys(expectedParts).length ||
+    !Object.values(expectedParts).every(sha) ||
+    !Object.values(actualParts).every(sha)
+  )
     return 'Part geometry fingerprints are unavailable.';
   if (
     Object.keys(actual.part_shape_sha256).length !== Object.keys(expectedParts).length ||
@@ -86,6 +107,17 @@ export function fieldBlockReason(field: AnalysisField | undefined): string {
 
 export function validatePayload(field: AnalysisField, data: AnalysisPayload): void {
   if (
+    field.times_s !== null &&
+    field.times_s !== undefined &&
+    (!Array.isArray(field.times_s) ||
+      !field.times_s.length ||
+      field.times_s.some(
+        (time, index, times) => !Number.isFinite(time) || (index > 0 && time <= times[index - 1]),
+      ))
+  )
+    throw new Error('Recorded field exact sample times are invalid; no time axis is inferred.');
+  if (
+    !data ||
     !Array.isArray(data.values) ||
     data.values.length !== (field.times_s?.length || 1) ||
     data.values.some(
