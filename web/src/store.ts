@@ -3,6 +3,7 @@ import type { InspectionView } from './components/inspectionGeometry';
 
 interface InspectionState {
   selectedId: string | null;
+  selectionToken: number;
   hoveredId: string | null;
   selectedGroupId: string | null;
   selectedGroupPartIds: string[];
@@ -44,6 +45,7 @@ interface InspectionState {
 
 export const useInspection = create<InspectionState>((set) => ({
   selectedId: null,
+  selectionToken: 0,
   hoveredId: null,
   selectedGroupId: null,
   selectedGroupPartIds: [],
@@ -60,10 +62,16 @@ export const useInspection = create<InspectionState>((set) => ({
   cameraAction: 'reset',
   focusId: null,
   resetToken: 0,
-  select: (selectedId) => set({ selectedId }),
+  select: (selectedId) =>
+    set((s) => ({ selectedId, selectionToken: s.selectionToken + (selectedId ? 1 : 0) })),
   setAvailableMeshes: (availableMeshIds) => set({ availableMeshIds }),
   selectGroup: (selectedGroupId, selectedGroupPartIds) =>
-    set({ selectedGroupId, selectedGroupPartIds, selectedId: null }),
+    set((s) => ({
+      selectedGroupId,
+      selectedGroupPartIds,
+      selectedId: null,
+      selectionToken: s.selectionToken + 1,
+    })),
   isolateGroup: (ids) =>
     set((s) => {
       const supported = ids.filter((id) => s.availableMeshIds?.includes(id));
@@ -111,6 +119,7 @@ export const useInspection = create<InspectionState>((set) => ({
         ? {}
         : {
             focusId,
+            selectionToken: s.selectionToken + 1,
             cameraAction: 'focus',
             selectedId: focusId,
             hiddenIds: s.hiddenIds.filter((id) => id !== focusId),
@@ -128,6 +137,7 @@ export const useInspection = create<InspectionState>((set) => ({
     })),
   resetVehicle: () =>
     set((s) => ({
+      selectionToken: 0,
       selectedGroupId: null,
       selectedGroupPartIds: [],
       availableMeshIds: null,

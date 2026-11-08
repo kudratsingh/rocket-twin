@@ -26,19 +26,21 @@ Executed checks:
 
 | Check | Result | Scope |
 | --- | --- | --- |
-| Targeted layout/chrome tests | 10 passed | All four rendered panel combinations; correct labels and expanded states; internal tabs; retained Details tab and width; one mounted visual; existing source markers; Focus preference restoration; focus-return scheduling and hidden/disconnected-opener fallback. |
+| Targeted layout/chrome tests | 9 passed | All four rendered panel combinations; correct labels and expanded states; internal tabs; retained Details tab and width; one mounted visual; existing source markers; Focus preference restoration; focus-return scheduling and hidden/disconnected-opener fallback. |
 | Scoped ESLint | Passed | The three owned TSX source files. |
 | Prettier | Passed through formatting | Owned source, CSS and targeted test files. |
-| Integrated TypeScript, initial attempt | Pending integration | Reported missing `FinAlternatives` imports and unfinished Viewer orbit-control symbols/unused variables in other active lanes. No errors were reported in this slice. The primary integrator owns the final check. |
+| Integrated TypeScript, initial attempt | Initially blocked; later cleared by primary | The local initial attempt reported missing `FinAlternatives` imports and unfinished Viewer symbols in other active lanes, with no panel-file errors. Before the browser packet, the primary reported the completed integrated typecheck, lint, format, production build and 188 local tests passing (four preserved A2 tests outside publication scope). Exact-head publication remains the primary's separate evidence. |
 
 The focus tests use a small document/window fixture to check the scheduled return target. SSR checks establish markup and stable mount structure. They do not establish actual browser focus, pixels or pointer interactions.
 
 ## Browser acceptance queued
 
-No browser calls were made for this code slice. The primary integrator will signal when the combined source is ready; the existing designated verifier then uses the same owner-authorized Chrome window.
+No browser calls were made during the panel implementation slice. The subsequent [bounded browser packet](browser-access.md) confirmed fresh source metadata and exercised the ordinary panel controls in the existing Chrome window: four combinations, retained Details 267 px/selection/custom camera, internal close and Escape focus return, and Focus restoration. Exact responsive sizes were blocked by automatic approval review; the second external-change guard stopped the packet before its remaining workflows/restoration. RV-Q38 remains partial.
 
 At 1440×900 and 1280×720, 100% zoom, verify both visible controls by pointer and keyboard for all four panel combinations. Check last-tab/width retention, selected part and camera retention, internal Parts/Details tab arrows, close-button/splitter focus return, and Focus/Exit focus/Escape restoration. With tools closed, measure the default canvas against the unchanged width/height targets.
 
 At 900×720, verify the parts drawer opens, closes with Escape from its search input and Details tab, and returns focus to the opener without clearing selection. At narrow mobile width, verify the navigation overlay Escape return and the labelled controls remain reachable. Retain any failed or unexecuted outcomes explicitly; do not promote source tests into browser acceptance.
 
 All five inquiry drafts remain UNSENT. WO-03, engineering/build, physical/test, paid-run, WO-10 and flight gates remain unchanged.
+
+Count clarification: executing the two named layout test files together reports nine tests. The initial delegated summary said ten; this table records the directly verified count. This does not change any interaction or acceptance result.

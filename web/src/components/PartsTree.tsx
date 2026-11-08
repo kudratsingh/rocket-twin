@@ -6,6 +6,7 @@ import { Icon } from './Icons';
 import { matchesPartSearch } from './partSearch';
 import { presentationGroups, recordedQuantity, representationLabel } from './presentationGroups';
 import { FinAlternatives } from './FinAlternatives';
+import { functionalGroupOpen } from './groupExpansion.ts';
 
 export function PartsTree({
   parts,
@@ -17,11 +18,13 @@ export function PartsTree({
   candidateMessage?: string;
 }) {
   const [query, setQuery] = useState('');
-  const [collapsed, setCollapsed] = useState<string[]>([]);
+  const [collapsedAt, setCollapsedAt] = useState<Record<string, number | undefined>>({});
   const tree = useRef<HTMLDivElement>(null);
   const selectedId = useInspection((s) => s.selectedId);
+  const selectionToken = useInspection((s) => s.selectionToken);
   const selectedGroupId = useInspection((s) => s.selectedGroupId);
   const hiddenIds = useInspection((s) => s.hiddenIds);
+  const isolatedFrom = useInspection((s) => s.isolatedFrom);
   const groups = useMemo(() => presentationGroups(vehicle), [vehicle]);
   const selectedGroup = groups.find((g) => g.part_ids.includes(selectedId ?? ''));
   useEffect(() => {
@@ -104,14 +107,14 @@ export function PartsTree({
           aria-label="Search parts"
         />
       </label>
-      <div className="tree-toolbar">
-        <span>
-          {meshes.filter((p) => !hiddenIds.includes(p.id)).length} / {meshes.length} meshes visible
-        </span>
-        <button onClick={() => useInspection.getState().showAll()} disabled={!hiddenIds.length}>
-          Show all
-        </button>
-      </div>
+      <PartsVisibilityControls
+        meshCount={meshes.length}
+        visibleCount={meshes.filter((p) => !hiddenIds.includes(p.id)).length}
+        hasHidden={hiddenIds.length > 0}
+        isolated={isolatedFrom !== null}
+        onExit={() => useInspection.getState().exitIsolate()}
+        onShowAll={() => useInspection.getState().showAll()}
+      />
       <div className="tree-scroll" ref={tree}>
         {groups.length ? (
           groups.map((group) => {
@@ -119,8 +122,13 @@ export function PartsTree({
               (p) => group.part_ids.includes(p.id) && (!filtered || matches(p)),
             );
             if (filtered && !entries.length) return null;
-            const open =
-              !!filtered || selectedGroup?.id === group.id || !collapsed.includes(group.id);
+            const open = functionalGroupOpen(
+              group.id,
+              !!filtered,
+              selectedGroup?.id ?? selectedGroupId,
+              selectionToken,
+              collapsedAt,
+            );
             const meshIds = entries.filter((p) => p.mesh_url).map((p) => p.id);
             return (
               <section className="functional-group" key={group.id}>
@@ -129,11 +137,10 @@ export function PartsTree({
                     aria-label={`${open ? 'Collapse' : 'Expand'} ${group.label}`}
                     aria-expanded={open}
                     onClick={() =>
-                      setCollapsed((ids) =>
-                        ids.includes(group.id)
-                          ? ids.filter((id) => id !== group.id)
-                          : [...ids, group.id],
-                      )
+                      setCollapsedAt((state) => ({
+                        ...state,
+                        [group.id]: open ? selectionToken : undefined,
+                      }))
                     }
                   >
                     <Icon name="chevron" size={12} />
@@ -205,5 +212,34 @@ export function PartsTree({
         </span>
       </div>
     </aside>
+  );
+}
+
+/** Exit is independent of single-part selection, including functional-group isolation. */
+export function PartsVisibilityControls({
+  meshCount,
+  visibleCount,
+  hasHidden,
+  isolated,
+  onExit,
+  onShowAll,
+}: {
+  meshCount: number;
+  visibleCount: number;
+  hasHidden: boolean;
+  isolated: boolean;
+  onExit: () => void;
+  onShowAll: () => void;
+}) {
+  return (
+    <div className="tree-toolbar">
+      <span>
+        {visibleCount} / {meshCount} meshes visible
+      </span>
+      {isolated && <button onClick={onExit}>Exit isolation</button>}
+      <button onClick={onShowAll} disabled={!hasHidden}>
+        Show all
+      </button>
+    </div>
   );
 }

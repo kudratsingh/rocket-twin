@@ -21,6 +21,10 @@ test('RP1 tree exposes six complete functional groups with distinct record/mesh 
   assert.match(html,/55 records/);assert.match(html,/26 meshes/);
   assert.match(html,/Compare fin alternatives/);assert.match(html,/Frame group/);assert.match(html,/Isolate group/);
   assert.match(html,/Mass\/process allowance/);assert.match(html,/Geometry unavailable/);
+  const {PartsVisibilityControls}=await server.ssrLoadModule('/src/components/PartsTree.tsx');
+  const isolated=renderToStaticMarkup(React.createElement(PartsVisibilityControls,{meshCount:26,visibleCount:5,hasHidden:true,isolated:true,onExit(){},onShowAll(){}}));
+  assert.match(isolated,/Exit isolation/);assert.match(isolated,/5 \/ 26 meshes visible/);
+
  } finally {await server.close();}
 });
 test('meshless Details disable unsafe actions and source parentage never asserts a physical support',async()=>{

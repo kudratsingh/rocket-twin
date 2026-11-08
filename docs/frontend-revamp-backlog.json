@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "created_date": "2026-11-06",
-  "status": "preview_observed_new_design_interaction_correction_in_progress",
+  "status": "usable_preview_design_ux_code_complete_partial_browser_evidence",
   "source_ledger": "docs/frontend-workbench-backlog.json",
   "source_ledger_updated_date": "2026-11-08",
   "check_matrix": "docs/frontend-revamp-acceptance.csv",
   "thresholds": "Proposed for revamp. Prior evidence remains attributed to its recorded implementation slice.",
-  "browser_status": "prior_preview_scoped_evidence_new_rv_q38_q42_pending",
+  "browser_status": "nov8_current_window_partial_guard_stop_exact_viewports_blocked",
   "tasks": [
     {
       "id": "RV-01",
@@ -924,15 +924,16 @@
       "check_ids": [
         "RV-Q38"
       ],
-      "status": "code_complete_browser_in_progress",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Stable panel toggles and context focus",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/studies/frontend-design-ux-20261108/report.md"
+        "docs/studies/frontend-design-ux-20261108/report.md",
+        "docs/studies/frontend-design-ux-20261108/browser-results.csv"
       ],
       "acceptance_scope": "Display-only exact AD1 v2 correction. New code and designated-browser evidence required; no engineering or physical approval."
     },
@@ -953,15 +954,16 @@
       "check_ids": [
         "RV-Q39"
       ],
-      "status": "code_complete_browser_in_progress",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Actual orbit angles roll and target",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/studies/frontend-design-ux-20261108/report.md"
+        "docs/studies/frontend-design-ux-20261108/report.md",
+        "docs/studies/frontend-design-ux-20261108/browser-results.csv"
       ],
       "acceptance_scope": "Display-only exact AD1 v2 correction. New code and designated-browser evidence required; no engineering or physical approval."
     },
@@ -983,15 +985,16 @@
         "RV-Q40",
         "RV-Q41"
       ],
-      "status": "code_complete_browser_in_progress",
+      "status": "partial",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "Functional source groups safe selection and staged breakdown",
       "codeVerified": true,
-      "browserObserved": false,
+      "browserObserved": true,
       "accepted": false,
       "evidence": [
-        "docs/studies/frontend-design-ux-20261108/report.md"
+        "docs/studies/frontend-design-ux-20261108/report.md",
+        "docs/studies/frontend-design-ux-20261108/browser-results.csv"
       ],
       "acceptance_scope": "Display-only exact AD1 v2 correction. New code and designated-browser evidence required; no engineering or physical approval."
     },
@@ -1012,7 +1015,7 @@
       "check_ids": [
         "RV-Q42"
       ],
-      "status": "code_complete_browser_in_progress",
+      "status": "code_complete_browser_pending",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "In-context unadopted fin comparison",
@@ -1020,7 +1023,8 @@
       "browserObserved": false,
       "accepted": false,
       "evidence": [
-        "docs/studies/frontend-design-ux-20261108/report.md"
+        "docs/studies/frontend-design-ux-20261108/report.md",
+        "docs/studies/frontend-design-ux-20261108/browser-results.csv"
       ],
       "acceptance_scope": "Display-only exact AD1 v2 correction. New code and designated-browser evidence required; no engineering or physical approval."
     }

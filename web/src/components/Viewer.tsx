@@ -1181,7 +1181,10 @@ export function Viewer({
             <button onClick={showAll} disabled={!hiddenIds.length}>
               Show all
             </button>
-            {selectedId && (
+            {isolatedFrom && (
+              <button onClick={exitIsolate}>Exit isolation · restore prior visibility</button>
+            )}
+            {selectedId && !isolatedFrom && (
               <button
                 disabled={!isolatedFrom && !selectedPart?.mesh_url}
                 title={
