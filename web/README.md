@@ -145,3 +145,11 @@ labelled **Time from burnout** (or the selected event); **T+** means absolute
 time since ignition. The new layout does not change recorded data or the recovery model.
 Native current-window evidence and remaining limitations are in the
 [layout report](../docs/studies/frontend-replay-layout-20261108/browser.md).
+
+**Comparison camera:** visible buttons select Auto A→B, A only, B only, fixed pad
+or free orbit. Auto uses A's recorded position while available, then B's; explicit
+A/B holds with a reason if that run lacks a position. The scene label identifies
+what the camera follows. A valid position marker can be followed when attitude
+is unavailable; no body attitude is invented. These choices move the view, not
+the rocket or controller. **Fit A trajectory** fits A only; combined fitting is
+unavailable. See the [camera integration](../docs/studies/frontend-replay-follow-20261108/integration.md).

@@ -2,7 +2,7 @@
 
 The preview supports read-only RP1 Design/Engineering, compatible archived experiments, saved-run replay/comparison/export and recorded Analysis. It is not complete frontend acceptance or engineering/build/flight approval. This handoff summarizes recorded source and runtime evidence; full acceptance remains open.
 
-**Publication checkpoint:** PR105–107 are merged. PR107 head `e2315c63aba277e1f465b5bb439db750c4634aa9` passed both required jobs/workflow42485762004; merge/main at this follow-up's intake is `e7a62a7baa619aa3b7940a80dce17e11607b536c`. The separate Scene+telemetry source increment is published through its own focused required-check PR; source/native records below do not imply full acceptance.
+**Publication checkpoint:** PR105–108 are merged. PR108 final head `8f6c02a65d5f0d58187c138d211c1e718ce80e63` passed both required jobs/workflow42489804785; main at camera-packet intake is `47bc74a12b6d186bf8a9b68ef6e7ad45f044410a`. The separately scoped camera correction follows its own required-check PR. Code/native observations never imply full engineering or frontend/work-order acceptance.
 
 ## Open and use
 
@@ -53,3 +53,9 @@ The [layout increment](../frontend-replay-layout-20261108/integration.md) puts t
 [P9](../frontend-replay-unequal-windows-20261108/browser.md) verifies G80/G54 admission and both-valid100s, but native input did not establish125. Final restore exceeded260s by3.484s; budgetFAIL is retained. The copy-only clock fix has live AX/core confirmation. No outside-A/inside-B or FPS pass. The subsequent owner-assisted P10 resolves the applied125 clock/readout branch; CUA is idle.
 
 [P10](../frontend-replay-manual-boundary-20261108/browser.md) independently observes owner-entered125: A outside116.029/all four readouts unavailable, B inside132.856/recorded125.014 values. This is status/scalar evidence, not independent body-pixel proof. The comparison is preserved paused at125 for owner review, with no further action needed for this increment's publication.
+
+## Following the continuing comparison
+
+[Camera follow](../frontend-replay-follow-20261108/integration.md) now selects only available recorded positions. At125, Auto follows B because A ended; explicit A holds with the source reason, B follows B and Free is independent. [P12](../frontend-replay-camera-buttons-20261108/browser.md) verifies all four buttons and an identifiable B rocket in fresh new-source images. [Actual final capture](../../../runs/frontend-replay-camera-buttons-20261108/final-auto-b.jpg). Source poses/time/readouts are unchanged. Fit is A-only. Fixed pad/missing B branch and full acceptance remain open.
+
+PR108 is merged after both required checks at47bc74a12b6d186bf8a9b68ef6e7ad45f044410a; this camera increment follows through its own required-check PR. The app is left at the owner's paused125 comparison, Auto B, rather than resetting their review to Design.

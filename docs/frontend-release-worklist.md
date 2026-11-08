@@ -1,6 +1,6 @@
 # Current frontend release worklist
 
-**Published baseline at this packet's intake:** PR107/main `e7a62a7baa619aa3b7940a80dce17e11607b536c`; corrected head `e2315c63aba277e1f465b5bb439db750c4634aa9` passed both required jobs/workflow42485762004. PR105/106 are preceding monitoring, identity, drawing and layout increments. G80 RP1/AD1 v2 remains current; archived runs/meshes keep their own identities. This is a preview, not full frontend/work-order or engineering/build/flight acceptance.
+**Published baseline at the camera packet's intake:** merged PR108/main `47bc74a12b6d186bf8a9b68ef6e7ad45f044410a`; final head `8f6c02a65d5f0d58187c138d211c1e718ce80e63` passed both required jobs/workflow42489804785. PR105–107 precede it. G80 RP1/AD1 v2 and all archived identities remain separate. Preview publication never implies engineering/build/flight or full work-order acceptance.
 
 | Outcome | Owner | Actual state / next evidence | Stop / dependency |
 | --- | --- | --- | --- |
@@ -53,3 +53,11 @@ The owner subsequently entered125 and P10 verified the applied cursor/readouts; 
 The owner entered125 through the ordinary interface. P10 completed50.664s/90 with no input/retry or model execution: applied absolute125 remains125, G80 A is Outside its116.029-second window with all four A readouts unavailable, and G54 B is Inside its132.856-second window with recorded values near125.014. [P10 evidence](studies/frontend-replay-manual-boundary-20261108/browser.md). This closes that clock/scalar data-window branch, not independent WebGL proof of A-body withholding or B-body visibility; the scene image shows trails without an identifiable current body. P9's failed native entry and3.484s overrun remain historical.
 
 The comparison is left paused at125 for owner inspection. No further owner action is required for this increment's publication. Exact-size matrix, full narrow-scroll coverage, numeric free-camera-pose retention, acknowledged cancellation and representative performance remain pending under their own recorded gates. No further automatic retry follows from this result.
+
+## Final camera-target increment
+
+[Camera integration](studies/frontend-replay-follow-20261108/integration.md) uses available recorded A/B positions for the view only. Auto follows A then B; explicit A/B holds with a reason rather than substituting, and Free/Pad remain independent. Fit is honestly A-only. No recorded pose, time or flight calculation changed.
+
+P11 first proved visible B fallback at125 but did not establish popup choices and overran150s by2.599s. One correction exposes direct camera buttons. P12 passed A-held/B-follow/Free/Auto with actual B-body images, unchanged125/readouts and one click each. It ended48.382s within a90s native cutoff/120s overall cap with per-call reserve checks. Fixed pad and missing-comparison disabled state remain unexecuted in the browser. [P12](studies/frontend-replay-camera-buttons-20261108/browser.md). Original failures/overruns remain immutable.
+
+Final local241tests/type/lint/format/build pass; four unpublished A2 tests remain outside the237-case publication scope. Required exact-head hosted checks precede merge. The owner comparison is preserved paused at125, Auto B. No more owner input is needed to publish this increment; broader exact-size/data/performance/physical acceptance remains open.
