@@ -122,8 +122,8 @@ export function OrbitCameraControls({
         {readout.targetLabel ?? (readout.target === 'assembly' ? 'Assembly' : selectionLabel)}
       </output>
       <span className="inspection-gesture-hint">
-        Drag: orbit · right/Shift-drag: pan · wheel/trackpad scroll: zoom · Alt-drag: roll · touch:
-        one finger orbit, two fingers pan/pinch
+        Left-drag to rotate · Right/Shift-drag to pan · Wheel/trackpad scroll or pinch to zoom ·
+        Alt-drag to roll. Click a part to select; drag anywhere to rotate.
       </span>
     </div>
   );
