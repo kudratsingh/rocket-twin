@@ -160,3 +160,32 @@ test('splitter keyboard directions, endpoints and clamps are predictable', () =>
   assert.equal(resizeLayoutValue('tools', 240, 'End'), 420);
   assert.equal(resizeLayoutValue('tools', 240, 'ArrowRight'), null);
 });
+
+test('both sidebar tabs and all column combinations retain widths across close, reopen and Focus', () => {
+  for (const contextTab of ['parts', 'details']) {
+    for (const railOpen of [false, true]) {
+      for (const contextOpen of [false, true]) {
+        const preferences = {
+          ...defaultLayout(),
+          contextTab,
+          railOpen,
+          contextOpen,
+          contextWidth: 336,
+          toolsHeight: 288,
+        };
+        let state = { preferences, focusSnapshot: null };
+        state = layoutReducer(state, { type: 'focus' });
+        state = layoutReducer(state, { type: 'exit-focus' });
+        assert.deepEqual(state.preferences, preferences);
+        state = layoutReducer(state, { type: 'update', patch: { contextOpen: false } });
+        state = layoutReducer(state, { type: 'update', patch: { contextOpen: true } });
+        assert.deepEqual(state.preferences, { ...preferences, contextOpen: true });
+        state = layoutReducer(state, { type: 'update', patch: { railOpen: !railOpen } });
+        state = layoutReducer(state, { type: 'update', patch: { railOpen } });
+        assert.deepEqual(state.preferences, { ...preferences, contextOpen: true });
+        assert.ok(!('selectedId' in state.preferences));
+        assert.ok(!('camera' in state.preferences));
+      }
+    }
+  }
+});

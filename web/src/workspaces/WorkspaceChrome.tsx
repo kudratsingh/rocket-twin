@@ -157,40 +157,38 @@ function DesignWorkspaceFrame({
         Skip to workspace
       </a>
       <div className="revamp-header">
+        <div
+          className="revamp-layout-controls revamp-panel-controls"
+          role="group"
+          aria-label="Design panels"
+        >
+          <button
+            type="button"
+            id={`${id}-rail-toggle`}
+            className="revamp-panel-toggle revamp-navigation-toggle"
+            aria-controls={`${id}-rail`}
+            aria-expanded={preferences.railOpen}
+            onClick={layout.toggleRail}
+          >
+            {preferences.railOpen ? 'Hide navigation' : 'Show navigation'}
+          </button>
+          <button
+            type="button"
+            id={`${id}-context-toggle`}
+            className="revamp-panel-toggle revamp-sidebar-toggle"
+            aria-controls={`${id}-context`}
+            aria-expanded={preferences.contextOpen}
+            onClick={layout.toggleContext}
+          >
+            {preferences.contextOpen ? 'Hide parts sidebar' : 'Show parts sidebar'}
+          </button>
+        </div>
         <div className="revamp-header-main">{header}</div>
         <div className="revamp-layout-controls" aria-label="Design layout">
           <button
             type="button"
-            id={`${id}-rail-toggle`}
-            aria-controls={`${id}-rail`}
-            aria-expanded={preferences.railOpen}
-            onClick={layout.toggleRail}
-            title={preferences.railOpen ? 'Hide workspace rail' : 'Show workspace rail'}
-            aria-label={preferences.railOpen ? 'Hide workspace rail' : 'Show workspace rail'}
-          >
-            <span aria-hidden="true">☰</span>
-          </button>
-          <button
-            type="button"
-            id={`${id}-open-parts`}
-            aria-controls={`${id}-parts`}
-            aria-expanded={preferences.contextOpen && preferences.contextTab === 'parts'}
-            onClick={() => layout.openContext('parts')}
-          >
-            Parts
-          </button>
-          <button
-            type="button"
-            id={`${id}-open-details`}
-            aria-controls={`${id}-details`}
-            aria-expanded={preferences.contextOpen && preferences.contextTab === 'details'}
-            onClick={() => layout.openContext('details')}
-          >
-            Details
-          </button>
-          <button
-            type="button"
             id={`${id}-focus`}
+            className="revamp-focus-toggle"
             aria-pressed={layout.focused}
             onClick={layout.toggleFocus}
           >
@@ -213,16 +211,6 @@ function DesignWorkspaceFrame({
             <div>
               <button type="button" onClick={layout.resetLayout}>
                 Reset layout
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  preferences.contextOpen
-                    ? layout.closeContext()
-                    : layout.openContext(preferences.contextTab)
-                }
-              >
-                {preferences.contextOpen ? 'Hide context sidebar' : 'Show context sidebar'}
               </button>
               <button type="button" onClick={layout.toggleTools}>
                 {preferences.toolsOpen ? 'Close scene tools' : 'Open scene tools'}

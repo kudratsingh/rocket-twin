@@ -444,6 +444,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  padding-left: 8px;
   padding-right: 8px;
   border-bottom: 1px solid var(--border);
   background: #121b22;
@@ -501,6 +502,16 @@
   padding: 5px 8px;
   font-size: 11px;
   white-space: nowrap;
+}
+/* Stable slots keep both panel controls in place when Show/Hide changes. */
+.revamp-layout-controls > .revamp-navigation-toggle {
+  min-width: 116px;
+}
+.revamp-layout-controls > .revamp-sidebar-toggle {
+  min-width: 126px;
+}
+.revamp-layout-controls > .revamp-focus-toggle {
+  min-width: 70px;
 }
 .revamp-layout-menu > summary {
   cursor: pointer;
@@ -865,10 +876,14 @@
   .revamp-header-main {
     flex: 1 1 100%;
     height: 38px;
+    order: -1;
   }
   .revamp-layout-controls {
-    width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
+  }
+  .revamp-panel-controls {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
   }
   .revamp-layout-menu > div {
     top: 78px;
