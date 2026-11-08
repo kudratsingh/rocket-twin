@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { InspectionDocument } from '../types';
 import { displayValue, label } from '../format';
@@ -10,9 +10,16 @@ import {
   type Rp1Studies,
 } from '../workbench/rp1Studies';
 import './designInspection.css';
+const FinConstructionPreview = lazy(() => import('./FinConstructionPreview'));
 
 /** Read-only evidence comparison. The mounted Design scene and inspection state never change. */
-export function FinAlternatives({ design }: { design: InspectionDocument }) {
+export function FinAlternatives({
+  design,
+  compact = false,
+}: {
+  design: InspectionDocument;
+  compact?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const [snapshot, setSnapshot] = useState<Rp1Studies | null>(null);
   const [error, setError] = useState('');
@@ -52,7 +59,7 @@ export function FinAlternatives({ design }: { design: InspectionDocument }) {
           setOpen(true);
         }}
       >
-        Compare fin alternatives
+        {compact ? 'Fin alternatives' : 'Compare fin alternatives'}
       </button>
       {open &&
         createPortal(
@@ -73,44 +80,55 @@ export function FinAlternatives({ design }: { design: InspectionDocument }) {
               Read-only comparison. Your active RP1 source, selection, camera and visibility remain
               unchanged. None of these records is an approved installed fin construction.
             </p>
-            <section>
-              <h3>Current AD1 v2 source definition</h3>
-              <p>
-                <code>{RP1_SOURCE_ID}</code>
-              </p>
-              <p>
-                Frozen preliminary definition. Failed recorded fin-panel calculation; installed
-                joint movement, bond strength and flutter still need evidence. The display model is
-                not proof of strength.
-              </p>
-              {fin && (
-                <dl className="data-list">
-                  {Object.entries(fin.dimensions || fin.geometry || {}).map(([key, value]) => (
-                    <div key={key}>
-                      <dt>{label(key)}</dt>
-                      <dd>{displayValue(key, value)}</dd>
-                    </div>
-                  ))}
-                </dl>
-              )}
-              <p>
-                Specification mass:{' '}
-                {fin?.mass_kg == null
-                  ? 'Unavailable'
-                  : `${(fin.mass_kg * 1000).toFixed(3)} g (estimated)`}
-                . Source: <code>configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml</code> ·{' '}
-                <code>{RP1_SOURCE_SHA256}</code>.
-              </p>
-            </section>
+            {snapshot && !error && (
+              <Suspense fallback={<p>Loading fin construction preview…</p>}>
+                <FinConstructionPreview snapshot={snapshot} />
+              </Suspense>
+            )}
+            <details className="fin-source-details">
+              <summary>Current AD1 dimensions and recorded findings</summary>
+              <section>
+                <h3>Current AD1 v2 source definition</h3>
+                <p>
+                  <code>{RP1_SOURCE_ID}</code>
+                </p>
+                <p>
+                  Frozen preliminary definition. Failed recorded fin-panel calculation; installed
+                  joint movement, bond strength and flutter still need evidence. The display model
+                  is not proof of strength.
+                </p>
+                {fin && (
+                  <dl className="data-list">
+                    {Object.entries(fin.dimensions || fin.geometry || {}).map(([key, value]) => (
+                      <div key={key}>
+                        <dt>{label(key)}</dt>
+                        <dd>{displayValue(key, value)}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+                <p>
+                  Specification mass:{' '}
+                  {fin?.mass_kg == null
+                    ? 'Unavailable'
+                    : `${(fin.mass_kg * 1000).toFixed(3)} g (estimated)`}
+                  . Source: <code>configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml</code> ·{' '}
+                  <code>{RP1_SOURCE_SHA256}</code>.
+                </p>
+              </section>
+            </details>
             <p>
-              <strong>FP1 and FR1: 3D alternatives unavailable.</strong> The graphics below are
-              source-linked schematic relationships, not geometry or spatial stress maps.
-              Carbon-faced plywood FP1 and solid-carbon FR1 remain separate, unadopted studies.
+              <strong>FP1 and FR1: finished 3D assemblies unavailable.</strong> The optional fin
+              preview above is a separate source-dimensioned schematic. Relationship graphics are
+              not spatial stress maps. Carbon-faced plywood FP1 and solid-carbon FR1 remain
+              separate, unadopted studies.
             </p>
             {error ? (
               <p role="alert">{error} No alternative geometry or result is substituted.</p>
             ) : snapshot ? (
-              <Rp1StudyComparisonView snapshot={snapshot} />
+              <>
+                <Rp1StudyComparisonView snapshot={snapshot} />
+              </>
             ) : (
               <p role="status">Loading exact-source alternative records…</p>
             )}

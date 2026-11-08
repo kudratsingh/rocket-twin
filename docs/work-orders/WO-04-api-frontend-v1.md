@@ -1,5 +1,8 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+**Interior usability continuation:** RV-26–28 /RV-Q43–45 deliver direct manipulation, missing-normal rendering correction, persistent subsystem inspection, optional source-detail assets and separate fin-construction previews. See [report](../studies/frontend-interiors-20261108/report.md). Finished hardware CAD, actual installed strength and exact responsive matrix remain separate; no physics or build/flight gate changes.
+
+
 **Bounded November 8 correction:** implement [the owner Design review](../studies/frontend-design-ux-20261108/owner-review.md), tracked as RV-22–25 and RV-Q38–42. Keep the exact AD1 v2 source/geometry, meshless-record safety, functional grouping, actual camera readout and unadopted schematic alternatives explicit. New browser observations are required for this interaction increment; prior screenshots and numerical camera checks cannot close it. No engineering, prototype-build or flight gate changes.
 
 

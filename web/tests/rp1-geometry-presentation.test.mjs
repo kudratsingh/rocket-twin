@@ -147,7 +147,7 @@ test('RP1 SSR exposes inspection maturity and all 55 source selections without g
       }),
     );
     assert.match(html, /data-representation="3d"/);
-    assert.match(html, />3D inspection model<\/button>/);
+    assert.match(html, />3D model<\/button>/);
     assert.match(html, /complete manufacturing CAD unavailable/);
     assert.match(html, /28\/55 source records/);
     assert.match(html, /Mass allowances and missing geometry have no solid/);

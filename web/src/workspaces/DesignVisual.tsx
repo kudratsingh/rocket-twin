@@ -12,16 +12,19 @@ import {
 } from './inspectionWorkflow';
 import { ComponentEvidence } from './ComponentEvidence';
 import './revampDesignVisual.css';
+import { InteriorWorkbench } from '../components/InteriorWorkbench';
 
 /** Representation changes preserve shared selection and the mounted 3D camera. */
 export function DesignVisual({
   vehicle,
   meshView,
   recordedCaseControls,
+  onDetailMeshesChange,
 }: {
   vehicle: InspectionDocument;
   meshView: ReactNode;
   recordedCaseControls?: ReactNode;
+  onDetailMeshesChange?: (meshes: Record<string, string>) => void;
 }) {
   const id = useId();
   const evidenceRef = useRef<HTMLDetailsElement>(null);
@@ -72,42 +75,48 @@ export function DesignVisual({
             ?.click();
       }}
     >
-      <div className="research-representation-controls" aria-label="Drawing representation">
-        <button
-          type="button"
-          aria-controls={`${id}-3d`}
-          aria-pressed={representation === '3d'}
-          disabled={!hasMeshes}
-          title={
-            hasMeshes
-              ? geometry.sourceDerived
-                ? 'Inspect this source-derived model; complete manufacturing CAD is unavailable'
-                : 'Inspect matching recorded CAD'
-              : 'No matching 3D assembly exists for this source; use its source drawing'
-          }
-          onClick={() => setRepresentation('3d')}
-        >
-          {geometry.sourceDerived ? '3D inspection model' : '3D recorded geometry'}
-        </button>
-        <button
-          type="button"
-          aria-controls={`${id}-2d`}
-          aria-pressed={representation === '2d'}
-          onClick={() => setRepresentation('2d')}
-        >
-          2D source dimensions
-        </button>
-        <span>
-          {vehicle.label || vehicle.name || vehicle.id} · {geometry.coverage}
-        </span>
+      <div className="inspection-workflow-header">
+        <div className="research-representation-controls" aria-label="Drawing representation">
+          <button
+            type="button"
+            aria-controls={`${id}-3d`}
+            aria-pressed={representation === '3d'}
+            disabled={!hasMeshes}
+            title={
+              hasMeshes
+                ? geometry.sourceDerived
+                  ? 'Inspect this source-derived model; complete manufacturing CAD is unavailable'
+                  : 'Inspect matching recorded CAD'
+                : 'No matching 3D assembly exists for this source; use its source drawing'
+            }
+            onClick={() => setRepresentation('3d')}
+          >
+            {geometry.sourceDerived ? '3D model' : '3D recorded geometry'}
+          </button>
+          <button
+            type="button"
+            aria-controls={`${id}-2d`}
+            aria-pressed={representation === '2d'}
+            onClick={() => setRepresentation('2d')}
+          >
+            2D dimensions
+          </button>
+          <span>
+            {vehicle.label || vehicle.name || vehicle.id} · {geometry.coverage}
+          </span>
+        </div>
+        <InteriorWorkbench vehicle={vehicle} onDetailMeshesChange={onDetailMeshesChange} />
+        {geometry.sourceDerived && (
+          <details className="inspection-source-note">
+            <summary>Preliminary</summary>
+            <p className="revamp-source-state" role="status">
+              Source-derived inspection model · source estimates and simplified envelopes · complete
+              manufacturing CAD unavailable. Mass allowances and missing geometry have no solid;
+              every source record remains selectable in the parts tree. Physical qualification open.
+            </p>
+          </details>
+        )}
       </div>
-      {geometry.sourceDerived && (
-        <p className="revamp-source-state" role="status">
-          Source-derived inspection model · source estimates and simplified envelopes · complete
-          manufacturing CAD unavailable. Mass allowances and missing geometry have no solid; every
-          source record remains selectable in the parts tree. Physical qualification open.
-        </p>
-      )}
       {recordedCaseControls && <InspectionTools>{recordedCaseControls}</InspectionTools>}
       {!hasMeshes && (
         <p className="revamp-source-state" role="status">

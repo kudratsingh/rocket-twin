@@ -58,6 +58,7 @@ export default function App() {
   const [massError, setMassError] = useState('');
   const [mass, setMass] = useState<MassSample | null>(null);
   const [burn, setBurn] = useState(0);
+  const [detailMeshes, setDetailMeshes] = useState<Record<string, string>>({});
   const [recordedCaseIndex, setRecordedCaseIndex] = useState(0);
   const recordedCaseContext = useMemo(() => {
     if (!vehicle || vehicle.id !== 'G80-F2-RP1-AD1-definition-v2') return { cases: [], error: '' };
@@ -177,6 +178,7 @@ export default function App() {
     setVehicle(null);
     setMass(null);
     setBurn(0);
+    setDetailMeshes({});
     setRecordedCaseIndex(0);
     setVehicleError('');
     setMassError('');
@@ -662,6 +664,7 @@ export default function App() {
                 <DesignVisual
                   key={vehicle.id}
                   vehicle={vehicle}
+                  onDetailMeshesChange={setDetailMeshes}
                   recordedCaseControls={
                     recordedCaseContext.cases.length > 0 ? (
                       <label className="saved-mass-case-control">
@@ -695,6 +698,7 @@ export default function App() {
                         inspectionSelectedId ? [inspectionSelectedId] : inspectionGroupPartIds
                       }
                       presentationGroupId={inspectionGroupId}
+                      detailMeshes={detailMeshes}
                     />
                   }
                 />

@@ -35,7 +35,8 @@ export function inspectionPartRepresentation(part: Part) {
       : null;
   const labels = {
     source_dimensioned: 'Source-dimensioned inspection geometry · source estimates',
-    simplified_envelope: 'Simplified inspection envelope · detailed geometry unavailable',
+    simplified_envelope:
+      'Simplified inspection envelope · finished manufacturing geometry unavailable',
     mass_allowance: 'Mass allowance · no separate solid',
     missing_geometry: 'Geometry unavailable · no solid modeled',
   };
