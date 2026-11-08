@@ -1,0 +1,264 @@
+{
+  "session": "frontend-pan-20261108",
+  "verifier": "/root/browser_access_sol",
+  "status": "corrected current-window Move/Rotate/Whole paths observed; initial failure retained",
+  "started_at_utc": "2026-11-08T11:15:45+00:00",
+  "last_capture_at_utc": "2026-11-08T11:19:17.967085+00:00",
+  "elapsed_seconds_to_last_capture": 212.967085,
+  "maximum_active_seconds": 240,
+  "within_cap_even_without_wait_discount": true,
+  "attempts": 1,
+  "correction_rechecks": 1,
+  "normal_same_tab_reloads": 1,
+  "source": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "geometry_hash_basis": "unchanged source identity carried from integrated packet; not reread separately in this small case",
+    "single_code_head_for_all_captures": null,
+    "source_change": "Primary signalled explicit dragMode binder dispose/rebind correction; one normal same-tab reload before recheck."
+  },
+  "initial_failure": {
+    "mode_state": "Move pressed,Rotate unpressed",
+    "drag_native_coordinates": [
+      [
+        2300,
+        1100
+      ],
+      [
+        2600,
+        1250
+      ]
+    ],
+    "actual_angles_before": [
+      45,
+      54.7,
+      0
+    ],
+    "actual_angles_after": [
+      -15,
+      24.7,
+      0
+    ],
+    "status": "fail; rotated rather than translated",
+    "captures": [
+      "before-move.jpg",
+      "after-move.jpg"
+    ]
+  },
+  "bottom_recovery": {
+    "selected_part": "aft_ring",
+    "frame_target": "Aft ring",
+    "whole_target": "Assembly",
+    "whole_angles": [
+      45,
+      54.7,
+      0
+    ],
+    "whole_model_visible": true,
+    "visibility_test_scope": "default current visibility only",
+    "captures": [
+      "bottom-framed.jpg",
+      "whole-after-bottom.jpg"
+    ]
+  },
+  "corrected_observations": {
+    "move": {
+      "pressed": true,
+      "actual_angles_before": [
+        45,
+        54.7,
+        0
+      ],
+      "actual_angles_after": [
+        45,
+        54.7,
+        0
+      ],
+      "visible_translation": "right and down",
+      "capture": "corrected-after-move.jpg",
+      "before_capture_limit": "Immediate post-reload image predates full model appearance; no displacement metric inferred from it alone."
+    },
+    "wheel": {
+      "native_input": "scroll up0.2 API page",
+      "observed": "zoomed view remains displaced; no automatic recenter",
+      "capture": "corrected-wheel-retains-pan.jpg",
+      "physical_device_sensitivity": "unmeasured"
+    },
+    "rotate": {
+      "pressed": true,
+      "drag_native_coordinates": [
+        [
+          2300,
+          1100
+        ],
+        [
+          2450,
+          1180
+        ]
+      ],
+      "actual_angles_before": [
+        45,
+        54.7,
+        0
+      ],
+      "actual_angles_after": [
+        15,
+        38.7,
+        0
+      ],
+      "capture": "corrected-rotate.jpg"
+    },
+    "whole": {
+      "actual_angles": [
+        45,
+        54.7,
+        0
+      ],
+      "target": "Assembly",
+      "whole_model_visible": true
+    }
+  },
+  "final_state": {
+    "selected_part": "aft_ring",
+    "move_pressed": true,
+    "rotate_pressed": false,
+    "camera_angles": [
+      45,
+      54.7,
+      0
+    ],
+    "camera_target": "Assembly",
+    "full_assembly_visible": true,
+    "panels": "both open;Details visible",
+    "tools_open": false,
+    "capture": "final-whole-move.jpg",
+    "ax": "final.ax.txt"
+  },
+  "native_diagnostics": "One stale Move-control ID after Whole render; supported state refreshed before actual final Move selection. No successful action inferred from error.",
+  "unexecuted": [
+    "exact responsive viewport matrix",
+    "right/middle/Shift drag",
+    "physical device sensitivity/latency",
+    "arbitrary hidden visibility preservation",
+    "other camera or PCB paths"
+  ],
+  "guards": 0,
+  "devtools_attempts": 0,
+  "viewport_workarounds": 0,
+  "simulations": 0,
+  "performance_attempts": 0,
+  "css_viewport": null,
+  "screenshots": [
+    {
+      "path": "runs/frontend-pan-20261108/after-move.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "d63ca0a1a2d715931a0584887a038bac27b57c352b032834da5029ac7145423e",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/before-move.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "4f0fe9f8f5fe89d57f5303c686ab6d6fc1de53cd74ba2930c9923d075d4922e5",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/bottom-framed.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "33510ef44a1d772b1fa13509974812a6e15a6aa41020daa32d7833be1a62c5e4",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/corrected-after-move.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "c6d36df2b4ac3ef07d39d0ad10cef39368b1817d6790ff6d025ccf191ac79874",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/corrected-before-move.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "f23bdcc03a8cdfef3f701c548097f465c2c2f6fbf098618b9598a4ac8983e9c4",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/corrected-rotate.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "47835861c11b1fa44e0c1550ac75350ef5ff57a94eb491c3b961d8b71eaf64cd",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/corrected-wheel-retains-pan.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "c43673131b55000c06441a208e52d3dff298d1d6772daa59910511af3784653c",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/final-whole-move.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "8e5954dca84372d45b3176c472cb79da697e9e28e67f51d30ba8dae4aefd127e",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/rotate-mode.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "262ef48fc365a162873e3d28e28dcb2b422093d5b65a605e5e2dc0234937b4be",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-pan-20261108/whole-after-bottom.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "6dc44e31f3d15e76f9b74fd898a0055d1e0bc0c6bd7f7ce3ec3a39d2456f3251",
+      "bytes_unchanged": true,
+      "css_viewport_claim": null
+    }
+  ]
+}

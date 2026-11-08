@@ -4,6 +4,7 @@ import type { OrbitAngles, OrbitReadout } from './inspectionOrbit';
 
 export function OrbitCameraControls({
   readout,
+  dragMode = 'orbit',
   canTargetSelection,
   selectionLabel = 'Selected group / part',
   onAngles,
@@ -11,6 +12,7 @@ export function OrbitCameraControls({
   onPan,
 }: {
   readout: OrbitReadout;
+  dragMode?: 'orbit' | 'pan';
   canTargetSelection: boolean;
   selectionLabel?: string;
   onAngles: (angles: OrbitAngles) => void;
@@ -122,8 +124,11 @@ export function OrbitCameraControls({
         {readout.targetLabel ?? (readout.target === 'assembly' ? 'Assembly' : selectionLabel)}
       </output>
       <span className="inspection-gesture-hint">
-        Left-drag to rotate · Right/Shift-drag to pan · Wheel/trackpad scroll or pinch to zoom ·
-        Alt-drag to roll. Click a part to select; drag anywhere to rotate.
+        {dragMode === 'pan'
+          ? 'Drag to move the rocket across the screen'
+          : 'Drag to rotate around the rocket'}{' '}
+        · Mouse wheel/trackpad scroll or pinch to zoom · Right/middle/Shift-drag always moves the
+        view · Alt-drag to roll. Click a part to select. Whole rocket returns to the full overview.
       </span>
     </div>
   );

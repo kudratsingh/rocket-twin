@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {bindInspectionOrbit,orbitWheelFactor,inspectionSurface,orbitClips,applyOrbit} from '../src/components/inspectionOrbit.ts';
+import {bindInspectionOrbit,orbitWheelFactor,inspectionSurface,orbitClips,applyOrbit,panOrbit} from '../src/components/inspectionOrbit.ts';
 import {Box3,PerspectiveCamera,Vector3} from 'three';
 
 class Canvas {
@@ -77,3 +77,33 @@ test('detail layers retain separate cloned colours while core surfaces use decla
  assert.deepEqual(inspectionFitScope(false,'selection',['motor']),['motor']);
  assert.equal(inspectionFitScope(false,'assembly',['motor']),null);
  });
+
+
+test('left-drag mode is selected per gesture; pan modifiers and Alt roll take precedence without scene picks',()=>{
+  const canvas=new Canvas(),calls=[];let selectedMode='pan',picks=0;
+  const dispose=bindInspectionOrbit(canvas,{begin:()=>calls.push(['begin']),move:(...args)=>calls.push(['move',...args]),zoom:()=>{},dragMode:()=>selectedMode},()=>800);
+  canvas.addEventListener('click',()=>picks++);
+  const drag=(options={})=>{canvas.fire('pointerdown',options);canvas.fire('pointermove',{clientX:20});canvas.fire('pointerup');canvas.fire('click');return calls.filter(call=>call[0]==='move').at(-1)[3];};
+  assert.equal(drag(),'pan');assert.equal(picks,0);
+  selectedMode='orbit';assert.equal(drag(),'orbit');
+  for(const options of [{button:1},{button:2},{shiftKey:true},{ctrlKey:true}])assert.equal(drag(options),'pan');
+  selectedMode='pan';assert.equal(drag({altKey:true}),'roll');assert.equal(picks,0);
+  canvas.fire('pointerdown',{pointerId:1,clientX:0});canvas.fire('pointerdown',{pointerId:2,clientX:100});canvas.fire('pointermove',{pointerId:2,clientX:120});
+  assert.equal(calls.filter(call=>call[0]==='move').at(-1)[3],'pan');dispose();
+});
+
+test('pan grabs a stationary scene point in the same screen direction and amount, across roll/poles and camera zoom',()=>{
+  const width=1200,height=800;
+  for(const angles of [{azimuth:0,tilt:90,roll:0},{azimuth:35,tilt:25,roll:15},{azimuth:120,tilt:0,roll:90},{azimuth:395,tilt:180,roll:-45}])for(const zoom of [1,2])for(const [dx,dy] of [[100,50],[-80,-60]]){
+    const camera=new PerspectiveCamera(35,width/height,.001,100);camera.zoom=zoom;camera.updateProjectionMatrix();
+    const target=new Vector3(.1,.5,-.2);applyOrbit(camera,target,3,angles);
+    const point=target.clone(),beforeCamera=camera.position.clone(),beforeTarget=target.clone(),beforeRotation=camera.quaternion.clone(),distance=camera.position.distanceTo(target);
+    const screen=()=>{const p=point.clone().project(camera);return {x:(p.x+1)*width/2,y:(1-p.y)*height/2};};
+    const before=screen();panOrbit(target,camera,dx,dy,height);const after=screen();
+    assert.ok(Math.abs(after.x-before.x-dx)<1e-8,`horizontal grab ${after.x-before.x} != ${dx}`);
+    assert.ok(Math.abs(after.y-before.y-dy)<1e-8,`vertical grab ${after.y-before.y} != ${dy}`);
+    assert.ok(camera.position.clone().sub(beforeCamera).distanceTo(target.clone().sub(beforeTarget))<1e-12);
+    assert.ok(Math.abs(camera.position.distanceTo(target)-distance)<1e-12);
+    assert.ok(camera.quaternion.angleTo(beforeRotation)<1e-7);
+  }
+});

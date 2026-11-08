@@ -270,3 +270,7 @@ no inquiry is sent or physical work executed by this handoff.
 ## Bounded PCB detail closeout — November8
 
 One exact-product source-board import and one corrective dialog-ownership cycle complete. Manufacturer outline/footprints and offline drawing are available; native opening observed, Escape failed and source fix is pending native recheck. No further CUA retries in this exhausted packet. See [integration](studies/frontend-hardware-detail-sources-20261108/integration.md). No manufacturing or engineering requirement closed.
+
+## Direct camera correction — November8
+
+Primary owns visible Move/Rotate/Whole controls and integration; bounded Sol worker owns input/projection tests; sole named browser verifier owns one4active-minute same-window packet with one correction. No geometry or physics edits. Initial Move failure preserved; one correction/reload recheck observed Move, Rotate, wheel/pan retention and bottom Frame→Whole recovery. Native packet ended; exact viewport and modifier inputs remain unavailable. Stop on ownership/access/guard/cap; no DevTools workaround. [Packet](studies/frontend-pan-20261108/report.md).

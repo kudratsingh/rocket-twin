@@ -75,3 +75,16 @@ test('camera UI is reachable without Scene tools and exposes actual custom angle
     for(const text of ['Orbit / camera','Custom','Horizontal angle','Nose-to-aft tilt','View roll','Apply camera angles','Actual camera angles','35.0','25.0','15.0','Orbit target','Selected group / part','Pan left','Pan right','Pan up','Pan down','trackpad','Alt-drag'])assert.ok(html.includes(text),text);
   }finally{await server.close();}
 });
+
+
+test('Move mode explains direct unmodified dragging separately from rotation and whole-rocket recovery',async()=>{
+  const {createServer}=await import('vite');const {default:React}=await import('react');const {renderToStaticMarkup}=await import('react-dom/server');
+  const server=await createServer({configFile:false,root:new URL('..',import.meta.url).pathname,server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'});
+  try{const {OrbitCameraControls}=await server.ssrLoadModule('/src/components/OrbitCameraControls.tsx');
+    const props={readout:{azimuth:0,tilt:180,roll:0,mode:'Custom',target:'selection'},canTargetSelection:true,onAngles:()=>{},onTarget:()=>{},onPan:()=>{}};
+    const move=renderToStaticMarkup(React.createElement(OrbitCameraControls,{...props,dragMode:'pan'}));
+    const rotate=renderToStaticMarkup(React.createElement(OrbitCameraControls,{...props,dragMode:'orbit'}));
+    assert.ok(move.includes('Drag to move the rocket across the screen'));assert.ok(rotate.includes('Drag to rotate around the rocket'));
+    assert.ok(move.includes('Whole rocket returns to the full overview'));
+  }finally{await server.close();}
+});

@@ -239,3 +239,23 @@
 .inspection-gesture-hint {
   user-select: none;
 }
+
+.inspection-drag-mode {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid #557b8c;
+  border-radius: 5px;
+  background: #0b1a23;
+}
+.inspection-drag-mode button {
+  min-height: 34px;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: #172833;
+}
+.inspection-drag-mode button[aria-pressed='true'] {
+  background: #24596b;
+  color: #fff;
+  outline: 1px solid #7be0ec;
+}
