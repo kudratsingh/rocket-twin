@@ -1,0 +1,137 @@
+{
+  "schema_version": "rocket-twin.manual-boundary-p10.20261108.v1",
+  "status": "passed_manual_applied_time_status_and_scalar_boundary_spatial_pixels_unverified",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "cap_active_s": 90,
+    "actual_active_s": 50.664,
+    "budget_pass": true,
+    "basis": "CUA Date.now firstfreshAX through secondnativecapture"
+  },
+  "setup": {
+    "actor_a": "exp-cf9e47a650074144856caf50775846d2",
+    "actor_a_configuration": "modular-performance-v1",
+    "actor_b": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "actor_b_configuration": "modular-performance-g54-hypothesis",
+    "setup_by": "Owner manually opened pair andentered125+Go beforefreshhandoff; agent didnotenter/load/settime",
+    "mode": "bounded; nativebenchmarkcheckbox0",
+    "clock": "Absolute elapsed time",
+    "applied_time_s": 125,
+    "proof_not_draft": [
+      "HUDT+125.000",
+      "coreT+125.00",
+      "exactfield125",
+      "A/Bvalidityrequested125.000",
+      "Aunavailable/Bnumericreadoutsat125.014"
+    ],
+    "slider_AX": 125.001,
+    "slider_basis": "Rangeaccessibilityrounding, notpose/draft125.001 acceptance"
+  },
+  "source": {
+    "hashes": {
+      "web/src/experiments/Experiment.tsx": "144b6e5b2b71cdf5c1fa39fb61a7402ac9b023de968d0705201e405df2b8bec5",
+      "web/src/experiments/experiment.css": "b01bde9076e3fc3927b18a58c912ee41dbc153b1dd5ccc32967a4b73a7e84203",
+      "web/src/App.tsx": "a59c2cc9d05a6eb29d2a62ce5a740008d4446ac6ceb4cf966846a64ea3e36692"
+    },
+    "primary_declared_unchanged": true,
+    "run_identity_reference": "P9actualpair-metadata.json separatelypinsbothrecords/codeCAD/windows; notafreshP10download",
+    "reference_path": "runs/frontend-replay-unequal-windows-20261108/pair-metadata.json",
+    "reference_sha256": "60cd6c79aa8f253e6bb7f5b5992c17c24fcfb5cdf1b4568ede476c43e1d7059a",
+    "P9_failure_preserved": "P9nativeinputpathunexecuted and263.484/260capoverrun remainunchanged; manualP10isindependent."
+  },
+  "observed_status": {
+    "A": {
+      "status": "Outside recorded window",
+      "support_s": [
+        0.001,
+        116.029
+      ],
+      "requested_s": 125,
+      "phase": "Phase unavailable at the requested time. Landing reported in trajectory.",
+      "plot_readouts": "Unavailable at this time in allfourplots"
+    },
+    "B": {
+      "status": "Inside recorded window",
+      "support_s": [
+        0.001,
+        132.856
+      ],
+      "requested_s": 125,
+      "phase": "After modeled deployment start (inferred from event times, not a recorded phase channel). Landing reported in trajectory.",
+      "nearest_sample_s": 125.014,
+      "values": {
+        "height_m": 48.142042534510715,
+        "speed_mps": 6.146887368499118,
+        "net_acceleration_mps2": 0.0018515856783503314,
+        "tilt_deg": 4.573493442790127
+      }
+    }
+  },
+  "nonextrapolation_scope": {
+    "scalar_status_gate": "ObservedAunavailable/Brecordedvalues,125notclampedtoAend",
+    "spatial_A_pose_withholding": "NoidentifiablecurrentAbodyinactualimage, butabsence alone doesnot independentlyprovegeometryposition/attitudewithholding. Status/sourceguard evidence remainsseparate.",
+    "B_body_pixel_visibility": "Notestablished; initialscenehastrajectorieswithnoclearlyidentifiablebody. Bvalidstatus/numericreadoutsareNOTWebGLpixelproof.",
+    "historical_trails": "Bothhistoricaltrailshaveremainedvisible; nottreatedascurrentextrapolatedApose."
+  },
+  "capture_scope": {
+    "initial": "HUD125+exactfield125+allfourAunavailable/Bnumericreadoutsvisible; actualscenehistoricaltrails, noidentifiablebody",
+    "one_scroll": "Oneordinarydownscrollinsidecurrentwindow. ItovershotAvalidity; finalimagehasBvaliditytailattop. FullfreshAXconfirmsbothA/Bstatus/request125; nofullA+Bvaliditylabelscreenshotclaim.",
+    "no_more_calls": "Stoppedaftersecondcapture; nofurthernavigation/restore."
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-replay-manual-boundary-20261108/initial-t125.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-replay-manual-boundary-20261108/validity-t125.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    }
+  ],
+  "final_state": {
+    "workspace": "replay",
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "clock": "absolute",
+    "time_s": 125,
+    "camera": "follow unchanged",
+    "playing": false,
+    "mode": "bounded",
+    "owner_review_preserved": true,
+    "scroll": "Validitysection lowerpositionafteroneordinaryscroll; source/time/cameraunchanged",
+    "Design_restoration": "Intentionallynotperformed underexplicitownerreviewinstruction"
+  },
+  "actions": {
+    "read_only_state_calls": 2,
+    "native_screenshot_captures": 2,
+    "ordinary_scrolls": 1,
+    "typing_or_input_setter": 0,
+    "newload": 0,
+    "Play": 0,
+    "resize": 0,
+    "new_experiment": 0,
+    "other_window_app": 0,
+    "devtools_console_cdp": 0
+  },
+  "guards": {
+    "user_change": 0,
+    "automatic_rejection": 0,
+    "access_error": 0
+  },
+  "remaining": [
+    "IndependentWebGLbodyvisibility/withheldAposepixelproof notestablished",
+    "FullA+Bvaliditylabelscreenshotnotobtainedbytheoneallowedscroll",
+    "Exactviewportand60fps/physical/flightgatesremainunchanged"
+  ],
+  "engineering_or_flight_approval": false
+}
