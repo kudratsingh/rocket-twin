@@ -1,0 +1,1072 @@
+{
+  "schema_version": 1,
+  "id": "rp1-ad1-optional-source-detail-v1",
+  "source_tuple": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "detail_sha256": "e4ff19fec90e36d2a97987387572749cf3e11449312d09b3cf7e1c8d15016238",
+  "sources": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "src/inspection/rp1_detail.py": "b4fa92547519440bb0131da88db5e55126bff16eb5ee335469297aa6db220c7c",
+    "scripts/wo04_rp1_detail_export.py": "a79884b714ae9beadd927574c416264500a96dc9feca617f2e59fa9198cb5c12"
+  },
+  "core_source_records": 55,
+  "core_mesh_records": 26,
+  "replacements_expected": [
+    "forward_ring",
+    "motor_tube",
+    "aft_ring"
+  ],
+  "status": "Optional display-only source detail; source estimates and missingness unchanged",
+  "render_contract": {
+    "replace_only_matching_core_part": true,
+    "preserve_asset_materials": true,
+    "pick_parent_part_id": true,
+    "apply_existing_part_display_transform_once": true,
+    "keep_original_part_mesh_url_for_source_admission": true
+  },
+  "units": {
+    "assets": "m",
+    "annotations": "m with recorded values in mm"
+  },
+  "viewer_frame": "X=body+y, Y=length-station, Z=body-z",
+  "core_asset_audit": [
+    {
+      "id": "nose",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "640a7567f3b142ed1ab3ae38ec76688f4e5eb842cc96b4e22d6cb83c580ec1ef",
+      "inspection_shape_sha256": "b41ed17909605b15050c8d955f905685226c94a3699a286f3a00d6999ca027c9",
+      "vertices": 30889,
+      "triangles": 33600,
+      "actual_bounds_m": [
+        [
+          -0.0334010012447834,
+          1.059999942779541,
+          -0.0334010012447834
+        ],
+        [
+          0.0334010012447834,
+          1.25,
+          0.0334010012447834
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "body",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "7efda04d74a10c5154b849eeda21f2b4ebb3a831d59b5e8cb6bd92f2ea253a84",
+      "inspection_shape_sha256": "0c094482e9724c0a36307f5cbf16cf3da8f83af6bec40163eed2aafbc128f470",
+      "vertices": 824,
+      "triangles": 804,
+      "actual_bounds_m": [
+        [
+          -0.0334010012447834,
+          0.029999999329447746,
+          -0.0334010012447834
+        ],
+        [
+          0.0334010012447834,
+          0.7919999957084656,
+          0.0334010012447834
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "fin_set",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "e39ce3573be99b6e3a178241612eb552549a359f06fbd75aa7db3332adfc496b",
+      "inspection_shape_sha256": "055fb498532f28ed1633196c5eacee378599df2a6e52a1fb99fee97b802d45e1",
+      "vertices": 72,
+      "triangles": 36,
+      "actual_bounds_m": [
+        [
+          -0.04929857701063156,
+          0.04500000178813934,
+          -0.08238764107227325
+        ],
+        [
+          0.0934009999036789,
+          0.17499999701976776,
+          0.08238764107227325
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Exact planar source faces; extra tessellation would not add physical detail"
+    },
+    {
+      "id": "fin_tabs",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "9373587f11445b9c8e5b7be8660667f6e07c8daeb11e025fdd51e96a51284149",
+      "inspection_shape_sha256": "b177a4da83ddbf6e1190ec8b02b64873d3fc4d95bf475b2b73e3fe3d7f41a38e",
+      "vertices": 72,
+      "triangles": 36,
+      "actual_bounds_m": [
+        [
+          -0.019298575818538666,
+          0.06040000170469284,
+          -0.030426114797592163
+        ],
+        [
+          0.0334010012447834,
+          0.16979999840259552,
+          0.030426114797592163
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Exact planar source faces; extra tessellation would not add physical detail"
+    },
+    {
+      "id": "motor_tube",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "8cc0082e97cf24e041b7bd05dcb127f7d25b724760ea0a7f49643a212684ab22",
+      "inspection_shape_sha256": "59abb33f1ec16671f57a4f73be5f5ff4137de6d5a9e72a17fb13bc7ee089d96a",
+      "vertices": 676,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.015684500336647034,
+          0.029999999329447746,
+          -0.015684500336647034
+        ],
+        [
+          0.015684500336647034,
+          0.19499999284744263,
+          0.015684500336647034
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Optional finer annulus/bore sampling; known source features only"
+    },
+    {
+      "id": "forward_ring",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5",
+      "inspection_shape_sha256": "40c523d4090ce759321fa0b65fc795a64f2a5311377722a64789472ce6afbab0",
+      "vertices": 684,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.03220000118017197,
+          0.1777999997138977,
+          -0.03220000118017197
+        ],
+        [
+          0.03220000118017197,
+          0.1899999976158142,
+          0.03220000118017197
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Optional finer annulus/bore sampling; known source features only"
+    },
+    {
+      "id": "aft_ring",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "6d1d49ee7ebd9603b4f987d0808e65cd6f8d2a9059bb349efcc4cdf51dc0c277",
+      "inspection_shape_sha256": "568f3cf9cf8213b1a3d2fa1b5bbf85ddcba87aa68502a9a0b7ac7457def12c26",
+      "vertices": 676,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.03220000118017197,
+          0.05400000140070915,
+          -0.03220000118017197
+        ],
+        [
+          0.03220000118017197,
+          0.05999999865889549,
+          0.03220000118017197
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Optional finer annulus/bore sampling; known source features only"
+    },
+    {
+      "id": "motor",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "3016265e1d2a44a153c3ae554812ed1aa3d77cf813be7061f1e9ddf39ff12d30",
+      "inspection_shape_sha256": "91a2fe2d6a12019ad84a3019b2d2ab5b2a765b48994a29801c6703b212b3ef87",
+      "vertices": 338,
+      "triangles": 332,
+      "actual_bounds_m": [
+        [
+          -0.014499999582767487,
+          0.029999999329447746,
+          -0.014499999582767487
+        ],
+        [
+          0.014499999582767487,
+          0.15800000727176666,
+          0.014499999582767487
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "motor_retainer",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "53f852a8196ca427abc544d58b283c640cea7580f880d8516e65f78f977f3ef4",
+      "inspection_shape_sha256": "389f7916fcd88d20b999c983254e3f521361a6a18dc517fbd2545b2f77277af0",
+      "vertices": 676,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.022199999541044235,
+          0.0,
+          -0.022199999541044235
+        ],
+        [
+          0.022199999541044235,
+          0.04500000178813934,
+          0.022199999541044235
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "nose_anchor_plate",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "0bbbaeadb2d9ccccce79fe674cd38bdae39b30720981944bf1ffa279ded2a0d5",
+      "inspection_shape_sha256": "99364cec7a19581db39925c9c543a6b2a4e41394b4aa5bb108e27e53093434d0",
+      "vertices": 676,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.030500000342726707,
+          1.0598000288009644,
+          -0.030500000342726707
+        ],
+        [
+          0.030500000342726707,
+          1.0720000267028809,
+          0.030500000342726707
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "nose_recovery_eye",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "6dbf161d736e3d8e85012ff72aca20792ad807ab79383926e02ee793cbc17de7",
+      "inspection_shape_sha256": "1346401fba32166bc105b03e018b86e2feed81d00391ad0320865cf5f0c93c57",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.006000000052154064,
+          1.059999942779541,
+          0.024000000208616257
+        ],
+        [
+          0.006000000052154064,
+          1.0820000171661377,
+          0.028999999165534973
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "shock_cord",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "3afa20d8a4b2529ab99c1e69bbe3b512679118179e0302a1e2191afc06de26ad",
+      "inspection_shape_sha256": "9796e84e3d7ba6bef9aba635611af4cd283f15ba38dd3d15a8ee25ba8f006fe3",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.019999999552965164,
+          0.8500000238418579,
+          -0.019999999552965164
+        ],
+        [
+          0.019999999552965164,
+          0.9700000286102295,
+          0.019999999552965164
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "recovery_connectors",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "9a43ad1a28fc55f3a6bddfe3e2af8c10e56306bda52ed6c8779d32d2e8a41b45",
+      "inspection_shape_sha256": "94585f4e26a6f731fadcd873de57a22ad19a33d83fe5ab0ea6a858c6d3edec4c",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.007499999832361937,
+          0.875,
+          -0.004999999888241291
+        ],
+        [
+          0.007499999832361937,
+          0.8999999761581421,
+          0.004999999888241291
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "parachute",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "b8fecc7cd154ff5c34486d5226dbd0e60193778fa3ba5a9ff67edbcfdc7c0598",
+      "inspection_shape_sha256": "c03a6bc6f4088a222ade002917f2d855222a8a79e1a0784e893c2e474475049b",
+      "vertices": 338,
+      "triangles": 332,
+      "actual_bounds_m": [
+        [
+          -0.02500000037252903,
+          0.8899999856948853,
+          -0.02500000037252903
+        ],
+        [
+          0.02500000037252903,
+          0.9700000286102295,
+          0.02500000037252903
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "recovery_protection",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "317208430b09186e32b83dbd7bd35287701add63d26aca1b1eb44d53ccf726fa",
+      "inspection_shape_sha256": "f748a289cc621f2c00a3156a1660a8632051944c665c9e067ad50ae68416f1e4",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.019999999552965164,
+          0.875,
+          -0.006000000052154064
+        ],
+        [
+          0.019999999552965164,
+          0.8849999904632568,
+          0.006000000052154064
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "flight_computer",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "fba9a3eae4078b53efe122c05d2acb98b7003a103a2c475a23ec567dc243905b",
+      "inspection_shape_sha256": "be020b090bdd573a659240f7de9520815d5ad799bb291db90cf0c035f9baef22",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.008999999612569809,
+          1.1039999723434448,
+          0.00800000037997961
+        ],
+        [
+          0.008999999612569809,
+          1.1649999618530273,
+          0.014000000432133675
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "imu",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "f0ced62fd34a08f0f56a5c52fd20d8ec50aed5cb79205abb74f01f7717cddd12",
+      "inspection_shape_sha256": "044bd57aab54f31beeda403a660ff60dcdaeb0ca080a44a3a2eb3196bb199b4f",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.007499999832361937,
+          1.1169999837875366,
+          0.017999999225139618
+        ],
+        [
+          0.007499999832361937,
+          1.1369999647140503,
+          0.02199999988079071
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "baro",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "04af1f2eafc33c17c1c33268bae9492e333cf4e19b99abc71150212b43e74aec",
+      "inspection_shape_sha256": "5e69cccdfc03785b9f63840458f824bdbcb4274163c7f7007a0b812badd58803",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.006000000052154064,
+          1.0980000495910645,
+          0.01850000023841858
+        ],
+        [
+          0.006000000052154064,
+          1.1130000352859497,
+          0.0215000007301569
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "high_g_accel",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "d98a44e45eb5585fe649f646aef8092b4f4d4d941ea6af4c7318893e32f60899",
+      "inspection_shape_sha256": "0db1a6ecb7f509639f44fff4df6b607119e8421a85fe6dce5b388111a9ddbd3b",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.008849999867379665,
+          1.1394000053405762,
+          0.01769999973475933
+        ],
+        [
+          0.008849999867379665,
+          1.1649999618530273,
+          0.022299999371170998
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "micro_sd",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "096395f7f8a12ca06e619f9795cf03a574fad6feb71c23dc9361df5216f2f9cf",
+      "inspection_shape_sha256": "7b63ef92d790344397228046152d88b65e74231bd00548d5f4958b7c8224d65a",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.009999999776482582,
+          1.0850000381469727,
+          -0.013000000268220901
+        ],
+        [
+          0.009999999776482582,
+          1.1050000190734863,
+          -0.003000000026077032
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "battery",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "773f3f724feea02abd2a1bde0d96ee362fca7d549f3287e1de202f3faed5e57f",
+      "inspection_shape_sha256": "1f095546502396a73790ebc054462474c9097815bd1f40dc1747f615b9393962",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.014999999664723873,
+          1.1100000143051147,
+          -0.01549999974668026
+        ],
+        [
+          0.014999999664723873,
+          1.1649999618530273,
+          -0.0005000000237487257
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "independent_recovery",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "77be5439c7a23ec1e5975257bdf58ec12cbddea86ede47c164d6e50f7e4ff950",
+      "inspection_shape_sha256": "3e8f25f8537385220bac75fc341347dff826adb7c072f04349a0fff6a1da6e0c",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          -0.011429999954998493,
+          1.0355499982833862,
+          -0.008999999612569809
+        ],
+        [
+          0.011429999954998493,
+          1.0800000429153442,
+          -0.0010000000474974513
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "recovery_battery",
+      "maturity": "simplified_envelope",
+      "mesh_sha256": "37db0c2b3f00abdd366caf5ba268e89b89f26075a336e2c99b2a7b19535d7c5a",
+      "inspection_shape_sha256": "9b56c3a5b6d1172d71fbdcc8d89b1420a3f5c8e5b4c4e41ff156de546be8a5bd",
+      "vertices": 24,
+      "triangles": 12,
+      "actual_bounds_m": [
+        [
+          0.012500000186264515,
+          1.0269999504089355,
+          0.007499999832361937
+        ],
+        [
+          0.027499999850988388,
+          1.0570000410079956,
+          0.012500000186264515
+        ]
+      ],
+      "box_envelope": true,
+      "disposition": "Source supplies only a bounding envelope; supplier internals are unavailable"
+    },
+    {
+      "id": "upper_body",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "40d856bf8d0fee6ba94e429d6adc30b71a14b268b320d91834c8d0a02b383405",
+      "inspection_shape_sha256": "e2e359e47a8dfbaf6aa5b2af195a5b48b772ca72827b78db18d5d9f04cd47ce4",
+      "vertices": 676,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.0334010012447834,
+          0.7919999957084656,
+          -0.0334010012447834
+        ],
+        [
+          0.0334010012447834,
+          1.090000033378601,
+          0.0334010012447834
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "body_splice",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "2aa4d979fe79de0834d2fe5c7795f1d99cdababc342c48f0b4b90731f7966492",
+      "inspection_shape_sha256": "92d5e7213bd409b04726d653286a9eb8eff80feb7d37a0cc44073c44e61e60b1",
+      "vertices": 676,
+      "triangles": 672,
+      "actual_bounds_m": [
+        [
+          -0.032225001603364944,
+          0.7419999837875366,
+          -0.032225001603364944
+        ],
+        [
+          0.032225001603364944,
+          0.8420000076293945,
+          0.032225001603364944
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    },
+    {
+      "id": "root_gussets",
+      "maturity": "source_dimensioned",
+      "mesh_sha256": "0438e19e8a6f82dba694e4ae4ecb8a34091ae292862c0b0084dce083dfd59b40",
+      "inspection_shape_sha256": "6d83d3698a8b5ce50562afd871a29dcde2ca352e04be908ecddfecd50ede34e1",
+      "vertices": 192,
+      "triangles": 120,
+      "actual_bounds_m": [
+        [
+          -0.02679857611656189,
+          0.04500000178813934,
+          -0.043416496366262436
+        ],
+        [
+          0.04840100184082985,
+          0.17499999701976776,
+          0.043416496366262436
+        ]
+      ],
+      "box_envelope": false,
+      "disposition": "Retain frozen core; source/physical detail remains as recorded"
+    }
+  ],
+  "cases": [
+    {
+      "id": "forward-ring-recovery",
+      "label": "Forward ring and proposed cord passage",
+      "part_ids": [
+        "forward_ring",
+        "rp1_kevlar_wrap"
+      ],
+      "replacement_part_ids": [
+        "forward_ring"
+      ],
+      "supported_features": [
+        "Source64.4mm outer/31.9mm bore annulus,12.2mm total",
+        "Two6mm stock layers and0.2mm bond visualization",
+        "Straight4.5mm-wide,5mm-deep notch at60degrees"
+      ],
+      "missing": [
+        "Proposed2mm entrance/exit roundovers have no fully defined blended-surface topology here and remain omitted",
+        "Actual dressed knot/rope topology, contact deformation and chafe geometry unavailable",
+        "Layer grain/ply internals and conditioned bond quality unavailable"
+      ]
+    },
+    {
+      "id": "motor-support-retention",
+      "label": "Motor support bores and unverified retainer",
+      "part_ids": [
+        "motor_tube",
+        "aft_ring",
+        "motor_retainer",
+        "motor"
+      ],
+      "replacement_part_ids": [
+        "motor_tube",
+        "aft_ring"
+      ],
+      "supported_features": [
+        "Higher-resolution source tube bore/wall",
+        "Higher-resolution source aft centering-ring annulus",
+        "Exact frozen nominal stations/dimensions; original retainer remains an envelope"
+      ],
+      "missing": [
+        "Current retainer cap/sleeve split, threads, shoulders, motor seat/liner/closure contacts unavailable",
+        "Source notes quote nominal kit sizes; frozen numerical geometry controls this display, not a controlled supplier drawing",
+        "No installed interference, bond contact or exact motor fit acceptance"
+      ]
+    },
+    {
+      "id": "avionics-envelope",
+      "label": "Barometer envelope and missing supplier internals",
+      "part_ids": [
+        "baro"
+      ],
+      "replacement_part_ids": [],
+      "supported_features": [
+        "Recorded15\u00d712\u00d73mm nominal envelope edge/dimension guides; original12-triangle box retained"
+      ],
+      "missing": [
+        "Actual PCB outline, component heights, sensors, connectors, solder, traces and mounting holes unavailable",
+        "No PCB components or winding/thread details are fabricated by increasing polygon count"
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": "ring-bore",
+      "kind": "dimension",
+      "part_id": "forward_ring",
+      "label": "Recorded ring bore",
+      "value": 31.9,
+      "units": "mm",
+      "from_m": [
+        -0.01595,
+        0.18390000000000017,
+        0.0
+      ],
+      "to_m": [
+        0.01595,
+        0.18390000000000017,
+        0.0
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=forward_ring].geometry.inner_radius_m"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "ring-stack",
+      "kind": "dimension",
+      "part_id": "forward_ring",
+      "label": "Recorded ring stock/bond stack",
+      "value": 12.200000000000001,
+      "units": "mm",
+      "from_m": [
+        0.0352,
+        0.18999999999999995,
+        0.0
+      ],
+      "to_m": [
+        0.0352,
+        0.17779999999999996,
+        0.0
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=forward_ring].geometry.length_m"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "notch-width",
+      "kind": "dimension",
+      "part_id": "forward_ring",
+      "label": "Proposed straight notch width",
+      "value": 4.5,
+      "units": "mm",
+      "from_m": [
+        0.011173557158514988,
+        0.18390000000000017,
+        0.01485316869982289
+      ],
+      "to_m": [
+        0.007276442841485015,
+        0.18390000000000017,
+        0.017103168699822893
+      ],
+      "source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+        "locator": "route.passage_width_mm"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "motor_tube-bore",
+      "kind": "dimension",
+      "part_id": "motor_tube",
+      "label": "Recorded bore diameter",
+      "value": 29.169,
+      "units": "mm",
+      "from_m": [
+        -0.0145845,
+        0.19500000000000006,
+        0.0
+      ],
+      "to_m": [
+        0.0145845,
+        0.19500000000000006,
+        0.0
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry.inner_radius_m"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "motor_tube-wall",
+      "kind": "dimension",
+      "part_id": "motor_tube",
+      "label": "Recorded radial wall",
+      "value": 1.0999999999999996,
+      "units": "mm",
+      "from_m": [
+        0.0145845,
+        0.19500000000000006,
+        0.0
+      ],
+      "to_m": [
+        0.0156845,
+        0.19500000000000006,
+        0.0
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "aft_ring-bore",
+      "kind": "dimension",
+      "part_id": "aft_ring",
+      "label": "Recorded bore diameter",
+      "value": 31.9,
+      "units": "mm",
+      "from_m": [
+        -0.01595,
+        0.06000000000000005,
+        0.0
+      ],
+      "to_m": [
+        0.01595,
+        0.06000000000000005,
+        0.0
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=aft_ring].geometry.inner_radius_m"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "aft_ring-wall",
+      "kind": "dimension",
+      "part_id": "aft_ring",
+      "label": "Recorded radial wall",
+      "value": 16.250000000000004,
+      "units": "mm",
+      "from_m": [
+        0.01595,
+        0.06000000000000005,
+        0.0
+      ],
+      "to_m": [
+        0.0322,
+        0.06000000000000005,
+        0.0
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=aft_ring].geometry"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "baro-axial",
+      "kind": "dimension",
+      "part_id": "baro",
+      "label": "Nominal envelope axial length",
+      "value": 15.0,
+      "units": "mm",
+      "from_m": [
+        -0.006,
+        1.113,
+        0.0185
+      ],
+      "to_m": [
+        -0.006,
+        1.098,
+        0.0185
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=baro].geometry.bbox_m[0]"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "baro-width",
+      "kind": "dimension",
+      "part_id": "baro",
+      "label": "Nominal envelope width",
+      "value": 12.0,
+      "units": "mm",
+      "from_m": [
+        -0.006,
+        1.113,
+        0.0185
+      ],
+      "to_m": [
+        0.006,
+        1.113,
+        0.0185
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=baro].geometry.bbox_m[1]"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    },
+    {
+      "id": "baro-thickness",
+      "kind": "dimension",
+      "part_id": "baro",
+      "label": "Nominal envelope thickness",
+      "value": 3.0,
+      "units": "mm",
+      "from_m": [
+        -0.006,
+        1.113,
+        0.0185
+      ],
+      "to_m": [
+        -0.006,
+        1.113,
+        0.0215
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=baro].geometry.bbox_m[2]"
+      },
+      "status": "recorded nominal estimate/proposal",
+      "annotation_only": true,
+      "contributes_geometry_bounds": false
+    }
+  ],
+  "parts": [
+    {
+      "part_id": "forward_ring",
+      "maturity": "simplified_envelope",
+      "core_mesh_sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5",
+      "inspection_shape_sha256": "40c523d4090ce759321fa0b65fc795a64f2a5311377722a64789472ce6afbab0",
+      "asset_path": "/engineering-workbench/rp1-detail/parts/forward_ring.glb",
+      "asset_sha256": "1e9061ad1e71c0d41c043e96fc47088c686b4c140865b2df22730d45c343030a",
+      "bounds_m": [
+        [
+          -0.03220000118017197,
+          0.1777999997138977,
+          -0.03220000118017197
+        ],
+        [
+          0.03220000118017197,
+          0.1899999976158142,
+          0.03220000118017197
+        ]
+      ],
+      "triangles": 8484,
+      "core_triangles": 672,
+      "layers": [
+        {
+          "id": "stock_front",
+          "local_station_start_mm": 0.0,
+          "thickness_mm": 6.0
+        },
+        {
+          "id": "bond_reservation",
+          "local_station_start_mm": 6.0,
+          "thickness_mm": 0.2
+        },
+        {
+          "id": "stock_aft",
+          "local_station_start_mm": 6.2,
+          "thickness_mm": 6.0
+        }
+      ],
+      "display_only": true,
+      "sampling": {
+        "linear_tolerance_mm": 0.01,
+        "angular_tolerance_rad": 0.035
+      },
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=forward_ring].geometry"
+      }
+    },
+    {
+      "part_id": "motor_tube",
+      "maturity": "source_dimensioned",
+      "core_mesh_sha256": "8cc0082e97cf24e041b7bd05dcb127f7d25b724760ea0a7f49643a212684ab22",
+      "inspection_shape_sha256": "59abb33f1ec16671f57a4f73be5f5ff4137de6d5a9e72a17fb13bc7ee089d96a",
+      "asset_path": "/engineering-workbench/rp1-detail/parts/motor_tube.glb",
+      "asset_sha256": "251d4b23b6f921d1a152501d0cdf8b8504ff65d50e5cb5ae36136020bb2982fa",
+      "bounds_m": [
+        [
+          -0.015684500336647034,
+          0.029999999329447746,
+          -0.015684500336647034
+        ],
+        [
+          0.015684500336647034,
+          0.19499999284744263,
+          0.015684500336647034
+        ]
+      ],
+      "triangles": 2880,
+      "core_triangles": 672,
+      "layers": [
+        {
+          "id": "source_annulus",
+          "local_station_start_mm": 0.0,
+          "thickness_mm": 165.0
+        }
+      ],
+      "display_only": true,
+      "sampling": {
+        "linear_tolerance_mm": 0.01,
+        "angular_tolerance_rad": 0.035
+      },
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry"
+      }
+    },
+    {
+      "part_id": "aft_ring",
+      "maturity": "source_dimensioned",
+      "core_mesh_sha256": "6d1d49ee7ebd9603b4f987d0808e65cd6f8d2a9059bb349efcc4cdf51dc0c277",
+      "inspection_shape_sha256": "568f3cf9cf8213b1a3d2fa1b5bbf85ddcba87aa68502a9a0b7ac7457def12c26",
+      "asset_path": "/engineering-workbench/rp1-detail/parts/aft_ring.glb",
+      "asset_sha256": "e618c30f97f242d2d41cea2a8675e776a562a53a3e1726ca2fa56c52b03ac0f6",
+      "bounds_m": [
+        [
+          -0.03220000118017197,
+          0.05400000140070915,
+          -0.03220000118017197
+        ],
+        [
+          0.03220000118017197,
+          0.05999999865889549,
+          0.03220000118017197
+        ]
+      ],
+      "triangles": 2880,
+      "core_triangles": 672,
+      "layers": [
+        {
+          "id": "source_annulus",
+          "local_station_start_mm": 0.0,
+          "thickness_mm": 6.0
+        }
+      ],
+      "display_only": true,
+      "sampling": {
+        "linear_tolerance_mm": 0.01,
+        "angular_tolerance_rad": 0.035
+      },
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=aft_ring].geometry"
+      }
+    }
+  ],
+  "mass_or_inertia_generated": false,
+  "engineering_accepted": false,
+  "manufacturing_clearance": false,
+  "tools": {
+    "cadquery": "2.8.0",
+    "trimesh": "4.11.5",
+    "numpy": "2.4.6"
+  }
+}

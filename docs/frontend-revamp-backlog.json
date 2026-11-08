@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created_date": "2026-11-06",
-  "status": "usable_preview_design_ux_code_complete_partial_browser_evidence",
+  "status": "usable_interior_preview_current_window_evidence_full_acceptance_open",
   "source_ledger": "docs/frontend-workbench-backlog.json",
   "source_ledger_updated_date": "2026-11-08",
   "check_matrix": "docs/frontend-revamp-acceptance.csv",
@@ -1027,6 +1027,90 @@
         "docs/studies/frontend-design-ux-20261108/browser-results.csv"
       ],
       "acceptance_scope": "Display-only exact AD1 v2 correction. New code and designated-browser evidence required; no engineering or physical approval."
+    },
+    {
+      "id": "RV-26",
+      "milestone": "M1-interiors",
+      "pr": "wo04/interior-source-detail-20261108",
+      "title": "Easy direct manipulation and correct surface shading",
+      "owner": "primary + Sol HIGH bounded lanes",
+      "depends_on": [
+        "RV-24"
+      ],
+      "ft_ids": [],
+      "source_paths": [
+        "docs/studies/frontend-interiors-20261108/report.md"
+      ],
+      "check_ids": [
+        "RV-Q43"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "codeVerified": true,
+      "browserObserved": true,
+      "accepted": false,
+      "evidence": [
+        "docs/studies/frontend-interiors-20261108/integrated-observation.md",
+        "docs/studies/frontend-interiors-20261108/integrated-results.csv"
+      ],
+      "acceptance_scope": "Current-window paths observed; exact responsive matrix remains blocked. Final source-only modal ordering/maturity wording not browser accepted. No engineering or physical approval."
+    },
+    {
+      "id": "RV-27",
+      "milestone": "M1-interiors",
+      "pr": "wo04/interior-source-detail-20261108",
+      "title": "Persistent interior inspection and source-supported detail",
+      "owner": "primary + Sol HIGH bounded lanes",
+      "depends_on": [
+        "RV-24"
+      ],
+      "ft_ids": [],
+      "source_paths": [
+        "docs/studies/frontend-interiors-20261108/report.md"
+      ],
+      "check_ids": [
+        "RV-Q44"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "codeVerified": true,
+      "browserObserved": true,
+      "accepted": false,
+      "evidence": [
+        "docs/studies/frontend-interiors-20261108/integrated-observation.md",
+        "docs/studies/frontend-interiors-20261108/integrated-results.csv"
+      ],
+      "acceptance_scope": "Current-window paths observed; exact responsive matrix remains blocked. Final source-only modal ordering/maturity wording not browser accepted. No engineering or physical approval."
+    },
+    {
+      "id": "RV-28",
+      "milestone": "M1-interiors",
+      "pr": "wo04/interior-source-detail-20261108",
+      "title": "Recorded three-dimensional fin construction preview",
+      "owner": "primary + Sol HIGH bounded lanes",
+      "depends_on": [
+        "RV-24"
+      ],
+      "ft_ids": [],
+      "source_paths": [
+        "docs/studies/frontend-interiors-20261108/report.md"
+      ],
+      "check_ids": [
+        "RV-Q45"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "codeVerified": true,
+      "browserObserved": true,
+      "accepted": false,
+      "evidence": [
+        "docs/studies/frontend-interiors-20261108/integrated-observation.md",
+        "docs/studies/frontend-interiors-20261108/integrated-results.csv"
+      ],
+      "acceptance_scope": "Current-window paths observed; exact responsive matrix remains blocked. Final source-only modal ordering/maturity wording not browser accepted. No engineering or physical approval."
     }
   ],
   "source_kit": {

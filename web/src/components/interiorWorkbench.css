@@ -1,0 +1,139 @@
+.inspection-workflow-header {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 10px;
+  padding: 4px 8px;
+  min-height: 36px;
+  background: #152630;
+  border-bottom: 1px solid #38515d;
+  z-index: 28;
+  position: relative;
+}
+.revamp-design .inspection-workflow-header .research-representation-controls {
+  position: static;
+  padding: 0;
+  max-width: none;
+  background: none;
+}
+.interior-workbench {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 8px;
+  flex: 1;
+  min-width: 0;
+}
+.interior-workbench button,
+.interior-workbench select {
+  font-size: 11px;
+  min-height: 28px;
+  padding: 4px 7px;
+  margin: 0;
+}
+.interior-primary {
+  border-color: #45b6b8;
+  background: #184449;
+}
+.interior-workbench select {
+  max-width: 205px;
+  background: #162d38;
+  color: #e3edf4;
+  border: 1px solid #526b77;
+  border-radius: 4px;
+}
+.interior-status {
+  font-size: 10px;
+  color: #b7cbd6;
+}
+.revamp-design .research-design-visual > .research-representation:not([hidden]) {
+  flex: 1 1 0;
+  height: auto;
+}
+.revamp-design .revamp-source-state {
+  top: 78px;
+  max-width: calc(100% - 24px);
+  font-size: 10px;
+  pointer-events: none;
+}
+@media (max-width: 1050px) {
+  .interior-status {
+    display: none;
+  }
+  .revamp-design .revamp-source-state {
+    top: 114px;
+    max-width: calc(100% - 24px);
+  }
+}
+
+.inspection-source-note {
+  position: relative;
+  font-size: 10px;
+  color: #e9c788;
+  flex: 0 0 auto;
+}
+.inspection-source-note summary {
+  cursor: pointer;
+  padding: 4px;
+}
+.revamp-design .inspection-source-note .revamp-source-state {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  max-width: none;
+  width: min(460px, 80vw);
+  padding: 10px;
+  z-index: 40;
+  border: 1px solid #526b77;
+  background: #12232bf5;
+  pointer-events: auto;
+  font-size: 11px;
+}
+
+.interior-coverage {
+  position: relative;
+  font-size: 10px;
+}
+.interior-coverage summary {
+  cursor: pointer;
+  padding: 4px;
+}
+.interior-coverage > div {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: min(490px, 80vw);
+  max-height: 65vh;
+  overflow: auto;
+  padding: 12px;
+  z-index: 45;
+  background: #132733;
+  border: 1px solid #526b77;
+  line-height: 1.5;
+}
+.interior-coverage code {
+  overflow-wrap: anywhere;
+}
+.detail-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+}
+
+.interior-status {
+  display: none;
+}
+.inspection-workflow-header .research-representation-controls button {
+  padding: 4px 6px;
+}
+.interior-workbench .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

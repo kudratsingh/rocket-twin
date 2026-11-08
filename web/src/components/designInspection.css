@@ -61,3 +61,35 @@
   flex-wrap: wrap;
   gap: 5px;
 }
+
+.fin-preview-canvas {
+  height: 380px;
+  min-height: 240px;
+  border: 1px solid #526b77;
+  touch-action: none;
+}
+.fin-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+.fin-preview-actions label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+.fin-preview-actions select {
+  background: #18313b;
+  color: #e4edf4;
+  max-width: 280px;
+  padding: 5px;
+}
+.fin-construction-preview {
+  padding: 12px;
+  border: 1px solid #526b77;
+  border-radius: 6px;
+  margin: 14px 0;
+}

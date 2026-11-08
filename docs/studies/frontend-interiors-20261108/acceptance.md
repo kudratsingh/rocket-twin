@@ -1,0 +1,20 @@
+# Interior workflow acceptance checklist
+
+All rows start **unexecuted** for this new increment. Source tests may establish identity/state invariants; only new observations in the designated authorized Chrome window establish actual interaction and visual outcomes. The prior browser pause and DevTools rejection remain unchanged. No new simulation or performance campaign is part of this packet.
+
+| Check | Smallest useful sequence | Required observation / evidence |
+| --- | --- | --- |
+| Interior entry | Fresh RP1 load → Inspect interior, without opening Scene tools. | Supported internals visible; mode/subsystem named; geometry/source identity unchanged. Save a genuine before/after pair. One action, rather than a drawer-plus-toggle sequence. |
+| Motor inspection | Inspect Motor and retention → choose motor tube → rotate/zoom with visible controls → choose motor. | Tube and motor can each be seen and selected, tree/Details agree, and source maturity is legible. If separated, demonstrate actual transformed picking and a fitted separated view. |
+| Recovery inspection | Inspect Recovery → select parachute/cord envelope → choose Kevlar record. | Supported envelopes visible, with no invented routing. Kevlar keeps the scene usable and explains missing geometry; Frame/Isolate unavailable for that record. |
+| Avionics inspection | Inspect Avionics and power → select computer and battery. | Actual recorded envelopes become distinguishable and selectable. Omitted board/port/wiring detail is explicit. Do not count visual polish as added engineering detail. |
+| Reversible inspection | Hide one source solid, choose a custom angle, enter interior/subsystem view, then Return. | Prior hidden set returns and entry preserves the camera basis; Return retains the latest inspection angle rather than claiming a saved camera-pose restore. Source and selected ID remain. Compare actual screenshots/readout, not merely store values. |
+| Restore assembly | From separated/sectioned/isolated view → Restore assembly. | Zero display offsets at source positions; documented section/visibility reset; selection retained. The button must not imply a source/configuration change. |
+| Alternative entry/content | Open from fin group, then from applicable fin Details. | Current AD1 and unadopted FP1/FR1 are easy to compare; each source, dimensions/mass basis and actual failed/unknown findings are readable. Finished FP1/FR1 3D assemblies remain unavailable; the separate new fin-only source-dimensioned schematic is labelled as such. |
+| Alternative keyboard/return | Tab to entry → open → traverse/scroll dialog → Return; repeat with Escape. | Focus enters dialog, stays within it, then returns to opener. Background shortcuts do not change source/view. Original camera, visibility, selection, sidebar tab/width remain. |
+| Missing/incompatible source | Use only an already supported declared software fixture, if available; otherwise leave this browser branch unexecuted. | Loading/error/missingness is visible; no foreign geometry/result attaches, and no active vehicle switch occurs. Fixture evidence is labelled software-only. |
+| Reachability/layout | Use naturally available permitted viewport controls only after access coordination. | No overlapping representation/interior/camera/selection controls; no blocked close/return target. Required viewport claims stay pending if the earlier DevTools rejection prevents setting/verifying them. No indirect workaround. |
+
+Keep compound rows partial when only one path was observed. Preserve the initial failed capture and identify the changed source before a bounded correction recheck. The group-only Exit isolation correction has prior current-window evidence; the newer manual-collapse/same-part-reveal helper and this interior workflow have not been browser-verified.
+
+All inquiry drafts remain UNSENT. No adoption, new material/construction variant, backend physics, purchase, physical test or engineering/build/flight release follows from these UI checks.

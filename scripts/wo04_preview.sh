@@ -28,6 +28,10 @@ prepare_snapshot() {
 if ! .venv/bin/python scripts/wo04_rp1_geometry_export.py; then
   echo "RP1 3D inspection unavailable; source drawings remain usable." >&2
 fi
+# Optional source-defined detail assets; core geometry remains the reference.
+if ! .venv/bin/python scripts/wo04_rp1_detail_export.py; then
+  echo "Optional RP1 detail unavailable; core inspection remains available." >&2
+fi
 prepare_snapshot scripts/wo04_workbench_export.py web/public/engineering-workbench/g80-c1.json
 prepare_snapshot scripts/wo04_workbench_extended_export.py web/public/engineering-workbench/g80-extended.json
 prepare_snapshot scripts/wo04_workbench_a1_export.py web/public/engineering-workbench/g80-a1.json
