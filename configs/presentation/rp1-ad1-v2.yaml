@@ -1,0 +1,336 @@
+schema_version: 1
+id: rp1-ad1-v2-functional-presentation-v1
+configuration_id: G80-F2-RP1-AD1-definition-v2
+specification:
+  path: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+  sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+definition:
+  path: configs/studies/rp1-attachment-definition-v2.yaml
+  sha256: e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555
+record:
+  path: runs/wo03-rp1-attachment-definition-20261103-v2/record.json
+  sha256: bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b
+inspection_geometry_sha256: 238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608
+expected_source_records: 55
+semantics: Functional presentation membership and display illustration only. Source parent records assembly
+  membership, not a qualified physical attachment.
+breakdown:
+  kind: staged-display-illustration
+  assembly_stage_end: 0.5
+  units: m
+  frame: X=body+y, Y=length-station, Z=body-z
+  manufacturing_clearance: false
+  description: First separate functional assemblies, then open one group to spread its modeled parts.
+    Vectors are authored display offsets, not extraction paths, installation coordinates, measured clearances
+    or a collision-free disassembly.
+groups:
+- id: nose_airframe
+  label: Nose and airframe
+  description: Source airframe shells, splice and its separately counted process allowances.
+  part_ids:
+  - nose
+  - body
+  - upper_body
+  - body_splice
+  - splice_seam_patch
+  - splice_adhesive
+  assembly_offset_m:
+  - 0
+  - 0.2
+  - 0
+- id: fins_roots
+  label: Fins and roots
+  description: Three integral fin blanks, root wedges and separately counted joint/process records; no
+    installed joint pass.
+  part_ids:
+  - fin_set
+  - fin_tabs
+  - fin_internal_bonds
+  - outer_fin_fillets
+  - root_gussets
+  - root_extra_bond_finish
+  - c1_forward_root_bond_fill
+  - c1_aft_bond_fill
+  - ad1_slot_fill
+  assembly_offset_m:
+  - -0.24
+  - -0.14
+  - 0
+- id: motor_retention
+  label: Motor and retention
+  description: Nominal motor, tube, centering rings, retainer and unverified shield/process records.
+  part_ids:
+  - motor_tube
+  - forward_ring
+  - aft_ring
+  - ring_bonds
+  - motor
+  - motor_retainer
+  - retainer_adhesive
+  - mount_external_shield
+  assembly_offset_m:
+  - 0.24
+  - -0.1
+  - 0
+- id: recovery
+  label: Recovery
+  description: Recorded packing/anchor envelopes and missing finished leader route; no qualified capacity
+    or installed fit.
+  part_ids:
+  - nose_anchor_plate
+  - nose_recovery_eye
+  - shock_cord
+  - recovery_connectors
+  - parachute
+  - recovery_protection
+  - c1_nose_bond_fill
+  - rp1_kevlar_wrap
+  - rp1_wrap_lock_bond
+  - rp1_notch_sealer
+  - rp1_lip_guard
+  - ad1_cord_sleeve
+  assembly_offset_m:
+  - -0.24
+  - 0.12
+  - 0.12
+- id: avionics_power
+  label: Avionics and power
+  description: Source electronics/power envelopes and mounting/wiring allowances; placement is estimated.
+  part_ids:
+  - flight_computer
+  - imu
+  - baro
+  - high_g_accel
+  - micro_sd
+  - battery
+  - independent_recovery
+  - recovery_battery
+  - avionics_sled
+  - logger_power_switch
+  - logger_regulator
+  - recovery_carrier
+  - electrical_harness
+  - recovery_harness_wiring
+  - recovery_output_mount
+  - nose_service_hardware
+  assembly_offset_m:
+  - 0.24
+  - 0.2
+  - 0.12
+- id: launch_finish
+  label: Launch guides and finishing
+  description: Unconfirmed guide hardware and separately counted finishing/service allowances; no supported
+    solid.
+  part_ids:
+  - rail_buttons
+  - rail_backers
+  - finish
+  - service_allowance
+  assembly_offset_m:
+  - 0
+  - -0.1
+  - -0.24
+detail_offsets_m:
+  nose:
+  - 0
+  - 0.24
+  - 0
+  body:
+  - -0.14
+  - -0.05
+  - 0
+  upper_body:
+  - 0.14
+  - 0.1
+  - 0
+  body_splice:
+  - 0
+  - 0
+  - 0.14
+  fin_set:
+  - 0
+  - 0
+  - 0.12
+  fin_tabs:
+  - 0
+  - 0
+  - 0.12
+  root_gussets:
+  - -0.1
+  - 0
+  - 0.2
+  motor_tube:
+  - 0
+  - 0
+  - 0
+  forward_ring:
+  - 0
+  - 0.1
+  - 0.08
+  aft_ring:
+  - 0
+  - -0.08
+  - 0.08
+  motor:
+  - 0.14
+  - 0
+  - 0
+  motor_retainer:
+  - 0
+  - -0.12
+  - 0
+  nose_anchor_plate:
+  - 0
+  - 0.18
+  - -0.08
+  nose_recovery_eye:
+  - 0
+  - 0.28
+  - -0.08
+  shock_cord:
+  - 0
+  - 0.2
+  - 0
+  recovery_connectors:
+  - 0
+  - -0.03
+  - 0.1
+  parachute:
+  - 0
+  - 0.08
+  - 0
+  recovery_protection:
+  - 0
+  - -0.12
+  - 0
+  flight_computer:
+  - 0
+  - 0
+  - -0.08
+  imu:
+  - 0.1
+  - 0
+  - 0
+  baro:
+  - 0.2
+  - 0
+  - 0
+  high_g_accel:
+  - 0.3
+  - 0
+  - 0
+  micro_sd:
+  - -0.1
+  - 0
+  - 0
+  battery:
+  - 0
+  - 0.12
+  - 0
+  independent_recovery:
+  - -0.1
+  - 0.12
+  - 0
+  recovery_battery:
+  - 0.1
+  - 0.12
+  - 0
+rigid_bundles:
+- id: integral_fin_blanks
+  part_ids:
+  - fin_set
+  - fin_tabs
+  source:
+    path: configs/studies/rp1-attachment-definition-v2.yaml
+    sha256: e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555
+    locator: fin_joints.support
+quantities:
+  fin_set:
+    value: 3
+    unit: fin panels
+    basis: Recorded geometry.count; one bundled mesh record.
+    source:
+      path: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+      sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+      locator: parts[id=fin_set].geometry.count
+      part_id: fin_set
+  fin_tabs:
+    value: 3
+    unit: integral tabs
+    basis: Recorded CAD notes explicitly state three integral tabs; displayed together with panels.
+    source:
+      path: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+      sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+      locator: parts[id=fin_tabs].cad.notes
+      part_id: fin_tabs
+    source_text: Mass of three integral tabs.
+  root_gussets:
+    value: 6
+    unit: root wedges
+    basis: Recorded CAD notes explicitly state six triangular root wedges; one bundled mesh record.
+    source:
+      path: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+      sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+      locator: parts[id=root_gussets].cad.notes
+      part_id: root_gussets
+    source_text: Six triangular6mm-stock root wedges
+cross_links:
+- id: fin_root_evidence
+  label: Recorded fin/root relationship
+  group_ids:
+  - fins_roots
+  - motor_retention
+  - nose_airframe
+  part_ids:
+  - fin_set
+  - fin_tabs
+  - root_gussets
+  - motor_tube
+  - forward_ring
+  - aft_ring
+  - body
+  relation: Definition and connection evidence; finite installed joints remain unverified. Not derived
+    from source parentage.
+  connection_id: fin-root
+  source:
+    path: configs/studies/rp1-attachment-definition-v2.yaml
+    sha256: e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555
+    locator: fin_joints.support
+- id: recovery_route_evidence
+  label: Recorded recovery route
+  group_ids:
+  - recovery
+  - motor_retention
+  - nose_airframe
+  part_ids:
+  - rp1_kevlar_wrap
+  - shock_cord
+  - recovery_connectors
+  - forward_ring
+  - motor_tube
+  - nose_anchor_plate
+  - nose_recovery_eye
+  - upper_body
+  relation: Saved recovery branch/contact record; finished capacity and exact installed route remain unavailable.
+    Not a qualified attachment assertion.
+  connection_id: recovery
+  source:
+    path: runs/wo03-rp1-attachment-definition-20261103-v2/record.json
+    sha256: bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b
+    locator: recovery_connections
+- id: independent_recovery_function
+  label: Independent recovery electronics
+  group_ids:
+  - avionics_power
+  - recovery
+  part_ids:
+  - independent_recovery
+  - recovery_battery
+  - recovery_harness_wiring
+  - recovery_output_mount
+  relation: Functional cross-reference from source part descriptions/electrical records; no installed
+    structural connection is implied.
+  source:
+    path: configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml
+    sha256: 811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660
+    locator: parts[id=independent_recovery].learn

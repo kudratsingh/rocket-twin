@@ -1,7 +1,7 @@
 import { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import type { ComponentRef, ErrorInfo, ReactNode, RefObject } from 'react';
+import type { ErrorInfo, ReactNode, RefObject } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { GizmoHelper, GizmoViewport, Grid, OrbitControls, useGLTF } from '@react-three/drei';
+import { GizmoHelper, GizmoViewport, Grid, useGLTF } from '@react-three/drei';
 import {
   Box3,
   Color,
@@ -17,6 +17,10 @@ import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
 import { SceneLabel } from './SceneLabel';
+import { applyOrbit, orbitAngles, orbitClips, panOrbit } from './inspectionOrbit';
+import type { OrbitAngles, OrbitReadout } from './inspectionOrbit';
+import { OrbitCameraControls } from './OrbitCameraControls';
+import { getRp1Presentation, rp1BreakdownOffset } from './rp1Breakdown';
 import { CAMERA_VIEWS, cameraFrame } from './inspectionGeometry';
 import { fitOrbitFrame, inspectionFrameInsets, isPointClipped } from './inspectionCamera';
 import { inspectionSceneBounds } from './inspectionSceneBounds';
@@ -81,13 +85,22 @@ function PartMesh({
   overlayColor,
   analysisMode = false,
   baseOpacity = 1,
+  groupHighlighted = false,
+  displayOffset,
 }: {
   part: Part;
   length: number;
-  onLoaded: (id: string, bounds: Box3, explodeOffset: Vector3Tuple) => void;
+  onLoaded: (
+    id: string,
+    bounds: Box3,
+    explodeOffset: Vector3Tuple,
+    displayOffset?: Vector3Tuple,
+  ) => void;
   overlayColor?: string | null;
   analysisMode?: boolean;
   baseOpacity?: number;
+  groupHighlighted?: boolean;
+  displayOffset?: Vector3Tuple;
 }) {
   const gltf = useGLTF(part.mesh_url!);
   const selected = useInspection((s) => s.selectedId === part.id);
@@ -143,7 +156,13 @@ function PartMesh({
       object.material.depthWrite = opacity >= 1;
       object.material.wireframe = !analysisMode && wireframe;
       object.material.emissive = new Color(
-        analysisMode ? '#000000' : selected ? '#26b5ba' : hovered ? '#3b858b' : '#000000',
+        analysisMode
+          ? '#000000'
+          : selected || groupHighlighted
+            ? '#26b5ba'
+            : hovered
+              ? '#3b858b'
+              : '#000000',
       );
       object.material.emissiveIntensity = selected ? 0.55 : 0.35;
       object.material.clippingPlanes = section ? [CUT_PLANE] : [];
@@ -152,6 +171,7 @@ function PartMesh({
   }, [
     scene,
     selected,
+    groupHighlighted,
     hovered,
     section,
     analysisMode,
@@ -163,20 +183,24 @@ function PartMesh({
     part.cad?.color,
   ]);
   useEffect(() => {
-    onLoaded(part.id, bounds, translation);
+    onLoaded(part.id, bounds, translation, displayOffset);
+  }, [part.id, onLoaded, bounds, translation, displayOffset]);
+  useEffect(() => {
     return () => {
       scene.traverse((object) => {
         if (object instanceof Mesh && object.material instanceof MeshStandardMaterial)
           object.material.dispose();
       });
     };
-  }, [scene, part.id, onLoaded, bounds, translation]);
+  }, [scene]);
   return (
     <group
       name={`inspection-part:${part.id}`}
-      position={translation.map((coordinate) => coordinate * exploded) as Vector3Tuple}
+      position={
+        displayOffset ?? (translation.map((coordinate) => coordinate * exploded) as Vector3Tuple)
+      }
       onClick={(event) => {
-        if (ghost || isPointClipped(event.point, CUT_PLANE, section)) return;
+        if (event.delta > 2 || ghost || isPointClipped(event.point, CUT_PLANE, section)) return;
         event.stopPropagation();
         select(part.id);
       }}
@@ -211,8 +235,23 @@ function PartMesh({
   );
 }
 
-type CameraCommand = { id: number; kind: 'fit' | 'fit-assembly' | 'zoom-in' | 'zoom-out' };
-
+type CameraCommand = {
+  id: number;
+  kind:
+    | 'fit'
+    | 'fit-assembly'
+    | 'frame-selection'
+    | 'zoom-in'
+    | 'zoom-out'
+    | 'angles'
+    | 'target-assembly'
+    | 'target-selection'
+    | 'pan-left'
+    | 'pan-right'
+    | 'pan-up'
+    | 'pan-down';
+  angles?: OrbitAngles;
+};
 function CameraFit({
   group,
   length,
@@ -221,8 +260,13 @@ function CameraFit({
   meshBounds,
   allIds,
   visibleIds,
+  selectionIds,
+  selectionLabel,
+  groupSelected,
+  presentationGroupId,
   exploded,
   onStatus,
+  onReadout,
 }: {
   group: RefObject<Group | null>;
   length: number;
@@ -231,69 +275,110 @@ function CameraFit({
   meshBounds: RefObject<Map<string, RecordedMeshBounds>>;
   allIds: string[];
   visibleIds: string[];
+  selectionIds: string[];
+  selectionLabel: string;
+  groupSelected: boolean;
+  presentationGroupId: string | null;
   exploded: number;
   onStatus: (value: string) => void;
+  onReadout: (value: OrbitReadout) => void;
 }) {
-  const { camera, invalidate, size } = useThree();
-  const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
-  const interacted = useRef(false);
-  const initialComplete = useRef(false);
+  const { camera: rawCamera, gl, invalidate, size } = useThree();
+  const camera = rawCamera as PerspectiveCamera;
+  const target = useRef(new Vector3());
+  const angles = useRef<OrbitAngles>({ azimuth: 45, tilt: 54.7356, roll: 0 });
+  const mode = useRef('Overview');
+  const targetScope = useRef<'assembly' | 'selection'>('assembly');
+  const targetLabel = useRef('Assembly');
+  const scopeCenter = useRef<Vector3 | null>(null);
+  const interacted = useRef(false),
+    initialComplete = useRef(false),
+    pendingFit = useRef(false),
+    assemblyFit = useRef(false);
   const lastStoreCommand = useRef<number | null>(null);
-  const pendingFocus = useRef<string | null>(null);
-  const pendingFit = useRef(false);
-  const assemblyFit = useRef(false);
+  const pendingFocus = useRef<string[] | null>(null),
+    framedPart = useRef<string[] | null>(null);
   const intent = useRef<'preset' | 'fit' | 'part' | 'manual'>('preset');
-  const framedPart = useRef<string | null>(null);
-  const resetToken = useInspection((s) => s.resetToken);
-  const cameraAction = useInspection((s) => s.cameraAction);
-  const view = useInspection((s) => s.cameraView);
-  const focusId = useInspection((s) => s.focusId);
-
-  function frame(mode: 'preset' | 'orbit', selectedId: string | null) {
+  const resetToken = useInspection((s) => s.resetToken),
+    cameraAction = useInspection((s) => s.cameraAction);
+  const view = useInspection((s) => s.cameraView),
+    focusId = useInspection((s) => s.focusId);
+  function publish() {
+    angles.current = orbitAngles(camera, target.current, angles.current.azimuth);
+    onReadout({
+      ...angles.current,
+      mode: mode.current,
+      target: targetScope.current,
+      targetLabel: targetLabel.current,
+    });
+  }
+  function safeClips() {
+    const scope = inspectionSceneBounds(meshBounds.current, visibleIds, exploded);
+    const clips = orbitClips(scope.bounds, camera, target.current);
+    camera.near = clips.near;
+    camera.far = clips.far;
+    camera.updateProjectionMatrix();
+  }
+  function moved() {
+    safeClips();
+    publish();
+    invalidate();
+  }
+  function manual() {
+    interacted.current = true;
+    intent.current = 'manual';
+    mode.current = 'Custom';
+    pendingFocus.current = null;
+    pendingFit.current = false;
+  }
+  function frame(strategy: 'preset' | 'orbit', selected: string[] | null) {
     if (size.width <= 0 || size.height <= 0) {
       onStatus('Waiting for a visible canvas before framing loaded geometry.');
       return false;
     }
     group.current?.updateWorldMatrix(true, true);
-    const ids = selectedId ? [selectedId] : assemblyFit.current ? allIds : visibleIds;
+    const ids = selected ?? (assemblyFit.current ? allIds : visibleIds);
     const scope = inspectionSceneBounds(meshBounds.current, ids, exploded);
-    // A waiting/failed GLB never becomes an invented length-only rocket.
     if (scope.bounds.isEmpty()) {
       onStatus('No loaded mesh bounds for this view; source properties and 2D remain available.');
       return false;
     }
-    const bounds = scope.bounds;
-    const perspective = camera as PerspectiveCamera;
     const aspect = size.width / Math.max(size.height, 1);
     const preset =
-      mode === 'preset'
+      strategy === 'preset'
         ? cameraFrame(
-            { min: bounds.min.toArray(), max: bounds.max.toArray() },
+            { min: scope.bounds.min.toArray(), max: scope.bounds.max.toArray() },
             aspect,
-            perspective.fov,
+            camera.fov,
             view,
           )
         : null;
     const result = fitOrbitFrame(
-      bounds,
+      scope.bounds,
       aspect,
-      perspective.fov,
+      camera.fov,
       preset ? new Vector3(...preset.position) : camera.position,
-      preset ? new Vector3(...preset.target) : (controls.current?.target ?? new Vector3()),
+      preset ? new Vector3(...preset.target) : target.current,
       preset ? new Vector3(...preset.up) : camera.up,
       {
-        fill: selectedId || view === 'aft' ? 0.78 : 0.85,
+        fill: selected || view === 'aft' ? 0.78 : 0.85,
         insets: inspectionFrameInsets(size.width, size.height),
       },
     );
     camera.up.fromArray(result.up);
     camera.position.fromArray(result.position);
+    target.current.fromArray(result.target);
     camera.near = result.near;
     camera.far = result.far;
-    controls.current?.target.fromArray(result.target);
-    camera.lookAt(new Vector3(...result.target));
+    camera.lookAt(target.current);
     camera.updateProjectionMatrix();
-    controls.current?.update();
+    camera.updateMatrixWorld();
+    if (strategy === 'preset')
+      mode.current = CAMERA_VIEWS.find((item) => item.id === view)?.label ?? view;
+    targetScope.current = selected ? 'selection' : 'assembly';
+    targetLabel.current = selected ? selectionLabel : 'Assembly';
+    scopeCenter.current = scope.bounds.getCenter(new Vector3());
+    publish();
     invalidate();
     initialComplete.current = true;
     onStatus(
@@ -301,93 +386,239 @@ function CameraFit({
     );
     return true;
   }
-
   useFrame(() => {
     if (pendingFocus.current && frame('orbit', pendingFocus.current)) pendingFocus.current = null;
   });
-
-  // Store commands cover presets, keyboard reset and focus from the inspector.
-  // Do not reframe on resize, selection changes, or each individual mesh load.
   useEffect(() => {
-    // StrictMode repeats mount effects with the same token. Only a genuinely
-    // new command suppresses the one initial fit after delayed meshes settle.
+    publish();
+    // Initialize readout from the actual configured camera even while meshes are delayed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [camera]);
+  useEffect(() => {
     if (lastStoreCommand.current !== null && lastStoreCommand.current !== resetToken)
       interacted.current = true;
     lastStoreCommand.current = resetToken;
     pendingFit.current = false;
-    pendingFocus.current = cameraAction === 'focus' ? focusId : null;
+    pendingFocus.current =
+      cameraAction === 'focus' && focusId
+        ? [focusId]
+        : cameraAction === 'fit' && (groupSelected || targetScope.current === 'selection')
+          ? selectionIds
+          : null;
     assemblyFit.current = false;
     intent.current = cameraAction === 'focus' ? 'part' : cameraAction === 'fit' ? 'fit' : 'preset';
     framedPart.current = pendingFocus.current;
-    const mode = cameraAction === 'focus' || cameraAction === 'fit' ? 'orbit' : 'preset';
-    if (frame(mode, pendingFocus.current)) pendingFocus.current = null;
-    // This token intentionally identifies explicit store commands.
+    if (
+      frame(
+        cameraAction === 'focus' || cameraAction === 'fit' ? 'orbit' : 'preset',
+        pendingFocus.current,
+      )
+    )
+      pendingFocus.current = null;
+    // Explicit store token only; selection/panel changes never reset the camera.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetToken]);
-
   useEffect(() => {
-    if (complete && !initialComplete.current) {
-      if (!interacted.current && frame('preset', null)) initialComplete.current = true;
-    }
+    if (complete && !initialComplete.current && !interacted.current) frame('preset', null);
     if (complete && pendingFit.current) {
       pendingFit.current = false;
-      frame('orbit', null);
+      frame('orbit', framedPart.current);
     }
-    // A single initial fit is allowed once all available meshes settle.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [complete]);
-
   useEffect(() => {
     if (!command) return;
     interacted.current = true;
     pendingFocus.current = null;
     pendingFit.current = false;
-    if (command.kind === 'fit' || command.kind === 'fit-assembly') {
+    if (
+      command.kind === 'fit' ||
+      command.kind === 'fit-assembly' ||
+      command.kind === 'frame-selection'
+    ) {
       assemblyFit.current = command.kind === 'fit-assembly';
+      framedPart.current = command.kind === 'frame-selection' ? selectionIds : null;
       intent.current = 'fit';
-      framedPart.current = null;
-      if (complete) frame('orbit', null);
+      if (complete) frame('orbit', framedPart.current);
       else pendingFit.current = true;
-    } else {
-      intent.current = 'manual';
-      const target = controls.current?.target ?? new Vector3();
-      const offset = camera.position.clone().sub(target);
-      const distance = Math.min(
-        20,
-        Math.max(0.00001, offset.length() * (command.kind === 'zoom-in' ? 0.8 : 1.25)),
+    } else if (command.kind === 'target-assembly' || command.kind === 'target-selection') {
+      const ids = command.kind === 'target-selection' ? selectionIds : allIds;
+      const scope = inspectionSceneBounds(meshBounds.current, ids, exploded);
+      if (scope.bounds.isEmpty()) {
+        onStatus('Orbit target has no loaded geometry; the current camera is retained.');
+        return;
+      }
+      const distance = camera.position.distanceTo(target.current);
+      target.current.copy(scope.bounds.getCenter(new Vector3()));
+      scopeCenter.current = target.current.clone();
+      targetScope.current = command.kind === 'target-selection' ? 'selection' : 'assembly';
+      targetLabel.current = command.kind === 'target-selection' ? selectionLabel : 'Assembly';
+      applyOrbit(camera, target.current, distance, angles.current);
+      manual();
+      moved();
+    } else if (command.kind.startsWith('pan-')) {
+      manual();
+      panOrbit(
+        target.current,
+        camera,
+        command.kind === 'pan-left' ? -40 : command.kind === 'pan-right' ? 40 : 0,
+        command.kind === 'pan-up' ? -40 : command.kind === 'pan-down' ? 40 : 0,
+        size.height,
       );
-      camera.position.copy(target).add(offset.setLength(distance));
-      controls.current?.update();
-      invalidate();
+      moved();
+    } else {
+      manual();
+      const distance = Math.max(
+        0.000001,
+        Math.min(
+          Math.max(20, length * 20),
+          camera.position.distanceTo(target.current) *
+            (command.kind === 'zoom-in' ? 0.8 : command.kind === 'zoom-out' ? 1.25 : 1),
+        ),
+      );
+      if (command.angles) angles.current = command.angles;
+      applyOrbit(camera, target.current, distance, angles.current);
+      moved();
     }
-    // A command ID changes only for explicit toolbar actions.
+    // A command changes only through explicit viewport controls.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [command]);
-
   useEffect(() => {
     if (!initialComplete.current || intent.current === 'manual') return;
     frame(intent.current === 'preset' ? 'preset' : 'orbit', framedPart.current);
-    // Only a settled canvas resize reapplies a fit intent. Manual orbit is retained.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [size.width, size.height]);
-
-  return (
-    <OrbitControls
-      ref={controls}
-      makeDefault
-      enableDamping
-      dampingFactor={0.1}
-      minDistance={0.00001}
-      maxDistance={Math.max(20, length * 20)}
-      screenSpacePanning
-      onStart={() => {
+  const selectionKey = selectionIds.join('|');
+  useEffect(() => {
+    if (!initialComplete.current) return;
+    if (targetScope.current === 'selection' && selectionIds.length) {
+      const scope = inspectionSceneBounds(meshBounds.current, selectionIds, exploded);
+      if (!scope.bounds.isEmpty()) {
+        const next = scope.bounds.getCenter(new Vector3());
+        const shift = next.clone().sub(scopeCenter.current ?? next);
+        camera.position.add(shift);
+        target.current.add(shift);
+        scopeCenter.current = next;
+        targetLabel.current = selectionLabel;
+        framedPart.current = selectionIds;
+      }
+    }
+    moved();
+    // Display transforms and a changed selection update the pivot without resetting its angle.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exploded, presentationGroupId, selectionKey]);
+  const handlers = useRef({
+    begin: () => {},
+    move: (_dx: number, _dy: number, _kind: string) => {},
+    zoom: (_factor: number) => {},
+  });
+  useEffect(() => {
+    handlers.current = {
+      begin() {
         interacted.current = true;
         intent.current = 'manual';
         pendingFocus.current = null;
         pendingFit.current = false;
-      }}
-    />
-  );
+      },
+      move(dx, dy, kind) {
+        manual();
+        if (kind === 'pan') panOrbit(target.current, camera, dx, dy, size.height);
+        else {
+          angles.current = {
+            ...angles.current,
+            ...(kind === 'roll'
+              ? { roll: angles.current.roll + dx * 0.4 }
+              : {
+                  azimuth: angles.current.azimuth - dx * 0.4,
+                  tilt: Math.max(0, Math.min(180, angles.current.tilt - dy * 0.4)),
+                }),
+          };
+          applyOrbit(
+            camera,
+            target.current,
+            camera.position.distanceTo(target.current),
+            angles.current,
+          );
+        }
+        moved();
+      },
+      zoom(factor) {
+        manual();
+        const distance = Math.max(
+          0.000001,
+          Math.min(Math.max(20, length * 20), camera.position.distanceTo(target.current) * factor),
+        );
+        applyOrbit(camera, target.current, distance, angles.current);
+        moved();
+      },
+    };
+  });
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const pointers = new Map<number, { x: number; y: number; kind: string }>();
+    const down = (event: PointerEvent) => {
+      if (event.button > 2) return;
+      handlers.current.begin();
+      pointers.set(event.pointerId, {
+        x: event.clientX,
+        y: event.clientY,
+        kind: event.altKey
+          ? 'roll'
+          : event.button === 2 || event.shiftKey || event.ctrlKey
+            ? 'pan'
+            : 'orbit',
+      });
+      canvas.setPointerCapture(event.pointerId);
+    };
+    const move = (event: PointerEvent) => {
+      const previous = pointers.get(event.pointerId);
+      if (!previous) return;
+      const old = [...pointers.values()];
+      const oldDistance =
+        old.length === 2 ? Math.hypot(old[0].x - old[1].x, old[0].y - old[1].y) : 0;
+      const dx = event.clientX - previous.x,
+        dy = event.clientY - previous.y;
+      if (dx === 0 && dy === 0) return;
+      previous.x = event.clientX;
+      previous.y = event.clientY;
+      if (pointers.size === 2) {
+        const next = [...pointers.values()];
+        const nextDistance = Math.hypot(next[0].x - next[1].x, next[0].y - next[1].y);
+        handlers.current.move(dx / 2, dy / 2, 'pan');
+        if (oldDistance > 0 && nextDistance > 0) handlers.current.zoom(oldDistance / nextDistance);
+      } else handlers.current.move(dx, dy, previous.kind);
+    };
+    const up = (event: PointerEvent) => {
+      pointers.delete(event.pointerId);
+      if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+    };
+    const wheel = (event: WheelEvent) => {
+      event.preventDefault();
+      handlers.current.zoom(Math.exp(Math.max(-1, Math.min(1, event.deltaY * 0.001))));
+    };
+    const context = (event: Event) => event.preventDefault();
+    const priorTouchAction = canvas.style.touchAction;
+    canvas.style.touchAction = 'none';
+    canvas.addEventListener('pointerdown', down);
+    canvas.addEventListener('pointermove', move);
+    canvas.addEventListener('pointerup', up);
+    canvas.addEventListener('pointercancel', up);
+    canvas.addEventListener('lostpointercapture', up);
+    canvas.addEventListener('wheel', wheel, { passive: false });
+    canvas.addEventListener('contextmenu', context);
+    return () => {
+      canvas.style.touchAction = priorTouchAction;
+      canvas.removeEventListener('pointerdown', down);
+      canvas.removeEventListener('pointermove', move);
+      canvas.removeEventListener('pointerup', up);
+      canvas.removeEventListener('pointercancel', up);
+      canvas.removeEventListener('lostpointercapture', up);
+      canvas.removeEventListener('wheel', wheel);
+      canvas.removeEventListener('contextmenu', context);
+      pointers.clear();
+    };
+  }, [gl]);
+  return null;
 }
 
 function Markers({ length, mass }: { length: number; mass: MassSample | null }) {
@@ -455,12 +686,16 @@ export function Viewer({
   burn,
   onBurnChange,
   overlay,
+  selectionIds: suppliedSelectionIds,
+  presentationGroupId = null,
 }: {
   vehicle: InspectionDocument;
   mass: MassSample | null;
   burn: number;
   onBurnChange: (burn: number) => void;
   overlay?: ViewOverlay;
+  selectionIds?: string[];
+  presentationGroupId?: string | null;
 }) {
   const group = useRef<Group>(null);
   const meshBounds = useRef(new Map<string, RecordedMeshBounds>());
@@ -469,6 +704,13 @@ export function Viewer({
   const [loadedIds, setLoadedIds] = useState<string[]>([]);
   const [meshErrors, setMeshErrors] = useState<string[]>([]);
   const [cameraCommand, setCameraCommand] = useState<CameraCommand | null>(null);
+  const [cameraReadout, setCameraReadout] = useState<OrbitReadout>({
+    azimuth: 45,
+    tilt: 54.7356,
+    roll: 0,
+    mode: 'Overview',
+    target: 'assembly',
+  });
   const [framingGuide, setFramingGuide] = useState(false);
   const [canvasElement, setCanvasElement] = useState<HTMLDivElement | null>(null);
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
@@ -496,8 +738,6 @@ export function Viewer({
   const hideParts = useInspection((s) => s.hideParts);
   const showAll = useInspection((s) => s.showAll);
   const resetCamera = useInspection((s) => s.resetCamera);
-  const focusPart = useInspection((s) => s.focusPart);
-  const cameraView = useInspection((s) => s.cameraView);
   const setCameraView = useInspection((s) => s.setCameraView);
   const ghostShell = useInspection((s) => s.ghostShell);
   const toggleGhostShell = useInspection((s) => s.toggleGhostShell);
@@ -512,12 +752,26 @@ export function Viewer({
   const isolatedFrom = useInspection((s) => s.isolatedFrom);
   const length = scalar(vehicle.summary.length_m) || vehicle.geometry?.length_m || 1;
   const geometry = inspectionGeometryPresentation(vehicle);
+  const presentation = useMemo(() => getRp1Presentation(vehicle), [vehicle]);
+  const openedGroupLabel = presentation?.groups.find(
+    (item) => item.id === presentationGroupId,
+  )?.label;
   const overallLength = scalar(vehicle.summary.overall_length_m) || length;
+  const displayOffsets = useMemo(
+    () =>
+      new Map(
+        vehicle.parts.map((part) => [
+          part.id,
+          rp1BreakdownOffset(vehicle, part.id, exploded, presentationGroupId),
+        ]),
+      ),
+    [vehicle, exploded, presentationGroupId],
+  );
   const visible = vehicle.parts.filter((part) => !hiddenIds.includes(part.id));
   const unavailable = vehicle.parts.filter((part) => !part.mesh_url).length;
   const onLoaded = useMemo(
-    () => (id: string, bounds: Box3, explodeOffset: Vector3Tuple) => {
-      meshBounds.current.set(id, { bounds: bounds.clone(), explodeOffset });
+    () => (id: string, bounds: Box3, explodeOffset: Vector3Tuple, displayOffset?: Vector3Tuple) => {
+      meshBounds.current.set(id, { bounds: bounds.clone(), explodeOffset, displayOffset });
       setLoadedIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
     },
     [],
@@ -529,6 +783,9 @@ export function Viewer({
   const hasNose = vehicle.parts.some(nose);
   const hasShell = vehicle.parts.some(outerBody);
   const selectedPart = vehicle.parts.find((part) => part.id === selectedId);
+  const cameraSelectionIds = (suppliedSelectionIds ?? (selectedId ? [selectedId] : [])).filter(
+    (id) => vehicle.parts.some((part) => part.id === id && part.mesh_url),
+  );
   const statusInTools = !!layout && !overlay;
   const fitReadout = (
     <p className="revamp-fit-status" role="status">
@@ -576,17 +833,18 @@ export function Viewer({
         </button>
         <button
           onClick={() => {
-            if (!selectedId) return;
+            if (!cameraSelectionIds.length) return;
             if (section) toggleSection();
-            focusPart(selectedId);
+            hideParts(hiddenIds.filter((id) => !cameraSelectionIds.includes(id)));
+            commandCamera('frame-selection');
           }}
-          disabled={!selectedPart?.mesh_url}
-          title="Frame this part only; reveal it and clear section clipping if necessary (F)"
+          disabled={!cameraSelectionIds.length}
+          title="Frame the selected group or part; reveal its geometry and clear section clipping if necessary"
         >
           <Icon name="target" />{' '}
           {selectedId && (hiddenIds.includes(selectedId) || section)
             ? 'Show and frame'
-            : 'Frame part'}
+            : 'Frame selection'}
         </button>
         <button onClick={() => commandCamera('zoom-in')} aria-label="Zoom in">
           +
@@ -620,7 +878,7 @@ export function Viewer({
               <button
                 key={view.id}
                 title={view.description}
-                aria-pressed={cameraView === view.id}
+                aria-pressed={cameraReadout.mode === view.label}
                 onClick={() => setCameraView(view.id)}
               >
                 {view.label}
@@ -702,6 +960,10 @@ export function Viewer({
                       analysisMode={!!overlay}
                       overlayColor={overlay?.partColors[part.id]}
                       baseOpacity={overlay?.baseOpacity}
+                      displayOffset={displayOffsets.get(part.id) ?? undefined}
+                      groupHighlighted={
+                        !!presentationGroupId && !selectedId && cameraSelectionIds.includes(part.id)
+                      }
                     />
                   </Suspense>
                 </MeshBoundary>
@@ -724,6 +986,13 @@ export function Viewer({
             visibleIds={visible.filter((part) => part.mesh_url).map((part) => part.id)}
             exploded={exploded}
             onStatus={setFitStatus}
+            onReadout={setCameraReadout}
+            selectionIds={cameraSelectionIds}
+            selectionLabel={
+              selectedPart ? partName(selectedPart) : (openedGroupLabel ?? 'Selected geometry')
+            }
+            groupSelected={!!presentationGroupId && !selectedId}
+            presentationGroupId={presentationGroupId}
           />
           <GizmoHelper alignment="bottom-right" margin={[65, 65]}>
             <GizmoViewport
@@ -733,6 +1002,66 @@ export function Viewer({
             />
           </GizmoHelper>
         </Canvas>
+        <InspectionTools>
+          {!overlay && geometry.sourceDerived && (
+            <div className="inspection-display-shortcuts">
+              <div role="group" aria-label="Assembly display mode">
+                <button
+                  aria-pressed={exploded === 0 && !section}
+                  onClick={() => restoreAssembledInspection(useInspection.getState())}
+                >
+                  Assembled
+                </button>
+                <button
+                  aria-pressed={exploded > 0}
+                  disabled={!presentation}
+                  onClick={() => {
+                    if (section) toggleSection();
+                    setExploded(1);
+                    commandCamera(cameraSelectionIds.length ? 'frame-selection' : 'fit-assembly');
+                  }}
+                >
+                  Breakdown
+                </button>
+                <button
+                  aria-pressed={section}
+                  onClick={() => {
+                    setExploded(0);
+                    if (!section) toggleSection();
+                  }}
+                >
+                  Section
+                </button>
+              </div>
+              <details>
+                <summary>How breakdown works</summary>
+                <p>
+                  {!presentation
+                    ? 'Breakdown unavailable: exact source-pinned presentation metadata is missing.'
+                    : `Display separation: first half separates six functional groups; second half opens ${openedGroupLabel ?? 'no detailed group — select a functional group in Parts to open it'}. Display illustration only; no manufactured clearance or physical assembly sequence is implied.`}
+                </p>
+              </details>
+            </div>
+          )}
+        </InspectionTools>
+        <OrbitCameraControls
+          readout={cameraReadout}
+          canTargetSelection={cameraSelectionIds.length > 0}
+          selectionLabel={
+            selectedPart ? partName(selectedPart) : (openedGroupLabel ?? 'Selected group / part')
+          }
+          onAngles={(angles) =>
+            setCameraCommand((previous) => ({
+              id: (previous?.id ?? 0) + 1,
+              kind: 'angles',
+              angles,
+            }))
+          }
+          onTarget={(target) =>
+            commandCamera(target === 'selection' ? 'target-selection' : 'target-assembly')
+          }
+          onPan={(direction) => commandCamera(`pan-${direction}`)}
+        />
         {framingGuide && canvasSize.width > 0 && canvasSize.height > 0 && (
           <div
             className="inspection-framing-guide"
@@ -852,8 +1181,17 @@ export function Viewer({
             <button onClick={showAll} disabled={!hiddenIds.length}>
               Show all
             </button>
-            {selectedId && (
+            {isolatedFrom && (
+              <button onClick={exitIsolate}>Exit isolation · restore prior visibility</button>
+            )}
+            {selectedId && !isolatedFrom && (
               <button
+                disabled={!isolatedFrom && !selectedPart?.mesh_url}
+                title={
+                  !selectedPart?.mesh_url
+                    ? 'Isolate unavailable: this source record has no mesh.'
+                    : undefined
+                }
                 onClick={() =>
                   isolatedFrom
                     ? exitIsolate()
@@ -871,7 +1209,8 @@ export function Viewer({
             <div className="viewport-controls">
               <label className="slider-control">
                 <span>
-                  Exploded view <small>{Math.round(exploded * 100)}%</small>
+                  {geometry.sourceDerived ? 'Staged breakdown' : 'Exploded view'}{' '}
+                  <small>{Math.round(exploded * 100)}%</small>
                 </span>
                 <input
                   aria-label="Exploded view"
@@ -884,7 +1223,9 @@ export function Viewer({
                 />
                 <span className="slider-labels">
                   <small>Assembled</small>
-                  <small>Exploded</small>
+                  <small>
+                    {geometry.sourceDerived ? 'Groups → selected group detail' : 'Exploded'}
+                  </small>
                 </span>
               </label>
               {!geometry.sourceDerived && (

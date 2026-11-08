@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
-from src.api import rp1_geometry, rp1_inspection
+from src.api import rp1_geometry, rp1_inspection, rp1_presentation
 
 
 def build(root: Path) -> dict[str, Any]:
@@ -21,6 +21,7 @@ def build(root: Path) -> dict[str, Any]:
             "mesh_parts": 0,
             "complete_installed_geometry": False,
         }
+        rp1_presentation.attach(document, root, None)
         return document
     document["identity"]["inspection_geometry_sha256"] = geometry["identity"][
         "inspection_geometry_sha256"
@@ -73,4 +74,5 @@ def build(root: Path) -> dict[str, Any]:
                 f"/api/design/{rp1_inspection.ID}/inspection-mesh/{part['id']}?{query}"
             )
             part["color"] = "#89bdcf" if row["maturity"] == "source_dimensioned" else "#d5ac76"
+    rp1_presentation.attach(document, root, geometry)
     return document

@@ -41,3 +41,33 @@ test('switching designs clears display modes and focus so candidate settings do 
   assert.equal(state().markers, true);
   assert.equal(state().exploded, 0);
 });
+
+test('meshless selection cannot isolate or frame away all source solids', () => {
+  const state = () => useInspection.getState();
+  state().resetVehicle();
+  state().setAvailableMeshes(['tube', 'motor']);
+  state().hideParts(['tube']);
+  state().select('kevlar_allowance');
+  const token = state().resetToken;
+  state().isolate('kevlar_allowance', ['tube', 'motor', 'kevlar_allowance']);
+  state().focusPart('kevlar_allowance');
+  assert.equal(state().selectedId, 'kevlar_allowance');
+  assert.deepEqual(state().hiddenIds, ['tube']);
+  assert.equal(state().isolatedFrom, null);
+  assert.equal(state().resetToken, token);
+});
+
+test('group isolation preserves and restores previous visibility, meshless group is a no-op', () => {
+  const state = () => useInspection.getState();
+  state().resetVehicle();
+  state().setAvailableMeshes(['tube', 'motor', 'ring']);
+  state().hideParts(['ring']);
+  state().selectGroup('motor_retention', ['motor', 'ring', 'adhesive']);
+  state().isolateGroup(['motor', 'ring', 'adhesive']);
+  assert.deepEqual(state().hiddenIds, ['tube']);
+  state().exitIsolate();
+  assert.deepEqual(state().hiddenIds, ['ring']);
+  state().isolateGroup(['adhesive']);
+  assert.deepEqual(state().hiddenIds, ['ring']);
+  assert.equal(state().isolatedFrom, null);
+});

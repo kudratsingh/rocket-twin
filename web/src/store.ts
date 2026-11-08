@@ -3,7 +3,11 @@ import type { InspectionView } from './components/inspectionGeometry';
 
 interface InspectionState {
   selectedId: string | null;
+  selectionToken: number;
   hoveredId: string | null;
+  selectedGroupId: string | null;
+  selectedGroupPartIds: string[];
+  availableMeshIds: string[] | null;
   hiddenIds: string[];
   isolatedFrom: string[] | null;
   exploded: number;
@@ -17,6 +21,9 @@ interface InspectionState {
   focusId: string | null;
   resetToken: number;
   select: (id: string | null) => void;
+  setAvailableMeshes: (ids: string[]) => void;
+  selectGroup: (id: string, ids: string[]) => void;
+  isolateGroup: (ids: string[]) => void;
   hover: (id: string | null) => void;
   togglePart: (id: string) => void;
   isolate: (id: string, allIds: string[]) => void;
@@ -38,7 +45,11 @@ interface InspectionState {
 
 export const useInspection = create<InspectionState>((set) => ({
   selectedId: null,
+  selectionToken: 0,
   hoveredId: null,
+  selectedGroupId: null,
+  selectedGroupPartIds: [],
+  availableMeshIds: null,
   hiddenIds: [],
   isolatedFrom: null,
   exploded: 0,
@@ -51,7 +62,25 @@ export const useInspection = create<InspectionState>((set) => ({
   cameraAction: 'reset',
   focusId: null,
   resetToken: 0,
-  select: (selectedId) => set({ selectedId }),
+  select: (selectedId) =>
+    set((s) => ({ selectedId, selectionToken: s.selectionToken + (selectedId ? 1 : 0) })),
+  setAvailableMeshes: (availableMeshIds) => set({ availableMeshIds }),
+  selectGroup: (selectedGroupId, selectedGroupPartIds) =>
+    set((s) => ({
+      selectedGroupId,
+      selectedGroupPartIds,
+      selectedId: null,
+      selectionToken: s.selectionToken + 1,
+    })),
+  isolateGroup: (ids) =>
+    set((s) => {
+      const supported = ids.filter((id) => s.availableMeshIds?.includes(id));
+      if (!supported.length || !s.availableMeshIds) return {};
+      return {
+        isolatedFrom: s.isolatedFrom ?? [...s.hiddenIds],
+        hiddenIds: s.availableMeshIds.filter((id) => !supported.includes(id)),
+      };
+    }),
   hover: (hoveredId) => set({ hoveredId }),
   togglePart: (id) =>
     set((s) => ({
@@ -60,10 +89,14 @@ export const useInspection = create<InspectionState>((set) => ({
         : [...s.hiddenIds, id],
     })),
   isolate: (id, allIds) =>
-    set((s) => ({
-      isolatedFrom: s.isolatedFrom ?? [...s.hiddenIds],
-      hiddenIds: allIds.filter((item) => item !== id),
-    })),
+    set((s) => {
+      const meshIds = s.availableMeshIds ?? allIds;
+      if (!meshIds.includes(id)) return {};
+      return {
+        isolatedFrom: s.isolatedFrom ?? [...s.hiddenIds],
+        hiddenIds: meshIds.filter((item) => item !== id),
+      };
+    }),
   exitIsolate: () => set((s) => ({ hiddenIds: s.isolatedFrom ?? s.hiddenIds, isolatedFrom: null })),
   hideParts: (ids) => set((s) => ({ hiddenIds: [...new Set([...s.hiddenIds, ...ids])] })),
   showAll: () => set({ hiddenIds: [], isolatedFrom: null }),
@@ -81,13 +114,18 @@ export const useInspection = create<InspectionState>((set) => ({
       resetToken: s.resetToken + 1,
     })),
   focusPart: (focusId) =>
-    set((s) => ({
-      focusId,
-      cameraAction: 'focus',
-      selectedId: focusId,
-      hiddenIds: s.hiddenIds.filter((id) => id !== focusId),
-      resetToken: s.resetToken + 1,
-    })),
+    set((s) =>
+      s.availableMeshIds && !s.availableMeshIds.includes(focusId)
+        ? {}
+        : {
+            focusId,
+            selectionToken: s.selectionToken + 1,
+            cameraAction: 'focus',
+            selectedId: focusId,
+            hiddenIds: s.hiddenIds.filter((id) => id !== focusId),
+            resetToken: s.resetToken + 1,
+          },
+    ),
   fitVisible: () =>
     set((s) => ({ focusId: null, cameraAction: 'fit', resetToken: s.resetToken + 1 })),
   resetCamera: () =>
@@ -99,6 +137,10 @@ export const useInspection = create<InspectionState>((set) => ({
     })),
   resetVehicle: () =>
     set((s) => ({
+      selectionToken: 0,
+      selectedGroupId: null,
+      selectedGroupPartIds: [],
+      availableMeshIds: null,
       selectedId: null,
       hoveredId: null,
       hiddenIds: [],

@@ -1,7 +1,11 @@
 import { Box3, Vector3 } from 'three';
 import type { Vector3Tuple } from '../types';
 
-export type RecordedMeshBounds = { bounds: Box3; explodeOffset: Vector3Tuple };
+export type RecordedMeshBounds = {
+  bounds: Box3;
+  explodeOffset: Vector3Tuple;
+  displayOffset?: Vector3Tuple;
+};
 
 /** Actual loaded mesh bounds only, including explicitly labeled inspection envelopes.
  * Source records without meshes never contribute inferred bounds or placeholder solids.
@@ -22,14 +26,18 @@ export function inspectionSceneBounds(
       ![
         ...record.bounds.min.toArray(),
         ...record.bounds.max.toArray(),
-        ...record.explodeOffset,
+        ...(record.displayOffset ?? record.explodeOffset),
       ].every(Number.isFinite)
     )
       continue;
     bounds.union(
       record.bounds
         .clone()
-        .translate(new Vector3(...record.explodeOffset).multiplyScalar(exploded)),
+        .translate(
+          record.displayOffset
+            ? new Vector3(...record.displayOffset)
+            : new Vector3(...record.explodeOffset).multiplyScalar(exploded),
+        ),
     );
     available += 1;
   }

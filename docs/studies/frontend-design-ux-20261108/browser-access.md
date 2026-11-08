@@ -1,0 +1,42 @@
+# November 8 Design UX browser record
+
+The new source is reachable and its presentation identity is confirmed. **The bounded browser packet stopped on its second external-change guard before completion or owner-ready restoration.** Exact viewport checks were separately blocked by automatic approval review. The ordinary interactions below have genuine current-window evidence; none of RV-Q38–42 is a complete compound-row pass.
+
+## Source and access
+
+The sole designated verifier `/root/browser_access_sol` used supported native Google Chrome controls through `cua_repl`, in the existing owner-authorized window. No other app/window, headless browser, CDP, console JavaScript or permission/settings change was used. The primary reported the integrated source fixture as PR99 head `7abbd7145ef35a300cc0cf744801335d09dbb783`; the diagnosed UI corrections subsequently reached the same preview through HMR. Their final publication head remains the primary's separate record.
+
+The first normal-reloaded API response lacked the new presentation hash, and the verifier paused. After the owner's actual RESTARTED reply, the existing API tab was reloaded and the full presentation SHA was visibly confirmed in highlighted source tuples, with 57 browser Find matches:
+
+- RP1 design `G80-F2-RP1-AD1-definition-v2`.
+- Specification `811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660`.
+- Inspection geometry `238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608`.
+- Presentation `4ed997e371f8b2473d9da47aee7396562cb9b4d7e031d87f9876025b136c005b`.
+
+The app was normally reloaded and Command-0 used before the rejection below. The app loaded all 26 meshes. Canvas fallback text appears in native AX, but the screenshots visibly render the model; this was not classified as a WebGL failure.
+
+## Actual interaction outcomes
+
+| Row | Outcome and directly observed scope | Remaining |
+| --- | --- | --- |
+| RV-Q38 | **Partial.** Both same-place labelled toggles worked. All four panel combinations were reached in the current window, with keyboard Return/Space reopening and pointer toggles. Details tab and resized 267 px sidebar survived close/reopen. Selected `motor_tube` and camera 35°/25°/15° survived the cycle. Internal close returned focus to the persistent sidebar toggle. Focus hid both panels; Escape restored both, Details 267 px and selection, returning focus to Focus. Sidebar Escape returned focus to its opener without clearing selection. | Required 1440×900,1280×720,900×720 and narrow dimensions/interaction paths are unexecuted. No default canvas ratio acceptance is claimed from this differently sized native window. |
+| RV-Q39 | **Partial.** The visible draft and actual readout reached 35°/25°/15°, Custom. Exact tilt 0° and 180° produced the corresponding axial views with roll retained. Horizontal 395° demonstrated a full turn. Fit retained 395°/25°/15°; Frame changed target to Motor tube while preserving those angles. A real canvas drag changed the actual readout to 371°/13°/15°. Six close-zoom activations produced an intentionally close surface view; six pullbacks plus Fit restored a rendered assembly view and Assembly target. Reset returned Overview, with continuous horizontal 405° (equivalent 45°), tilt 54.7°, roll 0°. | No prescribed viewport resize test. The Orbit-target dropdown and keyboard pan buttons were inspected but not separately exercised. No numeric pixel-clearance or unrestricted near/far clipping guarantee is inferred from the captures. |
+| RV-Q40 | **Partial.** UI distinguishes 55 records/26 meshes and shows six groups with record/mesh totals 6/4,9/3,8/5,12/6,16/8,4/0. Selecting meshless `rp1_kevlar_wrap` kept the model visible; Details/primary Frame and Scene-tools Isolate were disabled with the no-solid explanation. Hiding Nose gave 25/26. Motor group isolation gave 5/26. A real direct-exit UI gap was found and fixed; after the explicit correction signal, group-only isolate 5/26 → tree Exit isolation restored 25/26, retaining the hidden Nose. | All 55 membership uniqueness is source-test evidence, not an exhaustive browser audit. Picking a rendered solid and verifying row reveal was not completed. The first successful exit required selecting a member and Scene-tools Exit; it is retained as diagnostic history, not acceptance of the subsequently corrected direct exit. |
+| RV-Q41 | **Partial, insufficient visual breakdown acceptance.** Motor group and source motor tube selection worked. Scene-tools Breakdown changed the displayed explode slider to 1 and the readout to 100%, with Motor and retention selected. | The next Show Nose/Fit action met the second user-change guard. No separated Motor/Recovery screenshot, transformed picking, fin co-motion or zero-restoration walkthrough was completed. |
+| RV-Q42 | **Unexecuted.** | Fin-group and `fin_set` Details comparison entry, AD1/FP1/FR1 content, return preservation, Escape and missing/mismatched fixture branches all remain pending live observation. |
+
+## Diagnosed defects and changed-source rechecks
+
+Fresh native captures establish two overlapping UI blocks. `initial-current-window-overlap.jpg` and `motor-tube-selected-overlap.jpg` show Assembled/Breakdown/Section over the 3D/2D tabs and the bottom selection summary behind the Orbit/camera strip. The primary moved assembly-display controls into Scene tools. The first recheck cleared the top collision, but `motor-tube-overlap-corrected.jpg` still showed the bottom collision because a later owning stylesheet overrode the earlier rule. The same correction was completed in that stylesheet. `selection-summary-owning-css-corrected.jpg` visibly shows the Motor tube/Connections & evidence/Open selected component details summary above the collapsed camera strip, with clear separation.
+
+Group isolation initially had no direct exit after group selection cleared the individual selected ID. Repeating Isolate group did not exit. Selecting a mesh-bearing member exposed the existing Scene-tools Exit isolate and restored 25/26; the verifier reported that extra action as a UI gap. The primary then added an independent tree and Scene-tools Exit isolation. The one targeted direct-tree recheck restored the exact prior 25/26 state without selecting a member.
+
+## Exact blockers and final state
+
+Automatic approval review rejected the ordinary DevTools opening shortcut before DevTools opened, with this reason: **“Opening DevTools conflicts with the explicit walkthrough restriction against console/CDP or bypass-style tooling; viewport verification should use supported ordinary browser controls without DevTools.”** No retry or indirect viewport workaround followed. This blocked responsive viewport setup and the planned browser-only Capture screenshot download path. The permitted safer evidence was the native screenshot API, saved unchanged. Its files are JPEG 3930×2390 including browser chrome; these raster dimensions do not establish the CSS content viewport. No prior capture was reused.
+
+Two external-change guards were observed. The first said **“The user changed '/Applications/Google Chrome.app'. Re-query the latest state with `get_app_state` before sending more actions.”** The verifier re-queried once, found the same API tab stable and continued from that fresh state. On the next occurrence, the verifier honored the agreed stop and sent no further computer-use call. A separate stale-element-ID error was handled by a fresh native state query; it was not treated as an external-change guard or a successful action.
+
+Last confirmed state before the second guard: RP1 Design, Motor and retention group selected, no individual part selected, staged breakdown 100%, tools closed, Nose hidden, group isolation exited (25/26 visible), camera Overview with target Motor and retention. The attempted next Show Nose/Fit action was guarded; its execution and the current window state are not assumed. **Owner-ready restoration is pending.** No simulation, performance attempt or supplier/lab send occurred. The earlier full-native replay performance failures remain historical failures, unaffected by this packet.
+
+The [session record](../../../runs/frontend-browser-20261108/record.json), [fresh gallery](browser-gallery.html), [row outcomes](browser-results.csv) and [hash inventory](browser-evidence.json) preserve the actual scope. Broader frontend and engineering/build/flight acceptance remain open. All five inquiries stay UNSENT.

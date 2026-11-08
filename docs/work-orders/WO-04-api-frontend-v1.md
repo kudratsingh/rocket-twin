@@ -1,5 +1,8 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+**Bounded November 8 correction:** implement [the owner Design review](../studies/frontend-design-ux-20261108/owner-review.md), tracked as RV-22–25 and RV-Q38–42. Keep the exact AD1 v2 source/geometry, meshless-record safety, functional grouping, actual camera readout and unadopted schematic alternatives explicit. New browser observations are required for this interaction increment; prior screenshots and numerical camera checks cannot close it. No engineering, prototype-build or flight gate changes.
+
+
 **November 7 preview closeout:** [Actual release evidence](../frontend-release-20261107.md)
 records source-derived RP1 inspection, live interactions and pixel-measured
 layout/Side fit. The 55 inspection records classify 26 mesh-bearing records,
