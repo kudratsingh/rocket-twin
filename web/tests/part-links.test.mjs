@@ -158,3 +158,32 @@ test('configuration switch clears source-specific part, revision, connection and
   assert.equal(same.searchParams.get('part'), 'fin_tabs');
   assert.equal(same.searchParams.get('spec'), SPEC);
 });
+
+test('invalid part links recover to the exact source overview and permit a new valid selection', () => {
+  const document = source();
+  const frozen = JSON.stringify(document);
+  for (const workspace of ['design', 'analysis']) {
+    for (const bad of [
+      `/?workspace=${workspace}&design=${AD1}&spec=${'0'.repeat(64)}&part=body`,
+      `/?workspace=${workspace}&design=${AD1}&spec=${SPEC}&part=missing-part`,
+      `/?workspace=${workspace}&design=${AD1}&spec=${SPEC}&spec=${SPEC}&part=body&cad=stale`,
+    ]) {
+      const original = `${bad}&experiment=modular-performance-v1&run=saved-run#evidence`;
+      assert.equal(readPartLink(url(original).search, document).part, null);
+      assert.match(readPartLink(url(original).search, document).notice, /unavailable/);
+      const recovered = url(partHref(original, document, null, workspace));
+      assert.deepEqual(readPartLink(recovered.search, document), { part: null, notice: null });
+      assert.equal(recovered.searchParams.get('workspace'), workspace);
+      assert.equal(recovered.searchParams.get('design'), AD1);
+      assert.deepEqual(recovered.searchParams.getAll('spec'), [SPEC]);
+      assert.equal(recovered.searchParams.has('part'), false);
+      assert.equal(recovered.searchParams.has('cad'), false);
+      assert.equal(recovered.searchParams.get('experiment'), 'modular-performance-v1');
+      assert.equal(recovered.searchParams.get('run'), 'saved-run');
+      assert.equal(recovered.hash, '#evidence');
+      const next = url(partHref(recovered.href, document, 'fin_tabs', workspace));
+      assert.deepEqual(readPartLink(next.search, document), { part: 'fin_tabs', notice: null });
+      assert.equal(JSON.stringify(document), frozen);
+    }
+  }
+});

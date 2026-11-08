@@ -1,0 +1,97 @@
+{
+  "schema_version": "rocket-twin.owner-window-resize.20261108.v1",
+  "status": "supported_window_resize_observed_exact_target_unmet",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "cap_active_s": 180,
+    "actual_active_s": 90.054,
+    "basis": "CUA Date.now from documentation refresh through final native screenshot"
+  },
+  "authorization": "New explicit owner instruction to adjust existingChrome window; primaryboundedhandoff; no bypass/otherwindow/runtime.",
+  "documentation": {
+    "refreshed": true,
+    "relevant_supported_api": [
+      "App.getAXState(options)",
+      "App.getScreenshot(options)",
+      "App.click(index|[x,y],options)",
+      "App.drag([x,y],[x,y])",
+      "App.pressKey(key,options)"
+    ],
+    "bounds_setter": "None in returned documented API",
+    "native_app_content_only_restriction": "No such restriction stated for nativeApp; DOM-onlyTab caveat separate."
+  },
+  "source_context": {
+    "app": "Google Chrome",
+    "window_title": "Rocket Twin \u00b7 Vehicle inspection",
+    "url": "127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&verifyViewport=1",
+    "native_window_id": "Not exposed in returnedAX;0isaccessibilityindex",
+    "other_tabs": "Two same-titleRocketTwin tabs observed in samewindow; no tab switch/newtab action by agent.",
+    "source_mutations": 0
+  },
+  "observed_controls": {
+    "initial_ax": "Native menu bar included Window atindex551",
+    "window_menu": [
+      "Minimize",
+      "Zoom (IDperformZoom:)",
+      "Fill",
+      "Center",
+      "Move & Resize\u2192Halves/Quarters/Arrange",
+      "Full Screen Tile",
+      "Move to LC27T55"
+    ],
+    "exact_numeric_size_entry": "Not present in observedWindow menu",
+    "no_assumption": "Did not infer fullscreen state or guess any keyboard toggle/edge coordinate."
+  },
+  "action": {
+    "path": "macOSnativeWindow\u2192Zoom",
+    "menu_clicks": 1,
+    "zoom_item_clicks": 1,
+    "window_action_identifier": "performZoom:",
+    "chrome_page_zoom_changed": false,
+    "window_action_scope": "Observed ordinary window-sizing command in authorizedChrome app; not pagezoom/DevTools."
+  },
+  "viewport": {
+    "before_css": [
+      1965,
+      1074
+    ],
+    "after_css": [
+      2240,
+      1109
+    ],
+    "dpr_before": 2,
+    "dpr_after": 2,
+    "target_css": [
+      1440,
+      900
+    ],
+    "target_reached": false,
+    "basis": "ActualContentarea text from app-ownedverifyViewport=1helper in freshAX; afterJPEGalso shows readout",
+    "browser100percent_zoom": "Not independently confirmed/reset in this packet",
+    "raster_after": [
+      4480,
+      2460
+    ],
+    "css_not_inferred_from_raster": true
+  },
+  "stop": "One supported ordinary window-sizing action worked, but exact1440\u00d7900notestablished. Perexplicitpacketinstruction preservebefore/after andstopwithoutmethodcascade/falseexactpass.",
+  "actions_not_taken": {
+    "drag": 0,
+    "fullscreen_toggle": 0,
+    "cmd0": 0,
+    "bounds_api": 0,
+    "devtools": 0,
+    "console_or_cdp": 0,
+    "shell_osautomation": 0,
+    "other_window_app_interaction": 0,
+    "source_or_simulation_changes": 0,
+    "P5_responsive_case_actions": 0
+  },
+  "guards": {
+    "automatic_rejection": 0,
+    "user_change_guard": 0,
+    "access_error": 0
+  },
+  "final_state": "SameRP1Design/currentCustomcamera30.3/72.1/0Assembly;helpervisible;Chrome actualCSS2240\u00d71109;noP5started. CUAidle.",
+  "capability_conclusion": "Ordinary native window sizing demonstrably works through identifiedmacOSWindowZoom. Exactnumericboundscontrol is not exposed/documented, and no reliableexacttarget action was established in thispacket. Earlieredge-unclearpacket remains historical, notproofresizeimpossible."
+}
