@@ -6,7 +6,7 @@
   "source_ledger_updated_date": "2026-11-08",
   "check_matrix": "docs/frontend-revamp-acceptance.csv",
   "thresholds": "Proposed for revamp. Prior evidence remains attributed to its recorded implementation slice.",
-  "browser_status": "nov8_current_window_partial_guard_stop_exact_viewports_blocked",
+  "browser_status": "supported_designated_current_window_partial; exact_viewport_method_remains_blocked",
   "tasks": [
     {
       "id": "RV-01",
@@ -20,8 +20,8 @@
         "FT-002"
       ],
       "source_ledger_status": {
-        "FT-001": "partial",
-        "FT-002": "partial"
+        "FT-001": "complete",
+        "FT-002": "complete"
       },
       "source_paths": [
         "web/src/App.tsx",
@@ -60,9 +60,9 @@
         "FT-018"
       ],
       "source_ledger_status": {
-        "FT-003": "partial",
-        "FT-005": "planned",
-        "FT-018": "partial"
+        "FT-003": "complete",
+        "FT-005": "complete",
+        "FT-018": "complete"
       },
       "source_paths": [
         "src/api/experiments.py",
@@ -99,7 +99,7 @@
         "FT-004"
       ],
       "source_ledger_status": {
-        "FT-004": "blocked"
+        "FT-004": "complete"
       },
       "source_paths": [
         "AGENTS.md",
@@ -369,7 +369,7 @@
       "source_ledger_status": {
         "FT-019": "partial",
         "FT-020": "partial",
-        "FT-021": "planned"
+        "FT-021": "partial"
       },
       "source_paths": [
         "web/src/experiments/Experiment.tsx",
@@ -408,8 +408,8 @@
         "FT-023"
       ],
       "source_ledger_status": {
-        "FT-022": "planned",
-        "FT-023": "planned"
+        "FT-022": "partial",
+        "FT-023": "partial"
       },
       "source_paths": [
         "src/api/experiments.py",
@@ -534,9 +534,9 @@
         "FT-029"
       ],
       "source_ledger_status": {
-        "FT-026": "planned",
+        "FT-026": "partial",
         "FT-027": "planned",
-        "FT-029": "planned"
+        "FT-029": "partial"
       },
       "source_paths": [
         "web/src/experiments/Experiment.tsx",
@@ -576,8 +576,8 @@
         "FT-031"
       ],
       "source_ledger_status": {
-        "FT-030": "planned",
-        "FT-031": "planned"
+        "FT-030": "partial",
+        "FT-031": "partial"
       },
       "source_paths": [
         "src/api/app.py",
@@ -619,10 +619,10 @@
         "FT-035"
       ],
       "source_ledger_status": {
-        "FT-032": "planned",
-        "FT-033": "planned",
-        "FT-034": "planned",
-        "FT-035": "planned"
+        "FT-032": "partial",
+        "FT-033": "partial",
+        "FT-034": "partial",
+        "FT-035": "partial"
       },
       "source_paths": [
         "web/src/analysis/AnalysisWorkspace.tsx",
@@ -706,7 +706,7 @@
         "FT-037"
       ],
       "source_ledger_status": {
-        "FT-037": "planned"
+        "FT-037": "deferred"
       },
       "source_paths": [
         "web/src/workspaces/navigation.ts",
@@ -743,7 +743,7 @@
         "FT-038"
       ],
       "source_ledger_status": {
-        "FT-038": "planned"
+        "FT-038": "partial"
       },
       "source_paths": [
         "docs/wo04-inspection-slice-20261103-v3.md",
@@ -795,8 +795,8 @@
         "FT-040"
       ],
       "source_ledger_status": {
-        "FT-039": "planned",
-        "FT-040": "planned"
+        "FT-039": "partial",
+        "FT-040": "partial"
       },
       "source_paths": [
         "docs/frontend-workbench-backlog.md",
@@ -846,7 +846,7 @@
         "FT-041"
       ],
       "source_ledger_status": {
-        "FT-041": "planned"
+        "FT-041": "partial"
       },
       "source_paths": [
         "docs/frontend-workbench-backlog.md"
@@ -884,8 +884,8 @@
         "FT-043"
       ],
       "source_ledger_status": {
-        "FT-042": "planned",
-        "FT-043": "planned"
+        "FT-042": "deferred",
+        "FT-043": "deferred"
       },
       "source_paths": [
         "output/frontend-planning-kit-20261103/09-model-fidelity-and-scope.md",
@@ -1015,18 +1015,20 @@
       "check_ids": [
         "RV-Q42"
       ],
-      "status": "code_complete_browser_pending",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "delivery": "In-context unadopted fin comparison",
       "codeVerified": true,
-      "browserObserved": false,
-      "accepted": false,
+      "browserObserved": true,
+      "accepted": true,
       "evidence": [
         "docs/studies/frontend-design-ux-20261108/report.md",
-        "docs/studies/frontend-design-ux-20261108/browser-results.csv"
+        "docs/studies/frontend-design-ux-20261108/browser-results.csv",
+        "docs/studies/frontend-release-closure-20261108/browser.md",
+        "docs/studies/frontend-pan-20261108/browser.md"
       ],
-      "acceptance_scope": "Display-only exact AD1 v2 correction. New code and designated-browser evidence required; no engineering or physical approval."
+      "acceptance_scope": "Prescribed source/current-window interaction slice accepted; exact viewport, physical device sensitivity, full installed geometry and engineering qualification remain separate. Failed initial observations are retained."
     },
     {
       "id": "RV-26",
@@ -1044,17 +1046,19 @@
       "check_ids": [
         "RV-Q43"
       ],
-      "status": "partial",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "codeVerified": true,
       "browserObserved": true,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         "docs/studies/frontend-interiors-20261108/integrated-observation.md",
-        "docs/studies/frontend-interiors-20261108/integrated-results.csv"
+        "docs/studies/frontend-interiors-20261108/integrated-results.csv",
+        "docs/studies/frontend-release-closure-20261108/browser.md",
+        "docs/studies/frontend-pan-20261108/browser.md"
       ],
-      "acceptance_scope": "Current-window paths observed; exact responsive matrix remains blocked. Final source-only modal ordering/maturity wording not browser accepted. No engineering or physical approval."
+      "acceptance_scope": "Prescribed source/current-window interaction slice accepted; exact viewport, physical device sensitivity, full installed geometry and engineering qualification remain separate. Failed initial observations are retained."
     },
     {
       "id": "RV-27",
@@ -1072,17 +1076,19 @@
       "check_ids": [
         "RV-Q44"
       ],
-      "status": "partial",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "codeVerified": true,
       "browserObserved": true,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         "docs/studies/frontend-interiors-20261108/integrated-observation.md",
-        "docs/studies/frontend-interiors-20261108/integrated-results.csv"
+        "docs/studies/frontend-interiors-20261108/integrated-results.csv",
+        "docs/studies/frontend-release-closure-20261108/browser.md",
+        "docs/studies/frontend-pan-20261108/browser.md"
       ],
-      "acceptance_scope": "Current-window paths observed; exact responsive matrix remains blocked. Final source-only modal ordering/maturity wording not browser accepted. No engineering or physical approval."
+      "acceptance_scope": "Prescribed source/current-window interaction slice accepted; exact viewport, physical device sensitivity, full installed geometry and engineering qualification remain separate. Failed initial observations are retained."
     },
     {
       "id": "RV-28",
@@ -1100,17 +1106,19 @@
       "check_ids": [
         "RV-Q45"
       ],
-      "status": "partial",
+      "status": "complete",
       "optional": false,
       "outside_initial_release": false,
       "codeVerified": true,
       "browserObserved": true,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         "docs/studies/frontend-interiors-20261108/integrated-observation.md",
-        "docs/studies/frontend-interiors-20261108/integrated-results.csv"
+        "docs/studies/frontend-interiors-20261108/integrated-results.csv",
+        "docs/studies/frontend-release-closure-20261108/browser.md",
+        "docs/studies/frontend-pan-20261108/browser.md"
       ],
-      "acceptance_scope": "Current-window paths observed; exact responsive matrix remains blocked. Final source-only modal ordering/maturity wording not browser accepted. No engineering or physical approval."
+      "acceptance_scope": "Prescribed source/current-window interaction slice accepted; exact viewport, physical device sensitivity, full installed geometry and engineering qualification remain separate. Failed initial observations are retained."
     }
   ],
   "source_kit": {
@@ -1130,7 +1138,8 @@
     "browser_verified": false,
     "browser_block": "Original designated Terra runtime ownership not restored; no supported repair operation exposed, no retry/bypass.",
     "resource_budget": "One Design slice: Astra45min+onecorrection; Terra camera30min+onecorrection; read-only assets15min/10CPU20wall; source exporter35min+onecorrection. Primary integrates; no CAD/FEA/flight/thermal run.",
-    "scope": "RV01/04/05/06/07 first inspection, remaining workspaces staged. No purchases/contact/physical tests."
+    "scope": "RV01/04/05/06/07 first inspection, remaining workspaces staged. No purchases/contact/physical tests.",
+    "historical_intake_snapshot": true
   },
-  "updated_date": "2026-11-07"
+  "updated_date": "2026-11-08"
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_date": "2026-11-07",
+  "updated_date": "2026-11-08",
   "scope": "Conservative planning and partial implementation ledger; task acceptance is not inferred from code checks.",
   "source_kit": {
     "path": "output/frontend-planning-kit-20261103",
@@ -27,7 +27,7 @@
       "title": "Record source and configuration identity baseline",
       "owner_role": "primary_integrator",
       "dependencies": [],
-      "status": "partial",
+      "status": "complete",
       "deliverables": [
         "Versioned source/run/CAD inventory",
         "Current-index reconciliation note"
@@ -41,7 +41,7 @@
       "risk": "Current indexes conflict; an incorrect default could silently relabel evidence.",
       "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         {
           "kind": "integrated-code-slice",
@@ -87,8 +87,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Source contract/audit only; does not accept runtime workflows, scientific model fidelity or engineering."
     },
     {
       "id": "FT-002",
@@ -98,7 +104,7 @@
       "dependencies": [
         "FT-001"
       ],
-      "status": "partial",
+      "status": "complete",
       "deliverables": [
         "Page responsibility map",
         "Route, selection and drawer contracts"
@@ -112,7 +118,7 @@
       "risk": "Shared route/state churn can create overlapping edits.",
       "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         {
           "kind": "integrated-code-slice",
@@ -149,8 +155,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Source contract/audit only; does not accept runtime workflows, scientific model fidelity or engineering."
     },
     {
       "id": "FT-003",
@@ -160,7 +172,7 @@
       "dependencies": [
         "FT-001"
       ],
-      "status": "partial",
+      "status": "complete",
       "deliverables": [
         "Channel/frame/unit/phase validity contract",
         "Recovery and event limitations matrix"
@@ -174,7 +186,7 @@
       "risk": "Recorded descent attitude is scientifically limited even when serialized correctly.",
       "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         {
           "kind": "integrated-code-slice",
@@ -201,32 +213,38 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Source contract/audit only; does not accept runtime workflows, scientific model fidelity or engineering."
     },
     {
       "id": "FT-004",
       "phase": "P0",
       "title": "Resolve designated browser runtime prerequisite",
-      "owner_role": "designated_terra_browser_owner",
+      "owner_role": "designated_sol_browser_owner",
       "dependencies": [
         "FT-001"
       ],
-      "status": "blocked",
+      "status": "complete",
       "deliverables": [
         "Runtime ownership status record",
         "Permitted-window verification handoff"
       ],
       "acceptance": [
-        "Only the original designated agent uses the existing Chrome window containing the Atlas Fibre G11 PDF after supported ownership resolution",
+        "Only the currently owner-designated /root/browser_access_sol uses the owner-authorized sole Chrome window and its tabs after supported ownership verification.",
         "Rejection ends the attempt; no retry, headless/CDP or alternate-window bypass"
       ],
       "estimate_class": "S",
       "browser_required": false,
       "risk": "External runtime/approval ownership may remain blocked; code work must continue.",
-      "codeVerified": false,
-      "browserObserved": false,
-      "accepted": false,
+      "codeVerified": true,
+      "browserObserved": true,
+      "accepted": true,
       "evidence": [
         {
           "kind": "recorded-blocker",
@@ -246,8 +264,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Supported same-window native ownership is established. Prior rejected DevTools/viewport methods remain blocked; no blanket runtime acceptance."
     },
     {
       "id": "FT-005",
@@ -258,7 +282,7 @@
         "FT-001",
         "FT-003"
       ],
-      "status": "planned",
+      "status": "complete",
       "deliverables": [
         "Versioned compatible-result manifest contract",
         "Bounded batch request/status persistence contract"
@@ -270,9 +294,9 @@
       "estimate_class": "M",
       "browser_required": false,
       "risk": "A shared schema edited concurrently can invalidate both consumers.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         {
           "kind": "frontend-release-source-disposition",
@@ -282,8 +306,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Source contract/audit only; does not accept runtime workflows, scientific model fidelity or engineering."
     },
     {
       "id": "FT-006",
@@ -344,8 +374,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-007",
@@ -389,8 +425,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-008",
@@ -445,8 +487,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-009",
@@ -516,8 +564,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-010",
@@ -562,8 +616,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-011",
@@ -625,8 +685,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-012",
@@ -688,8 +754,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-013",
@@ -758,8 +830,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-014",
@@ -841,8 +919,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-015",
@@ -907,8 +991,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-016",
@@ -971,9 +1061,15 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
       ],
-      "notes": "Separate F2-C1 source graph, section, local inspector, conditional fits and loaded/burnout tables implemented; native graph/section inspected. Browser interactions and complete task acceptance remain pending."
+      "notes": "Separate F2-C1 source graph, section, local inspector, conditional fits and loaded/burnout tables implemented; native graph/section inspected. Browser interactions and complete task acceptance remain pending.",
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-017",
@@ -1037,8 +1133,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-018",
@@ -1048,7 +1150,7 @@
       "dependencies": [
         "FT-003"
       ],
-      "status": "partial",
+      "status": "complete",
       "deliverables": [
         "Backend-to-render data-flow audit",
         "Phase/channel validity findings and fixtures"
@@ -1060,9 +1162,9 @@
       "estimate_class": "M",
       "browser_required": false,
       "risk": "A visual fix could hide a backend model limitation.",
-      "codeVerified": false,
+      "codeVerified": true,
       "browserObserved": false,
-      "accepted": false,
+      "accepted": true,
       "evidence": [
         "Planning-kit audit: output/frontend-planning-kit-20261103/08-replay-diagnostic.md and fixtures/replay-diagnostic.json; source/record analysis only, no actual Three or browser verification.",
         {
@@ -1090,8 +1192,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Source contract/audit only; does not accept runtime workflows, scientific model fidelity or engineering."
     },
     {
       "id": "FT-019",
@@ -1127,8 +1235,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-020",
@@ -1172,8 +1286,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-021",
@@ -1184,7 +1304,7 @@
         "FT-005",
         "FT-019"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Saved request/status/result references",
         "Actionable run failures and cancellation semantics"
@@ -1208,8 +1328,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-022",
@@ -1219,7 +1345,7 @@
       "dependencies": [
         "FT-021"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Batch manifest and member status",
         "Declared concurrency/storage/cancellation policy"
@@ -1243,8 +1369,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-023",
@@ -1256,7 +1388,7 @@
         "FT-021",
         "FT-022"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Batch setup and progress UI",
         "Filterable run library with failure visibility"
@@ -1280,8 +1412,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-024",
@@ -1326,8 +1464,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-025",
@@ -1390,8 +1534,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-026",
@@ -1402,7 +1552,7 @@
         "FT-012",
         "FT-025"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Follow, pad and free camera modes",
         "Ground/horizon/scale and trajectory presentation"
@@ -1426,8 +1576,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-027",
@@ -1463,8 +1619,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "release_disposition": "Schematic recovery illustration remains unimplemented. Current replay preserves recorded monolithic pose and explains its limitation; no fabricated canopy/separation animation. This presentation feature does not qualify recovery dynamics."
     },
     {
       "id": "FT-028",
@@ -1517,8 +1679,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-029",
@@ -1529,7 +1697,7 @@
         "FT-025",
         "FT-026"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Measured decimation/chunking/render strategy",
         "Performance scenario and instrumentation hooks"
@@ -1553,8 +1721,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-030",
@@ -1598,8 +1772,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-031",
@@ -1610,7 +1790,7 @@
         "FT-019",
         "FT-030"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Allowlisted registered result API",
         "Artifact hash and association validation"
@@ -1634,8 +1814,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-032",
@@ -1647,7 +1833,7 @@
         "FT-014",
         "FT-031"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Analysis case/quantity workspace",
         "Source report and assumptions drawer"
@@ -1671,8 +1857,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-033",
@@ -1683,7 +1875,7 @@
         "FT-031",
         "FT-032"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Stress/displacement/margin visualization",
         "Legends, mesh and deformation controls"
@@ -1707,8 +1899,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-034",
@@ -1719,7 +1917,7 @@
         "FT-031",
         "FT-032"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Thermal case/time/history controls",
         "Source-backed aero curves, scalars or registered fields"
@@ -1743,8 +1941,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-035",
@@ -1756,7 +1960,7 @@
         "FT-033",
         "FT-034"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Case comparison and fixed legend ranges",
         "Coverage/identity/limit comparison evidence"
@@ -1780,8 +1984,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-036",
@@ -1838,8 +2048,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-037",
@@ -1849,7 +2065,7 @@
       "dependencies": [
         "FT-036"
       ],
-      "status": "planned",
+      "status": "deferred",
       "deliverables": [
         "Optional dashboard scope decision",
         "Reusable widget composition if justified"
@@ -1873,20 +2089,26 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "release_disposition": "Optional Mission Control or later fidelity/controlled editing; outside initial read-only frontend release. No automatic authorization for physical changes or new numerical methods."
     },
     {
       "id": "FT-038",
       "phase": "P7",
       "title": "Continuously observe first inspection slice in permitted Chrome",
-      "owner_role": "designated_terra_browser_owner",
+      "owner_role": "designated_sol_browser_owner",
       "dependencies": [
         "FT-004",
         "FT-010",
         "FT-017"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "First-slice exact-head observations and screenshots",
         "Navigation/inspection/focus/WebGL/download defect list and rechecks"
@@ -1910,19 +2132,25 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-039",
       "phase": "P7",
       "title": "Observe experiments batches replay comparison and analysis",
-      "owner_role": "designated_terra_browser_owner",
+      "owner_role": "designated_sol_browser_owner",
       "dependencies": [
         "FT-036",
         "FT-038"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Exact-run end-to-end browser observations",
         "Compatible and unavailable Analysis evidence"
@@ -1946,19 +2174,25 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-040",
       "phase": "P7",
       "title": "Measure representative long-run browser performance",
-      "owner_role": "designated_terra_browser_owner",
+      "owner_role": "designated_sol_browser_owner",
       "dependencies": [
         "FT-029",
         "FT-039"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Host/data/render measurement record",
         "Frame-time and resource observations"
@@ -1982,8 +2216,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-041",
@@ -1995,13 +2235,13 @@
         "FT-039",
         "FT-040"
       ],
-      "status": "planned",
+      "status": "partial",
       "deliverables": [
         "Focused fixes with designated-owner rechecks",
         "Scenario evidence matrix and remaining gates"
       ],
       "acceptance": [
-        "Relevant fixes are rechecked by designated Terra at the resulting head; unobserved scenarios remain pending",
+        "Relevant fixes are rechecked by designated browser owner at the resulting head; unobserved scenarios remain pending",
         "Required checks and real browser observations are distinguished from WO-03/04/05, physical and flight acceptance"
       ],
       "estimate_class": "M",
@@ -2019,8 +2259,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "acceptance_scope": "Implemented source workflows exist; use linked RV checks for exact observed, failed and unexecuted branches. No phase completion inferred from this reconciliation."
     },
     {
       "id": "FT-042",
@@ -2031,7 +2277,7 @@
         "FT-018",
         "FT-030"
       ],
-      "status": "planned",
+      "status": "deferred",
       "deliverables": [
         "Future scientific-question and authorization packet",
         "Model/source/validation/budget alternatives"
@@ -2055,8 +2301,14 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "release_disposition": "Optional Mission Control or later fidelity/controlled editing; outside initial read-only frontend release. No automatic authorization for physical changes or new numerical methods."
     },
     {
       "id": "FT-043",
@@ -2068,7 +2320,7 @@
         "FT-005",
         "FT-013"
       ],
-      "status": "planned",
+      "status": "deferred",
       "deliverables": [
         "Separately authorized parametric editing scope and validation contract",
         "Immutable candidate/spec/CAD/mass/inertia regeneration and evidence invalidation plan"
@@ -2092,14 +2344,20 @@
             "docs/frontend-revamp-acceptance.csv"
           ],
           "scope": "Source workflows/coverage and explicit deferred or blocked runtime status; no task-specific browser or engineering pass inferred."
+        },
+        {
+          "kind": "current-ledger-reconciliation",
+          "file": "docs/studies/frontend-release-closure-20261108/ledger-reconciliation.md",
+          "scope": "Merged PR101\u2013104 and existing source/runtime evidence reconciled; new case results appended separately."
         }
-      ]
+      ],
+      "release_disposition": "Optional Mission Control or later fidelity/controlled editing; outside initial read-only frontend release. No automatic authorization for physical changes or new numerical methods."
     }
   ],
   "implementation_owners": {
-    "complex_workspace": "Astra MEDIUM",
-    "inspection_camera": "Terra HIGH",
-    "replay_bookkeeping": "Terra HIGH",
-    "shared_contracts_engineering_publication": "primary"
-  }
+    "independent_bounded_lanes": "Sol HIGH",
+    "native_browser": "/root/browser_access_sol only",
+    "shared_integration_acceptance": "primary"
+  },
+  "status": "usable_preview_partial_acceptance_followup_in_progress"
 }

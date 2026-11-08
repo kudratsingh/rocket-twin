@@ -1,0 +1,233 @@
+{
+  "session": "frontend-release-closure-20261108",
+  "verifier": "/root/browser_access_sol",
+  "status": "scoped current-window normal cases observed; compound matrix remains partial",
+  "authorization": "Primary approved narrowed360-second Design/Engineering packet after offline plan;Design source frozen",
+  "started_at_utc": "2026-11-08T11:51:37+00:00",
+  "last_capture_at_utc": "2026-11-08T11:57:03.625481+00:00",
+  "elapsed_seconds_to_last_capture": 326.625481,
+  "cap_seconds": 360,
+  "within_cap": true,
+  "source": {
+    "release_pr": 104,
+    "release_head": "a07c9e1fe962a81b576963fd6e092e8ec9db2aaa",
+    "release_merge": "ecd0f74bae33ec3ef019e690ef95c023b92ecbe9",
+    "code_attribution": "Primary release baseline/freeze;not a browser-bundle hash measurement",
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "canonical_resolved_spec_sha256": null,
+    "canonical_cad_revision_sha256": null
+  },
+  "merged_pr_audit": [
+    {
+      "pr": 101,
+      "head": "6a4e58ba70c0a255d019ba0eb62af2c2dc7d57ae",
+      "merge": "dc67185613484bded3d52ee859d9770fbdda07f1"
+    },
+    {
+      "pr": 102,
+      "head": "b29d78326a8f84c5174c0373e20921f9470b906b",
+      "merge": "a6d6a0d171f92e7bc6951019efed9cc692b5a545"
+    },
+    {
+      "pr": 103,
+      "head": "bed95fc25352ea6066ed0b09a47c25ac792c8691",
+      "merge": "907443bf13d81cc07aad143918e61af3e2aad095"
+    },
+    {
+      "pr": 104,
+      "head": "a07c9e1fe962a81b576963fd6e092e8ec9db2aaa",
+      "merge": "ecd0f74bae33ec3ef019e690ef95c023b92ecbe9"
+    }
+  ],
+  "initial_state": {
+    "camera": [
+      438.9,
+      60.9,
+      0
+    ],
+    "target": "Avionics and power",
+    "drag_mode": "Rotate",
+    "part_url": null,
+    "visibility": "23/26 visible onceParts opened;existing interior shell state"
+  },
+  "cases": [
+    {
+      "case": "context-fin-group",
+      "status": "pass_current_window",
+      "actual": "Fins group entry opens preview-first modal;Return restores group,camera438.9/60.9/0,current visibility and opener focus."
+    },
+    {
+      "case": "context-fin-details",
+      "status": "pass_current_window",
+      "actual": "fin_set Details entry andEscape retain RP1/spec/part,267px sidebar,Fin set target,camera438.9/60.9/0 and opener focus;23/26 meshes unchanged."
+    },
+    {
+      "case": "pcb-dialog-escape",
+      "status": "pass_current_window",
+      "actual": "high_g_accel drawingEscape retains part/sidebar/camera;appAX populated;focusOpenPCBlayout."
+    },
+    {
+      "case": "keyboard-history",
+      "status": "pass_current_window",
+      "actual": "TenTabs focusEngineering;Enter navigates;BackDesign andForwardEngineering retain exactfin_set/spec."
+    },
+    {
+      "case": "drawing-ui-export",
+      "status": "pass_current_window",
+      "actual": "Fresh14788byteSVG downloaded and copied unchanged;XML metadata verifies RP1/spec/FP1 source,unaccepted/adoptedfalse/installedfalse/units."
+    }
+  ],
+  "export": {
+    "download_source": "/Users/kudratsingh/Downloads/G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1-unaccepted-relationships (1).svg",
+    "download_mtime_utc": "2026-11-08T11:56:08.874032+00:00",
+    "copied_path": "runs/frontend-release-closure-20261108/fp1-study-ui-download.svg",
+    "bytes": 14788,
+    "sha256": "d18eca4472ba0f350d50794f0d7954d5b7a73ce49251756c629bf973e1079508",
+    "xml_parses": true,
+    "embedded_metadata": [
+      {
+        "comparison_id": "G80-F2-RP1-FP1-FR1-comparison-v1",
+        "source_configuration": {
+          "id": "G80-F2-RP1-AD1-definition-v2",
+          "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+          "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+        },
+        "study_id": "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1",
+        "study_source": {
+          "path": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+          "sha256": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb"
+        },
+        "sources": [
+          {
+            "path": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+            "sha256": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb"
+          },
+          {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+          },
+          {
+            "path": "configs/studies/rp1-fin-precedent-replacement.yaml",
+            "sha256": "4bd851f336ac9d9ca6668bae5735e2ee1a0f64bbd9ad9721eb210651961be079"
+          }
+        ],
+        "status": "UNACCEPTED — not adopted",
+        "adopted": false,
+        "installed_accepted": false,
+        "representation": "Source relationship schematic; no CAD association",
+        "units": {
+          "movement": "mm",
+          "mass": "g",
+          "moment": "N·m"
+        },
+        "displacement": {
+          "reported_mm": 0.9612403332968898,
+          "attachment_budget_mm": 0.1,
+          "limit_mm": 1,
+          "note": "Conditional nominal component point; material sensitivities fail. Additional attachment reserve is an input, not measured movement."
+        },
+        "mass": {
+          "conditional_credit_g": 4.67017971304079,
+          "note": "Proposed alternative replacement ledger only. Removed brace function has not been accepted; do not add the two studies or claim installed savings."
+        },
+        "scope": "FP1 0.961 mm already includes the unverified 0.100 mm attachment budget. Do not add it again. Nominal component point only, not an installed pass; material sensitivities fail."
+      },
+      {
+        "id": "G80-F2-RP1-FP1-carbon-faced-plywood-screen-v1",
+        "source": {
+          "path": "docs/studies/rp1-fin-precedent-replacement/screen-record.json",
+          "sha256": "3738992908ff86bdeee5fb7533d85cd8fab9bbbac9f9c358e805c53be90130bb"
+        },
+        "status": "UNACCEPTED — not adopted",
+        "adopted": false,
+        "installed_accepted": false
+      }
+    ],
+    "unchanged_copy": true
+  },
+  "final_state": {
+    "configuration": "G80-F2-RP1-AD1-definition-v2",
+    "part_url": null,
+    "visible_meshes": 26,
+    "total_meshes": 26,
+    "navigation_open": true,
+    "parts_sidebar_open": true,
+    "sidebar_tab": "Parts",
+    "interior": false,
+    "source_detail": true,
+    "dialog_open": false,
+    "tools_open": false,
+    "drag_mode": "Move",
+    "camera": [
+      45,
+      54.7,
+      0
+    ],
+    "target": "Assembly",
+    "whole_model_visibly_rendered": true
+  },
+  "unexecuted": [
+    "responsive viewport matrix",
+    "unknown/stale/legacy route matrix",
+    "full keyboard matrix",
+    "missing/mismatched/delayed/malformed data fixtures",
+    "Replay alignment/plot/export",
+    "performance",
+    "new simulations"
+  ],
+  "failures": [],
+  "guards": 0,
+  "correction_rechecks": 0,
+  "devtools_attempts": 0,
+  "viewport_workarounds": 0,
+  "simulations": 0,
+  "performance_attempts": 0,
+  "css_viewport": null,
+  "screenshots": [
+    {
+      "path": "runs/frontend-release-closure-20261108/context-fin-group.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "24cd1f9a3d1f82111dd8276b44011911435849c767d19194cacb2fad7353b54a",
+      "unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-release-closure-20261108/context-fin-return.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "31e0a2b6e0bcc67481be0844dea3d42cd343e6a10ef08d6e2d63b174b70a40df",
+      "unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-release-closure-20261108/final-restored.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "f084eec329817a685943d44b4438e9b98eb5bd7fbc52dabede82071557378b10",
+      "unchanged": true,
+      "css_viewport_claim": null
+    },
+    {
+      "path": "runs/frontend-release-closure-20261108/pcb-fixed-escape.jpg",
+      "format": "JPEG",
+      "raster_dimensions": [
+        3930,
+        2390
+      ],
+      "sha256": "032483220c8be7a29303fe66ba3e9bd356cbfb28104b3feb08f2fbd85429bd8d",
+      "unchanged": true,
+      "css_viewport_claim": null
+    }
+  ]
+}

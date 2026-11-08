@@ -1,5 +1,14 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { requestOrder } from './requestOrder';
+import {
+  acceptedAttemptIds,
+  attemptSummary,
+  readAttemptStatuses,
+  savedAttemptExport,
+  savedAttemptIds,
+  experimentJson as json,
+} from './attemptMonitor';
+import type { AttemptStatus } from './attemptMonitor';
 import { playbackStep } from './playbackStep';
 import { ExactReplayTime } from './ExactReplayTime.tsx';
 import { replayValidity } from './replayValidity';
@@ -80,18 +89,6 @@ const choices = [
   ['modular-tvc-finned-v1', 'Finned trainer · G12, locked gimbal'],
   ['modular-tvc-finless-v1', 'Finless trainer · static inspection only'],
 ];
-async function json<T>(
-  url: string,
-  options?: RequestInit,
-  observe?: (response: Response) => void,
-): Promise<T> {
-  const response = await fetch(url, options);
-  observe?.(response);
-  const data = await response.json();
-  if (!response.ok)
-    throw new Error(typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail));
-  return data as T;
-}
 function MeshPart({ part }: { part: Part }) {
   const model = useGLTF(part.mesh_url!);
   const scene = useMemo(() => model.scene.clone(true), [model]);
@@ -675,6 +672,12 @@ export default function Experiment({
     [current, setCurrent] = useState<Loaded | null>(null),
     [other, setOther] = useState<Loaded | null>(null),
     [pending, setPending] = useState(''),
+    [monitorIds, setMonitorIds] = useState<string[]>([]),
+    [monitorRecords, setMonitorRecords] = useState<Record<string, AttemptStatus>>({}),
+    [monitorError, setMonitorError] = useState(''),
+    [cancellationNotice, setCancellationNotice] = useState(''),
+    [monitorEpoch, setMonitorEpoch] = useState(0),
+    [libraryError, setLibraryError] = useState(''),
     [status, setStatus] = useState(''),
     [error, setError] = useState(''),
     [draftStatus, setDraftStatus] = useState(''),
@@ -698,6 +701,7 @@ export default function Experiment({
   const scrubGeneration = useRef(0);
   const submission = useRef(false);
   const submissionIdentity = useRef<{ payload: string; key: string } | null>(null);
+  const lastObservedMembers = useRef<Record<string, AttemptStatus>>({});
   const supportedChoice = choices.some(([id]) => id === configurationId);
   const request: ExperimentRequest = {
     configuration: configurationId,
@@ -723,6 +727,7 @@ export default function Experiment({
     return () => preference.removeEventListener('change', update);
   }, []);
   const loadOrder = useRef({ primary: requestOrder(), comparison: requestOrder() });
+  const libraryOrder = useRef(requestOrder());
   useEffect(() => {
     const order = loadOrder.current;
     return () => {
@@ -766,17 +771,34 @@ export default function Experiment({
   const rangeKey = `${shown?.record.run_id}-${other?.record.run_id}-${alignment.event}`;
   const fullRange = { start: replayStart, end: Math.max(replayStart + 0.001, replayEnd) };
   const plotWindow = chartRange?.key === rangeKey ? chartRange : fullRange;
-  const refresh = useCallback(
-    () =>
-      json<RecordRun[]>('/api/runs')
-        .then(setRuns)
-        .catch((e) => setError(String(e))),
-    [],
-  );
+  const refresh = useCallback(async () => {
+    const isCurrent = libraryOrder.current.begin();
+    try {
+      const saved = await json<RecordRun[]>('/api/runs');
+      if (
+        !Array.isArray(saved) ||
+        saved.some(
+          (item) => !item || typeof item.run_id !== 'string' || typeof item.status !== 'string',
+        )
+      )
+        throw new Error('Saved-run library response lacks inspectable run IDs/statuses.');
+      if (isCurrent()) {
+        setRuns(saved);
+        setLibraryError('');
+      }
+    } catch (e) {
+      if (isCurrent())
+        setLibraryError(`Saved-run library refresh failed; prior list retained: ${String(e)}`);
+    }
+  }, []);
   useEffect(() => {
     void refresh();
     const interval = window.setInterval(() => void refresh(), 2500);
-    return () => window.clearInterval(interval);
+    const order = libraryOrder.current;
+    return () => {
+      window.clearInterval(interval);
+      order.cancel();
+    };
   }, [refresh]);
   const load = useCallback(
     async (id: string, compare = false, requestedMode: PlaybackMode = playbackModeRef.current) => {
@@ -904,34 +926,46 @@ export default function Experiment({
     routeLoad(initialRunId ? initialComparisonId : undefined, true);
   }, [initialRunId, initialComparisonId, current, other, configurationId, load, onRunSelect]);
   useEffect(() => {
-    if (!pending) return;
+    if (!pending || !monitorIds.length) return;
     let timer: number;
     let alive = true;
+    const controller = new AbortController();
+    const observed: Record<string, AttemptStatus> = { ...lastObservedMembers.current };
     const poll = async () => {
-      try {
-        const r = await json<RecordRun>(`/api/experiments/${pending}`);
-        if (!alive) return;
-        setStatus(r.progress);
-        if (r.status === 'complete') {
-          setPending('');
-          void refresh();
-          void load(pending);
-        } else if (terminalStatuses.includes(r.status)) {
-          setError(r.error ?? 'Run failed');
-          setPending('');
-          void refresh();
-        } else timer = window.setTimeout(poll, 1200);
-      } catch (e) {
-        setError(String(e));
+      const result = await readAttemptStatuses(
+        monitorIds,
+        (id, signal) => json(`/api/experiments/${encodeURIComponent(id)}`, { signal }),
+        controller.signal,
+      );
+      if (!alive || controller.signal.aborted) return;
+      for (const record of result.records) observed[record.run_id] = record;
+      lastObservedMembers.current = { ...observed };
+      setMonitorRecords({ ...observed });
+      const summary = attemptSummary(monitorIds, observed);
+      setStatus(summary.text);
+      if (result.errors.length) {
+        setMonitorError(
+          `Status observation paused. Accepted work may still be running; this is not worker failure or termination. ${result.errors.join(' · ')}`,
+        );
+        return;
+      }
+      setMonitorError('');
+      if (summary.terminal) {
         setPending('');
+        void refresh();
+        // Preserve the original primary auto-load only for a successful primary.
+        if (observed[pending]?.status === 'complete') void load(pending);
+      } else {
+        timer = window.setTimeout(poll, 1200);
       }
     };
     void poll();
     return () => {
       alive = false;
+      controller.abort();
       clearTimeout(timer);
     };
-  }, [pending, refresh, load]);
+  }, [pending, monitorIds, monitorEpoch, refresh, load]);
   useEffect(() => {
     if (!playing || !shown) return;
     let last = performance.now(),
@@ -1060,12 +1094,46 @@ export default function Experiment({
   function reuseDraft(run: Loaded) {
     reuseRequest(run.record);
   }
+  function observeSavedAttempt(record: RecordRun) {
+    try {
+      const ids = savedAttemptIds(record);
+      lastObservedMembers.current = {};
+      setMonitorIds(ids);
+      setMonitorRecords({});
+      setMonitorError('');
+      setCancellationNotice('');
+      setPending(ids[0]);
+    } catch (reason) {
+      setError(String(reason));
+    }
+  }
+  function downloadAttempt(record: RecordRun) {
+    try {
+      const url = URL.createObjectURL(
+        new Blob([savedAttemptExport(record, runs)], { type: 'application/json' }),
+      );
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${record.run_id.replace(/[^a-zA-Z0-9_-]/g, '_')}-attempt.json`;
+      link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (reason) {
+      setError(`Attempt metadata export unavailable: ${String(reason)}`);
+    }
+  }
   async function cancelRun(id: string) {
     try {
       const result = await json<{ acknowledgement: string }>(`/api/experiments/${id}/cancel`, {
         method: 'POST',
       });
-      setStatus(result.acknowledgement);
+      if (typeof result.acknowledgement !== 'string')
+        throw new Error(
+          'Cancellation acknowledgement unavailable; terminal status is not confirmed.',
+        );
+      setCancellationNotice(
+        `${result.acknowledgement}. Cancellation request is not confirmed termination.`,
+      );
+      setMonitorEpoch((value) => value + 1);
       await refresh();
     } catch (e) {
       setError(String(e));
@@ -1075,6 +1143,7 @@ export default function Experiment({
     if (submission.current) return;
     submission.current = true;
     setSubmitting(true);
+    let submissionSent = false;
     try {
       setError('');
       if (!supportedChoice || configurationId === 'modular-tvc-finless-v1')
@@ -1102,25 +1171,33 @@ export default function Experiment({
       } catch {
         /* In-memory duplicate protection remains active. */
       }
-      const r = await json<{ run_id: string; run_ids: string[] }>(
-        batchEnabled ? '/api/experiment-batches' : '/api/experiments',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Idempotency-Key': identity.key },
-          body: payload,
-        },
-      );
+      submissionSent = true;
+      const r = await json<unknown>(batchEnabled ? '/api/experiment-batches' : '/api/experiments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Idempotency-Key': identity.key },
+        body: payload,
+      });
+      const ids = acceptedAttemptIds(r, batchEnabled ? declaredCases.length : 1);
+      lastObservedMembers.current = {};
       submissionIdentity.current = null;
       try {
         sessionStorage.removeItem('rocket-twin-experiment-submission');
       } catch {
         /* No durable state to clear. */
       }
-      setPending(r.run_id);
-      setStatus(`Queued ${r.run_ids.length} case(s)`);
+      setMonitorIds(ids);
+      setMonitorRecords({});
+      setMonitorError('');
+      setCancellationNotice('');
+      setPending(ids[0]);
+      setStatus(`Accepted ${ids.length} case(s); observing saved statuses.`);
       await refresh();
     } catch (e) {
-      setError(String(e));
+      setError(
+        submissionSent
+          ? `Submission acceptance not confirmed: ${String(e)}. No accepted member IDs were established by this response. Check saved attempts before retrying; the unchanged request retains its idempotency key.`
+          : `Experiment setup unavailable: ${String(e)}`,
+      );
     } finally {
       submission.current = false;
       setSubmitting(false);
@@ -1280,14 +1357,50 @@ export default function Experiment({
               {status} · {pending}
             </p>
             <button onClick={() => void cancelRun(pending)}>Request cancellation</button>
+            {monitorError && (
+              <>
+                <p role="alert">{monitorError}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMonitorError('');
+                    setMonitorEpoch((value) => value + 1);
+                  }}
+                >
+                  Resume status observation
+                </button>
+              </>
+            )}
           </>
         )}
+        {cancellationNotice && <p role="status">{cancellationNotice}</p>}
         {error && (
           <p role="alert" className="exp-error">
             {error}
           </p>
         )}
         <h3>Saved runs</h3>
+        {libraryError && <p role="alert">{libraryError}</p>}
+        {monitorIds.length > 0 && (
+          <section className="exp-info" aria-label="Accepted attempt members">
+            <h4>Accepted attempt members · last observed statuses</h4>
+            <ul>
+              {monitorIds.map((id) => (
+                <li key={id}>
+                  {id}: {monitorRecords[id]?.status ?? 'status unavailable'}
+                  {monitorRecords[id]?.error ? ` · ${monitorRecords[id].error}` : ''}
+                  {!monitorRecords[id]?.error && monitorRecords[id]?.progress
+                    ? ` · ${monitorRecords[id].progress}`
+                    : ''}
+                </li>
+              ))}
+            </ul>
+            <p>
+              Each member is retained independently. Resume observes existing work; reuse as draft
+              requires a separate explicit submission.
+            </p>
+          </section>
+        )}
         <label>
           <input
             type="checkbox"
@@ -1404,6 +1517,23 @@ export default function Experiment({
               </p>
             )}
             <button onClick={() => reuseRequest(librarySelection)}>Reuse request as draft</button>
+            <button
+              type="button"
+              disabled={!!pending}
+              onClick={() => observeSavedAttempt(librarySelection)}
+            >
+              Observe saved attempt / batch status
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                downloadAttempt(
+                  runs.find((item) => item.run_id === librarySelection.run_id) ?? librarySelection,
+                )
+              }
+            >
+              Export saved attempt metadata
+            </button>
             {!terminalStatuses.includes(
               runs.find((r) => r.run_id === librarySelection.run_id)?.status ??
                 librarySelection.status,
