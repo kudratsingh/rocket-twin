@@ -56,3 +56,9 @@ WO-03 structural/thermal/recovery/fit/flutter requirements, the unchanged45°C
 thermal screen, prototype/physical testing, purchases, paid runs, WO-10 review and
 flight release remain open and separately authorized. G80 custom fabrication and
 practical performance, G54 upgrade and committed G12 PID-to-RL remain in the plan.
+
+Digital-only orbital-launcher work and extension interfaces remain assigned to
+WO-05b and later G-FOLD work. Future digital-scale library/assembly records need
+their own class/frame validation; physical model-rocket limits and flight-release
+claims must not be transferred to that separate simulation. This revamp neither
+removes nor prematurely implements those milestones.

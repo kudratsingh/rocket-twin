@@ -1,5 +1,18 @@
 # Status
 
+**First v2 implementation — P1 source bank:** The full plan is merged in PR119
+at `a896645a2325b470e8bd3c0054d9dc1ec36db66a`, after head41082ab… and required
+workflow42594694204 passed. The first bank represents55 source definitions and55
+installed occurrences, with source/price/identity conflicts and installed-reference
+CAD frames explicit. P61 observed source-snapshot catalog/search/exactpart return;
+P62 verified visible conflict warnings and new-part scroll reset. New live API
+routes pass in-process tests; the existing host used an explicitly labeled prepared
+snapshot after404. Full builder Add/Replace/Connect and template/interface admission
+are later tasks. [Implementation and evidence](studies/frontend-parts-bank-20261109/integration.md). All engineering/physical
+gates stay open and inquiries UNSENT. Existing archive audit/assets remain frozen;
+a separately pinned equivalence record admits only the two added API routes.
+
+
 **Current owner direction — full design workbench v2 (November 9):** Complete
 the full phased plan, then implement detailed CAD/inspection and engineering
 diagrams, a reusable source-owned parts bank, separate virtual rocket drafts and

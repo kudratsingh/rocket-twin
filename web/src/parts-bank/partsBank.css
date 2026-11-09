@@ -1,0 +1,378 @@
+.parts-bank {
+  color: #e8f1f5;
+  background: #101b28;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.parts-bank h1,
+.parts-bank h2,
+.parts-bank h3,
+.parts-bank p {
+  margin-top: 0;
+}
+
+.parts-bank-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 20px 26px 12px;
+  border-bottom: 1px solid #344a5e;
+}
+
+.parts-bank-eyebrow {
+  color: #83c5d6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.parts-bank-header h1 {
+  margin: 5px 0 4px;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+}
+
+.parts-bank-header p {
+  color: #b9cbd7;
+  margin-bottom: 0;
+}
+
+.parts-bank-header-meta {
+  display: grid;
+  gap: 4px;
+  flex: 0 0 auto;
+  text-align: right;
+  color: #dcebf2;
+}
+
+.parts-bank-header-meta span {
+  color: #9bdce9;
+}
+
+.parts-bank-header-meta small,
+.parts-bank-note {
+  color: #b2c7d4;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.parts-bank-state {
+  margin: 22px;
+  padding: 18px;
+  border: 1px solid #45647a;
+  border-radius: 9px;
+  background: #1a2c3d;
+}
+
+.parts-bank-error {
+  border-color: #b88178;
+  color: #ffd5cf;
+}
+
+.parts-bank-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 11px;
+  padding: 12px 26px;
+}
+
+.parts-bank-toolbar label {
+  display: grid;
+  gap: 4px;
+  color: #bdd1dc;
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.parts-bank-toolbar input,
+.parts-bank-toolbar select {
+  min-height: 34px;
+  color: #f0f6f8;
+  background: #1b2d3e;
+  border: 1px solid #4f6a7b;
+  border-radius: 6px;
+  padding: 5px 9px;
+}
+
+.parts-bank-toolbar input {
+  width: clamp(180px, 22vw, 290px);
+}
+
+.parts-bank-result-count {
+  margin-left: auto;
+  color: #9bdce9;
+  white-space: nowrap;
+}
+
+.parts-bank-axis-block {
+  margin: 0 26px 12px;
+  padding: 8px 12px 3px;
+  border: 1px solid #344a5e;
+  border-radius: 8px;
+  background: #172737;
+}
+
+.parts-bank-axis-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #c6dce7;
+  font-size: 0.75rem;
+}
+
+.parts-bank-axis-heading span {
+  color: #9bb7c8;
+}
+
+.parts-bank-axis-block svg {
+  display: block;
+  width: 100%;
+  height: 76px;
+}
+
+.parts-bank-workarea {
+  display: grid;
+  grid-template-columns: minmax(250px, 31%) minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+  gap: 12px;
+  padding: 0 26px 12px;
+}
+
+.parts-bank-list,
+.parts-bank-detail {
+  overflow: auto;
+  min-height: 0;
+  border: 1px solid #344a5e;
+  border-radius: 8px;
+  background: #172737;
+}
+
+.parts-bank-list {
+  padding: 5px;
+}
+
+.parts-bank-list button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #e3eef3;
+  background: transparent;
+  cursor: pointer;
+}
+
+.parts-bank-list button:hover,
+.parts-bank-list button[aria-pressed='true'] {
+  background: #243d51;
+  border-color: #68b9cd;
+}
+
+.parts-bank-list button > span:nth-child(2) {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.parts-bank-list button small {
+  color: #b6ccd8;
+}
+
+.parts-bank-list button em {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: #f1c58b;
+  font-style: normal;
+}
+
+.parts-bank-list-dot {
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.parts-bank-empty {
+  padding: 15px;
+  color: #b6ccd8;
+}
+
+.parts-bank-detail {
+  padding: 20px 23px;
+}
+
+.parts-bank-detail-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.parts-bank-detail h2 {
+  margin: 5px 0 5px;
+  font-size: 1.55rem;
+}
+
+.parts-bank-detail-head p {
+  max-width: 68ch;
+  line-height: 1.45;
+  color: #d0e0e8;
+}
+
+.parts-bank-maturity {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 5px 8px;
+  font-size: 0.72rem;
+}
+
+.parts-bank-primary-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 5px 0 17px;
+}
+
+.parts-bank-primary-action button {
+  border: 1px solid #73cbdf;
+  border-radius: 7px;
+  color: #102432;
+  background: #8ed9e8;
+  padding: 9px 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.parts-bank-primary-action span {
+  color: #b9cfdb;
+  font-size: 0.77rem;
+}
+
+.parts-bank-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.parts-bank-facts > div {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 11px;
+  border: 1px solid #3b5366;
+  border-radius: 7px;
+  min-width: 0;
+}
+
+.parts-bank-facts span,
+.parts-bank-facts small {
+  color: #aac2d0;
+  font-size: 0.73rem;
+  overflow-wrap: anywhere;
+}
+
+.parts-bank-facts strong {
+  overflow-wrap: anywhere;
+}
+
+.parts-bank-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.parts-bank-detail h3 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.parts-bank-dimensions {
+  margin: 0;
+}
+
+.parts-bank-dimensions > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #374d60;
+  padding: 6px 0;
+}
+
+.parts-bank-dimensions dt {
+  color: #b0c8d5;
+}
+
+.parts-bank-dimensions dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.parts-bank-source-section {
+  margin-top: 19px;
+}
+
+.parts-bank-source-section ul {
+  padding-left: 19px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.parts-bank-issues {
+  border-left: 3px solid #d7ac68;
+  padding: 9px 12px;
+  background: #302c2a;
+}
+
+.parts-bank-issues p {
+  margin: 0 0 8px;
+}
+
+.parts-bank-footer {
+  padding: 8px 26px 14px;
+  color: #a9c3d0;
+  font-size: 0.75rem;
+}
+
+.parts-bank button:focus-visible,
+.parts-bank input:focus-visible,
+.parts-bank select:focus-visible {
+  outline: 2px solid #9ce8f0;
+  outline-offset: 2px;
+}
+
+@media (max-width: 850px) {
+  .parts-bank-header-meta {
+    text-align: left;
+  }
+  .parts-bank-header {
+    flex-wrap: wrap;
+  }
+  .parts-bank-workarea {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+  .parts-bank-list {
+    max-height: 240px;
+  }
+  .parts-bank-detail {
+    overflow: visible;
+  }
+  .parts-bank-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

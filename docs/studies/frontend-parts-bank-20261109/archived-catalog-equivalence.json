@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "fw2-parts-bank-routes-only-catalog-equivalence-v1",
+  "scope": "Allow exact new API source only; original registry/assets/CAD/source identities remain frozen. No exporter rerun.",
+  "registry": {
+    "path": "docs/studies/frontend-desktop-detail-20261108/archived-cad-access.json",
+    "sha256": "cd3cc2557c61df5f051fbc5a48002ef62678831e1639379364a19ead6398f49f"
+  },
+  "catalog_source_path": "src/api/app.py",
+  "original": {
+    "commit": "38e70be0d2df59c81e2d6cb52b97d4b58444496f",
+    "url": "https://raw.githubusercontent.com/kudratsingh/rocket-twin/38e70be0d2df59c81e2d6cb52b97d4b58444496f/src/api/app.py",
+    "sha256": "04d83d808491629eef5906a2274b073b10d494f257cc9a2ced07b553cf51591c",
+    "module_ast_sha256": "71c2febbe5b33ac9111d01cb0f7b84da412959167dcf1b7785ded18997e96892",
+    "catalog_ast_sha256": "1131ab241d6a8a4ed6d93ab6c7d946e04ffc2bed6813a35ecd4ef774fbc1b064"
+  },
+  "compatible_source": {
+    "sha256": "fe16cd64350526233a244059a9ec0102a0aa9f9affcbfe36882e2937d7d8be07",
+    "removed_new_route_functions": [
+      "source_parts_bank",
+      "source_part_definition"
+    ],
+    "module_ast_after_removal_sha256": "71c2febbe5b33ac9111d01cb0f7b84da412959167dcf1b7785ded18997e96892",
+    "catalog_ast_sha256": "1131ab241d6a8a4ed6d93ab6c7d946e04ffc2bed6813a35ecd4ef774fbc1b064"
+  },
+  "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+  "engineering_accepted": false,
+  "geometry_or_asset_changed": false,
+  "method": "Read exact original source from fixed public commit; require original registered byte SHA. Compare CatalogEntry/CATALOG AST, then compare full module AST after removing only the two named new route functions. All other CAD/spec/shape/manifest/asset checks still execute in original preparer.",
+  "ast_serialization": "Python 3.11 ast.dump(include_attributes=False), matching pinned project/CI interpreter"
+}

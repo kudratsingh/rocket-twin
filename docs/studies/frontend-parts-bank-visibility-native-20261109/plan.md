@@ -1,0 +1,3 @@
+# P62 Parts bank visibility correction
+
+One native attempt,120s native/180s overall; no input after90s. Validate bindings/clock, fresh AX before each input in the same cell. Same permitted Chrome window only. Open bank from settled RP1/spec811b/forward_ring, search/select motor_retainer and capture conflict warning immediately below heading without scrolling. One supported detail scroll, then search/select forward_ring and capture top heading/warning/action to check keyed scroll reset. Return to rocket within cutoff. No camera/Whole/reset/visibility, simulation/replay, downloads, settings/permissions or new window. Stop guard/error/denial/source mismatch; unexecuted branches stay partial. P61 retained separately.

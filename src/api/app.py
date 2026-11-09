@@ -704,6 +704,30 @@ def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -
         except (OSError, ValueError, KeyError) as error:
             raise HTTPException(409, f"F2-C1 study source unavailable: {error}") from error
 
+    @app.get("/api/parts-bank")
+    def source_parts_bank() -> dict[str, Any]:
+        from src.api import parts_bank
+
+        try:
+            return parts_bank.build(root)
+        except (OSError, ValueError, KeyError, TypeError) as error:
+            raise HTTPException(409, f"Parts-bank source unavailable: {error}") from error
+
+    @app.get("/api/parts-bank/{definition_id}")
+    def source_part_definition(definition_id: str) -> dict[str, Any]:
+        bank = source_parts_bank()
+        item = next((row for row in bank["definitions"] if row["id"] == definition_id), None)
+        if item is None:
+            raise HTTPException(404, "Unknown source-owned part definition")
+        return {
+            "identity": bank["identity"],
+            "revision_sha256": bank["revision_sha256"],
+            "definition": item,
+            "instances": [
+                row for row in bank["instances"] if row["definition_id"] == definition_id
+            ],
+        }
+
     @app.get("/api/vehicles")
     def vehicles() -> dict[str, Any]:
         rows = []

@@ -1,6 +1,6 @@
 # rocket-twin
 
-**Next full frontend revamp:** [Design workbench v2](docs/frontend-design-workbench-v2/README.md)
+**Current full frontend revamp:** [Design workbench v2](docs/frontend-design-workbench-v2/README.md)
 plans detailed component CAD/diagrams, a reusable parts bank, separate virtual
 rocket drafts and complete alternative testing in ten phases with46 tasks. It
 retains the current inspector/experiments/replay and all engineering/physical
@@ -28,6 +28,19 @@ checks and actual screenshots are recorded in
 explicit Side fitting pass measured thresholds; the full native-rate 60 fps
 benchmark remains failed. Bounded live browser checks are recorded. The latest experiment comparison retains RP1 as the working design; metadata downloaded and whole Design was restored in the subsequent authorized check. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
 not engineering, prototype-build or flight approval.
+
+## Parts bank · first v2 slice
+
+Select current G80 RP1/AD1 v2 and open **Parts bank** in the header. Browse55 source
+definitions and55 installed occurrences, search/filter and inspect dimensions,
+material, mass basis, source-budget cost, geometry and identity findings.
+**Inspect installed part** returns to that exact part and its existing CAD/evidence.
+The catalog is read-only; Add/Replace/Connect arrive with the separate-draft builder.
+Existing GLBs are installed inspection references, not reusable local product CAD.
+P61/P62 actual Chrome observations cover the source-snapshot/search/selection flow,
+visible warnings and scroll reset. New API routes have in-process test evidence;
+the current host used the explicitly labeled prepared snapshot after404.
+[Details and limits](docs/studies/frontend-parts-bank-20261109/integration.md).
 
 ## Component structure close-ups
 

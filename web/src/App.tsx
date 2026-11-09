@@ -10,6 +10,7 @@ import { getJson } from './api';
 import { InspectionPanel } from './components/InspectionPanel';
 import { Icon } from './components/Icons';
 import { PartsTree } from './components/PartsTree';
+import { PartsBankAccess } from './parts-bank/PartsBankAccess';
 import { Viewer } from './components/Viewer';
 import { detailForDocument } from './components/rp1Detail';
 import type { Rp1DetailSnapshot, Rp1DetailView } from './components/rp1Detail';
@@ -405,6 +406,13 @@ export default function App() {
               )}
             </select>
           </div>
+
+          {mode === 'design' && vehicle && (
+            <PartsBankAccess
+              vehicle={vehicle}
+              onInspect={(partId) => navigate(partHref(currentHref(), vehicle, partId, 'design'))}
+            />
+          )}
 
           <details className="glossary">
             <summary>Terms & units</summary>

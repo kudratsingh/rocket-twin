@@ -1,0 +1,54 @@
+{
+  "packet": "P62",
+  "status": "pass_scoped_visibility_correction",
+  "source": "source-freeze.json",
+  "limits": {
+    "native_seconds": 120,
+    "overall_seconds": 180,
+    "input_cutoff_seconds": 90
+  },
+  "timing": {
+    "native_elapsed_seconds": 64.005,
+    "last_input_elapsed_seconds": 63.038,
+    "first_closeout_elapsed_seconds": 102.698
+  },
+  "cases": [
+    {
+      "id": "retainer_warning_without_scroll",
+      "status": "pass",
+      "actual": "Fresh native image shows Retainer Product Conflict unresolved directly below heading/description, above Inspect action: AeroTech19002 versus Estes009750, exact product/revision/cap/collar/thread/seat unknown. No scroll occurred before this capture."
+    },
+    {
+      "id": "detail_scroll_then_selection_reset",
+      "status": "pass_scoped",
+      "actual": "One heading-targeted ordinary scroll visibly moved the retainer detail, cropping heading/description at the top. Confirmed-focus search/setValue forward_ring and actual row click then showed full Forward ring heading/description, Zero Source Budget warning and Inspect action from the top. Header/count/search remain visible. This verifies one selected-record scroll-reset transition, not all records/filter paths."
+    },
+    {
+      "id": "return_to_rocket",
+      "status": "pass_scoped",
+      "actual": "Actual Return to rocket closed bank, retained exactRP1/spec811b/partforward_ring Details and Motor/retention/Rotate/H-309.2/T61.5/TargetForwardring."
+    }
+  ],
+  "final": {
+    "elapsed_ms": 64005,
+    "start_epoch_ms": 1794219443432,
+    "last_input_epoch_ms": 1794219506470,
+    "bank_closed": true,
+    "state": [
+      "0 standard window Rocket Twin \u00b7 Vehicle inspection - Google Chrome, Secondary Actions: Raise, URL: 127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660&part=forward_ring",
+      "\t\t\t\t\t\t\t\t\t\t68 tab (selected) Details, Value: 1",
+      "\t\t\t\t\t\t\t\t\t\t71 container Forward ring inspector",
+      "\t\t\t\t\t\t\t\t\t\t\t\t215 pop up button Inspect subsystem, Value: Motor and retention",
+      "\t\t\t\t\t\t\t\t\t\t\t\t233 toggle button Rotate view, Help: Drag to turn around the rocket, Value: 1",
+      "\t\t\t\t\t\t\t\t\t\t\t\t257 text Horizontal  -309.2 \u00b0 \u00b7 Tilt  61.5 \u00b0 \u00b7 Roll -0.0 \u00b0 \u00b7 Target: Forward ring"
+    ]
+  },
+  "site_inputs_scope": "Bank open, search fields, actual rows, one ordinary detail scroll and Return to rocket only. No camera/visibility/reset/Whole, Run/Play, export, permission, viewport or new window input.",
+  "limitations": [
+    "Current available desktop window only",
+    "No physical or manufacturing acceptance",
+    "No all55-record or full filter/keyboard/modal matrix",
+    "P61 original below-fold limitation remains historically preserved"
+  ],
+  "native_lane": "idle; source hold released"
+}

@@ -122,6 +122,44 @@ export function quadTriangles(corners: number[]): number[] {
   return [x1, y1, x2, y2, x3, y3, x1, y1, x3, y3, x4, y4];
 }
 
+/** Labels for a source-XY ruler; the final source boundary is retained even off the 5 mm grid. */
+export function pcbAxisTicks(extentMm: number, intervalMm = 5): number[] {
+  if (
+    !Number.isFinite(extentMm) ||
+    extentMm <= 0 ||
+    !Number.isFinite(intervalMm) ||
+    intervalMm <= 0
+  )
+    return [];
+  const ticks = [0];
+  for (let step = 1; step * intervalMm < extentMm; step += 1) ticks.push(step * intervalMm);
+  ticks.push(extentMm);
+  return ticks;
+}
+
+/** Ruler label layout only: retain exact endpoints without crowding a nearby regular label. */
+export function pcbAxisLabelTicks(extentMm: number, intervalMm = 5): number[] {
+  const ticks = pcbAxisTicks(extentMm, intervalMm);
+  return ticks.filter(
+    (tick, index) => index === 0 || index === ticks.length - 1 || extentMm - tick >= intervalMm / 2,
+  );
+}
+
+/** Recorded pad relationships only; an unconnected source pad is not assigned a net. */
+export function footprintConnectionSummary(
+  ref: string,
+): { padCount: number; unassignedPadCount: number; nets: string[] } | null {
+  if (!sourceLayout.placements.some((placement) => placement.ref === ref)) return null;
+  const pads = sourceLayout.pads.filter((pad) => pad.ref === ref);
+  return {
+    padCount: pads.length,
+    unassignedPadCount: pads.filter((pad) => pad.net === null).length,
+    nets: [
+      ...new Set(pads.map((pad) => pad.net).filter((net): net is string => net !== null)),
+    ].sort(),
+  };
+}
+
 export function netContactSummary(
   netName: string,
 ): { padCount: number; traceCount: number; viaCount: number; refs: string[] } | null {

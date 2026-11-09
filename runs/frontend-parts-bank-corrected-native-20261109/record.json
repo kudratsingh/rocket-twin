@@ -1,0 +1,82 @@
+{
+  "packet": "P61",
+  "status": "completed_scoped_partial",
+  "source": "source-freeze.json",
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "input_cutoff_seconds": 140
+  },
+  "timing": {
+    "native_observed_elapsed_seconds": 102.07,
+    "last_input_elapsed_seconds": 89.662,
+    "inspect_click_epoch_ms": 1794219163039,
+    "closeout_record_epoch_ms": 1794219254067,
+    "first_closeout_elapsed_seconds": 180.69,
+    "qualification": "Native elapsed is the Date.now counter measured at the final saved snapshot. Overall includes subsequent offline reporting; no timing is inferred from UI counts."
+  },
+  "cases": [
+    {
+      "id": "catalogue",
+      "status": "pass_scoped",
+      "actual": "55 definitions and55 occurrences;55 of55 records. Transport label prepared source snapshot, following initial Source admission pending. No actual HTTP404 was inspected; the UI transport is the evidence."
+    },
+    {
+      "id": "catalogue_readability",
+      "status": "pass_scoped",
+      "actual": "Native image shows readable title, count/transport, search and filter controls, axial-station illustration and selected record cards. Axial diagram explicitly is not a CAD silhouette. No bulk55-record native audit."
+    },
+    {
+      "id": "motor_retainer",
+      "status": "partial",
+      "actual": "Confirmed-focus native search/setValue motor_retainer produced1 of55; selected actual row. Native cards show30g,45mm length/22.20mm radius/14mm inner radius,$23.99 source budget and not-current-quote caveat. Globally placed installed-reference GLB is not a reusable local template; reuse identity unresolved. AX explicitly names AeroTech19002 versus Estes009750 and exact product/revision/thread/seat unknown. One ordinary scroll moved the detail pane, but conflict stayed below captured fold; visible conflict readability unverified."
+    },
+    {
+      "id": "forward_ring",
+      "status": "pass_scoped",
+      "actual": "Confirmed-focus search/setValue forward_ring and actual row. Native card shows one source record/one grouped item,22.48g,1060mm placement,12.20mm length/32.20mm radius/15.95mm inner radius,Envelope/source reference only, globally placed installed mesh. No reusable template or finished manufacturing model is implied."
+    },
+    {
+      "id": "inspect_installed_return",
+      "status": "pass_scoped",
+      "actual": "One action at recorded epoch. Immediate top URL changed while modal still present. Later full native state and image show modal closed, exact design/spec/part=forward_ring retained, Forward ring Details and rendered interior/ring. This is settled return evidence, not an instant URL-only pass."
+    },
+    {
+      "id": "other_filters_and_all_records",
+      "status": "unexecuted",
+      "actual": "Kind/material/geometry filters, all55 rows, no-mesh cases, keyboard/modal matrix and unavailable transport branches were not exercised."
+    }
+  ],
+  "final": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "forward_ring",
+    "details": true,
+    "bank_closed": true,
+    "heading_deg": -309.2,
+    "tilt_deg": 61.5,
+    "roll_deg": -0.0,
+    "drag_mode": "Rotate",
+    "subsystem": "Motor and retention",
+    "target": "Forward ring",
+    "restore_visibility_active": true,
+    "tools": "closed",
+    "exact_visible_mesh_count": null,
+    "note": "Normal part selection changed subsystem from Fins and roots and target from Fin tabs. No full visibility/count or numeric camera position preservation claim."
+  },
+  "prohibited_scope_actions": {
+    "runs": 0,
+    "play": 0,
+    "downloads": 0,
+    "permissions": 0,
+    "viewport_changes": 0,
+    "main_whole_reset_restore_visibility": 0
+  },
+  "source_hold": "released; no further CUA",
+  "non_claims": [
+    "Not a complete Parts bank acceptance matrix",
+    "No physical installed fit/strength or manufacturing qualification",
+    "No hosted CI/publication claim",
+    "P60 remains frozen independently"
+  ]
+}

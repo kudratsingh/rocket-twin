@@ -113,6 +113,19 @@ test('source-width XY traces, mirrored bottom pads, silk artwork and nets surviv
     assert.ok(ground.traceCount > 0 && ground.padCount > 0);
     assert.ok(ground.refs.includes('U1'));
     assert.equal(data.netContactSummary('not-a-net'), null);
+    assert.deepEqual(data.pcbAxisTicks(25.4), [0, 5, 10, 15, 20, 25, 25.4]);
+    assert.deepEqual(data.pcbAxisTicks(17.78), [0, 5, 10, 15, 17.78]);
+    assert.deepEqual(data.pcbAxisTicks(0), []);
+    assert.deepEqual(data.pcbAxisLabelTicks(25.4), [0, 5, 10, 15, 20, 25.4]);
+    assert.deepEqual(data.pcbAxisLabelTicks(17.78), [0, 5, 10, 15, 17.78]);
+    assert.deepEqual(data.pcbAxisLabelTicks(20), [0, 5, 10, 15, 20]);
+    assert.deepEqual(data.pcbAxisLabelTicks(0), []);
+    assert.deepEqual(data.footprintConnectionSummary('U1'), {
+      padCount: 14,
+      unassignedPadCount: 3,
+      nets: ['3.3V', 'CS_3V', 'GND', 'INT1', 'INT2', 'SCL_3V', 'SDA/SDIO_3V', 'SDO'],
+    });
+    assert.equal(data.footprintConnectionSummary('not-a-ref'), null);
   });
 });
 
@@ -125,8 +138,16 @@ test('component controls disclose planar-only meaning and refuse a foreign sourc
     assert.match(html, /source layer explorer/);
     assert.match(html, /Fit board/);
     assert.match(html, /Zoom to selected/);
-    assert.match(html, /Top copper/);
-    assert.match(html, /Bottom copper/);
+    assert.match(html, /View top \(camera\)/);
+    assert.match(html, /View bottom \(camera\)/);
+    assert.match(html, /Show top layers only/);
+    assert.match(html, /Show bottom layers only/);
+    assert.match(html, /Restore both layers/);
+    assert.match(html, /Reset reference view/);
+    assert.match(html, /Top source layers/);
+    assert.match(html, /Bottom source layers/);
+    assert.match(html, /Source XY rulers use millimetres with 5 mm ticks/);
+    assert.match(html, /U1 source pads: 14; unassigned source pads: 3/);
     assert.match(html, /Fine silk artwork/);
     assert.match(html, /Highlight source net/);
     assert.match(html, /display spacing only, not actual Z or PCB thickness/);

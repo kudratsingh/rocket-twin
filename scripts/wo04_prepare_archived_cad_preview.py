@@ -7,6 +7,7 @@ explicit browser-hold release. Existing nonempty destinations are never replaced
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 import re
@@ -14,10 +15,15 @@ import shutil
 import sys
 import tempfile
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "docs/studies/frontend-desktop-detail-20261108/archived-cad-access.json"
 REGISTRY_SHA256 = "cd3cc2557c61df5f051fbc5a48002ef62678831e1639379364a19ead6398f49f"
+CATALOG_EQUIVALENCE = (
+    ROOT / "docs/studies/frontend-parts-bank-20261109/archived-catalog-equivalence.json"
+)
+CATALOG_EQUIVALENCE_SHA256 = "d45d186543fb4416a0a051b1f12c92087cb64d3cbafd169ef63a1e5e592a190a"
 PUBLIC = ROOT / "web/public/engineering-workbench/archived-cad"
 CONFIGURATIONS = (
     "modular-performance-v1",
@@ -38,13 +44,82 @@ def checked_file(relative: str, expected: str) -> Path:
     return path
 
 
+def verify_catalog_equivalence(content: bytes, proof: dict[str, Any], original_sha: str) -> None:
+    """Admit only the exact bank-route extension, not a relaxed catalogue pin."""
+    if (
+        proof["id"] != "fw2-parts-bank-routes-only-catalog-equivalence-v1"
+        or proof["registry"]["sha256"] != REGISTRY_SHA256
+        or proof["catalog_source_path"] != "src/api/app.py"
+        or proof["original"]["sha256"] != original_sha
+        or proof["geometry_or_asset_changed"] is not False
+        or proof["engineering_accepted"] is not False
+        or sha(content) != proof["compatible_source"]["sha256"]
+    ):
+        raise ValueError("API catalogue source is outside the exact recorded compatibility proof")
+    if sys.version_info[:2] != (3, 11):
+        raise ValueError("Catalogue equivalence requires pinned Python 3.11; use .venv/bin/python")
+    tree = ast.parse(content)
+    nodes = [
+        node
+        for node in tree.body
+        if isinstance(node, ast.ClassDef)
+        and node.name == "CatalogEntry"
+        or isinstance(node, ast.Assign)
+        and any(isinstance(target, ast.Name) and target.id == "CATALOG" for target in node.targets)
+    ]
+    catalog = ast.Module(body=nodes, type_ignores=[])
+    catalog_hash = sha(ast.dump(catalog, include_attributes=False).encode())
+    if len(nodes) != 2 or catalog_hash != proof["original"]["catalog_ast_sha256"]:
+        raise ValueError("Archived vehicle catalogue declaration changed")
+    create = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef) and node.name == "create_app"
+    )
+    allowed = ["source_parts_bank", "source_part_definition"]
+    removed = [
+        node.name
+        for node in create.body
+        if isinstance(node, ast.FunctionDef) and node.name in allowed
+    ]
+    if removed != allowed or proof["compatible_source"]["removed_new_route_functions"] != allowed:
+        raise ValueError("Compatibility proof permits only the two recorded parts-bank routes")
+    create.body = [
+        node
+        for node in create.body
+        if not isinstance(node, ast.FunctionDef) or node.name not in allowed
+    ]
+    if (
+        sha(ast.dump(tree, include_attributes=False).encode())
+        != proof["original"]["module_ast_sha256"]
+    ):
+        raise ValueError("Existing API behavior changed beyond the recorded new routes")
+
+
+def checked_catalog_source(registry: dict[str, Any]) -> None:
+    source = registry["catalog_source"]
+    path = (ROOT / source["path"]).resolve()
+    if not path.is_relative_to(ROOT) or source["path"] != "src/api/app.py":
+        raise ValueError("Unknown archived catalogue source path")
+    content = path.read_bytes()
+    if sha(content) == source["sha256"]:
+        return
+    proof_bytes = CATALOG_EQUIVALENCE.read_bytes()
+    if sha(proof_bytes) != CATALOG_EQUIVALENCE_SHA256:
+        raise ValueError("Catalogue compatibility proof changed or is unavailable")
+    proof = json.loads(proof_bytes)
+    if proof["cad_revision_sha256"] != registry["cad_revision_sha256"]:
+        raise ValueError("Compatibility proof cannot change the archived CAD revision")
+    verify_catalog_equivalence(content, proof, source["sha256"])
+
+
 def registered_files() -> list[tuple[Path, str, str]]:
     if sha(REGISTRY.read_bytes()) != REGISTRY_SHA256:
         raise ValueError("Archived CAD audit changed; do not update pins or regenerate")
     registry = json.loads(REGISTRY.read_bytes())
     if tuple(row["id"] for row in registry["configurations"]) != CONFIGURATIONS:
         raise ValueError("Only the four registered configurations are admitted")
-    checked_file(registry["catalog_source"]["path"], registry["catalog_source"]["sha256"])
+    checked_catalog_source(registry)
     for path, expected in registry["cad_source_sha256"].items():
         checked_file(path, expected)
     current_cad = sha(b"".join(p.read_bytes() for p in sorted((ROOT / "src/cad").glob("*.py"))))

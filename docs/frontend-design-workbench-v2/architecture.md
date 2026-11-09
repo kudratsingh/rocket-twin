@@ -66,7 +66,8 @@ Keep `unavailable`, `failed`, `superseded`, `estimated`, `calculated`, `measured
 
 ## Proposed API seams
 
-These names are contracts to implement by phase, not currently available routes.
+The table is the phased target contract; the implemented subset and runtime evidence
+are tracked in the backlog and current integration report.
 Existing `/api/design`, experiment, run and Analysis APIs remain compatible.
 
 | Phase | Interface | Behavior |
