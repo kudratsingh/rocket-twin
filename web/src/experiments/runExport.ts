@@ -40,7 +40,8 @@ function csvCell(value: string): string {
   return /[",\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value;
 }
 
-export function telemetryCsv(run: ExportRun, selection?: ExportSelection): string {
+/** CSV and its companion metadata must agree on whether recorded coverage exists. */
+function exportColumns(run: ExportRun) {
   const columns = run.telemetry.columns;
   const times = columns.time_s;
   if (
@@ -64,6 +65,11 @@ export function telemetryCsv(run: ExportRun, selection?: ExportSelection): strin
     if (!Array.isArray(columns[name]) || columns[name].length > times.length)
       throw new Error(`Channel ${name} has invalid coverage; export is withheld.`);
   }
+  return { columns, times, names };
+}
+
+export function telemetryCsv(run: ExportRun, selection?: ExportSelection): string {
+  const { columns, times, names } = exportColumns(run);
   const rows = [names.map(csvCell).join(',')];
   for (const i of selectedIndices(times, selection)) {
     rows.push(
@@ -83,8 +89,9 @@ export function exportMetadata(
   other?: ExportRun | null,
   selection?: ExportSelection,
 ): string {
+  const { times } = exportColumns(run);
+  if (other) exportColumns(other);
   const { columns, ...telemetryInfo } = run.telemetry;
-  const times = columns.time_s;
   const native =
     (run.telemetry.sampling as { mode?: string } | undefined)?.mode === 'full-rate-benchmark';
   const info = {

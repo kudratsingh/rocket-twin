@@ -17,6 +17,10 @@ replay, compatible comparisons, exports and current scalar Analysis findings
 have native Chrome evidence. Desktop layouts/Side fits have actual pixel
 measurements. The full native-rate 60 fps benchmark remains failed; wider
 unexecuted/data-blocked branches stay explicit in the [current handoff](../docs/frontend-release-20261107.md).
+The November8 continuation adds comparison-aware **Fit both trajectories**,
+consistent CSV/metadata coverage rejection and usable visible focus restoration.
+Their source checks/build pass; the new native Fit/focus branches remain pending
+a stable designated-browser interval. See the [current completion packet](../docs/studies/frontend-completion-20261108/integration.md).
 All supplier/lab drafts remain UNSENT. Engineering/build/flight gates stay open.
 
 Read-only local inspection of the actual resolved vehicle specifications and

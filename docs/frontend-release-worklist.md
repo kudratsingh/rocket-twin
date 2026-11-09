@@ -1,5 +1,18 @@
 # Current frontend release worklist
 
+**Autonomous frontend completion (November 8, after PR110):**
+The owner requests continuation through the existing frontend checklist without
+routine approval pauses. [Current packet](studies/frontend-completion-20261108/plan.md)
+implements responsive focus restoration, consistent recorded-data exports and
+comparison framing; local checks/build pass. P14/P15 stopped on changed owner
+context/runtime guard, so new native interaction acceptance remains pending. PR110 is merged
+at main `6a12c2b8b2a78d436cc24ecac7c05c80c5eb6ca7` after exact-head required checks;
+its viewport helper is information-only. Native current-window evidence is scoped:
+P13 observed2240×1109CSS/DPR2;100% zoom is owner-reported. Exact prescribed sizes,
+representative performance and unavailable source-data branches remain open.
+G80 RP1/AD1/D1 and G54/G12 PID-to-RL remain unchanged. All five inquiries are UNSENT;
+no supplier, purchase, physical-test, firmware or flight authorization follows.
+
 **Viewport-helper clarification:** [Current note](studies/frontend-viewport-clarity-20261108/report.md). The owner is not asked to chase pixel counts for ordinary use or unblocked development. The helper is information-only; its misleading target selector is removed. P13 observes actual2240×1109CSS and successful Hide, while100% zoom is owner-reported. Prescribed-size cases remain pending until a supported coordinated method is available; criteria are unchanged.
 
 **Published baseline at the camera packet's intake:** merged PR108/main `47bc74a12b6d186bf8a9b68ef6e7ad45f044410a`; final head `8f6c02a65d5f0d58187c138d211c1e718ce80e63` passed both required jobs/workflow42489804785. PR105–107 precede it. G80 RP1/AD1 v2 and all archived identities remain separate. Preview publication never implies engineering/build/flight or full work-order acceptance.

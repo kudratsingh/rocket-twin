@@ -180,10 +180,18 @@ test('panel focus waits for commit and falls back when its original opener is re
     );
     const frames = [];
     const focused = [];
-    const toggle = { focus: () => focused.push('toggle') };
-    globalThis.window = { requestAnimationFrame: (callback) => frames.push(callback) };
+    const visibleTarget = {
+      isConnected: true,
+      tabIndex: 0,
+      closest: () => null,
+      matches: () => false,
+      getClientRects: () => [{}],
+    };
+    const toggle = { ...visibleTarget, focus: () => focused.push('toggle') };
+    globalThis.window = { requestAnimationFrame: (callback) => frames.push(callback), getComputedStyle: () => ({ visibility: 'visible' }) };
     globalThis.document = { getElementById: (id) => (id === 'stable-toggle' ? toggle : null) };
     const opener = {
+      ...visibleTarget,
       isConnected: true,
       tabIndex: 0,
       closest: () => null,

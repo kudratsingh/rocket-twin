@@ -1,5 +1,18 @@
 # Plan — modular custom rocket and digital twin
 
+**Autonomous frontend completion (November 8, after PR110):**
+The owner requests continuation through the existing frontend checklist without
+routine approval pauses. [Current packet](studies/frontend-completion-20261108/plan.md)
+implements responsive focus restoration, consistent recorded-data exports and
+comparison framing; local checks/build pass. P14/P15 stopped on changed owner
+context/runtime guard, so new native interaction acceptance remains pending. PR110 is merged
+at main `6a12c2b8b2a78d436cc24ecac7c05c80c5eb6ca7` after exact-head required checks;
+its viewport helper is information-only. Native current-window evidence is scoped:
+P13 observed2240×1109CSS/DPR2;100% zoom is owner-reported. Exact prescribed sizes,
+representative performance and unavailable source-data branches remain open.
+G80 RP1/AD1/D1 and G54/G12 PID-to-RL remain unchanged. All five inquiries are UNSENT;
+no supplier, purchase, physical-test, firmware or flight authorization follows.
+
 **Interior inspection continuation (November8):** [Source-supported interior workflow](studies/frontend-interiors-20261108/report.md). The owner requests easy direct manipulation, visibly useful internals and alternatives. Normal-flow Inspect interior/subsystem controls, optional hashed detail assets, missing-normal/depth/lighting corrections and a separate recorded fin-construction schematic are implemented. Core238…/all55 IDs and physical AD1/D1 remain unchanged. Optional ring/tube detail does not invent PCB/retainer/rope internals; FP1/FR1 remain unadopted. Current-window interior, framing, ring and fin-preview interactions are observed; final app restored to whole assembly. Code checks and browser evidence remain separate; the prior DevTools rejection and viewport limits remain. Supplier/lab drafts stay UNSENT, engineering/build/flight gates open.
 
 
