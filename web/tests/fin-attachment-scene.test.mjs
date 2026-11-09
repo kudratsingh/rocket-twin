@@ -164,6 +164,13 @@ test('camera scope and plane guide use the local joint frame and actual source p
   });
 });
 
+test('camera drags do not select a rendered part on release', async () => {
+  await withSource(source => {
+    for (const value of [0, 1, 3]) assert.equal(source.isFinPickClick(value), true);
+    for (const value of [4, 25, -1, NaN, Infinity]) assert.equal(source.isFinPickClick(value), false);
+  });
+});
+
 test('asset bytes require source scope, exact length and SHA before a GLB URL can be created', async () => {
   await withSource(async (source) => {
     const body = Uint8Array.from([1, 4, 9, 16, 25]);

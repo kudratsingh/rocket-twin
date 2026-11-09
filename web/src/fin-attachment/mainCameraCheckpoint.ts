@@ -31,3 +31,8 @@ export function clearMainCamera(key: string) {
 export function mainCameraKey(id: string, specification: unknown) {
   return `${id}:${String(specification)}`;
 }
+/** Strict Mode effect replay is not a fresh user camera command. */
+export function mainCameraCommand(previous: number | null, token: number, restored: boolean) {
+  if (previous === token) return 'skip';
+  return previous === null && restored ? 'restore' : 'frame';
+}

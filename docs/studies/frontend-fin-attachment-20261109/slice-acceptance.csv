@@ -1,0 +1,11 @@
+check_id,workbench_checks,criterion,status,evidence
+FA-01,FW2-A07,Exact frozen RP1/core/derived source admission; nine records/18 solids,pass_source,geometry.json; cad.md; tests/test_fin_attachment_export.py
+FA-02,FW2-A10;FW2-A11,Open from fin/tab; parts selection/isolation; independent sidebars,pass_scoped_native,browser.md P64; final drag guard unobserved
+FA-03,FW2-A07;FW2-A11,Longitudinal CAD caps/edges and tab/ring relationship,pass_scoped_native,browser.md P64/P65; original overlapping labels preserved and corrected
+FA-04,FW2-A07;FW2-A11,"Transverse CAD caps/edges, slot and tube; truly empty forward ring",pass_scoped_native,browser.md P64/P66
+FA-05,FW2-A12,Clickable 3D and keyboard source dimensions:6/6.80±.05/.40mm nominal,pass_scoped_native,geometry.json; browser.md P64/P65
+FA-06,FW2-A10;FW2-A12;FW2-A14,Root drawing source/part/section return,pass_scoped_native,browser.md P65
+FA-07,FW2-A10;FW2-A14,Load-path drawing and return from selected feature,pending_native,P66 timeout; designated Chrome availability pending
+FA-08,FW2-A13,Actual assembled-mm STEP download plus file readback/provenance,pass_download_and_file,browser.md P65; download-readback.json; download-provenance.json
+FA-09,FW2-A11,Orbit/zoom; explicit Move-view pan without release selecting parts,partial,"P65 orbit/zoom, P66 pan observed; drag-pick correction code-tested only"
+FA-10,FW2-A10;FW2-A11,Return-to-rocket original selection and settled actual camera,pending_native,P65 immediate mismatch; duplicate command fix code-tested; fresh native check required

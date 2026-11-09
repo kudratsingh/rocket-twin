@@ -226,6 +226,7 @@ export function FinAttachmentInspector({
 }) {
   const admission = useMemo(() => admitFinAttachmentCatalog(catalogSource, vehicle), [vehicle]);
   const [bodyMode, setBodyMode] = useState<'ghost' | 'solid' | 'hidden'>('ghost');
+  const [dragMode, setDragMode] = useState<'rotate' | 'pan'>('rotate');
   const [fit, setFit] = useState<FitCommand>({ serial: 0, scope: 'joint' });
   const isolatedPieceIds = state.isolatedPieceIds;
   const hiddenPieceIds = state.hiddenPieceIds;
@@ -335,6 +336,16 @@ export function FinAttachmentInspector({
         >
           Show all
         </button>
+        <button
+          type="button"
+          aria-pressed={dragMode === 'rotate'}
+          onClick={() => setDragMode('rotate')}
+        >
+          Rotate drag
+        </button>
+        <button type="button" aria-pressed={dragMode === 'pan'} onClick={() => setDragMode('pan')}>
+          Move view
+        </button>
         <label>
           Body
           <select
@@ -367,6 +378,7 @@ export function FinAttachmentInspector({
             selectedPieceId={state.selectedPieceId}
             selectedDimensionId={state.selectedDimensionId}
             bodyMode={bodyMode}
+            dragMode={dragMode}
             fit={fit}
             camera={state.camera}
             onSelect={(partId) =>
@@ -382,7 +394,7 @@ export function FinAttachmentInspector({
           />
           <div className="fin-attachment-scene-note">
             {planeText} · cyan outline is the plane guide, orange edges/caps are from the CAD cut ·
-            orbit, pan and zoom with the pointer
+            Drag to rotate; Move view changes drag to pan. Wheel or pinch to zoom.
           </div>
         </div>
         <EvidenceSidebar

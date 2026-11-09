@@ -429,6 +429,11 @@ export function sectionPlaneOutline(
   ];
 }
 
+/** Screen-space drag distance distinguishes deliberate part clicks from camera gestures. */
+export function isFinPickClick(delta: number): boolean {
+  return Number.isFinite(delta) && delta >= 0 && delta <= 3;
+}
+
 export async function verifiedFinAssetBytes(
   url: string,
   expectedSha256: string,

@@ -5,8 +5,11 @@ read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STE
 adds two actual CAD-derived capped sections, clickable dimensions and exact
 Engineering/Design return state. Frozen AD1 v2, failed fin findings and unknown
 installed-joint behavior remain separate. [Scope and user path](studies/frontend-fin-attachment-20261109/integration.md).
-Native verification and downloaded-file readback are recorded separately from
-code/CAD checks. All physical/engineering gates stay open; inquiries UNSENT.
+Actual joint download/readback passes. P64/P65/P66 native evidence covers cuts,
+dimensions, orbit/zoom/pan and root-drawing return. Final-source load-path and
+settled main-camera return remain pending designated-window availability;
+[PR121](https://github.com/kudratsingh/rocket-twin/pull/121) stays focused on this
+slice. All physical/engineering gates stay open; inquiries UNSENT.
 
 
 **First v2 implementation — P1 source bank:** The full plan is merged in PR119

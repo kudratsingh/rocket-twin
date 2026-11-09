@@ -15,6 +15,7 @@ import {
 import { useInspection } from '../store';
 import {
   consumeMainCamera,
+  mainCameraCommand,
   mainCameraKey,
   registerMainCamera,
 } from '../fin-attachment/mainCameraCheckpoint';
@@ -465,7 +466,9 @@ function CameraFit({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [camera]);
   useEffect(() => {
-    if (lastStoreCommand.current === null && restoredPose) {
+    const next = mainCameraCommand(lastStoreCommand.current, resetToken, !!restoredPose);
+    if (next === 'skip') return;
+    if (next === 'restore') {
       lastStoreCommand.current = resetToken;
       publish();
       return;

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "rp1-critical-fin-joint-file-readback-v1",
+  "status": "verified_file_readback",
+  "file": {
+    "realpath": "/Users/kudratsingh/Downloads/G80-F2-RP1-AD1-definition-v2--motor-fin-ring-joint--2ea1796f0b50.step",
+    "sha256": "2ea1796f0b506ce382e1f7f9d25280b21c2f30d2119bb3aa52f257c0e2cff119",
+    "bytes": 339487
+  },
+  "source_verification_only": false,
+  "browser_origin": "Not asserted by this tool; supplied file path and bytes only",
+  "provenance": {
+    "realpath": "/Users/kudratsingh/Machine-Learning-Projects/rocket-twin/docs/studies/frontend-desktop-detail-20261108/cad-export.json",
+    "sha256": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731",
+    "kind": "registered_repository_record"
+  },
+  "identity": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "resolved_spec_sha256": null,
+    "cad_revision_sha256": null,
+    "record_path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+    "record_sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "definition_path": "configs/studies/rp1-attachment-definition-v2.yaml",
+    "definition_sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "units": "mm",
+  "millimetre_length_unit_declarations": 10,
+  "readback": {
+    "valid": true,
+    "solids": 18,
+    "bounds_mm": [
+      [
+        -49.29857621135,
+        -82.38763873888561,
+        458.0
+      ],
+      [
+        93.40100000000001,
+        82.38763873888769,
+        1250.0
+      ]
+    ],
+    "maximum_registered_bounds_error_mm": 0.0,
+    "cadquery_version": "2.8.0",
+    "representative_dimensions": {
+      "tab": {
+        "solid_bounds_mm": [
+          [
+            15.95,
+            -3.0,
+            1080.2
+          ],
+          [
+            33.401,
+            3.0,
+            1189.6
+          ]
+        ],
+        "thickness_mm": 6.0,
+        "axial_length_mm": 109.39999999999986,
+        "aft_station_mm": 1189.6
+      },
+      "aft_ring": {
+        "solid_bounds_mm": [
+          [
+            -32.2,
+            -32.2,
+            1190.0
+          ],
+          [
+            32.2,
+            32.2,
+            1196.0
+          ]
+        ],
+        "front_station_mm": 1190.0
+      },
+      "nominal_aft_gap_mm": 0.40000000000009095,
+      "body_slot": {
+        "status": "source_defined_not_independently_extracted",
+        "source_nominal_mm": 6.8,
+        "source_proposed_cut_tolerance_mm": 0.05,
+        "measured_from_step_mm": null,
+        "basis": "AD1 fin_joints.external_slot_width_mm; whole-STEP extraction not uniquely resolved"
+      }
+    }
+  },
+  "runtime": {
+    "wall_seconds": 3.7525148750282824,
+    "cpu_seconds": 2.601838
+  },
+  "limitations": [
+    "Readback verifies the supplied registered inspection file, not browser download provenance",
+    "Source nominal geometry and motor/retainer envelopes are not manufactured/qualified hardware",
+    "No physical fit, adhesive/contact, strength, mass/inertia or flight qualification"
+  ]
+}

@@ -2,10 +2,15 @@ import { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react
 import type { ComponentRef, ReactNode } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { Html, Line, OrbitControls, useGLTF } from '@react-three/drei';
-import { Box3, DoubleSide, Mesh, Vector3 } from 'three';
+import { Box3, DoubleSide, Mesh, MOUSE, Vector3 } from 'three';
 import type { Material, MeshStandardMaterial, PerspectiveCamera } from 'three';
 import type { FinAttachmentCameraSnapshot } from './finAttachmentState';
-import { sectionPlaneOutline, unionBounds, verifiedFinAssetBytes } from './finAttachment';
+import {
+  isFinPickClick,
+  sectionPlaneOutline,
+  unionBounds,
+  verifiedFinAssetBytes,
+} from './finAttachment';
 import type { BoundsM, FinAsset, FinCatalog, FinSectionId } from './finAttachment';
 
 type LoadedPart = { meshUrl: string; capUrl: string | null };
@@ -110,7 +115,8 @@ function RegisteredMesh({
       dispose={null}
       onClick={
         onSelect
-          ? (event: { stopPropagation: () => void }) => {
+          ? (event: { stopPropagation: () => void; delta: number }) => {
+              if (!isFinPickClick(event.delta)) return;
               event.stopPropagation();
               onSelect();
             }
@@ -122,12 +128,14 @@ function RegisteredMesh({
 
 function CameraRig({
   section,
+  dragMode,
   bounds,
   command,
   initial,
   onCameraChange,
 }: {
   section: FinSectionId;
+  dragMode: 'rotate' | 'pan';
   bounds: BoundsM;
   command: FitCommand;
   initial: FinAttachmentCameraSnapshot | null;
@@ -211,6 +219,11 @@ function CameraRig({
       enableRotate
       enableZoom
       enableDamping={false}
+      mouseButtons={{
+        LEFT: dragMode === 'pan' ? MOUSE.PAN : MOUSE.ROTATE,
+        MIDDLE: MOUSE.DOLLY,
+        RIGHT: MOUSE.PAN,
+      }}
       onEnd={() => {
         const view = camera as PerspectiveCamera;
         const target = controls.current?.target;
@@ -234,6 +247,7 @@ function SceneContent({
   selectedPieceId,
   selectedDimensionId,
   bodyMode,
+  dragMode,
   fit,
   camera,
   onSelect,
@@ -247,6 +261,7 @@ function SceneContent({
   selectedPieceId: string | null;
   selectedDimensionId: string | null;
   bodyMode: 'ghost' | 'solid' | 'hidden';
+  dragMode: 'rotate' | 'pan';
   fit: FitCommand;
   camera: FinAttachmentCameraSnapshot | null;
   onSelect: (partId: string) => void;
@@ -393,6 +408,7 @@ function SceneContent({
       )}
       <CameraRig
         section={section}
+        dragMode={dragMode}
         bounds={bounds}
         command={fit}
         initial={camera}
@@ -409,6 +425,7 @@ export function FinAttachmentScene({
   selectedPieceId,
   selectedDimensionId,
   bodyMode,
+  dragMode,
   fit,
   camera,
   onSelect,
@@ -421,6 +438,7 @@ export function FinAttachmentScene({
   selectedPieceId: string | null;
   selectedDimensionId: string | null;
   bodyMode: 'ghost' | 'solid' | 'hidden';
+  dragMode: 'rotate' | 'pan';
   fit: FitCommand;
   camera: FinAttachmentCameraSnapshot | null;
   onSelect: (partId: string) => void;
@@ -519,6 +537,7 @@ export function FinAttachmentScene({
             selectedPieceId={selectedPieceId}
             selectedDimensionId={selectedDimensionId}
             bodyMode={bodyMode}
+            dragMode={dragMode}
             fit={fit}
             camera={camera}
             onSelect={onSelect}
