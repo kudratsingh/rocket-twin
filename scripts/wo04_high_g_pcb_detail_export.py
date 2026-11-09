@@ -124,9 +124,7 @@ def extract(raw: bytes, attribution: str) -> dict[str, Any]:
         target = (
             silk
             if layer in (21, 22)
-            else documentation
-            if layer in (25, 26, 27, 28, 51, 52)
-            else None
+            else documentation if layer in (25, 26, 27, 28, 51, 52) else None
         )
         if target is None:
             omitted[f"{scope}:{node.tag}:layer{source_layer}"] += 1
@@ -294,9 +292,9 @@ def extract(raw: bytes, attribution: str) -> dict[str, Any]:
                 else:
                     pad.update(
                         drill_mm=number(node, "drill"),
-                        diameter_mm=number(node, "diameter")
-                        if node.get("diameter") is not None
-                        else None,
+                        diameter_mm=(
+                            number(node, "diameter") if node.get("diameter") is not None else None
+                        ),
                         shape=node.get("shape", "round"),
                     )
                     drills.append(
@@ -365,9 +363,9 @@ def extract(raw: bytes, attribution: str) -> dict[str, Any]:
                     "center_mm": [number(node, "x"), number(node, "y")],
                     "extent": node.get("extent"),
                     "drill_mm": number(node, "drill"),
-                    "diameter_mm": number(node, "diameter")
-                    if node.get("diameter") is not None
-                    else None,
+                    "diameter_mm": (
+                        number(node, "diameter") if node.get("diameter") is not None else None
+                    ),
                     "shape": node.get("shape", "round"),
                     "layer": 18,
                 }

@@ -95,3 +95,14 @@ engineering requirement change or flight release is authorized by this increment
 G80 custom construction and practical performance remain first; G54 and G12
 PID-to-RL retain their separate committed tracks. WO-03 and the full WO-04/05,
 WO-10 and physical/flight gates remain open.
+
+## Publication checks
+
+PR118's first hosted run, 42587499260 at head
+`8891d0c47f42dc64f607e62f3505ad6422b7ef82`, passed the web job but failed
+the model job's Black formatting check on the PCB extractor and repeatable
+preparer. Later model steps did not run. Formatting those two scripts changes no
+geometry, inputs or calculations. The complete local `make check` then passed
+Ruff, Black and mypy; the frozen mechanical exporter/catalog and all physical
+specification pins stayed unchanged. Required checks must pass on the replacement
+head before merge; this failed run remains historical evidence.

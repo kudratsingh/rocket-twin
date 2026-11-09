@@ -201,9 +201,9 @@ def prepare(
     missing = [c for c in packet["children"] if not existing[c["id"]]]
     if not publish:
         return {
-            "status": "verified_cache_copy_required"
-            if not missing
-            else "unavailable_missing_children",
+            "status": (
+                "verified_cache_copy_required" if not missing else "unavailable_missing_children"
+            ),
             "catalog_sha256": CATALOG_SHA256,
             "children": 18,
             "missing_children": len(missing),
