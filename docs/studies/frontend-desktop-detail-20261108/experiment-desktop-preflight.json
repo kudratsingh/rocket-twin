@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "id": "desktop-one-tiny-experiment-preflight-20261108",
+  "status": "prepared_not_executed",
+  "scope": "Read-only frontend/API request and saved record metadata preflight; no simulation/telemetry/CUA/worker cancellation/source edit",
+  "configuration": {
+    "id": "modular-performance-v1",
+    "ui_label": "Performance \u00b7 G80 reference",
+    "catalog_role": "Archived G80 reference \u00b73D/replay fixture",
+    "resolved_spec_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "sim_code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+    "motor_source": "Historical AeroTech G80_2007 preliminary numerical hypothesis; no current motor/physical adoption"
+  },
+  "preserved_design": {
+    "id_if_current_restored_design": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "rule": "Record actual prepacket Design identity/selection/view and preserve it. Experiment configuration lives in separate experiment context; never switch Design to admit RP1 flight. Actual native Design identity remains for verifier to observe."
+  },
+  "proposed_single_request": {
+    "configuration": "modular-performance-v1",
+    "wind_mps": 1.0,
+    "wind_direction_deg": 0.0,
+    "gust_mps": 0.0,
+    "preset": "tiny",
+    "seed": 20261107
+  },
+  "resource_declaration": {
+    "backend": "local CPU",
+    "concurrency": 1,
+    "cases": 1,
+    "dt_s": 0.005,
+    "max_time_s": 45,
+    "max_steps": 9000,
+    "sensor_noise": true,
+    "elevation_m": 850,
+    "controller": "locked, unguided",
+    "batch_enabled": false,
+    "paid_compute": false
+  },
+  "window_correction": {
+    "source_window_s": 45,
+    "incorrect_assumption_s": 9,
+    "reason": "Tiny uses0.005s integration step and9000steps, so45s, not9s. API resource declaration, execution case and visible Preset label agree.",
+    "first9s_view": "A9s viewed/scrubbed segment precedes baseline apogee10.4/deployment10.7; this does not mean those events are missing from the45s record."
+  },
+  "baseline": {
+    "run_id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+    "record_path": "runs/exp-d0baf4168f7f41e687a1b5f12e14cc3e/record.json",
+    "record_sha256": "5acd508733529ff9588a7f0d6e759b03371d155ac94c0c38726b6db413506559",
+    "settings": {
+      "configuration": "modular-performance-v1",
+      "wind_mps": 0.0,
+      "wind_direction_deg": 0.0,
+      "gust_mps": 0.0,
+      "preset": "tiny",
+      "seed": 20261107
+    },
+    "resources": {
+      "backend": "cpu",
+      "concurrency": 1,
+      "dt_s": 0.005,
+      "max_time_s": 45,
+      "max_steps": 9000,
+      "seed": 20261107,
+      "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+      "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+    },
+    "case": {
+      "dt_s": 0.005,
+      "max_time_s": 45,
+      "sensor_noise": true,
+      "elevation_m": 850,
+      "wind_north_mps": 0.0,
+      "wind_east_mps": 0.0,
+      "gust_amplitude_mps": 0.0
+    },
+    "random_seed": 20261107,
+    "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+    "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "input_sha256": {
+      "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+      "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+      "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c"
+    },
+    "input_hashes_match_current": true,
+    "telemetry_samples": 9000,
+    "result_state": "partial_trajectory",
+    "trajectory_complete": false,
+    "events": {
+      "ignition": 0.0,
+      "guide_exit": 0.17000000000000007,
+      "burnout": 1.8079,
+      "apogee": 10.400000000000226,
+      "deployment": 10.700000000000227,
+      "landing": null
+    },
+    "created_at": "2026-11-08T04:16:28.547851+00:00",
+    "finished_at": "2026-11-08T04:16:29.038241+00:00",
+    "compatibility": "Current model/source/profile/seed match verified using record metadata and present source bytes; no telemetry data was read. New run remains to be checked."
+  },
+  "comparison": {
+    "A": "The single newly accepted run ID, unavailable until a future native POST is accepted",
+    "B": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+    "alignment": "Absolute elapsed time; verify A/B offsets0",
+    "playback_profile": "bounded, default normal playback; do not enable full-rate benchmark",
+    "expected_differences_if_actual_run_matches_plan": [
+      "setting wind_mps:0\u21921",
+      "case wind_north_mps:0\u21921 (derived from same0degree direction)"
+    ],
+    "matching_settings": [
+      "configuration",
+      "preset",
+      "seed",
+      "wind_direction_deg",
+      "gust_mps",
+      "sensor_noise",
+      "dt_s",
+      "max_time_s",
+      "elevation_m",
+      "controller"
+    ],
+    "required_matching_identities": [
+      "resolved_sha256",
+      "code_sha256",
+      "cad_revision_sha256",
+      "complete input_sha256 dictionary"
+    ],
+    "claim_boundary": "Only after actual new record matches these fields may this be described as a matched-source/profile/seed wind-speed sensitivity. A GUI comparison alone is not a controlled one-variable or independently validated physical result.",
+    "historical_full_runs": "116/132s sim-profile runs differ in duration/dt and model code; do not use as controlled Tiny baseline or borrow their geometry."
+  },
+  "minimum_native_actions": [
+    "Record actual Design source identity and visible state; open Experiments without changing Design.",
+    "Set Vehicle and motor=Performance \u00b7G80 reference; verify experiment IDmodular-performance-v1 and42-part matching source.",
+    "Set wind1.0m/s, direction toward0degrees clockwise from north, gust0, Preset tiny\u00b745s/9000steps, seed20261107; ensure Bounded seed sweep unchecked.",
+    "Click Run on CPU once. Record exactly one accepted run ID and queued/running/terminal transitions. If acceptance uncertain, inspect saved attempts only; do not resubmit.",
+    "If complete within90s observation deadline, load actual new A from Saved runs and observe partial/full status plus exact settings/identities. Stop on failure/mismatch.",
+    "Use Saved runs search to locate baseline exp-d0baf4168f7f41e687a1b5f12e14cc3e, click its Compare button. Verify A=new ID/B=baseline ID; Absolute elapsed time, offsets0; normal bounded playback.",
+    "Inspect displayed events/validity and scrub to a recorded in-range guide-exit/burnout or apogee event; use Fit both trajectories. Optional Play then Pause for at most5s actual interaction, not a full-flight/performance qualification.",
+    "Reset plot range, remain paused and request Download A range CSV plus Download A metadata JSON once. Observe actual download and expected<newRunID>-playback.csv/.json; metadata retains A/B IDs, source/settings/profile/range/alignment. B export is optional only if packet time remains.",
+    "Return to Design and verify original identity/view state preserved; no changes to RP1, archived geometry or physical gates."
+  ],
+  "event_expectations": {
+    "baseline_recorded": [
+      "ignition0",
+      "guide_exit\u22480.17s",
+      "burnout1.8079s",
+      "apogee\u224810.4s",
+      "deployment\u224810.7s"
+    ],
+    "baseline_missing": [
+      "landing:null; partial trajectory after45s window"
+    ],
+    "new_run": "Do not predict new times as facts. Preserve actual missing events and partial status; lack of landing within45s is expected from this baseline, not a parser/flight-completion pass."
+  },
+  "budgets_and_stops": {
+    "new_runs": 1,
+    "computation_observation_deadline_s": 90,
+    "native_packet_total_guard_s": 180,
+    "short_play_limit_s": 5,
+    "automatic_retry": false,
+    "batch": false,
+    "cancel_experiment": false,
+    "hard_timeout_limitation": "Existing API has no hard per-run computation deadline. Cancellation only checks before/after compiled rollout. At90s cease packet actions and report observed pending state; no claim of worker termination. If a guaranteed\u226490s worker limit is mandatory, this packet is not admitted without a separately authorized bounded runner.",
+    "stop_conditions": [
+      "Wrong/private/native context or source drift",
+      "Uncertain acceptance or more than one accepted ID",
+      "Run failed/incomplete at90s observation limit",
+      "Actual source/profile/seed mismatch",
+      "Missing compatible baseline in current saved-run list",
+      "Export coverage rejection or deadline; preserve evidence, no retake"
+    ]
+  },
+  "source_files": {
+    "src/api/experiments.py": "2ef4269e29a5a90065c54fad274c3871d887c6ca90c7333a82bcacf1ab41ca5d",
+    "web/src/experiments/Experiment.tsx": "163263a8c4e6d5c323a27b9bc620ef656aaa7b07497b0542a90aed7fd1ddb141",
+    "web/src/experiments/comparison.ts": "fc1b0b54b6c5ef5ce3f2d0c3448f8cd29f7e2e36c055afaff87ce814d8d046f7",
+    "web/src/workspaces/experimentContext.ts": "36864d2ebec94b3de5b0e81d2e7faee4b93024074957e67e1b4e192873361514",
+    "scripts/wo02_sim.py": "b5a3389f961f7398e6e0ccaad694451b5a79c25fc56ad57178480911777eb811"
+  },
+  "evidence_boundaries": {
+    "source_preflight": "Completed read-only metadata/source checks only",
+    "actual_backend_execution": "Not performed by this preflight",
+    "native_interaction": "Pending sole designated verifier and primary admission",
+    "scientific_or_physical_validation": false
+  },
+  "engineering_accepted": false,
+  "flight_ready": false,
+  "supplier_inquiries": "all five UNSENT"
+}

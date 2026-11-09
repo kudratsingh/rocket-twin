@@ -23,7 +23,20 @@ Their source checks/build pass; the new native Fit/focus branches remain pending
 a stable designated-browser interval. See the [current completion packet](../docs/studies/frontend-completion-20261108/integration.md).
 All supplier/lab drafts remain UNSENT. Engineering/build/flight gates stay open.
 
+A new actual archived G80 Tiny run completed with wind1m/s and a45second partial
+trajectory. The browser loaded it, compared it with a matching calm-air baseline,
+jumped to apogee and exported the playback CSV. Landing is not recorded. The JSON
+metadata export is pending an explicit local-site Chrome permission decision;
+no permission was changed. [Run and export evidence](../docs/studies/frontend-desktop-experiment-20261108/integration.md).
+
 ## Desktop engineering inspection
+
+The four archived reference/controls configurations also have registered part
+GLB/STEP/STL and whole-assembly GLB/STEP access. Use **Whole rocket assembly files**
+without clearing a selected component. Legacy part STEP is local millimetres;
+assembly STEP is placed geometry; STL has no encoded units and may follow print
+packing. `make workbench-archived-cad` verifies/copies existing local files without
+regenerating CAD. [Archive source and native evidence](../docs/studies/frontend-archive-downloads-20261108/integration.md).
 
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools

@@ -1,0 +1,124 @@
+{
+  "packet": "P45",
+  "status": "partial-comparison-event-CSV-pass-metadata-permission-blocked-restore-unexecuted",
+  "limits": {
+    "native_seconds": 150,
+    "overall_seconds": 210,
+    "no_new_input_after_seconds": 120
+  },
+  "timing": {
+    "navigation_ms": 1666,
+    "paired_loaded_ms": 13046,
+    "apogee_fit_capture_ms": 31649,
+    "clock_range_open_ms": 44722,
+    "CSV_request_observed_ms": 59306,
+    "CSV_click_epoch_ms": 1794202661865,
+    "metadata_click_epoch_ms": 1794202687993,
+    "metadata_prompt_capture_complete_ms": 84515,
+    "last_call_tool_wall_seconds": 2.9289,
+    "exact_stop_elapsed_ms": null,
+    "stop_limit": "Lastcapture84.515s; optionalrestorationnextcall stoppedonmissinglinkbeforeinput. No elapsedread afterstop."
+  },
+  "identity": {
+    "A": "exp-c174705a75b8474290b523e8fb7c1267",
+    "B": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+    "configuration": "modular-performance-v1",
+    "working_design": "G80-F2-RP1-AD1-definition-v2",
+    "working_spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "run_spec": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "run_code": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+    "run_CAD": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "identity_validation": "Primarysource-verification.json actualA/Brecord+Parquet; nativeexactIDs/sourceURLs/readouts separatelyobserved"
+  },
+  "clock": {
+    "alignment": "Absolute elapsed time",
+    "A_offset_s": 0,
+    "B_offset_s": 0,
+    "plot_export_range_s": [
+      0.005,
+      45
+    ],
+    "profile": "normalbounded",
+    "event_clicked": "A apogee:T+10.40s",
+    "actual_applied_cursor_s": 10.395,
+    "camera_after_fit": "Free orbit; no runfollowed"
+  },
+  "cases": [
+    {
+      "case": "Matchedsource/profile/seedwindcomparison",
+      "status": "pass-for-softwarecomparison",
+      "actual": "A/BexactIDsloaded; sameTinyseed/source; nativedifferencesonlysettingwind_mps1vs0andcasewind_north_mps1vs0."
+    },
+    {
+      "case": "Recordedapogee/Fitboth/fourplots",
+      "status": "pass-for-interaction/readouts;independentpathpixelproofpartial",
+      "actual": "Actualeventclick\u219210.395; Fitboth\u2192Free. Nativeimageall4plots+scene/trails. Near-overlaptrajectoriesvisible, independentfullA/Bbody/extentproofnotclaimed."
+    },
+    {
+      "case": "Partial/missinglanding",
+      "status": "pass",
+      "actual": "Bothinside.005\u201345window, landingnotrecorded/disabled; inferredphase/disclosedmodeleddeployment labels honest."
+    },
+    {
+      "case": "AfullreturnedrangeCSV",
+      "status": "pass-for-actualclick/browserDone",
+      "actual": "Resetplotrange.005\u201345; CSVonce; ChromeDone2.4MB exp-c174705a75b8474290b523e8fb7c1267-playback.csv. Parenthashesbytes."
+    },
+    {
+      "case": "AmetadataJSON",
+      "status": "blocked-unconfirmed",
+      "actual": "Actualclickonce openedChrome Downloadmultiplefiles permission forlocal127.0.0.1:5173; Allow/Block untouched. NoJSONDoneconfirmation."
+    },
+    {
+      "case": "OptionalDesignrestoration",
+      "status": "unexecuted-verifier-stop",
+      "actual": "FreshAXwasbrowserpermissionprompt, so expectedDesignlinkabsent. Scriptthrew PreservedRP1Designlinkunavailable beforeinput; underlyingcomparisonnotanappfailure."
+    },
+    {
+      "case": "Play/performance/newRun",
+      "status": "unexecuted",
+      "actual": "NoPlay/newRun; optionalPlaydeliberatelyskipped."
+    }
+  ],
+  "numeric_readouts_at10_395": {
+    "height_m": {
+      "A": 635.1256432952063,
+      "B": 635.2486690232791
+    },
+    "speed_m_s": {
+      "A": 0.2030458004774363,
+      "B": 0.36420423746314023
+    },
+    "net_acceleration_m_s2": {
+      "A": 9.802028747395795,
+      "B": 9.806658412078367
+    },
+    "tilt_degrees": {
+      "A": 10.382268032886136,
+      "B": 3.133230583261445
+    }
+  },
+  "runtime": {
+    "transport": "Existing nativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_or_approval_rejection": null,
+    "script_error": "PreservedRP1Designlinkunavailable",
+    "error_context": "Chromepermissionprompt; nofurtherinput aftererror"
+  },
+  "final_state": {
+    "foreground": "Chromeoriginpermissionprompt: http://127.0.0.1:5173 wants to: Download multiple files",
+    "buttons": [
+      "Block",
+      "Allow"
+    ],
+    "permission_action": "none",
+    "underlying_page": "pairedReplay,pausedFree10.395,workingDesignRP1retained",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Preliminarynumericsoftwarewindcomparison, notvalidatedphysicalwind/flightphysics.",
+    "Boundedreturnedrangeexports notfullresolutiontelemetry.",
+    "Metadata/downloadpermission/restorationpending; CSVcompletionnotJSONcompletion.",
+    "No newjob/performancequalification orphysicalacceptance."
+  ]
+}

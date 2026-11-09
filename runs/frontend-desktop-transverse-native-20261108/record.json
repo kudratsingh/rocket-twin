@@ -1,0 +1,82 @@
+{
+  "packet": "P38",
+  "status": "pass-for-transverse-station-and-retained-half-controls",
+  "limits": {
+    "native_seconds": 100,
+    "overall_seconds": 160,
+    "no_new_input_after_seconds": 75
+  },
+  "timing": {
+    "native_end_elapsed_ms": 45219,
+    "whole_and_cut_open_ms": 2433,
+    "direction_menu_ms": 10978,
+    "Across_selected_ms": 21805,
+    "station625_capture_ms": 33963,
+    "opposite_capture_ms": 45219
+  },
+  "runtime": {
+    "transport": "Existing native Chrome App, same authorized window",
+    "fresh_full_AX_before_each_input_same_cell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "selected_part": "high_g_accel",
+    "expected_core_geometry": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "core_hash_limit": "Prepared unchanged fixture; no independent live API hash read."
+  },
+  "cases": [
+    {
+      "case": "Whole rocket/Assembly frame",
+      "status": "pass-for-action-and-readout",
+      "actual": "Whole rocket click changed targetAssembly/Overview45\u00b054.7\u00b0; visibility unchanged."
+    },
+    {
+      "case": "Across direction",
+      "status": "pass",
+      "actual": "Actual native popup selection changed Along\u2192Across; station initially0; AX exposes range and exactstation readout."
+    },
+    {
+      "case": "Station range",
+      "status": "pass",
+      "actual": "One actual slidercenter click moved0\u2192625; visible625.0mm/slider625/number625."
+    },
+    {
+      "case": "Opposite retained half",
+      "status": "pass",
+      "actual": "One checkboxclick0\u21921 at625; genuineimages show aftbody/fins before, nose/forwardbody after, samecamera/station."
+    },
+    {
+      "case": "Reset cut to centerline",
+      "status": "unexecuted",
+      "reason": "Optional; ended coherent check without extra action."
+    }
+  ],
+  "visual_observations": [
+    "station-before-flip.jpg: aftbody/fins visible, nosehalf absent.",
+    "station-after-flip.jpg: nose/forwardbody visible, aftfins absent.",
+    "Assembly framing preserved; CG/CP and selected-part annotations remain uncut displaylabels, not solid geometry.",
+    "No physical sectionface, cap, installedclearance or numericgeometry measurement claimed."
+  ],
+  "final_state": {
+    "workspace": "normal Design",
+    "selected_part": "high_g_accel",
+    "camera": "Overview45\u00b0/54.7\u00b0Roll0\u00b0targetAssembly",
+    "direction": "Across the rocket",
+    "station_mm": 625,
+    "opposite_side": true,
+    "section": "on",
+    "hidden_source_records": 0,
+    "parts_visibility": "unchanged; cutclipsgeometry",
+    "context_tab": "Details",
+    "scene_tools": "open",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Display clipping of existing source geometry only.",
+    "Viewer text states Y=source length\u2212station inmetres; station0 nose,largeraft.",
+    "No CAD adoption/fit/strength/physical or flight acceptance.",
+    "No simulation/Play/performance/viewportcampaign."
+  ]
+}

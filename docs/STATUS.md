@@ -1,5 +1,27 @@
 # Status
 
+**Current desktop follow-up:** PR115 is merged at
+`71a84ecde02c81d7ccfce98aa1d4bda82814d3c4` after corrected exact-head
+workflow42563763036 and both required jobs succeeded. Original failed CI remains
+recorded. Local follow-up adds lazy source-bound CAD downloads for all four
+archived configurations, component/whole-assembly file scope, and a readable
+source-identity notice for the unresolved Apogee/EasyMini record.311 local tests,
+type/lint/format/build pass. [Archive integration](studies/frontend-archive-downloads-20261108/integration.md).
+P38 verifies transverse cut/flip; P40 corrects P39's notice layout; P42 verifies
+G80 assembly STEP/provenance with fresh matching bytes; P43 verifies actual
+G54/finned-G12/finless-G12 models and file controls. No new CAD readback or physical
+qualification is inferred. P44 accepted and completed one real Tiny CPU run,
+`exp-c174705a75b8474290b523e8fb7c1267`; its45second trajectory is partial,
+with landing unavailable. P45 compares it with the matching saved baseline, jumps
+to apogee and downloads the actual CSV. The3,006 exported source samples preserve
+117,234 raw values exactly; this is bounded playback data, not all9,000 source rows.
+The metadata JSON download remains blocked: P46 automatic approval review rejected
+changing Chrome’s persistent multiple-download permission before any action.
+Explicit owner authorization for only http://127.0.0.1:5173, or owner action on the
+prompt, is pending; no retry or workaround is permitted. Browser restoration was
+not completed. [Run evidence](studies/frontend-desktop-experiment-20261108/source-verification.json). Inquiries UNSENT;
+physical engineering and WO-03/04/05/flight gates remain unchanged.
+
 **Desktop inspection increment (November 8):** Source-verified part/assembly GLB
 and separate inspection STEP downloads, adjustable along/across section cuts,
 selected-part nominal3D dimension guides, focused detail cases and a manufacturer

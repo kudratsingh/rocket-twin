@@ -1,0 +1,76 @@
+{
+  "scope": "Single actual local CPU experiment; metadata and Parquet row count, not a new physics/flight benchmark",
+  "run_id": "exp-c174705a75b8474290b523e8fb7c1267",
+  "baseline_id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+  "actual_record_sha256": "ea22ffc8aeeaef6098b14ee2f3a44782ba9593d0d6503d40c6cea59bfcd43d1b",
+  "baseline_record_sha256": "5acd508733529ff9588a7f0d6e759b03371d155ac94c0c38726b6db413506559",
+  "identities": {
+    "configuration": "modular-performance-v1",
+    "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+    "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "input_sha256": {
+      "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+      "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+      "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c"
+    }
+  },
+  "settings": {
+    "configuration": "modular-performance-v1",
+    "wind_mps": 1.0,
+    "wind_direction_deg": 0.0,
+    "gust_mps": 0.0,
+    "preset": "tiny",
+    "seed": 20261107
+  },
+  "resources": {
+    "backend": "cpu",
+    "concurrency": 1,
+    "dt_s": 0.005,
+    "max_time_s": 45,
+    "max_steps": 9000,
+    "seed": 20261107,
+    "storage": "One record/resolved snapshot and at most max_steps rows of Parquet per member; retained locally without automatic deletion. Compressed bytes and JAX compilation memory vary by host.",
+    "cancellation": "cooperative before/after JAX rollout; an in-flight compiled rollout is not forcibly terminated"
+  },
+  "recorded_case": {
+    "dt_s": 0.005,
+    "max_time_s": 45,
+    "sensor_noise": true,
+    "elevation_m": 850,
+    "wind_north_mps": 1.0,
+    "wind_east_mps": 0.0,
+    "gust_amplitude_mps": 0.0
+  },
+  "trajectory_complete": false,
+  "events": {
+    "ignition": 0.0,
+    "guide_exit": 0.17000000000000007,
+    "burnout": 1.8079,
+    "apogee": 10.395000000000225,
+    "deployment": 10.695000000000226,
+    "landing": null
+  },
+  "actual_parquet_rows": 9000,
+  "telemetry_sha256": "852dc15107622bc69c4d4764550faec257e5c768b8ee11a364468aec95a5a277",
+  "same_source_profile_seed_as_baseline": true,
+  "differences": {
+    "settings.wind_mps": [
+      0.0,
+      1.0
+    ],
+    "case.wind_north_mps": [
+      0.0,
+      1.0
+    ]
+  },
+  "limitations": [
+    "Preliminary numerical source hypothesis; no hardware or flight approval.",
+    "Wind and attitude predictions are not independently validated; high angle of attack exceeds the supported aerodynamic model.",
+    "Recovery is a simplified point-drag and inflation model; structural, thermal and motion gates remain open.",
+    "G54 source identity remains conditional; G12 is plugged and lacks motor ejection backup."
+  ],
+  "no_rp1_flight_or_physical_acceptance": true
+}

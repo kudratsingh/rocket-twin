@@ -18,10 +18,17 @@ can run local CPU experiments and replay/compare saved telemetry. Live browser
 checks and actual screenshots are recorded in
 [the release handoff](docs/frontend-release-20261107.md). Desktop layout and
 explicit Side fitting pass measured thresholds; the full native-rate 60 fps
-benchmark remains failed. Bounded live browser checks are recorded, and the app is restored to current RP1 Design for owner use. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
+benchmark remains failed. Bounded live browser checks are recorded. The latest experiment comparison retains RP1 as the working design; Chrome’s metadata-download permission prompt is pending and final Design restoration has not been observed. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
 not engineering, prototype-build or flight approval.
 
 ## Desktop engineering inspection
+
+The four archived reference/controls configurations also have registered part
+GLB/STEP/STL and whole-assembly GLB/STEP access. Use **Whole rocket assembly files**
+without clearing a selected component. Legacy part STEP is local millimetres;
+assembly STEP is placed geometry; STL has no encoded units and may follow print
+packing. `make workbench-archived-cad` verifies/copies existing local files without
+regenerating CAD. [Archive source and native evidence](docs/studies/frontend-archive-downloads-20261108/integration.md).
 
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools
@@ -38,6 +45,12 @@ Optional completed local CAD preparation is `make workbench-rp1-step`; it verifi
 and copies existing registered files and never regenerates CAD. Start the app with
 `make preview`, then open http://127.0.0.1:5173/. Actual native feature observations
 and remaining source/engineering limits are linked in the walkthrough.
+
+A new actual archived G80 Tiny run completed with wind1m/s and a45second partial
+trajectory. The browser loaded it, compared it with a matching calm-air baseline,
+jumped to apogee and exported the playback CSV. Landing is not recorded. The JSON
+metadata export is pending an explicit local-site Chrome permission decision;
+no permission was changed. [Run and export evidence](docs/studies/frontend-desktop-experiment-20261108/integration.md).
 
 ## What works today
 
