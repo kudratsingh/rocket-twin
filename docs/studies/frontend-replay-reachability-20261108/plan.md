@@ -1,0 +1,5 @@
+# P18 available-size Replay reachability
+
+Fresh documented native AX state first; require current cf9 A/ab60 B comparison paused Free0.001. Source c055/a775 stable; sole authorized current Chrome owner. Target80/native hard90/overall120 seconds, no action launched after70; check elapsed before each call. Stop guard/access/context/error/low reserve; no overrun for restoration/capture.
+
+Observe current Window menu, then one displayed Move & Resize→Left only when Left/Fill are observed. At actual available tiled width, inspect stacked scene/plots and use at most two purposeful scrolls in the actual main content region to reach four plots and final details/diagnostics. Capture actual visible evidence; AX alone does not establish pixel reachability. Time/configuration retained, no controls covering canvas. If reserve allows one observed Fill restore; may leave comparison paused. Actual CSS only if already available; no navigation to chase dimensions and no raster→CSS inference. No exact-size matrix, DevTools, zoom, Play, run, performance, numeric entry, other window or method cascade. Inaccessible/unexecuted branches explicit.

@@ -163,3 +163,12 @@ information**. Its reference sizes are not resize controls or normal app setting
 You do not need to match them to inspect the rocket. The helper cannot set Chrome
 bounds/page zoom, and matching a reference does not pass layout checks. Use Chrome's
 upper-right menu for page zoom; Rocket Zoom in/out controls the3D camera.
+
+## Reach replay sections
+
+On a loaded saved run, **Replay sections** jumps directly to Scene, Graphs, Events,
+Validity or Data & limits. The last opens recorded playback diagnostics; it does
+not run a benchmark. Visible playback controls are above the Canvas and camera
+tracking below. **Fit both trajectories** frames recorded positions from both
+loaded runs; without B, **Fit A trajectory** remains. These actions change the
+view only. [Source/native evidence and remaining checks](../docs/studies/frontend-replay-section-navigation-20261108/integration.md).

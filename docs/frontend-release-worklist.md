@@ -1,5 +1,15 @@
 # Current frontend release worklist
 
+**Current published source and follow-up:** PR111 merged at
+`0eabac94604d1c2d711567076ced17b1860de4a5` after both required checks. The
+[flow-controls follow-up](studies/frontend-replay-flow-controls-20261108/integration.md)
+passes source checks and genuine P17 layout/input observations. P19/P20 direct
+section destinations reach all plots/diagnostics/scene in available wide/tiled
+layouts; P21 separately restores Fill. P22 fin breakdown is observed but co-motion
+remains partial. See [section evidence](studies/frontend-replay-section-navigation-20261108/integration.md). Broader exact-size,
+performance/data and engineering gates remain open. Supported fresh AX sync works;
+no repeated Ready prerequisite or denied-method bypass. Five inquiries UNSENT.
+
 **Autonomous frontend completion (November 8, after PR110):**
 The owner requests continuation through the existing frontend checklist without
 routine approval pauses. [Current packet](studies/frontend-completion-20261108/plan.md)

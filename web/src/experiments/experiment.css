@@ -269,29 +269,32 @@
   position: relative;
 }
 .exp-scene-controls {
-  position: absolute;
-  z-index: 5;
-  top: 8px;
-  left: 8px;
-  right: 8px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  pointer-events: none;
-}
-.exp-scene-controls > * {
-  pointer-events: auto;
+  margin-bottom: 8px;
+  min-width: 0;
 }
 .exp-scene-controls button,
-.exp-scene-controls output {
+.exp-scene-controls output,
+.exp-camera-tracking output {
   background: #132b36ed;
   padding: 6px 8px;
   font-size: 12px;
+  overflow-wrap: anywhere;
 }
-.exp-scene-controls output {
+.exp-scene-controls output,
+.exp-camera-tracking output {
   border-radius: 4px;
   color: #d7ecef;
+}
+.exp-camera-tracking {
+  margin-top: 8px;
+  min-width: 0;
+}
+.exp-camera-tracking output {
+  display: block;
 }
 
 /* Replay uses the available centre width, including when side panels change. */

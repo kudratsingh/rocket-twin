@@ -1,5 +1,12 @@
 # Frontend specification — focused engineering workspaces
 
+**Recorded replay navigation (November8):** loaded-run playback now has
+flow controls above the Canvas, camera status below and source-local sticky
+Scene/Graphs/Events/Validity/Data & limits destinations. P17/P19/P20 verify scoped
+current-window behavior; exact responsive/performance/data prerequisites remain
+open. [Evidence](studies/frontend-replay-section-navigation-20261108/integration.md).
+No flight calculations, controller, physical source or approval changes.
+
 **Comparison camera checkpoint (November8):** [Current worklist](frontend-release-worklist.md) records PR105–108 merged after required checks. The next camera-only increment has source tests and actual P12 Auto/A/B/Free button evidence at125, with B visibly in view and recorded values unchanged. P11's popup failure/2.599s overrun remains historical; P12 used a stricter90/120s guard and ended48.382s. Owner comparison125/AutoB is preserved. Exact-size/performance/full frontend and engineering gates stay open; RP1/AD1/D1, G54/G12 PID-to-RL and five UNSENT inquiries are unchanged.
 
 **Direct Move/Rotate correction (November8):** [Camera packet](studies/frontend-pan-20261108/report.md) makes Move view the default left-drag action and exposes Rotate view separately. Whole rocket returns to Overview/all loaded bounds; Fit assembly retains angles. Pan projection/gesture tests pass. Initial native Move-mode failure is preserved. After explicit mode-dependent gesture ownership and normal reload, the sole verifier observed translation with unchanged angles, rotation, zoom without recentering, and aft-ring Frame→Whole rocket. No geometry/engineering/flight change; inquiries UNSENT.

@@ -1,0 +1,96 @@
+{
+  "packet": "P16",
+  "date": "2026-11-08",
+  "status": "partial-functional-observation-complete",
+  "owner": "/root/browser_access_sol",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      12052,
+      22633,
+      31922,
+      46263,
+      59081
+    ],
+    "final_timer_ms": 59565,
+    "last_tool_wall_s": 5.2333,
+    "note": "No later native call. Full last-call wall after59.081s also remains below90s; offline closeout is separate."
+  },
+  "fixture": {
+    "design_context": "G80-F2-RP1-AD1-definition-v2",
+    "A_run": "exp-cf9e47a650074144856caf50775846d2",
+    "A_configuration": "modular-performance-v1",
+    "B_run": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "B_configuration": "modular-performance-g54-hypothesis",
+    "profile": "normal bounded checkbox0",
+    "clock": "absolute0.001s",
+    "paused": true
+  },
+  "cases": [
+    {
+      "case": "exact saved comparison admission",
+      "status": "pass",
+      "evidence": "ready.ax.txt: matching source/bounded A; exact A/B actor configurations, both Inside recorded window, paired plots populated."
+    },
+    {
+      "case": "Fit both one click changes Auto to Free",
+      "status": "pass",
+      "evidence": "Fresh button117 clicked once. fit-both.ax.txt Free pressed1/Auto0/no run followed; slider0.001 unchanged."
+    },
+    {
+      "case": "both complete unobscured trajectory extents visually independent",
+      "status": "partial",
+      "evidence": "Near-overlapping tall teal/gold traces and ground grid visible; upper trace reaches beneath HUD. Separate full A/B extents cannot be established from pixels. This does not assert that all geometry is clipped."
+    },
+    {
+      "case": "one tile and lower-plot reachability at reduced width",
+      "status": "unexecuted",
+      "reason": "Prioritized fit/restoration, no resize."
+    },
+    {
+      "case": "restore whole RP1 Design",
+      "status": "pass",
+      "evidence": "restored-design.jpg shows whole rocket,26/26 visible, normal navigation/Parts, tools closed; AX Move1/Frame disabled/Assembly45,54.7,-0.0."
+    }
+  ],
+  "actions": {
+    "normal_navigation": 2,
+    "fit_both_click": 1,
+    "play": 0,
+    "new_run": 0,
+    "resize": 0,
+    "numeric_entry": 0,
+    "devtools": 0
+  },
+  "screenshots": {
+    "restored-design.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "f2d7ae754c707ca1ece27dc47b646ac914e68b9ef3da8c48fdad265780985791"
+    },
+    "fit-both.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "10fc6f7af86bead76b5d542c8a6714df10230574151a5c6a71adb7f53dce0a24"
+    },
+    "final-design.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "f57339494b39702e54e37782a845288b4906c24e90fe8f2f10458c0cbd17608a"
+    }
+  },
+  "actual_css_dimensions": null,
+  "final_url": "http://127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2",
+  "transient": "final-design image/AX retain loading immediately after navigation; restored-design files establish later loaded state.",
+  "limits": "Raster is not CSS size. No exact-size/performance/body-pose/physical/blanket RV acceptance. P14/P15 immutable."
+}

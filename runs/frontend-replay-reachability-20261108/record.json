@@ -1,0 +1,108 @@
+{
+  "packet": "P18",
+  "date": "2026-11-08",
+  "status": "partial-available-size-reachability",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      9035,
+      19720,
+      32071,
+      44771,
+      57608,
+      66696
+    ],
+    "final_timer_ms": 67447,
+    "last_tool_wall_s": 4.196,
+    "note": "No subsequent native call; last action launched66.696s below70. Tool-wall counting after last launch also below90."
+  },
+  "fixture": {
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "profile": "normal bounded",
+    "time_s": 0.001,
+    "mode": "Free orbit",
+    "paused": true
+  },
+  "cases": [
+    {
+      "case": "one ordinary observed Left tile",
+      "status": "pass",
+      "evidence": "Fresh Window menu exposed Left11 and Fill6; Left clicked once. tiled-top.jpg shows actual narrower Chrome with scene above telemetry."
+    },
+    {
+      "case": "controls remain outside canvas",
+      "status": "pass",
+      "evidence": "tiled-top.jpg controls above canvas, camera tracking below, no overlay on visible trail."
+    },
+    {
+      "case": "all four tiled plots visibly reachable",
+      "status": "partial",
+      "evidence": "First scroll reached visible lower net acceleration/tilt charts (titles/readouts partly above sticky header), events and A/B validity. Height/Speed were overshot; no all-four tiled pixel proof."
+    },
+    {
+      "case": "final details/diagnostics visibly reachable",
+      "status": "partial",
+      "evidence": "First scroll showed events, comparison disclosure and A/B validity; second overshot central instrumentation into blank centre alongside long right-side input-difference list. Instrumentation remained in AX but was not captured visibly. No third scroll."
+    },
+    {
+      "case": "time/comparison/mode preserved through tile and Fill",
+      "status": "pass",
+      "evidence": "Final exact URL pair unchanged, Free pressed1, Play present, slider0.001."
+    },
+    {
+      "case": "one Fill restore",
+      "status": "pass",
+      "evidence": "Fresh restore menu Fill6 clicked once. restored-fill.jpg has wider Chrome raster; scroll remains low."
+    }
+  ],
+  "actions": {
+    "left_tile": 1,
+    "fill_restore": 1,
+    "purposeful_scrolls": 2,
+    "play": 0,
+    "simulation": 0,
+    "time_input": 0,
+    "devtools": 0,
+    "zoom": 0,
+    "navigation": 0
+  },
+  "screenshots": {
+    "restored-fill.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "95fd8888f40f924d76fc693d4c32c7f239c97b6a3ecbb6d4e5412778745d1245"
+    },
+    "scroll-one.jpg": {
+      "raster_px": [
+        2240,
+        2460
+      ],
+      "sha256": "f784b6164e599486b3c5b72d22216a4c969f8244e49186310d8796d25f691482"
+    },
+    "scroll-two.jpg": {
+      "raster_px": [
+        2240,
+        2460
+      ],
+      "sha256": "f3e91ae56cd9ee7a6c40dba020159c3a473cdd9a6ca6ac04c10874da9c425133"
+    },
+    "tiled-top.jpg": {
+      "raster_px": [
+        2242,
+        2460
+      ],
+      "sha256": "13efecffc9d91c01a658bbdddc7f36c62b7ee1ce621f3a9b2b548cee00d7e51c"
+    }
+  },
+  "actual_css_dimensions": null,
+  "size_note": "No helper/diagnostic size measurement; raster dimensions are artifact metadata only. Not prescribed900/1280/1440 acceptance.",
+  "final_state": "Same exact bounded comparison pausedFree0.001, Fill restored, current main scroll position low beside long input-difference list. No Design navigation or extra scroll after cap policy.",
+  "limits": "All-four plot and final diagnostics compound branch remains partial, not proven inaccessible. Prior P17 wide flow pass remains separate; no performance/physical/blanket RV acceptance."
+}

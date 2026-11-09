@@ -1,5 +1,27 @@
 # Agent entry point
 
+**Current frontend completion checkpoint (November 8):** PR111 is merged after
+exact-head web/model checks; comparison fitting, export-coverage rejection and
+responsive visible-focus restoration are implemented. The follow-up moves replay
+controls outside the Canvas; local checks/build pass and P17 genuinely observes
+controls above/status below, Fit both→Free, paused time unchanged, without a HUD
+covering the visible trail. [Integrated evidence](docs/studies/frontend-replay-flow-controls-20261108/integration.md).
+P19/P20 also observe explicit Graphs/Data & limits/Scene destinations in wide
+and available tiled layouts, with unchanged exact saved comparison/paused time.
+[Section navigation](docs/studies/frontend-replay-section-navigation-20261108/integration.md).
+Keep independent complete A/B path proof, exact responsive matrix, representative
+performance, full keyboard and missing-data branches scoped/open. P22 staged fin
+group is observed, but fin/tab co-motion remains partial; no installed fin pass.
+No physical or flight approval.
+
+**Supported browser synchronization:** only the existing designated verifier owns
+the permitted Chrome window. Its documented fresh full AX read successfully
+re-established expected Rocket Twin context after P15. A guard freezes that
+packet; it does not require a new owner Ready for every later supported fresh-state
+observation under standing authorization. Stop changed/private context or any
+new guard; never retry the rejected DevTools route or use another transport/window.
+[Read-only observation](docs/studies/frontend-browser-sync-20261108/observation.md).
+
 **Viewport-helper UX:** [Clarification](docs/studies/frontend-viewport-clarity-20261108/report.md). Do not make the owner match pixel counts to use the preview or continue unblocked work. The DEV helper is read-only; its reference sizes do not resize Chrome or establish acceptance. Report actual supported dimensions. Keep the prescribed exact-size cases pending until supported coordinated sizing; do not bypass the existing browser restrictions or quietly change criteria.
 
 **Comparison camera checkpoint (November8):** [Current worklist](docs/frontend-release-worklist.md) records PR105–108 merged after required checks. The next camera-only increment has source tests and actual P12 Auto/A/B/Free button evidence at125, with B visibly in view and recorded values unchanged. P11's popup failure/2.599s overrun remains historical; P12 used a stricter90/120s guard and ended48.382s. Owner comparison125/AutoB is preserved. Exact-size/performance/full frontend and engineering gates stay open; RP1/AD1/D1, G54/G12 PID-to-RL and five UNSENT inquiries are unchanged.
