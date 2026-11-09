@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { RefObject } from 'react';
 import { orbitBasis } from './inspectionOrbit';
 import type { OrbitAngles, OrbitReadout } from './inspectionOrbit';
 
@@ -10,6 +11,7 @@ export function OrbitCameraControls({
   onAngles,
   onTarget,
   onPan,
+  detailsRef,
 }: {
   readout: OrbitReadout;
   dragMode?: 'orbit' | 'pan';
@@ -18,12 +20,22 @@ export function OrbitCameraControls({
   onAngles: (angles: OrbitAngles) => void;
   onTarget: (target: 'assembly' | 'selection') => void;
   onPan: (direction: 'left' | 'right' | 'up' | 'down') => void;
+  detailsRef?: RefObject<HTMLDetailsElement | null>;
 }) {
   const [draft, setDraft] = useState<Record<keyof OrbitAngles, string> | null>(null);
   const [error, setError] = useState('');
   return (
     <div className="inspection-orbit-controls">
-      <details>
+      <details
+        ref={detailsRef}
+        onKeyDown={(event) => {
+          if (event.key !== 'Escape') return;
+          event.preventDefault();
+          event.stopPropagation();
+          event.currentTarget.open = false;
+          event.currentTarget.querySelector('summary')?.focus();
+        }}
+      >
         <summary>Orbit / camera · {readout.mode}</summary>
         <form
           noValidate

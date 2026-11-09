@@ -1,5 +1,15 @@
 # Current engineering and inspection checkpoint
 
+**Control organization follow-up:** The owner requested the crowded control strip
+be refined. View/Inspect/Source/Alternatives and Mouse/Frame/Zoom/Display/Views
+now use labeled, wrapping normal-flow groups. Existing geometry, callbacks,
+read-only evidence and fin-joint camera retention remain unchanged.
+P69–P70 native checks verify group/menu reachability, display/section entries,
+sidebar states and a visible whole model; numeric entry and full responsive/
+field-legibility coverage remain outside this scoped claim.
+[Bounded scope and verification](studies/frontend-control-layout-20261109/integration.md). Full work-order and physical/flight gates
+remain open; all five inquiries are UNSENT.
+
 **Current focused delivery — RP1 fin attachment inspector:** One source-bound,
 read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STEP,
 adds two actual CAD-derived capped sections, clickable dimensions and exact

@@ -3,132 +3,157 @@
   flex: 0 0 auto;
   flex-wrap: wrap;
   align-items: center;
-  gap: 5px 10px;
-  padding: 4px 8px;
-  min-height: 36px;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 6px 8px;
   background: #152630;
   border-bottom: 1px solid #38515d;
-  z-index: 28;
+  z-index: 40;
   position: relative;
 }
-.revamp-design .inspection-workflow-header .research-representation-controls {
-  position: static;
-  padding: 0;
-  max-width: none;
-  background: none;
-}
+
 .interior-workbench {
   display: flex;
+  flex: 1 1 420px;
   flex-wrap: wrap;
   align-items: center;
-  gap: 5px 8px;
-  flex: 1;
+  gap: 6px;
   min-width: 0;
+  max-width: 100%;
 }
+
+.interior-workbench .inspection-control-group {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.interior-inspect-group {
+  flex: 1 1 290px;
+}
+
+.interior-source-group,
+.interior-alternatives-group {
+  flex: 0 1 auto;
+}
+
+.interior-workbench button,
+.interior-workbench select,
+.interior-workbench summary {
+  min-height: 32px;
+  box-sizing: border-box;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
 .interior-workbench button,
 .interior-workbench select {
-  font-size: 11px;
-  min-height: 28px;
-  padding: 4px 7px;
+  padding: 5px 8px;
   margin: 0;
 }
+
 .interior-primary {
   border-color: #45b6b8;
   background: #184449;
 }
-.interior-workbench select {
-  max-width: 205px;
+
+.interior-inspect-group label {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.interior-inspect-group select {
+  width: min(205px, 100%);
+  max-width: 100%;
   background: #162d38;
   color: #e3edf4;
   border: 1px solid #526b77;
   border-radius: 4px;
 }
-.interior-status {
-  font-size: 10px;
-  color: #b7cbd6;
+
+.detail-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  white-space: nowrap;
+  font-size: 11px;
 }
-.revamp-design .research-design-visual > .research-representation:not([hidden]) {
-  flex: 1 1 0;
-  height: auto;
-}
-.revamp-design .revamp-source-state {
-  top: 78px;
-  max-width: calc(100% - 24px);
-  font-size: 10px;
-  pointer-events: none;
-}
-@media (max-width: 1050px) {
-  .interior-status {
-    display: none;
-  }
-  .revamp-design .revamp-source-state {
-    top: 114px;
-    max-width: calc(100% - 24px);
-  }
+
+.detail-toggle input {
+  margin: 0;
 }
 
 .inspection-source-note {
-  position: relative;
-  font-size: 10px;
-  color: #e9c788;
-  flex: 0 0 auto;
-}
-.inspection-source-note summary {
-  cursor: pointer;
-  padding: 4px;
-}
-.revamp-design .inspection-source-note .revamp-source-state {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: auto;
-  max-width: none;
-  width: min(460px, 80vw);
-  padding: 10px;
-  z-index: 40;
-  border: 1px solid #526b77;
-  background: #12232bf5;
-  pointer-events: auto;
+  min-width: 0;
+  max-width: 100%;
   font-size: 11px;
+  color: #e9c788;
+}
+
+.inspection-source-note summary,
+.interior-coverage summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 8px;
+  white-space: normal;
+}
+
+.inspection-source-note[open] {
+  flex: 1 1 250px;
+}
+
+.inspection-source-note .revamp-source-state {
+  max-height: 26vh;
+  overflow: auto;
+  padding: 7px;
+  border: 1px solid #526b77;
+  border-radius: 4px;
+  background: #12232b;
+  line-height: 1.45;
 }
 
 .interior-coverage {
   position: relative;
-  font-size: 10px;
+  min-width: 0;
+  font-size: 11px;
 }
-.interior-coverage summary {
-  cursor: pointer;
-  padding: 4px;
-}
+
+/* A fixed popover cannot be clipped by a narrow Design canvas or its flex rows. */
 .interior-coverage > div {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: min(490px, 80vw);
-  max-height: 65vh;
+  position: fixed;
+  top: clamp(94px, 18vh, 180px);
+  left: 16px;
+  right: 16px;
+  width: min(600px, calc(100vw - 32px));
+  max-height: min(65vh, 600px);
+  box-sizing: border-box;
+  margin-inline: auto;
   overflow: auto;
-  padding: 12px;
-  z-index: 45;
+  padding: 14px;
+  z-index: 80;
   background: #132733;
-  border: 1px solid #526b77;
+  border: 1px solid #7293a3;
+  border-radius: 7px;
+  box-shadow: 0 12px 35px #06121dcc;
   line-height: 1.5;
 }
-.interior-coverage code {
-  overflow-wrap: anywhere;
+
+.interior-coverage:not([open]) > div {
+  display: none;
 }
-.detail-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10px;
+
+.interior-coverage code,
+.inspection-source-note code {
+  overflow-wrap: anywhere;
 }
 
 .interior-status {
   display: none;
 }
-.inspection-workflow-header .research-representation-controls button {
-  padding: 4px 6px;
-}
+
 .interior-workbench .sr-only {
   position: absolute;
   width: 1px;
@@ -136,4 +161,19 @@
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .interior-workbench {
+    flex-basis: 100%;
+  }
+
+  .interior-inspect-group {
+    flex-basis: 100%;
+  }
+
+  .interior-coverage > div {
+    top: 72px;
+    max-height: calc(100vh - 88px);
+  }
 }

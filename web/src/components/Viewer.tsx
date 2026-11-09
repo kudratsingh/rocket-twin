@@ -55,6 +55,7 @@ import { SourceDimensionOverlay } from './SourceDimensionOverlay';
 import type { Rp1DetailAnnotation } from './rp1Detail';
 import { DEFAULT_SECTION, inspectionSectionPlane, sectionDimensions } from './inspectionSection';
 import type { SectionSettings } from './inspectionSection';
+import './inspectionToolbar.css';
 
 export interface ViewOverlay {
   partColors: Record<string, string | null>;
@@ -738,6 +739,7 @@ export function Viewer({
   const [meshErrors, setMeshErrors] = useState<string[]>([]);
   const [dragMode, setDragMode] = useState<'orbit' | 'pan'>('pan');
   const [cameraCommand, setCameraCommand] = useState<CameraCommand | null>(null);
+  const preciseCameraDetails = useRef<HTMLDetailsElement>(null);
   const [cameraReadout, setCameraReadout] = useState<OrbitReadout>({
     azimuth: 45,
     tilt: 54.7356,
@@ -876,93 +878,137 @@ export function Viewer({
         className="viewport-actions revamp-primary-actions"
         aria-label="Primary inspection actions"
       >
-        <div className="inspection-drag-mode" role="group" aria-label="Mouse drag action">
+        <div className="inspection-control-group" role="group" aria-label="Mouse movement">
+          <span className="inspection-control-label">Mouse</span>
+          <div className="inspection-drag-mode" role="group" aria-label="Mouse drag action">
+            <button
+              type="button"
+              aria-pressed={dragMode === 'pan'}
+              onClick={() => setDragMode('pan')}
+              title="Grab and move the rocket across the screen without rotating it"
+            >
+              Move view
+            </button>
+            <button
+              type="button"
+              aria-pressed={dragMode === 'orbit'}
+              onClick={() => setDragMode('orbit')}
+              title="Drag to turn around the rocket"
+            >
+              Rotate view
+            </button>
+          </div>
+        </div>
+        <div className="inspection-control-group" role="group" aria-label="Frame the rocket">
+          <span className="inspection-control-label">Frame</span>
           <button
             type="button"
-            aria-pressed={dragMode === 'pan'}
-            onClick={() => setDragMode('pan')}
-            title="Grab and move the rocket across the screen without rotating it"
+            onClick={resetCamera}
+            title="Return to the overview angle and frame the entire rocket, keeping visibility settings"
           >
-            Move view
+            Whole rocket
           </button>
           <button
-            type="button"
-            aria-pressed={dragMode === 'orbit'}
-            onClick={() => setDragMode('orbit')}
-            title="Drag to turn around the rocket"
+            onClick={() => commandCamera('fit-assembly')}
+            title="Fit all loaded assembly bounds without changing visibility or display settings"
           >
-            Rotate view
+            <Icon name="fit" /> Fit assembly
+          </button>
+          <button
+            onClick={() => {
+              if (!cameraSelectionIds.length) return;
+              if (section) toggleSection();
+              hideParts(hiddenIds.filter((id) => !cameraSelectionIds.includes(id)));
+              commandCamera('frame-selection');
+            }}
+            disabled={!cameraSelectionIds.length}
+            title="Frame the selected group or part; reveal its geometry and clear section clipping if necessary"
+          >
+            <Icon name="target" />{' '}
+            {selectedId && (hiddenIds.includes(selectedId) || section)
+              ? 'Show and frame'
+              : 'Frame selection'}
           </button>
         </div>
-        <button
-          type="button"
-          onClick={resetCamera}
-          title="Return to the overview angle and frame the entire rocket, keeping visibility settings"
-        >
-          Whole rocket
-        </button>
-        <button
-          onClick={() => commandCamera('fit-assembly')}
-          title="Fit all loaded assembly bounds without changing visibility or display settings"
-        >
-          <Icon name="fit" /> Fit assembly
-        </button>
-        <button
-          onClick={() => {
-            if (!cameraSelectionIds.length) return;
-            if (section) toggleSection();
-            hideParts(hiddenIds.filter((id) => !cameraSelectionIds.includes(id)));
-            commandCamera('frame-selection');
-          }}
-          disabled={!cameraSelectionIds.length}
-          title="Frame the selected group or part; reveal its geometry and clear section clipping if necessary"
-        >
-          <Icon name="target" />{' '}
-          {selectedId && (hiddenIds.includes(selectedId) || section)
-            ? 'Show and frame'
-            : 'Frame selection'}
-        </button>
-        <button onClick={() => commandCamera('zoom-in')} aria-label="Zoom in">
-          + Zoom in
-        </button>
-        <button onClick={() => commandCamera('zoom-out')} aria-label="Zoom out">
-          − Zoom out
-        </button>
-        <button onClick={resetCamera}>Reset view</button>
-        {!overlay && (
-          <button onClick={() => restoreAssembledInspection(useInspection.getState())}>
-            Restore assembly
+        <div className="inspection-control-group" role="group" aria-label="Zoom controls">
+          <span className="inspection-control-label">Zoom</span>
+          <button onClick={() => commandCamera('zoom-in')} aria-label="Zoom in">
+            + Zoom in
           </button>
-        )}
-        <details
-          className="revamp-camera-menu"
-          onKeyDown={(event) => {
-            if (event.key !== 'Escape') return;
-            event.preventDefault();
-            event.stopPropagation();
-            event.currentTarget.open = false;
-            event.currentTarget.querySelector('summary')?.focus();
-          }}
-        >
-          <summary>Camera</summary>
-          <div>
-            <button onClick={resetCamera}>Reset camera · overview</button>
-            <button onClick={() => commandCamera('fit')}>Fit visible · full-part bounds</button>
-            <button aria-pressed={framingGuide} onClick={() => setFramingGuide((value) => !value)}>
-              Framing area guide
+          <button onClick={() => commandCamera('zoom-out')} aria-label="Zoom out">
+            − Zoom out
+          </button>
+        </div>
+        <div className="inspection-control-group" role="group" aria-label="Assembly and display">
+          <span className="inspection-control-label">Display</span>
+          {!overlay && layout && (
+            <button
+              type="button"
+              aria-expanded={layout.preferences.toolsOpen}
+              aria-controls={`${layout.id}-tools-content`}
+              onClick={layout.toggleTools}
+              title="Open transparency, wireframe, balance markers, sections, dimensions and breakdown settings"
+            >
+              Display tools
             </button>
-            {CAMERA_VIEWS.map((view) => (
+          )}
+          {!overlay && (
+            <button onClick={() => restoreAssembledInspection(useInspection.getState())}>
+              Restore assembly
+            </button>
+          )}
+        </div>
+        <div className="inspection-control-group" role="group" aria-label="Camera views">
+          <span className="inspection-control-label">Views</span>
+          <details
+            className="revamp-camera-menu"
+            onKeyDown={(event) => {
+              if (event.key !== 'Escape') return;
+              event.preventDefault();
+              event.stopPropagation();
+              event.currentTarget.open = false;
+              event.currentTarget.querySelector('summary')?.focus();
+            }}
+          >
+            <summary>Camera</summary>
+            <div>
+              <p className="inspection-control-note">
+                Choose a preset, or open exact angles and keyboard pan.
+              </p>
               <button
-                key={view.id}
-                title={view.description}
-                aria-pressed={cameraReadout.mode === view.label}
-                onClick={() => setCameraView(view.id)}
+                type="button"
+                onClick={(event) => {
+                  const menu = event.currentTarget.closest('details');
+                  if (menu) menu.open = false;
+                  if (preciseCameraDetails.current) {
+                    preciseCameraDetails.current.open = true;
+                    preciseCameraDetails.current.querySelector('summary')?.focus();
+                  }
+                }}
               >
-                {view.label}
+                Camera angles &amp; pan
               </button>
-            ))}
-          </div>
-        </details>
+              <button onClick={resetCamera}>Reset camera · overview</button>
+              <button onClick={() => commandCamera('fit')}>Fit visible · full-part bounds</button>
+              <button
+                aria-pressed={framingGuide}
+                onClick={() => setFramingGuide((value) => !value)}
+              >
+                Framing area guide
+              </button>
+              {CAMERA_VIEWS.map((view) => (
+                <button
+                  key={view.id}
+                  title={view.description}
+                  aria-pressed={cameraReadout.mode === view.label}
+                  onClick={() => setCameraView(view.id)}
+                >
+                  {view.label}
+                </button>
+              ))}
+            </div>
+          </details>
+        </div>
         {overlay && (
           <button onClick={toggleSection} aria-pressed={section}>
             Section
@@ -1168,6 +1214,7 @@ export function Viewer({
           )}
         </InspectionTools>
         <OrbitCameraControls
+          detailsRef={preciseCameraDetails}
           readout={cameraReadout}
           dragMode={dragMode}
           canTargetSelection={cameraSelectionIds.length > 0}
