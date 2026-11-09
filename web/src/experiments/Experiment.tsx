@@ -10,6 +10,8 @@ import {
 } from './attemptMonitor';
 import type { AttemptStatus } from './attemptMonitor';
 import { playbackStep } from './playbackStep';
+import { createRafIntervalClock } from './rafIntervalClock';
+import { useReplaySessionCapture } from './useReplaySessionCapture';
 import { ExactReplayTime } from './ExactReplayTime.tsx';
 import { RecoveryStoryboard } from './RecoveryStoryboard.tsx';
 import { ReplaySectionNavigation } from './ReplaySectionNavigation.tsx';
@@ -896,6 +898,36 @@ export default function Experiment({
         other && comparisonWindow ? comparisonWindow.end - alignment.b : replayStart,
       )
     : 0;
+  const {
+    observe: observeSession,
+    snapshot: snapshotSession,
+    canvasReadiness,
+  } = useReplaySessionCapture({
+    playing,
+    time,
+    hostRef: replayCanvasHost,
+    context: shown
+      ? {
+          primary: {
+            run_id: shown.record.run_id,
+            code_sha256: shown.record.code_sha256,
+            resolved_sha256: shown.record.resolved_sha256,
+            cad_revision_sha256: shown.record.cad_revision_sha256,
+          },
+          comparison: other
+            ? {
+                run_id: other.record.run_id,
+                code_sha256: other.record.code_sha256,
+                resolved_sha256: other.record.resolved_sha256,
+                cad_revision_sha256: other.record.cad_revision_sha256,
+              }
+            : null,
+          profileMode: shown.playbackMode,
+          speed,
+          alignment: { event: alignment.event, offsetAS: alignment.a, offsetBS: alignment.b },
+        }
+      : null,
+  });
   const rangeKey = `${shown?.record.run_id}-${other?.record.run_id}-${alignment.event}`;
   const fullRange = { start: replayStart, end: Math.max(replayStart + 0.001, replayEnd) };
   const plotWindow = chartRange?.key === rangeKey ? chartRange : fullRange;
@@ -1096,16 +1128,24 @@ export default function Experiment({
   }, [pending, monitorIds, monitorEpoch, refresh, load]);
   useEffect(() => {
     if (!playing || !shown) return;
-    let last = performance.now(),
-      lastProfile = last,
-      frame = 0;
+    const intervalClock = createRafIntervalClock();
+    let lastProfile: number | null = null;
+    let frame = 0;
     frameDeltas.current = [];
     const tick = (now: number) => {
-      const elapsedMs = now - last;
+      const elapsedMs = intervalClock.sample(now);
+      // A first RAF callback establishes an anchor, not an interval against
+      // a separately sampled performance.now() rendering phase.
+      if (elapsedMs === null) {
+        lastProfile = now;
+        frame = requestAnimationFrame(tick);
+        return;
+      }
+      observeSession(elapsedMs);
       const advance = playbackStep(elapsedMs, speed, replayEnd);
       frameDeltas.current.push(elapsedMs);
       if (frameDeltas.current.length > 600) frameDeltas.current.shift();
-      if (now - lastProfile >= 1000) {
+      if (lastProfile !== null && now - lastProfile >= 1000) {
         setProfile(frameProfile(frameDeltas.current));
         setHeap(browserHeap(performance));
         lastProfile = now;
@@ -1118,12 +1158,11 @@ export default function Experiment({
         }
         return next;
       });
-      last = now;
       frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [playing, shown, speed, replayEnd]);
+  }, [playing, shown, speed, replayEnd, observeSession]);
   function scrubTo(next: number) {
     setPlaying(false);
     const started = performance.now();
@@ -1213,6 +1252,7 @@ export default function Experiment({
         comparison: other?.record,
         profileMode: shown.playbackMode,
         frameDeltas: frameDeltas.current,
+        fullSessionObservation: playing ? null : snapshotSession(),
         sourceRows: shown.telemetry.full_sample_count ?? null,
         returnedRows: shown.telemetry.columns.time_s.length,
         drawingA: primaryDiagnostics,
@@ -2059,6 +2099,18 @@ export default function Experiment({
                   : 'bounded playback samples'}
                 , four linked plots and matching CAD. Frame intervals include UI scheduling; they
                 are not GPU render-only timings. The rolling window retains at most 600 frames.
+              </p>
+              <p>
+                Canvas observation before Play:{' '}
+                {canvasReadiness === null
+                  ? 'unknown; wait for an actual observation'
+                  : `${(canvasReadiness * 100).toFixed(1)}% intersects the viewport; raw fraction ${canvasReadiness} (not external occlusion proof)`}
+                . Pause before exporting full-session observation; it is separate from the rolling
+                600-frame profile and stays unavailable in exports made during playback. Each
+                Play/source/profile/speed interval retains up to 24,000 RAF samples; caps, unknown
+                visibility and focus, resize events and observed cursor endpoints remain explicit.
+                Stopping is observed, not proof of a complete flight. Canvas intersection cannot
+                establish external occlusion, GPU completion or benchmark acceptance.
               </p>
               <button type="button" onClick={downloadDiagnostics}>
                 Download replay diagnostics JSON

@@ -1,0 +1,204 @@
+{
+  "packet": "P26",
+  "date": "2026-11-08",
+  "status": "UNQUALIFIED",
+  "qualification_reason": [
+    "invalid_frame_intervals"
+  ],
+  "timing_verdict": "Unavailable/unqualified for full session; finite-interval diagnostic independently misses unchanged strict target",
+  "attempts": {
+    "play": 1,
+    "export": 1,
+    "new_simulation": 0,
+    "retake": 0
+  },
+  "timing_budget": {
+    "native_cap_s": 300,
+    "overall_cap_s": 360,
+    "no_input_after_s": 270,
+    "max_actual_play_s": 180,
+    "setup_before_play_ms": 65697,
+    "native_end_ms": 260877,
+    "quiet_wait_chunks_ms": [
+      40000,
+      40000,
+      40000,
+      15000
+    ],
+    "first_post_interval_packet_ms": 241913,
+    "first_post_interval_since_play_action_ms": 176216,
+    "export_before_input_packet_ms": 259734,
+    "note": "No AX/screens during declared playback wait; first observation already naturally paused. Native end260.878s; no later CUA. Setup exceeded60s target, retained full-flight/export budget.",
+    "overall_first_report_closeout_ms": 369767,
+    "overall_cap_result": "FAIL: first report closeout exceeded360s by9.767s; later accounting amendment is additional offline time, not a shorter final duration."
+  },
+  "source": {
+    "run": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "configuration": "modular-performance-g54-hypothesis",
+    "code": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+    "spec": "481706d1c4768d944ad42fd917ef4216196de50a277743b1cedb76954940e45f",
+    "cad": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "frontend_manifest": "source-freeze.json",
+    "source_rows": 132856,
+    "returned_rows": 132856,
+    "profile": "full-rate-benchmark",
+    "comparison": null
+  },
+  "native_observation": {
+    "preflight": "AutoA1x/absolute0.001/noB/native132856,rawfraction1,actualCanvas+all4plots visible",
+    "post_interval": "Naturally paused,HUD132.856/Playbuttons; sliderAX132.851 quantization differs from appliedsessionendpoint",
+    "final": "SameG54nativeprofile pausedAutoA at recordedend; no Design/bounded restoration in this packet"
+  },
+  "full_session": {
+    "context": {
+      "primary": {
+        "run_id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+        "code_sha256": "dde080e919510712c4a1daa1175cc76f8ca1bfafd46135cbdaae0448a3e71a90",
+        "resolved_sha256": "481706d1c4768d944ad42fd917ef4216196de50a277743b1cedb76954940e45f",
+        "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b"
+      },
+      "comparison": null,
+      "profile_mode": "full-rate-benchmark",
+      "speed": 1,
+      "alignment": {
+        "event": null,
+        "offsetAS": 0,
+        "offsetBS": 0
+      },
+      "first_observed_cursor_s": 0.001,
+      "last_observed_cursor_s": 132.8560000002703
+    },
+    "environment": {
+      "started_wall_ms": 64282.700000047684,
+      "ended_wall_ms": 197149.70000004768,
+      "observed_wall_duration_ms": 132867
+    },
+    "observed_intervals": 7973,
+    "stored_intervals": 7973,
+    "overflow": 0,
+    "invalid_interval_count": 1,
+    "bad_indices": [
+      0
+    ],
+    "first_raw_frame": {
+      "delta_ms": null,
+      "observed_cursor_s": 0.001,
+      "document_visibility": "visible",
+      "window_focused": true,
+      "canvas_intersection_fraction": 1
+    },
+    "second_raw_frame": {
+      "delta_ms": 16.700000000004366,
+      "observed_cursor_s": -0.0072999999761595965,
+      "document_visibility": "visible",
+      "window_focused": true,
+      "canvas_intersection_fraction": 1
+    },
+    "condition_summary": {
+      "all_document_visible": true,
+      "all_window_focused": true,
+      "all_canvas_fraction_exactly_one": true
+    },
+    "raw_events": {
+      "raw": [
+        {
+          "kind": "intersection",
+          "observed_cursor_s": -0.0072999999761595965,
+          "document_visibility": "visible",
+          "window_focused": true,
+          "canvas_intersection_fraction": 1
+        }
+      ],
+      "overflow_event_count": 0,
+      "cap_events": 24000
+    },
+    "observed_raf_duration_ms": null,
+    "mean_target_met": null,
+    "finite_only_diagnostic_stats": {
+      "samples": 7972,
+      "mean_ms": 16.66677119919719,
+      "p50_ms": 16.69999999999709,
+      "p95_ms": 17.60000000000582,
+      "max_ms": 17.80000000000291
+    },
+    "unchanged_target_ms": 16.666666666666668,
+    "finite_only_mean_target_met": false,
+    "warning": "Firstnullframe not discarded/reclassified to qualify. Second recordedcursor negative retained as observer artifact, not telemetry fabrication."
+  },
+  "heap": {
+    "initial": {
+      "used": 181139597,
+      "total": 253791401,
+      "limit": 4395630592
+    },
+    "final": {
+      "used": 223782624,
+      "total": 300461888,
+      "limit": 4395630592
+    },
+    "scope": "Host-reported JavaScript heap at observation start and stop only; unsupported is null. Not total process or GPU memory, and not automatic acceptance."
+  },
+  "load": {
+    "id": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "ms": 2142.899999976158,
+    "bytes": 113412840,
+    "samples": 132856
+  },
+  "drawing": {
+    "a": {
+      "status": "ready",
+      "reason": null,
+      "source_samples": 132856,
+      "valid_samples": 132856,
+      "drawn_samples": 1006,
+      "max_vertices": 3000,
+      "segments": 1,
+      "mandatory_samples": 14,
+      "event_neighbours": 12,
+      "unavailable_events": [
+        "ignition"
+      ],
+      "preparation_ms": 21.700000047683716,
+      "policy": "Display-only native-index selection: native segment endpoints/extrema and drawable recorded-event neighbours retained; explicit missing/nonfinite channel values split segments, but irregular timestamp spacing alone does not; no synthetic samples, gap joining or raw-data replacement"
+    },
+    "b": null
+  },
+  "environment": {
+    "viewport_css_pixels": {
+      "width": 2240,
+      "height": 1109,
+      "devicePixelRatio": 2,
+      "canvasWidth": 754.7421875,
+      "canvasHeight": 397.234375,
+      "canvasLeft": 267,
+      "canvasTop": 243.1484375
+    },
+    "viewport_basis": "Reported by the running application; no viewport resizing, DevTools, CDP or inferred raster dimensions.",
+    "canvas_visible_area_fraction_at_export": 1,
+    "canvas_visibility_scope": "Export-time rectangle intersection only; does not establish visibility during the recorded playback interval.",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "cpu_time": null,
+    "cpu_affinity": null,
+    "gpu_process_memory": null
+  },
+  "scrub": null,
+  "screenshots": {
+    "exported-final.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "0f5e7c7a9c35828691d134167c93fe2464a8e2b7db5423f157c2268f1f9471f7"
+    },
+    "preflight-scene.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "6ed814bdd162e62bcd72a57c36874a39d7fd5be1e787952dfabd70ff2e7588c0"
+    }
+  },
+  "limits": "CachedIO/notexternalocclusion orGPUcompletion; JS heap not totalprocess/GPU; CPUtime/affinity unavailable; no new scrub; actual2240x1109CSS not prescribedmatrix. No automatic benchmark/frontend/physical acceptance; legacyfailures immutable.",
+  "raw_json": "full-session-diagnostics.json",
+  "download_attribution": "download-attribution.json"
+}

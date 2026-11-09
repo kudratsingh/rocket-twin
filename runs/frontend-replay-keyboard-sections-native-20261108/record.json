@@ -1,0 +1,76 @@
+{
+  "packet": "P24",
+  "date": "2026-11-08",
+  "status": "partial-verifier-orchestration-error",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      16931,
+      28865
+    ],
+    "last_successful_state_timer_ms": 18560,
+    "failing_tool_wall_s": 2.6999,
+    "note": "Last call failed before native activation; no later native call. Failure-call pre-timer28.865s plus full2.6999s wall below cap."
+  },
+  "fixture": {
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": null,
+    "profile": "normal bounded",
+    "paused": true,
+    "cursor_s": 0.001,
+    "camera": "Fixed pad1"
+  },
+  "cases": [
+    {
+      "case": "fresh A-only expected context",
+      "status": "pass",
+      "evidence": "entry.ax.txt top page URL hascf9A withoutcompare; FixedPad1/Play/slider0.001. First broad string classifier wrongly sawcompare in unrelated link targets; corrected by parsing already-returned top current-page URL, no UI/read retry."
+    },
+    {
+      "case": "Scene focus and two ShiftTabs",
+      "status": "pass",
+      "evidence": "scene-focused.ax.txt then keyboard-focus.ax.txt after exactly2shift+Tab; focused UI element101buttonValidity."
+    },
+    {
+      "case": "Space activation of Validity",
+      "status": "unexecuted",
+      "reason": "Next call raised ReferenceError p24Keyboard is not defined in precondition before pressKey; no native activation."
+    },
+    {
+      "case": "Events section click/capture",
+      "status": "unexecuted",
+      "reason": "Stopped on verifier orchestration error, not an app control failure."
+    },
+    {
+      "case": "Scene restore",
+      "status": "unexecuted",
+      "reason": "No section activation occurred; Scene remains with Validity button keyboard-focused."
+    }
+  ],
+  "error": {
+    "exact": "p24Keyboard is not defined",
+    "type": "verifier JavaScript ReferenceError",
+    "cause": "Cross-cell guard referenced variable declared inside preceding conditional; public native UI was not called by failing branch.",
+    "not_app_failure": true,
+    "retry": false
+  },
+  "actions": {
+    "scene_click": 1,
+    "shift_tab": 2,
+    "space_activation": 0,
+    "events_click": 0,
+    "play": 0,
+    "event_jump": 0,
+    "numeric_entry": 0,
+    "resize": 0,
+    "new_run": 0,
+    "devtools": 0
+  },
+  "screenshots": 0,
+  "final_state": "Last observed Scene inA-onlycf9 pausedPad0.001, Validity button101focused. No input after keyboard-focus state.",
+  "limits": "Keyboard focus path observed; keyboard activation/Events unexecuted. No full keyboard/globalviewport acceptance; previous records immutable."
+}
