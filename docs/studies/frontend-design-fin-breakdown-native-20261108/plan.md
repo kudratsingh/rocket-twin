@@ -1,0 +1,5 @@
+# P22 Design fin staged-breakdown native slice
+
+Fresh documented AX must show expected cf9/ab60 comparison; normal Design workspace link to exact current RP1 AD1v2. Source stable/no HMR, only designated Chrome window. Target80/native hard90/overall120 seconds, no actions launched after70, check before calls. Guard/context/error/reserve stop without retry or late restoration/capture.
+
+Select Fins and roots group once, isolate if reachable, open Scene tools and compare assembled versus Breakdown captures. Assess actual fin_set/fin_tabs co-motion only if separately identifiable pixels support it; source equality alone is not native proof. Display illustration only, not clearance/hardware/assembly acceptance. Restore Assembled/Exit isolation/Whole rocket within reserve; aim useful full Design26/26 but leave actual final state explicit if cap prevents it. No numeric entry, calculation/CAD, bulkpartpick, exactviewport, performance, new run, DevTools, popup/method cascade or other window. Preserve prior packets.

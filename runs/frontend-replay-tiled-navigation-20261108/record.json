@@ -1,0 +1,110 @@
+{
+  "packet": "P20",
+  "date": "2026-11-08",
+  "status": "tiled-navigation-observed-restoration-skipped-cutoff",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "pre_call_ms": [
+      12744,
+      24592,
+      35374,
+      47458,
+      62425,
+      74880
+    ],
+    "last_successful_action_call_end_ms": 63684,
+    "final_guard_pre_call_ms": 74880,
+    "final_guard_tool_wall_s": 4.0758,
+    "note": "Final call performed no native action/capture because elapsed exceeded70s launch cutoff. No later call. Counting whole last tool wall after74.880s remains below90s."
+  },
+  "fixture": {
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "profile": "normal bounded",
+    "paused": true,
+    "cursor_s": 0.001,
+    "camera": "Free orbit1"
+  },
+  "cases": [
+    {
+      "case": "one observed ordinary Left tile",
+      "status": "pass",
+      "evidence": "Window menu exposed Left11/Fill6; Left clicked once, tiled.ax.txt and narrower screenshots."
+    },
+    {
+      "case": "Graphs direct navigation at actual tiled size",
+      "status": "pass",
+      "evidence": "graphs.jpg shows all four complete labelled plot panels/readouts/curves/source disclosures. One Graphs88 click, no wheel."
+    },
+    {
+      "case": "Data & limits direct navigation at tiled size",
+      "status": "pass",
+      "evidence": "data-limits.jpg shows opened instrumentation, all explanation/caveats and Download replay diagnostics JSON button. One Data91 click; no export/profile."
+    },
+    {
+      "case": "Scene direct navigation at tiled size",
+      "status": "pass",
+      "evidence": "scene.jpg shows canvas/trail/controls, tracking below. One Scene87 click; no control overlay across canvas."
+    },
+    {
+      "case": "source/time/camera preservation",
+      "status": "pass",
+      "evidence": "scene.ax.txt same cf9/ab60 URL, Free1, Play present, slider0.001 unchanged."
+    },
+    {
+      "case": "heading clearance",
+      "status": "partial",
+      "evidence": "Sticky navigation partly covers Scene+telemetry heading; actual controls/canvas clear."
+    },
+    {
+      "case": "Fill restoration",
+      "status": "unexecuted",
+      "reason": "Fill6 freshly observed but next call pre-action74.880s exceeded70s launch cutoff; input and capture skipped. No overrun to restore."
+    }
+  ],
+  "actions": {
+    "left_tile": 1,
+    "graphs_click": 1,
+    "data_click": 1,
+    "scene_click": 1,
+    "window_menu_open": 2,
+    "fill_click": 0,
+    "scroll": 0,
+    "play": 0,
+    "resize_exact": 0,
+    "time_input": 0,
+    "new_run": 0,
+    "export": 0,
+    "devtools": 0
+  },
+  "screenshots": {
+    "data-limits.jpg": {
+      "raster_px": [
+        2240,
+        2460
+      ],
+      "sha256": "77e8c3d84df6db058df485fc0ac89291b5931c531cbc7d0eb7bc6073d97f470a"
+    },
+    "graphs.jpg": {
+      "raster_px": [
+        2240,
+        2460
+      ],
+      "sha256": "fbe424d79077318f08a597ee54122300ddc210a36ddb550504f45c115bd81c7e"
+    },
+    "scene.jpg": {
+      "raster_px": [
+        2240,
+        2460
+      ],
+      "sha256": "de88bcdad079b558c646471404870165c5d42cf9af3347b6224eb5bed732c24d"
+    }
+  },
+  "actual_css_dimensions": null,
+  "final_state": "Chrome remains Left-tiled at Scene with Window menu open and Fill6 observed. Same comparison pausedFree0.001. No restored-wide claim.",
+  "limits": "Current available-size only, raster not CSS size; no prescribed900/1280/1440 acceptance, no performance/physical/broad RV pass. P18 wheel overshoots immutable."
+}

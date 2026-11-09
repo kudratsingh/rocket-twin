@@ -1,0 +1,93 @@
+{
+  "packet": "P22",
+  "date": "2026-11-08",
+  "status": "group-breakdown-observed-comotion-partial",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      14511,
+      25823,
+      39387,
+      51509,
+      68306
+    ],
+    "final_timer_ms": 70692,
+    "last_tool_wall_s": 5.1428,
+    "note": "Restoration call checked elapsed before every native input; no new input after70s. Final screenshot omitted when pre-capture reserve check was no longer below70s. No later native call."
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "ui_name": "G80 RP1 / AD1 v2 \u2014 source definition",
+    "source_records": 55,
+    "meshes": 26,
+    "core_geometry_expected_from_prior_source": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "core_geometry_hash_this_packet": "not independently read via live API/UI",
+    "run_context_retained": "Normal Design workspace link preserved prior cf9/ab60 query context; no saved run loaded as RP1 geometry."
+  },
+  "cases": [
+    {
+      "case": "normal Design workspace entry and Fins group selection",
+      "status": "pass",
+      "evidence": "design/group AX show exact RP1 design,55records26meshes, Fins and roots9records3meshes selected."
+    },
+    {
+      "case": "group isolation",
+      "status": "pass",
+      "evidence": "assembled-isolated.jpg shows3/26 visible and Exit isolation; display only."
+    },
+    {
+      "case": "Breakdown toggle",
+      "status": "pass",
+      "evidence": "breakdown.ax/jpg show Breakdown1,Exploded view1/100%,Fins target and actual separated broad fin panels plus narrow root/tab-like shapes;3/3 loaded bounds fitted."
+    },
+    {
+      "case": "integral fin_set and fin_tabs co-motion",
+      "status": "partial",
+      "evidence": "Assembled capture retains Assembly-wide tiny cluster; Breakdown reframes group larger. Unlabelled separated shapes cannot independently establish fin_set/fin_tabs transform equality; no per-part picks or same-camera motion proof."
+    },
+    {
+      "case": "restore assembled, prior visibility and whole Assembly target",
+      "status": "pass AX-only final",
+      "evidence": "Restoration used Assembled, Exit isolation, Whole rocket, Close scene tools. restored.ax says26/26 visible,Assembly45/54.7/-0.0,Scene tools button,Exit isolation absent. No final screenshot."
+    }
+  ],
+  "actions": {
+    "workspace_design_link": 1,
+    "fins_group_selection": 1,
+    "isolate_group": 1,
+    "open_scene_tools": 1,
+    "breakdown": 1,
+    "assembled_restore": 1,
+    "exit_isolation": 1,
+    "whole_rocket": 1,
+    "close_tools": 1,
+    "play": 0,
+    "new_run": 0,
+    "resize": 0,
+    "numeric_entry": 0,
+    "devtools": 0
+  },
+  "screenshots": {
+    "assembled-isolated.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "022f921a7424c57dbd59b5abcf44d285c4f83e79bc773930bef91717c62863d2"
+    },
+    "breakdown.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "be31870d5534a94b57369af72f4ccfed628f0cb71015f45443eb8a23d5ef7046"
+    }
+  },
+  "actual_css_dimensions": null,
+  "final_state": "RP1 Design, assembled restored,26/26 visible per AX,Assembly target,Scene tools closed,Fins group remains selected. No final pixel confirmation because screenshot reserve cutoff.",
+  "limits": "Display illustration only, not physical separation/clearance/installed joint acceptance. No exact viewport/performance/bulk-part-pick or broad RV pass. Final source hash expected not re-read at runtime; prior packets immutable."
+}

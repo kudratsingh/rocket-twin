@@ -1,0 +1,79 @@
+{
+  "packet": "P17",
+  "date": "2026-11-08",
+  "status": "scoped-flow-correction-observed",
+  "source_manifest": "source-freeze.json",
+  "native_transport": "existing authorized native Chrome App",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      13290,
+      30052,
+      39861
+    ],
+    "final_timer_ms": 40947,
+    "last_tool_wall_s": 4.9237,
+    "note": "No native call after final observation; offline closeout separate."
+  },
+  "fixture": {
+    "design_context": "G80-F2-RP1-AD1-definition-v2",
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "A_configuration": "modular-performance-v1",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "B_configuration": "modular-performance-g54-hypothesis",
+    "profile": "normal bounded checkbox0",
+    "clock": "absolute0.001s",
+    "paused": true
+  },
+  "cases": [
+    {
+      "case": "exact saved pair normal bounded admission",
+      "status": "pass",
+      "evidence": "ready.ax.txt matching-source A, both exact actor configurations and Inside recorded window, paired plots."
+    },
+    {
+      "case": "one top Fit both click",
+      "status": "pass",
+      "evidence": "Fresh103 clicked once; fit-both-flow.ax.txt Free1/Auto0/no run followed, slider0.001 unchanged."
+    },
+    {
+      "case": "controls above canvas / tracking below / no HUD covering trail",
+      "status": "pass",
+      "evidence": "fit-both-flow.jpg visibly places control row above canvas border and tracking row below. Tall near-overlap trail top endpoint below canvas top, ground grid at bottom, no control/readout overlay across scene."
+    },
+    {
+      "case": "independent complete A and B extents",
+      "status": "partial",
+      "evidence": "Teal/gold trajectories nearly overlap; independent complete paths not separable in pixels. No quantitative fit threshold or independent actor-body claim."
+    },
+    {
+      "case": "narrow lower plots/details reachability",
+      "status": "unexecuted",
+      "reason": "Separate planned packet; no resize/scroll here."
+    }
+  ],
+  "actions": {
+    "same_tab_navigation": 1,
+    "fit_both_click": 1,
+    "play": 0,
+    "time_entry": 0,
+    "full_rate": 0,
+    "simulation": 0,
+    "resize": 0,
+    "devtools": 0
+  },
+  "screenshot": {
+    "path": "runs/frontend-replay-flow-controls-native-20261108/fit-both-flow.jpg",
+    "raster_px": [
+      4480,
+      2460
+    ],
+    "sha256": "21158f60780b0c680fb33ec438516f35c83847306479a435d61f95f8e157f5e3"
+  },
+  "actual_css_dimensions": null,
+  "final_state": "Exact same saved comparison left paused absolute0.001, Free orbit1/no run followed, normal bounded, no Design restoration by explicit plan.",
+  "limits": "Current-window scoped observation only, no exact-size/performance/physical/blanket RV acceptance. P16 partial and all earlier frozen packets unchanged."
+}

@@ -1,0 +1,5 @@
+# P17 normal-flow Replay controls native check
+
+New source-correction packet; P16 partial image remains immutable. Owner ready/ok and authorized current Chrome window persist. Fresh documented full AX read before input. Target80/native hard90/overall120 seconds; check elapsed before each call, no action launched after70 seconds. Stop guard/context/access/reserve without retry or extra final capture.
+
+Navigate exact saved cf9 G80 A / ab60 G54 B, normal bounded paused. Confirm identity and control locations; click Fit both once, observe Free mode/time unchanged, capture genuine screenshot showing controls above canvas and tracking below, with trails unobscured by those controls if pixels establish it. Independent complete A/B extents remain partial if traces overlap. Leave same paused Free comparison at0.001; no restoration required. No Play, time input, full-rate opt-in, new run, performance, resize/tiling, DevTools, other app/window or method cascade. Native raster is not CSS dimension acceptance. Primary holds source/HMR.

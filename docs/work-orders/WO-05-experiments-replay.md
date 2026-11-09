@@ -1,5 +1,12 @@
 # WO-05 — Experiments, 3D replay, telemetry, compare
 
+**Recorded replay navigation (November8):** loaded-run playback now has
+flow controls above the Canvas, camera status below and source-local sticky
+Scene/Graphs/Events/Validity/Data & limits destinations. P17/P19/P20 verify scoped
+current-window behavior; exact responsive/performance/data prerequisites remain
+open. [Evidence](../studies/frontend-replay-section-navigation-20261108/integration.md).
+No flight calculations, controller, physical source or approval changes.
+
 **November8 release closure:** [Current frontend worklist](../frontend-release-worklist.md) records merged monitoring/Analysis guards and the integrated bounded drawing, event-linked recovery explanation, source-preserving saved comparisons/exports and full Analysis framing correction. P2 remains diagnostic-only, not a60fps pass; cancellation remains inconclusive. Exact responsive checks await supported owner manual sizing. Full milestone prerequisites and all engineering/build/flight gates stay open.
 
 **November 7 preview closeout:** [Actual release evidence](../frontend-release-20261107.md)

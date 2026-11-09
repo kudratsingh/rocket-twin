@@ -1,5 +1,12 @@
 # Plan — modular custom rocket and digital twin
 
+**Recorded replay navigation (November8):** loaded-run playback now has
+flow controls above the Canvas, camera status below and source-local sticky
+Scene/Graphs/Events/Validity/Data & limits destinations. P17/P19/P20 verify scoped
+current-window behavior; exact responsive/performance/data prerequisites remain
+open. [Evidence](studies/frontend-replay-section-navigation-20261108/integration.md).
+No flight calculations, controller, physical source or approval changes.
+
 **Autonomous frontend completion (November 8, after PR110):**
 The owner requests continuation through the existing frontend checklist without
 routine approval pauses. [Current packet](studies/frontend-completion-20261108/plan.md)

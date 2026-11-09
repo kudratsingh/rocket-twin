@@ -1,0 +1,30 @@
+{
+  "packet": "P21",
+  "date": "2026-11-08",
+  "purpose": "Separate restoration-only task, not completion of P20 acceptance",
+  "scope": "same authorized native Chrome window",
+  "caps": {
+    "overall_s": 30,
+    "native_s": 20,
+    "target_s": 15,
+    "no_launch_after_s": 12
+  },
+  "timing": {
+    "before_action_ms": 422,
+    "elapsed_ms": 990,
+    "reported_tool_wall_s": 4.9344
+  },
+  "procedure": "One fresh documented chrome.getAXState full read observed existing Window menu Fill; clicked its fresh observed index once; one fresh state read within reserve.",
+  "action": "one observed Fill click",
+  "final_observed": {
+    "context": "Rocket Twin",
+    "window_menu_open": false,
+    "same_exact_cf9_ab60_pair": true,
+    "free_pressed": true,
+    "cursor_s": 0.001,
+    "play_button_present": true
+  },
+  "limits": "No screenshot or CSS dimensions measured; Fill action/menu closure observed, not exact bounds claim. No replay route/time/Play/newrun/featuretest. No private raw AX retained. P20 Fill remains unexecuted in its immutable record.",
+  "guard": null,
+  "native_idle": true
+}

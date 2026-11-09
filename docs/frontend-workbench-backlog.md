@@ -1,5 +1,12 @@
 # Frontend workbench backlog
 
+**Recorded replay navigation (November8):** loaded-run playback now has
+flow controls above the Canvas, camera status below and source-local sticky
+Scene/Graphs/Events/Validity/Data & limits destinations. P17/P19/P20 verify scoped
+current-window behavior; exact responsive/performance/data prerequisites remain
+open. [Evidence](studies/frontend-replay-section-navigation-20261108/integration.md).
+No flight calculations, controller, physical source or approval changes.
+
 Current source: dedicated G80 RP1/AD1 v2; archived CAD/runs remain separate. G54 and G12 PID-to-RL remain committed tracks. No inquiry/contact, purchase, physical test or engineering/flight release is implied.
 
 **November8 reconciliation:** the43-task ledger is synchronized with the28-task RV map and merged PR101–104 evidence. Six source-contract/audit/ownership tasks are complete at their limited scope;34 tasks remain partial and three optional/future tasks are deferred. FT027 now has an implemented, observed event-linked schematic; it does not validate recovery dynamics. These are task states, not a completion percentage. No new acceptance check was passed by updating this document.

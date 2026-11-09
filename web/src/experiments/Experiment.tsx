@@ -12,6 +12,7 @@ import type { AttemptStatus } from './attemptMonitor';
 import { playbackStep } from './playbackStep';
 import { ExactReplayTime } from './ExactReplayTime.tsx';
 import { RecoveryStoryboard } from './RecoveryStoryboard.tsx';
+import { ReplaySectionNavigation } from './ReplaySectionNavigation.tsx';
 import { ReplayDrawingReadout, ReplayTrajectory } from '../components/ReplayTrajectory';
 import type { ReplayTrajectoryDiagnostics } from '../components/ReplayTrajectory';
 import { replayDrawingDiagnostics, selectReplayDrawing } from './replayDrawing';
@@ -310,10 +311,8 @@ function CameraTrackingReadout({
       : null,
   );
   return (
-    <div className="exp-scene-controls" style={{ top: 'auto', bottom: 8 }}>
-      <output aria-label="Camera tracking" style={{ overflowWrap: 'anywhere' }}>
-        {tracking.label}
-      </output>
+    <div className="exp-camera-tracking">
+      <output aria-label="Camera tracking">{tracking.label}</output>
     </div>
   );
 }
@@ -1728,9 +1727,10 @@ export default function Experiment({
         )}
         {draftStatus && <p role="status">{draftStatus}</p>}
       </aside>
-      <main>
+      <main data-replay-workspace>
         {shown ? (
           <>
+            <ReplaySectionNavigation />
             <header className="exp-replay-heading">
               <h2>Scene + telemetry</h2>
               <p>
@@ -1739,47 +1739,50 @@ export default function Experiment({
               </p>
             </header>
             <div className="exp-replay-dashboard">
-              <section className="exp-flight-panel" aria-label="Flight scene and playback">
-                <div className="exp-replay" ref={replayCanvasHost}>
-                  <div
-                    className="exp-scene-controls"
-                    role="group"
-                    aria-label="Visible replay controls"
+              <section
+                className="exp-flight-panel"
+                aria-label="Flight scene and playback"
+                data-replay-section="scene"
+                tabIndex={-1}
+              >
+                <div
+                  className="exp-scene-controls"
+                  role="group"
+                  aria-label="Visible replay controls"
+                >
+                  <button
+                    type="button"
+                    aria-label={playing ? 'Pause visible replay' : 'Play visible replay'}
+                    onClick={() => {
+                      replayCanvasHost.current?.scrollIntoView({ block: 'nearest' });
+                      if (!playing && time >= replayEnd) setTime(replayStart);
+                      setPlaying(!playing);
+                    }}
                   >
-                    <button
-                      type="button"
-                      aria-label={playing ? 'Pause visible replay' : 'Play visible replay'}
-                      onClick={() => {
-                        replayCanvasHost.current?.scrollIntoView({ block: 'nearest' });
-                        if (!playing && time >= replayEnd) setTime(replayStart);
-                        setPlaying(!playing);
-                      }}
-                    >
-                      {playing ? 'Pause' : 'Play'} flight
-                    </button>
-                    <button
-                      type="button"
-                      title="Frame finite recorded positions from all loaded runs. Missing positions remain unavailable."
-                      onClick={() => {
-                        setMode('free');
-                        setFitToken((n) => n + 1);
-                      }}
-                    >
-                      {other ? 'Fit both trajectories' : 'Fit A trajectory'}
-                    </button>
-                    <button type="button" onClick={downloadDiagnostics}>
-                      Save visible replay diagnostics
-                    </button>
-                    <output>
-                      {alignment.event
-                        ? `Time from ${alignment.event.replaceAll('_', ' ')}: `
-                        : 'T+'}
-                      {time.toFixed(3)} s · {speed}×
-                      {profile
-                        ? ` · recent mean ${profile.mean_ms.toFixed(3)} ms (not acceptance)`
-                        : ''}
-                    </output>
-                  </div>
+                    {playing ? 'Pause' : 'Play'} flight
+                  </button>
+                  <button
+                    type="button"
+                    title="Frame finite recorded positions from all loaded runs. Missing positions remain unavailable."
+                    onClick={() => {
+                      setMode('free');
+                      setFitToken((n) => n + 1);
+                    }}
+                  >
+                    {other ? 'Fit both trajectories' : 'Fit A trajectory'}
+                  </button>
+                  <button type="button" onClick={downloadDiagnostics}>
+                    Save visible replay diagnostics
+                  </button>
+                  <output>
+                    {alignment.event ? `Time from ${alignment.event.replaceAll('_', ' ')}: ` : 'T+'}
+                    {time.toFixed(3)} s · {speed}×
+                    {profile
+                      ? ` · recent mean ${profile.mean_ms.toFixed(3)} ms (not acceptance)`
+                      : ''}
+                  </output>
+                </div>
+                <div className="exp-replay" ref={replayCanvasHost}>
                   <FlightScene
                     run={shown}
                     other={other}
@@ -1790,14 +1793,14 @@ export default function Experiment({
                     onPrimaryDiagnostics={onPrimaryDiagnostics}
                     onComparisonDiagnostics={onComparisonDiagnostics}
                   />
-                  <CameraTrackingReadout
-                    run={shown}
-                    other={other}
-                    time={time}
-                    mode={mode}
-                    offsets={alignment}
-                  />
                 </div>
+                <CameraTrackingReadout
+                  run={shown}
+                  other={other}
+                  time={time}
+                  mode={mode}
+                  offsets={alignment}
+                />
                 <div className="exp-controls">
                   <div className="exp-camera-modes" role="group" aria-label="Replay camera">
                     <span>Camera view · display only</span>
@@ -1888,7 +1891,12 @@ export default function Experiment({
                   <p role="status">B trajectory drawing withheld: {comparisonDiagnostics.reason}</p>
                 )}
               </section>
-              <section className="exp-telemetry-panel" aria-label="Synchronized telemetry">
+              <section
+                className="exp-telemetry-panel"
+                aria-label="Synchronized telemetry"
+                data-replay-section="telemetry"
+                tabIndex={-1}
+              >
                 <h3>Synchronized telemetry</h3>
                 <p>
                   {alignment.event
@@ -1918,7 +1926,12 @@ export default function Experiment({
                 </div>
               </section>
             </div>
-            <section className="exp-info" aria-label="Recorded events">
+            <section
+              className="exp-info"
+              aria-label="Recorded events"
+              data-replay-section="events"
+              tabIndex={-1}
+            >
               <h3>Recorded events · A</h3>
               <div className="exp-events">
                 {Object.entries(shown.record.events ?? {}).map(([k, v]) => (
@@ -1980,7 +1993,12 @@ export default function Experiment({
                 <button onClick={() => setChartRange(null)}>Reset plot range</button>
               </div>
             </details>
-            <section className="exp-info" aria-label="Current replay validity">
+            <section
+              className="exp-info"
+              aria-label="Current replay validity"
+              data-replay-section="validity"
+              tabIndex={-1}
+            >
               <ReplayValidity run={shown} time={time + alignment.a} label="A · teal" />
               {other && <ReplayValidity run={other} time={time + alignment.b} label="B · gold" />}
             </section>
@@ -2030,7 +2048,7 @@ export default function Experiment({
                 <ReplayDrawingReadout label="B trajectory" diagnostics={comparisonDiagnostics} />
               )}
             </details>
-            <details className="exp-info">
+            <details className="exp-info" data-replay-section="details" tabIndex={-1}>
               <summary>
                 Playback instrumentation (browser observation required for acceptance)
               </summary>

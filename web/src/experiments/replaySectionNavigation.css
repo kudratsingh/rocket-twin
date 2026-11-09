@@ -1,0 +1,38 @@
+.research-scroll-region > .experiment > main[data-replay-workspace] {
+  /* The outer research region owns scrolling; an inactive main overflow ancestor
+     would otherwise capture sticky positioning while stretching with its content. */
+  overflow: visible;
+}
+.replay-section-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin: 0 0 12px;
+  padding: 8px;
+  border: 1px solid #43636d;
+  border-radius: 5px;
+  background: #101e25;
+}
+.replay-section-navigation button {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #557a86;
+  border-radius: 4px;
+  background: #213942;
+  color: #e0f2f1;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.replay-section-navigation button:focus-visible,
+[data-replay-workspace] [data-replay-section]:focus-visible {
+  outline: 2px solid #8ee9df;
+  outline-offset: 3px;
+}
+[data-replay-workspace] [data-replay-section] {
+  scroll-margin-block-start: 8rem;
+}

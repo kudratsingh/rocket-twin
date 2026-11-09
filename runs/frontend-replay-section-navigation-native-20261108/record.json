@@ -1,0 +1,99 @@
+{
+  "packet": "P19",
+  "date": "2026-11-08",
+  "status": "scoped-current-window-navigation-pass",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      9484,
+      22641,
+      36105
+    ],
+    "final_timer_ms": 36954,
+    "last_tool_wall_s": 5.1952,
+    "note": "No native call after final observation."
+  },
+  "fixture": {
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "profile": "normal bounded checkbox0",
+    "time_s": 0.001,
+    "camera": "Free orbit pressed1",
+    "paused": true
+  },
+  "cases": [
+    {
+      "case": "Graphs section click",
+      "status": "pass",
+      "evidence": "graphs.jpg visibly shows complete Height, Speed, Net acceleration and Tilt panels, readouts, curves and source disclosures. One fresh button98 click, no scroll workaround."
+    },
+    {
+      "case": "Data & limits click",
+      "status": "pass",
+      "evidence": "data-limits.jpg shows Playback instrumentation open, explanatory caveats and Download replay diagnostics JSON button. One fresh101 click. No download or performance profile executed."
+    },
+    {
+      "case": "Scene click",
+      "status": "pass",
+      "evidence": "scene.jpg returns flight controls and rendered trail/canvas; one fresh97 click."
+    },
+    {
+      "case": "time/source/camera preservation",
+      "status": "pass",
+      "evidence": "scene.ax.txt exact URL pair unchanged, Free1, no-run-followed label, Play present, Replay slider0.001/HUD0.001."
+    },
+    {
+      "case": "sticky heading clearance",
+      "status": "partial",
+      "evidence": "Sticky section bar partly covers Scene+telemetry heading; actual controls,canvas and four plots are clear."
+    },
+    {
+      "case": "narrow/exact viewport section reachability",
+      "status": "unexecuted",
+      "reason": "No resize or CSS measurement in this packet."
+    }
+  ],
+  "actions": {
+    "graphs_click": 1,
+    "data_limits_click": 1,
+    "scene_click": 1,
+    "scroll": 0,
+    "resize": 0,
+    "play": 0,
+    "export": 0,
+    "new_run": 0,
+    "time_entry": 0,
+    "devtools": 0,
+    "navigation": 0
+  },
+  "screenshots": {
+    "data-limits.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "9d1aa4942686f956ad37afb9e2a9d4914aac807b95a4760910e48dcb763e2c68"
+    },
+    "graphs.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "97f62c69ca00ce6dfa24bbcedc937438bd9785ed8b2fc12ac311b355a8104471"
+    },
+    "scene.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "f3f5661b3b6586594212517b2958bb17ec845a7d9820862eef62289ae3d8a05b"
+    }
+  },
+  "actual_css_dimensions": null,
+  "final_state": "Same comparison at Scene, pausedFree0.001, normal bounded. Instrumentation remains opened below, no state reset.",
+  "limits": "Current-wide-window scope only. Instrumentation existing counter display is not a new load/scrub/FPS benchmark. No required-size/performance/physical/blanket RV acceptance; P18 overshoot immutable."
+}
