@@ -1,0 +1,9 @@
+# P30 embedded 900×720 narrow inspection
+
+The parent preset produced measured actual inner, document-client and frame dimensions of **900×720 CSS**, DPR2, with size match yes. The full magenta frame, real RP1 model,55 records/26 meshes and26/26 visible were present. Exact spec811b… and `part=nose` persisted. This is an embedded, unscaled actual-app viewport, not top-level Chrome sizing.
+
+Both independent header controls worked. Navigation hide/show left Parts open; Parts hide/show left navigation open. The Nose row returned selected after reopening Parts. Its absence from AX while the panel was hidden does not establish that selection was cleared. An actual Nose row reselect and Frame selection targeted Nose, with a genuine capture. Focus hid both panels and exposed Exit focus; exiting restored the prior panel combination and retained Nose. Whole rocket returned the target to Assembly45°/54.7°/0°.
+
+The open compact Parts drawer behaves as an overlay. It covers the left representation/camera controls and parts of the lower selection summary/readout. Those covered controls are not claimed visibly accessible while the drawer is open; hiding Parts or entering Focus exposes the scene. The optional selected-part annotation/readout can cover portions of the model. There is no unobstructed-canvas or quantitative framing pass. `focus.jpg` confirms both panels hidden, normal controls and actual Nose geometry, not whole-vehicle framing.
+
+Final QA state is900 selected, Nose retained,26/26 visible, both panels open, Focus off, Assembly target and tools closed. Explicit Fit assembly, scrolling and narrow Escape were unexecuted. No Play, performance, download, Chrome-window change, DevTools/CDP or new run occurred. Native timer75.746 s stayed below120 s; inputs were before90 s and no later CUA occurred. Source hashes and actual observations remain separate. No broad matrix, host FPS, physical or flight acceptance changes.

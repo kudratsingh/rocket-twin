@@ -1,5 +1,16 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+**Owner priority — desktop engineering capability (November 8):**
+Prioritize fully functional, interactive desktop rocket inspection, source-backed
+CAD and intricate components/connections, graphics, experiments and replay.
+Mobile/compact-layout polish and exact-pixel viewport campaigns are secondary and
+must not delay those capabilities. Preserve completed layout evidence and open
+checks; deferral is not a pass. Continue from current RP1/AD1 v2, keeping historical
+CAD/run identities separate. Model actual documented detail where available;
+label envelopes, concepts and undefined hardware rather than inventing precision.
+[Saved direction and next capability](../studies/frontend-desktop-detail-20261108/priority.md).
+Existing engineering, purchase, physical/test and flight gates are unchanged.
+
 **November8 release closure:** [Current frontend worklist](../frontend-release-worklist.md) records merged monitoring/Analysis guards and the integrated bounded drawing, event-linked recovery explanation, source-preserving saved comparisons/exports and full Analysis framing correction. P2 remains diagnostic-only, not a60fps pass; cancellation remains inconclusive. Exact responsive checks await supported owner manual sizing. Full milestone prerequisites and all engineering/build/flight gates stay open.
 
 **Direct pan correction:** [Move/Rotate packet](../studies/frontend-pan-20261108/report.md) makes plain drag move the scene by default, with explicit rotation and a Whole rocket overview action. The initial native failure and corrected recheck remain separate; no engineering or physical acceptance follows.
