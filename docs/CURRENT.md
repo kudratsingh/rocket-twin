@@ -1,5 +1,14 @@
 # Current engineering and inspection checkpoint
 
+**Current focused delivery — RP1 fin attachment inspector:** One source-bound,
+read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STEP,
+adds two actual CAD-derived capped sections, clickable dimensions and exact
+Engineering/Design return state. Frozen AD1 v2, failed fin findings and unknown
+installed-joint behavior remain separate. [Scope and user path](studies/frontend-fin-attachment-20261109/integration.md).
+Native verification and downloaded-file readback are recorded separately from
+code/CAD checks. All physical/engineering gates stay open; inquiries UNSENT.
+
+
 **First v2 implementation — P1 source bank:** The full plan is merged in PR119
 at `a896645a2325b470e8bd3c0054d9dc1ec36db66a`, after head41082ab… and required
 workflow42594694204 passed. The first bank represents55 source definitions and55

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -10,6 +10,7 @@ import { renderToStaticMarkup } from '../node_modules/react-dom/server.node.js';
 import { createServer } from '../node_modules/vite/dist/node/index.js';
 import {
   inspectionStepAccess,
+  inspectionJointStepAccess,
   fetchInspectionStep,
   fetchInspectionStepProvenance,
   INSPECTION_STEP_PROVENANCE_SHA256,
@@ -39,6 +40,26 @@ function document() {
     })),
   };
 }
+test('joint download is the exact registered nine-record assembled mm STEP, never camera or section output', async (t) => {
+  const access = inspectionJointStepAccess(document());
+  assert.equal(access.available, true);
+  assert.equal(access.joint, true);
+  const row = packet.assemblies.find((item) => item.id === 'critical_motor_fin_ring_joint');
+  assert.equal(row.part_ids.length, 9);
+  assert.equal(access.assetSha256, row.sha256);
+  assert.equal(access.url, '/engineering-workbench/rp1-step/critical_motor_fin_ring_joint.step');
+  if (!existsSync(new URL(row.path, root))) return t.skip('Registered generated STEP bytes are local only; metadata admission checked above.');
+  const saved = readFileSync(new URL(row.path, root));
+  const actual = await fetchInspectionStep(access, undefined, async url => {
+    assert.equal(url, access.url);
+    return new Response(saved);
+  });
+  assert.equal(createHash('sha256').update(Buffer.from(actual)).digest('hex'), row.sha256);
+  assert.match(new TextDecoder().decode(actual), /SI_UNIT\(\.MILLI\.,\.METRE\.\)/);
+  await assert.rejects(fetchInspectionStep({...access, url: access.url + '?section=transverse'}), /Unregistered/);
+  const foreign = document(); foreign.identity.specification_sha256 = '0'.repeat(64);
+  assert.equal(inspectionJointStepAccess(foreign).available, false);
+});
 test('registered source parts and whole assembly use fixed static STEP paths and CAD mm provenance', () => {
   assert.equal(createHash('sha256').update(raw).digest('hex'), INSPECTION_STEP_PROVENANCE_SHA256);
   const vehicle = document(),
@@ -177,9 +198,10 @@ test('preparation copies only registered verified assets into a temporary folder
       { encoding: 'utf8' },
     );
     assert.equal(result.status, 0, result.stderr);
-    assert.equal(JSON.parse(result.stdout).files, 28);
+    assert.equal(JSON.parse(result.stdout).files, 29);
     assert.equal(readdirSync(join(destination, 'parts')).length, 26);
     assert.deepEqual(readdirSync(destination).sort(), [
+      'critical_motor_fin_ring_joint.step',
       'parts',
       'provenance.json',
       'rp1_ad1_v2_inspection_26_records.step',
@@ -200,8 +222,11 @@ test('preparation copies only registered verified assets into a temporary folder
       ],
       { encoding: 'utf8' },
     );
-    assert.notEqual(repeat.status, 0);
-    assert.match(repeat.stderr, /nonempty/);
+    assert.equal(repeat.status, 0, repeat.stderr);
+    writeFileSync(join(destination, 'critical_motor_fin_ring_joint.step'), 'changed bytes');
+    const changed = spawnSync(python.pathname, [new URL('scripts/wo04_prepare_inspection_step_preview.py', root).pathname, '--prepare', '--destination', destination], {encoding:'utf8'});
+    assert.notEqual(changed.status, 0);
+    assert.match(changed.stderr, /unregistered or changed bytes/);
   } finally {
     rmSync(destination, { recursive: true, force: true });
   }

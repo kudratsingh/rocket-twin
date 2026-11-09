@@ -49,6 +49,7 @@ function currentHref() {
 const Experiment = lazy(() => import('./experiments/Experiment'));
 const AnalysisWorkspace = lazy(() => import('./analysis/AnalysisWorkspace'));
 const EngineeringWorkbench = lazy(() => import('./workbench/EngineeringWorkbench'));
+const FinAttachmentAccess = lazy(() => import('./fin-attachment/FinAttachmentAccess'));
 
 export default function App() {
   const [catalog, setCatalog] = useState<Catalog | null>(null);
@@ -744,6 +745,11 @@ export default function App() {
           />
         )}
       </WorkspaceFailureBoundary>
+      {mode === 'design' && vehicle && (
+        <Suspense fallback={null}>
+          <FinAttachmentAccess vehicle={vehicle} href={href} />
+        </Suspense>
+      )}
     </WorkspaceFrame>
   );
 }

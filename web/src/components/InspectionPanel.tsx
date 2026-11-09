@@ -9,6 +9,7 @@ import { ThrustCurve } from './ThrustCurve';
 import { InspectionGeometryAccess } from './InspectionGeometryAccess';
 import { InspectionStepAccess } from './InspectionStepAccess';
 import { RecoveryIdentityNotice } from './RecoveryIdentityNotice';
+import { FinAttachmentTrigger } from '../fin-attachment/FinAttachmentAccess';
 
 const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
 const ArchivedCadAccess = lazy(() => import('./ArchivedCadAccess'));
@@ -197,6 +198,7 @@ export function PartInspector({
       </div>
       <p className="part-id">{part.id}</p>
       {design && <RecoveryIdentityNotice vehicle={design} selectedPart={part} />}
+      {design && <FinAttachmentTrigger vehicle={design} part={part} />}
       {design &&
         (design.id === 'G80-F2-RP1-AD1-definition-v2' ? (
           <Suspense fallback={<p>Loading matching Engineering connections…</p>}>

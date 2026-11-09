@@ -10,6 +10,7 @@ const ASSEMBLY = 'rp1_ad1_v2_inspection_26_records';
 const EXPORTER_SHA256 = '63edd7cd49b0b68b9c51fc0c7aa0eedf4b6dab874e78b4398fee109cc451b972';
 export type InspectionStepDownload = {
   available: true;
+  joint?: true;
   partId: string | null;
   url: string;
   filename: string;
@@ -59,7 +60,14 @@ function registeredPacket() {
   );
 }
 
-function registeredAsset(partId: string | null) {
+function registeredAsset(partId: string | null, joint = false) {
+  if (joint) {
+    const id = 'critical_motor_fin_ring_joint';
+    const row = packet.assemblies.find((item) => item.id === id);
+    return row?.path === `output/rp1-inspection-step/${id}.step`
+      ? { url: `${BASE}${id}.step`, hash: row.sha256 }
+      : null;
+  }
   if (partId === null) {
     const row = packet.assemblies.find((item) => item.id === ASSEMBLY);
     return row?.path === `output/rp1-inspection-step/${ASSEMBLY}.step`
@@ -70,6 +78,23 @@ function registeredAsset(partId: string | null) {
   return row?.path === `output/rp1-inspection-step/parts/${partId}.step`
     ? { url: `${BASE}parts/${partId}.step`, hash: row.sha256 }
     : null;
+}
+
+/** The same registered, assembled nine-record joint inspected in the fin scene. */
+export function inspectionJointStepAccess(vehicle: InspectionDocument): InspectionStepAccess {
+  const admitted = inspectionStepAccess(vehicle);
+  if (!admitted.available) return admitted;
+  const asset = registeredAsset(null, true);
+  if (!asset) return { available: false, reason: 'Registered joint STEP unavailable.' };
+  const filename = `${vehicle.id}--motor-fin-ring-joint--${asset.hash.slice(0, 12)}.step`;
+  return {
+    ...admitted,
+    joint: true,
+    url: asset.url,
+    assetSha256: asset.hash,
+    filename,
+    provenanceFilename: filename.replace(/\.step$/, '.step-provenance.json'),
+  };
 }
 
 /** Exact live-document admission plus a fixed, completed source STEP registry. */
@@ -112,7 +137,7 @@ async function fetchRegistered(
   signal: AbortSignal | undefined,
   fetcher: typeof fetch,
 ) {
-  const registered = registeredAsset(access.partId);
+  const registered = registeredAsset(access.partId, access.joint);
   if (
     !registeredPacket() ||
     !registered ||

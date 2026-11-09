@@ -36,6 +36,10 @@ workbench-rp1-ad1: ## Prepare frozen AD1 inspection meshes and source projection
 workbench-rp1-step: ## Verify/copy the completed local inspection STEP packet; never regenerate CAD.
 	$(PYTHON) scripts/wo04_prepare_inspection_step_preview.py --prepare
 
+.PHONY: workbench-rp1-fin-attachment
+workbench-rp1-fin-attachment: workbench-rp1-step ## Prepare exact-source capped fin-joint inspection sections.
+	$(PYTHON) scripts/wo04_fin_attachment_export.py --prepare
+
 .PHONY: workbench-archived-cad
 workbench-archived-cad: ## Verify/copy registered existing archived CAD bytes; no regeneration.
 	$(PYTHON) scripts/wo04_prepare_archived_cad_preview.py --prepare
