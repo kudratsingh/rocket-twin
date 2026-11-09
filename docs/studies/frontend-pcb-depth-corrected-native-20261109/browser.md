@@ -1,0 +1,11 @@
+# P57 corrected manufacturer PCB graphic
+
+**The one corrected graphic check passed onactualpixels.** `corrected-open.jpg`/`Fit.jpg` showrecognizablewholeboardoutline,fourmountingholes,pads,routedtracesandsilkwithordinaryscreenlabels. P56’s oversizedglyphblanketfailureisunchanged. ThischangedsourceonlyremovedtwoHtmldistanceFactorprops; coordinates/board/camerawereheldfixed.
+
+ActualTop,BottomandFitbuttonscapturedreadableviews. Bottomshowspurpleoppositesideroutesandmirroredsourcecontext; Fitreturnsobliquewholeboard. No passfromcountsalone. ActualGNDnetselectionhighlightedsourcefeaturesanddisplayed17pads/16segments/9viadrills. ActualC1·0603-NOselectionshowed.1uF/top/XY12.954,11.176mm/rotation0/heightunavailablewithalocator.
+
+Visiblelimitsretain26placements/82pads/208width-preservedtraces/26vias/14nets, unknownthickness/componentheight/viaOD/groundpour/vehiclefit. InitialU1ADXL343sourcevalueconflict/incomingsiliconunknownisexplicit. Theseareplanarmanufacturerfeatures, notpopulatedhardwareorphysicalZ. Sourceartwork/approximateglyphsarenotmanufacturedcomponents.
+
+OneClosecomponentdetailreturnedmodalclosed/focusExplorePCB/high_g_accel/exactspec. MainH−290.1/Tilt51/Roll−0/TargetHighgmatchesentry. NoWhole/reset/navigation/visibilityinput; exactcamera-position/pan/zoomandfinalParts23/26counterwerenotread. No fullRecoveryownerrestorationclaim.
+
+Nativeworkendedat**110.120seconds**, within150seconds. LastinputClosecompletedby92.392seconds; finalAX/imageafter110inputcutoffcontainednoinput. EveryinputusedsamecellfreshAX; no guard/error/denial/Run/Play/export/permission/resize/DevTools/performance. Optionalgraphicspacing/layercheckboxesunexecuted. Nativeidle. Onecurrentdesktopreferencepass, notallfeatures/engineering/physical/flightapproval.

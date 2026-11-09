@@ -1,0 +1,766 @@
+{
+  "schema_version": 1,
+  "id": "rp1-ad1-mechanical-feature-map-20261108",
+  "scope": "One read-only source-to-viewer integration packet; no CAD generation, source mutation, simulation or engineering acceptance",
+  "frozen_identity": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+    },
+    "attachment_definition": {
+      "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+      "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+    },
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "core_manifest": "docs/studies/rp1-inspection-geometry-20261107/manifest.json",
+    "optional_detail_manifest": "web/public/engineering-workbench/rp1-detail/manifest.json",
+    "frame": "X=body+y, Y=length-station, Z=body-z",
+    "asset_units": "m",
+    "source_datum": "millimetres aft from nose tip",
+    "vehicle_length_m": 1.25
+  },
+  "stable_part_ids": [
+    "nose",
+    "body",
+    "fin_set",
+    "fin_tabs",
+    "motor_tube",
+    "forward_ring",
+    "aft_ring",
+    "fin_internal_bonds",
+    "ring_bonds",
+    "outer_fin_fillets",
+    "motor",
+    "motor_retainer",
+    "retainer_adhesive",
+    "mount_external_shield",
+    "nose_anchor_plate",
+    "nose_recovery_eye",
+    "shock_cord",
+    "recovery_connectors",
+    "parachute",
+    "recovery_protection",
+    "flight_computer",
+    "imu",
+    "baro",
+    "high_g_accel",
+    "micro_sd",
+    "battery",
+    "independent_recovery",
+    "recovery_battery",
+    "avionics_sled",
+    "logger_power_switch",
+    "logger_regulator",
+    "recovery_carrier",
+    "electrical_harness",
+    "recovery_harness_wiring",
+    "recovery_output_mount",
+    "rail_buttons",
+    "rail_backers",
+    "finish",
+    "service_allowance",
+    "upper_body",
+    "body_splice",
+    "splice_seam_patch",
+    "splice_adhesive",
+    "root_gussets",
+    "root_extra_bond_finish",
+    "nose_service_hardware",
+    "c1_forward_root_bond_fill",
+    "c1_aft_bond_fill",
+    "c1_nose_bond_fill",
+    "rp1_kevlar_wrap",
+    "rp1_wrap_lock_bond",
+    "rp1_notch_sealer",
+    "rp1_lip_guard",
+    "ad1_cord_sleeve",
+    "ad1_slot_fill"
+  ],
+  "coverage": {
+    "source_parts": 55,
+    "mesh_parts": 26,
+    "by_maturity": {
+      "source_dimensioned": 10,
+      "simplified_envelope": 16,
+      "mass_allowance": 25,
+      "missing_geometry": 4
+    },
+    "complete_installed_geometry": false
+  },
+  "relevant_parts": [
+    {
+      "part_id": "body",
+      "maturity": "source_dimensioned",
+      "spec_material": "cardboard",
+      "cad_role": "manufactured",
+      "position_mm": 458.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.762,
+        "radius_m": 0.033401,
+        "inner_radius_m": 0.032512,
+        "wall_m": 0.000889
+      },
+      "source_locator": "parts[id=body]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/body.glb",
+        "sha256": "7efda04d74a10c5154b849eeda21f2b4ebb3a831d59b5e8cb6bd92f2ea253a84",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "fin_set",
+      "maturity": "source_dimensioned",
+      "spec_material": "plywood",
+      "cad_role": "manufactured",
+      "position_mm": 1075.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.13,
+        "radius_m": 0.033401,
+        "count": 3,
+        "span_m": 0.06,
+        "root_chord_m": 0.13,
+        "tip_chord_m": 0.065,
+        "sweep_m": 0.045,
+        "thickness_m": 0.006
+      },
+      "source_locator": "parts[id=fin_set]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/fin_set.glb",
+        "sha256": "e39ce3573be99b6e3a178241612eb552549a359f06fbd75aa7db3332adfc496b",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "fin_tabs",
+      "maturity": "source_dimensioned",
+      "spec_material": "plywood",
+      "cad_role": "distributed_budget",
+      "position_mm": 1080.2,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.1094,
+          0.017451,
+          0.006
+        ]
+      },
+      "source_locator": "parts[id=fin_tabs]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/fin_tabs.glb",
+        "sha256": "9373587f11445b9c8e5b7be8660667f6e07c8daeb11e025fdd51e96a51284149",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "root_gussets",
+      "maturity": "source_dimensioned",
+      "spec_material": "commercial",
+      "cad_role": "distributed_budget",
+      "position_mm": 1075.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.13,
+          0.015,
+          0.006
+        ]
+      },
+      "source_locator": "parts[id=root_gussets]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/root_gussets.glb",
+        "sha256": "0438e19e8a6f82dba694e4ae4ecb8a34091ae292862c0b0084dce083dfd59b40",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "motor_tube",
+      "maturity": "source_dimensioned",
+      "spec_material": "cardboard",
+      "cad_role": "manufactured",
+      "position_mm": 1055.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.165,
+        "radius_m": 0.0156845,
+        "inner_radius_m": 0.0145845,
+        "wall_m": 0.0011
+      },
+      "source_locator": "parts[id=motor_tube]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/motor_tube.glb",
+        "sha256": "8cc0082e97cf24e041b7bd05dcb127f7d25b724760ea0a7f49643a212684ab22",
+        "units": "m"
+      },
+      "optional_detail": {
+        "asset_path": "/engineering-workbench/rp1-detail/parts/motor_tube.glb",
+        "asset_sha256": "251d4b23b6f921d1a152501d0cdf8b8504ff65d50e5cb5ae36136020bb2982fa",
+        "layers": [
+          {
+            "id": "source_annulus",
+            "local_station_start_mm": 0.0,
+            "thickness_mm": 165.0
+          }
+        ],
+        "display_only": true
+      }
+    },
+    {
+      "part_id": "forward_ring",
+      "maturity": "simplified_envelope",
+      "spec_material": "plywood",
+      "cad_role": "manufactured",
+      "position_mm": 1060.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.0122,
+        "radius_m": 0.0322,
+        "inner_radius_m": 0.01595
+      },
+      "source_locator": "parts[id=forward_ring]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/forward_ring.glb",
+        "sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5",
+        "units": "m"
+      },
+      "optional_detail": {
+        "asset_path": "/engineering-workbench/rp1-detail/parts/forward_ring.glb",
+        "asset_sha256": "1e9061ad1e71c0d41c043e96fc47088c686b4c140865b2df22730d45c343030a",
+        "layers": [
+          {
+            "id": "stock_front",
+            "local_station_start_mm": 0.0,
+            "thickness_mm": 6.0
+          },
+          {
+            "id": "bond_reservation",
+            "local_station_start_mm": 6.0,
+            "thickness_mm": 0.2
+          },
+          {
+            "id": "stock_aft",
+            "local_station_start_mm": 6.2,
+            "thickness_mm": 6.0
+          }
+        ],
+        "display_only": true
+      }
+    },
+    {
+      "part_id": "aft_ring",
+      "maturity": "source_dimensioned",
+      "spec_material": "plywood",
+      "cad_role": "manufactured",
+      "position_mm": 1190.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.006,
+        "radius_m": 0.0322,
+        "inner_radius_m": 0.01595
+      },
+      "source_locator": "parts[id=aft_ring]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/aft_ring.glb",
+        "sha256": "6d1d49ee7ebd9603b4f987d0808e65cd6f8d2a9059bb349efcc4cdf51dc0c277",
+        "units": "m"
+      },
+      "optional_detail": {
+        "asset_path": "/engineering-workbench/rp1-detail/parts/aft_ring.glb",
+        "asset_sha256": "e618c30f97f242d2d41cea2a8675e776a562a53a3e1726ca2fa56c52b03ac0f6",
+        "layers": [
+          {
+            "id": "source_annulus",
+            "local_station_start_mm": 0.0,
+            "thickness_mm": 6.0
+          }
+        ],
+        "display_only": true
+      }
+    },
+    {
+      "part_id": "fin_internal_bonds",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 1080.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.11,
+          0.006,
+          0.006
+        ]
+      },
+      "source_locator": "parts[id=fin_internal_bonds]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "ring_bonds",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 1075.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.121,
+          0.004,
+          0.004
+        ]
+      },
+      "source_locator": "parts[id=ring_bonds]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "outer_fin_fillets",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 1075.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.13,
+          0.006,
+          0.006
+        ]
+      },
+      "source_locator": "parts[id=outer_fin_fillets]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "ad1_slot_fill",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 1075.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.13,
+          0.0003,
+          0.000889
+        ]
+      },
+      "source_locator": "parts[id=ad1_slot_fill]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "rp1_kevlar_wrap",
+      "maturity": "missing_geometry",
+      "spec_material": "commercial",
+      "cad_role": "soft_stowage",
+      "position_mm": 550.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "source_locator": "parts[id=rp1_kevlar_wrap]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "ad1_cord_sleeve",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 980.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.08,
+          0.008,
+          0.002
+        ]
+      },
+      "source_locator": "parts[id=ad1_cord_sleeve]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "motor",
+      "maturity": "simplified_envelope",
+      "spec_material": "commercial",
+      "cad_role": "purchased_envelope",
+      "position_mm": 1092.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.128,
+        "radius_m": 0.0145,
+        "diameter_m": 0.029
+      },
+      "source_locator": "parts[id=motor]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/motor.glb",
+        "sha256": "3016265e1d2a44a153c3ae554812ed1aa3d77cf813be7061f1e9ddf39ff12d30",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "motor_retainer",
+      "maturity": "simplified_envelope",
+      "spec_material": "commercial",
+      "cad_role": "purchased_envelope",
+      "position_mm": 1205.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "length_m": 0.045,
+        "radius_m": 0.0222,
+        "inner_radius_m": 0.014
+      },
+      "source_locator": "parts[id=motor_retainer]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/motor_retainer.glb",
+        "sha256": "53f852a8196ca427abc544d58b283c640cea7580f880d8516e65f78f977f3ef4",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "high_g_accel",
+      "maturity": "simplified_envelope",
+      "spec_material": "commercial",
+      "cad_role": "purchased_envelope",
+      "position_mm": 85.0,
+      "lateral_offset_mm": [
+        0.0,
+        -20.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.0256,
+          0.0177,
+          0.0046
+        ]
+      },
+      "source_locator": "parts[id=high_g_accel]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/high_g_accel.glb",
+        "sha256": "d98a44e45eb5585fe649f646aef8092b4f4d4d941ea6af4c7318893e32f60899",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "avionics_sled",
+      "maturity": "mass_allowance",
+      "spec_material": "commercial",
+      "cad_role": "distributed_budget",
+      "position_mm": 82.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.09,
+          0.03,
+          0.002
+        ]
+      },
+      "source_locator": "parts[id=avionics_sled]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "independent_recovery",
+      "maturity": "simplified_envelope",
+      "spec_material": "commercial",
+      "cad_role": "purchased_envelope",
+      "position_mm": 170.0,
+      "lateral_offset_mm": [
+        0.0,
+        5.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.04445,
+          0.02286,
+          0.008
+        ]
+      },
+      "source_locator": "parts[id=independent_recovery]",
+      "core_mesh": {
+        "path": "output/rp1-inspection-geometry/parts/independent_recovery.glb",
+        "sha256": "77be5439c7a23ec1e5975257bdf58ec12cbddea86ede47c164d6e50f7e4ff950",
+        "units": "m"
+      }
+    },
+    {
+      "part_id": "rp1_notch_sealer",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 1060.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "source_locator": "parts[id=rp1_notch_sealer]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "rp1_wrap_lock_bond",
+      "maturity": "mass_allowance",
+      "spec_material": "epoxy",
+      "cad_role": "distributed_budget",
+      "position_mm": 1066.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "source_locator": "parts[id=rp1_wrap_lock_bond]",
+      "core_mesh": null
+    },
+    {
+      "part_id": "rp1_lip_guard",
+      "maturity": "mass_allowance",
+      "spec_material": "commercial",
+      "cad_role": "distributed_budget",
+      "position_mm": 160.0,
+      "lateral_offset_mm": [
+        0.0,
+        0.0
+      ],
+      "source_geometry": {
+        "bbox_m": [
+          0.1,
+          0.03,
+          0.025
+        ]
+      },
+      "source_locator": "parts[id=rp1_lip_guard]",
+      "core_mesh": null
+    }
+  ],
+  "already_supported_visualizations": [
+    {
+      "id": "fin-root-connected-solids",
+      "part_ids": [
+        "fin_set",
+        "fin_tabs",
+        "root_gussets",
+        "body",
+        "motor_tube",
+        "aft_ring",
+        "forward_ring"
+      ],
+      "features": [
+        "Three 130/65 mm chord, 60 mm span, 45 mm sweep, 6 mm thick panels at 0/120/240 degrees",
+        "Three separate 109.4 by 17.451 by 6 mm tabs with inner flat radius 15.95 mm",
+        "Six 15 mm high by 6 mm base gusset wedge display solids along 130 mm root",
+        "Body tube source slot corrected to 6.8 plus/minus 0.05 mm by AD1 export; motor tube and annular rings in common frame"
+      ],
+      "missing": [
+        "Installed bond thickness/coverage/contact, peel and compliant transfer",
+        "No direct forward ring-to-tab support or aft ring butt support credited"
+      ],
+      "status": "Ideal source-dimensioned inspection solids for panel/tab/gusset/tube/aft ring; forward ring remains simplified-envelope classification despite its shaped notch"
+    },
+    {
+      "id": "forward-ring-layered-passage",
+      "part_ids": [
+        "forward_ring",
+        "motor_tube",
+        "rp1_kevlar_wrap",
+        "ad1_cord_sleeve",
+        "ring_bonds",
+        "rp1_notch_sealer"
+      ],
+      "features": [
+        "Optional forward_ring GLB already contains stock_front 6 mm, bond_reservation 0.2 mm, stock_aft 6 mm",
+        "Annulus OD 64.4 mm, bore 31.9 mm, stations 1060 to 1072.2",
+        "Straight 4.5 mm wide by 5 mm deep notch at 60 degrees",
+        "Source route can be annotated: tube wrap 1072.2 to 1077, sleeve 980 to 1060 ending before passage"
+      ],
+      "missing": [
+        "No actual cord/knot geometry or installed contact",
+        "Proposed 2 mm edge roundovers omitted",
+        "Bond is a display reservation, not qualified adhesive detail"
+      ],
+      "status": "Actual optional ring layers and notch mesh; cord/sleeve/bonds are source annotations or allowances, not independent installed solids"
+    },
+    {
+      "id": "motor-support-stack",
+      "part_ids": [
+        "motor_tube",
+        "aft_ring",
+        "forward_ring",
+        "motor",
+        "motor_retainer"
+      ],
+      "features": [
+        "Motor tube 165 mm, OD 31.369 mm, bore 29.169 mm, radial wall 1.1 mm; stations 1055 to 1220",
+        "Aft ring OD 64.4 mm, bore 31.9 mm, 6 mm thick; stations 1190 to 1196",
+        "Optional higher-sampling tube and aft-ring annulus GLBs already exist"
+      ],
+      "missing": [
+        "Motor and retainer are only nominal envelopes",
+        "No cap/sleeve/thread/seat/liner/nozzle/contact CAD or installed fit"
+      ],
+      "status": "Use source-derived annuli beside explicit motor/retainer envelopes; no supplier-detail claim"
+    }
+  ],
+  "chosen_next_closeup": {
+    "id": "one-fin-root-layer-inspection",
+    "selectable_layer_part_ids": [
+      "fin_set",
+      "fin_tabs",
+      "root_gussets",
+      "body",
+      "motor_tube",
+      "aft_ring",
+      "forward_ring"
+    ],
+    "default_emphasis": [
+      "fin_set",
+      "fin_tabs",
+      "root_gussets"
+    ],
+    "context_only": [
+      "body",
+      "motor_tube",
+      "aft_ring",
+      "forward_ring"
+    ],
+    "annotation_only_part_ids": [
+      "fin_internal_bonds",
+      "outer_fin_fillets",
+      "ring_bonds",
+      "ad1_slot_fill"
+    ],
+    "source_values": {
+      "fin_panel": {
+        "count": 3,
+        "root_chord_mm": 130,
+        "tip_chord_mm": 65,
+        "span_mm": 60,
+        "sweep_mm": 45,
+        "thickness_mm": 6,
+        "azimuth_deg": [
+          0,
+          120,
+          240
+        ]
+      },
+      "tab": {
+        "length_mm": 109.4,
+        "radial_depth_mm": 17.451,
+        "thickness_mm": 6,
+        "inner_flat_radius_mm": 15.95,
+        "front_station_mm": 1080.2,
+        "aft_station_mm": 1189.6
+      },
+      "root_gusset": {
+        "height_mm": 15,
+        "base_width_mm": 6,
+        "root_length_mm": 130,
+        "display_wedges": 6
+      },
+      "body_slot": {
+        "width_mm": 6.8,
+        "cut_tolerance_mm": 0.05
+      },
+      "aft_ring_front_station_mm": 1190,
+      "tab_to_aft_ring_nominal_gap_mm": 0.4
+    },
+    "viewer_contract": [
+      "Admit only matching configuration/specification/geometry and per-part asset hashes.",
+      "Reuse current core meshes in common viewer frame; optional detailed ring/tube/aft ring may replace only their matching core part IDs.",
+      "Provide independent layer visibility and select-by-stable-part-ID; one first-fin emphasis may fade the other two, with all three unchanged in source placement.",
+      "Expose existing along/across section and focused detail actions; a display cut or separation is illustrative, never a machined feature or checked clearance.",
+      "Adhesive allowance IDs appear as callouts/evidence links only; do not extrude their bbox values as physical bonds.",
+      "Restore entire 26-mesh assembly and original selection/visibility; no mass, inertia, load or geometry source change."
+    ],
+    "stop_if": [
+      "Any source tuple or mesh hash fails",
+      "Layer demands undefined bond/contact/fastener geometry",
+      "Viewer cannot keep pick IDs and same placement under display transforms"
+    ]
+  },
+  "reference_cad": {
+    "exact_product": "Adafruit PID 5374 high_g_accel",
+    "source": "web/src/data/highGBoardLayout.json",
+    "upstream_board_blob_sha": "4a768fc9f113ba6f95c6e930a3fac436d066f82a",
+    "upstream_board_sha256": "7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c",
+    "frame": "Manufacturer PCB XY, origin retained, +Y up; no installed vehicle registration",
+    "license": "CC-BY-SA-3.0 with Limor Fried/Adafruit credit and full upstream notice",
+    "reuse": "Existing exact board outline/holes/footprints in separate 2D mounting reference only; not populated 3D or vehicle placement",
+    "limitation": "Eagle U1 value ADXL343, product family ADXL375; incoming silicon/board revision and heights unresolved. No exact reusable fin, retainer, or installed avionics 3D supplier CAD established."
+  },
+  "do_not_reuse": [
+    "Historical fin_set CAD tab_depth_mm 17.5165/tab_length_mm 109.8 and body fin_slot_width_mm 6.5 in frozen source are superseded for inspection by AD1 v2 corrected 17.451/109.4/6.8 values.",
+    "Archived modular-performance-v1 or G54/G12 CAD is not current RP1 geometry.",
+    "Existing inspection STEP/GLB exports are display/reference geometry, not manufacturing CAD or physical qualification."
+  ],
+  "gates": {
+    "frozen_vehicle_changed": false,
+    "mass_credit_added_g": 0,
+    "new_fin_variant": false,
+    "fea_or_solver_run": false,
+    "engineering_accepted": false,
+    "manufacturing_clearance": false,
+    "flight_ready": false,
+    "supplier_lab_inquiries": "all five UNSENT"
+  }
+}

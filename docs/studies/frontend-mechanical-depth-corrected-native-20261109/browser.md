@@ -1,0 +1,11 @@
+# P59 mechanical source inspection after one verifier correction
+
+**The correctedinputpathreachedrecognizablemechanicaldetail.** ConfirmedSearchpartsfocus→documentednative.setValue(fin_tabs)successfullyreplacedthefilterandactualrow. P58failedunconfirmedfocusentryremainsimmutable. Actualrow/Details/Explorefinandmotorconstructionopenedthelocalmodal. Initialimagewasblankduringloading; later`mechanical-ready.jpg`showsfinpanels,tabs,tube/ringassemblyclearly.
+
+Sevenactualgroupcounts3+3+6+1+1+3+1sum18children; onechildwasactuallyselected. Tab02highlight/metadataidentifyfin_tabs:tab-02,parentfin_tabs,plywood/source_dimensioned,**13.92×109.40×18.11mm**,frozen_core_glb. Sourceframeismetres; dimensionsarenominalbounds, notmanufacturingqualification.
+
+Actualhalf-shelloptionchangedtransparentcontexttoanopaquecurvedretainedshell. Primaryofflineinspectionrecognizeshalfcut; currentangle/croppedlongshell doesnotindependentlyshowallcutedges/openuncappedends. Separationrange0→**0.5**changeddisplaypositions. OneFitpieceat0.5framesselectedorangechildwithcontextcropped. Theseareillustrativedisplaytransforms; continuousplywoodcut/massaccounting/noacceptedmotion/clearance/strengthareexplicit.
+
+FitpieceandClosecompletedby**126.557seconds**. TheoptionalParts/count/restorationcallthenhit`P59cutoff`>140seconds**beforeanynativeAPI/input**; no latecapture/actionorretake. Exactstopelapsedwasnotqueriedagain. Modalclosed; actualparentisfin_tabs/Details/filterfin_tabs/Finsandroots/H−290.1Tilt51TargetFintabs. Normalparentselectionchangedtarget/context; Recoveryrestorationandfreshfinal23/26countwerenotobserved. No preserved-count/fullcameraposeclaim.
+
+No mainWhole/reset/Restorevisibility/visibilitycontrol,Run/Play/export/permission/viewport/DevTools/otherwindow/sourceedit. Nativeidle/sourceholdreleased. Thisisonemechanicalinspectionpath, notall18picks, sourceCADreadback, physicalorflightacceptance.

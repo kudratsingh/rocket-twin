@@ -1,5 +1,15 @@
 # WO-04 — API and frontend v1 (Inspect mode)
 
+**Next component-detail delivery:** Provide actual source-based3D PCB layer and
+fin/root/motor-joint inspectors, linked to currentRP1 stable part identities. Expose
+known holes/pads/traces/solid layers and construction pieces with camera, selection,
+visibility and source-status controls. Explicit source gaps remain unavailable;
+reference layer offsets/illustrative separation do not alter mass, fit or physics.
+Verify integrated source/asset checks and actual designated-browser interactions.
+[Bounded component-depth packet](../studies/frontend-component-depth-20261108/plan.md).
+Engineering/build/flight and full work-order prerequisites stay unchanged.
+
+
 **Desktop capability checkpoint:** [Current walkthrough](../studies/frontend-desktop-detail-20261108/walkthrough.md)
 records source-backed GLB/inspection STEP downloads, adjustable sections, nominal3D
 dimensions, joint close-ups and manufacturer PCB mounting references. P34–37 native

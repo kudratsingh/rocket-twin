@@ -1,0 +1,5 @@
+# P58 failed field entry before mechanical inspection
+
+Stoppedat25.303secondsbeforethemechanicalview. PartsopenedbutnativeSearchclick/selectall/pastefin_tabsdidnotreplacetheexistinghigh_g_accelvalue. ImmediateandlaterfreshAXretainedthatvalue; selectedpagecontentwasreportedwithoutconfirmedfieldfocus. Exactcauseisnotproven. Theactualrowlookupthenraised`Actualfin_tabsrowunavailable`. No repeatededit, fin_tabsselection, modal, screenshot orgraphicjudgment.
+
+Owner23/26visibility/mainanglesH−290.1/Tilt51/TargetHighgremain; Partsnowopen/filterhigh_g_accel. NoWhole/reset/visibility/source/Run/Play/export/permission/viewportaction. No guard/denial/source mismatch. Nativeidle. Thisisaverifier/nativefocus-entryfailure, notmechanicalrenderfailure. P58frozenbeforeaseparatelyauthorizedP59correction.

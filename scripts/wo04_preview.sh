@@ -32,6 +32,10 @@ fi
 if ! .venv/bin/python scripts/wo04_rp1_detail_export.py; then
   echo "Optional RP1 detail unavailable; core inspection remains available." >&2
 fi
+# Only recorded existing triangles are prepared; unavailable optional assets do not block Design.
+if ! .venv/bin/python scripts/wo04_prepare_component_detail.py --prepare; then
+  echo "Optional mechanical component detail unavailable; the base model remains usable." >&2
+fi
 prepare_snapshot scripts/wo04_workbench_export.py web/public/engineering-workbench/g80-c1.json
 prepare_snapshot scripts/wo04_workbench_extended_export.py web/public/engineering-workbench/g80-extended.json
 prepare_snapshot scripts/wo04_workbench_a1_export.py web/public/engineering-workbench/g80-a1.json

@@ -1,0 +1,102 @@
+{
+  "packet": "P57",
+  "status": "pass-for-one-corrected-PCB-graphic-and-source-selection-check",
+  "source_fixture": "TwoorthographicDreiHtmldistanceFactor18propsremoved; sourceXY/geometry/camerafitunchanged; primary3focusedtests/type/lint/format/buildpass/sourcefrozen",
+  "limits": {
+    "native_seconds": 150,
+    "overall_seconds": 210,
+    "no_new_input_after_seconds": 110,
+    "reserved_closeout_seconds": 40
+  },
+  "timing": {
+    "native_end_elapsed_ms": 110120,
+    "open_capture_ms": 2064,
+    "Top_Bottom_Fit_capture_ms": 38602,
+    "GND_footprintmenu_ms": 59809,
+    "C1_GND_capture_ms": 76590,
+    "close_result_ms": 92392,
+    "final_parent_capture_ms": 110120,
+    "last_input": "Closecomponentdetail completedby92.392s; finalobservationafter110inputcutoffhadnoinput"
+  },
+  "runtime": {
+    "transport": "KnownnativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "parent_part": "high_g_accel",
+    "reference": "AdafruitPID5374manufacturerXYsource",
+    "source_sha256": "7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c"
+  },
+  "cases": [
+    {
+      "case": "Recognizablecorrectedgraphic",
+      "status": "pass-for-currentdesktopreference",
+      "actual": "Actualopen/Fitimageswholeoutline/fourmountingholes/pads/routes/silkvisible, normalscreenlabels; noP56oversizedglyphblanket."
+    },
+    {
+      "case": "Top/Bottom/Fit",
+      "status": "pass-for-actualbuttons-and-visibleviewchange",
+      "actual": "OneTop,oneBottom,oneFitboard. Bottomshowsoppositesidepurpletracesandmirroredsourcecontext; Fitreturnswholeobliqueboard. Allgenuinecaptures."
+    },
+    {
+      "case": "GNDselection",
+      "status": "pass",
+      "actual": "ActualnativeoptionGND;17pads/16segments/9viadrills/readablehighlight/sourcecontactrefs. Noelectricaltest/groundpourinferred."
+    },
+    {
+      "case": "C1footprintselection",
+      "status": "pass",
+      "actual": "ActualnativeC1\u00b70603-NOoption; C1=.1uF/top/XY12.954,11.176mm/rotation0/heightunavailable; thinlocatorvisiblymoves. Notpackageheight/physicalbody."
+    },
+    {
+      "case": "Source/U1/unknowns",
+      "status": "pass-for-visiblelimits",
+      "actual": "26placements/82pads/208traces/26vias/14nets. InitialU1ADXL343conflictandincomingsiliconunknownshown. Boardthickness/heights/viaOD/groundpour/installedfitunavailable."
+    },
+    {
+      "case": "Closeandparentpreservation",
+      "status": "pass-for-observedparent/readout",
+      "actual": "OneClose\u2192modalabsent/focusExplorePCB; exacthigh_g_accel/specURLretained; H\u2212290.1/Tilt51/Roll\u22120/TargetHighgunchangedfromP57entry. Nomainnavigation/Whole/reset/visibilitycontrols."
+    },
+    {
+      "case": "Graphicspacing/layercheckboxes",
+      "status": "unexecuted",
+      "actual": "Optionalspacing0/defaultlayersretained; notalllayerinteractionacceptance."
+    }
+  ],
+  "selected_source": {
+    "footprint": "C1",
+    "package": "0603-NO",
+    "value": "0.1uF",
+    "xy_mm": [
+      12.954,
+      11.176
+    ],
+    "rotation_degrees": 0,
+    "side": "top",
+    "height": null,
+    "net": "GND"
+  },
+  "final_state": {
+    "workspace": "normalDesign",
+    "parent_part": "high_g_accel",
+    "source": "RP1AD1v2/spec811b",
+    "context_tab": "Details",
+    "modal": "closed",
+    "focus": "ExplorePCBstructurein3D",
+    "search_filter": "high_g_accelpersists",
+    "camera_angles": "H\u2212290.1/Tilt51/Roll\u22120",
+    "target": "Highgaccel",
+    "main_visibility": "Nochangeactions; finalParts23/26counternotread",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "P56failedgraphicimmutable; P57onechangedsourcecorrectioncurrentdesktoponly.",
+    "Planarmanufacturerartwork/sourcefeatures, notpopulatedinstalledCAD/unknownZ/vehiclefit/silicon/electricalqualification.",
+    "Numericcamerapose/pan/zoomnotextracted; onlyangle/targetreadout+noactionscopepreservation.",
+    "NoRun/Play/export/permission/performance/viewport/otherwindow."
+  ]
+}
