@@ -1,0 +1,112 @@
+{
+  "packet": "P37",
+  "status": "pass-for-scoped-2D-source-reference-export-and-Escape",
+  "limits": {
+    "native_seconds": 120,
+    "overall_seconds": 180,
+    "no_new_input_after_seconds": 95
+  },
+  "timing": {
+    "native_end_elapsed_ms": 38812,
+    "normal_navigation_ms": 1487,
+    "dialog_capture_ms": 16667,
+    "export_capture_ms": 28374,
+    "selected_mounting_export_click_epoch_ms": 1794198977927
+  },
+  "runtime": {
+    "transport": "Existing native Chrome App, same authorized window",
+    "fresh_full_AX_before_each_input_same_cell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "high_g_accel",
+    "manufacturer": "Adafruit Industries",
+    "PID": 5374,
+    "source_blob": "4a768fc9f113ba6f95c6e930a3fac436d066f82a",
+    "source_sha256": "7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c",
+    "selected_source_ref": "U1",
+    "footprint": "LGA14",
+    "source_value": "ADXL343",
+    "placement_xy_mm": [
+      12.7,
+      8.636
+    ],
+    "rotation_degrees": 0,
+    "side": "top",
+    "height": null
+  },
+  "mounting_holes": [
+    {
+      "ref": "US$1",
+      "x_mm": 2.54,
+      "y_mm": 15.24,
+      "drill_diameter_mm": 2.5
+    },
+    {
+      "ref": "US$17",
+      "x_mm": 22.86,
+      "y_mm": 15.24,
+      "drill_diameter_mm": 2.5
+    },
+    {
+      "ref": "US$19",
+      "x_mm": 2.54,
+      "y_mm": 2.54,
+      "drill_diameter_mm": 2.5
+    },
+    {
+      "ref": "US$21",
+      "x_mm": 22.86,
+      "y_mm": 2.54,
+      "drill_diameter_mm": 2.5
+    }
+  ],
+  "source_outline_mm": [
+    25.4,
+    17.78
+  ],
+  "vehicle_product_envelope_mm": [
+    25.6,
+    17.7,
+    4.6
+  ],
+  "cases": [
+    {
+      "case": "Actual 2D PCB diagram and mounting table",
+      "status": "pass",
+      "actual": "pcb-dialog.jpg shows entire sourcefootprint and allfourrows nearbottom; mounting-table.jpg afternativeexportautoscroll shows table+limits fully, upperdiagram cropped bymodal scroll."
+    },
+    {
+      "case": "Unknowns and source-versus-envelope distinction",
+      "status": "pass",
+      "actual": "Visible source outline/productenvelope differences; unavailableheight/datums/tolerances/incomingrevision/installedfit/silicon verification explicit."
+    },
+    {
+      "case": "Selected placement/mountingJSON",
+      "status": "pass-for-native-request-and-browser-complete",
+      "actual": "One Download selected placement and mounting JSON click; Chrome Done5.3kB; filenameadafruit-5374-pcb-2d-4a768fc9-v1-U1-mounting.json. Parent independently hashes file."
+    },
+    {
+      "case": "Escape return",
+      "status": "pass",
+      "actual": "Actual Escape closed drawing; exactRP1/spec/high_g_accel retained; focusreturnedOpenPCBlayout97."
+    }
+  ],
+  "final_state": {
+    "workspace": "normal Design",
+    "part": "high_g_accel",
+    "context_tab": "Details",
+    "dialog": "closed",
+    "focus": "Open PCB layout",
+    "geometry": "existing neutral wholeassembly view retained bynavigation; no board3Dfit claim",
+    "scene_tools": "open",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Manufacturer XY reference only; not incominghardware, qualified drilltemplate, populated3Dboard, installedfit or buildpermission.",
+    "No heights/tolerances silently synthesized; sourceADXL343 retained withoutactualsilicon inference.",
+    "No performance/viewport acceptance/new physics or simulation."
+  ]
+}

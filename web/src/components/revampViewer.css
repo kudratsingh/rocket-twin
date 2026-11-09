@@ -259,3 +259,54 @@
   color: #fff;
   outline: 1px solid #7be0ec;
 }
+
+.inspection-section-controls {
+  display: grid;
+  gap: 8px;
+  margin: 8px 12px;
+  padding: 12px;
+  border: 1px solid #456471;
+  border-radius: 5px;
+  color: #d6e7ed;
+  font-size: 12px;
+}
+.inspection-section-controls label {
+  display: grid;
+  gap: 5px;
+}
+.inspection-section-controls label:has(input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+}
+.inspection-section-controls p {
+  margin: 0;
+  line-height: 1.5;
+}
+.inspection-section-controls select,
+.inspection-section-controls input[type='number'] {
+  background: #142832;
+  color: inherit;
+  border: 1px solid #456471;
+  padding: 6px;
+  max-width: 100%;
+}
+.inspection-section-presets {
+  display: flex;
+  gap: 6px;
+}
+
+.source-dimension-label {
+  transform: translateY(calc(-100% - 8px));
+  padding: 3px 6px;
+  max-width: 240px;
+  background: #10222ddd;
+  border: 1px solid #6aa8af;
+  border-radius: 3px;
+  color: #d6f7f7;
+  font-size: 10px;
+  line-height: 1.35;
+}
+.source-dimension-label strong,
+.source-dimension-label span {
+  display: block;
+}

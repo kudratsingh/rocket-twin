@@ -1,0 +1,70 @@
+{
+  "packet": "P33",
+  "date": "2026-11-08",
+  "status": "stopped-action-cutoff-before-feature-inputs",
+  "purpose": "Normal desktop source-backed forward-ring inspection, adjustable section and recorded nominal 3D guide",
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "no_new_input_after_seconds": 145
+  },
+  "timing": {
+    "first_elapsed_check_ms": 153817,
+    "fresh_ax_tool_wall_seconds": 4.1,
+    "documentation_refresh_tool_wall_seconds": 4.4426,
+    "initial_binding_result": "Output exceeded the available model context and was truncated",
+    "actual_final_native_elapsed_ms": "not queried after cutoff; at least153817",
+    "cause": "Binding output/context compaction consumed the action window. Elapsed time was not discounted."
+  },
+  "runtime": {
+    "transport": "documented native Google Chrome App in existing CUA runtime",
+    "binding": "chrome available; evidenceFs available",
+    "fresh_sync": "chrome.getAXState({disableDiffing:true,emit:false})",
+    "observed_window": "Rocket Twin \u00b7 Embedded viewport check",
+    "observed_url": "http://127.0.0.1:5173/viewport-check.html",
+    "context": "expected permitted Rocket Twin window",
+    "guard_or_approval_rejection": null
+  },
+  "actions": {
+    "feature_inputs": 0,
+    "navigation": 0,
+    "clicks": 0,
+    "screenshots": 0,
+    "documentation_refresh": 1,
+    "fresh_ax_reads": 1
+  },
+  "cases": [
+    {
+      "case": "Supported native handle restore",
+      "status": "pass",
+      "observation": "Assigned chrome App binding and filesystem evidence import completed; fresh AX read succeeded."
+    },
+    {
+      "case": "Normal Design navigation and exact RP1 source confirmation",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Detail coverage \u2192 forward-ring Inspect modeled detail",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Adjust section cut, rotation150 or transverse station",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Recorded nominal 3D dimension guide",
+      "status": "unexecuted"
+    }
+  ],
+  "final_state": {
+    "observed": "Existing QA page; no feature input or navigation performed",
+    "restoration": "not required; page untouched",
+    "native_lane": "idle; no continuation of P33"
+  },
+  "evidence_limits": [
+    "No native geometry screenshot or interaction evidence.",
+    "Source-freeze fingerprints are local source attribution, not live feature acceptance.",
+    "No application error inferred from packet orchestration timing.",
+    "No physics, performance, manufacturing, installed-joint or flight acceptance."
+  ]
+}

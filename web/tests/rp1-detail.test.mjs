@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import test from 'node:test';
 import {
   loadRp1Detail,
+  detailForDocument,
   validateRp1Detail,
   RP1_DETAIL_MANIFEST_URL,
 } from '../src/components/rp1Detail.ts';
@@ -92,4 +93,18 @@ test('actualoptionalGLB bytes are verified before source-owned display URLs are 
   } finally {
     globalThis.fetch = before;
   }
+});
+
+test('async source details are withheld immediately for a replaced or foreign document, even with a reused ID',()=>{
+ const a=document(),detail=validateRp1Detail(a,catalog),snapshot={source:a,detail};
+ assert.ok(detail);
+ assert.equal(detailForDocument(snapshot,a),detail);
+ assert.equal(detailForDocument(snapshot,null),null);
+ assert.equal(detailForDocument(null,a),null);
+ assert.equal(detailForDocument(snapshot,structuredClone(a)),null);
+ const changed=document();changed.identity.specification_sha256='0'.repeat(64);
+ assert.equal(detailForDocument(snapshot,changed),null);
+ const foreign=document();foreign.id='archived-g80';
+ assert.equal(detailForDocument(snapshot,foreign),null);
+ assert.equal(detailForDocument({source:a,detail:null},a),null);
 });

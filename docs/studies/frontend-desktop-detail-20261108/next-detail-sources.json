@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "rp1-next-detail-primary-source-check-20261108",
+  "checked_date": "2026-11-08",
+  "scope": "Three current component references; one search/site pass per item; no CAD execution, model generation, source edits, installs, contact or purchase",
+  "frozen_source": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+  },
+  "conclusion": "No new fully defined/redistributable populated-board or retainer3D geometry admitted. Exact Adafruit Eagle reference remains usable; Apogee has newly accessible revision guides but unresolved installed identity and dimension ZIP access.",
+  "components": [
+    {
+      "part_id": "high_g_accel",
+      "exact_reference": "Adafruit PID5374 ADXL375 breakout",
+      "frozen_envelope_mm": [
+        25.6,
+        17.7,
+        4.6
+      ],
+      "official_resources": [
+        {
+          "url": "https://www.adafruit.com/product/5374",
+          "format": "HTML product page",
+          "revision": "May15,2023 silkscreen-only revision note; incoming revision not pinned",
+          "publication_date": null,
+          "sha256": null,
+          "hash_status": "Remote page read; bytes not archived/rehashed",
+          "dimensions_mm": [
+            25.6,
+            17.7,
+            4.6
+          ],
+          "mounting_holes": {
+            "count": 4,
+            "diameter_mm": 2.5
+          }
+        },
+        {
+          "url": "https://learn.adafruit.com/adafruit-adxl375/downloads",
+          "format": "Official downloads index",
+          "revision": "downloads page last edited2024-03-08; guide overall2026-04-13",
+          "sha256": null,
+          "formats_listed": [
+            "EagleCAD",
+            "Fritzing",
+            "ADXL375 datasheet"
+          ],
+          "ready_populated_step_verified": false
+        },
+        {
+          "url": "https://github.com/adafruit/Adafruit_ADXL375_PCB/blob/main/Adafruit%20ADXL375.brd",
+          "immutable_blob_url": "https://api.github.com/repos/adafruit/Adafruit_ADXL375_PCB/git/blobs/4a768fc9f113ba6f95c6e930a3fac436d066f82a",
+          "revision": "4a768fc9f113ba6f95c6e930a3fac436d066f82a",
+          "format": "Eagle .brd",
+          "cached_path": ".cache/hardware-detail-sources/Adafruit_ADXL375_4a768fc9.brd",
+          "bytes": 269123,
+          "sha256": "7c089eb8cc0756b7dc5e30abd240978dc272113d93f602b497f8f442d532d68c",
+          "hash_status": "Cached original bytes reverified now",
+          "license": "CC-BY-SA-3.0; preserve full upstream notice and attribution",
+          "source_exactness": "Official product-family board file; U1 retains ADXL343; not incoming hardware identity",
+          "available_detail": "PCB25.4\u00d717.78, exact XY outline/holes/footprints/placements; heights and installed registration undefined"
+        },
+        {
+          "url": "https://cdn-learn.adafruit.com/assets/assets/000/108/851/original/ADXL375.PDF?1644452301=",
+          "official_product_url": "https://www.analog.com/en/products/adxl375.html",
+          "format": "Analog Devices ADXL375 datasheet PDF",
+          "revision": "Rev B;4/2014; packageCC-14-1 figure dated03-16-2010-A",
+          "sha256": null,
+          "hash_status": "Officially linked PDF read through web; local bytes not downloaded",
+          "available_detail": "Page32 Figure40:14-terminal LGA,5.00\u00d73.00mm BSC body; height figures1.00/0.95/0.85mm; page31 land-pattern figure",
+          "license": "Copyright2013\u20132014 Analog Devices, all rights reserved; no reusable CAD license verified",
+          "source_exactness": "Chip package only; does not define complete Adafruit board or establish U1 silicon identity"
+        }
+      ],
+      "available_now": "Existing licensed XY PCB/footprint reference and source dimension exports; no source-exact populated3D assembly",
+      "missing": [
+        "PCB thickness",
+        "Component heights and connector/header population",
+        "Incoming revision",
+        "U1 discrepancy resolution",
+        "3D placement/mating datums and tolerances"
+      ],
+      "admitted_new_3d_geometry": false
+    },
+    {
+      "part_id": "motor_retainer",
+      "exact_reference": "AeroTech19002 with provisional12912 tube cut165mm and current78010 G80-10T hypothesis",
+      "frozen_envelope_mm": {
+        "retainer_length": 45,
+        "retainer_outer_diameter": 44.4,
+        "retainer_bore_placeholder": 28,
+        "tube_length": 165,
+        "tube_outer_diameter": 31.369,
+        "tube_inner_diameter": 29.169,
+        "motor_historical_envelope_length": 128,
+        "motor_historical_envelope_diameter": 29
+      },
+      "official_resources": [
+        {
+          "url": "https://aerotech-rocketry.com/products/product_dac34e0e-147d-337a-94dc-686e877d0c2f",
+          "format": "HTML product page",
+          "revision": null,
+          "publication_date": null,
+          "sha256": null,
+          "hash_status": "Official page read; no archived original bytes",
+          "available_detail": "19002 machined anodized aluminum screw-on retainer; built-in thrust-ring single-use/RMS compatibility class; other29mm mount tubes1.235in OD",
+          "license": "No CAD/redistribution license verified",
+          "controlled_cad_or_dimensioned_mating_drawing_verified": false
+        },
+        {
+          "url": "https://aerotech-rocketry.com/products/product_bba49b47-aef8-1eff-6575-e0aa8112f05d",
+          "format": "HTML product page",
+          "revision": null,
+          "sha256": null,
+          "available_detail": "12912 tube29mm\u00d712in(305mm),1.1mm wall; same tube family as kits",
+          "license": "No controlled drawing/CAD license verified"
+        },
+        {
+          "url": "https://aerotech-rocketry.com/products/product_bea030f5-871e-61ef-1279-45a2bbebbd87",
+          "format": "HTML product page",
+          "revision": null,
+          "sha256": null,
+          "available_detail": "78010 polymer G80-10T nominal1.125in(29mm) diameter,4.875in(124mm) casing; not full assembled envelope or contact drawing",
+          "license": "No mechanical CAD license verified"
+        }
+      ],
+      "missing": [
+        "Collar bore/insertion depth/tolerances",
+        "Thread form, pitch, engagement and cap/sleeve split",
+        "Lip/seat/contact datums and thrust-ring dimensions",
+        "Cap depth/nozzle clearance/service envelope",
+        "Current78010 assembled end-to-end envelope versus historical128mm hypothesis",
+        "12912 actual ID/OD tolerances"
+      ],
+      "disposition": "Retain frozen envelope; no new thread/cap/seat geometry or fit claim.1.235in converts to31.369mm nominal tube OD only, not a controlled retainer bore.",
+      "admitted_new_3d_geometry": false
+    },
+    {
+      "part_id": "independent_recovery",
+      "reference_family": "Eggtimer Apogee proposed by frozen learn/build/source dimension row",
+      "exact_installed_identity": "unresolved",
+      "frozen_envelope_mm": [
+        44.45,
+        22.86,
+        8
+      ],
+      "source_conflict": {
+        "primary_locators": [
+          "parts[id=independent_recovery].learn",
+          "parts[id=independent_recovery].build",
+          "parts[id=independent_recovery].geometry"
+        ],
+        "legacy_locator": "parts[id=independent_recovery].engineering.function",
+        "legacy_text": "Altus Metrum EasyMini v3.0 independent barometric recovery controller envelope with its published four-hole board pattern.",
+        "meaning": "Do not map Apogee or EasyMini detailed hardware into current installed envelope without a separate source reconciliation; preserve frozen source"
+      },
+      "official_resources": [
+        {
+          "url": "https://eggtimerrocketry.com/eggtimer-apogee-support/",
+          "format": "HTML support index",
+          "revision": "D7/D9 guides; advisory2021-04-07",
+          "sha256": null,
+          "available_detail": "Revision-specific Apogee assembly guides accessible; D9 changes connector/transistor locations and fixes stated D7 switch issue",
+          "license": "No reusable CAD license verified"
+        },
+        {
+          "url": "https://eggtimerrocketry.com/wp-content/uploads/2021/05/Eggtimer-Apogee-Assembly-Guide-D7-D9.pdf",
+          "format": "PDF assembly manual",
+          "revision": "Board RevD7/D9; copyright2020",
+          "sha256": null,
+          "available_detail": "Page8 identifies D7/D9 and different transistor/connector positions, including180degree power-connector rotation; parts/assembly photos do not define populated mechanical3D geometry",
+          "license": "All Rights Reserved; no redistribution/model license established",
+          "local_download_status": "Single capped attempt failed DNS; no retry"
+        },
+        {
+          "url": "https://eggtimerrocketry.com/home/support/",
+          "format": "HTML support index",
+          "revision": null,
+          "sha256": null,
+          "available_detail": "Official link to product dimension ZIP"
+        },
+        {
+          "url": "https://eggtimerrocketry.com/wp-content/uploads/2023/02/Eggtimer_Dimensions_202302.zip",
+          "format": "ZIP of manufacturer dimension PDFs",
+          "revision": "202302 filename; actual Apogee contained revision unverified",
+          "sha256": null,
+          "available_detail": null,
+          "access_status": "Web reader rejects application/zip as unsupported; single\u22645MiB local retrieval failed DNS; no account/bypass/retry",
+          "license": "Unverified"
+        }
+      ],
+      "missing": [
+        "Reconciled product identity",
+        "Pinned delivered board revision",
+        "Accessible exactApogee mechanical drawing and hole pattern",
+        "Populated heights and lead/header/connector geometry",
+        "Redistribution/model license"
+      ],
+      "disposition": "Separate official-reference links only. No detailed installed-model adoption; preserve8mm as estimated height budget.",
+      "admitted_new_3d_geometry": false
+    }
+  ],
+  "next_bounded_feature": "Continue source-identified licensed PCB reference/dimension exports; no ready new detailed3D asset admitted. Primary may separately resolve controller identity and decide a later dimension ZIP retrieval when access changes.",
+  "download_policy": {
+    "max_bytes_per_file": 5242880,
+    "attempts": 2,
+    "successful_new_downloads": 0,
+    "cad_executed": false,
+    "installations": false,
+    "retries": false
+  },
+  "engineering_accepted": false,
+  "manufacturing_clearance": false,
+  "flight_ready": false,
+  "supplier_inquiries": "all five UNSENT"
+}

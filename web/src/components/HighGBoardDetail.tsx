@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import layout from '../data/highGBoardLayout.json';
+import HighGMountingReference from './HighGMountingReference';
 
 export interface HighGBoardDetailProps {
   partId: string;
@@ -219,6 +220,7 @@ export default function HighGBoardDetail(props: HighGBoardDetailProps) {
           {placement.rotation_deg}°; height undefined.
           {'drawing_note' in placement ? ` ${placement.drawing_note}` : ''}
         </p>
+        <HighGMountingReference {...props} selectedRef={selected} />
         <ul>
           {layout.missing.map((note) => (
             <li key={note}>{note}</li>

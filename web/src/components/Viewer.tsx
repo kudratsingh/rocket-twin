@@ -44,6 +44,11 @@ import {
   inspectionPartRepresentation,
 } from '../workspaces/inspectionWorkflow';
 import './revampViewer.css';
+import { SectionPlaneControls } from './SectionPlaneControls';
+import { SourceDimensionOverlay } from './SourceDimensionOverlay';
+import type { Rp1DetailAnnotation } from './rp1Detail';
+import { DEFAULT_SECTION, inspectionSectionPlane, sectionDimensions } from './inspectionSection';
+import type { SectionSettings } from './inspectionSection';
 
 export interface ViewOverlay {
   partColors: Record<string, string | null>;
@@ -53,7 +58,6 @@ export interface ViewOverlay {
   legend?: { minimum: number; maximum: number; unit: string };
 }
 
-const CUT_PLANE = new Plane(new Vector3(-1, 0, 0), 0);
 function scalar(value: JsonValue | undefined): number | undefined {
   return typeof value === 'number' ? value : undefined;
 }
@@ -97,6 +101,7 @@ function PartMesh({
   groupHighlighted = false,
   displayOffset,
   displayMeshUrl,
+  cutPlane,
 }: {
   part: Part;
   length: number;
@@ -112,8 +117,10 @@ function PartMesh({
   groupHighlighted?: boolean;
   displayOffset?: Vector3Tuple;
   displayMeshUrl?: string;
+  cutPlane: Plane;
 }) {
   const gltf = useGLTF(displayMeshUrl ?? part.mesh_url!);
+  const invalidate = useThree((state) => state.invalidate);
   const selected = useInspection((s) => s.selectedId === part.id);
   const hovered = useInspection((s) => s.hoveredId === part.id);
   const exploded = useInspection((s) => s.exploded);
@@ -182,16 +189,19 @@ function PartMesh({
                 : '#000000',
         );
         material.emissiveIntensity = selected ? 0.16 : groupHighlighted ? 0.1 : hovered ? 0.08 : 0;
-        material.clippingPlanes = section ? [CUT_PLANE] : [];
+        material.clippingPlanes = section ? [cutPlane] : [];
         material.needsUpdate = true;
       }
     });
+    invalidate();
   }, [
     scene,
+    invalidate,
     selected,
     groupHighlighted,
     hovered,
     section,
+    cutPlane,
     analysisMode,
     overlayColor,
     baseOpacity,
@@ -223,12 +233,12 @@ function PartMesh({
         displayOffset ?? (translation.map((coordinate) => coordinate * exploded) as Vector3Tuple)
       }
       onClick={(event) => {
-        if (event.delta > 2 || ghost || isPointClipped(event.point, CUT_PLANE, section)) return;
+        if (event.delta > 2 || ghost || isPointClipped(event.point, cutPlane, section)) return;
         event.stopPropagation();
         select(part.id);
       }}
       onPointerOver={(event) => {
-        if (ghost || isPointClipped(event.point, CUT_PLANE, section)) return;
+        if (ghost || isPointClipped(event.point, cutPlane, section)) return;
         event.stopPropagation();
         hover(part.id);
         document.body.style.cursor = 'pointer';
@@ -662,6 +672,7 @@ export function Viewer({
   overlay,
   presentationVisual,
   detailMeshes,
+  detailAnnotations,
   selectionIds: suppliedSelectionIds,
   presentationGroupId = null,
 }: {
@@ -672,6 +683,7 @@ export function Viewer({
   overlay?: ViewOverlay;
   presentationVisual?: ReactNode;
   detailMeshes?: Record<string, string>;
+  detailAnnotations?: readonly Rp1DetailAnnotation[];
   selectionIds?: string[];
   presentationGroupId?: string | null;
 }) {
@@ -711,6 +723,19 @@ export function Viewer({
   const setExploded = useInspection((s) => s.setExploded);
   const section = useInspection((s) => s.section);
   const toggleSection = useInspection((s) => s.toggleSection);
+  const sectionDims = useMemo(() => sectionDimensions(vehicle), [vehicle]);
+  const sectionSource = JSON.stringify([vehicle.id, vehicle.identity, sectionDims]);
+  const [sectionState, setSectionState] = useState<{
+    source: string;
+    value: SectionSettings;
+  } | null>(null);
+  const sectionSettings =
+    sectionState?.source === sectionSource ? sectionState.value : DEFAULT_SECTION;
+  const cutPlane = useMemo(
+    () => inspectionSectionPlane(sectionSettings, sectionDims),
+    [sectionSettings, sectionDims],
+  );
+
   const markers = useInspection((s) => s.markers);
   const toggleMarkers = useInspection((s) => s.toggleMarkers);
   const hiddenIds = useInspection((s) => s.hiddenIds);
@@ -765,6 +790,11 @@ export function Viewer({
   const cameraSelectionIds = (suppliedSelectionIds ?? (selectedId ? [selectedId] : [])).filter(
     (id) => vehicle.parts.some((part) => part.id === id && part.mesh_url),
   );
+  const [dimensionId, setDimensionId] = useState('off');
+  const selectedDimensions = (detailAnnotations ?? []).filter(
+    (a) => cameraSelectionIds.includes(a.partId) && !hiddenIds.includes(a.partId),
+  );
+  const activeDimension = selectedDimensions.find((a) => a.id === dimensionId);
   const statusInTools = !!layout && !overlay;
   const fitReadout = (
     <p className="revamp-fit-status" role="status">
@@ -919,6 +949,39 @@ export function Viewer({
             </button>
           </div>
         )}
+        {!overlay && section && (
+          <SectionPlaneControls
+            settings={sectionSettings}
+            dimensions={sectionDims}
+            onChange={(value) => setSectionState({ source: sectionSource, value })}
+          />
+        )}
+        {!overlay && (
+          <fieldset className="inspection-section-controls">
+            <legend>Recorded 3D dimensions</legend>
+            <label>
+              Source guide for selected part or group
+              <select
+                aria-label="Recorded 3D dimension"
+                value={activeDimension?.id ?? 'off'}
+                onChange={(e) => setDimensionId(e.target.value)}
+                disabled={!selectedDimensions.length}
+              >
+                <option value="off">Off</option>
+                {selectedDimensions.map((a) => (
+                  <option key={a.id} value={a.id}>
+                    {a.label} · {Number(a.value.toFixed(3))} {a.units}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <p>
+              {selectedDimensions.length
+                ? 'One source guide at a time keeps small joints readable. Nominal dimensions remain visible across section cuts; they do not measure an exposed solid.'
+                : 'No compatible recorded 3D dimension for this selection. Select the forward ring, motor tube, aft ring or barometer when source detail is available.'}
+            </p>
+          </fieldset>
+        )}
       </InspectionTools>
       <div className="canvas-wrap" ref={setCanvasElement}>
         <Canvas
@@ -962,6 +1025,7 @@ export function Viewer({
                     <PartMesh
                       part={part}
                       length={length}
+                      cutPlane={cutPlane}
                       onLoaded={onLoaded}
                       analysisMode={!!overlay}
                       overlayColor={overlay?.partColors[part.id]}
@@ -978,6 +1042,14 @@ export function Viewer({
             {overlay?.surface}
             {presentationVisual}
           </group>
+          {!overlay && activeDimension && (
+            <SourceDimensionOverlay
+              annotations={[activeDimension]}
+              selectedIds={cameraSelectionIds}
+              visibleIds={visible.filter((p) => p.mesh_url).map((p) => p.id)}
+              displayOffsets={displayOffsets}
+            />
+          )}
           {!overlay && <Markers length={length} mass={mass} />}
           <CameraFit
             group={group}

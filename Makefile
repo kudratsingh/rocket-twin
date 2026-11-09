@@ -32,6 +32,10 @@ workbench-rp1-ad1: ## Prepare frozen AD1 inspection meshes and source projection
 	$(PYTHON) scripts/wo04_rp1_geometry_export.py
 	$(PYTHON) scripts/wo04_rp1_inspection_export.py
 
+.PHONY: workbench-rp1-step
+workbench-rp1-step: ## Verify/copy the completed local inspection STEP packet; never regenerate CAD.
+	$(PYTHON) scripts/wo04_prepare_inspection_step_preview.py --prepare
+
 .PHONY: workbench-rp1-connections
 workbench-rp1-connections: ## Prepare frozen connection data and actual React artifacts; no solver/browser.
 	$(PYTHON) scripts/wo04_rp1_connections_export.py

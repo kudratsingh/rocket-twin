@@ -7,6 +7,8 @@ import { Icon } from './Icons';
 import { representationLabel, recordedQuantity } from './presentationGroups';
 import { FinAlternatives } from './FinAlternatives';
 import { ThrustCurve } from './ThrustCurve';
+import { InspectionGeometryAccess } from './InspectionGeometryAccess';
+import { InspectionStepAccess } from './InspectionStepAccess';
 
 const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
 
@@ -754,6 +756,11 @@ export function InspectionPanel({
       aria-label={part ? `${partName(part)} inspector` : 'Vehicle summary'}
     >
       <div className="inspector-scroll" key={part?.id || vehicle.id}>
+        <details className="detail-section" aria-label="Source 3D geometry files">
+          <summary>3D geometry files · {part ? partName(part) : 'whole assembly'}</summary>
+          <InspectionGeometryAccess vehicle={vehicle} selectedPart={part ?? null} />
+          <InspectionStepAccess vehicle={vehicle} selectedPart={part ?? null} />
+        </details>
         {part ? (
           <PartInspector
             part={part}

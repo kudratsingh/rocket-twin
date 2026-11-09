@@ -13,6 +13,7 @@ import {
 import { ComponentEvidence } from './ComponentEvidence';
 import './revampDesignVisual.css';
 import { InteriorWorkbench } from '../components/InteriorWorkbench';
+import type { Rp1DetailView } from '../components/rp1Detail';
 
 /** Representation changes preserve shared selection and the mounted 3D camera. */
 export function DesignVisual({
@@ -20,11 +21,13 @@ export function DesignVisual({
   meshView,
   recordedCaseControls,
   onDetailMeshesChange,
+  onDetailViewChange,
 }: {
   vehicle: InspectionDocument;
   meshView: ReactNode;
   recordedCaseControls?: ReactNode;
   onDetailMeshesChange?: (meshes: Record<string, string>) => void;
+  onDetailViewChange?: (source: InspectionDocument, view: Rp1DetailView | null) => void;
 }) {
   const id = useId();
   const evidenceRef = useRef<HTMLDetailsElement>(null);
@@ -105,7 +108,11 @@ export function DesignVisual({
             {vehicle.label || vehicle.name || vehicle.id} · {geometry.coverage}
           </span>
         </div>
-        <InteriorWorkbench vehicle={vehicle} onDetailMeshesChange={onDetailMeshesChange} />
+        <InteriorWorkbench
+          vehicle={vehicle}
+          onDetailMeshesChange={onDetailMeshesChange}
+          onDetailViewChange={onDetailViewChange}
+        />
         {geometry.sourceDerived && (
           <details className="inspection-source-note">
             <summary>Preliminary</summary>

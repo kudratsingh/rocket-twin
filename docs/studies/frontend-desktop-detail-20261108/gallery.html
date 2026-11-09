@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RP1 desktop inspection — native evidence gallery</title>
+  <style>
+    :root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; background: #101923; color: #eaf1f5; }
+    body { max-width: 1200px; margin: auto; padding: 1.5rem; }
+    h1, h2 { line-height: 1.2; }
+    a { color: #8edcfa; }
+    .note { border-left: 4px solid #eab866; padding: .4rem 1rem; background: #22303a; }
+    figure { margin: 1.5rem 0 2.5rem; }
+    img { display: block; width: 100%; height: auto; border: 1px solid #567082; background: #17232d; }
+    figcaption { padding: .7rem 0; }
+    strong { color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>RP1 desktop inspection: recorded native views</h1>
+  <p><a href="walkthrough.md">Walkthrough and source limits</a> · Frozen RP1 AD1 v2 · specification <code>811b3bed…4631660</code> · forward ring</p>
+  <p class="note">These are unchanged P34/P35/P36/P37 native Chrome captures, linked from <code>runs/</code>. P35's initial obstruction remains below as historical evidence; P36 separately shows its correction. P37 separately shows the source PCB and nominal mounting table. The images establish visual behavior only within their recorded packets.</p>
+  <h2>Corrected ring and inspection STEP — P36</h2>
+  <figure>
+    <img src="../../../runs/frontend-desktop-step-native-20261108/final-step-detail.jpg" alt="P36 native Chrome image of corrected forward-ring detail with visible bore, straight notch and layer seam, compact nominal guide, and STEP detail controls">
+    <figcaption><strong>Actual corrected view.</strong> Inspect closed the coverage popover automatically; the compact 31.9 mm guide leaves the bore, straight inner-edge notch and seam readable. STEP and provenance were clicked; <a href="step-download-verification.json">fresh files matched registered hashes</a>. This is inspection geometry, not manufactured or installed qualification. <a href="../frontend-desktop-step-native-20261108/browser.md">P36 record</a>.</figcaption>
+  </figure>
+  <h2>Readable ring after manual close — P35</h2>
+  <figure>
+    <img src="../../../runs/frontend-desktop-detail-native-20261108/clean-guide.jpg" alt="P35 native Chrome image of the forward ring isolated and framed, with annulus and layer seam visible after manual coverage close; nominal guide card covers central bore">
+    <figcaption><strong>Historical P35 view after manual disclosure close.</strong> The annulus, bore outline and thin layer seam are visible. The former 31.9 mm guide card still obscures the centre. This did not demonstrate auto-close, guide endpoints, a finished notch or installed geometry. <a href="../frontend-desktop-detail-native-20261108/browser.md">P35 record</a>.</figcaption>
+  </figure>
+  <h2>Initial obstruction retained — P35</h2>
+  <figure>
+    <img src="../../../runs/frontend-desktop-detail-native-20261108/bore-guide.jpg" alt="P35 native Chrome image retaining the open source coverage popover across the forward-ring guide">
+    <figcaption><strong>Actual failed initial readability.</strong> The source coverage popover stayed open after Inspect and blocked significant ring and guide geometry. A later manual close produced the clean view above; it did not prove automatic close.</figcaption>
+  </figure>
+  <h2>Section control and changed silhouette — P34</h2>
+  <figure>
+    <img src="../../../runs/frontend-desktop-cut-native-20261108/rotation150.jpg" alt="P34 native Chrome image with Along the rocket section set to 150 degrees and clipped vehicle silhouette visible">
+    <figcaption><strong>Actual 150° section control.</strong> The slider/readout and clipped silhouette changed in normal RP1 Design. The overview scale does not resolve ring layers, the passage or a physical clearance. <a href="../frontend-desktop-cut-native-20261108/browser.md">P34 record</a>.</figcaption>
+  </figure>
+  <h2>Manufacturer PCB and mounting reference — P37</h2>
+  <figure>
+    <img src="../../../runs/frontend-desktop-board-native-20261108/pcb-dialog.jpg" alt="P37 native Chrome manufacturer PCB diagram with source footprints and four mounting-hole rows">
+    <figcaption><strong>Actual source PCB reference.</strong> Four nominal 2.5 mm holes and manufacturer XY coordinates are distinct from the current vehicle envelope. Heights, delivered revision, silicon identity and installed fit remain undefined. The selected-placement JSON downloaded and Escape returned focus. <a href="../frontend-desktop-board-native-20261108/browser.md">P37 record</a> · <a href="board-download-verification.json">fresh file verification</a>.</figcaption>
+  </figure>
+  <p>Local portable files: <a href="../../../output/rp1-desktop-inspection-pack/index.html">inspection pack index</a> · <a href="../../../output/rp1-desktop-inspection-pack.zip">ZIP</a> · <a href="inspection-pack.md">integrity and scope</a>. Generated outputs are local and ignored by Git; these links require the prepared pack.</p>
+</body>
+</html>

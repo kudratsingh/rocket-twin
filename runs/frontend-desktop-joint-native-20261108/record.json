@@ -1,0 +1,38 @@
+{
+  "packet": "P32",
+  "date": "2026-11-08",
+  "status": "unexecuted-runtime-binding-unavailable",
+  "source_manifest": "source-freeze.json",
+  "caps": {
+    "native_s": 150,
+    "overall_s": 210,
+    "no_action_after_s": 120
+  },
+  "tool_error": "chrome is not defined",
+  "error_scope": "Verifier JavaScript referenced former persistent nativeApp binding before any CUA API method. Tool returned first-use runtime documentation; earlier binding no longer present.",
+  "native_api_calls": 0,
+  "ui_actions": 0,
+  "screenshots": 0,
+  "cases": [
+    {
+      "case": "normal RP1 entry",
+      "status": "unexecuted"
+    },
+    {
+      "case": "forward-ring modeled-detail isolate/frame",
+      "status": "unexecuted"
+    },
+    {
+      "case": "150-degree section/opposite side",
+      "status": "unexecuted"
+    },
+    {
+      "case": "compatible source3Ddimension",
+      "status": "unexecuted"
+    }
+  ],
+  "final_state": "Not observed; no browser action changed it.",
+  "stop": "Packetstop-on-error honored, no retry; primary notified nativeidle/sourceholdreleased.",
+  "supported_next_initialization": "Per newly returned first-use docs, exactly await cua.getApp('Google Chrome') in a separately coordinated scope; no internaltool/alternatewindow/deniedmethod.",
+  "limits": "No app error or feature/source acceptance inferred. No user-change/approval denial returned. Source hashes offline only. Earlier records immutable."
+}

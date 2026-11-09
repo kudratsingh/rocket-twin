@@ -21,6 +21,24 @@ explicit Side fitting pass measured thresholds; the full native-rate 60 fps
 benchmark remains failed. Bounded live browser checks are recorded, and the app is restored to current RP1 Design for owner use. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
 not engineering, prototype-build or flight approval.
 
+## Desktop engineering inspection
+
+Detailed desktop inspection, CAD/connection understanding, graphics, experiments
+and replay take priority over mobile layout polish. Current source-based tools
+include interior/joint isolation, adjustable section planes, recorded3D dimensions,
+and selected-part/assembly GLB plus inspection STEP/provenance downloads.
+[Walkthrough](docs/studies/frontend-desktop-detail-20261108/walkthrough.md)
+· [Local portable file pack](output/rp1-desktop-inspection-pack/index.html).
+The STEP files reconstruct26 represented records/36solids with nominal and envelope
+status retained;29 records still have no solid. Manufacturing details, qualified
+connections and RP1 full flight inertia remain unavailable. Historical models/runs
+are not substituted. All supplier/lab inquiries remain UNSENT.
+
+Optional completed local CAD preparation is `make workbench-rp1-step`; it verifies
+and copies existing registered files and never regenerates CAD. Start the app with
+`make preview`, then open http://127.0.0.1:5173/. Actual native feature observations
+and remaining source/engineering limits are linked in the walkthrough.
+
 ## What works today
 
 - **Vehicle models:** typed YAML parts, geometry, mass, centre of gravity, full
