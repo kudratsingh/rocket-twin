@@ -5,7 +5,7 @@ FA-03,FW2-A07;FW2-A11,Longitudinal CAD caps/edges and tab/ring relationship,pass
 FA-04,FW2-A07;FW2-A11,"Transverse CAD caps/edges, slot and tube; truly empty forward ring",pass_scoped_native,browser.md P64/P66
 FA-05,FW2-A12,Clickable 3D and keyboard source dimensions:6/6.80±.05/.40mm nominal,pass_scoped_native,geometry.json; browser.md P64/P65
 FA-06,FW2-A10;FW2-A12;FW2-A14,Root drawing source/part/section return,pass_scoped_native,browser.md P65
-FA-07,FW2-A10;FW2-A14,Load-path drawing and return from selected feature,pending_native,P66 timeout; designated Chrome availability pending
+FA-07,FW2-A10;FW2-A14,Load-path drawing and return from selected feature,pass_scoped_native,browser.md P67/P68 exact source/part/load-path route and joint return; lower-drawing pixel readability remains outside new claim
 FA-08,FW2-A13,Actual assembled-mm STEP download plus file readback/provenance,pass_download_and_file,browser.md P65; download-readback.json; download-provenance.json
-FA-09,FW2-A11,Orbit/zoom; explicit Move-view pan without release selecting parts,partial,"P65 orbit/zoom, P66 pan observed; drag-pick correction code-tested only"
-FA-10,FW2-A10;FW2-A11,Return-to-rocket original selection and settled actual camera,pending_native,P65 immediate mismatch; duplicate command fix code-tested; fresh native check required
+FA-09,FW2-A11,Orbit/zoom; explicit Move-view pan without release selecting parts,pass_scoped_native,P65 orbit/zoom; P66 Move translation; P67 corrected drag guard retains fin_tabs. No frame-rate benchmark.
+FA-10,FW2-A10;FW2-A11,Return-to-rocket original selection and settled actual camera,pass_scoped_native,"P68 settled native baseline/return images and readouts match at H-29.7/T44.1/R0, Rotate, fin_tabs. P67 failure preserved."

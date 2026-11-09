@@ -3,6 +3,7 @@ import {
   RP1_CONNECTION_PART_IDS,
   RP1_CONNECTIONS_SHA256,
 } from '../workbench/rp1Connections';
+import type { InspectionDocument } from '../types';
 
 export const FIN_ATTACHMENT_GEOMETRY_REVISION =
   '238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608';
@@ -282,4 +283,20 @@ export function returnFinJointHref(href: string): string | null {
 export function finAttachmentSessionKey(originPartId: FinAttachmentPieceId): string {
   if (!isPieceId(originPartId)) throw new Error('Fin attachment camera unavailable: unknown part.');
   return `fin-joint:${RP1_CONNECTIONS_CONFIGURATION}:${RP1_CONNECTIONS_SHA256}:${FIN_ATTACHMENT_GEOMETRY_REVISION}:${originPartId}`;
+}
+
+/** Keep the actual scene/controls alive only for the exact joint-to-drawing journey. */
+export function retainFinDesignWorkspace(
+  workspace: string,
+  document: InspectionDocument | null,
+  href: string,
+): boolean {
+  if (workspace === 'design') return true;
+  return (
+    workspace === 'engineering' &&
+    document?.id === RP1_CONNECTIONS_CONFIGURATION &&
+    document.identity?.specification_sha256 === RP1_CONNECTIONS_SHA256 &&
+    document.identity?.inspection_geometry_sha256 === FIN_ATTACHMENT_GEOMETRY_REVISION &&
+    parseFinAttachmentHref(href) !== null
+  );
 }

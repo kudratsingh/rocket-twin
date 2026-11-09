@@ -102,6 +102,7 @@ export function WorkspaceFrame({
   children,
   footer,
   workspace,
+  retainDesign = false,
 }: {
   header: ReactNode;
   navigation: ReactNode;
@@ -109,11 +110,17 @@ export function WorkspaceFrame({
   children: ReactNode;
   footer?: ReactNode;
   workspace?: WorkspaceId;
+  retainDesign?: boolean;
 }) {
-  if (workspace === 'design')
+  if (workspace === 'design' || retainDesign)
     return (
-      <WorkspaceLayoutProvider workspace={workspace} source={identity}>
-        <DesignWorkspaceFrame header={header} navigation={navigation} footer={footer}>
+      <WorkspaceLayoutProvider workspace="design" source={identity}>
+        <DesignWorkspaceFrame
+          header={header}
+          navigation={navigation}
+          footer={footer}
+          active={workspace === 'design'}
+        >
           {children}
         </DesignWorkspaceFrame>
       </WorkspaceLayoutProvider>
@@ -135,11 +142,13 @@ export function WorkspaceFrame({
 }
 
 function DesignWorkspaceFrame({
+  active = true,
   header,
   navigation,
   children,
   footer,
 }: {
+  active?: boolean;
   header: ReactNode;
   navigation: ReactNode;
   children: ReactNode;
@@ -161,6 +170,7 @@ function DesignWorkspaceFrame({
           className="revamp-layout-controls revamp-panel-controls"
           role="group"
           aria-label="Design panels"
+          hidden={!active}
         >
           <button
             type="button"
@@ -184,7 +194,7 @@ function DesignWorkspaceFrame({
           </button>
         </div>
         <div className="revamp-header-main">{header}</div>
-        <div className="revamp-layout-controls" aria-label="Design layout">
+        <div className="revamp-layout-controls" aria-label="Design layout" hidden={!active}>
           <button
             type="button"
             id={`${id}-focus`}
@@ -231,6 +241,7 @@ function DesignWorkspaceFrame({
           className="research-scroll-region revamp-design-content"
           id="workspace-content"
           tabIndex={-1}
+          style={active ? undefined : { overflow: 'auto', display: 'block' }}
         >
           {children}
         </div>

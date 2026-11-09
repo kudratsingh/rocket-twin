@@ -6,8 +6,8 @@ adds two actual CAD-derived capped sections, clickable dimensions and exact
 Engineering/Design return state. Frozen AD1 v2, failed fin findings and unknown
 installed-joint behavior remain separate. [Scope and user path](studies/frontend-fin-attachment-20261109/integration.md).
 Actual joint download/readback passes. P64/P65/P66 native evidence covers cuts,
-dimensions, orbit/zoom/pan and root-drawing return. Final-source load-path and
-settled main-camera return remain pending designated-window availability;
+dimensions, orbit/zoom/pan and root-drawing return. P68 verifies source-bound load-path/joint return and the settled original
+main camera, mode and selection. The actual Design scene stays mounted;
 [PR121](https://github.com/kudratsingh/rocket-twin/pull/121) stays focused on this
 slice. All physical/engineering gates stay open; inquiries UNSENT.
 

@@ -16,6 +16,19 @@ async function withState(run) {
   }
 }
 
+test('actual Design scene retention is confined to the exact source joint Engineering journey', async () => {
+  await withState(route => {
+    const href = route.openFinDrawingHref('/', route.initialFinAttachmentState, 'fin_tabs', 'root');
+    const source = {id:'G80-F2-RP1-AD1-definition-v2',identity:{specification_sha256:'811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660',inspection_geometry_sha256:route.FIN_ATTACHMENT_GEOMETRY_REVISION}};
+    assert.equal(route.retainFinDesignWorkspace('design', null, '/'), true);
+    assert.equal(route.retainFinDesignWorkspace('engineering', source, href), true);
+    assert.equal(route.retainFinDesignWorkspace('engineering', source, '/?workspace=engineering'), false);
+    for(const mode of ['experiments','replay','analysis']) assert.equal(route.retainFinDesignWorkspace(mode, source, href), false);
+    for(const identity of [{...source.identity,specification_sha256:'0'.repeat(64)},{...source.identity,inspection_geometry_sha256:'0'.repeat(64)}]) assert.equal(route.retainFinDesignWorkspace('engineering',{...source,identity},href), false);
+    assert.equal(route.retainFinDesignWorkspace('engineering',{...source,id:'archived'},href), false);
+  });
+});
+
 test('exact RP1 fin attachment state round-trips between Design and Engineering', async () => {
   await withState((route) => {
     const state = {

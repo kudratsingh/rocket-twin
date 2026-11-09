@@ -82,7 +82,7 @@ Clickable engineering diagrams explain actual routes, assumptions and failure po
 | Task | Deliverable and pass condition | Depends on |
 |---|---|---|
 |FW2-019 · Load paths and free-body diagrams|Link thrust, reverse, fin, guide, and recovery cases through actual joints; infer no unsupported support or equal load sharing.|FW2-012, FW2-017|
-|FW2-020 · Recovery and electrical architectures|Show harness branches, anchors, packing sequence, and source netlist power and signal; independent recovery and unknown pins remain explicit.|FW2-012, FW2-019|
+|FW2-020 · System map, recovery and electrical architectures|Show recovery topology/netlist plus actual physics, estimation, guidance, PID/RL and actuator feedback with units, frames and implemented/planned status; preserve independent recovery and unknown pins.|FW2-012, FW2-019|
 |FW2-021 · Thermal and compatible evidence graphics|Show real contacts, materials, openings, and recorded histories or cases; do not spatially fabricate failed, superseded, or missing data.|FW2-017, FW2-019|
 |FW2-022 · Mechanism motion and kinematic status|Show joint axes, travel, stops, linkages, and wiring envelopes; distinguish illustrative poses, sampled clearance, and validated motion.|FW2-010, FW2-015|
 |FW2-023 · Assembly and service walkthrough|Link access to fasteners and bonds, motor removal, battery/arming/recovery service, and assembly stages to parts and evidence.|FW2-017, FW2-020, FW2-022|

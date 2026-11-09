@@ -38,7 +38,7 @@ supplies fail explicitly. No dependency installation or physics run is required.
    registered file is always the full assembled9-record joint, millimetres,
    regardless of visible parts, section, camera or isolation.
 7. Choose **Return to rocket**. The implementation preserves the original whole-rocket
-   selection and actual camera pose (final settled browser verification pending); a joint inspection does not change the vehicle.
+   selection and actual camera pose (P68 settled browser verification passes); a joint inspection does not change the vehicle.
 
 ## Evidence and limits
 
@@ -59,16 +59,30 @@ source-defined, not an independently extracted or manufactured tolerance.
 [Actual downloaded provenance](download-provenance.json) matches its registered
 hash. The readback tool does not assert browser origin; P65 supplies that receipt.
 
-P65's immediate return-camera mismatch was not a settled observation. A duplicate
-Strict Mode camera command path was corrected and covered by a regression test;
-settled native main-camera restoration remains **pending**. P66's pan also picked
-a body surface; the final code rejects drag-distance releases as part clicks,
-with tests, but that correction remains **unobserved** in the browser.
+P65's immediate return-camera mismatch was followed by a decisive P67 failure:
+the entire Design frame remounted during the Engineering round trip. Both
+records remain historical evidence. The final correction keeps the actual
+source-bound Design frame, layout provider, renderer and controls mounted
+(hidden and inert while the exact joint Engineering view is active), rather
+than trying to recreate a lost camera from a transient cache. Ordinary
+Engineering, Analysis, Experiments, Replay and other-source routes are unchanged.
 
-**Remaining live checks:** load-path drawing/return, final-source drag/pick behavior,
-and actual Return-to-rocket camera/selection restoration. Bring the Rocket Twin
-127.0.0.1:5173 tab to the front and leave the designated Chrome window available.
-No provider restart or new browser permission is requested by the current result.
+**P68 passes the scoped final return journey.** A fresh custom baseline
+H−29.7° / T44.1° / R0°, Rotate mode, exactfin_tabs/spec selection survives
+Design → joint → load-path Engineering → joint → actual Return-to-rocket.
+A later capture21.738seconds after Return matches the original visible rocket
+projection, position and scale. The joint's transverse section, selected piece
+and0.40mm nominal-gap dimension also survive. P67 separately verified the
+drag-release guard keepsfin_tabs selected during Move view.
+
+The matching load-path image is auto-open in nativeAX and its route/return is
+verified. Full lower-drawing pixel-legibility coverage is not newly claimed.
+P67's unnecessary disclosure toggle is a preserved verifier branch issue, not
+a drawing-opening defect. No numeric camera-vector dump,26-mesh live count,
+frame-rate benchmark or complete responsive matrix is inferred.
+
+Browser verification for this slice is finished and the designated Chrome
+window is free. No immediate owner input is needed.
 
 The failed frozen fin calculation remains visible alongside unknown installed
 root movement, adhesive peel, hot/conditioned material capacity and flutter.
@@ -80,7 +94,7 @@ open. Five supplier/lab inquiries remain UNSENT.
 PR [121](https://github.com/kudratsingh/rocket-twin/pull/121) is the single focused
 publication. Initial headb07229839b7474df8701264fad036c0297b9bf7c passed the hosted
 web job; final-source checks are reported in the publication receipt. Local final
-web checks345cases pass, including four preserved unpublished A2 cases (341 in
+web checks347cases pass, including four preserved unpublished A2 cases (343 in
 publication scope); typecheck/lint/build/format pass. Python makecheck and nine
 focused CAD/readback tests pass. The existing Make preparation command verifies
 29 STEP/provenance files and40 derived GLBs without a new CAD run. These support
@@ -93,3 +107,12 @@ close all component detail, all formats, all force paths or full frontend phases
 and the P64 transverse-ready image are local artifacts; see browser.md for their
 actual filenames, source hashes and observation limits. Generated mesh/STEP and
 screenshot bulk is excluded from Git.
+
+## Owner visual target preserved
+
+The separately supplied25-image reference set is saved unchanged in the
+[local gallery](../../../output/frontend-reference-set-20261109/index.html),
+with [versioned goals/manifest](../../frontend-design-workbench-v2/reference-set-20261109.md).
+FW2-020/FW2-A15 now explicitly require a source-linked physics, guidance and
+PID/RL system map. These references set presentation/detail goals; they do not
+adopt pictured motors, controllers, airbrakes or structural hardware into RP1.

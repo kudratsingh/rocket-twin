@@ -1,5 +1,13 @@
 # Plan — modular custom rocket and digital twin
 
+**Owner visual/system-map target — November9:** The [25-image reference set](frontend-design-workbench-v2/reference-set-20261109.md)
+is saved unchanged locally with a versioned manifest. Existing P4 task FW2-020
+and check FW2-A15 now include physics, sensors/estimation, guidance/setpoints,
+PID/RL, actuator limits, vehicle feedback and independent recovery/power/logging
+diagrams. Generate them from actual source contracts, distinguish implemented
+from planned/unavailable behavior, and retain current G80 unguided operation.
+This plans explanatory views; it adopts no reference hardware or controller gains.
+
 **Current focused delivery — RP1 fin attachment inspector:** One source-bound,
 read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STEP,
 adds two actual CAD-derived capped sections, clickable dimensions and exact

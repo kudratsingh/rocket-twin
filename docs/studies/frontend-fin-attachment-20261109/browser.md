@@ -47,3 +47,31 @@ The next cell found and attempted the **Load path drawing** click, then timed ou
 The last successful cutoff clock was52.000s. Kernel reset lost the clock, so exact final native elapsed/cap compliance is not inferred by adding tool wall to that earlier measurement. The declared180s packet was not extended. Load-path drawing/return and actual Return-to-rocket/settled-camera comparison are unverified/unexecuted. P65’s observed return mismatch remains unresolved. No final image is fabricated from the last successful fitted capture.
 
 Native ownership is idle and source hold was released promptly. No downloads, permissions, new computation/Play, mainWhole/reset/visibility, viewport/window or prohibited transport action occurred. Primary’s independent downloaded-file readback is separate from this native packet. Current CAD and engineering/physical gates remain unchanged.
+
+
+# P67 final-source return check — main-camera restoration failure
+
+P67 is a separately authorized180s packet after the owner made Chrome available again. Same-runtime Chrome/filesystem functions and an owned-path write/read probe succeeded before input; Rocket Twin was already the active tab. The preserved P67 source-freeze copy matches the latest frozen inventory. No old P64 camera was reused across code/HMR changes.
+
+The existing joint was closed with its actual Return to rocket button. Main Rotate view and an actual canvas drag established a fresh custom baseline: **H2.3°/T60.1°/R0°/TargetAssembly, Rotate active**, exactRP1/spec811b/fin_tabs. A later fullAX/native baseline image is saved.
+
+Within the joint, Transverse/gap/Fit and explicit Move view then a canvas drag visibly translated the section right/down. `fin_tabs` remained selected in the source route and row; the new drag-pick guard prevented the previous incidental body selection. The actual load-path action reached exact Engineering `jointDrawing=loadpath` with the same source, section, piece and dimension. Pre-click AX already contained the auto-open Load paths saved-concept image. The page-top screenshot does not establish lower-drawing pixel legibility.
+
+An unnecessary disclosure click closed that already-present image and the verifier assertion “Load path image not in expanded state” stopped the optional visibility subcase. No disclosure retry or scroll cascade followed. This is a verifier branch error, not an app failure. The planned contextual return remained reachable; it restored transverse/fin_tabs/aft-gap and the same visibly panned scene. Numeric local-camera vectors were not read.
+
+**Main-camera restoration fails this source check.** The actual Return to rocket button was clicked at162.271s. Exactfin_tabs/spec and Details survived, but immediate and later native states show **H30.3°/T72.1°/R−0°/TargetAssembly, Move active**, instead of the fresh baseline2.3°/60.1°/Rotate. The later native image contains rendered whole-vehicle geometry, visibly different projection and the wrong readout. This is a settled comparison within the packet, not the old P65 immediate-only ambiguity. Successful source/selection retention does not clear this camera failure.
+
+Native work ended175.547s within180s. No input or capture followed. The final state is Design/fin_tabs Details, joint closed, wrong-restored main camera and Move mode. No download, permission, Escape, simulation/Play, viewport or alternate-window/transport action occurred. Source hold is released and native lane is idle. P64–P66 remain unchanged; no automatic retake or blanket acceptance follows.
+
+
+# P68 mounted-scene lifecycle correction — scoped restoration pass
+
+P68 retested only the corrected strict same-source joint/Engineering/main-return path. The source freeze contains the lifecycle change retaining the actual mounted Design scene, renderer, controls and workspace provider; code checks remain separate from these observations. P67’s failure remains unchanged.
+
+A fresh native Rotate button and canvas drag established a clear custom baseline: **H−29.7°/T44.1°/R0°/TargetAssembly, Rotate active**, exactRP1/spec811b/fin_tabs Details. The native baseline image shows the source rocket at this custom projection. No older baseline was reused.
+
+Inspect fin attachment, Transverse at slot and the0.40mm nominal gap were selected through actual controls. One Load path drawing action opened exact Engineering source/part/joint identities, transverse section and aft-gap dimension. The already-auto-opened drawing disclosure was left untouched. The explicit contextual return restored the same selected joint source/section/dimension and rendered section. The Engineering image is page-top; lower load-path pixel readability is not newly accepted.
+
+The actual **Return to rocket** button then restored the main scene. Both immediate and later full native states show **H−29.7°/T44.1°/R0°/TargetAssembly, Rotate1/Move0**, with exactfin_tabs/spec and Details retained. The later native image visibly matches the baseline rocket projection, position and scale, with geometry rendered. This is a scoped camera/mode/selection restoration pass. Native AX did not independently expose numeric camera vectors or a26-mesh loaded count, and neither is invented from source code or canvas fallback text.
+
+Native work ended83.778s, with last input62.040s. The later observation was21.738s after Return. No extra control tests, downloads, permission changes, simulation/Play, viewport/window or prohibited transport action occurred. Final state is usable sourceRP1/fin_tabs Details, custom Rotate view, both panels open and tools closed. Source hold is released and native lane is idle; no automatic additional correction follows.
