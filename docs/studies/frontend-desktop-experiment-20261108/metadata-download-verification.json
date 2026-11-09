@@ -1,0 +1,79 @@
+{
+  "scope": "Fresh actual P49 browser metadata download, not a generated replacement",
+  "run_id": "exp-c174705a75b8474290b523e8fb7c1267",
+  "comparison_run_id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+  "filename": "exp-c174705a75b8474290b523e8fb7c1267-playback.json",
+  "bytes": 42723,
+  "sha256": "72374b5052ab542b13e7126d3559252cd3b96cc05e9f73a666f7efb0a8bf0e77",
+  "mtime_ms": 1794204776981.526,
+  "click_epoch_ms": 1794204776931,
+  "actual_records_exact_match": true,
+  "source_identity": {
+    "configuration": "modular-performance-v1",
+    "vehicle_id": "modular-performance-v1",
+    "configuration_path": "configs/vehicle/platform/performance.yaml",
+    "code_sha256": "a58cde7fad6f24188887b019b4dc9632413ef1b20a0cacc7c1382c3010aa8d6f",
+    "resolved_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "input_sha256": {
+      "configs/vehicle/platform/performance.yaml": "492c1d69c60dc596db55041c07b5b1674c4ca01b299f768281aad275fe843e7f",
+      "configs/vehicle/platform/common-upper.yaml": "43000fe787401a1e7d02414d57df28b46d26ac52b1b4682abefa87db5dfa8a26",
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.eng": "e79138a07bba2673fdd06491caf843bf125aa9c358e1f350a39796fe58768075",
+      "configs/studies/rebaseline/motors/AeroTech_G80_2007_published.yaml": "eed75f2ba9d553fadd2eb345edc279645d058d7fea40d6b1798eb678f39e94fa",
+      "configs/sim-model.yaml": "fac14cc1af64f611aaa9d98e03119b8e1d1cc6106441858ca5fa47227922c94c"
+    },
+    "random_seed": 20261107,
+    "settings": {
+      "configuration": "modular-performance-v1",
+      "wind_mps": 1,
+      "wind_direction_deg": 0,
+      "gust_mps": 0,
+      "preset": "tiny",
+      "seed": 20261107
+    },
+    "effective_settings": {
+      "configuration": "modular-performance-v1",
+      "wind_mps": 1,
+      "wind_direction_deg": 0,
+      "gust_mps": 0,
+      "preset": "tiny",
+      "seed": 20261107,
+      "dt_s": 0.005,
+      "max_time_s": 45,
+      "sensor_noise": true,
+      "elevation_m": 850,
+      "wind_north_mps": 1,
+      "wind_east_mps": 0,
+      "gust_amplitude_mps": 0,
+      "controller": "locked, unguided"
+    }
+  },
+  "selection": {
+    "start_s": 0.005,
+    "end_s": 45.00000000000457,
+    "offset_s": 0,
+    "peer_offset_s": 0,
+    "alignment_event": null,
+    "clock": "display_s = recorded_time_s - offset_s; CSV keeps original recorded time_s",
+    "selected_sample_count": 3006,
+    "range_policy": "inclusive recorded samples only; no synthetic boundary samples"
+  },
+  "coverage_rows": 3006,
+  "native_source_rows": 9000,
+  "comparison_differences": [
+    [
+      "setting: wind_mps",
+      1,
+      0
+    ],
+    [
+      "case: wind_north_mps",
+      1,
+      0
+    ]
+  ],
+  "trajectory_complete": false,
+  "landing": null,
+  "permission": "Explicitownerlocal-siteauthorization received; actualP49 had no prompt/Allow/settingsaction, so no persistentpermissionchange is inferred",
+  "physical_acceptance": false
+}

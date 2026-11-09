@@ -1,0 +1,71 @@
+{
+  "packet": "P41",
+  "status": "stopped-verifier-copy-assertion-before-download",
+  "limits": {
+    "native_seconds": 140,
+    "overall_seconds": 200,
+    "no_new_input_after_seconds": 110
+  },
+  "timing": {
+    "native_end_elapsed_ms": 30666,
+    "navigation_ms": 2600,
+    "files_open_ms": 22433
+  },
+  "runtime": {
+    "transport": "Existing nativeChromeApp, same authorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_or_approval_rejection": null,
+    "script_error": "P41 admission wordingnotconfirmed",
+    "error_cause": "Verifier required exact sentence Current resolved specification and CAD revision matched; nativepanel did not contain it. This is a verifier copy-expectation error, not evidence of actual identity mismatch."
+  },
+  "identity": {
+    "configuration_id": "modular-performance-v1",
+    "resolved_spec_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "part": "nose_cone",
+    "part_shape_sha256": "08a165da1c6fb8f7954289f5910d41d81e8fa361d312cf0d48688228f652b9bb",
+    "source_records": 42,
+    "identity_origin": "Trackedfixture read offline before navigation; exactnormalURL/part/nativepartshape readouts retained"
+  },
+  "cases": [
+    {
+      "case": "Exact archived G80 normal route/nose",
+      "status": "pass-for-URL-and-source-metadata",
+      "actual": "modular-performance-v1/spec c18ab\u2026/nose_cone;42source-linkedparts; exactnose_shapeSHA."
+    },
+    {
+      "case": "Lazy archivedfilecontrols/units",
+      "status": "pass-for-actual-loaded-AX-controls-and-text",
+      "actual": "Recorded configuration files, enabledGLB/STEP/STL/provenancebuttons. GLBworldplacedm; STEPpart-localCADmm beforeassembly; STLdoesnotencodeunits, producerCADmm/printorientedbedpacked. Archivedpreliminary/source-role/manufacturing/flightlimits."
+    },
+    {
+      "case": "Exact source-admission sentence",
+      "status": "verifier-error",
+      "actual": "Unjustified exactcopyassertion stopped beforemutation. No identitymismatch observed; actualadmission source notdiagnosed in P41."
+    },
+    {
+      "case": "RecordedSTEP/provenancedownload",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Actualnativeimage/3Drender",
+      "status": "unexecuted",
+      "actual": "No screenshot before assertion stop. AXcanvasfallbacktext is not proof of WebGLfailure."
+    }
+  ],
+  "final_state": {
+    "workspace": "Design",
+    "configuration": "modular-performance-v1",
+    "part": "nose_cone",
+    "context_tab": "Details",
+    "geometry_files": "expanded",
+    "downloads_requested": 0,
+    "screenshots": 0,
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "No byte-download or CADreadback/geometry qualification.",
+    "No application mismatch/rejection/crash inferred from verifier exactcopy assertion.",
+    "Archive remains separate from RP1AD1 source; no physical/manufacturing/flight acceptance."
+  ]
+}

@@ -749,7 +749,6 @@ export function Viewer({
   const toggleWireframe = useInspection((s) => s.toggleWireframe);
   const partLabels = useInspection((s) => s.partLabels);
   const togglePartLabels = useInspection((s) => s.togglePartLabels);
-  const select = useInspection((s) => s.select);
   const selectedId = useInspection((s) => s.selectedId);
   const isolate = useInspection((s) => s.isolate);
   const exitIsolate = useInspection((s) => s.exitIsolate);
@@ -996,7 +995,6 @@ export function Viewer({
           dpr={[1, 2]}
           camera={{ position: [1.4, 0.9, 2.4], fov: 35, near: 0.001, far: 100 }}
           gl={{ antialias: true, localClippingEnabled: true }}
-          onPointerMissed={() => select(null)}
         >
           <color attach="background" args={['#141c22']} />
           <ambientLight intensity={0.35} />

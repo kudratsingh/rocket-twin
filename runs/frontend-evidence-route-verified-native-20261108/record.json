@@ -1,0 +1,96 @@
+{
+  "packet": "P48",
+  "status": "partial-links-and-recovery-pass-return-selection-fails",
+  "source_fixture": "PR116eedfabfe08f2cfdee82e1f927a69f4d06b2641e4,primary315localchecks/sourcefrozen",
+  "limits": {
+    "native_seconds": 120,
+    "overall_seconds": 180,
+    "no_new_input_after_seconds": 90
+  },
+  "timing": {
+    "native_end_elapsed_ms": 74014,
+    "localprompt_Escape_ms": 977,
+    "forwardring_navigation_ms": 13096,
+    "links_capture_ms": 22813,
+    "Recoveryclick_capture_ms": 36941,
+    "loaded_evidence_capture_ms": 48568,
+    "immediate_Designreturn_ms": 60950,
+    "settled_Designreturn_ms": 74014
+  },
+  "runtime": {
+    "transport": "ExistingauthorizednativeChromeApp/samewindow; restoredknownbindings",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part_requested": "forward_ring",
+    "connection": "recovery"
+  },
+  "cases": [
+    {
+      "case": "Escape-onlylocalpromptdismissal",
+      "status": "pass-for-dismissal-only",
+      "actual": "Freshexact127.0.0.1:5173Downloadmultiplefilesprompt\u2192oneEscape\u2192normalRocketTwincontext. NoAllow/Block/settings/downloadrequest. Permissionnotresolved."
+    },
+    {
+      "case": "Explicitdualfunctionlinks",
+      "status": "pass",
+      "actual": "ActualforwardringDetails exposesFinrootandbody\u2192connectionfin-root, Recoveryleaderandloadpath\u2192connectionrecovery; eachsameexactpart/spec."
+    },
+    {
+      "case": "Recoveryevidence",
+      "status": "pass-for-route/source/content;fullgraphpixelcoveragepartial",
+      "actual": "ActualRecoverylinkclick\u2192selectedsourceforward_ring, Recoverytoggle1, conceptrelationshipgraphic+unknowncapacity/findings. Nativeimagevisiblegraphuppersection; fullselectedpart/findingscontentconfirmedAX, noentiregraphcaptureclaim."
+    },
+    {
+      "case": "ExactDesignreturn",
+      "status": "fail-for-selectedpart;source-and-connection-retained",
+      "actual": "ActualexactAD1partlink initiallynavigatedDesignwithpartforward_ring/spec811b/connectionrecovery. SettledAXtopURLandimage thenDROPpart; vehicleSummaryreplacespartinspector. Source/spec/connectionremain. Noinputbetweenimmediateandsettledcaptures."
+    },
+    {
+      "case": "CompactCADdisclosure",
+      "status": "unexecuted",
+      "reason": "Optional; notreached."
+    },
+    {
+      "case": "Metadata/permissioncompletion",
+      "status": "unexecuted",
+      "actual": "P46rejectionunchanged; no deniedactionretry. Newownerpermissionreplyarrivedduringpacket butnotused."
+    }
+  ],
+  "return_urls": {
+    "immediate": "http://127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&part=forward_ring&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660&connection=recovery",
+    "settled": "http://127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660&connection=recovery"
+  },
+  "verifier_note": "Initialbroadstate.includes(part=forward_ring)summarywasfalsepositivebecauseotherAXlinks/treecontentstillcontainedpart. OfflineexplicitAXtopURL/addressfield+nativepixelsestablishactualselectionloss; noPASSclaimed.",
+  "evidence_limits": [
+    "RecoverydiagramconceptnotCAD/acceptedsharing/installedclearance.",
+    "Finishedcord/knot/loop/connector/ringcapacityunknown;8.83Nm/331.125N/factor3once/1mmunchanged.",
+    "No physical/manufacturing/flightacceptance orfullfrontendpass."
+  ],
+  "final_state": {
+    "workspace": "normalDesign",
+    "source": "RP1AD1v2/spec811b",
+    "part": null,
+    "connection": "recovery",
+    "left_context": "Details/vehiclesummary",
+    "camera": "Overview45\u00b0/54.7\u00b0Assembly",
+    "scene_tools": "closed",
+    "native_lane": "idle",
+    "metadata": "unconfirmed; no permissionchange"
+  },
+  "actions_excluded": [
+    "Allow",
+    "Block",
+    "settings",
+    "metadataretry",
+    "alternateexport",
+    "newrun",
+    "Play",
+    "viewport/performance",
+    "DevTools",
+    "otherwindow"
+  ]
+}

@@ -121,3 +121,25 @@
   line-height: 1.45;
   color: #b1c7d6;
 }
+
+/* A dimension drawing needs its full annotation area, unlike a 3D scene overlay. */
+.revamp-design .research-design-visual[data-representation='2d'] {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 76px;
+}
+.revamp-design .research-design-visual[data-representation='2d'] .research-selection-summary {
+  position: static;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  max-width: calc(100% - 20px);
+  margin: 0 10px 6px;
+}
+.revamp-design .research-design-visual[data-representation='2d'] > .research-representation {
+  flex: 1 1 auto;
+  height: auto;
+}
+.revamp-design .research-design-visual[data-representation='2d'] .ortho-toolbar {
+  margin-top: 0;
+}

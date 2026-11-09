@@ -1,0 +1,78 @@
+{
+  "packet": "P42",
+  "status": "pass-for-scoped-archive-file-scope-and-download",
+  "limits": {
+    "native_seconds": 140,
+    "overall_seconds": 200,
+    "no_new_input_after_seconds": 110
+  },
+  "timing": {
+    "native_end_elapsed_ms": 70234,
+    "entry_ms": 665,
+    "component_capture_ms": 11950,
+    "assembly_capture_ms": 24771,
+    "scope_identity_confirm_ms": 36863,
+    "STEP_request_observed_ms": 50521,
+    "STEP_click_epoch_ms": 1794201755072,
+    "provenance_click_epoch_ms": 1794201774211
+  },
+  "runtime": {
+    "transport": "Existing nativeChromeApp/same authorizedwindow",
+    "fresh_AX_before_each_input_samecell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "configuration": "modular-performance-v1",
+    "resolved_spec_sha256": "c18abfee2444307e46eaaca55197693a3d9353bd8d8d8ac42162ffd238ef1d5e",
+    "cad_revision_sha256": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+    "part": "nose_cone",
+    "part_shape_sha256": "08a165da1c6fb8f7954289f5910d41d81e8fa361d312cf0d48688228f652b9bb",
+    "records": 42,
+    "hash_origin": "Tracked archived-cad-access.json/P41fixture and actual sourceURL/partshape context; filebytes independently verified byparent"
+  },
+  "cases": [
+    {
+      "case": "Selected component file scope",
+      "status": "pass",
+      "actual": "Selectedcomponentfiles1/assembly0; GLB/STEP/STLbuttons, worldGLBm/localpartSTEPmm/unitlessSTLproducerCADmm+bedpacked limits."
+    },
+    {
+      "case": "Whole assembly scope retains part/view",
+      "status": "pass",
+      "actual": "Oneactualscopebuttonclick; assembly1/component0; Whole recordedassemblyGLB+STEP/noSTL. URLnose_cone and Noseconeinspector/selectedannotation persist. Images show samewholeG80camera/model."
+    },
+    {
+      "case": "AssemblySTEP request and completion",
+      "status": "pass-for-UI-hash-verification/request/browserDone",
+      "actual": "OneSTEPclick\u2192Recordedhashverified;browserdownloadrequested. ChromeDone3.0MB filename modular-performance-v1--assembly--recorded-68b40b0e3f4f.step. ExpectedtrackedSHA68b40b0e3f4fee92a3d3a9c5058340a200817e95ebb6e2af07ed870bdd13ff60."
+    },
+    {
+      "case": "Assemblyprovenance export",
+      "status": "pass-for-actualclick/browserDone",
+      "actual": "Oneclick; ChromeDone405KB filename modular-performance-v1--assembly--cad-provenance.json; parenthashesactualfreshbytes."
+    },
+    {
+      "case": "Native source/render/control capture",
+      "status": "pass-for-visiblecurrentarchive",
+      "actual": "assembly-downloaded.jpg shows actualarchivedG80rocket,noseannotation/sourceheader,assemblyscope/frames/disclaimers,downloadDonebubble."
+    }
+  ],
+  "orchestration_note": "Firstscope summary checked only firstAXline (WindowtitlewithoutURL) and printedpartURLretainedfalse. Noerror/inputbasedonit; nextfreshfullAX established actualURLretained. This did not represent applicationstatechange.",
+  "final_state": {
+    "workspace": "normal Design",
+    "configuration": "modular-performance-v1",
+    "selected_part": "nose_cone",
+    "context_tab": "Details",
+    "geometry_files": "expanded",
+    "file_scope": "Whole rocket assembly files",
+    "camera": "Overview45\u00b0/54.7\u00b0Assembly",
+    "scene_tools": "closed",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Recordedbytes/sourceidentity access only, no newCADreadback/geometryqualification.",
+    "Manufactured is source-rolelabel not builthardwareproof.",
+    "No manufacturing/physicalwork/flight permission or RP1substitution.",
+    "No newrun/Play/performance/viewportcampaign."
+  ]
+}

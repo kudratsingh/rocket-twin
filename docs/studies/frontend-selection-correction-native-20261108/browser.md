@@ -1,0 +1,11 @@
+# P50 one selection-loss correction check
+
+**The corrected route preserved the selected part in this one actual roundtrip.** NormalexactRP1/spec811b…/forward_ring showedthepartinspector/sceneannotationandbothlinks. ActualRecoveryclickthenactualexactAD1partDesignreturnretained`part=forward_ring`,specand`connection=recovery` inbothimmediateandsettled**top-leveladdressURLs**. ActualDetailsForwardringpane/title/annotationalso remained; no broadsubstringmatchwasused.
+
+`Design-settled.jpg` at49.379secondsstillshowsmesh/connectionloading, so isnotcompleteassetframingproof. `ring-framed.jpg` at68.595seconds showsresolvedsourcelinksandpartstillretained. OneFrameclick changedTargetForwardringwithoutchangingroute. Itsassembledouterbodyoccludesinternalring; thisisframeactionproof, notcleanring-detailvisibilityacceptance.
+
+OneexplicitClearselectionandshowvehiclesummaryclickremovedpartfromtopURLandreplacedpartpanewithvehiclesummary. Whole rocket restoredAssembly45°/54.7°wholeoverview. ConnectionrecoverystaysinURL. FrameAXremainsenabled; residualgroupselectionisnotestablishedandnodisabledclaimmade.
+
+Nativeworkendedat**87.254seconds**, within180seconds/before150-secondinputcutoff. SamecellfreshAXprecededinput; no guard/error/denial/Run/Play/download/permission/resize/DevTools. No actualDownloadbubbleEscape wasneeded. FinalnormalRP1nopart/connectionrecovery,Detailsvehiclesummary/toolsclosed; nativeidle.
+
+P48actualfailureisunchanged. P50isonescopedchanged-sourcecheck, notproof oftheunknowninitiatingP48callbackorfulllifecycle/history/keyboardcoverage. No physical/engineering/flightgatechanges.

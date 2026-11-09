@@ -18,10 +18,24 @@ can run local CPU experiments and replay/compare saved telemetry. Live browser
 checks and actual screenshots are recorded in
 [the release handoff](docs/frontend-release-20261107.md). Desktop layout and
 explicit Side fitting pass measured thresholds; the full native-rate 60 fps
-benchmark remains failed. Bounded live browser checks are recorded, and the app is restored to current RP1 Design for owner use. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
+benchmark remains failed. Bounded live browser checks are recorded. The latest experiment comparison retains RP1 as the working design; metadata downloaded and whole Design was restored in the subsequent authorized check. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
 not engineering, prototype-build or flight approval.
 
 ## Desktop engineering inspection
+
+The four archived reference/controls configurations also have registered part
+GLB/STEP/STL and whole-assembly GLB/STEP access. Use **Whole rocket assembly files**
+without clearing a selected component. Legacy part STEP is local millimetres;
+assembly STEP is placed geometry; STL has no encoded units and may follow print
+packing. `make workbench-archived-cad` verifies/copies existing local files without
+regenerating CAD. [Archive source and native evidence](docs/studies/frontend-archive-downloads-20261108/integration.md).
+
+The next source-checked inspection increment gives dual-function RP1 parts
+separate fin-root and recovery routes, with exact part/revision links back to
+Design. Unmapped connections remain unavailable.
+[Connection navigation](docs/studies/frontend-rp1-evidence-routing-20261108/integration.md)
+· [Future detail evidence](docs/studies/frontend-desktop-detail-20261108/measurement-unlocks.md).
+The source-bound round trip and explicit selection clear were subsequently verified in the browser; original failures remain recorded.
 
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools
@@ -38,6 +52,12 @@ Optional completed local CAD preparation is `make workbench-rp1-step`; it verifi
 and copies existing registered files and never regenerates CAD. Start the app with
 `make preview`, then open http://127.0.0.1:5173/. Actual native feature observations
 and remaining source/engineering limits are linked in the walkthrough.
+
+A new actual archived G80 Tiny run completed with wind1m/s and a45second partial
+trajectory. The browser loaded it, compared it with a matching calm-air baseline,
+jumped to apogee and exported the playback CSV. Landing is not recorded. The JSON
+metadata export completed after explicit local-site authorization; no permission
+prompt or setting change occurred on the actual completion path. [Run and export evidence](docs/studies/frontend-desktop-experiment-20261108/integration.md).
 
 ## What works today
 

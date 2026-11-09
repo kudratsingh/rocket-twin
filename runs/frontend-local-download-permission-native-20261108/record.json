@@ -1,0 +1,56 @@
+{
+  "packet": "P46",
+  "status": "blocked-automatic-approval-review-preexecution",
+  "limits": {
+    "native_seconds": 90,
+    "overall_seconds": 150,
+    "no_new_input_after_seconds": 65
+  },
+  "timing": {
+    "rejected_tool_wall_seconds": 6.0028,
+    "native_execution_seconds": 0,
+    "permitted_native_actions": 0,
+    "fresh_AX_observations": 0
+  },
+  "attempted_action": "A single CUAcall intended to obtain freshsamewindowAX, confirm exactlocalorigin Downloadmultiplefiles, thenAllow once. Entirecall rejectedbeforeexecution; no folder created by call.",
+  "automatic_review": {
+    "message": "This action was rejected due to unacceptable risk.",
+    "reason_exact": "Clicking Allow changes a persistent browser site permission for multi-file downloads; the available trusted user messages authorize autonomous experimentation generally but do not specifically authorize this permission change, its scope, or recipient behavior.",
+    "instruction": "Do not bypass this rejection through a workaround or indirect execution.",
+    "action_executed": false,
+    "permission_changed": false
+  },
+  "latest_observed_context": {
+    "packet": "P45",
+    "foreground": "http://127.0.0.1:5173 wants to: Download multiple files",
+    "buttons": [
+      "Block",
+      "Allow"
+    ],
+    "P46_fresh_confirmation": "unavailable because entirecall rejectedpreexecution",
+    "metadata_completion": "unconfirmed",
+    "CSV": "P45ChromeDone2.4MBconfirmed"
+  },
+  "cases": [
+    {
+      "case": "Freshsupportedstate/Allow",
+      "status": "blocked-before-execution"
+    },
+    {
+      "case": "Metadatacompletion/re-request",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Designrestoration",
+      "status": "unexecuted"
+    }
+  ],
+  "next_required_action": "Explicit ownerauthorization for persistentmultipleautomaticdownloads ONLYhttp://127.0.0.1:5173 (localRocketTwin) orownerpressesAllow. No otherorigin/permission included. New scopedcheck onlyafter actualauthorization/action and coordination.",
+  "proposed_owner_question": "May Chrome persistently allow multiple automatic downloads only from http://127.0.0.1:5173, so the pending metadata export and future requested local CAD/CSV/JSON files can download?",
+  "acceptance_limits": [
+    "No approvaloverride or indirectexecution; deniedDevTools unchanged.",
+    "No newbrowserstate/JSONdownload/ownerrestore accepted.",
+    "No source/data/run/engineeringchange."
+  ],
+  "native_lane": "idle; no retry"
+}

@@ -1,5 +1,4 @@
-import { lazy, Suspense } from 'react';
-import { partHref } from '../workspaces/partLinks';
+import { lazy, Suspense, useState } from 'react';
 import { displayValue, grams, label, number, partName, title } from '../format';
 import { useInspection } from '../store';
 import type { InspectionDocument, JsonValue, MassSample, Part } from '../types';
@@ -9,8 +8,11 @@ import { FinAlternatives } from './FinAlternatives';
 import { ThrustCurve } from './ThrustCurve';
 import { InspectionGeometryAccess } from './InspectionGeometryAccess';
 import { InspectionStepAccess } from './InspectionStepAccess';
+import { RecoveryIdentityNotice } from './RecoveryIdentityNotice';
 
 const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
+const ArchivedCadAccess = lazy(() => import('./ArchivedCadAccess'));
+const Rp1PartEvidenceLinks = lazy(() => import('./Rp1PartEvidenceLinks'));
 
 function numeric(value: JsonValue | undefined): number | undefined {
   return typeof value === 'number' ? value : undefined;
@@ -184,11 +186,9 @@ export function PartInspector({
       </div>
       {design &&
         (design.id === 'G80-F2-RP1-AD1-definition-v2' ? (
-          <p>
-            <a href={partHref('/', design, part.id, 'engineering')}>
-              Open matching Engineering connections and findings
-            </a>
-          </p>
+          <Suspense fallback={<p>Loading matching Engineering connections…</p>}>
+            <Rp1PartEvidenceLinks design={design} partId={part.id} />
+          </Suspense>
         ) : (
           <p>RP1 connection evidence unavailable for this historical design.</p>
         ))}
@@ -203,6 +203,7 @@ export function PartInspector({
         </div>
       </div>
       <p className="part-id">{part.id}</p>
+      {design && <RecoveryIdentityNotice vehicle={design} selectedPart={part} />}
       <div className="inspector-actions">
         <button onClick={() => focusPart(part.id)} disabled={!part.mesh_url}>
           <Icon name="fit" size={14} />
@@ -750,6 +751,8 @@ export function InspectionPanel({
 }) {
   const selectedId = useInspection((s) => s.selectedId);
   const part = vehicle.parts.find((item) => item.id === selectedId);
+  const [wholeFiles, setWholeFiles] = useState(false);
+  const downloadPart = wholeFiles ? null : (part ?? null);
   return (
     <aside
       className="inspection-panel"
@@ -757,9 +760,39 @@ export function InspectionPanel({
     >
       <div className="inspector-scroll" key={part?.id || vehicle.id}>
         <details className="detail-section" aria-label="Source 3D geometry files">
-          <summary>3D geometry files · {part ? partName(part) : 'whole assembly'}</summary>
-          <InspectionGeometryAccess vehicle={vehicle} selectedPart={part ?? null} />
-          <InspectionStepAccess vehicle={vehicle} selectedPart={part ?? null} />
+          <summary>
+            3D geometry files · {downloadPart ? partName(downloadPart) : 'whole assembly'}
+          </summary>
+          <div className="inspector-actions" role="group" aria-label="Geometry download scope">
+            <button
+              type="button"
+              disabled={!part}
+              aria-pressed={!wholeFiles && !!part}
+              onClick={() => setWholeFiles(false)}
+            >
+              Selected component files
+            </button>
+            <button
+              type="button"
+              aria-pressed={wholeFiles || !part}
+              onClick={() => setWholeFiles(true)}
+            >
+              Whole rocket assembly files
+            </button>
+          </div>
+          <p className="small muted">
+            File scope does not change the selected component or the camera view.
+          </p>
+          {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' ? (
+            <>
+              <InspectionGeometryAccess vehicle={vehicle} selectedPart={downloadPart} />
+              <InspectionStepAccess vehicle={vehicle} selectedPart={downloadPart} />
+            </>
+          ) : (
+            <Suspense fallback={<p>Loading recorded CAD source registry…</p>}>
+              <ArchivedCadAccess vehicle={vehicle} selectedPart={downloadPart} />
+            </Suspense>
+          )}
         </details>
         {part ? (
           <PartInspector

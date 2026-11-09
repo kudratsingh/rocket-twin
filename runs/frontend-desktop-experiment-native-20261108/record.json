@@ -1,0 +1,117 @@
+{
+  "packet": "P44",
+  "status": "pass-for-one-Tiny-submit-observed-complete-and-saved-load",
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "no_new_input_after_seconds": 150,
+    "computation_observation_seconds": 90,
+    "submitted_runs_max": 1,
+    "model_steps_max": 9000
+  },
+  "timing": {
+    "native_end_elapsed_ms": 133847,
+    "RP1_navigation_ms": 1787,
+    "Experiments_entry_ms": 16012,
+    "effective_inputs_capture_ms": 60947,
+    "Run_click_elapsed_ms": 88333,
+    "Run_click_epoch_ms": 1794202328921,
+    "running_capture_ms": 89975,
+    "complete_observed_ms": 120301,
+    "complete_observed_since_submit_ms": 31968,
+    "saved_row_load_capture_ms": 121331,
+    "saved_ready_capture_ms": 133847,
+    "actual_CPU_seconds": null,
+    "worker_termination_guarantee": false
+  },
+  "accepted_id": "exp-c174705a75b8474290b523e8fb7c1267",
+  "accepted_runs": 1,
+  "observed_states": [
+    "running \u00b7 Preparing the complete vehicle and compiling the CPU simulation",
+    "complete \u00b7 Complete"
+  ],
+  "unobserved_states": [
+    "queued not observed; not inferred"
+  ],
+  "effective_inputs": {
+    "vehicle": "Performance \u00b7 G80 reference",
+    "configuration_id": "modular-performance-v1",
+    "profile": "tiny \u00b745s/9000steps",
+    "dt_seconds": {
+      "value": 0.005,
+      "evidence": "preflight/APIprofile, not a separately displayednativefield"
+    },
+    "wind_m_s": 1,
+    "wind_direction_toward_degrees": 0,
+    "gust_m_s": 0,
+    "seed": 20261107,
+    "seed_evidence": "Actualeffective-inputs.jpg shows full20261107. NativeAXstepper rounds to2.026111e+07; roundedAXnotusedasexactseedproof. Savedrowalsoexactseed20261107.",
+    "bounded_seed_sweep": false,
+    "resource_context": "localCPU/applicationconcurrency1 from admittedsourcepreflight; noOSaffinity/CPUtime measurement"
+  },
+  "working_design": {
+    "id": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "initial_capture": "rp1-design.jpg +rp1-design.ax.txt",
+    "preserved_by_URL": "workspaceexperiments stilldesignRP1/spec811b, separateexperimentmodular-performance-v1"
+  },
+  "saved_result": {
+    "id": "exp-c174705a75b8474290b523e8fb7c1267",
+    "status": "complete",
+    "seed": 20261107,
+    "configuration": "modular-performance-v1",
+    "locked_unguided": true,
+    "trajectory": "partial",
+    "landing": "not recorded",
+    "native_load_status": "Loaded exp-c174705a75b8474290b523e8fb7c1267 with matching source and bounded samples.",
+    "wind_m_s": 1,
+    "direction_toward_degrees": 0,
+    "gust_m_s": 0,
+    "displayed_peak_height_m": 635.1,
+    "displayed_peak_speed_m_s": 149.6,
+    "displayed_guide_exit_speed_m_s": 19.1,
+    "source_hash_dictionary_validation": "Primary owns actualsavedrecord source/profile/inputhash validation before P45. No assumed A/Bmatch."
+  },
+  "cases": [
+    {
+      "case": "RP1Design and separateExperimentcontext",
+      "status": "pass",
+      "actual": "RP1firstcaptured;unsupportedRP1flight disabled untilseparateG80 chosen; Design/sourceURLpreserved."
+    },
+    {
+      "case": "ExactoneTinyCPUrun",
+      "status": "pass",
+      "actual": "Nativeeffectiveinputsimageverified; singleRunacceptedID; runningthencompleteobserved within90sobservation/180nativecap."
+    },
+    {
+      "case": "SavedsameIDload",
+      "status": "pass",
+      "actual": "Actualcompletedrowclickedonce; initialloading thenmatching source/boundedLoadedconfirmed; no newRun."
+    },
+    {
+      "case": "Comparison/Replay/export",
+      "status": "unexecuted",
+      "reason": "Deliberately separateP45, reuseactualIDonly."
+    }
+  ],
+  "runtime": {
+    "transport": "Existing nativeChromeApp/same authorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "final_state": {
+    "workspace": "Experiments",
+    "working_design": "RP1AD1v2/spec811b",
+    "experiment": "modular-performance-v1",
+    "run": "exp-c174705a75b8474290b523e8fb7c1267",
+    "profile": "normalbounded",
+    "sweep": false,
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "OnepreliminaryCPUsoftwareverificationrun; noflight/physicalengineeringapproval.",
+    "Completeattempt doesnotmeancompleteflight;45sTinytrajectorypartial/landingmissing.",
+    "31.968s is upperboundsubmit-to-observedcomplete, notmeasuredCPUorworkerexecutionduration.",
+    "No performance/fullflightqualification, no batch/paidwork/newcontroller."
+  ]
+}

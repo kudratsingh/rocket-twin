@@ -37,6 +37,7 @@ import { readWorkspace, workspaceHref, designHref } from './workspaces/navigatio
 import { ViewportVerification } from './workspaces/ViewportVerification';
 
 import { readPartLink, partHref } from './workspaces/partLinks';
+import { inspectionSelectionHref } from './workspaces/selectionWriteback';
 
 function currentHref() {
   return typeof window === 'undefined'
@@ -218,12 +219,11 @@ export default function App() {
     if (!vehicle || (mode !== 'design' && mode !== 'analysis')) return;
     const link = readPartLink(new URL(href, 'http://local.invalid').search, vehicle);
     setPartLinkNotice(link.notice);
-    if (link.notice || link.part !== null) useInspection.getState().select(link.part);
+    useInspection.getState().select(link.part);
     if (link.notice) return;
     return useInspection.subscribe((state, previous) => {
-      if (state.selectedId === previous.selectedId) return;
-      if (state.selectedId && !vehicle.parts.some((p) => p.id === state.selectedId)) return;
-      const next = partHref(currentHref(), vehicle, state.selectedId, mode);
+      const next = inspectionSelectionHref(currentHref(), vehicle, state, previous, mode);
+      if (next === null) return;
       window.history.replaceState(null, '', next);
       setHref(next);
     });

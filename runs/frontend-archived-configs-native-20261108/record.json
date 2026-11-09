@@ -1,0 +1,94 @@
+{
+  "packet": "P43",
+  "status": "pass-for-three-scoped-desktop-configurations-and-assembly-controls",
+  "limits": {
+    "native_seconds": 150,
+    "overall_seconds": 210,
+    "no_new_input_after_seconds": 120
+  },
+  "timing": {
+    "native_end_elapsed_ms": 86616,
+    "G54_loaded_ms": 12947,
+    "G54_capture_ms": 29285,
+    "G12_finned_navigation_ms": 43016,
+    "G12_finned_capture_ms": 59081,
+    "G12_finless_navigation_ms": 74186,
+    "G12_finless_capture_ms": 86616
+  },
+  "runtime": {
+    "transport": "Existing nativeChromeApp/same authorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "fixtures": [
+    {
+      "id": "modular-performance-g54-hypothesis",
+      "spec": "481706d1c4768d944ad42fd917ef4216196de50a277743b1cedb76954940e45f",
+      "cad": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "part_count": 42,
+      "status": "Conditional; thermal and motor-CG sensitivities remain open"
+    },
+    {
+      "id": "modular-tvc-finned-v1",
+      "spec": "869179bb8627a2605cdf6049579c9af0c2bbb6cb43694c57bdb2471febd80b89",
+      "cad": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "part_count": 53,
+      "status": "Preliminary trainer; recovery and guide budget unresolved"
+    },
+    {
+      "id": "modular-tvc-finless-v1",
+      "spec": "b98d4c8aedbc6aa749bb72bac4b5071c265e2d1b63664c8b23af7b41259ba76d",
+      "cad": "1193713d0f4a7ad8393a00a0a03e7aaa04e9aa9393d2034691ef7126ae3cdd3b",
+      "part_count": 51,
+      "status": "Concept; negative passive stability and control gates remain open"
+    }
+  ],
+  "cases": [
+    {
+      "case": "G54conditionalupgrade",
+      "status": "pass-for-native-source/model/count/files",
+      "actual": "Exact481706\u2026source;42parts; actualwholebody/fins; assemblyGLB+STEP/provenance, CADmm/viewerm/noSTL; thermal/motor-CGsensitivitiesopen, nofrozenmotor/hardwarechoice."
+    },
+    {
+      "case": "G12finnedTVCtrainer",
+      "status": "pass-for-native-source/model/count/files",
+      "actual": "Exact869179\u2026source;53parts; actualwholebody/fins; sameassemblyformats/limits; preliminarytrainer/recovery+guidebudgetunresolved/futurePID-to-RL."
+    },
+    {
+      "case": "G12eventualfinlessTVC",
+      "status": "pass-for-native-source/model/count/files",
+      "actual": "Exactb98d4\u2026source;51parts; visiblebodywithoutfins; sameassemblyformats/limits; conceptnegativepassivestability/controlgatesopen, activecontrol+burnoutunqualified. Visible\u221210.102calisanexistingreadout, notnewcalculation."
+    },
+    {
+      "case": "Unsupportedfinlessrunbutton/flight",
+      "status": "unexecuted",
+      "reason": "DidnotenterExperimentsorstartFlight; thisisDesignreadinessonly."
+    },
+    {
+      "case": "RP1restore",
+      "status": "unexecuted",
+      "reason": "Optional; endedcoherentthreeconfigurationcasewithoutlateextras."
+    }
+  ],
+  "visual_observations": [
+    "Threegenuineimages showrenderedactualmodels, correcttopconfigurationlabels and readablefile/sourcecaveats.",
+    "No visualWebGLfallback/crash; AXcanvasfallbackHTMLnotusedtoscoreWebGL.",
+    "All42/53/51countscomefromactualsource-linkedpartnativefooter; no bulkpartclickclaim."
+  ],
+  "final_state": {
+    "workspace": "normal Design",
+    "configuration": "modular-tvc-finless-v1",
+    "spec": "b98d4c8aedbc6aa749bb72bac4b5071c265e2d1b63664c8b23af7b41259ba76d",
+    "URL_part": null,
+    "context_tab": "Details",
+    "geometry_files": "expanded/Wholeassembly",
+    "camera": "Overview45\u00b0/54.7\u00b0Assembly",
+    "scene_tools": "closed",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Nativeinspection/source/filecontrols only; no newCADreadback/geometry/engineeringqualification.",
+    "No hardware/motoradoption, passive/activecontrolqualification, physical orflightapproval.",
+    "No newrun/Play/performance/download/viewportcampaign."
+  ]
+}

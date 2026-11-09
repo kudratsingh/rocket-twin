@@ -285,10 +285,125 @@ export async function loadRp1Connections(signal: AbortSignal, request: typeof fe
   );
   return validateRp1Connections(value);
 }
-export function rp1ConnectionDesignHref(partId: string) {
+// The exact recorded route membership and source fingerprints are pinned separately
+// from the broad connection-document shape validator. A changed payload cannot add
+// an apparently valid relationship to an otherwise correctly named AD1 record.
+const RECORDED_CONNECTIONS = [
+  {
+    id: 'fin-root',
+    label: 'Fin root and body',
+    partIds: [
+      'fin_set',
+      'fin_tabs',
+      'outer_fin_fillets',
+      'root_gussets',
+      'root_extra_bond_finish',
+      'fin_internal_bonds',
+      'motor_tube',
+      'ring_bonds',
+      'aft_ring',
+      'body',
+      'forward_ring',
+    ],
+  },
+  {
+    id: 'recovery',
+    label: 'Recovery leader and load path',
+    partIds: [
+      'parachute',
+      'recovery_connectors',
+      'shock_cord',
+      'rp1_kevlar_wrap',
+      'forward_ring',
+      'rp1_notch_sealer',
+      'ad1_cord_sleeve',
+      'motor_tube',
+      'ring_bonds',
+      'body',
+      'upper_body',
+      'nose_recovery_eye',
+      'nose_anchor_plate',
+    ],
+  },
+] as const;
+const RECORDED_SOURCES = [
+  ['spec', 'configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml', RP1_CONNECTIONS_SHA256],
+  [
+    'definition',
+    'configs/studies/rp1-attachment-definition-v2.yaml',
+    'e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555',
+  ],
+  [
+    'ad1-record',
+    'runs/wo03-rp1-attachment-definition-20261103-v2/record.json',
+    'bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b',
+  ],
+  [
+    'd1-record',
+    'runs/wo03-rp1-d1-20261104-v1/record.json',
+    '7bd208322dc8d866b56e4422d369d06d1a06b8966b7cc614a22c086bef1aa6a4',
+  ],
+  [
+    'ad1-decision',
+    'docs/wo03-rp1-attachment-definition.md',
+    '012cd168e03807460debd5bb9dbc543f058d02597f87bd83945a769794a1aa4a',
+  ],
+  [
+    'd1-decision',
+    'docs/wo03-rp1-load-attachment-decision.md',
+    'af6eabd641063d262d0190ee46f5bbc847e54af5c7a3a1f1c442f0a57740bb47',
+  ],
+  [
+    'drawing-manifest',
+    'output/rp1-attachment-definition/manifest.json',
+    '948d26808de0290e210aec28e03cc29a31d3c84cd65a8d73635c3973e935b8d7',
+  ],
+] as const;
+const RECORDED_STATUS =
+  'Source-linked unadopted concepts; no physical qualification or flight release';
+
+export function exactRp1EvidenceRouteSource(document: Rp1ConnectionsDocument): boolean {
+  return (
+    document.status === RECORDED_STATUS &&
+    document.sources.length === RECORDED_SOURCES.length &&
+    RECORDED_SOURCES.every(
+      ([id, path, sha256], index) =>
+        document.sources[index].id === id &&
+        document.sources[index].path === path &&
+        document.sources[index].sha256 === sha256,
+    ) &&
+    document.connections.length === RECORDED_CONNECTIONS.length &&
+    RECORDED_CONNECTIONS.every(
+      (expected, index) =>
+        document.connections[index].id === expected.id &&
+        document.connections[index].label === expected.label &&
+        JSON.stringify(document.connections[index].part_ids) === JSON.stringify(expected.partIds),
+    )
+  );
+}
+
+export function rp1ConnectionDesignHref(
+  partId: string,
+  context?: { connectionId: string; document: Rp1ConnectionsDocument },
+) {
   if (!(RP1_CONNECTION_PART_IDS as readonly string[]).includes(partId))
     throw new Error('Design link unavailable: part is not in the frozen AD1 source.');
-  return `/?${new URLSearchParams({ workspace: 'design', design: RP1_CONNECTIONS_CONFIGURATION, part: partId, spec: RP1_CONNECTIONS_SHA256 })}`;
+  if (context) {
+    const document = validateRp1Connections(context.document);
+    if (!exactRp1EvidenceRouteSource(document))
+      throw new Error('Design link unavailable: source fingerprints or route membership changed.');
+    const connection = document.connections.find((item) => item.id === context.connectionId);
+    if (!connection?.part_ids.includes(partId))
+      throw new Error('Design link unavailable: connection does not contain this source part.');
+  }
+  const params = new URLSearchParams({
+    workspace: 'design',
+    design: RP1_CONNECTIONS_CONFIGURATION,
+    part: partId,
+    spec: RP1_CONNECTIONS_SHA256,
+  });
+  if (context) params.set('connection', context.connectionId);
+  return `/?${params}`;
 }
 export function rp1ConnectionDrawingHref(drawing: Rp1ConnectionDrawing) {
   if (

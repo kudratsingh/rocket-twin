@@ -23,7 +23,27 @@ Their source checks/build pass; the new native Fit/focus branches remain pending
 a stable designated-browser interval. See the [current completion packet](../docs/studies/frontend-completion-20261108/integration.md).
 All supplier/lab drafts remain UNSENT. Engineering/build/flight gates stay open.
 
+A new actual archived G80 Tiny run completed with wind1m/s and a45second partial
+trajectory. The browser loaded it, compared it with a matching calm-air baseline,
+jumped to apogee and exported the playback CSV. Landing is not recorded. The JSON
+metadata export completed after explicit local-site authorization; no permission
+prompt or setting change occurred on the actual completion path. [Run and export evidence](../docs/studies/frontend-desktop-experiment-20261108/integration.md).
+
 ## Desktop engineering inspection
+
+The four archived reference/controls configurations also have registered part
+GLB/STEP/STL and whole-assembly GLB/STEP access. Use **Whole rocket assembly files**
+without clearing a selected component. Legacy part STEP is local millimetres;
+assembly STEP is placed geometry; STL has no encoded units and may follow print
+packing. `make workbench-archived-cad` verifies/copies existing local files without
+regenerating CAD. [Archive source and native evidence](../docs/studies/frontend-archive-downloads-20261108/integration.md).
+
+The next source-checked inspection increment gives dual-function RP1 parts
+separate fin-root and recovery routes, with exact part/revision links back to
+Design. Unmapped connections remain unavailable.
+[Connection navigation](../docs/studies/frontend-rp1-evidence-routing-20261108/integration.md)
+· [Future detail evidence](../docs/studies/frontend-desktop-detail-20261108/measurement-unlocks.md).
+The source-bound round trip and explicit selection clear were subsequently verified in the browser; original failures remain recorded.
 
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools
