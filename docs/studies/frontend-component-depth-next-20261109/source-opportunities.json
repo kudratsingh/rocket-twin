@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-09",
+  "scope": "One source-only component-depth opportunity; existing local collected sources only",
+  "baseline": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "definition_sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "all55_part_ids_preserved": true,
+    "existing_mechanical_children": 18,
+    "publication_checkpoint": {
+      "source": ".cache/component-depth-handoff.json",
+      "attribution": "Local primary publication handoff; not a fresh remote check",
+      "pr": 118,
+      "head": "515cecd1378826c9fd852257fd4e9be7da27a18a",
+      "merged_main": "38e70be0d2df59c81e2d6cb52b97d4b58444496f",
+      "workflow": 42587975052,
+      "state": "merged_after_required_checks"
+    }
+  },
+  "recommended": {
+    "id": "ad1-recovery-passage-guides",
+    "title": "Recovery passage and sleeve termination source guides",
+    "ready_for": "Separately toggled graphical guides in the existing mechanical close-up; no new hardware solid",
+    "selected_part_ids": [
+      "forward_ring",
+      "rp1_kevlar_wrap",
+      "ad1_cord_sleeve"
+    ],
+    "context_part_ids": [
+      "motor_tube",
+      "body",
+      "fin_tabs",
+      "root_gussets"
+    ],
+    "intervals": [
+      {
+        "id": "ring",
+        "label": "Forward ring",
+        "station_mm": [
+          1060,
+          1072.2
+        ],
+        "viewer_y_m": [
+          0.18999999999999995,
+          0.17779999999999996
+        ],
+        "locator": "route.forward_ring_mm",
+        "representation": "source interval guide, not material or installed centreline"
+      },
+      {
+        "id": "wrap",
+        "label": "Proposed wrap band",
+        "station_mm": [
+          1072.2,
+          1077.0
+        ],
+        "viewer_y_m": [
+          0.17779999999999996,
+          0.17300000000000004
+        ],
+        "locator": "route.wrap_axial_mm",
+        "representation": "source interval guide, not material or installed centreline"
+      },
+      {
+        "id": "sleeve",
+        "label": "Proposed sleeve interval",
+        "station_mm": [
+          980,
+          1060
+        ],
+        "viewer_y_m": [
+          0.27,
+          0.18999999999999995
+        ],
+        "locator": "route.heat_abrasion_sleeve.axial_station_mm",
+        "representation": "source interval guide, not material or installed centreline"
+      },
+      {
+        "id": "knot",
+        "label": "Proposed knot axial reservation",
+        "station_mm": [
+          1077.0,
+          1127.0
+        ],
+        "viewer_y_m": [
+          0.17300000000000004,
+          0.123
+        ],
+        "locator": "cord.kevlar.knot_axial_bounds_mm",
+        "representation": "source interval guide, not material or installed centreline"
+      }
+    ],
+    "recorded_dimensions": {
+      "tube_od_mm": 31.369,
+      "ring_bore_mm": 31.9,
+      "notch_width_mm": 4.5,
+      "notch_radial_depth_mm": 5,
+      "notch_azimuth_deg": 60,
+      "sleeve_minimum_flat_internal_width_mm": 8,
+      "cord_proposed_maximum_diameter_mm": 3.8,
+      "knot_radial_reservation_mm": [
+        16.5,
+        30.5
+      ],
+      "proposed_edge_roundover_mm": 2
+    },
+    "datum": {
+      "source_station": "mm aft from nose tip; zero azimuth at first fin",
+      "viewer_units": "m",
+      "viewer_y": "1.25 - station_mm/1000",
+      "azimuth_registration": "Reuse the recorded source CAD notch rotation and existing ring; actual mesh conversion is [CAD_x_mm/1000, 1.25-CAD_z_mm/1000, CAD_y_mm/1000] in src/cad/assembly.py:mesh. Do not derive a different rotation from a body-axis label."
+    },
+    "minimum_interaction": [
+      "Toggle source guides; select wrap/sleeve interval to see source locator and limits",
+      "Show axial dimension brackets beside existing tube/ring, with 60-degree passage locator on existing notch",
+      "Keep 8mm sleeve reference explicitly ahead of 4.5mm notch; show knot numbers in callout without a dressed-knot box/mesh",
+      "Return to same parent selection/camera; no changes to global geometry or vehicle fit bounds"
+    ],
+    "existing_geometry": [
+      {
+        "part_id": "motor_tube:source-01",
+        "sub_id": "source-01",
+        "url": "/engineering-workbench/rp1-component-detail/motor_tube--source-01.glb",
+        "sha256": "c45c4f85d51058c8cb3392e08d3c3e10037b014a00d2cc2b624cf9d0f57575bf"
+      },
+      {
+        "part_id": "forward_ring:stock_front",
+        "sub_id": "stock_front",
+        "url": "/engineering-workbench/rp1-component-detail/forward_ring--stock_front.glb",
+        "sha256": "b1d06faeb02c7475461c70543bab3ddf30a5a5e879552bd02e999a5f06a1cf17"
+      },
+      {
+        "part_id": "forward_ring:bond_reservation",
+        "sub_id": "bond_reservation",
+        "url": "/engineering-workbench/rp1-component-detail/forward_ring--bond_reservation.glb",
+        "sha256": "921dc8db45fffd27754fc8aa2507cf58940cac3a78217fb72f87cc1931d316ca"
+      },
+      {
+        "part_id": "forward_ring:stock_aft",
+        "sub_id": "stock_aft",
+        "url": "/engineering-workbench/rp1-component-detail/forward_ring--stock_aft.glb",
+        "sha256": "a6a9faf47219632a3f4020ef58468aa3f0148a66a7cd898acd9fe31c7160dff1"
+      }
+    ],
+    "implementation_budget_proposed": {
+      "one_implementation_minutes": 20,
+      "one_correction": true,
+      "new_asset_export_required": false,
+      "new_dependencies_required": false,
+      "cad_solver_or_simulation_required": false
+    },
+    "not_defined": [
+      "Actual finished cord diameter/braid and knot geometry/contact/centreline",
+      "Installed sleeve fold thickness, edge packing, ties and textile identity",
+      "Which entrance/exit edges and termination blends receive proposed 2mm roundover",
+      "Qualified hot/chafe/contact/strength/stiffness and clearance evidence"
+    ],
+    "checks_proposed": [
+      "Exact configuration/spec/definition/core/catalog and current part admission",
+      "Source intervals convert once to Y: ring .1900\u2192.1778m; wrap .1778\u2192.1730m; sleeve .2700\u2192.1900m; knot .1730\u2192.1230m",
+      "No stale rp1_kevlar_wrap stowage-box solid; no distributed allowance solids",
+      "Guides disclosed as source proposals/reservations and excluded from engineering/fit conclusions"
+    ]
+  },
+  "screened_alternatives": [
+    {
+      "part_id": "motor_retainer",
+      "readiness": "blocked for detailed hardware geometry",
+      "actual_model": "Nominal purchased annular envelope: length45mm, OD44.4mm, ID28mm; not cap/collar/contact",
+      "identity_gap": "parts[id=motor_retainer].learn names AeroTech19002; engineering.function names Estes009750. No silent identity resolution.",
+      "missing": "Exact chosen product/revision plus controlled cap/collar bore/depth, threads, engagement, lip/seat/thrust-ring/nozzle datums/tolerances. Prior official collected19002 family/tube dimensions do not define these surfaces.",
+      "source_locator": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml#parts[id=motor_retainer]; docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json"
+    },
+    {
+      "part_id": "motor_tube",
+      "readiness": "Current source-defined tube usable as an inspection template; supplier correspondence retains a discrepancy",
+      "current_shape_mm": {
+        "length": 165,
+        "OD": 31.369,
+        "ID": 29.169,
+        "wall": 1.1
+      },
+      "identity_gap": "learn says AeroTech12912 cut165mm from305mm stock,1.235in OD. build.notes/cad.notes/engineering.service_notes retain mount-kit1.140in ID/1.210in OD. Do not replace the current shape with either legacy note dimensions or claim an independently reconciled manufactured part.",
+      "source_locator": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml#parts[id=motor_tube]",
+      "bank_admission": "Exact frozen source template, not a newly reconciled supplier product/CAD assembly"
+    },
+    {
+      "part_id": "avionics_sled",
+      "readiness": "blocked for actual rail/fastener mounting geometry",
+      "actual_model": "90\u00d730\u00d72mm distributed budget envelope; no unique carrier solid. learn says removable two-rail carrier; no rail profiles/spacing/holes/fastener stack.",
+      "missing": "Rail cross-sections/separation/end supports, exact board mounting datums and populated connector/height stack. Adafruit5374 XY artwork/holes already implemented separately; no installed board registration.",
+      "source_locator": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml#parts[id=avionics_sled]; docs/studies/frontend-component-depth-20261108/high-g-pcb-layout.json"
+    },
+    {
+      "part_id": "independent_recovery",
+      "readiness": "identity unresolved",
+      "identity_gap": "Eggtimer Apogee proposal versus legacy EasyMini v3.0 engineering.function; do not select or inherit either hole pattern",
+      "source_locator": "docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json"
+    }
+  ],
+  "sources_sha256": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "docs/studies/rp1-inspection-geometry-20261107/manifest.json": "f83054f7fd1e97f39c8c2102e514fe1835c3eec00b3de891579dce715ba7626c",
+    "docs/studies/frontend-component-depth-20261108/mechanical-detail-layout.json": "1044bc7aeacad0802fe74add1fecbc77aeddcd0ed09f493c685bb639d271eda1",
+    "docs/studies/frontend-component-depth-20261108/high-g-pcb-layout.json": "adbedfbb5653a222824cdcd855f438663b467b73cb991d9152de94fa65c0347d",
+    "docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json": "915539c61d128005c4842399ebaeecee43672be311d14a0d4b9154c044e5b6ac",
+    "docs/studies/frontend-desktop-detail-20261108/measurement-unlocks.json": "b5e30d595de76d01ebc9b359817d1a85ba45f03bb8cad6a1583016b538bfce6c",
+    "src/inspection/rp1_geometry.py": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/api/rp1_connections.py": "a4c81b396ad75af0036ae714dc9d9d0e3e76165120e5c97a8f8eb8ccb069c1c8"
+  },
+  "operations": {
+    "network": false,
+    "browser": false,
+    "source_or_runtime_edits": false,
+    "export_rerun": false,
+    "physical_work_or_measurement_requested": false,
+    "supplier_contact_or_purchase": false
+  },
+  "limits": [
+    "This packet recommends a graphical reference, not new intricate finished hardware CAD",
+    "No archived geometry transfer, new engineering variant, mass/inertia change or physical/flight qualification",
+    "Hardware unpurchased; no immediate owner measurement request",
+    "All five inquiries remain UNSENT; existing D1/engineering/physical gates unchanged"
+  ],
+  "parts_bank_planning": {
+    "purpose": "Evidence-aware reusable parts library and source-linked installed instances; not an engineering adoption mechanism",
+    "categories": [
+      {
+        "id": "manufacturer_document_features",
+        "example": "Adafruit5374 Eagle XY outline/pads/traces/holes",
+        "may_enable": "Source-layer inspection and documented feature selection",
+        "must_not_imply": "Populated heights, installed fit or ADXL375 silicon correspondence"
+      },
+      {
+        "id": "source_dimensioned_template",
+        "example": "Frozen motor_tube and notched forward_ring source dimensions",
+        "may_enable": "Exact current template inspection and explicitly separate draft placement",
+        "must_not_imply": "Manufacturing tolerances or qualified installed joint; preserve existing per-part maturity"
+      },
+      {
+        "id": "nominal_envelope",
+        "example": "motor_retainer,nose_recovery_eye,independent_recovery",
+        "may_enable": "Clearly labeled space-budget context only",
+        "must_not_imply": "Threads,cap/seat,fasteners or exact product/revision geometry"
+      },
+      {
+        "id": "missing_geometry",
+        "example": "rp1_kevlar_wrap,rail_buttons",
+        "may_enable": "Source-linked dimensions/reservations and relationship callouts",
+        "must_not_imply": "A solid inferred from stale budget box or an installed route"
+      },
+      {
+        "id": "distributed_allowance",
+        "example": "avionics_sled,ring_bonds,ad1_cord_sleeve",
+        "may_enable": "Mass/process row and explanatory callout",
+        "must_not_imply": "Unique rigid hardware shape, spatial mass distribution or another BOM mass"
+      },
+      {
+        "id": "archived_separate_lineage",
+        "example": "Historical62e8de9e retention M3 hardware study",
+        "may_enable": "A separately source-attributed reference entry",
+        "must_not_imply": "RP1 installation or transferable part/source identity"
+      }
+    ],
+    "record_separation": {
+      "library_definition": [
+        "Stable library ID and immutable revision/content hash",
+        "Manufacturer/product/revision when exact; unresolved identities remain explicit",
+        "Source path/locator/bytehash/licence/attribution and feature-specific dimension basis",
+        "Native frame/units/datums; shape asset bytehash and format",
+        "Geometry maturity and source/engineering/physical status as independent fields",
+        "Named interface definitions and missing values, not guessed mate surfaces"
+      ],
+      "installed_instance": [
+        "Stable existing part ID and exact configuration/spec/definition/core tuple",
+        "Library revision reference, quantity and transform in named frame",
+        "Source-defined cut/stock/preparation differences separate from raw supplier dimensions",
+        "Parent/children and explicit assembly relationships; no double-counted mass for detail child meshes",
+        "Per-connection evidence/status and original source limits",
+        "Separate draft lineage for any changed placement/part choice; never modify frozen RP1 implicitly"
+      ]
+    },
+    "essential_interface_fields": [
+      {
+        "field": "geometry_registration",
+        "required": "Named datum/axis/plane; coordinates, units, handedness, reference frame and source locator",
+        "current_slice": "Tube axis and ring bore axis/source stations available; CAD-to-viewer matrix recorded"
+      },
+      {
+        "field": "interface_surfaces",
+        "required": "Exact owning part/feature IDs, opposing surfaces and material/process role",
+        "current_slice": "Tube outer wall/ring bore are recognizable geometric references; actual adhesive surfaces/bondline sharing remain unqualified"
+      },
+      {
+        "field": "dimensions_and_tolerances",
+        "required": "Nominal plus independently supported min/max or explicit null; axial contact/overlap and required clearance source",
+        "current_slice": "Recorded tube/ring nominal dimensions available; do not promote generic linear tolerance fields to exact supplier mating tolerances"
+      },
+      {
+        "field": "fastener_or_termination",
+        "required": "Product/revision, size/pitch/length/engagement/head/washer/nut and hole stack, or exact cord/end construction",
+        "current_slice": "RP1 retainer cap/thread/seat unavailable; cord terminations named but finished knot/contact unavailable"
+      },
+      {
+        "field": "assembly_and_motion",
+        "required": "Allowed assembly path, access/removal order, actual constrained degrees of freedom/travel limits if source-defined",
+        "current_slice": "Display separation remains illustrative. No invented screw travel, cap unscrewing angle, knot motion or installation path"
+      },
+      {
+        "field": "connections_and_services",
+        "required": "Electrical pin/net/connector/orientation, mechanical support/strain relief, power isolation and service envelope with source identity",
+        "current_slice": "Manufacturer PCB nets available separately; installed mount/connector/populated heights and recovery product unresolved"
+      },
+      {
+        "field": "evidence_and_tests",
+        "required": "Method, applicable source/configuration/test identity, outcome and unresolved data for each claim",
+        "current_slice": "Geometric inspection distinct from engineering capacity and physical test status; compatible saved experiments only, no automatic flight alternative result"
+      }
+    ],
+    "phase1_vertical_slice": {
+      "title": "Reusable current tube/ring definitions \u2192 exact current installed instance \u2192 independent scratch draft",
+      "library_entries": [
+        {
+          "proposed_library_id": "rp1-source-motor-tube-165",
+          "existing_part_id": "motor_tube",
+          "basis": "Exact current source shape; supplier12912 label carries legacy note discrepancy",
+          "dimensions_mm": {
+            "length": 165,
+            "OD": 31.369,
+            "ID": 29.169,
+            "wall": 1.1
+          }
+        },
+        {
+          "proposed_library_id": "rp1-ad1-notched-forward-ring",
+          "existing_part_id": "forward_ring",
+          "basis": "Current source notched annulus; retain simplified_envelope maturity",
+          "dimensions_mm": {
+            "OD": 64.4,
+            "ID": 31.9,
+            "total_thickness": 12.2,
+            "stock_plies": [
+              6,
+              6
+            ],
+            "bond_reservation": 0.2,
+            "notch_width": 4.5,
+            "notch_depth": 5,
+            "notch_angle_deg": 60
+          }
+        }
+      ],
+      "first_user_actions": [
+        "Open bank entry with exact dimensions/asset/evidence/unknowns",
+        "Locate the matching current installed motor_tube/forward_ring by source ID",
+        "Show their source-axis/station relationship and recovery interval guides",
+        "If primary adopts a draft workflow, instantiate the same source template into a separate unqualified scratch assembly with explicit source frame; no silent frozen-source change"
+      ],
+      "comparison_limits": "Core versus optional/detail GLBs are representations of the same source instance, not alternative hardware designs. A changed draft carries no inherited mass/inertia, interface/flight pass or compatible experiment until those exact identities/data exist.",
+      "expected_implementation_cost": "Planning estimate: one bounded20-minute registry/admission/data-model slice and a separate UI slice under primary architecture; no exporter or CAD run required for existing entries. Not an elapsed execution claim.",
+      "stop": "Stop exact installed hardware or mechanism simulation on identity/mating/frame/data gaps; keep generic reference inspection available."
+    },
+    "no_new_inventory": "Only these source examples and critical interfaces are registered here; no duplicate55-record survey",
+    "owner_action": "None now: hardware unpurchased, no immediate measurements/contact/purchase requested"
+  }
+}

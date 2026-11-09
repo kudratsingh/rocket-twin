@@ -105,8 +105,12 @@ gates remain unchanged. This exception overrides only the start-order rule below
    a limit, rate beyond a limit, sensor dropout, servo fault) and go to a safe state (gimbal
    centred, independent recovery armed according to its qualified flight-state logic) before any policy, PID or RL, is
    allowed to command the gimbal. Abort thresholds live in the spec, not in firmware constants.
-8. **The frontend is a viewer, not a CAD editor.** Editing happens in the YAML and CadQuery
-   files; the web app renders, inspects, runs experiments and replays. `docs/UI.md` is frozen
+8. **The frontend uses source-owned design and CAD.** Under ADR-0017 the owner
+   now authorizes source-constrained virtual assembly and separate draft specification
+   editing through validated controls. Frozen sources stay unchanged. YAML/CadQuery
+   and physical calculations remain in Python; there is no unrestricted browser CAD
+   kernel or automatic engineering adoption. The web app inspects, composes drafts,
+   requests backend experiments and replays. `docs/UI.md` is frozen
    before WO-04 starts; frontend PRs implement it, they do not redesign it. This is where agent
    tokens go if unchecked — when a UI WO exceeds one week of effort, split it in STATUS.md.
 9. **Controllers must fit the flight computer.** Any policy meant to fly (PID or RL) runs as

@@ -1,5 +1,13 @@
 # rocket-twin
 
+**Next full frontend revamp:** [Design workbench v2](docs/frontend-design-workbench-v2/README.md)
+plans detailed component CAD/diagrams, a reusable parts bank, separate virtual
+rocket drafts and complete alternative testing in ten phases with46 tasks. It
+retains the current inspector/experiments/replay and all engineering/physical
+gates. The first implementation is the current-source read-only parts bank;
+full draft building and candidate simulation follow their data prerequisites.
+
+
 A custom rocket and its digital twin: YAML vehicle specifications, parametric CAD,
 a JAX flight simulator, and a web workbench for inspecting designs and replaying
 experiments. The project connects mechanical design, materials and recovery
