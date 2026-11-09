@@ -1,0 +1,53 @@
+.fin-attachment-dialog {
+  width: calc(100vw - 28px);
+  max-width: 1700px;
+  height: calc(100dvh - 28px);
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #426270;
+  border-radius: 12px;
+  background: #101d25;
+  color: #edf5f6;
+  overflow: hidden;
+}
+.fin-attachment-dialog::backdrop {
+  background: #02080de0;
+}
+.fin-attachment-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.fin-attachment-dialog > .fin-attachment {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+.fin-attachment-dialog > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 18px;
+  border-bottom: 1px solid #344b57;
+}
+.fin-attachment-dialog > header h2 {
+  margin: 0 0 3px;
+  font-size: 20px;
+}
+.fin-attachment-dialog > header p {
+  margin: 0;
+  font-size: 12px;
+}
+.fin-attachment-download-status {
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid #60827a;
+  background: #142c30;
+  z-index: 8;
+  font-size: 12px;
+}

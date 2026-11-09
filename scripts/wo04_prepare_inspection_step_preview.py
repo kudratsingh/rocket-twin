@@ -104,6 +104,12 @@ def registered_files() -> list[tuple[Path, str, str]]:
     if assembly["path"] != f"output/rp1-inspection-step/{ASSEMBLY}.step":
         raise ValueError("Unregistered assembly STEP path")
     assets.append((ROOT / assembly["path"], f"{ASSEMBLY}.step", assembly["sha256"]))
+    joint = next(
+        row for row in packet["assemblies"] if row["id"] == "critical_motor_fin_ring_joint"
+    )
+    if joint["path"] != "output/rp1-inspection-step/critical_motor_fin_ring_joint.step":
+        raise ValueError("Unregistered fin-joint STEP path")
+    assets.append((ROOT / joint["path"], "critical_motor_fin_ring_joint.step", joint["sha256"]))
     for path, _, expected in assets:
         if sha(path) != expected:
             raise ValueError(f"Completed STEP bytes changed: {path.name}")
@@ -131,13 +137,21 @@ def main() -> None:
         raise ValueError("Destination must be the fixed preview folder or a temporary test folder")
     files = registered_files()
     if args.prepare:
-        if destination.exists() and any(destination.iterdir()):
-            raise ValueError("Destination is nonempty; no overwrite or mixed packet")
+        allowed = {relative: expected for _, relative, expected in files}
+        if destination.exists():
+            for existing in destination.rglob("*"):
+                if existing.is_file():
+                    relative = existing.relative_to(destination).as_posix()
+                    if relative not in allowed or sha(existing) != allowed[relative]:
+                        raise ValueError(
+                            "Destination contains unregistered or changed bytes; no overwrite"
+                        )
         destination.mkdir(parents=True, exist_ok=True)
         for source, relative, expected in files:
             target = destination / relative
             target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, target)
+            if not target.exists():
+                shutil.copyfile(source, target)
             if sha(target) != expected:
                 raise ValueError(f"Copied STEP/provenance bytes differ: {relative}")
     print(

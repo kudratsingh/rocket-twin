@@ -1,5 +1,24 @@
 # Frontend specification — focused engineering workspaces
 
+**Owner visual reference set — November9:** Use the [saved reference gallery and
+goal map](frontend-design-workbench-v2/reference-set-20261109.md) for geometry depth, section hatching/edges, assembly hierarchy,
+measurements, transparent interiors and process views. FW2-020/FW2-A15 also require
+a readable physics → guidance → PID/RL controller → actuator → rocket-response
+system map, with sensors/estimation, recovery, power and logging paths. Link blocks
+to actual backend/specification evidence, signal units and coordinate frames.
+Mark current G80 unguided behavior and planned G12 capabilities honestly. This is
+a visual/interface requirement, not adoption of the pictured hardware or a new
+physics engine. Supplier inquiries and all physical/controller/flight gates remain.
+
+**Current focused delivery — RP1 fin attachment inspector:** One source-bound,
+read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STEP,
+adds two actual CAD-derived capped sections, clickable dimensions and exact
+Engineering/Design return state. Frozen AD1 v2, failed fin findings and unknown
+installed-joint behavior remain separate. [Scope and user path](studies/frontend-fin-attachment-20261109/integration.md).
+Native verification and downloaded-file readback are recorded separately from
+code/CAD checks. All physical/engineering gates stay open; inquiries UNSENT.
+
+
 **Design workbench v2 — owner direction, November 9:** The full next revamp is
 planned in [ten phases with46 tasks and36 acceptance scenarios](frontend-design-workbench-v2/README.md). It adds
 source-supported intricate component CAD, linked drawings/systems, a parts bank,

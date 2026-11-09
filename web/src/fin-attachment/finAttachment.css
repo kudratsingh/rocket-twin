@@ -1,0 +1,234 @@
+.fin-attachment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  color: #e9f2f7;
+  background: #101b28;
+  font-size: 0.88rem;
+}
+
+.fin-attachment button,
+.fin-attachment select {
+  color: inherit;
+  background: #21384b;
+  border: 1px solid #60839a;
+  border-radius: 6px;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+
+.fin-attachment button:hover,
+.fin-attachment button:focus-visible {
+  border-color: #9bdce9;
+  outline-color: #9bdce9;
+}
+
+.fin-attachment button[aria-pressed='true'] {
+  color: #10212c;
+  background: #a2dce8;
+}
+
+.fin-attachment button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.fin-attachment-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #365063;
+}
+
+.fin-attachment-toolbar strong {
+  margin-right: auto;
+  color: #bde7ee;
+}
+
+.fin-attachment-toggle-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.fin-attachment-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  gap: 7px;
+  padding: 8px;
+}
+
+.fin-attachment-sidebar {
+  flex: 0 0 clamp(230px, 21vw, 310px);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid #3b586b;
+  border-radius: 8px;
+  background: #192b3a;
+}
+
+.fin-attachment-sidebar.evidence {
+  flex-basis: clamp(250px, 23vw, 340px);
+}
+
+.fin-attachment-sidebar.collapsed {
+  flex-basis: 42px;
+  align-items: center;
+}
+
+.fin-attachment-sidebar.collapsed > button {
+  writing-mode: vertical-rl;
+  margin-top: 8px;
+}
+
+.fin-attachment-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 10px 11px;
+  border-bottom: 1px solid #3b586b;
+}
+
+.fin-attachment-sidebar-head h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.fin-attachment-sidebar-body {
+  overflow: auto;
+  min-height: 0;
+  padding: 11px;
+}
+
+.fin-attachment-sidebar-body p,
+.fin-attachment-sidebar-body li {
+  line-height: 1.45;
+}
+
+.fin-attachment-part-list,
+.fin-attachment-dimension-list {
+  display: grid;
+  gap: 5px;
+}
+
+.fin-attachment-part-list button,
+.fin-attachment-dimension-list button {
+  width: 100%;
+  text-align: left;
+}
+
+.fin-attachment-part-list small,
+.fin-attachment-dimension-list small {
+  display: block;
+  color: #b4cad6;
+  margin-top: 3px;
+}
+
+.fin-attachment-scene-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #486579;
+  border-radius: 9px;
+  background: #101c29;
+}
+
+.fin-attachment-scene-wrap canvas {
+  display: block;
+}
+
+.fin-attachment-dim-marker {
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #182a34 !important;
+  background: #f2d993 !important;
+  border: 1px solid #fff1c4 !important;
+  border-radius: 12px !important;
+  padding: 3px 6px !important;
+  box-shadow: 0 1px 7px #09141bcc;
+}
+
+.fin-attachment-dim-marker[aria-pressed='true'] {
+  background: #fff7d3 !important;
+  outline: 2px solid #e59a57;
+}
+
+.fin-attachment-scene-note {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  max-width: min(70ch, 90%);
+  padding: 5px 8px;
+  border: 1px solid #55768a;
+  border-radius: 5px;
+  color: #d4e8f0;
+  background: rgb(12 27 40 / 88%);
+  font-size: 0.76rem;
+  pointer-events: none;
+}
+
+.fin-attachment-state {
+  margin: auto;
+  max-width: 60ch;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+.fin-attachment-alert {
+  color: #ffd3c8;
+  border: 1px solid #b7796c;
+  border-radius: 7px;
+  background: #35242b;
+}
+
+.fin-attachment-source {
+  font-size: 0.75rem;
+  color: #b4cbd8;
+  overflow-wrap: anywhere;
+}
+
+.fin-attachment-finding {
+  padding: 9px;
+  border-left: 3px solid #dda573;
+  background: #2c3039;
+  margin: 10px 0;
+}
+
+.fin-attachment-datum {
+  margin-top: 10px;
+  padding: 9px;
+  border: 1px solid #4b6a7c;
+  border-radius: 6px;
+}
+
+.fin-attachment-datum strong {
+  color: #f6d692;
+}
+
+.fin-attachment-legend {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #bbcfdb;
+}
+
+@media (max-width: 1050px) {
+  .fin-attachment-sidebar {
+    flex-basis: 205px;
+  }
+
+  .fin-attachment-sidebar.evidence {
+    flex-basis: 225px;
+  }
+}

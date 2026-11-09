@@ -5,6 +5,21 @@ import React from '../node_modules/react/index.js';
 import { renderToStaticMarkup } from '../node_modules/react-dom/server.node.js';
 import { createServer } from '../node_modules/vite/dist/node/index.js';
 
+test('joint Engineering keeps the same Design frame/provider structure and exposes drawing scroll', async () => {
+  const server = await createServer({configFile:false,root:new URL('..',import.meta.url).pathname,server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'});
+  try {
+    const {WorkspaceFrame} = await server.ssrLoadModule('/src/workspaces/WorkspaceChrome.tsx');
+    const props={header:'header',navigation:'navigation',identity:'source',children:React.createElement('span',null,'retained scene')};
+    const design=renderToStaticMarkup(React.createElement(WorkspaceFrame,{...props,workspace:'design'}));
+    const jointDrawing=renderToStaticMarkup(React.createElement(WorkspaceFrame,{...props,workspace:'engineering',retainDesign:true}));
+    const ordinary=renderToStaticMarkup(React.createElement(WorkspaceFrame,{...props,workspace:'engineering'}));
+    assert.match(design,/revamp-design-shell/);assert.match(jointDrawing,/revamp-design-shell/);
+    assert.match(jointDrawing,/overflow:auto;display:block/);
+    assert.match(jointDrawing,/aria-label="Design panels" hidden/);
+    assert.doesNotMatch(ordinary,/revamp-design-shell/);
+  } finally {await server.close();}
+});
+
 test('workspace chrome keeps navigation addressable and unavailable source explicit', async () => {
   const server = await createServer({
     configFile: false,

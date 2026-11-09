@@ -13,6 +13,12 @@ import {
   Vector3,
 } from 'three';
 import { useInspection } from '../store';
+import {
+  consumeMainCamera,
+  mainCameraCommand,
+  mainCameraKey,
+  registerMainCamera,
+} from '../fin-attachment/mainCameraCheckpoint';
 import { millimetres, partName } from '../format';
 import type { InspectionDocument, JsonValue, MassSample, Part, Vector3Tuple } from '../types';
 import { Icon } from './Icons';
@@ -286,6 +292,7 @@ type CameraCommand = {
   angles?: OrbitAngles;
 };
 function CameraFit({
+  checkpointKey,
   group,
   length,
   complete,
@@ -302,6 +309,7 @@ function CameraFit({
   onStatus,
   onReadout,
 }: {
+  checkpointKey: string;
   group: RefObject<Group | null>;
   length: number;
   complete: boolean;
@@ -321,6 +329,7 @@ function CameraFit({
   const { camera: rawCamera, gl, invalidate, size } = useThree();
   const camera = rawCamera as PerspectiveCamera;
   const target = useRef(new Vector3());
+  const [restoredPose] = useState(() => consumeMainCamera(checkpointKey));
   const angles = useRef<OrbitAngles>({ azimuth: 45, tilt: 54.7356, roll: 0 });
   const mode = useRef('Overview');
   const targetScope = useRef<'assembly' | 'selection'>('assembly');
@@ -425,11 +434,45 @@ function CameraFit({
     if (pendingFocus.current && frame('orbit', pendingFocus.current)) pendingFocus.current = null;
   });
   useEffect(() => {
+    const saved = restoredPose;
+    if (saved) {
+      camera.position.fromArray(saved.position);
+      camera.up.fromArray(saved.up);
+      target.current.fromArray(saved.target);
+      camera.lookAt(target.current);
+      camera.updateMatrixWorld();
+      initialComplete.current = true;
+      interacted.current = true;
+      intent.current = 'manual';
+      targetScope.current = saved.targetScope ?? 'assembly';
+      targetLabel.current = saved.targetLabel ?? 'Assembly';
+      mode.current = 'Restored rocket view';
+      safeClips();
+      invalidate();
+    }
+    return registerMainCamera(checkpointKey, () => ({
+      position: camera.position.toArray(),
+      up: camera.up.toArray(),
+      target: target.current.toArray(),
+      targetScope: targetScope.current,
+      targetLabel: targetLabel.current,
+    }));
+    // Capture the actual camera and orbit target, not a reconstructed readout.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkpointKey, camera]);
+  useEffect(() => {
     publish();
     // Initialize readout from the actual configured camera even while meshes are delayed.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [camera]);
   useEffect(() => {
+    const next = mainCameraCommand(lastStoreCommand.current, resetToken, !!restoredPose);
+    if (next === 'skip') return;
+    if (next === 'restore') {
+      lastStoreCommand.current = resetToken;
+      publish();
+      return;
+    }
     if (lastStoreCommand.current !== null && lastStoreCommand.current !== resetToken)
       interacted.current = true;
     lastStoreCommand.current = resetToken;
@@ -1050,6 +1093,7 @@ export function Viewer({
           )}
           {!overlay && <Markers length={length} mass={mass} />}
           <CameraFit
+            checkpointKey={mainCameraKey(vehicle.id, vehicle.identity?.specification_sha256)}
             group={group}
             length={overallLength}
             complete={visible.every(

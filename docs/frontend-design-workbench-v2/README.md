@@ -1,5 +1,15 @@
 # Rocket Twin design workbench v2
 
+**Owner visual reference set — November9:** Use the [saved reference gallery and
+goal map](reference-set-20261109.md) for geometry depth, section hatching/edges, assembly hierarchy,
+measurements, transparent interiors and process views. FW2-020/FW2-A15 also require
+a readable physics → guidance → PID/RL controller → actuator → rocket-response
+system map, with sensors/estimation, recovery, power and logging paths. Link blocks
+to actual backend/specification evidence, signal units and coordinate frames.
+Mark current G80 unguided behavior and planned G12 capabilities honestly. This is
+a visual/interface requirement, not adoption of the pictured hardware or a new
+physics engine. Supplier inquiries and all physical/controller/flight gates remain.
+
 **Owner direction: November 9, 2026 — complete the plan, then start.** Build an
 engineering workbench where the owner can inspect the rocket down to supported
 construction details, understand its systems and connections, assemble a separate

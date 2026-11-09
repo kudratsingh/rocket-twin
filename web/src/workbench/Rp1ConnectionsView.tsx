@@ -14,6 +14,8 @@ import type {
   Rp1ConnectionsDocument,
 } from './rp1Connections';
 import './rp1Connections.css';
+import { parseFinAttachmentHref, returnFinJointHref } from '../fin-attachment/finAttachmentState';
+import { navigateFinAttachment } from '../fin-attachment/FinAttachmentAccess';
 
 function lines(text: string, width: number) {
   const result = [''];
@@ -187,11 +189,17 @@ function SourceRef({ document, id }: { document: Rp1ConnectionsDocument; id: str
     <p>Source unavailable.</p>
   );
 }
-function SavedDrawing({ drawing }: { drawing: Rp1ConnectionDrawing }) {
+function SavedDrawing({
+  drawing,
+  opened = false,
+}: {
+  drawing: Rp1ConnectionDrawing;
+  opened?: boolean;
+}) {
   const [failed, setFailed] = useState(false);
   const url = rp1ConnectionDrawingHref(drawing);
   return (
-    <details className="rp1-connections-drawing">
+    <details className="rp1-connections-drawing" open={opened || undefined}>
       <summary>{drawing.label} · saved concept drawing</summary>
       <p>{drawing.status}</p>
       <p>Recorded artifact; no new CAD or spatial analysis is generated here.</p>
@@ -243,6 +251,9 @@ function ConnectionContent({
   const selectedNode = active.nodes.find((node) => node.id === nodeId);
   const relatedNodes = active.nodes.filter((node) => partId && node.part_ids.includes(partId));
   const linkedPart = !!partId && active.part_ids.includes(partId);
+  const jointRoute =
+    typeof window === 'undefined' ? null : parseFinAttachmentHref(window.location.href);
+  const jointReturn = jointRoute ? returnFinJointHref(window.location.href) : null;
   function selectPart(id: string) {
     setPartId(id);
     onSelectPart?.(id);
@@ -252,6 +263,20 @@ function ConnectionContent({
       <header>
         <p className="rp1-connections-eyebrow">Engineering · frozen AD1 v2</p>
         <h1>Fin root and recovery connections</h1>
+        {jointReturn && (
+          <a
+            className="rp1-connections-design-link"
+            href={jointReturn}
+            onClick={(event) => {
+              if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+                return;
+              event.preventDefault();
+              navigateFinAttachment(jointReturn);
+            }}
+          >
+            Return to fin attachment · same section and selection
+          </a>
+        )}
         <p className="rp1-connections-warning">
           CONCEPT / SOURCE ESTIMATES · NOT ADOPTED · engineering acceptance remains open
         </p>
@@ -452,7 +477,15 @@ function ConnectionContent({
           active.drawing_ids.map((id) => {
             const drawing = document.drawings.find((item) => item.id === id);
             return drawing ? (
-              <SavedDrawing key={id} drawing={drawing} />
+              <SavedDrawing
+                key={id}
+                drawing={drawing}
+                opened={
+                  !!jointReturn &&
+                  id ===
+                    (jointRoute?.drawing === 'loadpath' ? '02-load-paths' : '01-local-attachment')
+                }
+              />
             ) : (
               <p key={id} role="status">
                 Saved drawing {id} unavailable in this prepared package. No replacement is
