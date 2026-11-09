@@ -18,7 +18,7 @@ can run local CPU experiments and replay/compare saved telemetry. Live browser
 checks and actual screenshots are recorded in
 [the release handoff](docs/frontend-release-20261107.md). Desktop layout and
 explicit Side fitting pass measured thresholds; the full native-rate 60 fps
-benchmark remains failed. Bounded live browser checks are recorded. The latest experiment comparison retains RP1 as the working design; Chrome’s metadata-download permission prompt is pending and final Design restoration has not been observed. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
+benchmark remains failed. Bounded live browser checks are recorded. The latest experiment comparison retains RP1 as the working design; metadata downloaded and whole Design was restored in the subsequent authorized check. Broader unexecuted branches remain explicit. This is a preliminary inspection/experiment preview,
 not engineering, prototype-build or flight approval.
 
 ## Desktop engineering inspection
@@ -35,7 +35,7 @@ separate fin-root and recovery routes, with exact part/revision links back to
 Design. Unmapped connections remain unavailable.
 [Connection navigation](docs/studies/frontend-rp1-evidence-routing-20261108/integration.md)
 · [Future detail evidence](docs/studies/frontend-desktop-detail-20261108/measurement-unlocks.md).
-New browser round-trip verification is pending the local-site permission decision.
+The source-bound round trip and explicit selection clear were subsequently verified in the browser; original failures remain recorded.
 
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools
@@ -56,8 +56,8 @@ and remaining source/engineering limits are linked in the walkthrough.
 A new actual archived G80 Tiny run completed with wind1m/s and a45second partial
 trajectory. The browser loaded it, compared it with a matching calm-air baseline,
 jumped to apogee and exported the playback CSV. Landing is not recorded. The JSON
-metadata export is pending an explicit local-site Chrome permission decision;
-no permission was changed. [Run and export evidence](docs/studies/frontend-desktop-experiment-20261108/integration.md).
+metadata export completed after explicit local-site authorization; no permission
+prompt or setting change occurred on the actual completion path. [Run and export evidence](docs/studies/frontend-desktop-experiment-20261108/integration.md).
 
 ## What works today
 

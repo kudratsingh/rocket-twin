@@ -35,19 +35,59 @@ cycle, with a15minute agent budget. No new fin construction, custom solver, full
 vehicle CAD, simulation, supplier contact or physical work is admitted. If source
 or mapping is missing, show unavailable rather than infer a connection.
 
-## Verification boundary
+## Verification and the actual correction
 
-Nine focused connection/navigation checks and the combined315-test frontend
-suite pass, along with TypeScript, lint, formatting and the packaged build. Four
-unrelated preserved A2 tests remain outside publication. The existing large-chunk
-build warning remains; no frame-rate claim follows. New native round-trip and disclosure observations remain pending:
-the sole browser agent is paused after P46 automatic approval rejection of a
-persistent local-site multiple-download permission. Do not close the compound
-RV acceptance rows or infer browser behavior from generated markup. The existing
-native P40–45 observations retain their original scope and failures.
+P47 stopped before native input because an evidence helper binding had reset.
+That wrapper failure is preserved; a separate documented binding restoration
+used no UI input. P48 then actually verified both route links and Recovery
+content, but its settled Design return dropped the selected part. The source
+explains how null selection was written to the URL; the initiating callback was
+not observed and is not claimed known. [Source trace](selection-trace.md).
 
-After an explicit permission decision, the bounded browser continuation can
-finish the pending metadata export, restore Design, and separately exercise this
-new route. That future packet needs its own actual observations; this document
-claims none. All five inquiries remain UNSENT and engineering/physical/flight
-gates remain unchanged.
+One bounded correction now distinguishes explicit selection intent from source/
+loading resets when writing URLs. A valid incoming selected part survives an
+internal reset; deliberate X/Escape/group/focus actions still update selection.
+Overview routes hydrate no selection. Empty-canvas pointer misses no longer clear
+the inspector. This is not a new geometry or physics model.
+
+The combined318 local tests, TypeScript, lint, formatting and packaged build pass;
+four preserved unrelated A2 cases remain outside publication. Real-store tests
+exercise reset/rehydration versus explicit clear, part/group/focus actions and
+stale-source rejection. They are not a mounted StrictMode or browser test.
+
+P50 separately verifies the actual Recovery→Design round trip: the top URL,
+forward-ring inspector and selection survive settling and later asset loading.
+Frame targets the ring, and explicit Clear removes the part/opens summary; Whole
+returns the assembly. The ring is still occluded inside the body when merely
+framed: this is not a clean-detail visibility pass. Existing interior/isolation
+controls remain separate. No compound RV row or full frontend acceptance is
+promoted by this scoped check. Strict performance failure remains unchanged.
+
+[Failed P48](../frontend-evidence-route-verified-native-20261108/browser.md) ·
+[Corrected P50](../frontend-selection-correction-native-20261108/browser.md) ·
+[Correction budget](selection-correction-plan.md).
+
+Metadata export completed in P49 after explicit local-site authorization, without
+an actual permission/settings change. All five inquiries remain UNSENT; no owner
+measurement is requested for unpurchased hardware. Engineering/physical/flight
+gates remain separate.
+
+## Further scoped desktop observations
+
+P51 activated the actual accessible SVG group for forward_ring and retained its
+exact part/spec, inspector and scene annotation after switching to3D. It is not a
+coordinate pointer-pick or all55-part test. P51 exposed lower annotations covered
+by the selected-part action card. One2D-only CSS change moves that card into normal
+flow, keeping3D layout unchanged. P53 shows the nose datum,1060.00–1072.20mm/source
+role and station-direction annotation without that obstruction, with no zoom/Fit
+adjustment. P51's original obstruction remains frozen. Formatting and packaged
+build pass after thisCSS change; the318-test JavaScript result remains separate.
+
+P52 also verifies changed draft wind does not alter the saved result, and Reuse A
+restores its recorded wind/direction/gust/Tiny/seed settings without Run. Independent
+saved-record SHA remains unchanged. This is draft workflow evidence, not a new
+simulation, worker-error case or physical measurement.
+
+[2D→3D](../frontend-2d-3d-selection-native-20261108/browser.md) ·
+[Readable drawing](../frontend-drawing-readability-native-20261108/browser.md) ·
+[Draft reuse](../frontend-draft-reuse-native-20261108/browser.md).

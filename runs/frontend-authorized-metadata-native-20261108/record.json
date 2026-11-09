@@ -1,0 +1,102 @@
+{
+  "packet": "P49",
+  "status": "pass-for-metadata-completion-and-wholeRP1-restoration",
+  "authorization": {
+    "new_explicit_owner_reply": "Authorize this local site",
+    "scope": "Chrome persistentmultipleautomaticdownloads ONLYhttp://127.0.0.1:5173 forrequestedlocalCAD/CSV/JSON",
+    "actual_permission_action": "none; no prompt appeared in this packet",
+    "P46": "priorpreexecutionreviewrejectionunchanged, notretroactivelypassed"
+  },
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "no_new_input_after_seconds": 150
+  },
+  "timing": {
+    "native_end_elapsed_ms": 67822,
+    "navigation_ms": 1965,
+    "pair_clock_verified_ms": 15412,
+    "metadata_click_epoch_ms": 1794204776931,
+    "metadata_Done_observed_ms": 30727,
+    "metadata_capture_ms": 45154,
+    "Designreturn_ms": 47024,
+    "owner_ready_capture_ms": 67822
+  },
+  "runtime": {
+    "transport": "KnownnativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "A": "exp-c174705a75b8474290b523e8fb7c1267",
+    "B": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+    "configuration": "modular-performance-v1",
+    "working_design": "G80-F2-RP1-AD1-definition-v2",
+    "working_spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+  },
+  "export_context": {
+    "profile": "normalbounded; nativecheckbox0",
+    "alignment": "Absolute elapsed time",
+    "A_offset_s": 0,
+    "B_offset_s": 0,
+    "range_s": [
+      0.005,
+      45
+    ],
+    "cursor_s": 0.005,
+    "metadata_clicks": 1,
+    "CSV_clicks": 0,
+    "Run_clicks": 0,
+    "Play_clicks": 0
+  },
+  "download": {
+    "filename": "exp-c174705a75b8474290b523e8fb7c1267-playback.json",
+    "native_size": "41.7KB",
+    "native_status": "Done",
+    "actual_fresh_bytes_hash_validation": "Primary independently verifies downloadedfile/source; no substituteAPI/transport"
+  },
+  "cases": [
+    {
+      "case": "Exactpair/profile/clock",
+      "status": "pass",
+      "actual": "NativeA/Bexactheadings/URL, bounded0checkbox, absolute0offsets/range.005\u201345."
+    },
+    {
+      "case": "OneAmetadataJSON",
+      "status": "pass-for-browsercompletion",
+      "actual": "Oneactualclick; Done41.7KB inAXandgenuinescreenshot, no prompt."
+    },
+    {
+      "case": "PermissionAllow/settings",
+      "status": "unexecuted-notneeded",
+      "actual": "No prompt; no permissionstatechange inferred from downloadsuccess."
+    },
+    {
+      "case": "WholeRP1restore",
+      "status": "pass-for-normalDesign/no-part/wholemodel",
+      "actual": "NormalexactRP1URLnopart\u2192Restoreassembly\u2192Whole; Assembly45\u00b054.7\u00b0Roll\u22120; toolsclosed; actualwholemodelimage. ChromeDownloadbubble remainsopen, upperrightcontrols partlycovered."
+    },
+    {
+      "case": "P48selectedpartreturndefect",
+      "status": "not-retested-open",
+      "actual": "P49intentionalnopartrestorationisnotaselectedpartpreservationrecheck."
+    }
+  ],
+  "final_state": {
+    "workspace": "normalDesign",
+    "design": "RP1AD1v2/spec811b",
+    "URL_part": null,
+    "camera": "Overview45\u00b0/54.7\u00b0Roll\u22120\u00b0Assembly",
+    "scene_tools": "closed",
+    "context_tab": "Detailsvehiclesummary",
+    "source_detail": true,
+    "chrome_download_bubble": "open",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Metadatabrowsercompletionisnotphysics/flight/performancequalification.",
+    "Boundedreturnedrange/partial45strajectoryandlandingmissingunchanged.",
+    "P45/P46/P48frozenrecordsnotrewritten.",
+    "No newrun/Play/performance/DevTools/otherorigin/otherwindow."
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "as_of": "2026-11-08",
   "source_csv": "docs/frontend-revamp-acceptance.csv",
-  "scope": "Action classification only; source CSV statuses and historical failures remain unchanged.",
+  "scope": "Action classification only; all original CSV statuses and historical failures remain unchanged. P49 metadata and P50/P51 scoped selection observations are separately verified.",
   "classes": {
     "A": "implemented desktop branch needs actual UI observation",
     "B": "source or engineering data unavailable",
@@ -14,14 +14,28 @@
     "P36": "corrected popover/guide and verified STEP/provenance downloads",
     "P37": "manufacturer 2D PCB/mounting table and selected-placement JSON",
     "P38": "transverse 625 mm and opposite-side display observed",
-    "P39": "recovery identity text observed; notice clipped and layout correction unverified"
+    "P39": "recovery identity text observed; notice clipped and layout correction unverified",
+    "P40": "Corrected visible recovery warning wraps; exact source disclosure and whole RP1 restoration observed; P39 failure historical",
+    "P41": "Archived G80 files panel observed; verifier copy expectation stopped before download, not an app identity failure",
+    "P42": "Archived G80 part/whole file scopes and assembly STEP/provenance native downloads; fresh bytes verified",
+    "P43": "G54, finned G12 and finless G12 models and archive file panels observed; no download or flight qualification",
+    "P44": "Exactly one archived G80 Tiny 45 s/9000-step run accepted and saved as exp-c174705a75b8474290b523e8fb7c1267; partial trajectory",
+    "P45": "Matched A/B saved Tiny comparison, apogee 10.395 s and bounded A CSV observed; metadata JSON prompt and final restoration unexecuted",
+    "P46": "Automatic approval review rejected persistent Chrome multiple-file permission change before execution; no retry or workaround",
+    "P47": "Initialization-only verifier binding stop before UI input; historical",
+    "P48": "Fin/recovery route and evidence observed; settled Design return lost selected part, real failure preserved",
+    "P49": "After explicit owner authorization only for http://127.0.0.1:5173, A metadata JSON downloaded without prompt or settings action; fresh bytes/source verified; no persistent permission change inferred",
+    "P50": "Corrected settled exact forward_ring/spec/recovery Design return, Frame target, explicit Clear and Whole restore observed; inner ring occluded by body on Frame",
+    "P51": "Frozen native SVG Forward-ring group AX activation selected 2D part and retained exact part/spec/annotation in 3D; lower 2D text partly covered; no coordinate pick/all-part claim",
+    "P52": "Savedrequestdraftwind3\u2192ReuseArestoresrecordedwind1/Tiny/seedwithoutRun;originalrecordSHAunchanged",
+    "P53": "2D-onlynormalflowcardcorrection makeslowerdatum/sourceannotationsunobstructedwithoutFit;P51failurepreserved;whole3Drestored"
   },
   "nonpassing_rows": [
     {
       "id": "RV-Q05",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Legacy and other route/history transitions remain unobserved."
+      "limiting_work": "P50 corrected one settled Recovery-to-Design selected-part return; full legacy/history matrix remains, and P48 failure stays historical."
     },
     {
       "id": "RV-Q06",
@@ -51,7 +65,7 @@
       "id": "RV-Q11",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Keyboard close and deep mapped evidence round trip remains."
+      "limiting_work": "P40 warning wraps; P50 selected part restoration observed, but broader keyboard/deep evidence and clean inner-ring visibility remain."
     },
     {
       "id": "RV-Q12",
@@ -75,13 +89,13 @@
       "id": "RV-Q16",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "2D/3D matching source and unsupported mapping round trip remains."
+      "limiting_work": "P51 native SVG-group Forward-ring selection retained part/spec into 3D; lower 2D annotation partly covered and coordinate/all-part mapping unexecuted."
     },
     {
       "id": "RV-Q17",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Hidden/clipped picking and full restore matrix remains despite scoped sections."
+      "limiting_work": "P38 transverse flip and P40 restoration observed; hidden/clipped picking and full restore matrix remain."
     },
     {
       "id": "RV-Q18",
@@ -96,13 +110,13 @@
       "id": "RV-Q21",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Other drawing topics and final keyboard/scroll export path remain."
+      "limiting_work": "P42 G80 assembly STEP/provenance downloaded and verified; full Engineering diagram/keyboard round trip remains."
     },
     {
       "id": "RV-Q22",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Real changed-settings run path and request/worker error states remain."
+      "limiting_work": "P44 one saved Tiny run loaded; P49 metadata verified; request/worker failure and saved-draft reuse branches remain."
     },
     {
       "id": "RV-Q24",
@@ -114,7 +128,7 @@
       "id": "RV-Q25",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Independent full synchronized surfaces and incomplete horizon remain."
+      "limiting_work": "P45 bounded paired replay at 10.395 s and P49 metadata verified; complete synchronized surfaces/incomplete-horizon matrix remains."
     },
     {
       "id": "RV-Q27",
@@ -129,13 +143,13 @@
       "id": "RV-Q28",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Complete compatible comparison/export coverage and raw peak validation remain."
+      "limiting_work": "P45 matched-source A/B and actual A CSV verified; P49 fresh A metadata JSON also verified. Full export/coverage and independent actor/path proof remain."
     },
     {
       "id": "RV-Q29",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Complete replay source attribution/reduced-motion matrix remains.",
+      "limiting_work": "P45 real paired scene/plots and event labels observed; complete actor/extent pixel and attribution/reduced-motion matrix remain.",
       "secondary_classes": [
         "D"
       ]
@@ -162,7 +176,7 @@
       "id": "RV-Q34",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Complete five-workspace historical source/analysis continuity remains."
+      "limiting_work": "P50 exact selected RP1 Design return and P51 2D-to-3D part retention observed; complete five-workspace/historical analysis continuity remains."
     },
     {
       "id": "RV-Q38",
@@ -183,7 +197,7 @@
       "id": "RV-Q40",
       "csv_status": "partial",
       "primary_class": "A",
-      "limiting_work": "Whole rendered pick/reveal and residual selection-scope branch remain."
+      "limiting_work": "P40 recovery notice/source containment and RP1 whole restore observed; full native rendered pick/reveal matrix remains."
     },
     {
       "id": "RV-Q41",
@@ -197,33 +211,70 @@
     "rp1_flight": "No admitted complete RP1 inertia/aerodynamics; flight run disabled",
     "physical": "AD1/D1 and installed structural, thermal, recovery/flutter, build, firmware/WO-10 and flight gates remain open",
     "inquiries": "Five supplier/lab inquiries UNSENT",
-    "performance": "Q30 original benchmark/threshold unchanged; no automatic native retake"
+    "performance": "Q30 original benchmark/threshold unchanged; no automatic native retake",
+    "download_permission": "P46 denial is historical; owner explicitly authorized local origin only, and P49 metadata completed without a prompt, Allow, Block or settings action. No persistent permission change inferred."
   },
   "next_packets": [
     {
       "priority": 1,
-      "name": "Real archived G80 settings, one Tiny Python/JAX run, replay comparison and export",
-      "source": "Live resolved archived G80 saved-run tuple; existing Python/JAX backend and compatible saved comparator only",
-      "action": "Record one actual settings change, effective inputs and seed; submit one run; observe lifecycle/reload; compare compatible runs and export with source/units/gaps/peaks preserved",
-      "evidence": "Normal UI captures, exact request/run/model/spec identities, terminal state, fresh export byte hashes",
-      "stop": "Stop on source mismatch, incompatible comparator, unexpected worker state, timeout or export identity failure; no second run"
-    },
-    {
-      "priority": 2,
-      "name": "Source-bound archived CAD download round trip",
-      "source": "One of four separately recorded archived configuration manifests and immutable byte registry; no RP1 substitution",
-      "action": "Select real part and part/assembly GLB/STEP, verify frames and hashes, then return to RP1",
-      "evidence": "Native selected source/role/readout and fresh downloaded byte hashes/provenance",
-      "stop": "Stop on stale/foreign source, absent registered asset or wrong coordinate-frame label; no CAD regeneration"
-    },
-    {
-      "priority": 3,
-      "name": "RP1 joint-to-Engineering evidence and readable recovery notice",
-      "source": "RP1 AD1 v2 spec 811b3bed... and core geometry 238d01e5...; existing saved drawing and unresolved controller source record",
-      "action": "Forward-ring detail/nominal guide/section to matching Engineering drawing and back; inspect corrected narrow Details recovery warning and restore assembly",
-      "evidence": "Native before/after URL, selected ID, camera, ring/drawing/notice screenshots, complete readable source text",
-      "stop": "Stop on obscuration, unreadable warning, stale source or failed restoration; P39 clipping remains historical"
+      "name": "FT-023 / RV-10 saved successful-partial result and draft reuse (planned P52, not yet observed)",
+      "source": "Existing exact archived G80 Tiny exp-c174705a75b8474290b523e8fb7c1267; status complete, trajectory partial, landing null",
+      "action": "Select saved ID in normal Experiments; verify exact effective settings/provenance/missing landing; Reuse request as draft; confirm saved record and RP1 Design unchanged; do not submit",
+      "evidence": "Bounded native before/after state, exact run ID, draft settings and unchanged saved record",
+      "stop": "Stop on source mismatch, unexpected submission, failed route or time cap; no Run on CPU, synthetic worker failure or partial-as-error label"
     }
   ],
-  "no_status_promotion": true
+  "no_status_promotion": true,
+  "verified_desktop_results": {
+    "archived_cad": "P42 G80 assembly STEP/provenance fresh bytes match registry; P43 G54/finned G12/finless G12 models and files panels observed",
+    "recovery_notice": "P40 rendered one-column warning and wrapped locators; controller identity still unresolved",
+    "tiny_run": {
+      "run_id": "exp-c174705a75b8474290b523e8fb7c1267",
+      "profile": "tiny",
+      "steps": 9000,
+      "horizon_s": 45,
+      "configuration": "modular-performance-v1",
+      "wind_mps": 1,
+      "seed": 20261107,
+      "attempt_complete": true,
+      "trajectory_complete": false,
+      "landing_recorded": null
+    },
+    "comparison": "P45 A/B wind 1 versus 0, matched source/profile/seed, paused bounded Replay at apogee 10.395 s; no new run",
+    "csv": {
+      "run_id": "exp-c174705a75b8474290b523e8fb7c1267",
+      "bytes": 2518644,
+      "sha256": "6f181fc80c8b3f402ebc62383c3a55466a40d8cc6e8079d16d07c2e2c9b27d34",
+      "exported_rows": 3006,
+      "raw_numeric_cells_matched": 117234,
+      "source": "docs/studies/frontend-desktop-experiment-20261108/csv-download-verification.json"
+    },
+    "metadata_json": {
+      "run_id": "exp-c174705a75b8474290b523e8fb7c1267",
+      "comparison_run_id": "exp-d0baf4168f7f41e687a1b5f12e14cc3e",
+      "bytes": 42723,
+      "sha256": "72374b5052ab542b13e7126d3559252cd3b96cc05e9f73a666f7efb0a8bf0e77",
+      "source": "docs/studies/frontend-desktop-experiment-20261108/metadata-download-verification.json",
+      "actual_records_exact_match": true,
+      "prompt_or_settings_action": false,
+      "persistent_permission_change_inferred": false
+    },
+    "final_design_restore": "P49 whole RP1 Design restored with download bubble still open; P50 later restored selected-part/Whole route in separate corrected source packet",
+    "selection": "P48 settled return-selection failed; P50 corrected one actual settled return with Frame/Clear/Whole, Frame ring occluded; P51 SVG-group 2D selection retained exact part/spec into 3D with lower annotation overlap"
+  },
+  "blocked_owner_dependency": null,
+  "saved_attempt_audit": {
+    "source": "docs/studies/frontend-desktop-detail-20261108/saved-failure-reuse.json",
+    "record_count": 13,
+    "complete_attempts": 13,
+    "actual_worker_failures": 0,
+    "successful_incomplete_trajectories": 7,
+    "new_run": false
+  },
+  "resolved_owner_dependency": {
+    "item": "P45 metadata JSON",
+    "owner_scope": "Explicit authorization only for http://127.0.0.1:5173",
+    "actual_result": "P49 downloaded and verified metadata without prompt or settings action; P46 denial remains historical",
+    "permission_changed": null
+  }
 }

@@ -1,0 +1,11 @@
+# P51 source drawing selection to current 3D
+
+**The scoped2D→3Didentitycheckpassed usingactualnativeAXactivationofanSVGgroup.** CurrentRP1/spec811b…2Ddrawing showsmillimetres, sourceenvelopes/nosedatum, CADunavailableandmanufacturing/flightlimits. Optionalpopupselectorlookupreturned`Documentedsourcecomponentselectorunavailable` beforeinput. The taskexplicitlyalsoallowedactualSVGgroupselection; afreshreadidentifiedtheuniqueForwardringdrawingtoggle. Itwasactivatedonce, notapopup, treebuttonorcoordinatepointerpick. No guard/denial/source mismatch occurred.
+
+Actual`2D-forward-ring.jpg` showsgoldhighlightandSelectedForwardringbanner with**1060.00–1072.20mm** axialbounds. Nativepane/title/URLmatchedforward_ring/spec811b/simplified_envelope. Sourceradialwallbandsdonotprojectholes/joints/detailedprofiles; highlightisanannotation. Lowernosedatum/selectedsourcecopyispartlycoveredbythefloatingselectedpartactioncard, sofullannotationreadabilityisnotpassed.
+
+Actual3Dmodeltoggle retainedthe**top-levelpart/specURL**, Forwardringinspectorandsceneannotation. `3D-retained.jpg` showsthecurrentRP1wholemodelandselectedpart. The ringremainsinsideassembly; no cleanhiddendetailvisibilityclaim. No archivedCADsubstitution.
+
+Nativework endedat**67.407seconds**, within120seconds/before90-secondinputcutoff. EachinputhadfreshsamecellAX. No export/Run/Play/permission/performance/resize/DevTools/otherwindow. OptionalClear/Wholeunexecuted. FinalnormalRP1Design3D,forward_ringselected,connectionrecovery,Detailsopen/toolsclosed,Assemblyoverview. Nativeidle.
+
+ThisisoneSVGgroupAXactivation/representationroundtrip, notcoordinatepicking/all55selection/manufacturingprecision/physicalorflightacceptance.

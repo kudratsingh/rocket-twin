@@ -1,0 +1,96 @@
+{
+  "packet": "P51",
+  "status": "pass-for-native-SVG-group-selection-and-2D-to3D-identity-retention-with-lookup-diagnostic",
+  "source_fixture": "Frozen318testselectioncorrectionsourceunchanged",
+  "limits": {
+    "native_seconds": 120,
+    "overall_seconds": 180,
+    "no_new_input_after_seconds": 90
+  },
+  "timing": {
+    "native_end_elapsed_ms": 67407,
+    "2Dentry_capture_ms": 1719,
+    "optional_selector_lookup_ms": 16810,
+    "SVGselected_capture_ms": 52002,
+    "3Dretained_capture_ms": 67407
+  },
+  "runtime": {
+    "transport": "KnownnativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_denial_source_mismatch": null,
+    "verifier_diagnostic": "Documentedsourcecomponentselectorunavailable. Optionalpopuplookupthrewbeforeinput. TaskexplicitlypermitsactualSVGgroupalternative; freshunambiguousSVGForwardringtogglethenactivated, withoutguard/approvalbypass."
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "forward_ring",
+    "connection": "recovery"
+  },
+  "input_path": {
+    "type": "nativeAXactivationofactualSVGgroup",
+    "label": "Select Forward ring: Source radial wall bands; holes, joints and detailed profiles are not projected.",
+    "toggle_transition": "0\u21921",
+    "not_used": [
+      "sourcecomponentpopupselector",
+      "pointercoordinateSVGpick",
+      "PartsTreepartbutton"
+    ]
+  },
+  "cases": [
+    {
+      "case": "Actual2Dsource/datum/units",
+      "status": "pass-for-observedsourcecontext;annotationreadabilitypartial",
+      "actual": "2DdrawingrealRP1/spec811b;0mmnosedatum/staft/mm/sourceenvelopes/CADunavailable/nomanufacturingflightqualification. Lowerdrawingtextpartlyoverlappedbyselectedpartactioncard."
+    },
+    {
+      "case": "Selectforward_ringviaSVGgroup",
+      "status": "pass",
+      "actual": "FreshAXidentifieduniqueoutlinedSVGtoggle; actualclickgoldhighlight/SelectedForwardringbanner1060.00\u20131072.20mm; DetailsForwardringinspector/URLpartforward_ring/simplified_envelope."
+    },
+    {
+      "case": "2D\u21923Dsamepart/spec",
+      "status": "pass",
+      "actual": "Actual3Dmodeltoggle1; topURLstillpartforward_ring/spec811b/connectionrecovery; inspector/sceneannotationretained; actualrenderedRP1wholeassembly."
+    },
+    {
+      "case": "Optionalsourcepopupselector",
+      "status": "unavailable-no-input",
+      "actual": "No matchingnativepopupnamedSelectsourcecomponent; notclaimedused."
+    },
+    {
+      "case": "OptionalClear/Whole",
+      "status": "unexecuted",
+      "actual": "EndedselectedRP13Dwithoutlateextras."
+    }
+  ],
+  "dimensions": {
+    "axial_bounds_mm": [
+      1060,
+      1072.2
+    ],
+    "recorded_axial_length_mm": 12.2,
+    "source_role": "simplified_envelope",
+    "scope": "Sourceradialwallbands; noholes/joints/detailedprofilesprojected; highlightannotationnotphysicalgeometry"
+  },
+  "visual_observations": [
+    "2D-forward-ring.jpgshowsgoldoutlineatforwardringandselectedsourcebanner; sourceframe/mm/representationlimitsvisible.",
+    "Bottomnosedatum/selected-sourcecopyispartlyoverlappedbyfloatingselectedpartactioncard; nofullunobstructedannotationclaim.",
+    "3D-retained.jpgshowswholeRP1+Forwardringannotation/pane/topURL; internalringnotisolatedandnotclaimedcleanvisible."
+  ],
+  "final_state": {
+    "workspace": "normalDesign",
+    "representation": "3Dmodel",
+    "selected_part": "forward_ring",
+    "source": "RP1AD1v2/spec811b",
+    "connection": "recovery",
+    "camera": "Overview45\u00b0/54.7\u00b0Assembly",
+    "context_tab": "DetailsForwardring",
+    "scene_tools": "closed",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "AXactivationofSVGgroupisnotapointercoordinatepickorall55partpickclaim.",
+    "No archivedCADsubstitution/manufacturingprecision/hiddenringdetail/physicalfit/flightacceptance.",
+    "NoRun/Play/export/permission/performance/viewportcampaign."
+  ]
+}

@@ -26,8 +26,8 @@ All supplier/lab drafts remain UNSENT. Engineering/build/flight gates stay open.
 A new actual archived G80 Tiny run completed with wind1m/s and a45second partial
 trajectory. The browser loaded it, compared it with a matching calm-air baseline,
 jumped to apogee and exported the playback CSV. Landing is not recorded. The JSON
-metadata export is pending an explicit local-site Chrome permission decision;
-no permission was changed. [Run and export evidence](../docs/studies/frontend-desktop-experiment-20261108/integration.md).
+metadata export completed after explicit local-site authorization; no permission
+prompt or setting change occurred on the actual completion path. [Run and export evidence](../docs/studies/frontend-desktop-experiment-20261108/integration.md).
 
 ## Desktop engineering inspection
 
@@ -43,7 +43,7 @@ separate fin-root and recovery routes, with exact part/revision links back to
 Design. Unmapped connections remain unavailable.
 [Connection navigation](../docs/studies/frontend-rp1-evidence-routing-20261108/integration.md)
 · [Future detail evidence](../docs/studies/frontend-desktop-detail-20261108/measurement-unlocks.md).
-New browser round-trip verification is pending the local-site permission decision.
+The source-bound round trip and explicit selection clear were subsequently verified in the browser; original failures remain recorded.
 
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools

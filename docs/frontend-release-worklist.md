@@ -1,31 +1,39 @@
 # Current frontend release worklist
 
-**Current desktop follow-up:** PR115 is merged at
-`71a84ecde02c81d7ccfce98aa1d4bda82814d3c4` after corrected required checks.
-PR116 publishes source-bound archived CAD files, independent component/assembly
-file scope, the corrected recovery source notice and actual Tiny run/export
-evidence. First head`70d7abc9c28e933e7dcd74ada67bb9ac58221b90` passed web checks;
-workflow42569742046 is retained only for that superseded head. The combined
-inspection/navigation head requires fresh required checks before merge.
+**Current desktop inspection delivery — PR116:** Source-bound archived part/
+assembly CAD files, independent file scope, readable recovery-source conflict,
+and explicit source-pinned fin/recovery links are integrated. Frozen RP1 remains
+26 represented records across55 identities; detailed or qualified hardware is not
+invented. [Publication and exact-head checks](https://github.com/kudratsingh/rocket-twin/pull/116).
 
 P40/P42/P43 verify scoped notice/CAD/configuration paths. P44 completed one real
-archived G80 Tiny run`exp-c174705a75b8474290b523e8fb7c1267`; P45 compared matching
-source runs, jumped to apogee and downloaded the CSV. It preserves3,006 samples/
-117,234 raw values exactly; the45s trajectory remains partial and landing missing.
-P46 automatic approval review rejected a persistent Chrome multiple-download
-permission change before execution. Metadata JSON and Design restoration remain
-unconfirmed. Explicit owner authorization for only`http://127.0.0.1:5173`, or owner
-action on the prompt, is pending; no retry or workaround.
+archived G80 Tiny run`exp-c174705a75b8474290b523e8fb7c1267`; P45 compared the
+matching saved baseline and exported CSV. P46's permission rejection remains
+historical. The owner explicitly authorized only the local site; P49 downloaded
+the metadata JSON without a prompt or settings action. Fresh42,723bytes/SHA72374b…
+match both actual records, sample range and differences. No persistent permission
+change is inferred; metadata is no longer blocked.
 
-The combined correction adds explicit Fin-root/Recovery links for dual-function
-parts and retains verified connection context on return to Design. Unmapped or
-changed sources remain unavailable; CAD explanation text has a compact disclosure.
-315 local tests/type/lint/format/build pass; four unrelated A2 tests stay outside
-publication. New native route/disclosure behavior is pending, not accepted.
-[Current route/source packet](studies/frontend-rp1-evidence-routing-20261108/integration.md)
-· [Actual run/export evidence](studies/frontend-desktop-experiment-20261108/integration.md).
-All five inquiries remain UNSENT. Frozen RP1/D1, G54 and G12 PID-to-RL,
-engineering/WO-03/04/05, physical and flight gates remain unchanged.
+P48 found a real settled return-selection failure. One correction separates
+explicit selection intent from loading resets, hydrates overview links and keeps
+empty-canvas misses from clearing a part. P50 verifies settled exactpart/spec/
+recovery context, selected ring after assets load, Frame target, explicit Clear
+and Whole restoration. Frame still leaves the internal ring occluded by the body;
+it is not a clean-detail visibility pass. Initial P47 wrapper failure and P48
+failure are preserved.P51 additionally verifies actual2D SVG-group selection retained in3D; its lower
+annotation obstruction is preserved and corrected by2D-only flow layout inP53.
+P52 verifies saved settings copied into a draft without a new run; independent
+record bytes are unchanged. P53 shows the source/datum annotations unobstructed
+and restores whole3D.318 local tests/type/lint/format/build pass; the finalCSS-only
+change also passes format/build. Four unrelated A2 tests stay outside publication. Required hosted checks apply to the final PR
+head; earlier green heads are not substituted.
+
+[Connection correction](studies/frontend-rp1-evidence-routing-20261108/integration.md)
+· [Actual experiment/export](studies/frontend-desktop-experiment-20261108/integration.md)
+· [Future detail evidence](studies/frontend-desktop-detail-20261108/measurement-unlocks.md).
+No owner measurement is requested for unpurchased hardware. All five inquiries
+remain UNSENT. RP1/D1, G54/G12 PID-to-RL, strict failed performance benchmark,
+engineering/WO-03/04/05, physical and flight gates remain separate/open.
 
 **Desktop inspection increment (November 8):** Source-verified part/assembly GLB
 and separate inspection STEP downloads, adjustable along/across section cuts,
