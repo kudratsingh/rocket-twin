@@ -1,5 +1,4 @@
 import { lazy, Suspense, useState } from 'react';
-import { partHref } from '../workspaces/partLinks';
 import { displayValue, grams, label, number, partName, title } from '../format';
 import { useInspection } from '../store';
 import type { InspectionDocument, JsonValue, MassSample, Part } from '../types';
@@ -13,6 +12,7 @@ import { RecoveryIdentityNotice } from './RecoveryIdentityNotice';
 
 const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
 const ArchivedCadAccess = lazy(() => import('./ArchivedCadAccess'));
+const Rp1PartEvidenceLinks = lazy(() => import('./Rp1PartEvidenceLinks'));
 
 function numeric(value: JsonValue | undefined): number | undefined {
   return typeof value === 'number' ? value : undefined;
@@ -186,11 +186,9 @@ export function PartInspector({
       </div>
       {design &&
         (design.id === 'G80-F2-RP1-AD1-definition-v2' ? (
-          <p>
-            <a href={partHref('/', design, part.id, 'engineering')}>
-              Open matching Engineering connections and findings
-            </a>
-          </p>
+          <Suspense fallback={<p>Loading matching Engineering connections…</p>}>
+            <Rp1PartEvidenceLinks design={design} partId={part.id} />
+          </Suspense>
         ) : (
           <p>RP1 connection evidence unavailable for this historical design.</p>
         ))}

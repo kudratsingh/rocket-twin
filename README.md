@@ -30,6 +30,13 @@ assembly STEP is placed geometry; STL has no encoded units and may follow print
 packing. `make workbench-archived-cad` verifies/copies existing local files without
 regenerating CAD. [Archive source and native evidence](docs/studies/frontend-archive-downloads-20261108/integration.md).
 
+The next source-checked inspection increment gives dual-function RP1 parts
+separate fin-root and recovery routes, with exact part/revision links back to
+Design. Unmapped connections remain unavailable.
+[Connection navigation](docs/studies/frontend-rp1-evidence-routing-20261108/integration.md)
+· [Future detail evidence](docs/studies/frontend-desktop-detail-20261108/measurement-unlocks.md).
+New browser round-trip verification is pending the local-site permission decision.
+
 Detailed desktop inspection, CAD/connection understanding, graphics, experiments
 and replay take priority over mobile layout polish. Current source-based tools
 include interior/joint isolation, adjustable section planes, recorded3D dimensions,

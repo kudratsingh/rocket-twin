@@ -1,26 +1,31 @@
 # Current engineering and inspection checkpoint
 
 **Current desktop follow-up:** PR115 is merged at
-`71a84ecde02c81d7ccfce98aa1d4bda82814d3c4` after corrected exact-head
-workflow42563763036 and both required jobs succeeded. Original failed CI remains
-recorded. Local follow-up adds lazy source-bound CAD downloads for all four
-archived configurations, component/whole-assembly file scope, and a readable
-source-identity notice for the unresolved Apogee/EasyMini record.311 local tests,
-type/lint/format/build pass. [Archive integration](studies/frontend-archive-downloads-20261108/integration.md).
-P38 verifies transverse cut/flip; P40 corrects P39's notice layout; P42 verifies
-G80 assembly STEP/provenance with fresh matching bytes; P43 verifies actual
-G54/finned-G12/finless-G12 models and file controls. No new CAD readback or physical
-qualification is inferred. P44 accepted and completed one real Tiny CPU run,
-`exp-c174705a75b8474290b523e8fb7c1267`; its45second trajectory is partial,
-with landing unavailable. P45 compares it with the matching saved baseline, jumps
-to apogee and downloads the actual CSV. The3,006 exported source samples preserve
-117,234 raw values exactly; this is bounded playback data, not all9,000 source rows.
-The metadata JSON download remains blocked: P46 automatic approval review rejected
-changing Chrome’s persistent multiple-download permission before any action.
-Explicit owner authorization for only http://127.0.0.1:5173, or owner action on the
-prompt, is pending; no retry or workaround is permitted. Browser restoration was
-not completed. [Run evidence](studies/frontend-desktop-experiment-20261108/source-verification.json). Inquiries UNSENT;
-physical engineering and WO-03/04/05/flight gates remain unchanged.
+`71a84ecde02c81d7ccfce98aa1d4bda82814d3c4` after corrected required checks.
+PR116 publishes source-bound archived CAD files, independent component/assembly
+file scope, the corrected recovery source notice and actual Tiny run/export
+evidence. First head`70d7abc9c28e933e7dcd74ada67bb9ac58221b90` passed web checks;
+workflow42569742046 is retained only for that superseded head. The combined
+inspection/navigation head requires fresh required checks before merge.
+
+P40/P42/P43 verify scoped notice/CAD/configuration paths. P44 completed one real
+archived G80 Tiny run`exp-c174705a75b8474290b523e8fb7c1267`; P45 compared matching
+source runs, jumped to apogee and downloaded the CSV. It preserves3,006 samples/
+117,234 raw values exactly; the45s trajectory remains partial and landing missing.
+P46 automatic approval review rejected a persistent Chrome multiple-download
+permission change before execution. Metadata JSON and Design restoration remain
+unconfirmed. Explicit owner authorization for only`http://127.0.0.1:5173`, or owner
+action on the prompt, is pending; no retry or workaround.
+
+The combined correction adds explicit Fin-root/Recovery links for dual-function
+parts and retains verified connection context on return to Design. Unmapped or
+changed sources remain unavailable; CAD explanation text has a compact disclosure.
+315 local tests/type/lint/format/build pass; four unrelated A2 tests stay outside
+publication. New native route/disclosure behavior is pending, not accepted.
+[Current route/source packet](studies/frontend-rp1-evidence-routing-20261108/integration.md)
+· [Actual run/export evidence](studies/frontend-desktop-experiment-20261108/integration.md).
+All five inquiries remain UNSENT. Frozen RP1/D1, G54 and G12 PID-to-RL,
+engineering/WO-03/04/05, physical and flight gates remain unchanged.
 
 **Desktop inspection increment (November 8):** Source-verified part/assembly GLB
 and separate inspection STEP downloads, adjustable along/across section cuts,

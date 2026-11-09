@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "rp1-forward-ring-recovery-evidence-navigation-20261108",
+  "scope": "Read-only source-linked navigation fixture; no production route, source, CAD, model, or engineering change",
+  "source_identity": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+    },
+    "attachment_definition": {
+      "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+      "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+    },
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "connections_document": {
+      "id": "RP1-AD1-connections-v1",
+      "path": "web/public/engineering-workbench/rp1-connections.json",
+      "sha256": "7087e7dc7434a0c4d309055d7897ee79bb140e58e30b24499579e65d5e6b328e",
+      "status": "Source-linked unadopted concepts; no physical qualification or flight release"
+    },
+    "detail_manifest": {
+      "path": "web/public/engineering-workbench/rp1-detail/manifest.json",
+      "sha256": "b3ac3cc62294676d5614eab048bab7111320f61eecaa002a85a7d1469b6e8ac6"
+    }
+  },
+  "gap": {
+    "kind": "ambiguous part-to-connection route",
+    "part_id": "forward_ring",
+    "source_locator": "parts[id=forward_ring]",
+    "recorded_connection_ids": ["fin-root", "recovery"],
+    "current_default_without_connection_parameter": "fin-root",
+    "reason": "The normal Design-to-Engineering link supplies the part but no connection parameter; the view selects the first connection containing forward_ring. The Design return link pins part/spec but does not retain connection=recovery.",
+    "desired_context_for_this_fixture": "recovery",
+    "production_change_made": false
+  },
+  "fixture": {
+    "entry_url": "/?workspace=engineering&view=rp1-connections&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660&part=forward_ring&connection=recovery",
+    "expected_connection_id": "recovery",
+    "expected_selected_part_id": "forward_ring",
+    "expected_node_ids": ["choker", "rings"],
+    "recorded_nominal_guide": {
+      "annotation_id": "ring-bore",
+      "value": 31.9,
+      "unit": "mm",
+      "source_locator": "parts[id=forward_ring].geometry.inner_radius_m",
+      "status": "recorded nominal estimate/proposal; annotation only"
+    },
+    "recovery_finding_ids_and_status": {
+      "finished-unknown": "unknown",
+      "fit-unknown": "unknown",
+      "separate-path": "requirement"
+    },
+    "saved_drawings": [
+      {
+        "id": "01-local-attachment",
+        "path": "output/rp1-attachment-definition/01-local-attachment.svg",
+        "sha256": "cf1569a1044c48c5465189bb03666f7af00d143ef9f8e307ce9a33e9450c2af7"
+      },
+      {
+        "id": "02-load-paths",
+        "path": "output/rp1-attachment-definition/02-load-paths.svg",
+        "sha256": "07ed71f1889fb0f851487b66617c79b65cb25f05d0795097fc3254e7c3770afa"
+      },
+      {
+        "id": "04-coupled-cases",
+        "path": "output/rp1-attachment-definition/04-coupled-cases.svg",
+        "sha256": "ec837f0342953a33b2db73f9082ba4577bacee3581ca94c6173f39dbb87a4b80"
+      }
+    ],
+    "design_return_url": "/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&part=forward_ring&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "round_trip_limit": "Returning through the existing Design link loses the selected recovery graph. A later ordinary Engineering link for forward_ring defaults to fin-root."
+  },
+  "validation": {
+    "source_files_and_saved_svg_sha256_checked": true,
+    "route_behavior_inspected_in_source": true,
+    "native_ui_round_trip_observed": false,
+    "graph_or_drawing_interaction_observed": false,
+    "acceptance_rows_not_promoted": ["RV-Q11", "RV-Q16", "RV-Q21"]
+  },
+  "gates": {
+    "frozen_rp1_changed": false,
+    "fp1_fr1": "separate unadopted studies",
+    "supplier_lab_inquiries": "all five UNSENT",
+    "engineering_accepted": false,
+    "physical_qualified": false,
+    "flight_ready": false
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import {
+  exactRp1EvidenceRouteSource,
   loadRp1Connections,
   rp1ConnectionDesignHref,
   rp1ConnectionDrawingHref,
@@ -380,7 +381,15 @@ function ConnectionContent({
                 inferred.
               </p>
             )}
-            <a className="rp1-connections-design-link" href={rp1ConnectionDesignHref(partId)}>
+            <a
+              className="rp1-connections-design-link"
+              href={rp1ConnectionDesignHref(
+                partId,
+                linkedPart && exactRp1EvidenceRouteSource(document)
+                  ? { connectionId: active.id, document }
+                  : undefined,
+              )}
+            >
               Inspect this exact AD1 part in Design
             </a>
             <p className="rp1-connections-muted">

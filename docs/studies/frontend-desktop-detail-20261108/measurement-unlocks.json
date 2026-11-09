@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "id": "rp1-intricate-detail-measurement-unlocks-20261108",
+  "scope": "Read-only source-linked future dimensional evidence list; no immediate owner measurement request",
+  "hardware_state": "unpurchased",
+  "immediate_owner_action": "none",
+  "purchase_contact_or_physical_work_authorized": false,
+  "identity": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "resolved_spec_sha256": null,
+    "cad_revision_sha256": null,
+    "record_path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+    "record_sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "definition_path": "configs/studies/rp1-attachment-definition-v2.yaml",
+    "definition_sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "rows": [
+    {
+      "part_id": "high_g_accel",
+      "identity_prerequisite": "Adafruit PID5374 exact board revision and actual connector/header population; retain official Eagle U1 ADXL343 discrepancy instead of inferring incoming ADXL375 silicon",
+      "supplier_documentable": [
+        {
+          "where": "PCB surfaces, component seating planes and both STEMMA connector bodies",
+          "measurement": "PCB thickness; maximum component/connector height above and below PCB; exact connector/header option and orientation",
+          "units": "mm;deg;identified revision"
+        }
+      ],
+      "later_owner_as_built": [
+        {
+          "where": "Identified incoming board and its actual populated edges/surfaces",
+          "measurement": "Confirm revision/population against source and only missing measured envelope/stack heights",
+          "units": "mm;identified revision"
+        }
+      ],
+      "already_available_do_not_repeat": "Official Eagle XY outline25.4\u00d717.78mm/four\u00d82.5holes/footprints; product envelope25.6\u00d717.7\u00d74.6mm remains distinct",
+      "visualization_unlocked": "Separate source-identified PCB/component-envelope height view; no invented internal silicon or installed vehicle registration",
+      "does_not_qualify": [
+        "Incoming silicon identity from Eagle U1 label",
+        "Electrical/sensor calibration",
+        "3D installed fit or vehicle adoption"
+      ],
+      "evidence": [
+        {
+          "path": "docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json",
+          "locator": "components[part_id=high_g_accel]"
+        },
+        {
+          "path": "web/src/data/highGBoardLayout.json",
+          "locator": "missing; source; mounting_holes"
+        }
+      ]
+    },
+    {
+      "part_id": "motor_retainer",
+      "identity_prerequisite": "Exact AeroTech19002 revision with identified12912 tube and current78010 G80 motor interface; retain historical128mm source hypothesis separately from current124mm casing nominal",
+      "supplier_documentable": [
+        {
+          "where": "Collar bore/insertion end, thread pair, cap lip/seat and motor thrust-ring/nozzle reference planes",
+          "measurement": "Controlled bore/OD/depth; thread form/pitch/major/minor/engagement; cap/seat/lip dimensions and mating axial datums/tolerances",
+          "units": "mm;thread designation;datum/tolerance definitions"
+        }
+      ],
+      "later_owner_as_built": [
+        {
+          "where": "Identified unmodified retainer/tube hardware exterior and accessible collar/cap surfaces, only after separate authorization",
+          "measurement": "Compare delivered revision and accessible gross diameters/depth/seat dimensions with controlled drawing",
+          "units": "mm;identified revision"
+        }
+      ],
+      "already_available_do_not_repeat": "Current display is only historical\u00d844.4\u00d745mm retainer envelope;12912 nominalOD31.369mm and1.1mmwall do not establish retainer bore/fit",
+      "visualization_unlocked": "Separately identified collar/cap/thread/seat reference and source-dimensioned motor-stack section",
+      "does_not_qualify": [
+        "Retention strength or thermal/adhesive capacity",
+        "Current motor compatibility or installed contact/clearance",
+        "Build/flight approval"
+      ],
+      "evidence": [
+        {
+          "path": "docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json",
+          "locator": "components[part_id=motor_retainer]"
+        },
+        {
+          "path": "web/public/engineering-workbench/rp1-detail/manifest.json",
+          "locator": "cases[id=motor-support-retention].missing"
+        }
+      ]
+    },
+    {
+      "part_id": "independent_recovery",
+      "identity_prerequisite": "UNRESOLVED: frozen learn/build/dimension record proposes EggtimerApogee; engineering.function names AltusMetrumEasyMini v3.0. Primary source reconciliation and exact board revision precede any mechanical request",
+      "supplier_documentable": [
+        {
+          "where": "Only the reconciled exact product/revision mechanical drawing and connector/access datums",
+          "measurement": "Board outline/thickness, mounting-hole centres/diameters, populated maximum heights and power/switch/connector orientation",
+          "units": "mm;deg;identified product/revision"
+        }
+      ],
+      "later_owner_as_built": [
+        {
+          "where": "Only identified acquired hardware matching the resolved source; none requested now",
+          "measurement": "Confirm revision/population and missing mounting/height dimensions against that product drawing",
+          "units": "mm;identified revision"
+        }
+      ],
+      "already_available_do_not_repeat": "44.45\u00d722.86\u00d78mm is a generic proposed envelope;8mm is a height budget, not a measured board thickness",
+      "visualization_unlocked": "A product-specific separate reference only after identity is resolved; no silent Apogee/EasyMini substitution",
+      "does_not_qualify": [
+        "Recovery-device selection",
+        "Power isolation or deployment reliability",
+        "Installed recovery assembly/flight acceptance"
+      ],
+      "evidence": [
+        {
+          "path": "docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json",
+          "locator": "components[part_id=independent_recovery].source_conflict"
+        },
+        {
+          "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+          "locator": "parts[id=independent_recovery].learn; .geometry; .engineering.function"
+        }
+      ]
+    },
+    {
+      "part_id": "rp1_kevlar_wrap",
+      "identity_prerequisite": "Exact Apogee30327 cord revision/construction and frozen AD1 proposed termination/route identity; no generic braid or alternate knot substitution",
+      "supplier_documentable": [
+        {
+          "where": "Exact raw30327 product specification",
+          "measurement": "Cord diameter/tolerance and braid/finish identification; any product-specific dimensional termination documentation",
+          "units": "mm;identified product construction"
+        }
+      ],
+      "later_owner_as_built": [
+        {
+          "where": "Only a separately authorized representative assembled route/article; nose-station/azimuth datum retained",
+          "measurement": "Dressed knot outer extents, cord centreline/exit points, eye-bearing/tail lengths and actual route/packing envelope",
+          "units": "mm;deg relative to first-fin azimuth"
+        }
+      ],
+      "already_available_do_not_repeat": "Frozen rawcut1.9812m, proposed3.8mmmaximum diameter and300mmraw reservations per termination are proposals, not finished-knot/route measurements",
+      "visualization_unlocked": "Reference cord route/knot occupancy through the defined ring passage; no replacement of missing route by stale budget box",
+      "does_not_qualify": [
+        "Terminated strength, chafe/thermal capacity or deployment energy",
+        "Installed recovery capacity",
+        "Construction adoption or flight acceptance"
+      ],
+      "evidence": [
+        {
+          "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+          "locator": "cord.kevlar;route"
+        },
+        {
+          "path": "docs/wo03-rp1-cord-documentation.md",
+          "locator": "Exact-finished-cord evidence gaps"
+        },
+        {
+          "path": "docs/studies/rp1-inspection-geometry-20261107/manifest.json",
+          "locator": "parts[id=rp1_kevlar_wrap].description"
+        }
+      ]
+    },
+    {
+      "part_id": "forward_ring",
+      "identity_prerequisite": "Frozen AD1 ring/notch source; primary must first define which entrance/exit edges and blend terminations belong to a separate optional roundover reference. No new construction correction is admitted here",
+      "supplier_documentable": [
+        {
+          "where": "Source drawing/definition of notch entrance/exit edges and roundover blend limits",
+          "measurement": "Explicit proposed2mmroundover edge selection, edge profile and blend termination/topology; stock dimensions from identified source where needed",
+          "units": "mm;source-defined edge/datum IDs"
+        }
+      ],
+      "later_owner_as_built": [
+        {
+          "where": "Only a later separately authorized identified ring/article at the same notch edges",
+          "measurement": "Actual notch width/depth and local edge radii/profile against the source definition",
+          "units": "mm"
+        }
+      ],
+      "already_available_do_not_repeat": "\u00d864.4outside/\u00d831.9bore/12.2stack, straight4.5\u00d75notch at60degrees already exist as nominal source detail",
+      "visualization_unlocked": "Separate correctly delimited edge-roundover view rather than a fabricated blended surface",
+      "does_not_qualify": [
+        "Cord minimum bend diameter or abrasion capacity",
+        "Bond quality, installed fit or ring strength",
+        "Physical construction correction or flight acceptance"
+      ],
+      "evidence": [
+        {
+          "path": "web/public/engineering-workbench/rp1-detail/manifest.json",
+          "locator": "cases[id=forward-ring-recovery].missing"
+        },
+        {
+          "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+          "locator": "route.passage_edge_roundover_mm;route.passage_radius_status"
+        }
+      ]
+    }
+  ],
+  "source_definition_holds_not_measurement_requests": [
+    {
+      "part_id": "mount_external_shield",
+      "reason": "Only sector shielding/retention reserve; adopted full annulus absent and conflicts with tabs. Actual sector/termination source geometry must exist before a spatial reference; do not demand a fabricated solid or owner measurement of a budget."
+    },
+    {
+      "part_id": "rail_buttons",
+      "reason": "1010 class is nominal only; actual launch hardware and two attachment stations unconfirmed. Exact product/site/interface identity must be source-defined before any later dimensional list."
+    },
+    {
+      "part_id": "rail_backers",
+      "reason": "Backer/fastener geometry and guide stations unconfirmed. Record remains unavailable; do not create a separate solid from its generic budget box."
+    }
+  ],
+  "distributed_allowance_rule": "No separate solid/measurement request for any of the25 audit-classified mass allowances; retain non-spatial budgets and55stable IDs. Missing-geometry source-definition holds above are not new measurement assignments.",
+  "excluded_mass_allowance_ids": [
+    "fin_internal_bonds",
+    "ring_bonds",
+    "outer_fin_fillets",
+    "retainer_adhesive",
+    "avionics_sled",
+    "logger_power_switch",
+    "logger_regulator",
+    "recovery_carrier",
+    "electrical_harness",
+    "recovery_harness_wiring",
+    "recovery_output_mount",
+    "finish",
+    "service_allowance",
+    "splice_seam_patch",
+    "splice_adhesive",
+    "root_extra_bond_finish",
+    "nose_service_hardware",
+    "c1_forward_root_bond_fill",
+    "c1_aft_bond_fill",
+    "c1_nose_bond_fill",
+    "rp1_wrap_lock_bond",
+    "rp1_notch_sealer",
+    "rp1_lip_guard",
+    "ad1_cord_sleeve",
+    "ad1_slot_fill"
+  ],
+  "source_sha256": {
+    "docs/studies/rp1-inspection-geometry-20261107/manifest.json": "f83054f7fd1e97f39c8c2102e514fe1835c3eec00b3de891579dce715ba7626c",
+    "docs/studies/frontend-desktop-detail-20261108/next-detail-sources.json": "915539c61d128005c4842399ebaeecee43672be311d14a0d4b9154c044e5b6ac",
+    "web/public/engineering-workbench/rp1-detail/manifest.json": "b3ac3cc62294676d5614eab048bab7111320f61eecaa002a85a7d1469b6e8ac6",
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "docs/wo03-rp1-cord-documentation.md": "d8b8ad407290eae1286255829e322e510c7d30fd49b75c2de496190b34aaeb87"
+  },
+  "visualization_boundary": "Future dimensional evidence may unlock a separately identified reference only; it does not change frozen core/optional assets or establish engineering/manufacturing/installed/flight acceptance.",
+  "research_or_measurement_performed": false,
+  "cad_generated": false,
+  "engineering_accepted": false,
+  "flight_ready": false,
+  "supplier_inquiries": "all five UNSENT"
+}

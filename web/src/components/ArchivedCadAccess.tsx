@@ -90,16 +90,6 @@ export function ArchivedCadAccess({
           <p>
             {access.designStatus}. {access.description}
           </p>
-          <p>
-            Existing archived or preliminary model files; manufactured is a source-role label, not
-            proof of built hardware. Byte identity is checked; geometry has not received a new CAD
-            readback or engineering qualification. Downloads do not authorize manufacturing,
-            physical work or flight.
-          </p>
-          <p>
-            GLB is a 3D viewing mesh. STEP exchanges solid geometry with computer-aided design (CAD)
-            tools. STL stores surface triangles for printing tools; it does not record units.
-          </p>
           <ul>
             {access.files.map((file) => (
               <li key={file.format}>
@@ -117,21 +107,35 @@ export function ArchivedCadAccess({
               </li>
             ))}
           </ul>
-          {selectedPart ? (
-            <p>
-              Part STEP is local CAD, before assembly placement; it differs from RP1’s placed STEP.
-              STL does not encode units; its recorded producer used CAD millimetres. It may be
-              print-oriented or bed-packed and is not installed assembly geometry.
-            </p>
-          ) : (
-            <p>
-              Assembly STEP retains placed CAD coordinates in millimetres. Assembly STL is
-              unavailable in the recorded export.
-            </p>
-          )}
           <button type="button" disabled={current?.busy} onClick={() => void download(null)}>
             Download recorded CAD provenance JSON
           </button>
+          <details>
+            <summary>File formats, coordinates and model limits</summary>
+            <p>
+              Existing archived or preliminary model files; manufactured is a source-role label, not
+              proof of built hardware. Byte identity is checked; geometry has not received a new CAD
+              readback or engineering qualification. Downloads do not authorize manufacturing,
+              physical work or flight.
+            </p>
+            <p>
+              GLB is a 3D viewing mesh. STEP exchanges solid geometry with computer-aided design
+              (CAD) tools. STL stores surface triangles for printing tools; it does not record
+              units.
+            </p>
+            {selectedPart ? (
+              <p>
+                Part STEP is local CAD, before assembly placement; it differs from RP1’s placed
+                STEP. STL does not encode units; its recorded producer used CAD millimetres. It may
+                be print-oriented or bed-packed and is not installed assembly geometry.
+              </p>
+            ) : (
+              <p>
+                Assembly STEP retains placed CAD coordinates in millimetres. Assembly STL is
+                unavailable in the recorded export.
+              </p>
+            )}
+          </details>
         </>
       ) : (
         <p>Unavailable: {access.reason}</p>

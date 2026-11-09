@@ -1,0 +1,699 @@
+{
+  "schema_version": 1,
+  "id": "RP1-AD1-connections-v1",
+  "configuration": {
+    "id": "G80-F2-RP1-AD1-definition-v2",
+    "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+  },
+  "status": "Source-linked unadopted concepts; no physical qualification or flight release",
+  "part_ids": [
+    "nose",
+    "body",
+    "fin_set",
+    "fin_tabs",
+    "motor_tube",
+    "forward_ring",
+    "aft_ring",
+    "fin_internal_bonds",
+    "ring_bonds",
+    "outer_fin_fillets",
+    "motor",
+    "motor_retainer",
+    "retainer_adhesive",
+    "mount_external_shield",
+    "nose_anchor_plate",
+    "nose_recovery_eye",
+    "shock_cord",
+    "recovery_connectors",
+    "parachute",
+    "recovery_protection",
+    "flight_computer",
+    "imu",
+    "baro",
+    "high_g_accel",
+    "micro_sd",
+    "battery",
+    "independent_recovery",
+    "recovery_battery",
+    "avionics_sled",
+    "logger_power_switch",
+    "logger_regulator",
+    "recovery_carrier",
+    "electrical_harness",
+    "recovery_harness_wiring",
+    "recovery_output_mount",
+    "rail_buttons",
+    "rail_backers",
+    "finish",
+    "service_allowance",
+    "upper_body",
+    "body_splice",
+    "splice_seam_patch",
+    "splice_adhesive",
+    "root_gussets",
+    "root_extra_bond_finish",
+    "nose_service_hardware",
+    "c1_forward_root_bond_fill",
+    "c1_aft_bond_fill",
+    "c1_nose_bond_fill",
+    "rp1_kevlar_wrap",
+    "rp1_wrap_lock_bond",
+    "rp1_notch_sealer",
+    "rp1_lip_guard",
+    "ad1_cord_sleeve",
+    "ad1_slot_fill"
+  ],
+  "sources": [
+    {
+      "id": "spec",
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+    },
+    {
+      "id": "definition",
+      "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+      "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+    },
+    {
+      "id": "ad1-record",
+      "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+    },
+    {
+      "id": "d1-record",
+      "path": "runs/wo03-rp1-d1-20261104-v1/record.json",
+      "sha256": "7bd208322dc8d866b56e4422d369d06d1a06b8966b7cc614a22c086bef1aa6a4"
+    },
+    {
+      "id": "ad1-decision",
+      "path": "docs/wo03-rp1-attachment-definition.md",
+      "sha256": "012cd168e03807460debd5bb9dbc543f058d02597f87bd83945a769794a1aa4a"
+    },
+    {
+      "id": "d1-decision",
+      "path": "docs/wo03-rp1-load-attachment-decision.md",
+      "sha256": "af6eabd641063d262d0190ee46f5bbc847e54af5c7a3a1f1c442f0a57740bb47"
+    },
+    {
+      "id": "drawing-manifest",
+      "path": "output/rp1-attachment-definition/manifest.json",
+      "sha256": "948d26808de0290e210aec28e03cc29a31d3c84cd65a8d73635c3973e935b8d7"
+    }
+  ],
+  "drawings": [
+    {
+      "id": "01-local-attachment",
+      "label": "Local attachment",
+      "path": "output/rp1-attachment-definition/01-local-attachment.svg",
+      "sha256": "cf1569a1044c48c5465189bb03666f7af00d143ef9f8e307ce9a33e9450c2af7",
+      "status": "Saved source-dimensioned concept; not manufacturing CAD or browser verification"
+    },
+    {
+      "id": "02-load-paths",
+      "label": "Load paths",
+      "path": "output/rp1-attachment-definition/02-load-paths.svg",
+      "sha256": "07ed71f1889fb0f851487b66617c79b65cb25f05d0795097fc3254e7c3770afa",
+      "status": "Saved source-dimensioned concept; not manufacturing CAD or browser verification"
+    },
+    {
+      "id": "03-test-article",
+      "label": "Representative test article",
+      "path": "output/rp1-attachment-definition/03-test-article.svg",
+      "sha256": "74c82a34bf60396fa9105c65081afed74e7eaa496c7d7e2f78b1e3be56daaeef",
+      "status": "Saved source-dimensioned concept; not manufacturing CAD or browser verification"
+    },
+    {
+      "id": "04-coupled-cases",
+      "label": "Coupled cases",
+      "path": "output/rp1-attachment-definition/04-coupled-cases.svg",
+      "sha256": "ec837f0342953a33b2db73f9082ba4577bacee3581ca94c6173f39dbb87a4b80",
+      "status": "Saved source-dimensioned concept; not manufacturing CAD or browser verification"
+    }
+  ],
+  "connections": [
+    {
+      "id": "fin-root",
+      "label": "Fin root and body",
+      "summary": "Parallel finite load paths from distributed fin force; no rigid root or equal force sharing.",
+      "part_ids": [
+        "fin_set",
+        "fin_tabs",
+        "outer_fin_fillets",
+        "root_gussets",
+        "root_extra_bond_finish",
+        "fin_internal_bonds",
+        "motor_tube",
+        "ring_bonds",
+        "aft_ring",
+        "body",
+        "forward_ring"
+      ],
+      "nodes": [
+        {
+          "id": "pressure",
+          "label": "Distributed fin load",
+          "part_ids": [],
+          "note": "Retained per-fin force and moment, not measured flight loads."
+        },
+        {
+          "id": "panel",
+          "label": "Fin panel",
+          "part_ids": [
+            "fin_set"
+          ],
+          "note": "One integral fin and tab; source dimensions are estimates."
+        },
+        {
+          "id": "tab",
+          "label": "Integral fin tab",
+          "part_ids": [
+            "fin_tabs"
+          ],
+          "note": "Finite stiffness; no front-ring contact or rigid support assumed."
+        },
+        {
+          "id": "external",
+          "label": "External fillets and wedges",
+          "part_ids": [
+            "outer_fin_fillets",
+            "root_gussets",
+            "root_extra_bond_finish"
+          ],
+          "note": "One parallel load route into the body."
+        },
+        {
+          "id": "internal",
+          "label": "Internal tab bonds",
+          "part_ids": [
+            "fin_internal_bonds"
+          ],
+          "note": "Parallel bond route into the motor tube; peel and slip unknown."
+        },
+        {
+          "id": "tube",
+          "label": "Motor tube",
+          "part_ids": [
+            "motor_tube"
+          ],
+          "note": "Finite tube ovalization and torsion remain unknown."
+        },
+        {
+          "id": "ring-bonds",
+          "label": "Ring bore and perimeter bonds",
+          "part_ids": [
+            "ring_bonds"
+          ],
+          "note": "Actual bond reaction split and stiffness are unknown."
+        },
+        {
+          "id": "aft-end",
+          "label": "Aft tab-end adhesive",
+          "part_ids": [],
+          "note": "No direct butt contact is credited across the proposed gap."
+        },
+        {
+          "id": "aft-ring",
+          "label": "Aft ring",
+          "part_ids": [
+            "aft_ring"
+          ],
+          "note": "Finite ring, bond and body deformation require evidence."
+        },
+        {
+          "id": "body",
+          "label": "Body shell",
+          "part_ids": [
+            "body"
+          ],
+          "note": "Body flexibility and global bending remain unavailable."
+        },
+        {
+          "id": "forward-ring",
+          "label": "Forward ring",
+          "part_ids": [
+            "forward_ring"
+          ],
+          "note": "Forward of tab; not a direct front-tab support."
+        }
+      ],
+      "edges": [
+        {
+          "id": "pressure-panel",
+          "from": "pressure",
+          "to": "panel",
+          "label": "Distributed fin load",
+          "note": "Equivalent resultant; not a single tip force."
+        },
+        {
+          "id": "panel-tab",
+          "from": "panel",
+          "to": "tab",
+          "label": "Integral panel to tab",
+          "note": "No rigid-root claim."
+        },
+        {
+          "id": "panel-external",
+          "from": "panel",
+          "to": "external",
+          "label": "Parallel external fillet route",
+          "note": "No equal sharing or uniform peel assumed."
+        },
+        {
+          "id": "external-body",
+          "from": "external",
+          "to": "body",
+          "label": "Fillets to body",
+          "note": "Capacity and finite compliance unknown."
+        },
+        {
+          "id": "tab-internal",
+          "from": "tab",
+          "to": "internal",
+          "label": "Parallel motor-side bond route",
+          "note": "Actual contact and joint stiffness not established."
+        },
+        {
+          "id": "internal-tube",
+          "from": "internal",
+          "to": "tube",
+          "label": "Bonds to tube",
+          "note": "Tube is not a rigid mandrel."
+        },
+        {
+          "id": "tube-ring-bonds",
+          "from": "tube",
+          "to": "ring-bonds",
+          "label": "Tube to ring bore bonds",
+          "note": "Force split depends on finite stiffness and contact."
+        },
+        {
+          "id": "ring-bonds-body",
+          "from": "ring-bonds",
+          "to": "body",
+          "label": "Ring perimeter to body",
+          "note": "No assumed equal load sharing."
+        },
+        {
+          "id": "tab-aft-end",
+          "from": "tab",
+          "to": "aft-end",
+          "label": "Aft tab adhesive",
+          "note": "Adhesive gap; no direct butt stop."
+        },
+        {
+          "id": "aft-end-ring",
+          "from": "aft-end",
+          "to": "aft-ring",
+          "label": "Aft adhesive to aft ring",
+          "note": "Finite stiffness and capacity unknown."
+        },
+        {
+          "id": "aft-ring-body",
+          "from": "aft-ring",
+          "to": "body",
+          "label": "Aft ring to body",
+          "note": "Body and ring motion remain unknown."
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "span",
+          "label": "Fin span",
+          "value": 0.06,
+          "unit": "m",
+          "source_id": "spec",
+          "note": "Source planform, not installed measurement."
+        },
+        {
+          "id": "root",
+          "label": "Root chord",
+          "value": 0.13,
+          "unit": "m",
+          "source_id": "spec",
+          "note": "Source planform."
+        },
+        {
+          "id": "tip",
+          "label": "Tip chord",
+          "value": 0.065,
+          "unit": "m",
+          "source_id": "spec",
+          "note": "Source planform."
+        },
+        {
+          "id": "tab-length",
+          "label": "Tab length",
+          "value": 109.4,
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Proposed source definition."
+        },
+        {
+          "id": "aft-tab-end",
+          "label": "Aft tab end station",
+          "value": 1189.6,
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Aft from nose datum."
+        },
+        {
+          "id": "aft-ring-front",
+          "label": "Aft ring front station",
+          "value": 1190,
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Aft from nose datum; adhesive gap, no direct butt support."
+        },
+        {
+          "id": "force",
+          "label": "Retained factored per-fin force",
+          "value": 331.125,
+          "unit": "N",
+          "source_id": "d1-record",
+          "note": "Consistent with retained moment; factor already applied."
+        },
+        {
+          "id": "moment",
+          "label": "Retained factored per-fin moment",
+          "value": 8.83,
+          "unit": "N·m",
+          "source_id": "d1-record",
+          "note": "Factor applied once; not measured flight load."
+        }
+      ],
+      "findings": [
+        {
+          "id": "wood-failed",
+          "label": "AD1 optimistic wood component screen failed",
+          "status": "failed-screen",
+          "detail": "Saved optimistic bonded wood component model exceeds retained motion and material screens; it does not include validated installed root.",
+          "source_id": "ad1-record",
+          "measurement_needed": "Conditioned material response and complete-root behavior require a separately authorized representative method."
+        },
+        {
+          "id": "installed-unknown",
+          "label": "Installed root displacement and peel unavailable",
+          "status": "unknown",
+          "detail": "Finite tab, bonds, tube, ring and body stiffness/peel are not measured; no installed pass.",
+          "source_id": "ad1-record",
+          "measurement_needed": "Later measure complete-root response and joint behavior under an accepted, authorized protocol."
+        },
+        {
+          "id": "force-rule",
+          "label": "Retained load and 1 mm limit",
+          "status": "requirement",
+          "detail": "331.125 N and 8.83 N·m already include design factor 3 once; complete tip movement plus uncertainty remains limited to 1 mm.",
+          "source_id": "d1-decision",
+          "measurement_needed": "Validate distributed panel load transformation and complete root before an acceptance claim."
+        }
+      ],
+      "drawing_ids": [
+        "01-local-attachment",
+        "02-load-paths",
+        "03-test-article"
+      ]
+    },
+    {
+      "id": "recovery",
+      "label": "Recovery leader and load path",
+      "summary": "Nylon, leader and tube choker with separate nose branch; no equal split or qualified finished attachment.",
+      "part_ids": [
+        "parachute",
+        "recovery_connectors",
+        "shock_cord",
+        "rp1_kevlar_wrap",
+        "forward_ring",
+        "rp1_notch_sealer",
+        "ad1_cord_sleeve",
+        "motor_tube",
+        "ring_bonds",
+        "body",
+        "upper_body",
+        "nose_recovery_eye",
+        "nose_anchor_plate"
+      ],
+      "nodes": [
+        {
+          "id": "canopy",
+          "label": "Canopy and bridle",
+          "part_ids": [
+            "parachute"
+          ],
+          "note": "Nominal packing and opening remain unverified."
+        },
+        {
+          "id": "junction",
+          "label": "Distal connector junction",
+          "part_ids": [
+            "recovery_connectors"
+          ],
+          "note": "Product and capacities unresolved; separate nose branch."
+        },
+        {
+          "id": "nylon",
+          "label": "Uncut nylon and sewn loops",
+          "part_ids": [
+            "shock_cord"
+          ],
+          "note": "55 g estimate; 68 g is an unverified sensitivity, not a bound."
+        },
+        {
+          "id": "leader",
+          "label": "Leader eye and cord",
+          "part_ids": [
+            "rp1_kevlar_wrap"
+          ],
+          "note": "Proposed knots and finished capacity unverified."
+        },
+        {
+          "id": "choker",
+          "label": "Tube choker and ring contact",
+          "part_ids": [
+            "rp1_kevlar_wrap",
+            "forward_ring",
+            "rp1_notch_sealer"
+          ],
+          "note": "Local force entry; contact, chafe and finishing not qualified."
+        },
+        {
+          "id": "sleeve",
+          "label": "Protective sleeve",
+          "part_ids": [
+            "ad1_cord_sleeve"
+          ],
+          "note": "Forward of ring; not load bearing and not in notch."
+        },
+        {
+          "id": "mount",
+          "label": "Motor tube",
+          "part_ids": [
+            "motor_tube"
+          ],
+          "note": "Finite tube and ring joints receive load."
+        },
+        {
+          "id": "rings",
+          "label": "Ring and bonds",
+          "part_ids": [
+            "forward_ring",
+            "ring_bonds"
+          ],
+          "note": "Inner and outer load sharing depends on contact and stiffness."
+        },
+        {
+          "id": "body",
+          "label": "Continuous body",
+          "part_ids": [
+            "body",
+            "upper_body"
+          ],
+          "note": "Stiffness and contact paths unverified."
+        },
+        {
+          "id": "nose-eye",
+          "label": "Nose eye and plate",
+          "part_ids": [
+            "nose_recovery_eye",
+            "nose_anchor_plate"
+          ],
+          "note": "Separate branch, not automatically half the load."
+        }
+      ],
+      "edges": [
+        {
+          "id": "canopy-junction",
+          "from": "canopy",
+          "to": "junction",
+          "label": "Bridle to distal junction",
+          "note": "Connector capacity remains unknown."
+        },
+        {
+          "id": "junction-nylon",
+          "from": "junction",
+          "to": "nylon",
+          "label": "Distal sewn nylon loop",
+          "note": "Finished loop capacity unavailable."
+        },
+        {
+          "id": "nylon-leader",
+          "from": "nylon",
+          "to": "leader",
+          "label": "Proximal loop to leader eye hitch",
+          "note": "No knot efficiency credited."
+        },
+        {
+          "id": "leader-choker",
+          "from": "leader",
+          "to": "choker",
+          "label": "Leader to tube choker",
+          "note": "Actual contact and chafe unknown."
+        },
+        {
+          "id": "choker-mount",
+          "from": "choker",
+          "to": "mount",
+          "label": "Local tube contact",
+          "note": "No uniform circumference pressure assumed."
+        },
+        {
+          "id": "choker-rings",
+          "from": "choker",
+          "to": "rings",
+          "label": "Local ring/annulus contact",
+          "note": "Ring load partition unknown."
+        },
+        {
+          "id": "mount-rings",
+          "from": "mount",
+          "to": "rings",
+          "label": "Tube to ring bonds",
+          "note": "Bond force split unknown."
+        },
+        {
+          "id": "rings-body",
+          "from": "rings",
+          "to": "body",
+          "label": "Ring perimeter to body",
+          "note": "Finite compliance and joints remain unverified."
+        },
+        {
+          "id": "junction-nose",
+          "from": "junction",
+          "to": "nose-eye",
+          "label": "Separate nose branch",
+          "note": "No equal half-force assumption."
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "motor-tube",
+          "label": "Motor tube station interval",
+          "value": [
+            1055,
+            1220
+          ],
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Aft from nose datum."
+        },
+        {
+          "id": "forward-ring",
+          "label": "Forward ring station interval",
+          "value": [
+            1060,
+            1072.2
+          ],
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Aft from nose datum."
+        },
+        {
+          "id": "wrap",
+          "label": "Choker station interval",
+          "value": [
+            1072.2,
+            1077.0
+          ],
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Proposed concept."
+        },
+        {
+          "id": "notch-width",
+          "label": "Notch width",
+          "value": 4.5,
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Proposed cut; fit and conditioned clearance not established."
+        },
+        {
+          "id": "notch-depth",
+          "label": "Notch radial depth",
+          "value": 5,
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Proposed cut; actual section unverified."
+        },
+        {
+          "id": "knot-angle",
+          "label": "Knot sector",
+          "value": 60,
+          "unit": "deg",
+          "source_id": "definition",
+          "note": "First fin at 0 degrees."
+        },
+        {
+          "id": "sleeve",
+          "label": "Protective sleeve station interval",
+          "value": [
+            980,
+            1060
+          ],
+          "unit": "mm",
+          "source_id": "definition",
+          "note": "Sleeve ends ahead of ring, outside notch."
+        },
+        {
+          "id": "finished-capacity",
+          "label": "Finished attachment capacity",
+          "value": null,
+          "unit": "N",
+          "source_id": "ad1-record",
+          "note": "Unknown, not zero."
+        }
+      ],
+      "findings": [
+        {
+          "id": "finished-unknown",
+          "label": "Finished cord and connection capacity unavailable",
+          "status": "unknown",
+          "detail": "Raw product ratings do not establish finished knot, sewn loop, connector, or ring capacity.",
+          "source_id": "ad1-decision",
+          "measurement_needed": "A separately authorized representative test must characterize actual terminations and connections."
+        },
+        {
+          "id": "fit-unknown",
+          "label": "Notch, dressed knot and sleeve fit unavailable",
+          "status": "unknown",
+          "detail": "Nominal envelope and cold clearance do not establish a real conditioned moving-cord fit or chafe/thermal capacity.",
+          "source_id": "ad1-decision",
+          "measurement_needed": "Inspect actual supplied geometry, dressed knot, clearance, routing and sleeve after separate physical-work authorization."
+        },
+        {
+          "id": "separate-path",
+          "label": "Unequal and separate load routes",
+          "status": "requirement",
+          "detail": "Tautening and snagged or slack branches can load differently; no equal share or uniform circumferential pressure is credited.",
+          "source_id": "ad1-decision",
+          "measurement_needed": "Characterize contact and reactions before adopting load sharing."
+        }
+      ],
+      "drawing_ids": [
+        "01-local-attachment",
+        "02-load-paths",
+        "04-coupled-cases"
+      ]
+    }
+  ]
+}
