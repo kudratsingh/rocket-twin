@@ -1,0 +1,121 @@
+{
+  "packet": "P56",
+  "status": "fail-usable-PCB-graphic;source-controls-and-close-pass;ownerrestore-partial",
+  "source_fixture": "Primary329web/12focusedPython/type/lint/format/buildpass/sourcefrozen; currentRP1spec811b/core238unchanged",
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "no_new_input_after_seconds": 140
+  },
+  "timing": {
+    "native_end_elapsed_ms": 138090,
+    "search_ms": 3615,
+    "part_details_ms": 21684,
+    "PCB_open_capture_ms": 22652,
+    "net_menu_ms": 52871,
+    "GND_Top_capture_ms": 69961,
+    "Bottom_Fit_captures_ms": 87853,
+    "Close_click_result_ms": 114868,
+    "settled_close_capture_ms": 138090
+  },
+  "runtime": {
+    "transport": "ExistingnativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "owner_entry": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": null,
+    "visible_meshes": "23/26",
+    "hidden": [
+      "nose",
+      "body",
+      "upper_body"
+    ],
+    "group": "Recovery",
+    "mode": "Rotate",
+    "camera_label": "Custom",
+    "horizontal_degrees": -290.1,
+    "tilt_degrees": 51,
+    "roll_degrees": 0,
+    "target": "Recovery",
+    "search": "blank",
+    "context_tab": "Parts",
+    "scene_tools": "closed"
+  },
+  "cases": [
+    {
+      "case": "Actualsourceentry",
+      "status": "pass",
+      "actual": "Partssearchhigh_g_accel\u2192actualrow\u2192Details\u2192ExplorePCBstructurein3D. NoWhole/reset/pageNavigation."
+    },
+    {
+      "case": "Sourcecoverage/unknowns",
+      "status": "pass-for-visibleUItext",
+      "actual": "26placements/82pads/208widthpreservedroutedtraces/26viadrills/14nets. Unknownboardthickness/componentheight,viacopperOD/groundpour;sourceU1ADXL343inADXL375PID5374file/incomingsiliconunverified."
+    },
+    {
+      "case": "GNDnetselection",
+      "status": "pass-for-control/source-readouts",
+      "actual": "ActualnativeGNDmenuoption\u2192GNDvalue;17pads/16routedsegments/9viadrills. U1defaultfootprintnotchanged."
+    },
+    {
+      "case": "Top/Bottom/Fitboard",
+      "status": "pass-for-clicks;FAIL-for-usable-rendered-result",
+      "actual": "OneactualTop,Bottom,Fitboardclick. Genuinescreenshotsallshowmassiveclippedcream/grayplanarshapes; wholeboardoutline/holes/pads/routingnotrecognizable. Fitdoesnotrecoverreadableboard. Causeunknown;notinferredfromAX."
+    },
+    {
+      "case": "Graphicspacing/otherlayers",
+      "status": "unexecuted",
+      "actual": "Optionalspacingremained0; layercheckboxdefaultsnotchanged."
+    },
+    {
+      "case": "Closemodal/parentretention",
+      "status": "pass",
+      "actual": "OneClosecomponentdetailclick; immediatesnapshotstale, nextfreshreadconfirmsmodalabsent/focusExplorePCBbutton/high_g_accelpartretained."
+    },
+    {
+      "case": "OriginalRecoverycontextrestoration",
+      "status": "partial",
+      "actual": "AnglesH\u2212290.1/Tilt51/Roll\u22120retained,butselectionchangedsTargetHighg. high_g_accelselected/Details/searchfilterpersists. NoClear/searchblank/Recoverygrouprestorebeforecutoff. No numericcamera-positionpreservationclaim."
+    }
+  ],
+  "source_reference": {
+    "manufacturer": "AdafruitPID5374",
+    "selected_footprint": "U1LGA14",
+    "source_value": "ADXL343",
+    "selected_net": "GND",
+    "planar_reference_only": true,
+    "no_installed_3D_fit": true
+  },
+  "visual_failure": {
+    "artifacts": [
+      "PCB-open.jpg",
+      "GND-top.jpg",
+      "GND-bottom.jpg",
+      "GND-fitted.jpg"
+    ],
+    "observation": "Unusableoversizedclippedshapes; sourceboarddetailnotreadable evenafterFitboard. Control/textsuccessdoesnotpassgraphic.",
+    "next_step": "Primaryboundedsourcecamera/units/materialdiagnosis; noP56retake."
+  },
+  "final_state": {
+    "workspace": "normalDesign",
+    "source": "RP1AD1v2/spec811b",
+    "part": "high_g_accel",
+    "context_tab": "Details",
+    "modal": "closed",
+    "focus": "ExplorePCBstructurein3D",
+    "search_filter": "high_g_accel persists",
+    "camera_angles": "H\u2212290.1/Tilt51/Roll\u22120",
+    "camera_target": "Highgaccel",
+    "visibility": "No visibilitycontrolsused;entry23/26hiddenstateexpectedunchangedbutfinalPartscontadorunobserved",
+    "scene_tools": "closed",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "ActualPCB3DgraphicFAIL, notpopulatedinstalledCAD/physics/fitqualification.",
+    "No newsourcegeometry/Run/Play/export/permission/viewport/performance/otherwindow.",
+    "No exactownerpan/zoom/pivotrestorationclaim."
+  ]
+}

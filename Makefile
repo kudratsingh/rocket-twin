@@ -167,3 +167,7 @@ recovery-budget: ## Exact G12 guide-limited recovery budget; retains full growth
 
 thermal-matrix: correction-package ## Required cases and exploratory cases remain distinct.
 	$(PYTHON) scripts/wo03_thermal_matrix.py --preset tiny
+
+.PHONY: component-detail
+component-detail: ## Verify/prepare recorded source mechanical detail; no CAD or physics generation.
+	$(PYTHON) scripts/wo04_prepare_component_detail.py --prepare

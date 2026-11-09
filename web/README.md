@@ -29,6 +29,16 @@ jumped to apogee and exported the playback CSV. Landing is not recorded. The JSO
 metadata export completed after explicit local-site authorization; no permission
 prompt or setting change occurred on the actual completion path. [Run and export evidence](../docs/studies/frontend-desktop-experiment-20261108/integration.md).
 
+## Component structure close-ups
+
+The current RP1 **Details → Inside the component** adds two source-based views:
+actual manufacturer PCB pads/routes/holes with footprint and net selection, and
+18 selectable fin/tab/gusset/tube/ring pieces from the existing mechanical model.
+Body cutaways, illustrative separation and independent Fit/zoom make the
+construction easier to inspect. Unknown package heights, adhesive geometry and
+unqualified joints remain explicit. These are inspection references, not new
+vehicle parts or engineering approval. [Open the views and source limits](../docs/studies/frontend-component-depth-20261108/integration.md).
+
 ## Desktop engineering inspection
 
 PR116 is merged after both required checks. [Latest verified walkthrough](../docs/studies/frontend-desktop-evidence-closeout-20261108.md) includes actual ring-detail, source-drawing, keyboard, experiment and export evidence, plus the local screenshot/CAD packs. Full engineering and frontend benchmark gates remain open.

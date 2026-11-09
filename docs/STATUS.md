@@ -1,5 +1,17 @@
 # Status
 
+**Active owner direction — component depth:** The owner wants intricate parts and
+construction detail beyond block envelopes. Implement source-based PCB structure
+and fin/root/motor construction close-ups linked to existing part IDs, with local
+selection/layers/camera controls. The frozen physical vehicle, mass/inertia and
+existing preview remain unchanged; unsupported details remain unavailable.
+[Current bounded packet](studies/frontend-component-depth-20261108/plan.md).
+Code/source checks pass. P57 verifies the corrected PCB graphic; P59 verifies
+mechanical opening, tab selection and separated-piece framing. Half-shell edge
+visibility and unexercised controls remain partial. See the component-depth
+integration record; no physical design or engineering gate changed.
+
+
 **Published desktop checkpoint:** PR116 merged at`49459f36426a8a17108b65f904025abf7fc30735`
 after exact finalhead`c1adab87bcc83f826739b5ac3d5dc735f0aa693c`, workflow42573819956
 and both required jobs succeeded. Source snapshots matched118 remote blobs;

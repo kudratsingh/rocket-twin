@@ -1,0 +1,45 @@
+.component-depth-access {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #3b6572;
+  border-radius: 6px;
+  background: #162a35;
+}
+.component-depth-access h3 {
+  margin: 0 0 6px;
+}
+.component-depth-access p {
+  line-height: 1.5;
+}
+.component-depth-dialog {
+  width: min(1500px, 95vw);
+  max-width: 95vw;
+  max-height: 94vh;
+  padding: 16px;
+  background: #101e29;
+  color: #e6f1f7;
+  border: 1px solid #557581;
+  border-radius: 10px;
+  overflow: auto;
+}
+.component-depth-dialog::backdrop {
+  background: #071016c9;
+}
+.component-depth-dialog > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.component-depth-dialog > header h2 {
+  margin: 0;
+  font-size: 19px;
+}
+.component-depth-dialog > header p {
+  margin: 5px 0 0;
+  color: #b9d0da;
+}
+.component-depth-dialog > header button {
+  flex: 0 0 auto;
+}

@@ -1,0 +1,79 @@
+.highg-pcb-reference {
+  margin-block: 1rem;
+  border: 1px solid #547186;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  background: #152432;
+  color: #ecf4f6;
+}
+.highg-pcb-reference h3 {
+  margin: 0 0 0.5rem;
+}
+.highg-pcb-reference p {
+  margin-block: 0.65rem;
+}
+.highg-pcb-reference a {
+  color: #8edcf5;
+}
+.highg-pcb-reference code {
+  overflow-wrap: anywhere;
+}
+.highg-pcb-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  margin-block: 0.7rem;
+}
+.highg-pcb-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.highg-pcb-controls select {
+  max-width: min(19rem, 80vw);
+}
+.highg-pcb-spacing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-block: 0.65rem;
+}
+.highg-pcb-spacing input {
+  flex: 1 1 12rem;
+}
+.highg-pcb-canvas {
+  width: 100%;
+  height: min(52vh, 540px);
+  min-height: 340px;
+  border: 1px solid #68889a;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+.highg-pcb-hint {
+  font-size: 0.88rem;
+  color: #c7d7df;
+}
+.highg-pcb-silk-label {
+  display: inline-block;
+  padding: 0 2px;
+  color: #f4f5df;
+  font:
+    600 10px/1.1 system-ui,
+    sans-serif;
+  text-shadow:
+    0 1px 2px #0b1722,
+    0 0 2px #0b1722;
+  white-space: nowrap;
+}
+.highg-pcb-ref-label {
+  display: inline-block;
+  padding: 0 2px;
+  color: #9fcaef;
+  font:
+    600 10px/1.1 system-ui,
+    sans-serif;
+  text-shadow: 0 1px 2px #0b1722;
+  white-space: nowrap;
+}

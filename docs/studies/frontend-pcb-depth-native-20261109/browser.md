@@ -1,0 +1,11 @@
+# P56 source PCB structure: graphic failure
+
+**The new3DPCBgraphicfailed usableinspection.** NormalPartssearch/actualhigh_g_accelrow/Details/ExplorePCBstructureopenedthemodal. Sourcecountsandlimitswerereadable:26placements/82pads/208routedtraces/26viadrills/14nets; unknownZ/heights/U1ADXL343conflictretained. ActualGNDselectiondisplayed17pads/16segments/9viadrills.
+
+ActualTop,BottomandFitboardclicksweremade. **GND-top.jpg/GND-bottom.jpg/GND-fitted.jpg showoversizedclippedcream/grayshapesfillingthecanvas. Boardoutline/holes/pads/routingarenotrecognizable; Fitboarddoesnotrecoverausablewholeboard.** Text/controlsuccessisnotvisualacceptance. Rootreceivedthegenuinefailurecaptures; causeisunknown, notassumedcamera/units/materialbug. NoadditionalP56attempt.
+
+OneClosecomponentdetailclickclosedthemodal; aninitialsnapshotwasstale, thenfreshstateconfirmednormalparent/high_g_accelretained/focusExplorePCB. Optionalspacing/layerchangesandownerRecoveryrestorewereunexecuted.
+
+OwnerentrywasRecovery23/26/Rotate/CustomH−290.1/Tilt51/TargetRecovery,Parts/searchblank/toolsclosed. NoWhole/reset/visibilitycontrolwasused. FinalanglesremainH−290.1/Tilt51/Roll−0,buttargetHighg,high_g_accelselected/Details/searchfilterpersists. Final23/26counterandnumericcamera-positionwerenotindependentlyobserved; **fullownerrestorationisnotclaimed**.
+
+Nativeworkendedat**138.090seconds**, within180seconds/before140-secondinputcutoff. FreshsamecellAXprecededinputs; no guard/error/denial/Run/Play/export/permission/resize/DevTools/otherwindow. Nativeidle. P56isafailednewgraphicwithworkingcontrols/source/close, notmanufacturing/installedfit/silicon/performanceacceptance.

@@ -1,0 +1,198 @@
+.rp1-mechanical-reference {
+  color: #e7eef5;
+  background: #13202e;
+  border: 1px solid #40566a;
+  border-radius: 12px;
+  padding: 14px;
+  min-width: 0;
+}
+
+.rp1-mechanical-header,
+.rp1-mechanical-controls,
+.rp1-mechanical-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.rp1-mechanical-header {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rp1-mechanical-header h3 {
+  margin: 0 0 3px;
+  font-size: 1.18rem;
+}
+
+.rp1-mechanical-header p,
+.rp1-mechanical-limit {
+  margin: 0;
+  color: #bad0dd;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.rp1-mechanical-reference button,
+.rp1-mechanical-reference select {
+  border: 1px solid #59748b;
+  border-radius: 7px;
+  background: #203346;
+  color: #ecf6fc;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.rp1-mechanical-reference button:hover,
+.rp1-mechanical-reference button:focus-visible,
+.rp1-mechanical-reference select:focus-visible,
+.rp1-mechanical-reference input:focus-visible {
+  border-color: #7bc5de;
+  outline: 2px solid #7bc5de;
+  outline-offset: 2px;
+}
+
+.rp1-mechanical-controls {
+  margin-bottom: 12px;
+  font-size: 0.79rem;
+  color: #c9dce7;
+}
+
+.rp1-mechanical-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rp1-mechanical-controls input[type='range'] {
+  width: 115px;
+  accent-color: #70c6de;
+}
+
+.rp1-mechanical-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+  gap: 12px;
+}
+
+.rp1-mechanical-canvas {
+  position: relative;
+  height: min(65vh, 650px);
+  min-height: 420px;
+  min-width: 0;
+  overflow: hidden;
+  background: #101c28;
+  border: 1px solid #435c70;
+  border-radius: 8px;
+}
+
+.rp1-mechanical-loading {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  color: #e7eef5;
+  line-height: 1.5;
+}
+
+.rp1-mechanical-sidebar {
+  max-height: min(65vh, 650px);
+  min-height: 420px;
+  overflow: auto;
+  border: 1px solid #435c70;
+  border-radius: 8px;
+  background: #182a3b;
+  padding: 12px;
+  font-size: 0.8rem;
+}
+
+.rp1-mechanical-selected {
+  display: grid;
+  gap: 4px;
+  border-bottom: 1px solid #435c70;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+.rp1-mechanical-selected > span {
+  color: #a9c6d6;
+}
+
+.rp1-mechanical-selected > strong {
+  font-size: 1rem;
+}
+
+.rp1-mechanical-selected p {
+  margin: 5px 0;
+  line-height: 1.35;
+}
+
+.rp1-mechanical-selected code {
+  overflow-wrap: anywhere;
+  color: #9bdde5;
+}
+
+.rp1-mechanical-selected dl {
+  margin: 6px 0 0;
+}
+
+.rp1-mechanical-selected dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid #3d5367;
+  padding: 5px 0;
+}
+
+.rp1-mechanical-selected dt {
+  color: #adcad9;
+}
+
+.rp1-mechanical-selected dd {
+  margin: 0;
+  text-align: right;
+}
+
+.rp1-mechanical-piece-list details {
+  border-bottom: 1px solid #3d5367;
+  padding: 4px 0;
+}
+
+.rp1-mechanical-piece-list summary {
+  cursor: pointer;
+  padding: 5px 0;
+  font-weight: 600;
+}
+
+.rp1-mechanical-piece-list summary span {
+  float: right;
+  color: #a6c7d7;
+}
+
+.rp1-mechanical-piece-list button {
+  display: block;
+  width: 100%;
+  margin: 4px 0;
+  text-align: left;
+}
+
+.rp1-mechanical-piece-list button[aria-pressed='true'] {
+  border-color: #f7c56b;
+  background: #514329;
+}
+
+.rp1-mechanical-limit {
+  margin-top: 12px;
+}
+
+@media (max-width: 760px) {
+  .rp1-mechanical-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rp1-mechanical-sidebar {
+    min-height: 0;
+    max-height: 330px;
+  }
+}

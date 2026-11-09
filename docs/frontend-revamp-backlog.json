@@ -1298,6 +1298,44 @@
         "docs/studies/frontend-pan-20261108/browser.md"
       ],
       "acceptance_scope": "Prescribed source/current-window interaction slice accepted; exact viewport, physical device sensitivity, full installed geometry and engineering qualification remain separate. Failed initial observations are retained."
+    },
+    {
+      "id": "RV-29",
+      "milestone": "M1-component-depth",
+      "pr": "wo04/component-depth-20261109",
+      "title": "Source-based PCB and mechanical construction detail",
+      "owner": "primary + bounded Sol HIGH source/viewer lanes; original browser owner",
+      "depends_on": [
+        "RV-26",
+        "RV-27"
+      ],
+      "ft_ids": [],
+      "source_paths": [
+        "docs/studies/frontend-component-depth-20261108/plan.md",
+        "docs/studies/frontend-component-depth-20261108/high-g-pcb-layout.json",
+        "docs/studies/frontend-component-depth-20261108/mechanical-detail-layout.json"
+      ],
+      "check_ids": [
+        "RV-Q46",
+        "RV-Q47"
+      ],
+      "status": "partial",
+      "optional": false,
+      "outside_initial_release": false,
+      "codeVerified": true,
+      "browserObserved": true,
+      "accepted": false,
+      "evidence": [
+        "docs/studies/frontend-component-depth-20261108/source-notes.md",
+        "docs/studies/frontend-component-depth-20261108/mechanical-export.md",
+        "docs/studies/frontend-component-depth-20261108/prepare-notes.md",
+        "docs/studies/frontend-component-depth-20261108/integration.md",
+        "docs/studies/frontend-pcb-depth-native-20261109/browser.md",
+        "docs/studies/frontend-pcb-depth-corrected-native-20261109/browser.md",
+        "docs/studies/frontend-mechanical-depth-native-20261109/browser.md",
+        "docs/studies/frontend-mechanical-depth-corrected-native-20261109/browser.md"
+      ],
+      "acceptance_scope": "Source detail/code verified; P57 actual PCB Top/Bottom/Fit, GND and C1 selection pass. P59 actual mechanical opening/tab selection/separation/Fit piece pass; half-shell boundary pixels and unexercised layer/piece controls remain partial. No manufactured hardware/fit/mass/inertia/strength qualification; failed P56/P58 preserved."
     }
   ],
   "source_kit": {
@@ -1320,7 +1358,7 @@
     "scope": "RV01/04/05/06/07 first inspection, remaining workspaces staged. No purchases/contact/physical tests.",
     "historical_intake_snapshot": true
   },
-  "updated_date": "2026-11-08",
-  "latest_implementation": "PR116merged49459f36426a8a17108b65f904025abf7fc30735 afterfinalc1adab exactheadworkflow42573819956+web/modelsuccess;118snapshotblobsverified. P54cleanringdetailthroughisolationPASS(Frame-onlyocclusionseparate);P55representativeslash/search/EscapePASS. Broaderkeyboard/modal/performance/datarequirementsopen;owner-deferredmobileunchanged. Allphysicalgates/inquiriesunchanged.",
+  "updated_date": "2026-11-09",
+  "latest_implementation": "RV29 componentdepthsource/viewerimplemented: PCBsource26placements/82pads/208routes/26vias;18existingmechanicalsubsolids; exactsourceadmission/bytechecks.329webcasesand12focusedPythonchecks pass;nativepending. FrozenphysicalRP1/D1unchanged, othercomponentdetailunavailable.",
   "delivery_priority": "Owner2026-11-08: desktop functional interactive source-backed detailed inspection/CAD/intricate parts, graphics, experiments and replay first; mobile/compact polish and exact-pixel campaigns secondary, no automatic acceptance."
 }

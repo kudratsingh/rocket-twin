@@ -13,6 +13,7 @@ import { RecoveryIdentityNotice } from './RecoveryIdentityNotice';
 const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
 const ArchivedCadAccess = lazy(() => import('./ArchivedCadAccess'));
 const Rp1PartEvidenceLinks = lazy(() => import('./Rp1PartEvidenceLinks'));
+const ComponentDepthAccess = lazy(() => import('./ComponentDepthAccess'));
 
 function numeric(value: JsonValue | undefined): number | undefined {
   return typeof value === 'number' ? value : undefined;
@@ -184,14 +185,6 @@ export function PartInspector({
           <Icon name="close" />
         </button>
       </div>
-      {design &&
-        (design.id === 'G80-F2-RP1-AD1-definition-v2' ? (
-          <Suspense fallback={<p>Loading matching Engineering connections…</p>}>
-            <Rp1PartEvidenceLinks design={design} partId={part.id} />
-          </Suspense>
-        ) : (
-          <p>RP1 connection evidence unavailable for this historical design.</p>
-        ))}
       <div className="part-title">
         <span
           className="large-part-dot"
@@ -204,6 +197,19 @@ export function PartInspector({
       </div>
       <p className="part-id">{part.id}</p>
       {design && <RecoveryIdentityNotice vehicle={design} selectedPart={part} />}
+      {design &&
+        (design.id === 'G80-F2-RP1-AD1-definition-v2' ? (
+          <Suspense fallback={<p>Loading matching Engineering connections…</p>}>
+            <Rp1PartEvidenceLinks design={design} partId={part.id} />
+          </Suspense>
+        ) : (
+          <p>RP1 connection evidence unavailable for this historical design.</p>
+        ))}
+      {design?.id === 'G80-F2-RP1-AD1-definition-v2' && (
+        <Suspense fallback={<p>Loading detailed component availability…</p>}>
+          <ComponentDepthAccess vehicle={design} part={part} />
+        </Suspense>
+      )}
       <div className="inspector-actions">
         <button onClick={() => focusPart(part.id)} disabled={!part.mesh_url}>
           <Icon name="fit" size={14} />
