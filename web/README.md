@@ -31,6 +31,8 @@ prompt or setting change occurred on the actual completion path. [Run and export
 
 ## Desktop engineering inspection
 
+PR116 is merged after both required checks. [Latest verified walkthrough](../docs/studies/frontend-desktop-evidence-closeout-20261108.md) includes actual ring-detail, source-drawing, keyboard, experiment and export evidence, plus the local screenshot/CAD packs. Full engineering and frontend benchmark gates remain open.
+
 The four archived reference/controls configurations also have registered part
 GLB/STEP/STL and whole-assembly GLB/STEP access. Use **Whole rocket assembly files**
 without clearing a selected component. Legacy part STEP is local millimetres;

@@ -30,3 +30,13 @@ and whole3D restored. Those scoped cases do not pass the remaining compound rows
 provide an actual failed-worker record, qualify strict60fps, or supply missing
 engineering data. The next desktop-only branch is the remaining keyboard/focus
 matrix; source/status/data gaps and owner-deferred mobile retain their disposition.
+
+## Published code and later verification
+
+PR116 is merged at49459f… after finalc1adab workflow42573819956 and both required
+jobs passed. P54 actually exposes the ring with the existing detail/isolation
+action; this does not fix Frame-only outer-body occlusion. P55 verifies representative
+slash/search/filter/Escape ownership, with editable Escape preserving selection
+and ordinary Escape clearing it. It does not establish every Tab/modal/keyboard
+combination. Search is blank and wholeRP1 restored. Broader source/data/strict
+performance and owner-deferred layout requirements retain their status.

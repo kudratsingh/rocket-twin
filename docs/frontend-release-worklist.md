@@ -1,5 +1,16 @@
 # Current frontend release worklist
 
+**Published desktop checkpoint:** PR116 merged at`49459f36426a8a17108b65f904025abf7fc30735`
+after exact finalhead`c1adab87bcc83f826739b5ac3d5dc735f0aa693c`, workflow42573819956
+and both required jobs succeeded. Source snapshots matched118 remote blobs;
+repository is public. [Code and browser closeout](studies/frontend-desktop-evidence-closeout-20261108.md).
+P54 verifies the existing explicit detail/isolation action exposes the ring bore,
+notch and seam; Frame-only body occlusion remains a separate limitation. P55
+verifies representative slash/search/Editable-Escape-preserve/global-Escape-clear,
+with no full keyboard/modal matrix claim. Browser is idle on wholeRP1, Parts open,
+search blank, tools closed. No immediate owner action is required for the preview.
+All physical/engineering gates and five UNSENT inquiries remain unchanged.
+
 **Current desktop inspection delivery — PR116:** Source-bound archived part/
 assembly CAD files, independent file scope, readable recovery-source conflict,
 and explicit source-pinned fin/recovery links are integrated. Frozen RP1 remains
