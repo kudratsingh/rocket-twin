@@ -1,0 +1,151 @@
+{
+  "schema_version": "rocket-twin.viewport-clarity-p13.20261108.v1",
+  "status": "passed_current_size_information_clarity_and_hide",
+  "owner": "/root/browser_access_sol",
+  "budget": {
+    "overall_cap_s": 120,
+    "hard_native_end_s": 90,
+    "actual_native_active_s": 33.601,
+    "budget_pass": true,
+    "before_action_checks_s": [
+      12.837,
+      32.776
+    ],
+    "launch_cutoff_s": 75,
+    "overall_reserve_left_s": 86.399,
+    "basis": "CUA Date.now initial fresh state through final native capture"
+  },
+  "source": {
+    "helper_sha256": "f12c6e8aea9b082e0f63b54ce568f6fee6402b46d2ff0747d74f82a1896b162e",
+    "freeze_file": "source-freeze.json",
+    "publication": "New local helper was unpublished at capture per primary; publication status remains primary-owned.",
+    "scope": "Only helper copy/control presentation changed. No App/scene/math/geometry change per primary.",
+    "design_confirmed": "G80-F2-RP1-AD1-definition-v2",
+    "source_limits": "No fresh API geometry/spec fingerprint verification in this helper-only packet."
+  },
+  "entry": {
+    "app": "Google Chrome",
+    "window_title": "Rocket Twin \u00b7 Vehicle inspection",
+    "url": "127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&verifyViewport=1",
+    "helper_already_mounted": true,
+    "navigation_needed": false,
+    "owner_zoom_report": "Owner explicitly reported 100% before handoff.",
+    "zoom_independently_verified": false,
+    "DPR_not_zoom_proof": true
+  },
+  "viewport": {
+    "actual_css_width": 2240,
+    "actual_css_height": 1109,
+    "device_pixel_ratio": 2,
+    "basis": "Fresh actual Current content area text from application helper, visible in native screenshot.",
+    "prescribed_size_acceptance": false,
+    "pixel_size_inferred_from_raster": false
+  },
+  "cases": [
+    {
+      "case": "Read-only actual information",
+      "outcome": "pass",
+      "observation": "Browser size \u00b7 information only; Current content area2240\u00d71109CSS/DPR2; explicit cannot resize Chrome or change page zoom; comfortable size sufficient to use app."
+    },
+    {
+      "case": "Misleading target control removed",
+      "outcome": "pass",
+      "observation": "No Requested size selector in actual helper AX/image; references are static list text inside disclosure."
+    },
+    {
+      "case": "Reference disclosure",
+      "outcome": "pass",
+      "actual_clicks": 1,
+      "static_sizes": [
+        [
+          1440,
+          900
+        ],
+        [
+          1280,
+          720
+        ],
+        [
+          900,
+          720
+        ]
+      ],
+      "observation": "These are test references, not resize controls. Exact-size cases remain pending. CSS pixels differ from screenshot pixels; DPR alone does not establish page zoom."
+    },
+    {
+      "case": "Distinct zoom wording",
+      "outcome": "pass_copy_visible_only",
+      "observation": "Visible helper distinguishes Chrome page zoom, rocket camera zoom and macOS Window\u2192Zoom. No settings or shortcut operation/independent zoom verification performed."
+    },
+    {
+      "case": "Hide and normal Design",
+      "outcome": "pass",
+      "actual_clicks": 1,
+      "observation": "Hide size information removed helper from AX/image. Normal RP1 tree,26/26mesh visibility and scene controls remained usable. Existing camera/source/part context not reset."
+    }
+  ],
+  "actions": {
+    "reference_disclosure_opens": 1,
+    "Hide_clicks": 1,
+    "navigation_reload": 0,
+    "zoom_or_window_changes": 0,
+    "camera_or_part_changes": 0,
+    "settings_menu_chase": 0,
+    "Play_simulation": 0,
+    "other_window_app": 0,
+    "devtools_cdp_console": 0,
+    "source_edit": 0
+  },
+  "final_state": {
+    "workspace": "design",
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "helper": "hidden in current mount; verifyViewport=1 remains in URL",
+    "navigation_parts_panels": "open/Parts",
+    "visible_meshes": [
+      26,
+      26
+    ],
+    "camera_preserved": {
+      "horizontal_deg": 30.3,
+      "tilt_deg": 72.1,
+      "roll_deg": 0,
+      "target": "Assembly",
+      "mode": "Custom"
+    },
+    "unrelated_state_reset": false,
+    "usable_normal_controls": true
+  },
+  "screenshots": [
+    {
+      "path": "runs/frontend-viewport-clarity-20261108/final-helper-hidden.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    },
+    {
+      "path": "runs/frontend-viewport-clarity-20261108/helper-references.jpg",
+      "format": "JPEG",
+      "raster_size": [
+        4480,
+        2460
+      ],
+      "unchanged_native": true
+    }
+  ],
+  "guards": {
+    "user_change": 0,
+    "automatic_rejection": 0,
+    "access_error": 0
+  },
+  "remaining": [
+    "Chrome100% zoom is owner-reported, not independently verified; DPR2 is not proof",
+    "Prescribed1440/1280/900 matrix and performance gate not started or passed",
+    "No new geometry/source/physical/flight acceptance implied"
+  ],
+  "primary_owned_file": "docs/studies/frontend-viewport-clarity-20261108/report.md was not edited or included in this inventory",
+  "prior_evidence_immutable": true,
+  "engineering_or_flight_approval": false
+}

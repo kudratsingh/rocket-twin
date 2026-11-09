@@ -1,28 +1,23 @@
 import { useEffect, useState } from 'react';
 
 export type WindowObservation = { width: number; height: number; dpr: number };
-const targets = [
+const referenceSizes = [
   [1440, 900],
   [1280, 720],
   [900, 720],
 ] as const;
-/** Read-only measurement. Never resizes windows, changes zoom or invokes a developer protocol. */
+
+/** Read-only observation. It never changes Chrome, camera zoom or acceptance state. */
 export function ViewportVerificationPanel({
   observation,
-  target,
-  onTarget,
   onClose,
 }: {
   observation: WindowObservation;
-  target: number;
-  onTarget: (value: number) => void;
   onClose: () => void;
 }) {
-  const expected = targets[target] ?? targets[0];
-  const matches = observation.width === expected[0] && observation.height === expected[1];
   return (
     <aside
-      aria-label="Manual viewport verification"
+      aria-label="Read-only browser size"
       style={{
         position: 'fixed',
         right: 10,
@@ -37,42 +32,51 @@ export function ViewportVerificationPanel({
         fontSize: 13,
       }}
     >
-      <strong>Manual browser-size verification</strong>
+      <strong>Browser size · information only</strong>
       <p role="status">
-        Content area: {observation.width} × {observation.height} CSS px · device-pixel ratio{' '}
-        {observation.dpr}.{' '}
-        {matches
-          ? 'Requested size matches.'
-          : `Target ${expected[0]} × ${expected[1]} CSS px not reached.`}
+        Current content area: {observation.width} × {observation.height} CSS px · device-pixel ratio{' '}
+        {observation.dpr}.
       </p>
-      <label>
-        Requested size{' '}
-        <select value={target} onChange={(event) => onTarget(Number(event.target.value))}>
-          {targets.map(([width, height], index) => (
-            <option key={width} value={index}>
-              {width} × {height}
-            </option>
-          ))}
-        </select>
-      </label>
       <p>
-        Resize this existing Chrome window manually. Keep browser zoom at100%. This panel only reads
-        the content size; it does not resize anything or open developer tools. CSS pixels are not
-        screenshot pixels.
+        This panel measures the current size. It cannot resize Chrome or change page zoom. Use a
+        comfortable window size; you do not need to match the references below to use Rocket Twin.
+      </p>
+      <details>
+        <summary>Reference sizes for engineering-team layout checks</summary>
+        <ul>
+          {referenceSizes.map(([width, height]) => (
+            <li key={width}>
+              {width} × {height} CSS px
+              {observation.width === width && observation.height === height
+                ? ' — matches current dimensions; layout acceptance is still separate'
+                : ''}
+            </li>
+          ))}
+        </ul>
+        <p>
+          These are test references, not resize controls. Exact-size cases remain pending until
+          checked. CSS pixels are not screenshot pixels. Device-pixel ratio does not by itself
+          establish page zoom.
+        </p>
+      </details>
+      <p>
+        Chrome page zoom is in its upper-right three-dot menu. On Mac, ⌘0 resets page zoom to its
+        default. Rocket Zoom in/out changes the 3D camera; macOS Window → Zoom changes window
+        bounds.
       </p>
       <button type="button" onClick={onClose}>
-        Hide measurement panel for inspection
+        Hide size information
       </button>
     </aside>
   );
 }
+
 export function ViewportVerification() {
   const [observation, setObservation] = useState<WindowObservation>(() => ({
     width: window.innerWidth,
     height: window.innerHeight,
     dpr: window.devicePixelRatio,
   }));
-  const [target, setTarget] = useState(0);
   const [dismissed, setDismissed] = useState(false);
   useEffect(() => {
     const update = () =>
@@ -85,11 +89,6 @@ export function ViewportVerification() {
     return () => window.removeEventListener('resize', update);
   }, []);
   return dismissed ? null : (
-    <ViewportVerificationPanel
-      observation={observation}
-      target={target}
-      onTarget={setTarget}
-      onClose={() => setDismissed(true)}
-    />
+    <ViewportVerificationPanel observation={observation} onClose={() => setDismissed(true)} />
   );
 }
