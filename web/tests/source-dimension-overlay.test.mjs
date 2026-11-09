@@ -1,15 +1,18 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import test from 'node:test';
 import { createServer } from '../node_modules/vite/dist/node/index.js';
 import { sourceDimensionPositions } from '../src/components/sourceDimensionPositions.ts';
+import { RP1_DETAIL_MANIFEST_SHA256 } from '../src/components/rp1Detail.ts';
 
 // Recorded source data, not dimensions reverse-engineered from screen pixels or CAD bounds.
-const manifest = JSON.parse(
-  readFileSync(
-    new URL('../public/engineering-workbench/rp1-detail/manifest.json', import.meta.url),
-  ),
+// Use the tracked packet: optional generated/public bytes are checked in separate tests.
+const packetBytes = readFileSync(
+  new URL('../../docs/studies/frontend-design-ux-20261108/detail-catalog.json', import.meta.url),
 );
+assert.equal(createHash('sha256').update(packetBytes).digest('hex'), RP1_DETAIL_MANIFEST_SHA256);
+const manifest = JSON.parse(packetBytes);
 const recorded = manifest.annotations.find((annotation) => annotation.id === 'ring-bore');
 const bore = {
   id: recorded.id,

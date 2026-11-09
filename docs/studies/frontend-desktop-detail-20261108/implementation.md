@@ -142,3 +142,20 @@ No physical/source definition is silently changed. Its STEP remains a generic
 unverified envelope, not detailed CAD for either device. Reconcile the exact
 intended controller/revision before a detailed controller model, mount or
 power-independence claim. Supplier/lab contacts remain UNSENT.
+
+## Hosted fresh-checkout correction
+
+PR115 first head57bdde7ae4316806f2dc3bb1722837003a20e0d1 failed its required web
+Test step in workflow42563350078: source-dimension-overlay.test.mjs opened an
+optional generated public manifest absent on the runner (ENOENT). Hosted summary
+was294 tests,283pass,1fail,10explicit skips; typecheck/lint passed and later web
+steps were skipped. This failed run is retained, not rerun unchanged or merged.
+
+The pure guide tests now read the tracked detail-catalog.json instead. Its33,734
+bytes/SHA-256b3ac3cc62294676d5614eab048bab7111320f61eecaa002a85a7d1469b6e8ac6
+are identical to the prepared public manifest. A new fixture hash assertion checks
+the registered source constant. All four guide tests still execute with their
+known endpoints, source identity, offset, hidden/invalid and renderer assertions;
+no skip or threshold relaxation was added. Actual generated-byte checks remain
+separate and explicitly optional. Runtime/physical code and native results are
+unchanged; a new exact-head required run must pass before merge.
