@@ -1,0 +1,80 @@
+{
+  "packet": "P54",
+  "status": "pass-for-explicit-current-ring-detail-and-nominalguide",
+  "source_fixture": "FinalPR116source318tests+2DCSS; primaryfrozen",
+  "limits": {
+    "native_seconds": 120,
+    "overall_seconds": 180,
+    "no_new_input_after_seconds": 90
+  },
+  "timing": {
+    "native_end_elapsed_ms": 90674,
+    "normal_navigation_ms": 1570,
+    "detail_action_ms": 19163,
+    "tools_open_ms": 36048,
+    "dimension_menu_ms": 36694,
+    "guide_capture_ms": 50341,
+    "owner_restore_capture_ms": 90674,
+    "input_guard": "Eachrestorationinputcheckedelapsed<90000 beforelaunch; finalAX/imagecompletedafter90sinputcutoffbutwithin120snativecap. Lastinputexacttimestampnotseparatelylogged."
+  },
+  "runtime": {
+    "transport": "ExistingnativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "detail_part": "forward_ring",
+    "core_fixture": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "core_hash_limit": "Expectedunchangedfixture, notindependentliveAPIhashreadinP54"
+  },
+  "cases": [
+    {
+      "case": "Exactcaseaction/automaticpopoverclose",
+      "status": "pass",
+      "actual": "Detailcoverage\u2192contextForwardringandproposedcordpassageInspectmodeleddetailactualclick; sourceDetail1/Restorevisibility1/TargetForwardring; coveragecasebodyabsentafterclick."
+    },
+    {
+      "case": "Source-backedexposedring",
+      "status": "pass-for-visibleinspectiongraphic",
+      "actual": "ring-guide.jpgactualisolatedannulus/bore/straightinner-edgenotch/thinlayerseam;1/1loadedpartboundsfitted. Outerbodydoesnotoccludering."
+    },
+    {
+      "case": "Nominalguide",
+      "status": "pass-for-actualselection/visibleguide",
+      "actual": "ActualSceneTools(noSectiontoggle)\u2192nativeRecorded3Ddimensionmenu\u219231.9boreoption; compactlabel/line andexactsourcepath/partlocator/specSHA. Notaninstalledmeasurement."
+    },
+    {
+      "case": "Ownerwholeassemblyrestore",
+      "status": "pass",
+      "actual": "Restorevisibility\u2192explicitClear\u2192Whole\u2192CloseTools; finalexactRP1nopart/Assembly45\u00b054.7\u00b0Roll\u22120/toolsclosed/wholevisibility."
+    }
+  ],
+  "visual_observations": [
+    "Cleanrealappcloseupshowscurrentringgeometry, proposedstraightnotchandseam; nofabricatedCADmapornewgeometry.",
+    "Sourceestimatedenvelopematurity/finishedmanufacturinggeometryunavailable remainsvisible.",
+    "Proposedroundoverblending/rope/knot/contact/chafe/conditionedbondstrengthremainunknown, ascoveragecaseexplicitlystates.",
+    "P50Framealoneouterbodyocclusionunchanged; P54differentexplicitdetailpathsuccessdoesnotretroactivelypassFramevisibility."
+  ],
+  "guide": {
+    "value_mm": 31.9,
+    "source": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "locator": "parts[id=forward_ring].geometry.inner_radius_m",
+    "meaning": "Recordednominalsourceguide, notexposedsolid/installedmeasurement"
+  },
+  "final_state": {
+    "workspace": "normalDesign",
+    "source": "RP1AD1v2/spec811b",
+    "part": null,
+    "camera": "Overview45\u00b0/54.7\u00b0Roll\u22120\u00b0Assembly",
+    "visibility": "restoredpriorwholeassembly",
+    "context_tab": "Detailsvehiclesummary",
+    "scene_tools": "closed",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Onecurrentdesktopdetailpath, notallpartCAD/manufacturingprecision/installedcapacity/flightacceptance.",
+    "Noexport/Run/Play/permission/performance/viewportcampaign/sourcechange."
+  ]
+}

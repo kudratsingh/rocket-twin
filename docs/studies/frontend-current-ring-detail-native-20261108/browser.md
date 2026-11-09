@@ -1,0 +1,11 @@
+# P54 current ring exposed through modeled detail
+
+**The actual existing detail path exposed a clear ring close-up.** ExactRP1/spec811b…/forward_ring→Detailcoverage→ForwardringcaseInspectmodeleddetail selected/framedthesource-supportedringandhidoutercontext. Popoverclosedautomatically; Source detailon/Restorevisibilityon/TargetForwardring,1/1loadedpartboundsfitted.
+
+Actual`ring-guide.jpg` showstheannulus,bore,straightinner-edgenotchandthinlayerseamwithouttheouterbodyocclusionseenwithP50Framealone. ExistingSceneToolswasopenedwithoutenablingSection; nativeRecorded3Ddimensionmenu31.9mmbore selected. Compactnominalguide/line andsourceenvelope/missingmanufacturingstatusarevisible. No numericalprecisionorinstalledmeasurementinferred. Sourcecoveragekeepsroundoverblending,rope/knot/contact/chafeandconditionedbondcapacityunknown.
+
+Thisisadifferentexplicitdetail/isolationworkflow, notanotherselectioncorrectionornewCAD. P50Frameocclusionrecordremainsunchanged. No alternategeometry/fakedmap/physics/sourcechange.
+
+Restorevisibility→explicitClear→Whole→CloseTools restorednormalwholeRP1/spec811b/nopart/Assembly45°54.7°/toolsclosed. Nativecaptureendedat**90.674seconds**, within120seconds. Eachrestorationinputhadliveelapsed<90sguard; finalAX/imagecompletedafterinputcutoffbutwithinpacketcap. Exactlastinputtimestampnotseparatelylogged.
+
+SamecellfreshAXprecededinputs; no guard/error/denial/export/Run/Play/permission/resize/DevTools/performance. Nativeidle. Thisisonedesktopinspectiongraphicpath, notcompleteCAD/manufacturing/fit/strength/engineeringorflightapproval.

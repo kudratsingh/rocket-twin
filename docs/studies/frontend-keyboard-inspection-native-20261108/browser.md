@@ -1,0 +1,9 @@
+# P55 actual keyboard search and Escape scopes
+
+**The representative keyboardfocus/selectionbranchespassed; Summarypanedisplaywasnotobserved.** ExactRP1/spec811b…/forward_ringwasloaded. Actual3Dmodelbuttonclickproducedconfirmednon-inputfocus. SlashthenopenedPartsandfocusedSearchparts. PastingstableIDforward_ringshowedthematchingrowselectedandscene/sourceidentityretained. NoTaborderwasassumed.
+
+WithSearchpartsactuallyfocused, Escape**preservedpartforward_ring** intopURLandsceneannotation; thecontextsidebarclosedandfocusreturned3Dmodel. Afreshactual3Dmodelbuttonclick/readconfirmedordinarybuttonfocus, thenEscape**removedpart** fromtopURLandremovedselectedsceneannotation. Thisdistinguisheseditable-searchEscapeandglobalEscape.
+
+ShowpartssidebarreopenedParts. Actualsearchselectall/Backspace/Tabclearedthefilter; finalAXshowsblankSearchparts. Whole restoredAssembly45°/54.7°withtoolsclosed/nopart. DetailsSummarywasnotseparatelyopened, so noSummarypanedisplayclaim.
+
+Nativeworkendedat**111.209seconds**, within150seconds/before120-secondinputcutoff. EveryinputusedfreshsamecellAX; no guard/error/denial/export/Run/Play/permission/resize/DevTools/performance. FinalnormalRP1Partsopen/blankfilter/wholeoverview,nativeidle. Thisisonerepresentativekeyboardbranch, notfullaccessibility/viewport/engineeringacceptance.

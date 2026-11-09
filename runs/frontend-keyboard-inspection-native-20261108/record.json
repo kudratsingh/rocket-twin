@@ -1,0 +1,104 @@
+{
+  "packet": "P55",
+  "status": "pass-for-representative-keyboard-focus-search-and-Escape-selection-scopes;Summary-unobserved",
+  "source_fixture": "FinalPR116c1adab frozenruntime",
+  "limits": {
+    "native_seconds": 150,
+    "overall_seconds": 210,
+    "no_new_input_after_seconds": 120
+  },
+  "timing": {
+    "native_end_elapsed_ms": 111209,
+    "navigation_ms": 1628,
+    "confirmed_noninputfocus_ms": 16746,
+    "slash_searchfocus_ms": 29758,
+    "filtered_capture_ms": 43887,
+    "search_Escape_ms": 55450,
+    "global_Escape_ms": 71555,
+    "owner_restore_ms": 111209
+  },
+  "runtime": {
+    "transport": "KnownnativeChromeApp/sameauthorizedwindow",
+    "fresh_AX_before_eachinput_samecell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "initial_selected_part": "forward_ring"
+  },
+  "focus_evidence": [
+    {
+      "step": "beforeSlash",
+      "actual": "ThefocusedUIelementis204togglebutton3Dmodel,Value1"
+    },
+    {
+      "step": "afterSlash",
+      "actual": "ThefocusedUIelementis75textfieldSearchparts"
+    },
+    {
+      "step": "afterFilter",
+      "actual": "ThefocusedUIelementis75textfieldSearchparts,Valueforward_ring"
+    },
+    {
+      "step": "afterSearchEscape",
+      "actual": "ThefocusedUIelementis68togglebutton3Dmodel; partURLretained"
+    },
+    {
+      "step": "beforeGlobalEscape",
+      "actual": "Freshactual3Dmodelbuttonclick/readconfirmedfocusedtoggle3Dmodel"
+    },
+    {
+      "step": "afterGlobalEscape",
+      "actual": "3Dmodelbuttonstillfocus; partremoved/sceneannotationabsent"
+    }
+  ],
+  "cases": [
+    {
+      "case": "Slashfromactualnoninputfocus",
+      "status": "pass",
+      "actual": "Actual3Dmodelbuttonfocus\u2192slash; PartsopensandSearchpartsactualfocused."
+    },
+    {
+      "case": "StableIDfilter",
+      "status": "pass",
+      "actual": "Pastedforward_ringintoactualfocusedsearch; ForwardringmatchingrowValue1/sceneannotation/sourceURLretained."
+    },
+    {
+      "case": "Escapeinsearch",
+      "status": "pass-for-selectionpreservation",
+      "actual": "ExactfocusedSearchparts\u2192Escape; partforward_ringremainsTOPURL/scene; contextsidebarclosesandfocusreturns3Dmodel."
+    },
+    {
+      "case": "GlobalEscapefromactualbuttonfocus",
+      "status": "pass-for-explicitselectionclear",
+      "actual": "Actualbuttonclick/focus\u2192Escape removespartfromTOPURLandsceneannotation; nopointer/Taborderassumption."
+    },
+    {
+      "case": "VehicleSummarypanedisplay",
+      "status": "unexecuted",
+      "actual": "ContextsidebarwasclosedthenrestoredasParts; DetailsSummarynotopenedseparately."
+    },
+    {
+      "case": "Clearfilter/Whole",
+      "status": "pass",
+      "actual": "Showpartssidebar\u2192actualsearchselectallBackspaceTab\u2192blanksearchfield; Whole\u2192Assembly45\u00b054.7\u00b0."
+    }
+  ],
+  "final_state": {
+    "workspace": "normalDesign",
+    "source": "RP1AD1v2/spec811b",
+    "part": null,
+    "context_tab": "Partsopen",
+    "search": "blank",
+    "camera": "Overview45\u00b0/54.7\u00b0Roll\u22120\u00b0Assembly",
+    "scene_tools": "closed",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "Oneactualkeyboardfocus/search/Escapebranch, notfullkeyboard/Tab/accessibilitymatrix.",
+    "NoSummarypaneclaimwithoutobservingDetails.",
+    "NoRun/Play/export/permission/viewport/performance/DevTools/otherwindow.",
+    "No engineering/physical/flightgatechange."
+  ]
+}

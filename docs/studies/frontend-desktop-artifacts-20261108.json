@@ -1,0 +1,56 @@
+{
+  "configuration": "G80-F2-RP1-AD1-definition-v2",
+  "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+  "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+  "final_source_head": "c1adab87bcc83f826739b5ac3d5dc735f0aa693c",
+  "scope": "Original actual native Chrome captures, unchanged. Local review artifact; no fresh browser interaction from gallery generation. Each caption retains its packet scope. P49 predates the selection correction.",
+  "engineering_accepted": false,
+  "flight_ready": false,
+  "images": [
+    {
+      "file": "ring-detail.jpg",
+      "source": "runs/frontend-current-ring-detail-native-20261108/ring-guide.jpg",
+      "title": "P54 \u00b7 Internal ring detail",
+      "caption": "Detail coverage \u2192 the forward-ring case \u2192 Inspect modeled detail isolates and frames the actual source geometry. The31.9mm bore is a nominal source guide; finished fit and material strength remain unqualified.",
+      "bytes": 996759,
+      "sha256": "e59787f14aba5ad7975f274b5c18d248c56fbd3f950920967e4c56561fa3c303"
+    },
+    {
+      "file": "source-drawing.jpg",
+      "source": "runs/frontend-drawing-readability-native-20261108/2D-corrected.jpg",
+      "title": "P53 \u00b7 Readable source drawing",
+      "caption": "The action card is outside the drawing. Nose datum, axial stations and selected-part role remain readable.2D and3D share the same frozen RP1 part identity.",
+      "bytes": 983634,
+      "sha256": "af0e1730fc5210e7902d8c8496c1c877e4d2487c0eebe1b2602fd42103c368c6"
+    },
+    {
+      "file": "draft-reuse.jpg",
+      "source": "runs/frontend-draft-reuse-native-20261108/recorded-draft-restored.jpg",
+      "title": "P52 \u00b7 Saved settings become a separate draft",
+      "caption": "One normal Reuse action restores the saved wind/Tiny/seed settings. No new simulation was submitted; independent saved-record bytes remain unchanged.",
+      "bytes": 1306095,
+      "sha256": "b8a2a5379a13e9b649f3f3b60f76a2067a94c6df0ecd2eb8c20de9485c5a3b3a"
+    },
+    {
+      "file": "metadata-download.jpg",
+      "source": "runs/frontend-authorized-metadata-native-20261108/metadata-done.jpg",
+      "title": "P49 \u00b7 Actual metadata download",
+      "caption": "Chrome reported Done for the actual42,723byte saved-run metadata file. Independent checks match both saved records, source/settings/range and wind differences. The trajectory remains partial.",
+      "bytes": 1448802,
+      "sha256": "6a378002a2f0573a201af1a66f657ef97fde2bf5aea0aecba0ac7a9306cfa7fd"
+    },
+    {
+      "file": "whole-rocket.jpg",
+      "source": "runs/frontend-current-ring-detail-native-20261108/owner-ready.jpg",
+      "title": "P54 \u00b7 Whole RP1 restored",
+      "caption": "The final browser state is whole RP1 Design with selection cleared and scene tools closed. The inspection has26 represented records across55 identities; source estimates and missing detail stay explicit.",
+      "bytes": 762594,
+      "sha256": "a38e5899623813ff0839c0d5afe4f14907fe620af1f09a70a2c5d2356d7ced9b"
+    }
+  ],
+  "zip": {
+    "path": "output/desktop-inspection-walkthrough-20261108.zip",
+    "bytes": 4118410,
+    "sha256": "2093ee2f635e26fd5f77a47ec172f307e18af057e01eccd885bf14a30a28739b"
+  }
+}
