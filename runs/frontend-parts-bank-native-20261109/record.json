@@ -1,0 +1,59 @@
+{
+  "packet": "P60",
+  "status": "unexecuted_verifier_binding_failure",
+  "date": "2026-11-09",
+  "scope": "One source-frozen Parts bank catalogue/conflict/installed-part inspection; same authorized Chrome window.",
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "input_cutoff_seconds": 140
+  },
+  "source_inventory": "source-freeze.json",
+  "observations": [
+    "The initial native call result was context-truncated; no AX or screenshot artifact from that call exists in this packet directory.",
+    "After the required documentation refresh, the cutoff/evidence query returned evidenceFs is not defined. No UI input was included in that query.",
+    "The verifier stopped immediately. No runtime restoration, repeated click, navigation, camera reset or visibility restoration followed."
+  ],
+  "exact_error": "evidenceFs is not defined",
+  "confirmed_native_feature_inputs": 0,
+  "input_count_qualification": "No feature input is confirmed by returned evidence. The initial planned call placed evidence file writing before its Parts bank click; its full result is unavailable, so no catalogue interaction is credited.",
+  "cases": [
+    {
+      "id": "entry_current_state",
+      "status": "unverified",
+      "reason": "No retained fresh native state."
+    },
+    {
+      "id": "catalogue_55_definitions_55_instances_transport",
+      "status": "unexecuted"
+    },
+    {
+      "id": "motor_retainer_19002_009750_conflict",
+      "status": "unexecuted"
+    },
+    {
+      "id": "forward_ring_installed_part_settled_identity",
+      "status": "unexecuted"
+    },
+    {
+      "id": "graphic_readability_and_scroll",
+      "status": "unexecuted"
+    }
+  ],
+  "timing": {
+    "native_elapsed_seconds": null,
+    "overall_elapsed_seconds": null,
+    "reason": "The failed cutoff query did not return its elapsed value. No duration or cap compliance is inferred."
+  },
+  "final_state": {
+    "live_state_confirmed": false,
+    "last_separate_readiness": "RP1 AD1 v2/spec 811b\u2026/fin_tabs Details; Fins and roots, Rotate view, custom heading -309.2 degrees, tilt 61.5 degrees; tools closed. This is prior readiness, not a P60 final observation."
+  },
+  "native_lane": "idle; source hold released to primary",
+  "non_claims": [
+    "No application defect established",
+    "No browser acceptance from the pre-native source fingerprints",
+    "No camera/visibility preservation claim from an absent final observation",
+    "No physical, manufacturing or engineering acceptance"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "status": "ready",
+  "scope": "Separate supported binding restoration/readiness only; no site inputs or navigation.",
+  "native_calls": [
+    "var chrome = await cua.getApp('Google Chrome')",
+    "Import node:fs/promises, owned-path write/read probe, fresh full AX saved."
+  ],
+  "bindings": {
+    "chrome": "object",
+    "evidenceFs.writeFile": "function",
+    "evidenceFs.readFile": "function",
+    "owned_path_round_trip": true,
+    "cutoff_clock_available": true
+  },
+  "tool_wall_seconds": [
+    5.2664,
+    3.8637
+  ],
+  "total_tool_wall_seconds": 9.1301,
+  "overall_wall_seconds": null,
+  "timing_limit_seconds": 45,
+  "timing_qualification": "Tool wall is measured; total including orchestration was not independently clocked.",
+  "site_inputs": 0,
+  "navigation": 0,
+  "context": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "fin_tabs",
+    "tab": "Details",
+    "subsystem": "Fins and roots",
+    "drag_mode": "Rotate",
+    "heading_deg": -309.2,
+    "tilt_deg": 61.5,
+    "roll_deg": -0.0,
+    "target": "Fin tabs",
+    "tools": "closed",
+    "parts_bank": "closed"
+  },
+  "result": "Known bindings are validated. No feature verification or camera/visibility changes were performed. P60 remains frozen separately."
+}

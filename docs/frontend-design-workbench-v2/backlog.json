@@ -1,7 +1,7 @@
 {
   "id": "rocket-twin-design-workbench-v2",
   "date": "2026-11-09",
-  "status": "planning_complete_before_implementation",
+  "status": "implementation_in_progress",
   "baseline_main": "38e70be0d2df59c81e2d6cb52b97d4b58444496f",
   "baseline_pr": 118,
   "current_design": "G80-F2-RP1-AD1-definition-v2",
@@ -255,14 +255,21 @@
       "depends_on": [
         "FW2-004"
       ],
-      "status": "planned",
-      "code_verified": false,
+      "status": "complete",
+      "code_verified": true,
       "browser_observed": false,
       "engineering_accepted": false,
       "acceptance": "Represent all 55 current records once. Keep library revisions distinct from installed placement and representation children.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/studies/frontend-parts-bank-20261109/integration.md",
+        "docs/studies/frontend-parts-bank-corrected-native-20261109/browser.md",
+        "docs/studies/frontend-parts-bank-visibility-native-20261109/browser.md"
+      ],
+      "acceptance_scope": "First read-only RP1 source catalog and exact installed-part route. P61/P62 native observations are scoped; full dropdown/negative-case matrix and reusable template interfaces remain open. API routes verified in-process; current live host used prepared source snapshot."
     },
     {
       "id": "FW2-006",
@@ -276,14 +283,21 @@
       "depends_on": [
         "FW2-005"
       ],
-      "status": "planned",
-      "code_verified": false,
+      "status": "complete",
+      "code_verified": true,
       "browser_observed": false,
       "engineering_accepted": false,
       "acceptance": "Provide source-pinned list and detail responses with exact units, null values, and useful stale or missing-source errors; do not generate assets or write sources.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/studies/frontend-parts-bank-20261109/integration.md",
+        "docs/studies/frontend-parts-bank-corrected-native-20261109/browser.md",
+        "docs/studies/frontend-parts-bank-visibility-native-20261109/browser.md"
+      ],
+      "acceptance_scope": "First read-only RP1 source catalog and exact installed-part route. P61/P62 native observations are scoped; full dropdown/negative-case matrix and reusable template interfaces remain open. API routes verified in-process; current live host used prepared source snapshot."
     },
     {
       "id": "FW2-007",
@@ -297,14 +311,22 @@
       "depends_on": [
         "FW2-005"
       ],
-      "status": "planned",
-      "code_verified": false,
-      "browser_observed": false,
+      "status": "partial",
+      "code_verified": true,
+      "browser_observed": true,
       "engineering_accepted": false,
       "acceptance": "Show readable categories, materials, maturity, physical versus budget roles, source conflicts, availability, and price basis.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/studies/frontend-parts-bank-20261109/integration.md",
+        "docs/studies/frontend-parts-bank-corrected-native-20261109/browser.md",
+        "docs/studies/frontend-parts-bank-visibility-native-20261109/browser.md"
+      ],
+      "acceptance_scope": "First read-only RP1 source catalog and exact installed-part route. P61/P62 native observations are scoped; full dropdown/negative-case matrix and reusable template interfaces remain open. API routes verified in-process; current live host used prepared source snapshot.",
+      "remaining": "Source-only viewer without geometry identity; full native dropdown/error/keyboard branches. Current-asset bank works via verified prepared snapshot."
     },
     {
       "id": "FW2-008",
@@ -319,14 +341,21 @@
         "FW2-006",
         "FW2-007"
       ],
-      "status": "planned",
-      "code_verified": false,
-      "browser_observed": false,
+      "status": "complete",
+      "code_verified": true,
+      "browser_observed": true,
       "engineering_accepted": false,
       "acceptance": "Link a bank entry to the current Design part, evidence, and available CAD. Return with the exact specification and part ID; explain missing assets.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/studies/frontend-parts-bank-20261109/integration.md",
+        "docs/studies/frontend-parts-bank-corrected-native-20261109/browser.md",
+        "docs/studies/frontend-parts-bank-visibility-native-20261109/browser.md"
+      ],
+      "acceptance_scope": "First read-only RP1 source catalog and exact installed-part route. P61/P62 native observations are scoped; full dropdown/negative-case matrix and reusable template interfaces remain open. API routes verified in-process; current live host used prepared source snapshot."
     },
     {
       "id": "FW2-009",
@@ -425,14 +454,19 @@
       "depends_on": [
         "FW2-010"
       ],
-      "status": "planned",
-      "code_verified": false,
-      "browser_observed": false,
+      "status": "partial",
+      "code_verified": true,
+      "browser_observed": true,
       "engineering_accepted": false,
       "acceptance": "Use sourced PCB, package, and connector features and exact installation where known; unknown heights and product conflicts visibly block claims.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "evidence": [
+        "docs/studies/frontend-component-depth-next-20261109/pcb-implementation.md",
+        "docs/studies/frontend-pcb-controls-native-20261109/browser.md"
+      ],
+      "acceptance_scope": "PCB source ruler/face/reset controls observed in P63, with default U1 retained and artwork clipping/optional actions explicit. Populated product and vehicle installation geometry remain unavailable; no physical qualification."
     },
     {
       "id": "FW2-014",
@@ -1176,5 +1210,12 @@
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
       "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
     }
-  ]
+  ],
+  "planning_publication": {
+    "pr": 119,
+    "head": "41082abcfeb0229cd6de18286f1575bb89d7692c",
+    "main": "a896645a2325b470e8bd3c0054d9dc1ec36db66a",
+    "workflow": 42594694204,
+    "conclusion": "success"
+  }
 }

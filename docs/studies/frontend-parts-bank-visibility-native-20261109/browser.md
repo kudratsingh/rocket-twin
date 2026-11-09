@@ -1,0 +1,9 @@
+# P62 Parts bank warning and scroll-reset correction
+
+The corrected retainer warning is visibly readable without scrolling. The first retainer native screenshot shows **Retainer Product Conflict · unresolved** directly below the heading/description and above the Inspect action. It names AeroTech19002 versus Estes009750 and states that exact product/revision/cap/collar/thread/seat geometry remains unresolved. This is actual pixel evidence, distinct from P61’s AX-only conflict observation below the captured fold.
+
+One ordinary detail scroll visibly moved the retainer content: its heading and description became cropped at the top while lower fact/dimension cards moved upward. A confirmed-focus search replacement and actual `forward_ring` row click then showed the full Forward ring heading and description, its **Zero Source Budget · unresolved** warning, and the Inspect action at the top. The native image therefore establishes one real scrolled-record→new-record reset; it does not establish the broader filter/record matrix.
+
+Return to rocket closed the bank and retained exact RP1 AD1 v2/spec811b/`part=forward_ring`, selected Details, Motor and retention, Rotate view and target Forward ring. Heading−309.2°/tilt61.5° remained. No camera/Whole/reset/visibility command was used, and no exact visible-mesh count or camera-position preservation is inferred.
+
+Native work ended64.005s after its cutoff clock started; the final input was63.038s, within the90s input cutoff and120s native cap. The frozen local correction fingerprint, raw AX, unchanged native images and record are inventoried after record finalization. Native ownership is idle and the source hold is released. No simulations, replay, downloads, settings/permissions, viewport or other-window actions occurred. No manufacturing, installed-fit, strength or physical acceptance follows from these UI observations.

@@ -1,0 +1,61 @@
+.parts-bank-access > button {
+  padding: 0.45rem 0.7rem;
+  white-space: nowrap;
+}
+
+.parts-bank-dialog {
+  width: min(1480px, 94vw);
+  max-width: 94vw;
+  max-height: 90vh;
+  padding: 1rem;
+  border: 1px solid #536d7e;
+  border-radius: 10px;
+  background: #142431;
+  color: #e1ecf4;
+  overflow: auto;
+}
+
+.parts-bank-dialog::backdrop {
+  background: rgb(4 12 20 / 72%);
+}
+
+.parts-bank-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.parts-bank-dialog-header h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.parts-bank-dialog-header p {
+  max-width: 80ch;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #b9cbd9;
+}
+
+.parts-bank-dialog-header > button {
+  flex: 0 0 auto;
+}
+
+.parts-bank-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  height: min(900px, 90vh);
+  box-sizing: border-box;
+}
+
+.parts-bank-dialog > .parts-bank {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+
+.parts-bank-dialog-header {
+  flex: 0 0 auto;
+}

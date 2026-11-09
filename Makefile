@@ -171,3 +171,7 @@ thermal-matrix: correction-package ## Required cases and exploratory cases remai
 .PHONY: component-detail
 component-detail: ## Verify/prepare recorded source mechanical detail; no CAD or physics generation.
 	$(PYTHON) scripts/wo04_prepare_component_detail.py --prepare
+
+.PHONY: parts-bank
+parts-bank: ## Prepare the source-owned RP1 parts catalog; no CAD or flight solve.
+	$(PYTHON) scripts/wo04_parts_bank_export.py

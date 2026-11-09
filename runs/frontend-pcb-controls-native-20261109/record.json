@@ -1,0 +1,78 @@
+{
+  "packet": "P63",
+  "status": "completed_scoped_partial",
+  "source": "source-freeze.json",
+  "limits": {
+    "native_seconds": 180,
+    "overall_seconds": 240,
+    "input_cutoff_seconds": 140
+  },
+  "timing": {
+    "native_elapsed_seconds": 120.206,
+    "last_input_elapsed_seconds": 119.326,
+    "first_closeout_elapsed_seconds": 187.766
+  },
+  "cases": [
+    {
+      "id": "parent_source_and_open",
+      "status": "pass_scoped",
+      "actual": "Confirmed-focus Parts search native setValue high_g_accel, actual row selection and Details\u2192Explore PCB structure. Exact RP1/spec811b/high_g_accel. No navigation/reset/Whole/visibility command."
+    },
+    {
+      "id": "recognizable_graphic_and_xy_rulers",
+      "status": "pass_scoped",
+      "actual": "Actual native Top image shows recognizable board outline/four mounting holes/pads/routes with5/10/15/20mm horizontal ticks and25.4mm end;5/10/15mm vertical ticks and17.78mm end. Board/manufacturer XY only, no installed alignment/thickness. Some fine-silk source glyphs protrude beyond board and are clipped at canvas edges; no blanket no-clipping claim."
+    },
+    {
+      "id": "top_bottom_layers_and_cameras",
+      "status": "pass_scoped",
+      "actual": "Show top layers only\u2192Top camera: checked1/0, gold source routes. Show bottom layers only\u2192Bottom camera:0/1, purple source routes and mirroredXruler. Distinct actual pixels support layer change, not just source counts."
+    },
+    {
+      "id": "reset_reference",
+      "status": "partial",
+      "actual": "Reset restores both layer checkboxes1/1, All nets and oblique fitted camera. U1\u00b7LGA14 remains selected/default, matching initial state and source resetReference setSelectedRef(U1). The planned no-selection condition is not met; no selection-clear pass. No changed-footprint or net selection was made before reset."
+    },
+    {
+      "id": "optional_footprint_net_and_other_controls",
+      "status": "unexecuted",
+      "actual": "No footprint/net change, layer-spacing drag, zoom-selected, or additional Fit click; initial Fit framing and Reset framing only."
+    },
+    {
+      "id": "close_parent_retention",
+      "status": "pass_scoped",
+      "actual": "Close component detail removed modal and retained high_g_accel Details/exactspec. Main H\u2212309.2/T61.5/Rotate remained. Normal parent pick changed subsystemMotor/retention\u2192Avionics/power and targetForwardring\u2192Highg; exact visible count/camera position not checked."
+    }
+  ],
+  "source_limits": {
+    "placements": 26,
+    "pads": 82,
+    "routed_traces": 208,
+    "via_drills": 26,
+    "nets": 14,
+    "counts_qualification": "Visible coverage text, not independent native selection of every element",
+    "unknown": "Component/package height, board thickness, installed datum/tolerances, via copper OD and pour fill unavailable. Source U1 ADXL343 in ADXL375/PID5374 board file; incoming silicon unverified."
+  },
+  "final": {
+    "elapsed_ms": 120206,
+    "start_epoch_ms": 1794219786259,
+    "last_input_epoch_ms": 1794219905585,
+    "modal_closed": true,
+    "state": [
+      "0 standard window Rocket Twin \u00b7 Vehicle inspection - Google Chrome, Secondary Actions: Raise, URL: 127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&spec=811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660&part=high_g_accel",
+      "\t\t\t\t\t\t\t\t\t\t68 tab (selected) Details, Value: 1",
+      "\t\t\t\t\t\t\t\t\t\t71 container High g accel inspector",
+      "\t\t\t\t\t\t\t\t\t\t\t\t231 pop up button Inspect subsystem, Value: Avionics and power",
+      "\t\t\t\t\t\t\t\t\t\t\t\t249 toggle button Rotate view, Help: Drag to turn around the rocket, Value: 1",
+      "\t\t\t\t\t\t\t\t\t\t\t\t273 text Horizontal  -309.2 \u00b0 \u00b7 Tilt  61.5 \u00b0 \u00b7 Roll -0.0 \u00b0 \u00b7 Target: High g accel"
+    ]
+  },
+  "scope_actions": "No Run/Play/export/permissions/settings/viewport/new window/main Whole/reset/Restore visibility. Local Reset reference view only.",
+  "native_lane": "idle; source hold released",
+  "non_claims": [
+    "No populated installed CAD or physical fit qualification",
+    "No all-controls matrix",
+    "No no-selection reset pass",
+    "No performance or responsive-viewport acceptance"
+  ]
+}
