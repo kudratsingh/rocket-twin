@@ -1,0 +1,49 @@
+{
+  "packet": "P27",
+  "date": "2026-11-08",
+  "purpose": "owner handoff only; no benchmark continuation",
+  "status": "owner-ready-source-overview",
+  "timing": {
+    "native_cap_s": 45,
+    "overall_cap_s": 60,
+    "target_s": 30,
+    "launch_cutoff_s": 30,
+    "last_call_before_ms": 15711,
+    "final_timer_ms": 16997,
+    "last_tool_wall_s": 5.7592
+  },
+  "actions": {
+    "normal_design_workspace_link": 1,
+    "whole_rocket": 1,
+    "close_tools": 0,
+    "play": 0,
+    "new_run": 0,
+    "resize": 0,
+    "devtools": 0
+  },
+  "observed": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "ui_source": "G80 RP1 / AD1 v2 \u2014 source definition",
+    "source_records": 55,
+    "meshes_visible": "26/26",
+    "actual_whole_rocket_pixels": true,
+    "camera": "Assembly45/54.7/-0.0",
+    "move_pressed": true,
+    "frame_selection_disabled": true,
+    "parts_group_selected": false,
+    "tools": "closed",
+    "cg_cp": "saved estimate; loaded nominal55g unverified harness probe",
+    "status": "Preliminary; no build or flight release"
+  },
+  "screenshot": {
+    "raster_px": [
+      4480,
+      2460
+    ],
+    "sha256": "c690738b6bee157b862a5b02f67937c8f17b062a1f92c7ebf247706f2ae80af6"
+  },
+  "source_manifest": "source-freeze.json",
+  "url_context": "Normal Design link retains archivedG54experiment/run parameters as separate Replay context; actualDesign isRP1, not archivedCAD. No part/compare parameter.",
+  "limits": "No prescribedviewport,performance,physical orflight acceptance. P26 frozen unchanged; startupclockfix not benchmarked by this noPlay handoff.",
+  "ownership": "Native lane released to owner; no more CUA until specific coordinated task."
+}

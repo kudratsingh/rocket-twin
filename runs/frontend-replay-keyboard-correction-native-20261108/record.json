@@ -1,0 +1,90 @@
+{
+  "packet": "P25",
+  "date": "2026-11-08",
+  "status": "scoped-keyboard-activation-and-events-pass",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 45,
+    "hard_native_s": 60,
+    "overall_s": 90,
+    "launch_cutoff_s": 45,
+    "initial_before_action_ms": 619,
+    "before_call_ms": [
+      12457,
+      24570
+    ],
+    "final_timer_ms": 25498,
+    "last_tool_wall_s": 3.5646,
+    "note": "No later native call."
+  },
+  "fixture": {
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": null,
+    "profile": "normal bounded",
+    "paused": true,
+    "cursor_s": 0.001,
+    "camera": "Fixed pad1"
+  },
+  "cases": [
+    {
+      "case": "fresh existing Validity focus",
+      "status": "pass",
+      "evidence": "entry.ax.txt confirms focusedValidity andA-onlycf9/Pad0.001; no Scene+Tab setup repeated."
+    },
+    {
+      "case": "Space activation",
+      "status": "pass",
+      "evidence": "one documented Space press; validity-keyboard.ax focused Current replay validity; nativeimage visibly shows outlined validity region with A source/support0.001\u2013116.029/requested0.001 and limitations."
+    },
+    {
+      "case": "Events section click",
+      "status": "pass",
+      "evidence": "events.jpg all6 buttons ignition,guide exit,burnout,apogee,deployment,landing visible; no event activated."
+    },
+    {
+      "case": "Scene restore and state preservation",
+      "status": "pass",
+      "evidence": "scene.ax/image: actual Scene returned, focusedFlightsceneandplayback,A-onlycf9URL,Pad1/no-follow,Playpresent,slider0.001."
+    }
+  ],
+  "actions": {
+    "fresh_state": 1,
+    "space": 1,
+    "events_click": 1,
+    "scene_click": 1,
+    "tab_setup_repeat": 0,
+    "event_jump": 0,
+    "play": 0,
+    "time_entry": 0,
+    "resize": 0,
+    "new_run": 0,
+    "devtools": 0
+  },
+  "orchestration": "Same-call local current/picture used; no conditional binding reused acrosscells; no new script or UI error.",
+  "screenshots": {
+    "events.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "d96b3f4cb4062b838fa9e168da7fef68063cbf0bc53ec7ae2e040b41afb9d054"
+    },
+    "scene.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "5b5c4a8c9dd7a685d4c2ac0754b7ead22d42ab3391b7a01c97c37d9fe8ad9fe8"
+    },
+    "validity-keyboard.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "f43545af5b5aca26c1c6892a5c86ca08cf2f5ac6e21a8a06a06a7baeea78668c"
+    }
+  },
+  "actual_css_dimensions": null,
+  "final_state": "A-onlycf9 normalbounded pausedPad0.001 at Scene, no B restoration.",
+  "limits": "One existing keyboard activation path andEvents current-window reachability; no globalkeyboard/exactviewport/performance/physical acceptance. P24 ReferenceError/partial remains immutable, not retroactively passed."
+}

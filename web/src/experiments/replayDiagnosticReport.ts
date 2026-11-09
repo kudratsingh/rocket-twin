@@ -1,4 +1,5 @@
 import { frameProfile } from './playbackProfile.ts';
+import type { ReplaySessionObservationSnapshot } from './useReplaySessionCapture.ts';
 
 type Source = {
   run_id: string;
@@ -12,6 +13,7 @@ export type ReplayDiagnosticInput = {
   comparison?: Source | null;
   profileMode: string;
   frameDeltas: readonly number[];
+  fullSessionObservation?: ReplaySessionObservationSnapshot | null;
   sourceRows: number | null;
   returnedRows: number;
   drawingA: unknown;
@@ -83,6 +85,9 @@ export function replayDiagnosticReport(input: ReplayDiagnosticInput) {
       acceptance:
         'No automatic full benchmark acceptance; use exact source, representative data, host, viewport, load/scrub/memory limits and separately observed native behavior.',
     },
+    full_session_observation: input.fullSessionObservation ?? null,
+    full_session_scope:
+      'Bounded last Play epoch when supplied; observed RAF, cursor and cached visibility conditions, not automatic benchmark acceptance or GPU completion. Legacy rolling diagnostics remain separate.',
     environment: {
       viewport_css_pixels: validViewport ? viewport : null,
       viewport_basis:

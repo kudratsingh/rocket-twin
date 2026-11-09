@@ -1,5 +1,20 @@
 # Agent entry point
 
+**Latest integrated frontend checkpoint (November 8):** PR112 is merged at
+`cc98fb6e9424d99d62c8ceb41d68489da6f1031c` after exact-head web,
+preliminary-model and overall workflow42550284458 succeeded. Replay controls
+are above the scene; explicit Scene/Graphs/Events/Validity/Data & limits navigation
+keeps the lower content reachable. P23 verifies Fixed pad and A-only labels;
+P25 verifies keyboard section activation. [Whole-flight P26](docs/studies/frontend-full-replay-qualification-20261108/browser.md)
+is closed **unqualified**: one invalid startup interval and a finite-only timing
+miss remain preserved. Its first overall closeout also exceeded360s by at least9.767s.
+The bounded correction now anchors playback on the first RAF timestamp and retains
+later invalid intervals; source tests pass, but this fix has not been qualified by
+a new full native replay. [Clock decision](docs/studies/frontend-replay-clock-anchor-20261108/integration.md).
+No automatic retake, threshold relaxation or new optimizer/solver campaign follows.
+G80 RP1/AD1/D1, G54 and G12 PID-to-RL are unchanged; all five inquiries UNSENT.
+Engineering, physical/build, thermal/recovery/flutter, WO-10 and flight gates stay open.
+
 **Current frontend completion checkpoint (November 8):** PR111 is merged after
 exact-head web/model checks; comparison fitting, export-coverage rejection and
 responsive visible-focus restoration are implemented. The follow-up moves replay

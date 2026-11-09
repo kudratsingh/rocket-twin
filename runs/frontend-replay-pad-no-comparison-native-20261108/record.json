@@ -1,0 +1,92 @@
+{
+  "packet": "P23",
+  "date": "2026-11-08",
+  "status": "scoped-fixed-pad-and-a-only-pass",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "before_call_ms": [
+      9746,
+      21153,
+      41515,
+      54079
+    ],
+    "final_timer_ms": 55039,
+    "last_tool_wall_s": 3.6418,
+    "note": "No native calls after final Scene observation."
+  },
+  "initial_fixture": {
+    "design_context": "G80-F2-RP1-AD1-definition-v2",
+    "A": "exp-cf9e47a650074144856caf50775846d2",
+    "B": "exp-ab60bd4ac5c2412a9dd85f712072bca2",
+    "profile": "normal bounded checkbox0",
+    "cursor_s": 0.001,
+    "paused": true
+  },
+  "cases": [
+    {
+      "case": "normal Flight Replay workspace entry",
+      "status": "pass",
+      "evidence": "Fresh observed link61 retained exact cf9/ab60 route and matching bounded loaded source."
+    },
+    {
+      "case": "Fixed pad one click",
+      "status": "pass",
+      "evidence": "fixed-pad.ax/jpg: Fixed pad1,Camera fixed pad/no run followed,Play present,slider0.001, pair URL unchanged. Pixel scene shows pad grid/trails; no complete-trajectory fit claim."
+    },
+    {
+      "case": "Clear comparison one click",
+      "status": "pass",
+      "evidence": "cleared-comparison.ax/jpg: compare param removed,cf9A retained,Follow B only disabled with load-comparison help,Fit A trajectory labels,A-only support0.001\u2013116.029,cursor0.001. No B validity/series shown as active comparison."
+    },
+    {
+      "case": "leave A-only pausedPad at Scene",
+      "status": "pass",
+      "evidence": "final-scene.ax/jpg same A-only URL,Fixed pad1,no-follow label,Play present,slider0.001. One fresh Scene click."
+    }
+  ],
+  "actions": {
+    "workspace_replay_link": 1,
+    "fixed_pad": 1,
+    "clear_comparison": 1,
+    "scene": 1,
+    "purposeful_scroll": 0,
+    "play": 0,
+    "new_run": 0,
+    "resize": 0,
+    "numeric_entry": 0,
+    "export": 0,
+    "devtools": 0
+  },
+  "input_note": "Native AX Clear comparison click automatically brought its offscreen target into view; no wheel or manual scroll used.",
+  "screenshots": {
+    "cleared-comparison.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "3589f96a3900192cb948e54e068dfa92b86201864809600629d9b098da054aee"
+    },
+    "final-scene.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "b08a41ccce0d9747524eaff6bb7d9f6a0801230cf57a7feb38cdf53674a6c751"
+    },
+    "fixed-pad.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "83d78f1722c752aaea69f9af2c023de2c4ccc4afe56370279216523469f23a44"
+    }
+  },
+  "actual_css_dimensions": null,
+  "final_url": "http://127.0.0.1:5173/?workspace=replay&design=G80-F2-RP1-AD1-definition-v2&experiment=modular-performance-v1&run=exp-cf9e47a650074144856caf50775846d2",
+  "final_state": "A-only cf9G80 normal bounded,pausedPad0.001,Scene,FollowBdisabled. No B restoration by explicit task.",
+  "limits": "Current-window functional scope; no exactviewport/performance/numericalcamera/physical or blanketRV acceptance. P22/previous records unchanged."
+}
