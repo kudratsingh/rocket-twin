@@ -1,5 +1,16 @@
 # WO-03 — CAD, structural/thermal analysis and integration
 
+**Design workbench v2 — owner direction, November 9:** The full next revamp is
+planned in [ten phases with46 tasks and36 acceptance scenarios](../frontend-design-workbench-v2/README.md). It adds
+source-supported intricate component CAD, linked drawings/systems, a parts bank,
+validated separate draft composition and complete alternative testing. ADR-0017
+extends the viewer-only rule narrowly; all CAD/physical calculations stay in the
+backend. Current RP1 is frozen, existing workflows/legacy evidence persist, and
+WO-03/04/05 prerequisites and owner physical/purchase/paid-run/WO-10/flight gates
+remain separate. Full model-detail completion cannot be claimed with undefined
+critical hardware. Start the first source-linked parts-bank slice after P0 docs.
+
+
 **Owner continuation (2026-11-06):** [VP1 inquiry-to-test decision](../wo03-vp1-response-decision-20261106.md). The owner will supply actual send dates and replies for the five prepared inquiries. Track each actual send independently: one day-5 follow-up, day-10 business-day close; no dates or replies are recorded yet. Prepare one room-temperature test recommendation with the lab method, itemized all-in cost and D1 pass/fail meaning; return it for owner approval before purchases or testing. Frozen drafts/package and engineering criteria remain unchanged. Continue the next bounded frontend backlog task; browser observation remains separate from code/offline checks.
 
 Repository visibility is public by explicit owner confirmation (2026-11-04).

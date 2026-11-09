@@ -1,5 +1,13 @@
 # Rocket Twin inspection workspace
 
+**Next full frontend revamp:** [Design workbench v2](../docs/frontend-design-workbench-v2/README.md)
+plans detailed component CAD/diagrams, a reusable parts bank, separate virtual
+rocket drafts and complete alternative testing in ten phases with46 tasks. It
+retains the current inspector/experiments/replay and all engineering/physical
+gates. The first implementation is the current-source read-only parts bank;
+full draft building and candidate simulation follow their data prerequisites.
+
+
 The November 7 preview has focused **Design, Engineering, Experiments,
 Flight Replay and Analysis** workspaces. Start with `make preview` from the
 repository root; it prepares RP1 display meshes and source snapshots, then starts

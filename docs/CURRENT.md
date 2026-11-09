@@ -1,5 +1,23 @@
 # Current engineering and inspection checkpoint
 
+**Current owner direction — full design workbench v2 (November 9):** Complete
+the full phased plan, then implement detailed CAD/inspection and engineering
+diagrams, a reusable source-owned parts bank, separate virtual rocket drafts and
+consistent alternative checks/experiments. [Full plan](frontend-design-workbench-v2/README.md) defines ten phases,
+46 tasks and36 new acceptance scenarios. ADR-0017 explicitly permits validated
+draft composition while frozen RP1 and existing engineering/physical/flight gates
+remain unchanged. Start P1's read-only current-source parts bank; preserve current
+inspector/experiments/replay and all legacy acceptance states. Five inquiries stay
+UNSENT. Sol HIGH lanes have separate ownership; primary integrates; only the
+existing designated browser owner uses the permitted Chrome window.
+
+PR118 is merged at `38e70be0d2df59c81e2d6cb52b97d4b58444496f` after exact final
+head `515cecd1378826c9fd852257fd4e9be7da27a18a`, workflow42587975052 and both
+required jobs passed. PCB source detail and18 mechanical pieces are the baseline;
+half-shell edge proof and other unexercised controls remain partial. This is a
+frontend checkpoint, not installed-fin, material, thermal or flight acceptance.
+
+
 **Active owner direction — component depth:** The owner wants intricate parts and
 construction detail beyond block envelopes. Implement source-based PCB structure
 and fin/root/motor construction close-ups linked to existing part IDs, with local

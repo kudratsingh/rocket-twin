@@ -1,0 +1,1180 @@
+{
+  "id": "rocket-twin-design-workbench-v2",
+  "date": "2026-11-09",
+  "status": "planning_complete_before_implementation",
+  "baseline_main": "38e70be0d2df59c81e2d6cb52b97d4b58444496f",
+  "baseline_pr": 118,
+  "current_design": "G80-F2-RP1-AD1-definition-v2",
+  "authority": "docs/adr/0017-parts-bank-and-detailed-design-workbench.md",
+  "status_contract": "Planned work is not implemented/browser observed/engineering accepted; legacy RV/FT states remain separate.",
+  "phases": [
+    {
+      "id": "P0",
+      "title": "Freeze the checkpoint and contract",
+      "outcome": "A complete executable plan and unchanged usable preview.",
+      "owner": "Primary",
+      "effort": "Before P1",
+      "tasks": [
+        "FW2-001",
+        "FW2-002",
+        "FW2-003",
+        "FW2-004"
+      ]
+    },
+    {
+      "id": "P1",
+      "title": "Usable source-owned parts bank",
+      "outcome": "Search current parts, inspect their source and return to installed geometry.",
+      "owner": "Sol HIGH backend + primary UI",
+      "effort": "2 focused implementation increments",
+      "tasks": [
+        "FW2-005",
+        "FW2-006",
+        "FW2-007",
+        "FW2-008",
+        "FW2-009"
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Detailed parts, interfaces and CAD",
+      "outcome": "Critical source features and recovery datums are inspectable; missing geometry is actionable.",
+      "owner": "Sol HIGH source/CAD + primary",
+      "effort": "3 bounded detail increments",
+      "tasks": [
+        "FW2-010",
+        "FW2-011",
+        "FW2-012",
+        "FW2-013",
+        "FW2-014"
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "Deep CAD inspection and drawings",
+      "outcome": "Drill into every admitted feature, see inside joints and export labeled source geometry.",
+      "owner": "Primary + Sol HIGH frontend",
+      "effort": "3 inspection/drawing increments",
+      "tasks": [
+        "FW2-015",
+        "FW2-016",
+        "FW2-017",
+        "FW2-018"
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "Systems, mechanisms and construction explanations",
+      "outcome": "Clickable engineering diagrams explain actual routes, assumptions and failure points.",
+      "owner": "Sol HIGH graphics + primary interpretation",
+      "effort": "3 systems increments",
+      "tasks": [
+        "FW2-019",
+        "FW2-020",
+        "FW2-021",
+        "FW2-022",
+        "FW2-023"
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "Build separate rocket drafts from the bank",
+      "outcome": "Add, replace, connect, save and undo without changing the baseline.",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "effort": "4 builder increments",
+      "tasks": [
+        "FW2-024",
+        "FW2-025",
+        "FW2-026",
+        "FW2-027",
+        "FW2-028",
+        "FW2-029"
+      ]
+    },
+    {
+      "id": "P6",
+      "title": "Coupled checks and engineering alternatives",
+      "outcome": "The complete effective package receives consistent backend checks and invalidation.",
+      "owner": "Primary engineering + Sol HIGH bookkeeping",
+      "effort": "3 coupled-check increments",
+      "tasks": [
+        "FW2-030",
+        "FW2-031",
+        "FW2-032",
+        "FW2-033"
+      ]
+    },
+    {
+      "id": "P7",
+      "title": "Experiments, replay and fair alternative tests",
+      "outcome": "Run admitted candidates, inspect telemetry and compare exact assumptions.",
+      "owner": "Sol HIGH experiments/replay + primary",
+      "effort": "3 experiment increments",
+      "tasks": [
+        "FW2-034",
+        "FW2-035",
+        "FW2-036",
+        "FW2-037"
+      ]
+    },
+    {
+      "id": "P8",
+      "title": "Analysis, verification and calibration workbench",
+      "outcome": "Understand compatible results, open requirements and measured updates.",
+      "owner": "Sol HIGH data/views + primary",
+      "effort": "2 evidence increments",
+      "tasks": [
+        "FW2-038",
+        "FW2-039",
+        "FW2-040"
+      ]
+    },
+    {
+      "id": "P9",
+      "title": "Construction pack and integrated release",
+      "outcome": "Usable detailed workbench plus honest construction/test exports; remaining physical gates explicit.",
+      "owner": "Primary + original designated browser owner",
+      "effort": "3 release increments",
+      "tasks": [
+        "FW2-041",
+        "FW2-042",
+        "FW2-043",
+        "FW2-044",
+        "FW2-045",
+        "FW2-046"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "FW2-001",
+      "phase": "P0",
+      "title": "Freeze current sources and interrupted edits",
+      "owner": "Primary",
+      "file_targets": [
+        "docs/frontend-design-workbench-v2/baseline-and-scope.md"
+      ],
+      "depends_on": [],
+      "status": "complete",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Record PR118, the 55 source IDs, geometry identity, and preserved unpublished code; do not restart setup.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/frontend-design-workbench-v2/planning-checks.json"
+      ]
+    },
+    {
+      "id": "FW2-002",
+      "phase": "P0",
+      "title": "Define parts, instances, interfaces and draft authority",
+      "owner": "Primary",
+      "file_targets": [
+        "docs/adr/0017-parts-bank-and-detailed-design-workbench.md",
+        "docs/frontend-design-workbench-v2/architecture.md"
+      ],
+      "depends_on": [
+        "FW2-001"
+      ],
+      "status": "complete",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Document immutable definitions, occurrences, connections, and results separately, with narrow draft-edit authority.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/frontend-design-workbench-v2/planning-checks.json"
+      ]
+    },
+    {
+      "id": "FW2-003",
+      "phase": "P0",
+      "title": "Publish roadmap, backlog and acceptance",
+      "owner": "Primary",
+      "file_targets": [
+        "docs/frontend-design-workbench-v2/backlog.json",
+        "docs/frontend-design-workbench-v2/acceptance.csv"
+      ],
+      "depends_on": [
+        "FW2-002"
+      ],
+      "status": "complete",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "State every dependency, owner, stop condition, and end-state criterion; preserve the old ledgers.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/frontend-design-workbench-v2/planning-checks.json"
+      ]
+    },
+    {
+      "id": "FW2-004",
+      "phase": "P0",
+      "title": "Map migration and first bounded slice",
+      "owner": "Primary",
+      "file_targets": [
+        "docs/frontend-design-workbench-v2/verification-and-migration.md",
+        "docs/frontend-design-workbench-v2/execution-handoff.md"
+      ],
+      "depends_on": [
+        "FW2-003"
+      ],
+      "status": "complete",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Preserve existing journeys and failures, exact code/source/native evidence boundaries, and file ownership.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "source_offline_verified": true,
+      "evidence": [
+        "docs/frontend-design-workbench-v2/planning-checks.json"
+      ]
+    },
+    {
+      "id": "FW2-005",
+      "phase": "P1",
+      "title": "Definition and occurrence catalog",
+      "owner": "Sol HIGH backend + primary UI",
+      "file_targets": [
+        "src/api/parts_bank.py",
+        "tests/test_parts_bank.py"
+      ],
+      "depends_on": [
+        "FW2-004"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Represent all 55 current records once. Keep library revisions distinct from installed placement and representation children.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-006",
+      "phase": "P1",
+      "title": "Read-only bank API and source errors",
+      "owner": "Sol HIGH backend + primary UI",
+      "file_targets": [
+        "src/api/app.py",
+        "src/api/parts_bank.py"
+      ],
+      "depends_on": [
+        "FW2-005"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Provide source-pinned list and detail responses with exact units, null values, and useful stale or missing-source errors; do not generate assets or write sources.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-007",
+      "phase": "P1",
+      "title": "Parts bank search and filters",
+      "owner": "Sol HIGH backend + primary UI",
+      "file_targets": [
+        "web/src/parts-bank/PartsBankPanel.tsx",
+        "web/src/parts-bank/types.ts"
+      ],
+      "depends_on": [
+        "FW2-005"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show readable categories, materials, maturity, physical versus budget roles, source conflicts, availability, and price basis.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-008",
+      "phase": "P1",
+      "title": "Installed-part and CAD links",
+      "owner": "Sol HIGH backend + primary UI",
+      "file_targets": [
+        "web/src/App.tsx",
+        "web/src/parts-bank/PartsBankPanel.tsx"
+      ],
+      "depends_on": [
+        "FW2-006",
+        "FW2-007"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Link a bank entry to the current Design part, evidence, and available CAD. Return with the exact specification and part ID; explain missing assets.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-009",
+      "phase": "P1",
+      "title": "Named reusable template admission",
+      "owner": "Sol HIGH backend + primary UI",
+      "file_targets": [
+        "configs/parts-bank/",
+        "src/vehicle/parts_bank.py"
+      ],
+      "depends_on": [
+        "FW2-005",
+        "FW2-008"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Register source-based tube and ring templates and known interfaces; unresolved product matches do not become verified hardware.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-010",
+      "phase": "P2",
+      "title": "Template and feature-source contract",
+      "owner": "Sol HIGH source/CAD + primary",
+      "file_targets": [
+        "src/vehicle/parts_bank.py",
+        "src/cad/parts.py"
+      ],
+      "depends_on": [
+        "FW2-009"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Define allowlisted generators, parameter ranges, stock orientation, exact source assets, local frames, and installation transforms.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-011",
+      "phase": "P2",
+      "title": "Fin/root and body connection detail",
+      "owner": "Sol HIGH source/CAD + primary",
+      "file_targets": [
+        "src/cad/rp1_inspection_geometry.py",
+        "web/src/components/Rp1MechanicalReference3D.tsx"
+      ],
+      "depends_on": [
+        "FW2-010"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Use current AD1 geometry only. Holes, slots, tabs, rings, and contact annotations match sources; adopt no new construction variant or strength claim.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-012",
+      "phase": "P2",
+      "title": "Recovery passage and attachment guides",
+      "owner": "Sol HIGH source/CAD + primary",
+      "file_targets": [
+        "scripts/wo04_recovery_detail_export.py",
+        "web/src/components/Rp1MechanicalReference3D.tsx"
+      ],
+      "depends_on": [
+        "FW2-010"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Register exact station and azimuth guides with the linked force route; keep knot and sleeve reservations distinct from finished hardware.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-013",
+      "phase": "P2",
+      "title": "Purchased electronics and mounting detail",
+      "owner": "Sol HIGH source/CAD + primary",
+      "file_targets": [
+        "web/src/components/HighGPcbReference3D.tsx",
+        "configs/parts-bank/"
+      ],
+      "depends_on": [
+        "FW2-010"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Use sourced PCB, package, and connector features and exact installation where known; unknown heights and product conflicts visibly block claims.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-014",
+      "phase": "P2",
+      "title": "Motor/retainer and stock identity closure register",
+      "owner": "Sol HIGH source/CAD + primary",
+      "file_targets": [
+        "configs/parts-bank/",
+        "docs/frontend-design-workbench-v2/model-coverage.json"
+      ],
+      "depends_on": [
+        "FW2-010"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Record exact conflicting products and dimensions and the evidence needed to resolve them; admit detailed hardware only on a matching source.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-015",
+      "phase": "P3",
+      "title": "Hierarchical feature inspection",
+      "owner": "Primary + Sol HIGH frontend",
+      "file_targets": [
+        "web/src/components/",
+        "web/src/workspaces/DesignVisual.tsx"
+      ],
+      "depends_on": [
+        "FW2-008",
+        "FW2-011"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Navigate assembly, subsystem, part, and feature with material, function, connection evidence, selection highlighting, and context restoration.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-016",
+      "phase": "P3",
+      "title": "Reliable cut, isolate and camera controls",
+      "owner": "Primary + Sol HIGH frontend",
+      "file_targets": [
+        "web/src/components/Rp1MechanicalReference3D.tsx",
+        "web/src/components/rp1MechanicalReference.ts"
+      ],
+      "depends_on": [
+        "FW2-011"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show cut-face and motor-end views, meaningful clip/isolate/hide, per-piece visibility, and Fit that preserves context; actual edges are visible in native use.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-017",
+      "phase": "P3",
+      "title": "General arrangement, joint and manufacturing drawings",
+      "owner": "Primary + Sol HIGH frontend",
+      "file_targets": [
+        "src/export/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-011",
+        "FW2-012",
+        "FW2-015"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Link same-revision orthographic, section, joint, and dimension graphics across 2D and 3D; preserve scale, tolerance, and unknown labels in exports.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-018",
+      "phase": "P3",
+      "title": "Geometry detail levels and CAD export manifests",
+      "owner": "Primary + Sol HIGH frontend",
+      "file_targets": [
+        "src/cad/",
+        "src/api/",
+        "web/src/components/"
+      ],
+      "depends_on": [
+        "FW2-010",
+        "FW2-017"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Record STEP, GLB, SVG, DXF, and STL scopes, units, feature-to-parent mapping, and cache identity; do not commit generated bulk files.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-019",
+      "phase": "P4",
+      "title": "Load paths and free-body diagrams",
+      "owner": "Sol HIGH graphics + primary interpretation",
+      "file_targets": [
+        "src/api/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-012",
+        "FW2-017"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Link thrust, reverse, fin, guide, and recovery cases through actual joints; infer no unsupported support or equal load sharing.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-020",
+      "phase": "P4",
+      "title": "Recovery and electrical architectures",
+      "owner": "Sol HIGH graphics + primary interpretation",
+      "file_targets": [
+        "src/api/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-012",
+        "FW2-019"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show harness branches, anchors, packing sequence, and source netlist power and signal; independent recovery and unknown pins remain explicit.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-021",
+      "phase": "P4",
+      "title": "Thermal and compatible evidence graphics",
+      "owner": "Sol HIGH graphics + primary interpretation",
+      "file_targets": [
+        "src/api/",
+        "web/src/analysis/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-017",
+        "FW2-019"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show real contacts, materials, openings, and recorded histories or cases; do not spatially fabricate failed, superseded, or missing data.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-022",
+      "phase": "P4",
+      "title": "Mechanism motion and kinematic status",
+      "owner": "Sol HIGH graphics + primary interpretation",
+      "file_targets": [
+        "src/cad/kinematics.py",
+        "web/src/components/"
+      ],
+      "depends_on": [
+        "FW2-010",
+        "FW2-015"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show joint axes, travel, stops, linkages, and wiring envelopes; distinguish illustrative poses, sampled clearance, and validated motion.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-023",
+      "phase": "P4",
+      "title": "Assembly and service walkthrough",
+      "owner": "Sol HIGH graphics + primary interpretation",
+      "file_targets": [
+        "src/export/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-017",
+        "FW2-020",
+        "FW2-022"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Link access to fasteners and bonds, motor removal, battery/arming/recovery service, and assembly stages to parts and evidence.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-024",
+      "phase": "P5",
+      "title": "Draft identity and revision storage",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "file_targets": [
+        "src/vehicle/design_draft.py",
+        "src/api/design_drafts.py"
+      ],
+      "depends_on": [
+        "FW2-009",
+        "FW2-010"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Fork or create a structured blank draft with immutable revisions and atomic local saves; frozen sources and old runs remain unchanged.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-025",
+      "phase": "P5",
+      "title": "Add, replace and remove part commands",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "file_targets": [
+        "src/api/design_drafts.py",
+        "web/src/design-builder/"
+      ],
+      "depends_on": [
+        "FW2-024"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Use explicit quantity, placement, and parameters, required-system placeholders, a change preview, and clear undoable operations.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-026",
+      "phase": "P5",
+      "title": "Interface graph and compatibility",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "file_targets": [
+        "src/vehicle/interfaces.py",
+        "web/src/design-builder/"
+      ],
+      "depends_on": [
+        "FW2-009",
+        "FW2-025"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Validate named contacts, engagement, tolerances, power, and motion; count adapters and hardware; unknown does not mean compatible.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-027",
+      "phase": "P5",
+      "title": "Deterministic candidate resolution",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "file_targets": [
+        "src/vehicle/design_resolver.py",
+        "src/api/design_drafts.py"
+      ],
+      "depends_on": [
+        "FW2-025",
+        "FW2-026"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Resolve complete YAML, manifest, and inventory with exact provenance, stock preparation, and units; reject duplicates, cycles, and missing functions.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-028",
+      "phase": "P5",
+      "title": "Save, undo, restore and export draft",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "file_targets": [
+        "web/src/design-builder/",
+        "src/api/design_drafts.py"
+      ],
+      "depends_on": [
+        "FW2-027"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Reload the exact revision, differences, and UI state; recover from stale writes and errors; export a new identity without overwriting RP1.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-029",
+      "phase": "P5",
+      "title": "Visual candidate and replacement comparison",
+      "owner": "Primary architecture + Sol HIGH backend/frontend",
+      "file_targets": [
+        "web/src/design-builder/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-017",
+        "FW2-027",
+        "FW2-028"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show assembly, part, and connection changes, required hardware, and open findings; retain alternative status and separate source lineage.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-030",
+      "phase": "P6",
+      "title": "Complete mass, balance and inertia availability",
+      "owner": "Primary engineering + Sol HIGH bookkeeping",
+      "file_targets": [
+        "src/vehicle/",
+        "src/api/design_drafts.py"
+      ],
+      "depends_on": [
+        "FW2-027"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Count the installed inventory exactly once and document the full inertia tensor when available; keep growth, adverse, and harness probes separate; never use zero for unknown.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-031",
+      "phase": "P6",
+      "title": "Static/aero/guide/recovery checks",
+      "owner": "Primary engineering + Sol HIGH bookkeeping",
+      "file_targets": [
+        "src/vehicle/",
+        "src/engineering/",
+        "src/api/"
+      ],
+      "depends_on": [
+        "FW2-030"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Use actual geometry and valid assumptions; separate formal and planning criteria and guide equipment; update recovery demand with changed mass.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-032",
+      "phase": "P6",
+      "title": "Dependency invalidation and engineering readiness",
+      "owner": "Primary engineering + Sol HIGH bookkeeping",
+      "file_targets": [
+        "src/vehicle/design_resolver.py",
+        "web/src/design-builder/"
+      ],
+      "depends_on": [
+        "FW2-031"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Invalidate only affected results when parameters, interfaces, or sources change; explain missing-input blockers; do not inherit an installed pass.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-033",
+      "phase": "P6",
+      "title": "Coupled alternative scorecard",
+      "owner": "Primary engineering + Sol HIGH bookkeeping",
+      "file_targets": [
+        "src/api/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-029",
+        "FW2-032"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Compare nominal and adverse complete packages across mass, fit, loads, heat, stability, guide, and cost; show stop reasons, uncertainty, and source evidence.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-034",
+      "phase": "P7",
+      "title": "Resolved-candidate experiment admission",
+      "owner": "Sol HIGH experiments/replay + primary",
+      "file_targets": [
+        "src/api/experiments.py",
+        "web/src/experiments/"
+      ],
+      "depends_on": [
+        "FW2-027",
+        "FW2-030",
+        "FW2-032"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "The existing Python/JAX path accepts only complete supported snapshots; borrow no inertia or aero and make no silent motor swap; save progress and errors.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-035",
+      "phase": "P7",
+      "title": "Matched single/batch alternative experiments",
+      "owner": "Sol HIGH experiments/replay + primary",
+      "file_targets": [
+        "src/api/experiments.py",
+        "web/src/experiments/"
+      ],
+      "depends_on": [
+        "FW2-033",
+        "FW2-034"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Use bounded paired settings and immutable run identity; retain per-member cancellation and errors; list every difference.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-036",
+      "phase": "P7",
+      "title": "Replay current candidate geometry and pose",
+      "owner": "Sol HIGH experiments/replay + primary",
+      "file_targets": [
+        "web/src/experiments/replayPose.ts",
+        "web/src/experiments/"
+      ],
+      "depends_on": [
+        "FW2-018",
+        "FW2-034"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Match exact geometry, CG, frame, quaternions, time window, and event cursor; mark unavailable attitude without a borrowed pose; keep archived runs matched.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-037",
+      "phase": "P7",
+      "title": "Graphs, sensitivities and portable experiment exports",
+      "owner": "Sol HIGH experiments/replay + primary",
+      "file_targets": [
+        "web/src/experiments/",
+        "src/api/experiments.py"
+      ],
+      "depends_on": [
+        "FW2-035",
+        "FW2-036"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Show actual telemetry, extrema, units, gaps, synchronized cursor, and comparison windows; sensitivity probes are not confidence bands.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-038",
+      "phase": "P8",
+      "title": "Compatible scalar/spatial Analysis",
+      "owner": "Sol HIGH data/views + primary",
+      "file_targets": [
+        "src/api/",
+        "web/src/analysis/"
+      ],
+      "depends_on": [
+        "FW2-018",
+        "FW2-021",
+        "FW2-032"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Bind field identity to the exact candidate, CAD, and case; show units, legends, time, limits, and exaggerated deformation scale; missing stays unavailable.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-039",
+      "phase": "P8",
+      "title": "Visual requirements, risks and verification map",
+      "owner": "Sol HIGH data/views + primary",
+      "file_targets": [
+        "src/api/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-019",
+        "FW2-020",
+        "FW2-033",
+        "FW2-038"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Navigate part or joint to requirement, FMEA, calculation, and test; clearly link failed or superseded status and future owner test plans.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-040",
+      "phase": "P8",
+      "title": "Measured-data revision and calibration hooks",
+      "owner": "Sol HIGH data/views + primary",
+      "file_targets": [
+        "src/vehicle/",
+        "src/api/",
+        "web/src/analysis/"
+      ],
+      "depends_on": [
+        "FW2-032",
+        "FW2-038",
+        "FW2-039"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Store provenance, uncertainty, and configuration for owner-provided measurements; preserve originals, separate calibration and evaluation, and rerun affected checks.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-041",
+      "phase": "P9",
+      "title": "Dimensioned fabrication and assembly pack",
+      "owner": "Primary + original designated browser owner",
+      "file_targets": [
+        "src/export/",
+        "web/src/workbench/"
+      ],
+      "depends_on": [
+        "FW2-018",
+        "FW2-023",
+        "FW2-033",
+        "FW2-039"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Match source CAD, drawings, stock orientation, tolerances, materials, parts, and service instructions by identity; critical missing features block final manufacturing readiness.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-042",
+      "phase": "P9",
+      "title": "Owner-performed inspection and test package",
+      "owner": "Primary + original designated browser owner",
+      "file_targets": [
+        "src/export/",
+        "docs/validation/"
+      ],
+      "depends_on": [
+        "FW2-039",
+        "FW2-041"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Provide representative coupon, root, fit, recovery, thermal, mechanism, and electrical plans with criteria and equipment; physical execution still requires authorization.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-043",
+      "phase": "P9",
+      "title": "Complete cost and procurement snapshot",
+      "owner": "Primary + original designated browser owner",
+      "file_targets": [
+        "src/export/",
+        "web/src/design-builder/"
+      ],
+      "depends_on": [
+        "FW2-030",
+        "FW2-041"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Count each consumable, hardware item, service, quantity, and cut waste; date availability and quote basis; mark unquoted tools, services, and shipping; assume no owner stock or purchase.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-044",
+      "phase": "P9",
+      "title": "Integrated desktop browser journeys",
+      "owner": "Primary + original designated browser owner",
+      "file_targets": [
+        "docs/frontend-design-workbench-v2/acceptance.csv",
+        "web/tests/"
+      ],
+      "depends_on": [
+        "FW2-007",
+        "FW2-016",
+        "FW2-028",
+        "FW2-033",
+        "FW2-037",
+        "FW2-038",
+        "FW2-041",
+        "FW2-043"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Observe the full path through existing and new workspaces: parts bank \u2192 build \u2192 compare \u2192 supported run and replay \u2192 Analysis \u2192 export, with real graphics and negative cases at the exact release head.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-045",
+      "phase": "P9",
+      "title": "Measured loading and interaction performance",
+      "owner": "Primary + original designated browser owner",
+      "file_targets": [
+        "web/src/components/",
+        "docs/frontend-design-workbench-v2/acceptance.csv"
+      ],
+      "depends_on": [
+        "FW2-018",
+        "FW2-036",
+        "FW2-044"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Declare a visible-scene fixture, method, and resources; preserve the failed 60 fps target and stop conditions; allow only one bounded correction for useful LOD or cache changes.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    },
+    {
+      "id": "FW2-046",
+      "phase": "P9",
+      "title": "Release, source coverage and handoff",
+      "owner": "Primary + original designated browser owner",
+      "file_targets": [
+        "docs/frontend-design-workbench-v2/",
+        "README.md"
+      ],
+      "depends_on": [
+        "FW2-040",
+        "FW2-042",
+        "FW2-044",
+        "FW2-045"
+      ],
+      "status": "planned",
+      "code_verified": false,
+      "browser_observed": false,
+      "engineering_accepted": false,
+      "acceptance": "Record required checks, PR merge, actual screenshots, startup, and export pack; account for every new acceptance check without calling source gaps or engineering gates complete.",
+      "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
+      "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+    }
+  ]
+}

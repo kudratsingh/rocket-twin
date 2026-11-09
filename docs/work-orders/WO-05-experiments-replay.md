@@ -1,5 +1,16 @@
 # WO-05 — Experiments, 3D replay, telemetry, compare
 
+**Design workbench v2 — owner direction, November 9:** The full next revamp is
+planned in [ten phases with46 tasks and36 acceptance scenarios](../frontend-design-workbench-v2/README.md). It adds
+source-supported intricate component CAD, linked drawings/systems, a parts bank,
+validated separate draft composition and complete alternative testing. ADR-0017
+extends the viewer-only rule narrowly; all CAD/physical calculations stay in the
+backend. Current RP1 is frozen, existing workflows/legacy evidence persist, and
+WO-03/04/05 prerequisites and owner physical/purchase/paid-run/WO-10/flight gates
+remain separate. Full model-detail completion cannot be claimed with undefined
+critical hardware. Start the first source-linked parts-bank slice after P0 docs.
+
+
 **Desktop capability checkpoint:** [Current walkthrough](../studies/frontend-desktop-detail-20261108/walkthrough.md)
 records source-backed GLB/inspection STEP downloads, adjustable sections, nominal3D
 dimensions, joint close-ups and manufacturer PCB mounting references. P34–37 native
