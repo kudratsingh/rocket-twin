@@ -1,0 +1,83 @@
+{
+  "packet": "P34",
+  "status": "pass-for-scoped-desktop-section-control",
+  "limits": {
+    "native_seconds": 120,
+    "overall_seconds": 180,
+    "no_new_input_after_seconds": 95
+  },
+  "timing": {
+    "native_end_elapsed_ms": 26622,
+    "navigation_complete_ms": 1991,
+    "adjust_cut_precheck_ms": 13467,
+    "cut_capture_complete_ms": 14317,
+    "preset_precheck_ms": 25470,
+    "final_capture_complete_ms": 26622
+  },
+  "runtime": {
+    "transport": "documented native Chrome App; same authorized window; existing bindings",
+    "entry": "http://127.0.0.1:5173/viewport-check.html",
+    "fresh_AX_before_each_input_same_cell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "forward_ring",
+    "native_part_label": "Forward ring \u00b7 plywood \u00b7 Simplified inspection envelope \u00b7 finished manufacturing geometry unavailable",
+    "records": 55,
+    "meshes": 26,
+    "visible_meshes": "26/26",
+    "geometry_fixture_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "hash_limit": "Unchanged prepared source fixture; no independent live API hash read in P34"
+  },
+  "cases": [
+    {
+      "case": "Normal exact Design/part route",
+      "status": "pass",
+      "actual": "Exact URL; selected Forward ring Value1;55/26 and26/26visible."
+    },
+    {
+      "case": "Adjust section cut",
+      "status": "pass",
+      "actual": "One click opened Scene tools and Section1; settled fresh AX showed Along the rocket,0\u00b0,150\u00b0presetValue0."
+    },
+    {
+      "case": "150\u00b0preset",
+      "status": "pass",
+      "actual": "One click changed slider/readout150\u00b0, presetValue1; native image shows changed clipped silhouette."
+    },
+    {
+      "case": "Close-up ring layers/notch, nominal3Dguide, opposite/transverse cut",
+      "status": "unexecuted",
+      "reason": "Outside minimal P34 scope."
+    }
+  ],
+  "visual_observations": [
+    "cut-open.jpg is immediate post-click before expanded drawer layout settled: whole silhouette and drawer header. controls.ax.txt subsequently confirms settled0\u00b0controls.",
+    "rotation150.jpg shows expanded controls,150\u00b0slider/readout/preset and visibly narrower clipped body/nose silhouette.",
+    "Assembly Overview45\u00b0/54.7\u00b0remained; close-up ring layers/notch cannot be assessed.",
+    "CG/CP annotations identify saved estimates."
+  ],
+  "final_state": {
+    "workspace": "Design",
+    "part": "forward_ring",
+    "source_detail": true,
+    "normal_left_columns": "both open",
+    "tools": "open",
+    "section": "on",
+    "direction": "Along the rocket",
+    "rotation_degrees": 150,
+    "opposite_side": false,
+    "dimension": "Off",
+    "visible_meshes": "26/26",
+    "hidden_source_parts": 0,
+    "camera": "Overview45\u00b0/54.7\u00b0, Assembly target"
+  },
+  "acceptance_limits": [
+    "No close-up detail, manufacturing, installed-joint clearance, strength or flight acceptance.",
+    "No viewport acceptance or performance measurement.",
+    "P32/P33 remain frozen unexecuted."
+  ],
+  "native_lane": "idle; no further CUA"
+}

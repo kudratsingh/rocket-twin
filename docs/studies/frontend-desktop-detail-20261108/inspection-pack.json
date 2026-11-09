@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "identity": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "resolved_spec_sha256": null,
+    "cad_revision_sha256": null,
+    "record_path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+    "record_sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "definition_path": "configs/studies/rp1-attachment-definition-v2.yaml",
+    "definition_sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608"
+  },
+  "coverage": {
+    "source_parts": 55,
+    "mesh_parts": 26,
+    "by_maturity": {
+      "source_dimensioned": 10,
+      "simplified_envelope": 16,
+      "mass_allowance": 25,
+      "missing_geometry": 4
+    },
+    "complete_installed_geometry": false
+  },
+  "engineering_accepted": false,
+  "manufacturing_clearance": false,
+  "flight_ready": false,
+  "id": "rp1-desktop-inspection-pack",
+  "status": "verified_local_pack",
+  "folder": "output/rp1-desktop-inspection-pack",
+  "zip": {
+    "path": "output/rp1-desktop-inspection-pack.zip",
+    "bytes": 967408,
+    "sha256": "b02b6568e80a001c75b5f9e13f754f12c9c05281f0f1594cf87364de67d15d81",
+    "entries": 66
+  },
+  "package_manifest": {
+    "path": "output/rp1-desktop-inspection-pack/manifest.json",
+    "sha256": "9df1bdd9fbf8d9ac63046f7b906806077e37626bbe6204ee3c95391fde124f53"
+  },
+  "files": [
+    {
+      "source": "docs/studies/rp1-inspection-geometry-20261107/manifest.json",
+      "path": "metadata/core-geometry.json",
+      "sha256": "f83054f7fd1e97f39c8c2102e514fe1835c3eec00b3de891579dce715ba7626c"
+    },
+    {
+      "source": "docs/studies/frontend-desktop-detail-20261108/cad-export.json",
+      "path": "metadata/inspection-step.json",
+      "sha256": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731"
+    },
+    {
+      "source": "docs/studies/frontend-desktop-detail-20261108/source-coverage.json",
+      "path": "metadata/source-coverage.json",
+      "sha256": "bc952bb633f0a6b8fe084da0b930aa4aaee056aa55f4383ca6033ff30b0878e0"
+    },
+    {
+      "source": "web/public/engineering-workbench/rp1-connections.json",
+      "path": "metadata/joint-connections.json",
+      "sha256": "7087e7dc7434a0c4d309055d7897ee79bb140e58e30b24499579e65d5e6b328e"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/nose.glb",
+      "path": "glb/parts/nose.glb",
+      "sha256": "640a7567f3b142ed1ab3ae38ec76688f4e5eb842cc96b4e22d6cb83c580ec1ef"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/body.glb",
+      "path": "glb/parts/body.glb",
+      "sha256": "7efda04d74a10c5154b849eeda21f2b4ebb3a831d59b5e8cb6bd92f2ea253a84"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/fin_set.glb",
+      "path": "glb/parts/fin_set.glb",
+      "sha256": "e39ce3573be99b6e3a178241612eb552549a359f06fbd75aa7db3332adfc496b"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/fin_tabs.glb",
+      "path": "glb/parts/fin_tabs.glb",
+      "sha256": "9373587f11445b9c8e5b7be8660667f6e07c8daeb11e025fdd51e96a51284149"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/motor_tube.glb",
+      "path": "glb/parts/motor_tube.glb",
+      "sha256": "8cc0082e97cf24e041b7bd05dcb127f7d25b724760ea0a7f49643a212684ab22"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/forward_ring.glb",
+      "path": "glb/parts/forward_ring.glb",
+      "sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/aft_ring.glb",
+      "path": "glb/parts/aft_ring.glb",
+      "sha256": "6d1d49ee7ebd9603b4f987d0808e65cd6f8d2a9059bb349efcc4cdf51dc0c277"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/motor.glb",
+      "path": "glb/parts/motor.glb",
+      "sha256": "3016265e1d2a44a153c3ae554812ed1aa3d77cf813be7061f1e9ddf39ff12d30"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/motor_retainer.glb",
+      "path": "glb/parts/motor_retainer.glb",
+      "sha256": "53f852a8196ca427abc544d58b283c640cea7580f880d8516e65f78f977f3ef4"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/nose_anchor_plate.glb",
+      "path": "glb/parts/nose_anchor_plate.glb",
+      "sha256": "0bbbaeadb2d9ccccce79fe674cd38bdae39b30720981944bf1ffa279ded2a0d5"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/nose_recovery_eye.glb",
+      "path": "glb/parts/nose_recovery_eye.glb",
+      "sha256": "6dbf161d736e3d8e85012ff72aca20792ad807ab79383926e02ee793cbc17de7"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/shock_cord.glb",
+      "path": "glb/parts/shock_cord.glb",
+      "sha256": "3afa20d8a4b2529ab99c1e69bbe3b512679118179e0302a1e2191afc06de26ad"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/recovery_connectors.glb",
+      "path": "glb/parts/recovery_connectors.glb",
+      "sha256": "9a43ad1a28fc55f3a6bddfe3e2af8c10e56306bda52ed6c8779d32d2e8a41b45"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/parachute.glb",
+      "path": "glb/parts/parachute.glb",
+      "sha256": "b8fecc7cd154ff5c34486d5226dbd0e60193778fa3ba5a9ff67edbcfdc7c0598"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/recovery_protection.glb",
+      "path": "glb/parts/recovery_protection.glb",
+      "sha256": "317208430b09186e32b83dbd7bd35287701add63d26aca1b1eb44d53ccf726fa"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/flight_computer.glb",
+      "path": "glb/parts/flight_computer.glb",
+      "sha256": "fba9a3eae4078b53efe122c05d2acb98b7003a103a2c475a23ec567dc243905b"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/imu.glb",
+      "path": "glb/parts/imu.glb",
+      "sha256": "f0ced62fd34a08f0f56a5c52fd20d8ec50aed5cb79205abb74f01f7717cddd12"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/baro.glb",
+      "path": "glb/parts/baro.glb",
+      "sha256": "04af1f2eafc33c17c1c33268bae9492e333cf4e19b99abc71150212b43e74aec"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/high_g_accel.glb",
+      "path": "glb/parts/high_g_accel.glb",
+      "sha256": "d98a44e45eb5585fe649f646aef8092b4f4d4d941ea6af4c7318893e32f60899"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/micro_sd.glb",
+      "path": "glb/parts/micro_sd.glb",
+      "sha256": "096395f7f8a12ca06e619f9795cf03a574fad6feb71c23dc9361df5216f2f9cf"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/battery.glb",
+      "path": "glb/parts/battery.glb",
+      "sha256": "773f3f724feea02abd2a1bde0d96ee362fca7d549f3287e1de202f3faed5e57f"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/independent_recovery.glb",
+      "path": "glb/parts/independent_recovery.glb",
+      "sha256": "77be5439c7a23ec1e5975257bdf58ec12cbddea86ede47c164d6e50f7e4ff950"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/recovery_battery.glb",
+      "path": "glb/parts/recovery_battery.glb",
+      "sha256": "37db0c2b3f00abdd366caf5ba268e89b89f26075a336e2c99b2a7b19535d7c5a"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/upper_body.glb",
+      "path": "glb/parts/upper_body.glb",
+      "sha256": "40d856bf8d0fee6ba94e429d6adc30b71a14b268b320d91834c8d0a02b383405"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/body_splice.glb",
+      "path": "glb/parts/body_splice.glb",
+      "sha256": "2aa4d979fe79de0834d2fe5c7795f1d99cdababc342c48f0b4b90731f7966492"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/parts/root_gussets.glb",
+      "path": "glb/parts/root_gussets.glb",
+      "sha256": "0438e19e8a6f82dba694e4ae4ecb8a34091ae292862c0b0084dce083dfd59b40"
+    },
+    {
+      "source": "output/rp1-inspection-geometry/assembly.glb",
+      "path": "glb/assembly.glb",
+      "sha256": "c164183a8fda060b6e7c387a96f1182a3f5f79982f598d3723345560d9a6f1cd"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/motor_tube.step",
+      "path": "step/parts/motor_tube.step",
+      "sha256": "509961bb5db6f00b97e4266c74f57e73ea6b0c0029d2ecb34064a10c6750c157"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/forward_ring.step",
+      "path": "step/parts/forward_ring.step",
+      "sha256": "786d589309c7d3d22a71eb288d8d331e8b0100bb7f700776649b3c07ef474586"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/aft_ring.step",
+      "path": "step/parts/aft_ring.step",
+      "sha256": "2ee6ae4ae883ce0aadc22cbeacfc62df3a65650807f5f4ceefb9fbca6e42511a"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/fin_set.step",
+      "path": "step/parts/fin_set.step",
+      "sha256": "5cf22ed30e62a4cdf7c01aaa17a9d19945afadd58999395f285581262edf18b8"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/fin_tabs.step",
+      "path": "step/parts/fin_tabs.step",
+      "sha256": "3849bb6bb4810208ed5bbfd8354343a42e6e3acd4b05184345b644750556597f"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/root_gussets.step",
+      "path": "step/parts/root_gussets.step",
+      "sha256": "05508390f9f18a557508b093eaa56613ebc4db6333c8dc4ab6955c1e16c57532"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/body.step",
+      "path": "step/parts/body.step",
+      "sha256": "7bb9dce29a82111aae48650017454b775685e1c5057908df6836aabd7f06dd91"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/motor.step",
+      "path": "step/parts/motor.step",
+      "sha256": "5b6aaad436c3fe56ba594b53b7b86c4acbb452a833a69d7a9766397f51174bff"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/motor_retainer.step",
+      "path": "step/parts/motor_retainer.step",
+      "sha256": "9e66a54ef638d830c6b9d805381c1f3b48ad16123b8be3d4bcd450189c0b8357"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/nose.step",
+      "path": "step/parts/nose.step",
+      "sha256": "c95cad6990b92c093464a8f44fed34a99adc8d7c58f214de300a525d9526ed49"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/nose_anchor_plate.step",
+      "path": "step/parts/nose_anchor_plate.step",
+      "sha256": "de0e035a4f8398eeafcadb3e70ce8d4bfb49f9096a9a199e725a9c9e05438db8"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/nose_recovery_eye.step",
+      "path": "step/parts/nose_recovery_eye.step",
+      "sha256": "4adce58e4bfc9936043c83253c3448470a368924e4a96e15b7d3c572447ab37c"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/shock_cord.step",
+      "path": "step/parts/shock_cord.step",
+      "sha256": "d5466632e57c3687450d94f2a65ca7a683b82503eee0918112a31d212d78df2c"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/recovery_connectors.step",
+      "path": "step/parts/recovery_connectors.step",
+      "sha256": "6015e245e46b08b0d60bc8d392af76f288ebfd79543b990edd9447d897178596"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/parachute.step",
+      "path": "step/parts/parachute.step",
+      "sha256": "df85a4a27cda5c78b9cab3233d597946a107b97e5620eb56cabeca35cfae2096"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/recovery_protection.step",
+      "path": "step/parts/recovery_protection.step",
+      "sha256": "3b8bb4965a17af642eac695878161cc43935c56841a079e79e384cbfa1588ad4"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/flight_computer.step",
+      "path": "step/parts/flight_computer.step",
+      "sha256": "02244bdd79e1b373f05d8017046c1725b12baaed2ed93a371dafc7c0a1dc3a45"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/imu.step",
+      "path": "step/parts/imu.step",
+      "sha256": "b4b8fecadb14d2348868c583c07f4d5e563dd6fa7ef6a1b87644f205c7a6bec3"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/baro.step",
+      "path": "step/parts/baro.step",
+      "sha256": "6dfb9e6286dd19a5bee1f1d1c82c0cad2dbf5b5ae71a6bcac497daede46a7512"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/high_g_accel.step",
+      "path": "step/parts/high_g_accel.step",
+      "sha256": "719edc18f8fa2612e0f527e94181ce459a7472ed8732acffdd1c737c16e4256d"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/micro_sd.step",
+      "path": "step/parts/micro_sd.step",
+      "sha256": "ba151be931226bb02c9ef709659063e62f304c85455973534b5605cbe1e61730"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/battery.step",
+      "path": "step/parts/battery.step",
+      "sha256": "db4c62fb8793e9251927cc9319be052eae224666c32064f5bcff4362e14a6d6b"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/independent_recovery.step",
+      "path": "step/parts/independent_recovery.step",
+      "sha256": "dd7e1ef00fad143fcf5ee57c961d20d55970de3f352f2b9ddfb66000dbedad45"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/recovery_battery.step",
+      "path": "step/parts/recovery_battery.step",
+      "sha256": "67a2073dc26a3108a9766ca963e5f788c73b416d711e54a768d32ce931b5d75b"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/upper_body.step",
+      "path": "step/parts/upper_body.step",
+      "sha256": "57dc493a1ed54f31f95a9f16c7ae4200a596f4cbff6b3d0737fcc6d3ede194a6"
+    },
+    {
+      "source": "output/rp1-inspection-step/parts/body_splice.step",
+      "path": "step/parts/body_splice.step",
+      "sha256": "35ee7f09ec390f317bc12280e8820088e5878bad46340337794c8bef547f038e"
+    },
+    {
+      "source": "output/rp1-inspection-step/critical_motor_fin_ring_joint.step",
+      "path": "step/critical_motor_fin_ring_joint.step",
+      "sha256": "2ea1796f0b506ce382e1f7f9d25280b21c2f30d2119bb3aa52f257c0e2cff119"
+    },
+    {
+      "source": "output/rp1-inspection-step/rp1_ad1_v2_inspection_26_records.step",
+      "path": "step/rp1_ad1_v2_inspection_26_records.step",
+      "sha256": "4af4940429dec381445f939d762edb1359881c5d61a8658c93a90308c34125c3"
+    },
+    {
+      "source": "output/rp1-attachment-definition/01-local-attachment.svg",
+      "path": "drawings/01-local-attachment.svg",
+      "sha256": "cf1569a1044c48c5465189bb03666f7af00d143ef9f8e307ce9a33e9450c2af7"
+    },
+    {
+      "source": "output/rp1-attachment-definition/02-load-paths.svg",
+      "path": "drawings/02-load-paths.svg",
+      "sha256": "07ed71f1889fb0f851487b66617c79b65cb25f05d0795097fc3254e7c3770afa"
+    },
+    {
+      "source": "output/rp1-attachment-definition/03-test-article.svg",
+      "path": "drawings/03-test-article.svg",
+      "sha256": "74c82a34bf60396fa9105c65081afed74e7eaa496c7d7e2f78b1e3be56daaeef"
+    },
+    {
+      "source": "output/rp1-attachment-definition/04-coupled-cases.svg",
+      "path": "drawings/04-coupled-cases.svg",
+      "sha256": "ec837f0342953a33b2db73f9082ba4577bacee3581ca94c6173f39dbb87a4b80"
+    },
+    {
+      "path": "README.md",
+      "sha256": "4fdbc2790a51d9a0fd3f31c853c28a3734343fcc3a2103690df3016e37a21dde"
+    },
+    {
+      "path": "index.html",
+      "sha256": "4169abbc61f7f495967e13cf870509744c12571c795f6c5fc27c2e9384ec4d5a"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "9df1bdd9fbf8d9ac63046f7b906806077e37626bbe6204ee3c95391fde124f53"
+    }
+  ],
+  "source_hashes": {
+    "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+    "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+    "src/inspection/rp1_geometry.py": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3",
+    "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "src/cad/assembly.py": "0288b5455cf449e9c26e7c057ac8597e3bef860f2a3c8f2cbe2be9ebf9b3a03a",
+    "src/vehicle/geometry.py": "dee5aec39ec6d0f5140fd449aff99bed9d887ffb30a80846fceae1c234f240e8",
+    "scripts/wo04_rp1_inspection_step.py": "63edd7cd49b0b68b9c51fc0c7aa0eedf4b6dab874e78b4398fee109cc451b972"
+  },
+  "checks": {
+    "before_after_source_and_asset_hashes": true,
+    "copied_bytes": true,
+    "zip_entry_inventory": true,
+    "zip_entry_hashes": true,
+    "zip_crc": true
+  },
+  "runtime": {
+    "wall_seconds": 0.14309054205659777,
+    "cpu_seconds": 0.137198
+  },
+  "cost_usd": 0,
+  "cad_regenerated": false,
+  "public_copy": false
+}

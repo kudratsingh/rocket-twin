@@ -23,6 +23,24 @@ Their source checks/build pass; the new native Fit/focus branches remain pending
 a stable designated-browser interval. See the [current completion packet](../docs/studies/frontend-completion-20261108/integration.md).
 All supplier/lab drafts remain UNSENT. Engineering/build/flight gates stay open.
 
+## Desktop engineering inspection
+
+Detailed desktop inspection, CAD/connection understanding, graphics, experiments
+and replay take priority over mobile layout polish. Current source-based tools
+include interior/joint isolation, adjustable section planes, recorded3D dimensions,
+and selected-part/assembly GLB plus inspection STEP/provenance downloads.
+[Walkthrough](../docs/studies/frontend-desktop-detail-20261108/walkthrough.md)
+· [Local portable file pack](../output/rp1-desktop-inspection-pack/index.html).
+The STEP files reconstruct26 represented records/36solids with nominal and envelope
+status retained;29 records still have no solid. Manufacturing details, qualified
+connections and RP1 full flight inertia remain unavailable. Historical models/runs
+are not substituted. All supplier/lab inquiries remain UNSENT.
+
+Optional completed local CAD preparation is `make workbench-rp1-step`; it verifies
+and copies existing registered files and never regenerates CAD. Start the app with
+`make preview`, then open http://127.0.0.1:5173/. Actual native feature observations
+and remaining source/engineering limits are linked in the walkthrough.
+
 Read-only local inspection of the actual resolved vehicle specifications and
 CAD-derived part meshes. This is a limited early WO-04 increment authorized while
 WO-03 engineering acceptance remains open. A rendered model is not hardware or

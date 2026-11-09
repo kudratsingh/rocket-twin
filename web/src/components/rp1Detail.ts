@@ -237,3 +237,12 @@ export async function loadRp1Detail(
     return null;
   }
 }
+
+/** Async display details belong to the exact loaded document, not just its reused ID. */
+export type Rp1DetailSnapshot = { source: InspectionDocument; detail: Rp1DetailView | null };
+export function detailForDocument(
+  snapshot: Rp1DetailSnapshot | null,
+  document: InspectionDocument | null,
+): Rp1DetailView | null {
+  return document && snapshot?.source === document ? snapshot.detail : null;
+}

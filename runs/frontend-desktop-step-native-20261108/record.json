@@ -1,0 +1,79 @@
+{
+  "packet": "P36",
+  "status": "pass-for-corrected-closeup-and-STEP-request",
+  "limits": {
+    "native_seconds": 150,
+    "overall_seconds": 210,
+    "no_new_input_after_seconds": 120
+  },
+  "timing": {
+    "native_end_elapsed_ms": 55390,
+    "coverage_open_ms": 1467,
+    "corrected_inspect_capture_ms": 14594,
+    "files_open_ms": 33051,
+    "STEP_request_observed_ms": 44178,
+    "STEP_click_epoch_ms": 1794198863207,
+    "STEP_provenance_click_epoch_ms": 1794198874331
+  },
+  "runtime": {
+    "transport": "Existing native Chrome App; same authorized window",
+    "fresh_full_AX_immediately_before_each_input_same_cell": true,
+    "guard_error_denial": null
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "forward_ring",
+    "expected_core_geometry": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+    "core_hash_limit": "Unchanged prepared source fixture; not independently requested from live API in P36"
+  },
+  "cases": [
+    {
+      "case": "Inspect modeled detail automatically closes coverage",
+      "status": "pass",
+      "actual": "Actual contextual click; coverage case body disappears, disclosure remains; native image has no largepopover and ring framed."
+    },
+    {
+      "case": "Compact nominal31.9mm guide/current detail graphic",
+      "status": "pass-for-visible-usable-graphic",
+      "actual": "Guide retained after Inspect; actual pixels show annulus/bore, straight inner-edge notch, layer seam and compact two-line guide card with line. No endpoint-distance calculation."
+    },
+    {
+      "case": "Inspection STEP request",
+      "status": "pass-for-UI-request-and-hash-verification",
+      "actual": "One click Download inspection STEP; explicit Recorded hash verified; browser download requested. Parent independently verifies downloadedbytes."
+    },
+    {
+      "case": "STEP provenanceJSON request",
+      "status": "pass-for-actual-click;download-byte-attribution-pending-parent",
+      "actual": "One click Download STEP provenance JSON. Existing hashverifiedstatus persists; no invented separate status."
+    }
+  ],
+  "visual_observations": [
+    "final-step-detail.jpg shows source-supported annulus/bore, straight inner-edge notch and thin layer seam. Compact31.9mm guide label leaves much more central geometry readable than P35.",
+    "Coverage largepopover is absent after actual Inspect click without a manualclose.",
+    "Left Details clearly identifies inspectionSTEP, CADmm, noseorigin/Zaft, sourceplacementwithoutdisplayseparation, and nonmanufacturing/noninstalledqualified limits.",
+    "No numerical endpoint, fit, stress, rope, roundover or installed-joint evidence inferred from pixels."
+  ],
+  "final_state": {
+    "workspace": "normal Design",
+    "part": "forward_ring",
+    "camera_target": "Forward ring",
+    "camera_label": "Custom",
+    "angles": "Horizontal45\u00b0/Tilt54.7\u00b0/Roll0\u00b0",
+    "visibility": "ring detail only, same Inspect workflow",
+    "source_detail": true,
+    "section": "off",
+    "nominal_guide": "Recorded ring bore31.9mm",
+    "coverage": "closed automatically",
+    "context_tab": "Details",
+    "geometry_files": "expanded",
+    "scene_tools": "open",
+    "native_lane": "idle"
+  },
+  "acceptance_limits": [
+    "P35 obstruction/label limitations remain preserved historical; P36 verifies this changed source only.",
+    "Inspection solid exchange is not manufacturing-ready or installed-qualified CAD.",
+    "No physics/performance/new simulation/viewport acceptance or physical/flight approval."
+  ]
+}

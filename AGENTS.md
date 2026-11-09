@@ -1,5 +1,23 @@
 # Agent entry point
 
+**Desktop inspection increment (November 8):** Source-verified part/assembly GLB
+and separate inspection STEP downloads, adjustable along/across section cuts,
+selected-part nominal3D dimension guides, focused detail cases and a manufacturer
+PCB mounting reference are implemented locally. Existing-source STEP export
+reconstructs26 records/36solids; it does not add missing hardware or manufacturing
+qualification. [Walkthrough](docs/studies/frontend-desktop-detail-20261108/walkthrough.md)
+· [Portable CAD/mesh pack](output/rp1-desktop-inspection-pack/index.html).
+P34 observed actual150degree section change; P35 observed ring isolation,31.9mm
+guide and fresh registeredGLB/provenance download, with popover/label obstruction
+preserved as historical failures. P36 verifies the corrected unobstructed ring
+view plus actual STEP/provenance downloads; P37 verifies the manufacturer PCB
+mounting table, JSON export and Escape/focus return. Fresh downloaded bytes/source
+records independently match.301 localtests/type/lint/format/build pass;
+four preserved unrelatedA2 tests remain outside publication. Native and physical
+acceptance remain distinct. All inquiries UNSENT. PR114 is merged at
+`c1777c39cbbc6816dcca4c32dd6b98b20242bfa0` after required workflow42560496864
+and both jobs succeeded. Publish this capability through its own required checks.
+
 **Owner priority — desktop engineering capability (November 8):**
 Prioritize fully functional, interactive desktop rocket inspection, source-backed
 CAD and intricate components/connections, graphics, experiments and replay.

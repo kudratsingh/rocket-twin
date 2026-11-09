@@ -1,19 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { InspectionDocument } from '../types';
 import { useInspection } from '../store';
 import { presentationGroups } from './presentationGroups';
 import { interiorHiddenIds, interiorShellIds, type InteriorSnapshot } from './interiorWorkflow';
-import { loadRp1Detail, type Rp1DetailView } from './rp1Detail';
+import {
+  detailForDocument,
+  loadRp1Detail,
+  type Rp1DetailView,
+  type Rp1DetailSnapshot,
+  type Rp1DetailCase,
+} from './rp1Detail';
+import { useWorkspaceLayout } from '../workspaces/workspaceLayoutContext';
 import { FinAlternatives } from './FinAlternatives';
 import './interiorWorkbench.css';
 export function InteriorWorkbench({
   vehicle,
   onDetailMeshesChange,
+  onDetailViewChange,
 }: {
   vehicle: InspectionDocument;
   onDetailMeshesChange?: (meshes: Record<string, string>) => void;
+  onDetailViewChange?: (source: InspectionDocument, view: Rp1DetailView | null) => void;
 }) {
-  const [catalog, setCatalog] = useState<Rp1DetailView | null>(null);
+  const [loadedDetail, setLoadedDetail] = useState<Rp1DetailSnapshot | null>(null);
+  const catalog = detailForDocument(loadedDetail, vehicle);
+  const layout = useWorkspaceLayout();
+  const coverageRef = useRef<HTMLDetailsElement>(null);
   const [detailed, setDetailed] = useState(true);
   const [detailError, setDetailError] = useState('');
   useEffect(() => {
@@ -21,7 +33,7 @@ export function InteriorWorkbench({
     void loadRp1Detail(vehicle, controller.signal)
       .then((value) => {
         if (!controller.signal.aborted) {
-          setCatalog(value);
+          setLoadedDetail({ source: vehicle, detail: value });
           setDetailError(
             value
               ? ''
@@ -39,7 +51,8 @@ export function InteriorWorkbench({
   }, [vehicle]);
   useEffect(() => {
     onDetailMeshesChange?.(detailed && catalog ? catalog.detailMeshes : {});
-  }, [catalog, detailed, onDetailMeshesChange]);
+    onDetailViewChange?.(vehicle, detailed ? catalog : null);
+  }, [catalog, detailed, vehicle, onDetailMeshesChange, onDetailViewChange]);
   const [previous, setPrevious] = useState<InteriorSnapshot | null>(null);
   const hidden = useInspection((s) => s.hiddenIds);
   const groupId = useInspection((s) => s.selectedGroupId);
@@ -70,6 +83,25 @@ export function InteriorWorkbench({
     if (group) useInspection.getState().selectGroup(group.id, group.part_ids);
     else useInspection.setState({ selectedGroupId: null, selectedGroupPartIds: [] });
     useInspection.getState().fitVisible();
+  }
+  function inspectCase(item: Rp1DetailCase) {
+    const ids = item.partIds.filter((id) => vehicle.parts.some((p) => p.id === id && p.mesh_url));
+    const target = item.replacementPartIds.find((id) => ids.includes(id)) ?? ids[0];
+    if (!target) return;
+    const base = interior && previous ? previous : capture();
+    setPrevious(base);
+    useInspection.setState({
+      hiddenIds: vehicle.parts.filter((p) => p.mesh_url && !ids.includes(p.id)).map((p) => p.id),
+      isolatedFrom: null,
+      exploded: 0,
+      section: false,
+      ghostShell: false,
+      selectedGroupId: null,
+      selectedGroupPartIds: [],
+    });
+    useInspection.getState().select(target);
+    useInspection.getState().focusPart(target);
+    if (coverageRef.current) coverageRef.current.open = false;
   }
   function restore() {
     if (previous)
@@ -111,6 +143,16 @@ export function InteriorWorkbench({
             ))}
         </select>
       </label>
+      <button
+        type="button"
+        onClick={() => {
+          const state = useInspection.getState();
+          if (!state.section) state.toggleSection();
+          layout?.updatePreferences({ toolsOpen: true });
+        }}
+      >
+        Adjust section cut
+      </button>
       {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' && (
         <FinAlternatives design={vehicle} compact />
       )}
@@ -123,7 +165,7 @@ export function InteriorWorkbench({
         />
         Source detail
       </label>
-      <details className="interior-coverage">
+      <details className="interior-coverage" ref={coverageRef}>
         <summary>Detail coverage</summary>
         <div>
           {catalog ? (
@@ -137,6 +179,22 @@ export function InteriorWorkbench({
                   <li key={c.id}>
                     <strong>{c.label}</strong>: {c.supportedFeatures.join('; ')}. Missing:{' '}
                     {c.missing.join('; ')}.
+                    <button type="button" onClick={() => inspectCase(c)}>
+                      Inspect modeled detail
+                    </button>
+                    <ul>
+                      {catalog.annotations
+                        .filter((a) => c.partIds.includes(a.partId))
+                        .map((a) => (
+                          <li key={a.id}>
+                            {a.label}: {Number(a.value.toFixed(3))} {a.units} · source nominal
+                            <small>
+                              {' '}
+                              · {a.source.path} · {a.source.locator}
+                            </small>
+                          </li>
+                        ))}
+                    </ul>
                   </li>
                 ))}
               </ul>

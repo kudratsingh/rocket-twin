@@ -1,5 +1,12 @@
 # Plan — modular custom rocket and digital twin
 
+**Desktop capability checkpoint:** [Current walkthrough](studies/frontend-desktop-detail-20261108/walkthrough.md)
+records source-backed GLB/inspection STEP downloads, adjustable sections, nominal3D
+dimensions, joint close-ups and manufacturer PCB mounting references. P34–37 native
+checks verify scoped section/detail/export/board paths; original obstructions and
+setup stops are retained. This is a usable inspection increment, not WO-03/04/05,
+engineering, manufacturing or flight acceptance. Mobile/pixel polish stays secondary.
+
 **Owner priority — desktop engineering capability (November 8):**
 Prioritize fully functional, interactive desktop rocket inspection, source-backed
 CAD and intricate components/connections, graphics, experiments and replay.

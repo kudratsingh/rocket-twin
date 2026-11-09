@@ -1,0 +1,33 @@
+{
+  "method": "Fresh known-prefix files after recorded native export actions, exact-byte/source comparison; no unrelated Downloads files read",
+  "observed": [
+    {
+      "filename": "G80-F2-RP1-AD1-definition-v2--forward_ring--inspection-65d3b1e58d0f.glb",
+      "bytes": 20000,
+      "mtime_ms": 1794198347655.6523,
+      "sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5"
+    },
+    {
+      "filename": "G80-F2-RP1-AD1-definition-v2--forward_ring--inspection-65d3b1e58d0f.provenance.json",
+      "bytes": 2824,
+      "mtime_ms": 1794198359873.7073,
+      "sha256": "2eb86bd7e4f62a63514dd5d72ca67e136f862222100fb59ecde3492dd5445c27",
+      "source": {
+        "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+        "part_id": "forward_ring",
+        "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "inspection_geometry_sha256": "238d01e5e3381560aab9eb99673617803ab020e01a8cf171ba4dffe67228b608",
+        "mesh_asset_sha256": "65d3b1e58d0f730966360b2269e2040c4ac14fb382c83e0acd2050d54150c5a5",
+        "scope": "selected_part",
+        "units": {
+          "source": "m except explicitly named mm definition fields",
+          "cad": "mm",
+          "glb": "m",
+          "bounds": "m"
+        }
+      }
+    }
+  ],
+  "glb_matches_registered_sha256": true,
+  "scope": "P35 core forward-ring GLB and provenance only; not STEP/optional detail/assembly"
+}
