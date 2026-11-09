@@ -1,0 +1,65 @@
+{
+  "packet": "P14",
+  "date": "2026-11-08",
+  "status": "blocked-changed-owner-context",
+  "purpose": "Current available-size lower Replay plots/details reachability; not exact-size or performance acceptance",
+  "owner": "/root/browser_access_sol",
+  "native_transport": "documented cua native Google Chrome App",
+  "budget": {
+    "target_native_seconds": 80,
+    "hard_native_seconds": 90,
+    "overall_seconds": 120,
+    "launch_cutoff_seconds": 70,
+    "reported_tool_wall_seconds": 14.536,
+    "timer_at_last_state_ms": 7036,
+    "timing_note": "Tool wall sum includes documentation refresh 3.838 s and native entry call 10.698 s. Entry timer starts after documentation and reports 7.036 s; no further native call/action followed."
+  },
+  "actions": {
+    "documentation_refresh": 1,
+    "get_app": 1,
+    "fresh_ax_state": 1,
+    "clicks": 0,
+    "navigation": 0,
+    "resize": 0,
+    "screenshots": 0,
+    "play": 0,
+    "simulation": 0
+  },
+  "observation": {
+    "active_page": "Unrelated owner Settings context",
+    "rocket_twin_tab": "Listed in same Chrome window, not selected",
+    "preview_availability": "unexecuted; shell HTTP000 is not a browser result",
+    "actual_css_dimensions": null,
+    "owner_zoom": "not observed for Rocket Twin; unrelated page zoom not attributed to app"
+  },
+  "cases": [
+    {
+      "case": "fresh native access",
+      "status": "pass",
+      "evidence": "Supported native App selection and AX observation returned successfully."
+    },
+    {
+      "case": "expected ready Rocket Twin context",
+      "status": "blocked",
+      "evidence": "Fresh state differed from expected owner handoff context; stopped before UI input."
+    },
+    {
+      "case": "one observed Left tile and lower plots/details reachability",
+      "status": "unexecuted"
+    },
+    {
+      "case": "restore original Design/Fill",
+      "status": "unexecuted",
+      "reason": "No UI mutation occurred; left owner context untouched."
+    },
+    {
+      "case": "Design fin/tab staged co-motion",
+      "status": "unexecuted",
+      "reason": "Not chosen in this bounded packet."
+    }
+  ],
+  "final_state": "Owner current Settings page unchanged. Rocket Twin tab remains not selected. No restoration or reload attempted.",
+  "privacy": "No screenshot; unrelated personal/account contents removed from retained minimal AX observation.",
+  "source_attribution": "source-freeze.json contains offline file fingerprints, not proof that those modules rendered during this stopped packet.",
+  "stop": "Fresh changed owner context; zero UI actions. Native lane explicitly released to primary and staged source agent."
+}

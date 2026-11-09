@@ -1,0 +1,61 @@
+{
+  "packet": "P15",
+  "date": "2026-11-08",
+  "status": "blocked-user-change-guard",
+  "owner": "/root/browser_access_sol",
+  "native_transport": "documented native Google Chrome App",
+  "source_attribution": "Offline pre-packet file hashes in source-freeze.json; entry only rendered RP1 Design, not new Replay control.",
+  "budget": {
+    "target_native_seconds": 80,
+    "hard_native_seconds": 90,
+    "overall_seconds": 120,
+    "no_launch_after_seconds": 70,
+    "last_pre_action_elapsed_ms": 19401,
+    "entry_call_reported_wall_s": 9.429,
+    "navigation_call_reported_wall_s": 5.9124,
+    "timing_note": "No native call followed the guard. No exact end timer was sampled because immediate stop forbids further native work. Last pre-action timer plus full navigation tool wall is approximately25.314 s, safely below cutoff; tool wall and JS timer use distinct boundaries."
+  },
+  "entry": {
+    "status": "pass",
+    "url": "http://127.0.0.1:5173/?workspace=design&design=G80-F2-RP1-AD1-definition-v2&verifyViewport=1",
+    "title": "Rocket Twin \u00b7 Vehicle inspection",
+    "evidence": "entry.ax.txt",
+    "actual_css_dimensions": null
+  },
+  "attempt": {
+    "first_action": "pressKey(super+l) as first step of one same-tab saved comparison navigation",
+    "result": "User-change guard; no resulting AX state or screenshot. No success inferred for navigation.",
+    "exact_guard": "The user changed '/Applications/Google Chrome.app'. Re-query the latest state with `get_app_state` before sending more actions.",
+    "subsequent_actions": "None; no re-query or retry."
+  },
+  "cases": [
+    {
+      "case": "ready RP1 Design entry",
+      "status": "pass"
+    },
+    {
+      "case": "saved cf9 G80 A / ab60 G54 B bounded paused comparison admission",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Fit both trajectories one click / Free camera / visible extents",
+      "status": "unexecuted"
+    },
+    {
+      "case": "one Left tile and lower plots/details reachability",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Fill and Design restoration",
+      "status": "unexecuted",
+      "reason": "Guard stopped further input; final state not re-observed."
+    }
+  ],
+  "screenshots": 0,
+  "new_runs": 0,
+  "play": 0,
+  "resize": 0,
+  "final_state": "Not re-observed after guard. Initial confirmed RP1 Design; no navigation completion or restoration claim.",
+  "stop": "User-change guard; native idle communicated to primary and staged source agent.",
+  "prior_packets": "P14 and all earlier evidence remain immutable."
+}

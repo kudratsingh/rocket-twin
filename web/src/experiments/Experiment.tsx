@@ -21,6 +21,7 @@ import { firstRecordedTime, replayWindow, replayWindowStatus } from './replayWin
 import { replayPose } from './replayPose';
 import type { ReplayPose } from './replayPose';
 import { replayFollowTarget } from './replayFollowTarget';
+import { replayTrajectoryBounds, replayFitDistance } from './replayTrajectoryBounds';
 import type { ReplayCameraMode } from './replayFollowTarget';
 import { comparisonDifferences, comparisonValue } from './comparison';
 import { plotScale, scaleLabels } from './plotScale';
@@ -127,11 +128,13 @@ function ReplayCamera({
   mode,
   fitToken,
   run,
+  other,
 }: {
   loc: Vector3 | null;
   mode: 'follow' | 'pad' | 'free';
   fitToken: number;
   run: Loaded;
+  other: Loaded | null;
 }) {
   const controls = useRef<OrbitControlsType>(null);
   const previous = useRef<Vector3 | null>(null);
@@ -148,33 +151,29 @@ function ReplayCamera({
     previous.current = null;
   }, [camera, run]);
   useEffect(() => {
-    if (!fitToken || !replayWindow(run.telemetry.columns.time_s)) return;
-    const c = run.telemetry.columns;
-    if (
-      !['east_m', 'down_m', 'north_m'].every(
-        (key) =>
-          Array.isArray(c[key]) &&
-          c[key].length === c.time_s.length &&
-          c[key].every(Number.isFinite),
-      )
-    )
-      return;
-    const points = c.time_s.map((_, i) => new Vector3(c.east_m[i], -c.down_m[i], -c.north_m[i]));
-    const min = points[0].clone(),
-      max = points[0].clone();
-    for (const point of points) {
-      min.min(point);
-      max.max(point);
-    }
+    if (!fitToken) return;
+    const bounds = replayTrajectoryBounds(run.telemetry.columns, other?.telemetry.columns);
+    if (!bounds) return;
+    const min = new Vector3(...bounds.min);
+    const max = new Vector3(...bounds.max);
     const center = min.clone().add(max).multiplyScalar(0.5);
     const radius = Math.max(2, max.distanceTo(min) * 0.5);
-    camera.position
-      .copy(center)
-      .add(new Vector3(1, 0.8, 1.4).normalize().multiplyScalar(radius * 2.8));
+    // Fit a containing sphere through the narrower field of view, including
+    // tall/narrow canvases. This changes only the view, never recorded poses.
+    const perspective = camera as typeof camera & {
+      isPerspectiveCamera?: boolean;
+      fov?: number;
+      aspect?: number;
+    };
+    const distance = replayFitDistance(radius, perspective.fov ?? 45, perspective.aspect ?? 1);
+    if (distance === null) return;
+    camera.position.copy(center).add(new Vector3(1, 0.8, 1.4).normalize().multiplyScalar(distance));
+    camera.far = Math.max(5000, distance + radius * 2);
+    camera.updateProjectionMatrix();
     controls.current?.target.copy(center);
     controls.current?.update();
     previous.current = null;
-  }, [fitToken, camera, run]);
+  }, [fitToken, camera, run, other]);
   useFrame(() => {
     if (mode === 'follow' && loc && controls.current) {
       if (previous.current) {
@@ -223,7 +222,13 @@ function FlightScene({
     <Canvas camera={{ position: [2, 1.5, 3], fov: 45, near: 0.01, far: 5000 }}>
       <ambientLight intensity={1.4} />
       <directionalLight position={[20, 50, 30]} intensity={2} />
-      <ReplayCamera loc={loc} mode={followTarget.cameraMode} fitToken={fitToken} run={run} />
+      <ReplayCamera
+        loc={loc}
+        mode={followTarget.cameraMode}
+        fitToken={fitToken}
+        run={run}
+        other={other}
+      />
       <gridHelper args={[100, 20, '#38505b', '#24343c']} />
       <ReplayTrajectory
         key={`primary-${run.record.run_id}-${run.playbackMode}`}
@@ -1754,12 +1759,13 @@ export default function Experiment({
                     </button>
                     <button
                       type="button"
+                      title="Frame finite recorded positions from all loaded runs. Missing positions remain unavailable."
                       onClick={() => {
                         setMode('free');
                         setFitToken((n) => n + 1);
                       }}
                     >
-                      Fit A trajectory
+                      {other ? 'Fit both trajectories' : 'Fit A trajectory'}
                     </button>
                     <button type="button" onClick={downloadDiagnostics}>
                       Save visible replay diagnostics
@@ -1821,12 +1827,13 @@ export default function Experiment({
                     ))}
                   </div>
                   <button
+                    title="Frame finite recorded positions from all loaded runs. Missing positions remain unavailable."
                     onClick={() => {
                       setMode('free');
                       setFitToken((n) => n + 1);
                     }}
                   >
-                    Fit A trajectory
+                    {other ? 'Fit both trajectories' : 'Fit A trajectory'}
                   </button>
                   <button
                     onClick={() => {

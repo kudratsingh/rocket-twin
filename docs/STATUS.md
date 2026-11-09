@@ -1,5 +1,18 @@
 # Status
 
+**Autonomous frontend completion (November 8, after PR110):**
+The owner requests continuation through the existing frontend checklist without
+routine approval pauses. [Current packet](studies/frontend-completion-20261108/plan.md)
+implements responsive focus restoration, consistent recorded-data exports and
+comparison framing; local checks/build pass. P14/P15 stopped on changed owner
+context/runtime guard, so new native interaction acceptance remains pending. PR110 is merged
+at main `6a12c2b8b2a78d436cc24ecac7c05c80c5eb6ca7` after exact-head required checks;
+its viewport helper is information-only. Native current-window evidence is scoped:
+P13 observed2240×1109CSS/DPR2;100% zoom is owner-reported. Exact prescribed sizes,
+representative performance and unavailable source-data branches remain open.
+G80 RP1/AD1/D1 and G54/G12 PID-to-RL remain unchanged. All five inquiries are UNSENT;
+no supplier, purchase, physical-test, firmware or flight authorization follows.
+
 **Comparison camera checkpoint (November8):** [Current worklist](frontend-release-worklist.md) records PR105–108 merged after required checks. The next camera-only increment has source tests and actual P12 Auto/A/B/Free button evidence at125, with B visibly in view and recorded values unchanged. P11's popup failure/2.599s overrun remains historical; P12 used a stricter90/120s guard and ended48.382s. Owner comparison125/AutoB is preserved. Exact-size/performance/full frontend and engineering gates stay open; RP1/AD1/D1, G54/G12 PID-to-RL and five UNSENT inquiries are unchanged.
 
 **Autonomous release closure (November8):** [Current worklist](frontend-release-worklist.md) owns task reconciliation, experiment-monitor recovery, strict Analysis identity, bounded replay drawing and new targeted native checks. PR104 camera fix is merged. G80 RP1/AD1 v2 unchanged; all inquiries UNSENT. Engineering evidence/physical work and initial frontend release remain separate.

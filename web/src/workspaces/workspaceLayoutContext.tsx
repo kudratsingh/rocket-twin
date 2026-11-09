@@ -48,11 +48,17 @@ function localStorageOrNull(): LayoutStorage | null {
 export function restorePanelFocus(id: string, opener: HTMLElement | null = null) {
   if (typeof window !== 'undefined')
     window.requestAnimationFrame(() => {
-      const target =
-        opener?.isConnected && opener.tabIndex >= 0 && !opener.closest('[hidden]')
-          ? opener
-          : document.getElementById(id);
-      target?.focus();
+      const usable = (target: HTMLElement | null): target is HTMLElement =>
+        !!target &&
+        target.isConnected &&
+        target.tabIndex >= 0 &&
+        !target.closest('[hidden], [inert]') &&
+        !target.matches(':disabled') &&
+        target.getClientRects().length > 0 &&
+        window.getComputedStyle(target).visibility !== 'hidden' &&
+        window.getComputedStyle(target).visibility !== 'collapse';
+      const target = usable(opener) ? opener : document.getElementById(id);
+      if (usable(target)) target.focus();
     });
 }
 export function WorkspaceLayoutProvider({
