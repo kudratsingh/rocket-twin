@@ -1,5 +1,7 @@
 # Current frontend release worklist
 
+**Viewport-helper clarification:** [Current note](studies/frontend-viewport-clarity-20261108/report.md). The owner is not asked to chase pixel counts for ordinary use or unblocked development. The helper is information-only; its misleading target selector is removed. P13 observes actual2240×1109CSS and successful Hide, while100% zoom is owner-reported. Prescribed-size cases remain pending until a supported coordinated method is available; criteria are unchanged.
+
 **Published baseline at the camera packet's intake:** merged PR108/main `47bc74a12b6d186bf8a9b68ef6e7ad45f044410a`; final head `8f6c02a65d5f0d58187c138d211c1e718ce80e63` passed both required jobs/workflow42489804785. PR105–107 precede it. G80 RP1/AD1 v2 and all archived identities remain separate. Preview publication never implies engineering/build/flight or full work-order acceptance.
 
 | Outcome | Owner | Actual state / next evidence | Stop / dependency |

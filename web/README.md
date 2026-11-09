@@ -153,3 +153,9 @@ what the camera follows. A valid position marker can be followed when attitude
 is unavailable; no body attitude is invented. These choices move the view, not
 the rocket or controller. **Fit A trajectory** fits A only; combined fitting is
 unavailable. See the [camera integration](../docs/studies/frontend-replay-follow-20261108/integration.md).
+
+The optional development URL flag `verifyViewport=1` shows **read-only browser-size
+information**. Its reference sizes are not resize controls or normal app settings.
+You do not need to match them to inspect the rocket. The helper cannot set Chrome
+bounds/page zoom, and matching a reference does not pass layout checks. Use Chrome's
+upper-right menu for page zoom; Rocket Zoom in/out controls the3D camera.
