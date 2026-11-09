@@ -1,5 +1,15 @@
 # Frontend specification — focused engineering workspaces
 
+**Control organization follow-up:** The owner requested the crowded control strip
+be refined. View/Inspect/Source/Alternatives and Mouse/Frame/Zoom/Display/Views
+now use labeled, wrapping normal-flow groups. Existing geometry, callbacks,
+read-only evidence and fin-joint camera retention remain unchanged.
+P69–P70 native checks verify group/menu reachability, display/section entries,
+sidebar states and a visible whole model; numeric entry and full responsive/
+field-legibility coverage remain outside this scoped claim.
+[Bounded scope and verification](studies/frontend-control-layout-20261109/integration.md). Full work-order and physical/flight gates
+remain open; all five inquiries are UNSENT.
+
 **Owner visual reference set — November9:** Use the [saved reference gallery and
 goal map](frontend-design-workbench-v2/reference-set-20261109.md) for geometry depth, section hatching/edges, assembly hierarchy,
 measurements, transparent interiors and process views. FW2-020/FW2-A15 also require

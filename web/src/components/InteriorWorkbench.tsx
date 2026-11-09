@@ -118,96 +118,128 @@ export function InteriorWorkbench({
   }
   return (
     <div className="interior-workbench" aria-label="Interior inspection workflow">
-      <button
-        className="interior-primary"
-        aria-pressed={interior}
-        disabled={!shells.length}
-        onClick={() => (interior ? restore() : inspect())}
+      <div
+        className="inspection-control-group interior-inspect-group"
+        role="group"
+        aria-label="Inspect assembly"
       >
-        {interior ? 'Restore visibility' : 'Inspect interior'}
-      </button>
-      <label>
-        <span className="sr-only">Inspect subsystem</span>
-        <select
-          aria-label="Inspect subsystem"
-          value={interior ? (groupId ?? '') : ''}
-          onChange={(e) => inspect(e.target.value)}
+        <span className="inspection-control-label">Inspect</span>
+        <button
+          className="interior-primary"
+          aria-pressed={interior}
+          disabled={!shells.length}
+          onClick={() => (interior ? restore() : inspect())}
         >
-          <option value="">Choose internal assembly…</option>
-          {groups
-            .filter((g) => g.id !== 'launch_finish' && g.id !== 'nose_airframe')
-            .map((g) => (
-              <option key={g.id} value={g.id}>
-                {g.label}
-              </option>
-            ))}
-        </select>
-      </label>
-      <button
-        type="button"
-        onClick={() => {
-          const state = useInspection.getState();
-          if (!state.section) state.toggleSection();
-          layout?.updatePreferences({ toolsOpen: true });
-        }}
+          {interior ? 'Restore visibility' : 'Inspect interior'}
+        </button>
+        <label>
+          <span className="sr-only">Inspect subsystem</span>
+          <select
+            aria-label="Inspect subsystem"
+            value={interior ? (groupId ?? '') : ''}
+            onChange={(e) => inspect(e.target.value)}
+          >
+            <option value="">Choose internal assembly…</option>
+            {groups
+              .filter((g) => g.id !== 'launch_finish' && g.id !== 'nose_airframe')
+              .map((g) => (
+                <option key={g.id} value={g.id}>
+                  {g.label}
+                </option>
+              ))}
+          </select>
+        </label>
+        <button
+          type="button"
+          onClick={() => {
+            const state = useInspection.getState();
+            if (!state.section) state.toggleSection();
+            layout?.updatePreferences({ toolsOpen: true });
+          }}
+        >
+          Adjust section cut
+        </button>
+      </div>
+      <div
+        className="inspection-control-group interior-source-group"
+        role="group"
+        aria-label="Source detail"
       >
-        Adjust section cut
-      </button>
+        <span className="inspection-control-label">Source</span>
+        <label className="detail-toggle">
+          <input
+            type="checkbox"
+            aria-label="Source detail"
+            checked={detailed && !!catalog}
+            disabled={!catalog}
+            onChange={(e) => setDetailed(e.target.checked)}
+          />
+          Detail
+        </label>
+        <details
+          className="interior-coverage"
+          ref={coverageRef}
+          onKeyDown={(event) => {
+            if (event.key !== 'Escape') return;
+            event.currentTarget.open = false;
+            event.currentTarget.querySelector('summary')?.focus();
+            event.stopPropagation();
+            event.preventDefault();
+          }}
+        >
+          <summary>Detail coverage</summary>
+          <div>
+            {catalog ? (
+              <>
+                <p>
+                  Higher-detail source features for3 records. Electronics/recovery boxes remain
+                  envelopes where hardware details are unavailable.
+                </p>
+                <ul>
+                  {catalog.cases.map((c) => (
+                    <li key={c.id}>
+                      <strong>{c.label}</strong>: {c.supportedFeatures.join('; ')}. Missing:{' '}
+                      {c.missing.join('; ')}.
+                      <button type="button" onClick={() => inspectCase(c)}>
+                        Inspect modeled detail
+                      </button>
+                      <ul>
+                        {catalog.annotations
+                          .filter((a) => c.partIds.includes(a.partId))
+                          .map((a) => (
+                            <li key={a.id}>
+                              {a.label}: {Number(a.value.toFixed(3))} {a.units} · source nominal
+                              <small>
+                                {' '}
+                                · {a.source.path} · {a.source.locator}
+                              </small>
+                            </li>
+                          ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  Separate display detail revision: <code>{catalog.detailSha256}</code>. No
+                  manufacturing or strength acceptance.
+                </p>
+              </>
+            ) : (
+              <p>{detailError || 'Loading optional source-detail catalog…'}</p>
+            )}
+          </div>
+        </details>
+      </div>
       {vehicle.id === 'G80-F2-RP1-AD1-definition-v2' && (
-        <FinAlternatives design={vehicle} compact />
-      )}
-      <label className="detail-toggle">
-        <input
-          type="checkbox"
-          checked={detailed && !!catalog}
-          disabled={!catalog}
-          onChange={(e) => setDetailed(e.target.checked)}
-        />
-        Source detail
-      </label>
-      <details className="interior-coverage" ref={coverageRef}>
-        <summary>Detail coverage</summary>
-        <div>
-          {catalog ? (
-            <>
-              <p>
-                Higher-detail source features for3 records. Electronics/recovery boxes remain
-                envelopes where hardware details are unavailable.
-              </p>
-              <ul>
-                {catalog.cases.map((c) => (
-                  <li key={c.id}>
-                    <strong>{c.label}</strong>: {c.supportedFeatures.join('; ')}. Missing:{' '}
-                    {c.missing.join('; ')}.
-                    <button type="button" onClick={() => inspectCase(c)}>
-                      Inspect modeled detail
-                    </button>
-                    <ul>
-                      {catalog.annotations
-                        .filter((a) => c.partIds.includes(a.partId))
-                        .map((a) => (
-                          <li key={a.id}>
-                            {a.label}: {Number(a.value.toFixed(3))} {a.units} · source nominal
-                            <small>
-                              {' '}
-                              · {a.source.path} · {a.source.locator}
-                            </small>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
-              <p>
-                Separate display detail revision: <code>{catalog.detailSha256}</code>. No
-                manufacturing or strength acceptance.
-              </p>
-            </>
-          ) : (
-            <p>{detailError || 'Loading optional source-detail catalog…'}</p>
-          )}
+        <div
+          className="inspection-control-group interior-alternatives-group"
+          role="group"
+          aria-label="Alternatives"
+        >
+          <span className="inspection-control-label">Alternatives</span>
+          <FinAlternatives design={vehicle} compact />
         </div>
-      </details>
+      )}
       <span className="interior-status">
         {interior
           ? 'Outer shell hidden · source positions retained'

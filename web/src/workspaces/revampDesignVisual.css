@@ -1,72 +1,87 @@
-/* Only the new Design shell uses overlaid chrome; legacy workspaces retain theirs. */
+/* Controls occupy normal flow above the retained 3D/2D representation. */
 .revamp-design .research-design-visual {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   min-height: 0;
   overflow: hidden;
 }
+
 .revamp-design .research-representation-controls {
-  position: absolute;
-  top: 8px;
-  left: 10px;
-  z-index: 24;
-  max-width: calc(100% - 20px);
-  padding: 0;
-  border: 0;
-  gap: 4px;
-  background: #14232ded;
-  border-radius: 5px;
+  position: static;
+  min-width: 0;
+  max-width: 100%;
 }
+
 .revamp-design .research-representation-controls button {
-  min-height: 30px;
+  min-height: 32px;
+  white-space: normal;
+}
+
+.research-source-context {
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 3px 12px;
+  color: #b8cdd7;
+  background: #152630;
+  border-bottom: 1px solid #38515d;
   font-size: 11px;
-  padding: 5px 8px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
-.revamp-design .research-representation-controls > span {
-  display: none; /* Exact source remains in the header and source Details. */
-}
+
 .revamp-source-state {
   font-size: 11px;
   padding: 6px 12px;
   color: #e9c788;
 }
+
 .revamp-design .revamp-source-state {
-  position: absolute;
-  top: 42px;
-  right: 10px;
-  z-index: 24;
+  position: static;
   margin: 0;
-  background: #14232ded;
-  max-width: calc(100% - 20px);
+  max-width: 100%;
+  pointer-events: auto;
 }
-.revamp-design .research-design-visual[data-representation='2d'] .orthographic-design {
-  position: relative;
-  height: 100%;
-  min-height: 0;
-}
-.revamp-design .ortho-toolbar {
-  position: relative;
-  margin-top: 76px;
-  z-index: 23;
-  padding: 4px;
-  flex: 0 0 auto;
-  background: #14232ded;
-}
-.revamp-design .ortho-stage {
-  height: 100%;
-  min-height: 0;
-  flex: 1;
-}
+
 .revamp-design .research-design-visual > .research-representation:not([hidden]) {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  height: auto;
   min-height: 0;
-}
-.revamp-design .research-design-visual[data-representation='3d'] > .research-representation > * {
-  height: 100%;
-}
-.revamp-design .research-design-visual[data-representation='2d'] > .research-representation {
   overflow: auto;
 }
+
+.revamp-design .research-design-visual[data-representation='3d'] > .research-representation > * {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.revamp-design .research-design-visual[data-representation='2d'] .orthographic-design {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+}
+
+.revamp-design .research-design-visual[data-representation='2d'] .ortho-toolbar {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  margin-top: 0;
+  padding: 4px;
+  background: #14232ded;
+}
+
+.revamp-design .research-design-visual[data-representation='2d'] .ortho-stage {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+}
+
 .revamp-design .research-selection-summary {
   position: absolute;
   bottom: 96px;
@@ -79,27 +94,28 @@
   border: 1px solid var(--border);
   border-radius: 5px;
 }
+
 .revamp-design .research-selection-summary > div {
   flex: 0 1 200px;
 }
+
 .revamp-design .research-selection-summary p,
 .revamp-design .research-selection-summary span {
   display: none; /* Full function/material/coverage is in the adjacent Details tab. */
 }
+
 .revamp-design .research-selection-summary button {
-  min-height: 26px;
-  font-size: 10px;
-  padding: 4px 6px;
+  min-height: 32px;
+  font-size: 11px;
+  padding: 5px 7px;
 }
-@media (max-width: 700px) {
-  .revamp-design .research-selection-summary {
-    flex-direction: row;
-    max-width: calc(100% - 20px);
-    bottom: 136px;
-  }
-  .revamp-design .research-selection-summary > div {
-    flex-basis: 100%;
-  }
+
+.revamp-design .research-design-visual[data-representation='2d'] .research-selection-summary {
+  position: static;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  max-width: calc(100% - 20px);
+  margin: 0 10px 6px;
 }
 
 .saved-mass-case-control {
@@ -112,34 +128,26 @@
   background: #162733;
   border-bottom: 1px solid #3f5969;
 }
+
 .saved-mass-case-control select {
   max-width: 100%;
   min-width: 0;
 }
+
 .saved-mass-case-control small {
   flex-basis: 100%;
   line-height: 1.45;
   color: #b1c7d6;
 }
 
-/* A dimension drawing needs its full annotation area, unlike a 3D scene overlay. */
-.revamp-design .research-design-visual[data-representation='2d'] {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding-top: 76px;
-}
-.revamp-design .research-design-visual[data-representation='2d'] .research-selection-summary {
-  position: static;
-  flex: 0 0 auto;
-  align-self: flex-start;
-  max-width: calc(100% - 20px);
-  margin: 0 10px 6px;
-}
-.revamp-design .research-design-visual[data-representation='2d'] > .research-representation {
-  flex: 1 1 auto;
-  height: auto;
-}
-.revamp-design .research-design-visual[data-representation='2d'] .ortho-toolbar {
-  margin-top: 0;
+@media (max-width: 700px) {
+  .revamp-design .research-selection-summary {
+    flex-direction: row;
+    max-width: calc(100% - 20px);
+    bottom: 136px;
+  }
+
+  .revamp-design .research-selection-summary > div {
+    flex-basis: 100%;
+  }
 }

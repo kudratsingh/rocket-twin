@@ -11,6 +11,7 @@ import {
   inspectionPartRepresentation,
 } from './inspectionWorkflow';
 import { ComponentEvidence } from './ComponentEvidence';
+import '../components/inspectionToolbar.css';
 import './revampDesignVisual.css';
 import { InteriorWorkbench } from '../components/InteriorWorkbench';
 import type { Rp1DetailView } from '../components/rp1Detail';
@@ -79,7 +80,12 @@ export function DesignVisual({
       }}
     >
       <div className="inspection-workflow-header">
-        <div className="research-representation-controls" aria-label="Drawing representation">
+        <div
+          className="research-representation-controls inspection-control-group"
+          role="group"
+          aria-label="View representation"
+        >
+          <span className="inspection-control-label">View</span>
           <button
             type="button"
             aria-controls={`${id}-3d`}
@@ -104,9 +110,6 @@ export function DesignVisual({
           >
             2D dimensions
           </button>
-          <span>
-            {vehicle.label || vehicle.name || vehicle.id} · {geometry.coverage}
-          </span>
         </div>
         <InteriorWorkbench
           vehicle={vehicle}
@@ -114,16 +117,32 @@ export function DesignVisual({
           onDetailViewChange={onDetailViewChange}
         />
         {geometry.sourceDerived && (
-          <details className="inspection-source-note">
-            <summary>Preliminary</summary>
-            <p className="revamp-source-state" role="status">
-              Source-derived inspection model · source estimates and simplified envelopes · complete
-              manufacturing CAD unavailable. Mass allowances and missing geometry have no solid;
-              every source record remains selectable in the parts tree. Physical qualification open.
-            </p>
-          </details>
+          <div className="inspection-control-group" role="group" aria-label="Source status">
+            <span className="inspection-control-label">Source status</span>
+            <details
+              className="inspection-source-note"
+              onKeyDown={(event) => {
+                if (event.key !== 'Escape') return;
+                event.currentTarget.open = false;
+                event.currentTarget.querySelector('summary')?.focus();
+                event.stopPropagation();
+                event.preventDefault();
+              }}
+            >
+              <summary>Preliminary source</summary>
+              <p className="revamp-source-state" role="status">
+                Source-derived inspection model · source estimates and simplified envelopes ·
+                complete manufacturing CAD unavailable. Mass allowances and missing geometry have no
+                solid; every source record remains selectable in the parts tree. Physical
+                qualification open.
+              </p>
+            </details>
+          </div>
         )}
       </div>
+      <p className="research-source-context">
+        {vehicle.label || vehicle.name || vehicle.id} · {geometry.coverage}
+      </p>
       {recordedCaseControls && <InspectionTools>{recordedCaseControls}</InspectionTools>}
       {!hasMeshes && (
         <p className="revamp-source-state" role="status">
