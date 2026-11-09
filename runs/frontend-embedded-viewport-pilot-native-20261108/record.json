@@ -1,0 +1,101 @@
+{
+  "packet": "P28",
+  "date": "2026-11-08",
+  "status": "partial-pilot-user-change-guard",
+  "method": "EMBEDDED, UNSCALED ACTUAL-APP viewport; not top-level Chrome size",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "target_native_s": 80,
+    "hard_native_s": 90,
+    "overall_s": 120,
+    "launch_cutoff_s": 70,
+    "pre_call_ms": [
+      14148,
+      27273,
+      39520
+    ],
+    "last_successful_timer_ms": 28191,
+    "guard_tool_wall_s": 4.0694,
+    "note": "No native call after guard. Lastpre39.520s+tool4.0694s below90."
+  },
+  "cases": [
+    {
+      "case": "fixed DEV real app route",
+      "status": "pass",
+      "evidence": "One normal same-tab viewport-check.html navigation; child exactRP1design/spec811b\u2026actualsource55records26meshes,geometry rendered. No CSP/approval rejection."
+    },
+    {
+      "case": "1440x900 embedded measured gate",
+      "status": "pass scopedpilot",
+      "evidence": "Requested1440x900,actualinner1440x900,documentclient1440x900,framerect1440x900,DPR2,size matchyes. ready-1440.jpg shows whole full magenta outline unscaled within nativewindow."
+    },
+    {
+      "case": "ordinary actual inner app selection",
+      "status": "pass",
+      "evidence": "Fresh Nose98 click\u2192Nose pressed1,childURLpart=nose,sameRP1spec,selectedNose/source-estimates readout and genuine nativeimage."
+    },
+    {
+      "case": "1280x720 parentpreset/retainedchildstate",
+      "status": "unconfirmed",
+      "evidence": "First parentpreset click45 returned user-change guard, no postactionAX/image. No successful resize/state-preservation inferred."
+    }
+  ],
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "records": 55,
+    "meshes_visible": "26/26",
+    "selected_part": "nose"
+  },
+  "actual_measured_embedded": {
+    "requested_css": [
+      1440,
+      900
+    ],
+    "inner_css": [
+      1440,
+      900
+    ],
+    "document_client_css": [
+      1440,
+      900
+    ],
+    "frame_rect_css": [
+      1440,
+      900
+    ],
+    "dpr": 2
+  },
+  "guard": "The user changed '/Applications/Google Chrome.app'. Re-query the latest state with `get_app_state` before sending more actions.",
+  "actions": {
+    "same_tab_navigation": 1,
+    "inner_nose_selection": 1,
+    "parent_1280_click_attempt": 1,
+    "parent_1280_confirmed": 0,
+    "retry": 0,
+    "top_level_resize": 0,
+    "zoom": 0,
+    "devtools": 0,
+    "play": 0,
+    "simulation": 0,
+    "export": 0
+  },
+  "screenshots": {
+    "nose-selected-1440.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "c386405237bdd39896990132f205d0edb5fa5561b4810b598d955c7a5025c9e1"
+    },
+    "ready-1440.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "e8ea8468090adace190b9e74b952e166a5c965074cf3de57fccd0c3355e8e62b"
+    }
+  },
+  "final_state": "Last successful observation1440embeddedRP1/Nose selected; finalstateafterguardunobserved. No re-query/retry/restoration.",
+  "limits": "No full pilot admission/resize retention or responsive matrix pass. Parent-standard viewport readout not Chrome-size/zoom/history/FPS proof. Prior packets immutable; parent primary retains acceptance."
+}

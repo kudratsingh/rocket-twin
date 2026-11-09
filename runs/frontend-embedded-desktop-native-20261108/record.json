@@ -1,0 +1,69 @@
+{
+  "packet": "P31",
+  "date": "2026-11-08",
+  "status": "partial-user-change-guard",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "native_cap_s": 120,
+    "overall_cap_s": 180,
+    "no_action_after_s": 95,
+    "last_successful_timer_ms": 1528,
+    "guard_call_before_ms": 23752,
+    "guard_tool_wall_s": 5.7518,
+    "note": "No native call afterguard."
+  },
+  "cases": [
+    {
+      "case": "parent1440embeddedsourceentry",
+      "status": "pass",
+      "evidence": "desktop-entryAX/image actualinner/document/frame1440\u00d7900DPR2,R P1source55/26,Nose selected,fullmagentaoutline."
+    },
+    {
+      "case": "clear selection andWhole",
+      "status": "unexecuted",
+      "reason": "Guard at first observedemptycanvas click; no resulting state/inputsuccess confirmed."
+    },
+    {
+      "case": "four desktop panel combinations",
+      "status": "unexecuted"
+    },
+    {
+      "case": "explicit Side/Fit/guide",
+      "status": "unexecuted"
+    },
+    {
+      "case": "Focus width/restoration",
+      "status": "unexecuted"
+    },
+    {
+      "case": "1280Side/Fit capture",
+      "status": "unexecuted"
+    }
+  ],
+  "actions": {
+    "parent1440_confirmed": 1,
+    "canvas_clear_attempt": 1,
+    "canvas_clear_confirmed": 0,
+    "panels": 0,
+    "side": 0,
+    "fit": 0,
+    "focus": 0,
+    "parent1280": 0,
+    "play": 0,
+    "performance": 0,
+    "download": 0,
+    "devtools": 0
+  },
+  "guard": "The user changed '/Applications/Google Chrome.app'. Re-query the latest state with `get_app_state` before sending more actions.",
+  "synchronization_note": "Initial read+parentinput samecell succeeded. Canvas action in nextcell used prior screenshot/state without a new immediateAXread; guard stopped before success. Guard is not proof of an app defect or specific owner activity. No retry made.",
+  "screenshot": {
+    "raster_px": [
+      4480,
+      2460
+    ],
+    "sha256": "9a275c2c7c590da5bab1a63a8b64c84de3b50a532fcec424530bc54365875eae"
+  },
+  "last_observed": "QA1440embedded,Nose selected,exactRP1/spec811b,normalpanels,Assemblyoverview.",
+  "final_state": "Afterguardunobserved; no restorationclaim.",
+  "limits": "No desktopmatrix orSide/camera/Focus acceptance; no top-levelChrome size/performance claim. Priorpackets immutable."
+}

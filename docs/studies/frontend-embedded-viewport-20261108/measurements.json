@@ -1,0 +1,117 @@
+{
+  "schema_version": "rocket-twin.embedded-native-pixel-measurements.v1",
+  "method": "unchanged JPEG pixels; half-open rectangles; 8px magenta outline; two CSS px per raster scale verified against native AX readout",
+  "measurements": [
+    {
+      "image": "runs/frontend-embedded-viewport-pilot-native-20261108/ready-1440.jpg",
+      "sha256": "e8ea8468090adace190b9e74b952e166a5c965074cf3de57fccd0c3355e8e62b",
+      "ax_source": "runs/frontend-embedded-viewport-pilot-native-20261108/ready-1440.ax.txt",
+      "state": "P28, current RP1 Design, default Overview, no part selected",
+      "native_raster_px": [
+        4480,
+        2460
+      ],
+      "reported_embedded_viewport_css_px": [
+        1440,
+        900
+      ],
+      "reported_dpr": 2,
+      "outer_magenta_rect_raster_px_half_open": [
+        6,
+        388,
+        2902,
+        2204
+      ],
+      "magenta_thickness_raster_px": 8,
+      "inner_app_rect_raster_px_half_open": [
+        14,
+        396,
+        2894,
+        2196
+      ],
+      "visible_canvas_region_rect_raster_px_half_open": [
+        672,
+        578,
+        2894,
+        2064
+      ],
+      "visible_canvas_region_size_raster_px": [
+        2222,
+        1486
+      ],
+      "canvas_to_inner_app_size_ratio": [
+        0.7715277777777778,
+        0.8255555555555556
+      ],
+      "canvas_to_inner_app_size_ratio_uncertainty_range": [
+        [
+          0.7701388888888889,
+          0.7729166666666667
+        ],
+        [
+          0.8233333333333334,
+          0.8277777777777777
+        ]
+      ],
+      "edge_uncertainty_raster_px_each": 2,
+      "canvas_right_boundary_basis": "dark scene reaches inner app's right magenta boundary; no separate canvas border",
+      "scope": "Native screenshot pixel transitions in an embedded real app; not DOM client bounds, side-fit, top-level viewport, or RV acceptance"
+    },
+    {
+      "image": "runs/frontend-embedded-viewport-resize-native-20261108/resized-1280.jpg",
+      "sha256": "6c5d23c41c3d38d942b73adac0fbefa7ee498779f57cd6c24f53d9859881b47b",
+      "ax_source": "runs/frontend-embedded-viewport-resize-native-20261108/after.ax.txt",
+      "state": "P29, same embedded RP1 Design, default Overview, Nose selected",
+      "native_raster_px": [
+        4480,
+        2460
+      ],
+      "reported_embedded_viewport_css_px": [
+        1280,
+        720
+      ],
+      "reported_dpr": 2,
+      "outer_magenta_rect_raster_px_half_open": [
+        6,
+        388,
+        2582,
+        1844
+      ],
+      "magenta_thickness_raster_px": 8,
+      "inner_app_rect_raster_px_half_open": [
+        14,
+        396,
+        2574,
+        1836
+      ],
+      "visible_canvas_region_rect_raster_px_half_open": [
+        672,
+        578,
+        2574,
+        1704
+      ],
+      "visible_canvas_region_size_raster_px": [
+        1902,
+        1126
+      ],
+      "canvas_to_inner_app_size_ratio": [
+        0.74296875,
+        0.7819444444444444
+      ],
+      "canvas_to_inner_app_size_ratio_uncertainty_range": [
+        [
+          0.74140625,
+          0.74453125
+        ],
+        [
+          0.7791666666666667,
+          0.7847222222222222
+        ]
+      ],
+      "edge_uncertainty_raster_px_each": 2,
+      "canvas_right_boundary_basis": "dark scene reaches inner app's right magenta boundary; no separate canvas border",
+      "scope": "Native screenshot pixel transitions in an embedded real app; not DOM client bounds, side-fit, top-level viewport, or RV acceptance"
+    }
+  ],
+  "acceptance": null
+}

@@ -1,0 +1,156 @@
+{
+  "packet": "P30",
+  "date": "2026-11-08",
+  "status": "scoped-embedded-narrow-controls-observed-overlap-partial",
+  "method": "EMBEDDED UNSCALED ACTUAL-APP viewport; not top-levelChrome size",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "native_cap_s": 120,
+    "overall_closeout_cap_s": 180,
+    "no_action_after_s": 90,
+    "before_call_ms": [
+      20936,
+      49002,
+      73196
+    ],
+    "final_native_timer_ms": 75746,
+    "last_tool_wall_s": 5.3501,
+    "note": "No later native call; offline image review/closeout separate."
+  },
+  "measured_embedded": {
+    "requested_css": [
+      900,
+      720
+    ],
+    "inner_css": [
+      900,
+      720
+    ],
+    "document_client_css": [
+      900,
+      720
+    ],
+    "frame_rect_css": [
+      900,
+      720
+    ],
+    "dpr": 2,
+    "size_match": true
+  },
+  "identity": {
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "nose",
+    "records": 55,
+    "meshes_visible": "26/26"
+  },
+  "cases": [
+    {
+      "case": "900actualrealapp/retainedNose",
+      "status": "pass",
+      "evidence": "narrow-entryAX/image measured900inner/document/frame,DPR2/fullmagenta/model/exactsourceNose1."
+    },
+    {
+      "case": "independent navigation hide/show",
+      "status": "pass",
+      "evidence": "Hide navigation\u2192Show navigation whileParts stayedopen;Show navigation restored. Headercontrolsame53;Nose retained."
+    },
+    {
+      "case": "independent Parts hide/show",
+      "status": "pass",
+      "evidence": "HideParts\u2192ShowParts while navigationstayedopen;ShowParts restoresNoserow1/samesource. Row absent fromAX while panelhidden, not evidence selectioncleared."
+    },
+    {
+      "case": "actual narrow partselection/frame",
+      "status": "pass scoped",
+      "evidence": "Nose row reselected usingfreshAX;Frame selection\u2192TargetNose and nativecapture. No quantitative targetfill/annotationclearance pass."
+    },
+    {
+      "case": "Focus enter/exit panelrestoration",
+      "status": "pass",
+      "evidence": "Focus1/Exitfocus showsShowbothpanels;focus.jpg actualpanelsgone. Exitfocus\u2192Focus0 and priorbothopen, sameNose source;Whole afterward\u2192Assembly45/54.7/0."
+    },
+    {
+      "case": "compact overlap",
+      "status": "partial",
+      "evidence": "OpenParts drawer overlays leftrepresentation/camera controls and lowerselectedsummary/readout. HideParts/Focus remove obstruction. OptionalselectedNosecard/readoutoverlapmodel; no unobstructedcanvasclaim."
+    },
+    {
+      "case": "explicit Fit assembly",
+      "status": "unexecuted",
+      "reason": "Used Frame selection andWhole rocket; separateFitbutton not clicked."
+    },
+    {
+      "case": "scroll and narrowEscape",
+      "status": "unexecuted",
+      "reason": "No wheel/keyboardscroll orEscape branch in this packet; only visiblelayout observed."
+    }
+  ],
+  "actions": [
+    "parent900",
+    "Hide navigation",
+    "Show navigation",
+    "Hide parts sidebar",
+    "Show parts sidebar",
+    "Nose reselect",
+    "Frame selection",
+    "Focus enter",
+    "Focus exit",
+    "Whole rocket"
+  ],
+  "forbidden_actions_performed": {
+    "play": 0,
+    "performance": 0,
+    "download": 0,
+    "devtools": 0,
+    "cdp": 0,
+    "top_level_window_resize": 0,
+    "new_run": 0
+  },
+  "screenshots": {
+    "final.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "9c9ccf45adb2efd05dd132693eda5b00305406180e3bd5f39725c70b3d02071e"
+    },
+    "focus.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "a92e675f2bd532bffe0f1770ac07c13d68529800578b0f0f2978a6a1a043e2e2"
+    },
+    "narrow-entry.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "4cd76eff2baf14a816c5b9f83bdb0addd6d71c1b428881b3e7cf02f1aa24e966"
+    },
+    "navigation-hidden.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "f9a98cefbf9ab26bcec21e58dd3a06afa6d7a931f4941910693b759a04b2307e"
+    },
+    "nose-framed.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "2bf687cee2eb568c22a7bbb16c69921408f50ceaac294dcb441a43f71811326d"
+    },
+    "parts-hidden.jpg": {
+      "raster_px": [
+        4480,
+        2460
+      ],
+      "sha256": "750cb6f4afbc11699cdb248487f994f8e116e6fa6ea228b34d81c192f867294b"
+    }
+  },
+  "final_state": "QAparent900selected,RP1Nose retained26/26,bothpanelsopen,Focus0,WholeAssembly45/54.7/0,toolsclosed. Compactdrawerremainingoverlayexplicit.",
+  "limits": "No aggregateappmatrix/top-levelChrome/history/zoom/FPS/physical acceptance. Previouspackets immutable."
+}

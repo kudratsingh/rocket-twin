@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocket Twin · Embedded viewport check</title>
+    <style>
+      :root {
+        font-family: system-ui, sans-serif;
+        color: #e9f2f4;
+        background: #102027;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      header {
+        height: 70px;
+        padding: 7px 12px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        white-space: nowrap;
+      }
+      header strong {
+        font-size: 14px;
+      }
+      header small {
+        font-size: 11px;
+        color: #c4d3d7;
+      }
+      button {
+        padding: 6px 9px;
+        border: 1px solid #9ecbd2;
+        border-radius: 4px;
+        color: inherit;
+        background: #1e3942;
+        cursor: pointer;
+      }
+      button[aria-pressed='true'] {
+        background: #275e70;
+        border-color: #efffff;
+      }
+      #measurements {
+        font:
+          11px/1.2 ui-monospace,
+          monospace;
+        white-space: normal;
+      }
+      #fixture-root {
+        padding: 7px;
+      }
+      iframe {
+        display: block;
+        box-sizing: content-box;
+        border: 0;
+        outline: 4px solid #fa4f9b;
+        outline-offset: 0;
+        background: #0f181d;
+        max-width: none;
+        transform: none;
+      }
+      .blocked {
+        padding: 20px;
+        color: #ffccda;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="fixture-header">
+      <strong>Embedded actual Rocket Twin app viewport</strong>
+      <div id="preset-controls" aria-label="Requested iframe CSS size"></div>
+      <small id="measurements" role="status">Loading actual viewport measurements…</small>
+    </header>
+    <main id="fixture-root"></main>
+    <script type="module" src="/src/dev/viewportCheck.ts"></script>
+  </body>
+</html>

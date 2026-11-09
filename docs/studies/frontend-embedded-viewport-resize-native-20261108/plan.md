@@ -1,0 +1,3 @@
+# P29 fresh-state embedded resize
+
+New case separate from immutable P28 guard. Same DEVhtml6853/module1f25, noHMR. Fresh full nativeAX immediately before same-cell parent input. Require expected QAparent and1440actual/Nose1; one uniquely observed1280preset click, fresh actualinner/document/frame1280×720,DPR2,Nose1/source55/26 andnativeimage. If already1280, readonlyobservation only andstop withoutpreset. Stopguard/privatecontext/mismatch/error; no retry/reselection/methodcascade. Nativehard45/overall60,target30,noactionafter30. Embedded app viewport/state only; no top-levelChrome dimension/zoom/history/FPS/matrixclaim. No900/otherwindow/DevTools/app-introspection/Play/newrun. OnlysupportedAXinput, parentstandardreadout, genuineimage. P28unchanged.

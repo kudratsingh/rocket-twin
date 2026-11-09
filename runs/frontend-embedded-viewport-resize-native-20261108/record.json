@@ -1,0 +1,87 @@
+{
+  "packet": "P29",
+  "date": "2026-11-08",
+  "status": "scoped-embedded-resize-state-pass",
+  "method": "EMBEDDED UNSCALED ACTUAL-APP viewport, not top-levelChrome size",
+  "source_manifest": "source-freeze.json",
+  "timing": {
+    "native_cap_s": 45,
+    "overall_cap_s": 60,
+    "target_s": 30,
+    "launch_cutoff_s": 30,
+    "before_action_ms": 335,
+    "final_timer_ms": 1188,
+    "tool_wall_s": 4.4739
+  },
+  "procedure": "Single CUA cell fresh fullAX, validate expectedQA/current1440/Nose1 and unique parent1280, immediately click fresh index, fresh fullAX+nativeimage. No stale action/model pause between freshread/input.",
+  "before": {
+    "requested_css": [
+      1440,
+      900
+    ],
+    "actual_inner_css": [
+      1440,
+      900
+    ],
+    "document_client_css": [
+      1440,
+      900
+    ],
+    "frame_rect_css": [
+      1440,
+      900
+    ],
+    "dpr": 2,
+    "nose_selected": true
+  },
+  "after": {
+    "requested_css": [
+      1280,
+      720
+    ],
+    "actual_inner_css": [
+      1280,
+      720
+    ],
+    "document_client_css": [
+      1280,
+      720
+    ],
+    "frame_rect_css": [
+      1280,
+      720
+    ],
+    "dpr": 2,
+    "size_match": true,
+    "nose_selected": true,
+    "design": "G80-F2-RP1-AD1-definition-v2",
+    "spec": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "part": "nose",
+    "source_records": 55,
+    "meshes_visible": "26/26",
+    "full_magenta_outline_visible": true,
+    "actual_rendered_model_visible": true
+  },
+  "actions": {
+    "parent_1280_preset": 1,
+    "child_selection_repeat": 0,
+    "reload": 0,
+    "navigation": 0,
+    "top_level_resize": 0,
+    "zoom": 0,
+    "devtools": 0,
+    "play": 0,
+    "new_run": 0
+  },
+  "state_scope": "Nose row/childURL/source/selected readout retained across this preset action; parent source changes existingiframeCSS only. Native pilot did not inspect browserDOM identity.",
+  "screenshot": {
+    "raster_px": [
+      4480,
+      2460
+    ],
+    "sha256": "6c5d23c41c3d38d942b73adac0fbefa7ee498779f57cd6c24f53d9859881b47b"
+  },
+  "final_state": "QAparent1280 selected,embeddedRP1Design/Nose selected,normalpanels/toolsclosed.",
+  "limits": "No900yet,no fullmatrix/top-levelChrome/history/zoom/performance acceptance. P28guardstopimmutable.",
+  "native_idle": true
+}

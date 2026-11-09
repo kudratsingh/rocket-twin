@@ -1,0 +1,5 @@
+# P31 embedded desktop panels and explicit Side/Fit
+
+Sole authorized nativeChrome, source stable/no edits. StartQA900/Nose. FreshAXsync+1440parentinput samecell; actualinner/document/frame1440×900. Clear selection through ordinary observedcanvas control if feasible, Whole assembly. Capture four independent navigation/Parts combinations, then bothopen. ExplicitCamera Side thenFitassembly, guide ifavailable and labelclearance onlyiffeasible; actualcameraangle/readout andnativepixels separate. Focus capture+restore. Ifreserve1280preset and explicitSide/Fit capture only, nofourcombosrepeat.
+
+Nativecap120/overall180,noinputafter95, reservechecks beforeeachaction. Stopguard/approvalrejection/sourceunknown/error/cap withoutretry orlaterestore. EmbeddedappCSSdimensions only, no top-levelChrome/FPS claim. NoPlay/performance/DevTools/download/browserresize/newrun. Preserve exactRP1spec811b/source55/26;core238… prioridentitynotassertednewAPIdigestread. Finalactualstateexplicit; no blanketmatrix/camerafill acceptance beforeofflinepixels.

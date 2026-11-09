@@ -1,5 +1,16 @@
 # Plan — modular custom rocket and digital twin
 
+**Owner priority — desktop engineering capability (November 8):**
+Prioritize fully functional, interactive desktop rocket inspection, source-backed
+CAD and intricate components/connections, graphics, experiments and replay.
+Mobile/compact-layout polish and exact-pixel viewport campaigns are secondary and
+must not delay those capabilities. Preserve completed layout evidence and open
+checks; deferral is not a pass. Continue from current RP1/AD1 v2, keeping historical
+CAD/run identities separate. Model actual documented detail where available;
+label envelopes, concepts and undefined hardware rather than inventing precision.
+[Saved direction and next capability](studies/frontend-desktop-detail-20261108/priority.md).
+Existing engineering, purchase, physical/test and flight gates are unchanged.
+
 **Recorded replay navigation (November8):** loaded-run playback now has
 flow controls above the Canvas, camera status below and source-local sticky
 Scene/Graphs/Events/Validity/Data & limits destinations. P17/P19/P20 verify scoped
