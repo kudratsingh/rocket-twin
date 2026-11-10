@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "reference-arrangement-admission-v1",
+  "generator": "src.vehicle.reference_arrangement.create_plan/apply_command",
+  "generator_sha256": "bc77c597b0e58adf14846e1aa31d73c2b3fe9d08f09ac51e2b35049909502e14",
+  "catalog_generator": "src.vehicle.reference_parts.build",
+  "catalog_generator_sha256": "e37ab77fc8c1d6d0d7d6819ac3426d4cf08e86aeb6078bf6ec22b2067b1f3778",
+  "catalog_header": {
+    "schema_version": 1,
+    "id": "reference-local-v1",
+    "scope": "geometry_only_planning",
+    "source_pins": {
+      "configs/parts-bank/reference-local-v1.yaml": "a95d6147d1614c0939b266a297e43ec9d265585c30c445f1297554381713de07",
+      "docs/studies/frontend-template-bank-20261109/geometry.json": "6316ccef56c168e14d8a14a6570d162f35eb43bcadf4bd6132226b51d91799d2",
+      "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+      "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+      "src/vehicle/part_templates.py": "10705f374160cbb0fe59026208280754e2702e53f9f44d24561579301511bcff",
+      "scripts/wo04_part_template_geometry.py": "ddb1f80ee0ffa8468745def46c538466045e48cab336d70d44f08b6f93a864b5",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/inspection/rp1_geometry.py": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3",
+      "docs/studies/frontend-desktop-detail-20261108/cad-export.json": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731"
+    },
+    "source_catalog_changed": false,
+    "add_replace_connect_implemented": false,
+    "engineering_accepted": false,
+    "simulation_eligible": false,
+    "flight_ready": false,
+    "revision_scope": "Definition/source content only; local cache availability is reported separately",
+    "revision_sha256": "8f6b7bf2f0dcc8dfb2714ba7a28688c820869dc3045060aba6ea5901983b7748"
+  },
+  "empty_plan": {
+    "schema_version": 1,
+    "id": "reference-arrangement-v1",
+    "status": "geometry_only_unsaved",
+    "catalog_id": "reference-local-v1",
+    "catalog_revision_sha256": "8f6b7bf2f0dcc8dfb2714ba7a28688c820869dc3045060aba6ea5901983b7748",
+    "source_pins": {
+      "configs/parts-bank/reference-local-v1.yaml": "a95d6147d1614c0939b266a297e43ec9d265585c30c445f1297554381713de07",
+      "docs/studies/frontend-template-bank-20261109/geometry.json": "6316ccef56c168e14d8a14a6570d162f35eb43bcadf4bd6132226b51d91799d2",
+      "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+      "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+      "src/vehicle/part_templates.py": "10705f374160cbb0fe59026208280754e2702e53f9f44d24561579301511bcff",
+      "scripts/wo04_part_template_geometry.py": "ddb1f80ee0ffa8468745def46c538466045e48cab336d70d44f08b6f93a864b5",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/inspection/rp1_geometry.py": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3",
+      "docs/studies/frontend-desktop-detail-20261108/cad-export.json": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731"
+    },
+    "definition_revisions": {
+      "reference-local-v1:motor-tube-nominal": "fd6c666dfed5d79ed44ed126b85d1de7dca87c1210165808b44f270e2ce2a42c",
+      "reference-local-v1:aft-annulus-nominal": "158150615a9c291ce12b3320d535c11151a564d7ad176dda9ca9693025a5d710"
+    },
+    "frame": {
+      "units": "mm",
+      "origin": "uninstalled_arrangement_origin",
+      "axes": "Parallel to registered local CAD X/Y/Z; +Z along nominal part length"
+    },
+    "instances": [],
+    "physical_inventory": null,
+    "installed_transform": null,
+    "geometry_assets_embedded": false,
+    "cache_availability_in_plan": false,
+    "checks": {
+      "status": "unavailable",
+      "total_mass_kg": null,
+      "mass_credit_kg": null,
+      "cg_mm": null,
+      "inertia_kg_m2": null,
+      "procurement_cost_usd": null,
+      "results": null
+    },
+    "readiness": {
+      "resolved_candidate": false,
+      "simulation_eligible": false,
+      "engineering_accepted": false,
+      "physically_verified": false,
+      "flight_ready": false,
+      "mating_accepted": false,
+      "connect_available": false
+    },
+    "limits": [
+      "Uninstalled geometry arrangement only; source inventory and vehicle are unchanged",
+      "Translation granularity is input precision, not stock or mating tolerance",
+      "No physical identity, fit, collision, load, mass or inertia result is calculated",
+      "Read fresh catalog availability separately; missing assets remain unavailable",
+      "Content hash is an opaque Python guard, not saved history or cross-tab authority"
+    ],
+    "revision_sha256": "eecf355af04154f9c3d3269c2beeafb62b84d6f613b135e862bfe0b60c80fe85"
+  },
+  "definition_mappings": [
+    {
+      "reference_id": "reference-local-v1:motor-tube-nominal",
+      "definition_revision_sha256": "fd6c666dfed5d79ed44ed126b85d1de7dca87c1210165808b44f270e2ce2a42c",
+      "source_template_id": "rp1-template:motor-tube-cut",
+      "instance_id": "reference-arrangement-v1:motor-tube-nominal"
+    },
+    {
+      "reference_id": "reference-local-v1:aft-annulus-nominal",
+      "definition_revision_sha256": "158150615a9c291ce12b3320d535c11151a564d7ad176dda9ca9693025a5d710",
+      "source_template_id": "rp1-template:aft-annular-ring",
+      "instance_id": "reference-arrangement-v1:aft-annulus-nominal"
+    }
+  ]
+}

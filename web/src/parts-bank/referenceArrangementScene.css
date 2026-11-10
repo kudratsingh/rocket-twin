@@ -1,0 +1,45 @@
+.reference-arrangement-scene {
+  margin-block: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.reference-arrangement-scene__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block: 0.65rem;
+}
+.reference-arrangement-scene__controls button {
+  padding: 0.45rem 0.6rem;
+  white-space: normal;
+}
+.reference-arrangement-scene__controls button[aria-pressed='true'] {
+  border-color: #8fc8ff;
+}
+.reference-arrangement-scene__controls button:focus-visible {
+  outline: 2px solid #8fc8ff;
+  outline-offset: 3px;
+}
+.reference-arrangement-scene__canvas {
+  height: clamp(300px, 48vh, 580px);
+  min-height: 300px;
+  border: 1px solid var(--border, #48515e);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #111820;
+}
+.reference-arrangement-scene__callout {
+  display: block;
+  padding: 0.3rem 0.45rem;
+  width: max-content;
+  max-width: 13rem;
+  border: 1px solid #8fc8ff;
+  border-radius: 4px;
+  background: #17232eee;
+  color: #e5f1ff;
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+.reference-arrangement-scene__hint {
+  line-height: 1.45;
+  font-size: 0.85rem;
+}

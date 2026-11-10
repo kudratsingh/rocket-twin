@@ -1,0 +1,63 @@
+{
+  "packet": "P88",
+  "actual_native_plan_guard": "ad13bf9a397ecb4dccceb68ad25d4637636cc9cebb5cfcd8913e78e8d8f55e01",
+  "trusted_source_reconstruction_matches": true,
+  "instances": [
+    {
+      "id": "reference-arrangement-v1:motor-tube-nominal",
+      "reference_id": "reference-local-v1:motor-tube-nominal",
+      "translation_mm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "reference-arrangement-v1:aft-annulus-nominal",
+      "reference_id": "reference-local-v1:aft-annulus-nominal",
+      "translation_mm": [
+        0,
+        0,
+        100
+      ]
+    }
+  ],
+  "ring_viewer_translation_m": [
+    0,
+    -0.1,
+    0
+  ],
+  "source_files_unchanged": 27,
+  "registered_assets_unchanged": 4,
+  "known_validation_draft_files_unchanged": 6,
+  "new_CAD_or_physics_jobs": 0,
+  "readiness": {
+    "resolved_candidate": false,
+    "simulation_eligible": false,
+    "engineering_accepted": false,
+    "physically_verified": false,
+    "flight_ready": false,
+    "mating_accepted": false,
+    "connect_available": false
+  },
+  "checks": {
+    "status": "unavailable",
+    "total_mass_kg": null,
+    "mass_credit_kg": null,
+    "cg_mm": null,
+    "inertia_kg_m2": null,
+    "procurement_cost_usd": null,
+    "results": null
+  },
+  "limits": "Trusted producer readback and source/known-file check; does not inspect native pixels, all owner files or HTTP traffic",
+  "P89": {
+    "all_source_assets_and_known_validation_files_unchanged_after_return": true,
+    "counts": [
+      27,
+      4,
+      6
+    ],
+    "rendered_camera_changes": "actual native images, reviewed separately; no numeric orientation/pivot invariance claimed",
+    "source_return": "exact RP1/spec/part aft_ring; no entry main-camera baseline"
+  }
+}

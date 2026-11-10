@@ -4,10 +4,12 @@ import { useWorkspaceLayout } from '../workspaces/workspaceLayoutContext';
 import './partsBankAccess.css';
 import './templateBank.css';
 import { DraftLibraryBoundary } from '../design-builder/DraftLibraryBoundary';
+import { ReferenceArrangementBoundary } from './ReferenceArrangementBoundary';
 
 const PartsBankPanel = lazy(() => import('./PartsBankPanel'));
 const TemplateBankPanel = lazy(() => import('./TemplateBankPanel'));
 const DraftLibrary = lazy(() => import('../design-builder/DraftLibrary'));
+const ReferenceArrangementPanel = lazy(() => import('./ReferenceArrangementPanel'));
 
 /** The source assembly stays mounted while its read-only bank is open. */
 export function PartsBankAccess({
@@ -21,7 +23,9 @@ export function PartsBankAccess({
   const trigger = useRef<HTMLButtonElement>(null);
   const [opened, setOpened] = useState(false);
   const [error, setError] = useState('');
-  const [section, setSection] = useState<'source' | 'templates' | 'drafts'>('source');
+  const [section, setSection] = useState<'source' | 'templates' | 'drafts' | 'arrangement'>(
+    'source',
+  );
   const [draftsVisited, setDraftsVisited] = useState(false);
   const layout = useWorkspaceLayout();
   const available = vehicle.id === 'G80-F2-RP1-AD1-definition-v2';
@@ -75,9 +79,9 @@ export function PartsBankAccess({
           <div>
             <h2>Parts bank · current RP1 source</h2>
             <p>
-              Browse and inspect definitions now. Separate-draft Add, Replace and Connect tools are
-              planned in phase P5. Saved drafts starts with labels and notes; none of these tools
-              changes the frozen rocket.
+              Inspect source parts or arrange two nominal local references. Saved drafts provides
+              labels and notes; full vehicle Add, Replace and Connect remain planned. These tools
+              preserve the frozen rocket.
             </p>
           </div>
           <button type="button" onClick={close}>
@@ -101,6 +105,13 @@ export function PartsBankAccess({
           </button>
           <button
             type="button"
+            aria-pressed={section === 'arrangement'}
+            onClick={() => setSection('arrangement')}
+          >
+            Local arrangement
+          </button>
+          <button
+            type="button"
             aria-pressed={section === 'drafts'}
             onClick={() => {
               setDraftsVisited(true);
@@ -111,7 +122,16 @@ export function PartsBankAccess({
           </button>
         </div>
         {error && <p role="alert">{error}</p>}
-        {opened && available && section !== 'drafts' && (
+        {opened && available && section === 'arrangement' && (
+          <div className="parts-bank-arrangement-pane">
+            <ReferenceArrangementBoundary onReturn={close}>
+              <Suspense fallback={<p role="status">Opening local reference arrangement…</p>}>
+                <ReferenceArrangementPanel />
+              </Suspense>
+            </ReferenceArrangementBoundary>
+          </div>
+        )}
+        {opened && available && (section === 'source' || section === 'templates') && (
           <Suspense fallback={<p role="status">Loading source-owned parts bank…</p>}>
             {section === 'source' ? (
               <PartsBankPanel vehicle={vehicle} onInspect={inspect} />

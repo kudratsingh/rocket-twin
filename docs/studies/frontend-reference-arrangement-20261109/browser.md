@@ -1,0 +1,13 @@
+# P88 — two local reference instances, translation and Fit
+
+Fresh documented nativeChrome binding/returnedDocs and freshly definedhelpers verified the same permittedwindow and matchingnamedAddress/HTMLURL at exactRP1/spec811b/aft_ring. Partsbankwasalreadyopen; **Local arrangement → Prepare empty arrangement** admitted an emptyarrangement. One **Add reference instance** added the defaultnominaltube. The actualnativeExactnominalreferencepopup selected **Plain aft-annulus geometry reference**; a secondAdd admitted it and selectedthe ring.
+
+Confirmedfocusnative LocalZtext replacement set100, verified before **Apply translation**. The response explicitlysaid translationapplied and the actualinstancerow became **0,0,100mm · localX,Y,Z**; tube remained0,0,0. **Fit arrangement** was clicked and one unchangednativeimage captured. No geometryparameter/sourceedit orP87datumaction occurred.
+
+The Sourceidentity disclosure was then opened once: catalogrevision`8f6b7bf2f0dcc8dfb2714ba7a28688c820869dc3045060aba6ea5901983b7748`; plancontentguard`ad13bf9a397ecb4dccceb68ad25d4637636cc9cebb5cfcd8913e78e8d8f55e01`. This is submitted-state contentvalidation, not savedhistory/cross-tabserverhead/undo. The UI discloses unsaved/uninstalled localmillimetres and mappingviewer[X,Y,Z]=[cadX/1000,−cadZ/1000,cadY/1000], fixedorientation/scale/quantity, no snap/matinginference, unavailablemass/masscredit/CG/inertia/cost/physicalchecks and allcandidate/engineering/simulation/mating/flightflagsfalse. Tube stock/fit conflicts and completeinstalledring/process/bondunknowns remainexplicit. These disclosurevaluesareAX-only; imageprecedesexpansion.
+
+Nativeended112.829s within120s includingbootstrap. Finalview intentionally retains two unsavedinstances/ringZ100/identityopen; Returntorocket wasunexecuted and wouldclearthe arrangement. NoFork/Save/draft/intent/download/experiment/settings/addressbar/DevTools/window/serveraction occurred. Nativeidle/sourceholdreleased. Record/inventory freeze precedesofflinepixelreview. No physicalfit or engineering/build acceptance follows.
+
+### Offline review of actual native image
+
+The unchanged image visibly shows two recognizable solids: a hollow vertical tube and the selected annular ring around it, with selectionbounds. Both are fully inside the visible canvas. Left-hand controls/readouts show tube0,0,0 and ring0,0,100mm, LocalZ100, Apply, Fit and the translation-applied notice. The unsaved/separate/no-fit-result warning is readable above. This is actual source-geometry display and placement evidence, not a contact/mating/clearance calculation. No camera orbit/pan was tested; the sourceidentity disclosure is outside the captured state. Record/inventory froze153.996s within180s before thisreview.
