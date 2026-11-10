@@ -1,5 +1,25 @@
 # Plan — modular custom rocket and digital twin
 
+**Unsaved local arrangement:** Parts bank now has a separate Local arrangement
+workspace for explicitly adding the two existing nominal tube/ring references
+and applying bounded numeric X/Y/Z translations. It uses the same verified GLBs;
+selection and translation are independent of the camera, with an explicit Fit.
+This is unsaved display planning, not an installed vehicle or a mating contract.
+All mass, mass credit, CG, inertia, cost and results remain unavailable; every
+physical/candidate/simulation/flight gate stays false. The 55-record source and
+saved drafts remain separate. [Path and limits](studies/frontend-reference-arrangement-20261109/integration.md).
+Integrated checks pass: 193 Python tests and one previously executed benchmark
+skipped; 431 publication-scope web cases (435 local includes four unpublished A2
+cases), full static checks and build. The final contained-scroll change also
+passes affected markup, build, lint and formatting checks. P88 observed Prepare, two Adds, ring Z = 100 mm Apply and Fit, with the
+matching two-solid image and exact trusted-source plan identity. Native phase
+112.829 s / 120 s and record 153.996 s / 180 s met this packet's bounds.
+P89 additionally observed Rotate/Pan drags, explicit Zoom in, Fit and exact
+source/part Return with the whole RP1 visible; native 93.734 s / 100 s and record
+130.595 s / 180 s met its bounds. Wheel/pinch, Clear/reset and exact main-camera
+restoration remain unexecuted. P87's capped datum case is not retried. PR129 is merged at
+`6044b90c55e16a6664d147b0cf3b680bdd120bc7`. All inquiries remain UNSENT.
+
 **Local CAD datum inspection:** Parts bank → Template recipes now links the two
 existing nominal tube/ring solids to five selectable analytic guides: axis,
 bore, outside cylinder and both annular end planes. Bore selection ghosts only

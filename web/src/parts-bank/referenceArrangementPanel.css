@@ -1,0 +1,60 @@
+.reference-arrangement-panel {
+  padding: 1rem;
+}
+.reference-arrangement-panel header {
+  max-width: 70rem;
+}
+.reference-arrangement-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-block: 0.7rem;
+}
+.reference-arrangement-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+.reference-arrangement-layout aside {
+  display: grid;
+  gap: 0.7rem;
+}
+.reference-arrangement-layout label,
+.reference-arrangement-layout form,
+.reference-arrangement-layout nav {
+  display: grid;
+  gap: 0.4rem;
+}
+.reference-arrangement-layout input,
+.reference-arrangement-layout select {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem;
+}
+.reference-arrangement-layout nav button {
+  display: grid;
+  gap: 0.3rem;
+  text-align: left;
+}
+.reference-arrangement-layout nav button[aria-pressed='true'] {
+  border-color: #8fc8ff;
+  background: #23384b;
+}
+.reference-arrangement-panel details {
+  margin-top: 1rem;
+  overflow-wrap: anywhere;
+}
+.reference-arrangement-panel button:focus-visible,
+.reference-arrangement-panel input:focus-visible,
+.reference-arrangement-panel select:focus-visible {
+  outline: 2px solid #8fc8ff;
+  outline-offset: 3px;
+}
+@media (max-width: 850px) {
+  .reference-arrangement-layout {
+    grid-template-columns: 1fr;
+  }
+}
