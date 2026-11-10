@@ -22,7 +22,7 @@ def main() -> None:
     args = parser.parse_args()
     import uvicorn
 
-    from src.api.app import create_app
+    from src.api.workbench_app import create_app
 
     uvicorn.run(create_app(), host=args.host, port=args.port)
 

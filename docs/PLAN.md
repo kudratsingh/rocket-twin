@@ -1,5 +1,17 @@
 # Plan — modular custom rocket and digital twin
 
+**Local draft backend foundation:** The source-preserving store and HTTP router
+are integrated through a wrapper that leaves the existing API/catalog unchanged.
+Forks retain55 source accounting occurrences; only labels/notes can change, with
+immutable revisions and stale-write rejection. 61 isolated store/API/composition
+cases pass. The browser library is a separate frontend increment; live writes
+remain unverified until a normal-host preview restart. The one loopback-startup
+check was denied, with no retry or change to owner services/data.
+[Backend contract and limits](studies/frontend-draft-foundation-20261109/backend.md).
+No Add/Replace/Connect, candidate resolution, engineering or flight admission;
+inquiries remain UNSENT.
+
+
 **Owner visual/system-map target — November9:** The [25-image reference set](frontend-design-workbench-v2/reference-set-20261109.md)
 is saved unchanged locally with a versioned manifest. Existing P4 task FW2-020
 and check FW2-A15 now include physics, sensors/estimation, guidance/setpoints,

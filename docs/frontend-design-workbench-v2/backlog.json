@@ -726,21 +726,23 @@
       "title": "Draft identity and revision storage",
       "owner": "Primary architecture + Sol HIGH backend/frontend",
       "file_targets": [
-        "src/vehicle/design_draft.py",
-        "src/api/design_drafts.py"
+        "src/vehicle/design_drafts.py",
+        "src/api/design_drafts.py",
+        "src/api/workbench_app.py"
       ],
       "depends_on": [
         "FW2-009",
         "FW2-010"
       ],
-      "status": "planned",
-      "code_verified": false,
+      "status": "partial",
+      "code_verified": true,
       "browser_observed": false,
       "engineering_accepted": false,
       "acceptance": "Fork or create a structured blank draft with immutable revisions and atomic local saves; frozen sources and old runs remain unchanged.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "implementation_note": "Metadata-only source fork/store/router/composition with immutable revision history;61 isolated cases pass. Frontend library separate; live writes blocked by normal-host runtime restart, not source/store failure. No blank/composed draft or candidate admission. docs/studies/frontend-draft-foundation-20261109/backend.md"
     },
     {
       "id": "FW2-025",

@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "id": "rp1-flight-computer-source-audit-20261109",
+  "retrieval_date": "2026-11-09",
+  "scope": "Source-only one-product lead audit; frozen RP1 product remains unidentified; no CAD, geometry, adoption, contact, purchase or physical action",
+  "bounds": {
+    "maximum_decision_driving_resources": 6,
+    "examined_html_pages": 5,
+    "inventoried_image_endpoints": 1,
+    "maximum_official_download_attempts": 1,
+    "official_download_attempts": 1,
+    "successful_official_downloads": 0,
+    "alternative_boards_examined": 0
+  },
+  "local_inputs": [
+    {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "bytes_read": true
+    },
+    {
+      "path": "docs/studies/frontend-hardware-detail-sources-20261108/report.md",
+      "sha256": "aee097afd6112951d763f47ae1a7dee079562fe6701660c206c25179b68e0879",
+      "bytes_read": true
+    },
+    {
+      "path": "docs/studies/frontend-hardware-detail-sources-20261108/source-ledger.json",
+      "sha256": "a86ebb11b05dba1e62e35006c067cf1bc120bc0232e869c0495f52773ce2c854",
+      "bytes_read": true
+    },
+    {
+      "path": "docs/studies/frontend-component-depth-20261108/plan.md",
+      "sha256": "34c453b44a63d1a289ad99d5d43aded0f6c0221312ec5c574a006ad33f1e09d8",
+      "bytes_read": true
+    },
+    {
+      "path": "docs/studies/frontend-component-depth-20261108/source-notes.md",
+      "sha256": "3d17899ee2e2ea9ac1fb75ef07b6048fbfc1a2ca1d12478afae3a9aaa483e64d",
+      "bytes_read": true
+    }
+  ],
+  "frozen_source": {
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "part_id": "flight_computer",
+    "locator": "parts[id=flight_computer]",
+    "exact_manufacturer": null,
+    "exact_product": null,
+    "exact_revision": null,
+    "identity_status": "unidentified in source; earlier inventory agrees",
+    "estimate": true,
+    "geometry_maturity": "simplified_envelope",
+    "cad_role": "purchased_envelope",
+    "bbox_mm": [
+      61,
+      18,
+      6
+    ],
+    "mass_kg": 0.012,
+    "position_m": 0.085,
+    "lateral_offset_m": [
+      0,
+      -0.011
+    ],
+    "cg_offset_m": 0.0305,
+    "supply_v": 5.0,
+    "current_a": 0.1,
+    "budget_usd": 32.0,
+    "budget_is_current_quote": false,
+    "exact_component_definition_deferred_to": "WO-09"
+  },
+  "reference_lead": {
+    "family": "Teensy 4.1",
+    "manufacturer_reference_domain": "www.pjrc.com",
+    "relationship_to_rp1": "named task lead only; source does not identify it",
+    "adopted": false,
+    "variant": null,
+    "production_revision": null,
+    "nominal_xy_inches": [
+      2.4,
+      0.7
+    ],
+    "nominal_xy_mm": [
+      60.96,
+      17.78
+    ],
+    "nominal_xy_minus_frozen_envelope_mm": [
+      -0.04,
+      -0.22
+    ],
+    "delta_scope": "Exact arithmetic on stated nominal XY only; no installed-frame, tolerance or identity correspondence",
+    "populated_height_mm": null,
+    "height_delta_mm": null,
+    "installed_transform": null,
+    "mass_difference_kg": null,
+    "cg_difference_m": null,
+    "drill_diameters_mm": [
+      {
+        "diameter": 0.965,
+        "count": 59
+      },
+      {
+        "diameter": 0.762,
+        "count": 6
+      }
+    ],
+    "drill_pattern_transcribed": false,
+    "drills_are_qualified_mounting_holes": false,
+    "connector_and_pin_population": "unselected; no 3D geometry admitted",
+    "component_heights": "unavailable",
+    "copper_and_trace_geometry": "unavailable; no guessed routing",
+    "separate_rp1_micro_sd_accounting": "unresolved correspondence; no added or removed mass credit"
+  },
+  "resources": [
+    {
+      "id": "pjrc-teensy41",
+      "url": "https://www.pjrc.com/store/teensy41.html",
+      "retrieval_date": "2026-11-09",
+      "role": "Official product, drilled-hole sizes, variant and design-change references",
+      "status": "web text inspected",
+      "original_bytes_retained": false,
+      "sha256": null,
+      "byte_count": null
+    },
+    {
+      "id": "pjrc-dimensions",
+      "url": "https://www.pjrc.com/teensy/dimensions.html",
+      "retrieval_date": "2026-11-09",
+      "role": "Official drawing index; contributes no transcribed image dimensions",
+      "status": "web text inspected",
+      "original_bytes_retained": false,
+      "sha256": null,
+      "byte_count": null
+    },
+    {
+      "id": "pjrc-dimension-image",
+      "url": "https://www.pjrc.com/teensy/dimensions_teensy41.png",
+      "retrieval_date": "2026-11-09",
+      "role": "Official image endpoint; numeric contents not transcribed",
+      "status": "inventoried; one original-byte download failed DNS",
+      "original_bytes_retained": false,
+      "sha256": null,
+      "byte_count": null
+    },
+    {
+      "id": "pjrc-pins-variant",
+      "url": "https://www.pjrc.com/store/teensy41_pins.html",
+      "retrieval_date": "2026-11-09",
+      "role": "Nominal 2.4x0.7 inch form factor and soldered-pin variants",
+      "status": "web text inspected",
+      "original_bytes_retained": false,
+      "sha256": null,
+      "byte_count": null
+    },
+    {
+      "id": "pjrc-eagle-index",
+      "url": "https://www.pjrc.com/teensy/eagle_lib.html",
+      "retrieval_date": "2026-11-09",
+      "role": "Links to contributed libraries; no file/licence admitted",
+      "status": "web text inspected",
+      "original_bytes_retained": false,
+      "sha256": null,
+      "byte_count": null
+    },
+    {
+      "id": "pjrc-schematic-index",
+      "url": "https://www.pjrc.com/teensy/schematic.html",
+      "retrieval_date": "2026-11-09",
+      "role": "Schematic image inventory only; not mechanical placement or height",
+      "status": "web text inspected",
+      "original_bytes_retained": false,
+      "sha256": null,
+      "byte_count": null
+    }
+  ],
+  "download_attempt": {
+    "url": "https://www.pjrc.com/teensy/dimensions_teensy41.png",
+    "attempts": 1,
+    "status": "failed_before_bytes",
+    "method": "curl --fail --location --max-time 20",
+    "exit_code": 6,
+    "error": "Could not resolve host: www.pjrc.com",
+    "retained_path": null,
+    "original_byte_count": null,
+    "original_sha256": null,
+    "retry_performed": false
+  },
+  "licence_and_redistribution": {
+    "manufacturer_hardware_asset_licence": null,
+    "explicit_applicable_redistribution_grant_verified": false,
+    "eda_index_status": "contributor libraries indexed, not controlled manufacturer PCB layout",
+    "controlled_manufacturer_step_verified": false,
+    "controlled_manufacturer_eda_layout_verified": false,
+    "original_asset_redistribution_admitted": false,
+    "derived_populated_asset_admitted": false,
+    "software_licence_transferred_to_hardware": false,
+    "absence_claim_scope": "Not verified within the examined bounded resources; not a claim that no CAD or licence exists anywhere"
+  },
+  "disposition": {
+    "status": "STOP_SOURCE_IDENTITY_AND_REFERENCE_DETAIL_GAPS",
+    "recommendation": "Retain frozen estimated RP1 envelope. Linked unadopted dimensional/pin references are useful; detailed redistributable populated manufacturer model is not source-ready.",
+    "blocking_gaps": [
+      "Exact RP1 manufacturer/product/variant/revision absent",
+      "Controlled manufacturer assembly/placement/Z data not verified",
+      "Explicit applicable asset redistribution licence not verified",
+      "Single official drawing download failed before bytes"
+    ],
+    "later_evidence_only_after_separate_authorization": [
+      "Exact supplied revision/population and complete assembled top/bottom envelope",
+      "Carrier/mount interface and connector/cable/card access dimensions unavailable from controlled supplier records",
+      "Counted complete assembly mass/CG with separate card/header/cable/carrier/fastener accounting"
+    ],
+    "owner_measurement_requested_now": false
+  },
+  "unchanged": {
+    "frozen_specification": true,
+    "source_bank": true,
+    "ui": true,
+    "cad_geometry": true,
+    "mass_inertia": true,
+    "engineering_gates_open": true,
+    "flight_ready": false,
+    "five_inquiries": "UNSENT"
+  }
+}
