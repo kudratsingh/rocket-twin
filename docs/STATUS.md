@@ -1,5 +1,16 @@
 # Status
 
+**Live metadata drafts and review export:** After the owner's normal-host
+restart, P81–P83 verified one source fork, metadata save, exact reload/history,
+actual reviewJSON download and stale-write recovery in the designated Chrome
+window. Independent persisted-byte checks verify all three revision hashes,
+unchanged source/55 records and no fourth revision from the rejected stale Save.
+The 772,101-byte review file matches saved revision2; no geometry assets or
+import/restore/candidate/simulation approval is implied. One clearly labelled
+validation draft remains, at revision3. [Actual lifecycle and readback](studies/frontend-draft-foundation-20261109/browser-lifecycle.md).
+Blank drafts, Add/Replace/Connect, candidate resolution and undo/revert remain
+open; all physical/flight gates and UNSENT inquiries stay unchanged.
+
 **RP1 assembly and service walkthrough:** Engineering now has a separate
 **RP1 assembly & service** topic with seven source-linked concept steps and
 selectable part groups. App supplies the already verified current inspection;
@@ -13,7 +24,7 @@ The buried recovery anchor's destructive replacement limit and failed/unknown
 fin/cord/joint evidence stay explicit. All build/thermal/recovery/flutter/flight
 gates remain open; inquiries UNSENT. Draft/export UI PR125 is merged at
 `41cd32dcae03abb5ae090fcf91dfaf827a17317f` after exact-head required checks.
-Positive draft lifecycle still needs the normal-host preview restart.
+Owner restart is confirmed; P81–P83 now cover the bounded metadata lifecycle.
 
 **Current source-workbench increment:** **Parts bank → Saved drafts** now
 provides explicit RP1 forks, metadata saves and immutable history, preserving all 55
@@ -22,9 +33,9 @@ Add/Replace/Connect, candidate resolver or simulation admission is delivered.
 [Use and limits](studies/frontend-draft-foundation-20261109/frontend.md).
 The backend is merged in [PR124](https://github.com/kudratsingh/rocket-twin/pull/124)
 at `7c588d87ca30e7140998d9c6c0e6a5b4dc995a64` after exact-head web/model checks.
-Actual fork/save/reload remains unverified pending normal-host `make preview`
-restart; the single denied loopback startup is preserved, with no bypass or
-change to owner services/data.
+Owner restart loaded the live draft routes. P81–P83 verify the bounded metadata
+lifecycle; the earlier isolated bind denial stays historical with no bypass.
+Only the new, clearly labelled validation draft was changed.
 P76's blank-app failure is preserved. After the one scoped containment correction,
 P77's single ordinary reload displayed the actual library and explicit stale-API404
 restart explanation. No fork/save, boundary-fallback capture, Return click or

@@ -1,0 +1,88 @@
+{
+  "fork_and_save": {
+    "case": "P81 actual native-created sourcefork and one metadata save",
+    "draft_id": "0dc4fc18-7bb9-4735-b887-37ff3ed9597c",
+    "label": "P80 source-fork validation",
+    "sequence": 2,
+    "current_revision": "20058bd3a57ae297a9624db5d549240acdcec70fa707c7381561d9ae042f6614",
+    "parent_revision": "a9e9a25a9d3142fbfa8ac95c855f133169873d57ed01dd244e03ef0f85ea064a",
+    "source_sha256": "754cc2ae24c3d3f20e53bc919457f5b09f3982d7fc4cf7610dea72d4c2368fd1",
+    "original_source_canonical_digest_pass": true,
+    "both_metadata_digests_pass": true,
+    "source_equal_across_revisions": true,
+    "definitions": 55,
+    "accounting_occurrences": 55,
+    "all_quantity_one": true,
+    "frozen_inputs_unchanged": true,
+    "UI_source_freeze_unchanged": true,
+    "notes_match_native_requested_value": true,
+    "all_readiness_false": true,
+    "files": {
+      "source.json": {
+        "bytes": 490363,
+        "sha256": "754cc2ae24c3d3f20e53bc919457f5b09f3982d7fc4cf7610dea72d4c2368fd1"
+      },
+      "head.json": {
+        "bytes": 86,
+        "sha256": "5e273a071f4ee802a09a6209e87b32fad05473fac2189ba748da69a0a7a2be98"
+      },
+      "revisions/a9e9a25a9d3142fbfa8ac95c855f133169873d57ed01dd244e03ef0f85ea064a.json": {
+        "bytes": 1008,
+        "sha256": "2e139111f52502045c568898f2c2518df9f124ec0ff63e38c5f4199db737c900"
+      },
+      "revisions/20058bd3a57ae297a9624db5d549240acdcec70fa707c7381561d9ae042f6614.json": {
+        "bytes": 1115,
+        "sha256": "15463b4e3b0a1a04f247c139863737604936371f2693d2b2aadb9011fb267718"
+      }
+    },
+    "read_only_check": true,
+    "existing_other_drafts_enumerated_or_modified": false,
+    "physical_or_flight_acceptance": false
+  },
+  "actual_review_download": {
+    "case": "P82 actual Chrome reviewJSON download and savedreload/history",
+    "download_filename": "rp1-draft-review-0dc4fc18-7bb9-4735-b887-37ff3ed9597c-r2-20058bd3a57a.json",
+    "bytes": 772101,
+    "sha256": "3e8a7854563db8ec9564113759cea4824ad1936c96b894674f26bf2213d91588",
+    "fresh_mtime_after_native_click": true,
+    "mtime_epoch_ms": 1794276515072,
+    "native_click_epoch_ms": 1794276514969,
+    "json_parsed": true,
+    "format": "rp1-saved-source-fork-review-v1",
+    "draft_id": "0dc4fc18-7bb9-4735-b887-37ff3ed9597c",
+    "sequence": 2,
+    "revision_sha256": "20058bd3a57ae297a9624db5d549240acdcec70fa707c7381561d9ae042f6614",
+    "parent_revision_sha256": "a9e9a25a9d3142fbfa8ac95c855f133169873d57ed01dd244e03ef0f85ea064a",
+    "source_sha256": "754cc2ae24c3d3f20e53bc919457f5b09f3982d7fc4cf7610dea72d4c2368fd1",
+    "semantic_record_matches_actual_store": true,
+    "source_record_count": 55,
+    "all_export_scope_flags_expected": true,
+    "head_unchanged_by_readonly_UI": true,
+    "UI_source_freeze_unchanged": true,
+    "original_source_canonical_bytes_reconstructed": false,
+    "serialization_limit": "Structured review; numeric lexical forms may differ. Original server source hash is preserved as identity, not a digest of reconstructed export source bytes.",
+    "backup_restore_import_supported": false,
+    "physical_or_flight_acceptance": false
+  },
+  "stale_recovery": {
+    "case": "P83 post-native visible stale rejection and explicit reload",
+    "draft_id": "0dc4fc18-7bb9-4735-b887-37ff3ed9597c",
+    "head_sequence": 3,
+    "head_revision": "dd0a42bced24df7766ff02d40e7ce0c3a64064ec681d014512e416016c37b371",
+    "head_notes_match_competing_save": true,
+    "revision_count_in_known_validation_record": 3,
+    "no_revision4": true,
+    "unsaved_stale_note_not_persisted": true,
+    "all_three_revision_digests_verify": true,
+    "source_equal_in_all_revisions": true,
+    "source_sha256": "754cc2ae24c3d3f20e53bc919457f5b09f3982d7fc4cf7610dea72d4c2368fd1",
+    "frozen_inputs_unchanged": true,
+    "UI_source_freeze_unchanged": true,
+    "readiness_false": true,
+    "read_only_postcheck": true,
+    "other_drafts_enumerated_or_modified": false,
+    "HTTP409_observed": false,
+    "HTTP_scope": "Browser visibly rejected stale save; network status not instrumented. HTTP409 is separately verified API contract evidence.",
+    "physical_or_flight_acceptance": false
+  }
+}

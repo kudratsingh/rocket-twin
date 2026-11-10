@@ -10,6 +10,7 @@ import {
 } from './draftLibraryClient';
 import type { DraftEditor, DraftPage, DraftRevision } from './draftLibraryClient';
 import './draftLibrary.css';
+import { exportDraftReviewRecord } from './draftRecordExport';
 
 /** Embedded normal-flow library; the parent owns any enclosing dialog and return. */
 export default function DraftLibrary({
@@ -363,6 +364,35 @@ export default function DraftLibrary({
                       </p>
                     )}
                     <div className="draft-library-actions">
+                      <button
+                        type="button"
+                        disabled={Boolean(busy)}
+                        onClick={() => {
+                          const token = generation.current;
+                          void run('Preparing saved review JSON', async () => {
+                            const file = await exportDraftReviewRecord(shown, vehicle);
+                            if (!current(token)) return;
+                            const url = URL.createObjectURL(
+                              new Blob([file.bytes], { type: 'application/json;charset=utf-8' }),
+                            );
+                            try {
+                              const link = document.createElement('a');
+                              link.href = url;
+                              link.download = file.filename;
+                              document.body.append(link);
+                              link.click();
+                              link.remove();
+                              setNotice(
+                                `Download requested: ${file.filename} · ${file.bytes.byteLength} bytes · SHA-256 ${file.sha256}. Saved review copy only; no CAD or simulation configuration.`,
+                              );
+                            } finally {
+                              setTimeout(() => URL.revokeObjectURL(url), 1000);
+                            }
+                          });
+                        }}
+                      >
+                        Download saved review JSON
+                      </button>
                       {shown.parent_revision_sha256 && (
                         <button
                           type="button"
@@ -393,6 +423,11 @@ export default function DraftLibrary({
                         </button>
                       )}
                     </div>
+                    <p>
+                      Export uses the shown saved revision {shown.sequence}; unsaved edits are
+                      excluded. It includes one structured source-fork record and parent identity,
+                      with no geometry assets, import/restore support or byte-exact backup claim.
+                    </p>
                     <details>
                       <summary>Source conflicts and unavailable geometry</summary>
                       <ul>

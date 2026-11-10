@@ -56,7 +56,7 @@ Twenty isolated store cases,39 FastAPI/TestClient cases and2 composition cases
 pass. They cover source-preserving fork/save/reload/history, source drift,
 concurrent stale saves, interrupted publication, filesystem/path bounds, exact
 origins, safe errors and existing API/docs preservation. Ruff/Black/mypy pass.
-No production draft or owner data was written.
+No production draft or owner data was written by those isolated tests.
 
 The actual temporary-store protocol fixture is stored once at
 `web/tests/fixtures/rp1-draft-library.json` (491,602 bytes, SHA256
@@ -67,10 +67,12 @@ It contains test labels/notes and public frozen source, not an owner library.
 
 One isolated loopback startup check on 8001 failed with PermissionError / errno 1.
 No server was started, no other port/transport was retried, and the owner's
-5173/8000 services/data were untouched. Native mutations remain unavailable until
-the normal-host preview restarts. This is an access block, not a demonstrated
-store failure. When ready, stop the current preview in its normal terminal with
-Ctrl-C and run `make preview` from the repository root.
+5173/8000 services/data were untouched by that isolated attempt. This was an
+access block, not a store failure. The owner subsequently restarted the normal
+host preview; P81–P83 now cover one labelled sourcefork, metadata save/reload/
+history, review download and stale recovery. Primary independently verifies its
+three revisions and original source; other drafts are untouched.
+[Actual lifecycle](browser-lifecycle.md) · [Readback](lifecycle-readback.json).
 
 Required hosted checks apply to the exact published head. All five inquiries
 remain UNSENT. Frozen RP1/AD1/D1, G54/G12 PID-to-RL and every physical/build,

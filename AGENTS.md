@@ -1,13 +1,23 @@
 # Agent entry point
 
+**Latest live draft checkpoint:** Owner normal-host restart confirmed. P81–P83
+verify one labelled source fork, metadata save/reload/history, actual reviewJSON
+and stale rejection/explicit recovery in the sole designated Chrome window.
+Primary readback verifies all3 revisions, unchanged55-record source and no stale
+revision4. One validation record remains at3; do not delete or edit other drafts.
+[Evidence](docs/studies/frontend-draft-foundation-20261109/browser-lifecycle.md).
+ReviewJSON is structured source/metadata only, not CAD, import/restore, accepted
+candidate or flight configuration. Blank/compose/undo/resolution work remains.
+All source, engineering/physical and UNSENT inquiry gates stay unchanged.
+
 **Latest source service view:** Engineering → RP1 assembly & service integrates
 seven read-only construction/service concept steps, stable parts and pinned
 sources. P79 reached step7; visible controls/critical warning/upper diagram pass
 only their scoped observation, lower groups/details remain partial. No source,
 CAD, mass, physical action or engineering gate changes.
 [Scope/evidence](docs/studies/frontend-rp1-assembly-20261109/integration.md).
-PR125 draft/export UI merged after exact-head checks; live draft lifecycle still
-needs the owner's normal-host preview restart. No further artifact or old packet
+PR125 draft/export UI merged after exact-head checks; live draft metadata lifecycle is
+now observed after the owner restart. No further artifact or old packet
 retry; preserve P76/P77/P78 outcomes and current source guards.
 
 **Latest source workbench checkpoint:** PR123 source templates/local CAD/maps
@@ -16,7 +26,7 @@ Parts bank now integrates Saved drafts for explicit label/notes revisions and
 history; full composition/resolution remains later work. All55 source accounting
 records and false simulation/engineering/flight readiness are preserved.
 [UI contract](docs/studies/frontend-draft-foundation-20261109/frontend.md).
-Live fork/save/reload requires normal-host `make preview` restart; the one loopback
+Owner restart now enables live metadata checks; the earlier isolated loopback
 bind denial remains stopped. Do not retry another port/transport or change owner
 services/data. P76 blank-app failure stays recorded; P77 one reload shows real
 library plus explicit404/restart explanation, with no mutation or Return check.

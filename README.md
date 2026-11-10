@@ -55,10 +55,12 @@ completed local cache; a missing fresh-clone cache remains explicitly unavailabl
 immutable history and explicit stale-save recovery. It preserves the original 55
 source accounting records. Closing/reopening the Parts bank preserves unsaved
 text for the same loaded source; a page reload does not. Add/Replace/Connect,
-blank drafts and candidate simulation remain later steps. The normal-host preview
-needs an ordinary `make preview` restart to load the merged draft API. Actual
-browser fork/save/reload is still unverified; missing routes explain this rather
-than using a mutable static fallback. [Practical steps](docs/studies/frontend-draft-foundation-20261109/frontend.md).
+blank drafts and candidate simulation remain later steps. The owner restarted the normal-host preview. Actual browser fork/save/reload,
+read-only history and stale-write recovery pass their bounded checks, with
+independent persisted-byte readback. **Download saved review JSON** exports the
+shown saved revision, excluding unsaved edits and geometry assets. The actual
+772,101-byte download was read back and verified. It is a structured review copy,
+not byte-exact backup, import/restore artifact or simulation configuration. [Practical steps](docs/studies/frontend-draft-foundation-20261109/frontend.md).
 
 Engineering's **Physics & control system map** links selectable blocks to actual
 source contracts, units and frames. It separates the current fixed/unguided G80

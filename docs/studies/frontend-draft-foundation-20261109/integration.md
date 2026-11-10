@@ -79,3 +79,80 @@ explicit404/normal-host restart copy. No fallback appeared, so catch behavior an
 P76 root cause remain unverified. Return and flight-computer were not exercised;
 no mutation occurred. Estimated closeout203.462s exceeded180s, recorded as failure.
 There is no further correction/browser retry in this increment.
+
+## Owner restart and first live lifecycle attempt
+
+The owner confirmed the normal-host preview restarted on November9. The old404
+availability observation remains historical; fresh live-route/lifecycle evidence
+is now required. One P80 case was admitted for one new labelled validation draft,
+metadata save and primary readback of that exact returned UUID. Existing drafts,
+frozen sources and saved experiments must remain unchanged; no automatic cleanup.
+
+P80 made only the Design navigation click. Its verifier incorrectly required the
+Parts bank button to end the serialized AX line, rejecting the actual native
+Help suffix. Zero fork/save/library input; no UUID was created. This is a control
+parser error, not a backend failure. Preserve the record and40.008s closeout.
+One verifier-only correction must identify the exact role/name field separately
+from its documented metadata, checked offline against retained positive and
+wrong-name/ambiguous negative examples. Keep the exact window/source guards.
+Then one P81 first actual fork/save case may proceed on the same frozen source,
+with the original180s total/70s input/110s evidence reserve. No further automatic
+correction on another guard, app error or cap. No transport/port/settings/DevTools
+or alternate-window retry. Return a known new UUID only after the UI supplies it;
+primary reads only that UUID and the three frozen sources. No fork retry if its
+outcome is uncertain, no existing-record mutation and no physical/flight action.
+
+P81's corrected control parser passed retained positive/negative fixtures. One
+native fork and one metadata save then succeeded on the new validation draft
+0dc4fc18-7bb9-4735-b887-37ff3ed9597c, sequence2. Both revisions and the original
+source digest independently verify from that exact persisted UUID; all55 records,
+quantities and three frozen inputs are unchanged. Engineering/simulation/flight
+flags remain false. Native53.333s<70s, record/inventory100.114s<180s. No existing
+draft was edited. Reload/history/export remain separate subsequent checks.
+
+## Saved review JSON and read-only P82
+
+The primary integrates the source-fork review builder as **Download saved review
+JSON** beside the shown saved identity. It exports the admitted current or
+historical snapshot, excluding unsaved editor fields. One revision/parent identity
+and all55 source records are included, with no geometry assets or restore/import/
+candidate/simulation claim. The actual UTF-8 file digest is separate from the
+original server canonical source hash; numeric lexical forms can differ.
+
+One P82 read-only case may use only the new P81 validation UUID: reload latest
+saved revision2, inspect parent revision1, return to current metadata and download
+one current-r2 review JSON. No Fork, Save, other-draft inspection, deletion,
+experiment, server, addressbar/DevTools or standalone artifact reopening. Expected
+filename is serverUUID/sequence/revision based, never notes or owner paths.
+Same designated Chrome/window/source guards;180seconds total including evidence,
+70seconds input,110seconds reserve. Stop on guard/error/cap or uncertain download;
+no retry or second file. Record the known filename and actual browser receipt.
+Primary may read only that downloaded file and the known validation UUID, verify
+its actual hash/fields/source relationship and confirm head unchanged. This is a
+structured review record, not byte-exact backup, full history, CAD or readiness.
+
+P82 reloaded revision2, viewed historical/read-only1 and returned to2, then
+completed one actual Chrome reviewJSON download. Primary independently verified
+the772101-byte file/SHA3e8a7854…d91588, semantic equality to the actual saved2,
+55 records, all false readiness and unchanged head/source. Parent view is AX-only;
+final2/download receipt are visible. Native47.329s<70s; evidence85.511s<180s.
+
+## One stale-write recovery case P83
+
+The only target remains the new validation UUID above. Before the native clock,
+primary may call the existing public DraftStore.save_metadata once with exact
+expected revision2 to append a clearly labelled competing metadata revision3.
+No raw-file edit, other record or source changes. If the expected base has moved,
+stop instead of overwriting. That acts as another local client; it is not a
+browser/HTTP observation. The browser is still holding editor2 from P82.
+
+One P83 packet may type a distinct unsaved note into that stale editor and press
+Save once. Expect409 with retained unsaved text and the newer revision hash, then
+explicitly reload/discard and verify the competing saved3 text. No second Save,
+fork, other-record edit, deletion, download, experiment, server/port/settings,
+addressbar/DevTools or new-window action. Same source/owner/role-name guards;
+180seconds total,70seconds input,110seconds evidence reserve. One screenshot of
+the conflict before explicit reload if inside the cutoff; reload outcome can be
+AX-only. Stop on any guard, unexpected result or cap, without correction/retry.
+Primary then reads only the known UUID to confirm no unintended revision4 and
+unchanged source. This checks software conflict handling, never physical capacity.
