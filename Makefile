@@ -3,7 +3,7 @@ UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 MPLCONFIGDIR ?= $(CURDIR)/.cache/matplotlib
 export UV_CACHE_DIR MPLCONFIGDIR
 
-.PHONY: setup setup-reference check smoke tiny benchmark fetch-motors motor-study fetch-motor-study-sources f22-study fetch-f22-sources g-impulse-study
+.PHONY: setup setup-reference check smoke tiny benchmark fetch-motors motor-study fetch-motor-study-sources f22-study fetch-f22-sources g-impulse-study preview preview-dev
 
 setup-cad: ## Install pinned CAD dependencies.
 	uv pip install --python $(PYTHON) -r requirements-wo03.txt
@@ -13,6 +13,9 @@ setup-viewer: ## Install CAD and API dependencies before WO-04.
 
 preview: ## Authorized early local inspection/experiment preview; WO-03 acceptance remains open.
 	bash scripts/wo04_preview.sh
+
+preview-dev: ## Same local preview, with source-only API reload during development.
+	ROCKET_TWIN_API_RELOAD=1 bash scripts/wo04_preview.sh
 
 workbench: ## Prepare source-checked engineering graphics data; no solver/CAD run.
 	$(PYTHON) scripts/wo04_workbench_export.py --output web/public/engineering-workbench/g80-c1.json

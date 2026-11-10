@@ -52,10 +52,20 @@ if ! .venv/bin/python scripts/wo04_part_template_geometry.py --prepare; then
   echo "Optional local template CAD cache unavailable; source recipes and installed inspection remain usable." >&2
 fi
 prepare_snapshot scripts/wo04_rp1_connections_export.py web/public/engineering-workbench/rp1-connections.json
-.venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
+preview_api_args=(--host 127.0.0.1 --port 8000)
+if [[ "${ROCKET_TWIN_API_RELOAD:-0}" == "1" ]]; then
+  preview_api_args+=(--reload)
+  echo "Development API reload enabled for src Python files; draft/run output is not watched."
+fi
+.venv/bin/python scripts/wo04_api.py "${preview_api_args[@]}" &
 preview_api_pid=$!
 cleanup() {
-  kill "$preview_api_pid" 2>/dev/null || true
+  if [[ -n "${preview_api_pid:-}" ]]; then
+    local stopping_api_pid="$preview_api_pid"
+    preview_api_pid=""
+    kill "$stopping_api_pid" 2>/dev/null || true
+    wait "$stopping_api_pid" 2>/dev/null || true
+  fi
 }
 trap cleanup EXIT INT TERM
 echo "Rocket Twin preview: http://127.0.0.1:5173"

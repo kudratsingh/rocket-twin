@@ -62,6 +62,18 @@ shown saved revision, excluding unsaved edits and geometry assets. The actual
 772,101-byte download was read back and verified. It is a structured review copy,
 not byte-exact backup, import/restore artifact or simulation configuration. [Practical steps](docs/studies/frontend-draft-foundation-20261109/frontend.md).
 
+**Unsaved source planning intents** is an explicit preview inside a current saved
+draft. Prepare it, select an original occurrence, mark an exclusion intent, then
+restore it. The source model and55-row ledger stay intact; the tool explains the
+unresolved function and grants no mass credit, physical removal or candidate pass.
+P85/P86 observed this path and independently retained all saved bytes. Intents are
+not saved and reset when the parent revision/page changes. [Scope](docs/studies/frontend-draft-composition-20261109/integration.md).
+
+For ongoing local API development, `make preview-dev` starts the same localhost
+ports with source-only Python reload; normal `make preview` remains available.
+The owner has started this mode and the new API path works. No listener was started
+from the restricted agent runtime, and source reload cycling itself remains untested.
+
 Engineering's **Physics & control system map** links selectable blocks to actual
 source contracts, units and frames. It separates the current fixed/unguided G80
 from the committed future G12 estimator/guidance/PID/RL/actuator loop, with missing

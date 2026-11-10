@@ -1,0 +1,53 @@
+.source-intent-preview {
+  margin-block: 1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border, #48515e);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+.source-intent-preview > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.source-intent-preview p,
+.source-intent-preview li {
+  line-height: 1.5;
+}
+.source-intent-preview label {
+  display: block;
+  margin-block: 0.8rem 0.35rem;
+}
+.source-intent-preview select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5rem;
+}
+.source-intent-preview button {
+  padding: 0.5rem 0.65rem;
+  white-space: normal;
+  text-align: left;
+}
+.source-intent-preview__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.7rem;
+}
+.source-intent-preview__notice,
+.source-intent-preview__error {
+  padding: 0.6rem;
+  border-left: 3px solid #e4b561;
+}
+.source-intent-preview__error {
+  border-color: #f68c8c;
+}
+.source-intent-preview :is(button, select, summary):focus-visible {
+  outline: 2px solid #8fc8ff;
+  outline-offset: 3px;
+}
+.source-intent-preview section {
+  margin-block: 1rem;
+}
+.source-intent-preview code {
+  font-size: 0.85em;
+}

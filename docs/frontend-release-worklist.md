@@ -1,5 +1,11 @@
 # Current frontend release worklist
 
+Current builder increment: current saved-source intent prepare/exclude/restore
+with original55/sourcefunction evidence retained. P85/P86 observed the scoped
+path; saved bytes unchanged and all effective/mass/engineering results unavailable.
+[Evidence](studies/frontend-draft-composition-20261109/integration.md).
+No Add/Replace/Connect or coupled candidate is admitted. Preview-dev is owner-ready.
+
 RP1 assembly/service is now a separate current-source Engineering topic. P79
 observed step7 with upper diagram and warnings; lower detail/scroll/part-return
 checks remain partial. [Scope](studies/frontend-rp1-assembly-20261109/integration.md).

@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "generator": "src.vehicle.draft_composition.create_overlay/apply_command",
+  "module_sha256": "54629731eb40d0e2d8cfd8e80fae8bf35f8e95e5e4b3fe94c0e841d1599a1c2b",
+  "base_fixture": {
+    "path": "rp1-draft-library.json",
+    "sha256": "b2339838a42a6426d535a533df7c021211362e3dd4e643a933e5c4562d0cded0",
+    "revision": "saved"
+  },
+  "overlays": {
+    "initial": {
+      "schema_version": 1,
+      "kind": "rp1-source-fork-planning-overlay",
+      "status": "planning_intent_only",
+      "source_revision_sha256": "618f434302c60488de6f63f4ce6c74be2a1daac5d6bee98da8282529a11c8321",
+      "source_sha256": "7f04cbeb5d4c2aa96a61fac41a1f2b0f1f52ad54e68c9dd3856f7363f52ded44",
+      "excluded_occurrence_ids": [],
+      "preview": {
+        "source_occurrences": 55,
+        "source_ledger_preserved": true,
+        "exclusion_intents": 0,
+        "removed_functions": [],
+        "effective_inventory": null,
+        "reason": "Intent only; every original occurrence remains in the immutable source ledger"
+      },
+      "checks": {
+        "status": "unavailable",
+        "total_mass_kg": null,
+        "mass_removal_credit_kg": null,
+        "cg_m": null,
+        "inertia_kg_m2": null,
+        "reason": "No effective candidate, replacement-function accounting, CAD or engineering calculation is admitted"
+      },
+      "readiness": {
+        "resolve_available": false,
+        "resolved_candidate": false,
+        "simulation_eligible": false,
+        "engineering_accepted": false,
+        "flight_ready": false,
+        "blockers": [
+          "Planning overlay is not an effective vehicle; exclusion never credits source mass",
+          "Source estimates/conflicts, failed fin findings, unavailable installed geometry/inertia and all physical gates remain unchanged"
+        ]
+      },
+      "capabilities": {
+        "exclude_source_occurrence": true,
+        "restore_source_occurrence": true,
+        "add": false,
+        "replace": false,
+        "connect": false,
+        "set-position": false,
+        "set-parameter": false,
+        "resolve": false
+      },
+      "revision_sha256": "05ac0a877266fea80b6cafc6af2c698541545fb8f6232384937e327e30aea4c2"
+    },
+    "fin": {
+      "schema_version": 1,
+      "kind": "rp1-source-fork-planning-overlay",
+      "status": "planning_intent_only",
+      "source_revision_sha256": "618f434302c60488de6f63f4ce6c74be2a1daac5d6bee98da8282529a11c8321",
+      "source_sha256": "7f04cbeb5d4c2aa96a61fac41a1f2b0f1f52ad54e68c9dd3856f7363f52ded44",
+      "excluded_occurrence_ids": ["fin_set"],
+      "preview": {
+        "source_occurrences": 55,
+        "source_ledger_preserved": true,
+        "exclusion_intents": 1,
+        "removed_functions": [
+          {
+            "occurrence_id": "fin_set",
+            "definition_id": "rp1:fin_set",
+            "function": "AD1 through-wall fin, continuous tab/mount, external wedges/body and aft-ring adhesive only; no moved front-ring support.",
+            "status": "excluded_intent_function_unresolved",
+            "source_occurrence": {
+              "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+              "counting_basis": "source_record",
+              "definition_id": "rp1:fin_set",
+              "definition_revision_sha256": "c6e590316f476aad669fe3f17a13578f568a780b2eec85accac493158399e94d",
+              "group_count": 3,
+              "group_count_basis": "source geometry.count",
+              "id": "fin_set",
+              "lateral_offset_m": [0.0, 0.0],
+              "position_m": 1.075,
+              "quantity": 1,
+              "source_parent_id": "body"
+            },
+            "source_evidence": {
+              "provenance": [
+                {
+                  "locator": "parts[id=fin_set]",
+                  "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+                  "role": "frozen source record",
+                  "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+                },
+                {
+                  "locator": "$",
+                  "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+                  "role": "unadopted attachment definition",
+                  "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+                },
+                {
+                  "locator": "$",
+                  "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+                  "role": "saved AD1 evidence; not physical qualification",
+                  "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+                }
+              ],
+              "issues": [],
+              "physical_verification": "open",
+              "interfaces_status": "Not defined by this catalog; parentage is not an attachment",
+              "geometry": {
+                "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+                "frame": null,
+                "maturity": "source_dimensioned",
+                "mesh": null,
+                "mesh_available": false,
+                "mesh_scope": null,
+                "reason": "Matching generated inspection assets unavailable; no generation attempted",
+                "registered_instance_id": "fin_set",
+                "reusable_local_geometry": false
+              }
+            },
+            "blocker": "Source function would be removed by this planning intent; no replacement, mass credit or effective candidate has been resolved"
+          }
+        ],
+        "effective_inventory": null,
+        "reason": "Intent only; every original occurrence remains in the immutable source ledger"
+      },
+      "checks": {
+        "status": "unavailable",
+        "total_mass_kg": null,
+        "mass_removal_credit_kg": null,
+        "cg_m": null,
+        "inertia_kg_m2": null,
+        "reason": "No effective candidate, replacement-function accounting, CAD or engineering calculation is admitted"
+      },
+      "readiness": {
+        "resolve_available": false,
+        "resolved_candidate": false,
+        "simulation_eligible": false,
+        "engineering_accepted": false,
+        "flight_ready": false,
+        "blockers": [
+          "Planning overlay is not an effective vehicle; exclusion never credits source mass",
+          "Source estimates/conflicts, failed fin findings, unavailable installed geometry/inertia and all physical gates remain unchanged",
+          "Source function would be removed by this planning intent; no replacement, mass credit or effective candidate has been resolved: fin_set"
+        ]
+      },
+      "capabilities": {
+        "exclude_source_occurrence": true,
+        "restore_source_occurrence": true,
+        "add": false,
+        "replace": false,
+        "connect": false,
+        "set-position": false,
+        "set-parameter": false,
+        "resolve": false
+      },
+      "revision_sha256": "7619ff58dfce172963c57dace1d69cfbb2249eec46a7b147f3d8ff7430e789a9"
+    },
+    "both": {
+      "schema_version": 1,
+      "kind": "rp1-source-fork-planning-overlay",
+      "status": "planning_intent_only",
+      "source_revision_sha256": "618f434302c60488de6f63f4ce6c74be2a1daac5d6bee98da8282529a11c8321",
+      "source_sha256": "7f04cbeb5d4c2aa96a61fac41a1f2b0f1f52ad54e68c9dd3856f7363f52ded44",
+      "excluded_occurrence_ids": ["fin_set", "motor_retainer"],
+      "preview": {
+        "source_occurrences": 55,
+        "source_ledger_preserved": true,
+        "exclusion_intents": 2,
+        "removed_functions": [
+          {
+            "occurrence_id": "fin_set",
+            "definition_id": "rp1:fin_set",
+            "function": "AD1 through-wall fin, continuous tab/mount, external wedges/body and aft-ring adhesive only; no moved front-ring support.",
+            "status": "excluded_intent_function_unresolved",
+            "source_occurrence": {
+              "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+              "counting_basis": "source_record",
+              "definition_id": "rp1:fin_set",
+              "definition_revision_sha256": "c6e590316f476aad669fe3f17a13578f568a780b2eec85accac493158399e94d",
+              "group_count": 3,
+              "group_count_basis": "source geometry.count",
+              "id": "fin_set",
+              "lateral_offset_m": [0.0, 0.0],
+              "position_m": 1.075,
+              "quantity": 1,
+              "source_parent_id": "body"
+            },
+            "source_evidence": {
+              "provenance": [
+                {
+                  "locator": "parts[id=fin_set]",
+                  "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+                  "role": "frozen source record",
+                  "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+                },
+                {
+                  "locator": "$",
+                  "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+                  "role": "unadopted attachment definition",
+                  "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+                },
+                {
+                  "locator": "$",
+                  "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+                  "role": "saved AD1 evidence; not physical qualification",
+                  "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+                }
+              ],
+              "issues": [],
+              "physical_verification": "open",
+              "interfaces_status": "Not defined by this catalog; parentage is not an attachment",
+              "geometry": {
+                "description": "Ideal source-dimensioned inspection solid; estimated dimensions and unverified installed joints.",
+                "frame": null,
+                "maturity": "source_dimensioned",
+                "mesh": null,
+                "mesh_available": false,
+                "mesh_scope": null,
+                "reason": "Matching generated inspection assets unavailable; no generation attempted",
+                "registered_instance_id": "fin_set",
+                "reusable_local_geometry": false
+              }
+            },
+            "blocker": "Source function would be removed by this planning intent; no replacement, mass credit or effective candidate has been resolved"
+          },
+          {
+            "occurrence_id": "motor_retainer",
+            "definition_id": "rp1:motor_retainer",
+            "function": "Purchased Estes 009750 threaded 29 mm retainer budget, including cap; forward thrust and reverse retention require actual mating drawing.",
+            "status": "excluded_intent_function_unresolved",
+            "source_occurrence": {
+              "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+              "counting_basis": "source_record",
+              "definition_id": "rp1:motor_retainer",
+              "definition_revision_sha256": "68344374103994369810d1e146a2673de1b1d440b62ceadf47385eba1680e370",
+              "group_count": 1,
+              "group_count_basis": "one source record; physical piece count not separately defined",
+              "id": "motor_retainer",
+              "lateral_offset_m": [0.0, 0.0],
+              "position_m": 1.205,
+              "quantity": 1,
+              "source_parent_id": "body"
+            },
+            "source_evidence": {
+              "provenance": [
+                {
+                  "locator": "parts[id=motor_retainer]",
+                  "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+                  "role": "frozen source record",
+                  "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+                },
+                {
+                  "locator": "$",
+                  "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+                  "role": "unadopted attachment definition",
+                  "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+                },
+                {
+                  "locator": "$",
+                  "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+                  "role": "saved AD1 evidence; not physical qualification",
+                  "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+                }
+              ],
+              "issues": [
+                {
+                  "id": "retainer_product_conflict",
+                  "locators": [
+                    "parts[id=motor_retainer].learn",
+                    "parts[id=motor_retainer].engineering.function"
+                  ],
+                  "message": "learn names AeroTech 19002, while engineering.function names Estes 009750. Exact product/revision and cap/collar/thread/seat geometry remain unresolved.",
+                  "severity": "warning",
+                  "status": "unresolved"
+                }
+              ],
+              "physical_verification": "open",
+              "interfaces_status": "Not defined by this catalog; parentage is not an attachment",
+              "geometry": {
+                "description": "Historical nominal annular envelope only; cap/sleeve details and current exact motor fit unavailable.",
+                "frame": null,
+                "maturity": "simplified_envelope",
+                "mesh": null,
+                "mesh_available": false,
+                "mesh_scope": null,
+                "reason": "Matching generated inspection assets unavailable; no generation attempted",
+                "registered_instance_id": "motor_retainer",
+                "reusable_local_geometry": false
+              }
+            },
+            "blocker": "Source function would be removed by this planning intent; no replacement, mass credit or effective candidate has been resolved"
+          }
+        ],
+        "effective_inventory": null,
+        "reason": "Intent only; every original occurrence remains in the immutable source ledger"
+      },
+      "checks": {
+        "status": "unavailable",
+        "total_mass_kg": null,
+        "mass_removal_credit_kg": null,
+        "cg_m": null,
+        "inertia_kg_m2": null,
+        "reason": "No effective candidate, replacement-function accounting, CAD or engineering calculation is admitted"
+      },
+      "readiness": {
+        "resolve_available": false,
+        "resolved_candidate": false,
+        "simulation_eligible": false,
+        "engineering_accepted": false,
+        "flight_ready": false,
+        "blockers": [
+          "Planning overlay is not an effective vehicle; exclusion never credits source mass",
+          "Source estimates/conflicts, failed fin findings, unavailable installed geometry/inertia and all physical gates remain unchanged",
+          "Source function would be removed by this planning intent; no replacement, mass credit or effective candidate has been resolved: fin_set",
+          "Source function would be removed by this planning intent; no replacement, mass credit or effective candidate has been resolved: motor_retainer"
+        ]
+      },
+      "capabilities": {
+        "exclude_source_occurrence": true,
+        "restore_source_occurrence": true,
+        "add": false,
+        "replace": false,
+        "connect": false,
+        "set-position": false,
+        "set-parameter": false,
+        "resolve": false
+      },
+      "revision_sha256": "197c112173d75bfb2913790b8bd18f241b9c11f6218c7a95e617d517dc59cd7d"
+    },
+    "restored": {
+      "schema_version": 1,
+      "kind": "rp1-source-fork-planning-overlay",
+      "status": "planning_intent_only",
+      "source_revision_sha256": "618f434302c60488de6f63f4ce6c74be2a1daac5d6bee98da8282529a11c8321",
+      "source_sha256": "7f04cbeb5d4c2aa96a61fac41a1f2b0f1f52ad54e68c9dd3856f7363f52ded44",
+      "excluded_occurrence_ids": [],
+      "preview": {
+        "source_occurrences": 55,
+        "source_ledger_preserved": true,
+        "exclusion_intents": 0,
+        "removed_functions": [],
+        "effective_inventory": null,
+        "reason": "Intent only; every original occurrence remains in the immutable source ledger"
+      },
+      "checks": {
+        "status": "unavailable",
+        "total_mass_kg": null,
+        "mass_removal_credit_kg": null,
+        "cg_m": null,
+        "inertia_kg_m2": null,
+        "reason": "No effective candidate, replacement-function accounting, CAD or engineering calculation is admitted"
+      },
+      "readiness": {
+        "resolve_available": false,
+        "resolved_candidate": false,
+        "simulation_eligible": false,
+        "engineering_accepted": false,
+        "flight_ready": false,
+        "blockers": [
+          "Planning overlay is not an effective vehicle; exclusion never credits source mass",
+          "Source estimates/conflicts, failed fin findings, unavailable installed geometry/inertia and all physical gates remain unchanged"
+        ]
+      },
+      "capabilities": {
+        "exclude_source_occurrence": true,
+        "restore_source_occurrence": true,
+        "add": false,
+        "replace": false,
+        "connect": false,
+        "set-position": false,
+        "set-parameter": false,
+        "resolve": false
+      },
+      "revision_sha256": "05ac0a877266fea80b6cafc6af2c698541545fb8f6232384937e327e30aea4c2"
+    }
+  }
+}
