@@ -9,6 +9,7 @@ import { ThrustCurve } from './ThrustCurve';
 import { InspectionGeometryAccess } from './InspectionGeometryAccess';
 import { InspectionStepAccess } from './InspectionStepAccess';
 import { RecoveryIdentityNotice } from './RecoveryIdentityNotice';
+import { FlightComputerSourceFinding } from './FlightComputerSourceFinding';
 import { FinAttachmentTrigger } from '../fin-attachment/FinAttachmentAccess';
 
 const HighGBoardDetail = lazy(() => import('./HighGBoardDetail'));
@@ -255,6 +256,7 @@ export function PartInspector({
             'Function is not available in the recorded specification.'}
         </p>
       </section>
+      {design && <FlightComputerSourceFinding vehicle={design} selectedPart={part} />}
       {part.id === 'high_g_accel' && design && (
         <Suspense fallback={<p>Loading manufacturer PCB reference…</p>}>
           <HighGBoardDetail

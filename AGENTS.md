@@ -1,15 +1,20 @@
 # Agent entry point
 
-**Latest source workbench checkpoint:** PR123 is merged at
-`d540cd87e86d3a1bdc10e076090e5b68d71ac349` after exact-head web/model checks.
-Five template groups, two local CAD cases, actual ring STEP readback and readable
-G80/G12 source maps are separate from physical acceptance. P71 closeout overrun
-remains recorded; P73 map legibility passes only at the actual current window.
-The next backend foundation supplies metadata-only local draft forks/history;
-frontend authoring and live mutations remain separately unverified. Normal-host
-restart is required because this runtime denied loopback binding. Do not retry
-other ports/transports or change the owner's running services. All inquiries
-UNSENT; frozen RP1/D1 and G54/G12/physical/flight gates remain unchanged.
+**Latest source workbench checkpoint:** PR123 source templates/local CAD/maps
+and PR124 metadata-only source-fork backend are merged after exact-head checks.
+Parts bank now integrates Saved drafts for explicit label/notes revisions and
+history; full composition/resolution remains later work. All55 source accounting
+records and false simulation/engineering/flight readiness are preserved.
+[UI contract](docs/studies/frontend-draft-foundation-20261109/frontend.md).
+Live fork/save/reload requires normal-host `make preview` restart; the one loopback
+bind denial remains stopped. Do not retry another port/transport or change owner
+services/data. P76 blank-app failure stays recorded; P77 one reload shows real
+library plus explicit404/restart explanation, with no mutation or Return check.
+P77 estimated closeout203.462s missed180s; no whole-packet pass.
+Portable systemSVG actual download/XML/offline readability pass;
+P74/P75 leave standalone Chrome viewing unexecuted, with no further artifact retry.
+Exact flight-computer SKU/mounting/populated height remain unknown; Teensy 4.1 is
+not selected. All inquiries UNSENT; RP1/D1 and G54/G12/physical gates unchanged.
 
 **Current focused delivery — RP1 fin attachment inspector:** One source-bound,
 read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STEP,

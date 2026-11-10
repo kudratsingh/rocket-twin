@@ -52,3 +52,30 @@ second port was attempted. Existing owner services and data were untouched.
 The isolated runtime plan is stopped at that access condition; it is not an
 API, source, persistence or physical calculation failure. Sixty-one isolated
 store/router/composition cases pass. Mutable browser flow is still unverified.
+
+## P76 failure and one bounded containment correction
+
+P76 opened Saved drafts and observed its loading copy, then a blank entire app.
+No404/library/error message or Return control was present. No draft mutation was
+performed. Root cause remains unknown: repository/SSR checks passed, and the
+single read-only transformed-module request could not reach the owner's5173 host
+from this runtime. That connection failure is not evidence about browser network
+behavior; no alternate transport or server retry follows.
+
+One scoped correction adds a React error boundary around only the optional draft
+panel/lazy import. Its fallback keeps source-return controls reachable, displays
+an escaped bounded client diagnostic and never retries/mutates automatically.
+It does not claim to diagnose or repair the underlying loading exception.
+Source/SSR tests cover normal children and safe fallback rendering; actual client
+capture/source preservation requires a separate native observation. At most one
+P77 native packet may ordinarily reload the same app page once, then use the
+same in-app Saved drafts path. No artifact, addressbar, DevTools, other-window,
+server or alternative transport attempt is admitted.180seconds total/70seconds
+input/110seconds evidence reserve; stop on another blank app, guard or cap.
+Record any diagnostic and preserve failures. Full lifecycle remains unverified.
+
+P77 used its one reload and showed the actual Local design drafts panel with
+explicit404/normal-host restart copy. No fallback appeared, so catch behavior and
+P76 root cause remain unverified. Return and flight-computer were not exercised;
+no mutation occurred. Estimated closeout203.462s exceeded180s, recorded as failure.
+There is no further correction/browser retry in this increment.

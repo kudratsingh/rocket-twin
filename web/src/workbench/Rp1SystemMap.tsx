@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { downloadRp1SystemMapSvg } from './rp1SystemMapExport';
 import {
   matchesRp1SystemMapSource,
   SYSTEM_MAPS,
@@ -50,8 +51,10 @@ function edgeMarkerPosition(edge: SystemMapEdge, nodes: SystemMapNode[]) {
 }
 
 export default function Rp1SystemMap({ configurationId, specificationSha256 }: Rp1SystemMapProps) {
+  const svgRef = useRef<SVGSVGElement>(null);
   const [mode, setMode] = useState<SystemMapMode>('g80');
   const [selectedId, setSelectedId] = useState('plant');
+  const [exportMessage, setExportMessage] = useState('');
   if (!matchesRp1SystemMapSource(configurationId, specificationSha256)) {
     return (
       <section
@@ -71,6 +74,20 @@ export default function Rp1SystemMap({ configurationId, specificationSha256 }: R
   const changeMode = (next: SystemMapMode) => {
     setMode(next);
     setSelectedId(next === 'g80' ? 'plant' : 'control');
+    setExportMessage('');
+  };
+  const exportCurrent = () => {
+    try {
+      const filename = downloadRp1SystemMapSvg(svgRef.current, {
+        configurationId,
+        specificationSha256,
+        mode,
+        selectedId: selected.id,
+      });
+      setExportMessage(`Saved ${filename}`);
+    } catch (error) {
+      setExportMessage(error instanceof Error ? error.message : 'Source SVG export unavailable');
+    }
   };
   return (
     <section className="rp1-system-map" aria-label="Source-bound rocket system map">
@@ -107,6 +124,7 @@ export default function Rp1SystemMap({ configurationId, specificationSha256 }: R
         <div className="rp1-system-map-flow">
           <div className="rp1-system-map-graphic">
             <svg
+              ref={svgRef}
               viewBox={mode === 'g80' ? '0 -45 1150 400' : '0 0 1150 355'}
               role="group"
               aria-label={
@@ -228,6 +246,12 @@ export default function Rp1SystemMap({ configurationId, specificationSha256 }: R
               </li>
             ))}
           </ul>
+          <div className="rp1-system-map-tabs">
+            <button type="button" onClick={exportCurrent}>
+              Download source SVG
+            </button>
+          </div>
+          {exportMessage && <p role="status">{exportMessage}</p>}
         </aside>
       </div>
       <p className="rp1-system-map-provenance">
