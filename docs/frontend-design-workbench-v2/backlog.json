@@ -400,7 +400,10 @@
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
       "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
-      "implementation_note": "Five templates/14features/55dispositions and two actual localCAD cases. P71 observed ring/template/download/exactpartreturn, but closeout190.572s missed180s; actualdownload millimetreSTEP readback passes. P72 partial readability preserved; P73 correction shows both G80/G12 graphs/flowkeys/adjacentunits/source/plannedcards,85.314s closeout. Broader requirements remain partial; no engineering/draft adoption. docs/studies/frontend-autonomous-20261109/integration.md"
+      "implementation_note": "Five templates/14features/55dispositions and two actual localCAD cases. P71 observed ring/template/download/exactpartreturn, but closeout190.572s missed180s; actualdownload millimetreSTEP readback passes. P72 partial readability preserved; P73 correction shows both G80/G12 graphs/flowkeys/adjacentunits/source/plannedcards,85.314s closeout. Broader requirements remain partial; no engineering/draft adoption. docs/studies/frontend-autonomous-20261109/integration.md Two existing nominal local solids now have five analytic datums each with exact frame and registered-asset admission; null physical properties and no mating/instance/candidate admission. Combined source/API/web checks pass; P87 native AX admitted the ring/datums;80s input cap before datum click, with no image/ghost/camera claim. Record closeout125.733s<180. No kernel face IDs or geometry generation.",
+      "evidence": [
+        "docs/studies/frontend-reference-parts-20261109/implementation.md"
+      ]
     },
     {
       "id": "FW2-011",
@@ -519,9 +522,11 @@
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
       "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
       "evidence": [
-        "docs/studies/frontend-fin-attachment-20261109/integration.md"
+        "docs/studies/frontend-fin-attachment-20261109/integration.md",
+        "docs/studies/frontend-reference-parts-20261109/implementation.md"
       ],
-      "scope_note": "Partial broader task; the nine-record RP1 fin-joint slice has source/CAD and scoped native P64\u2013P68 evidence, including final settled camera return and actual STEP readback. Missing supplier geometry, other formats, full diagram legibility and other assemblies remain outside this closure; no engineering pass."
+      "scope_note": "Partial broader task; the nine-record RP1 fin-joint slice has source/CAD and scoped native P64\u2013P68 evidence, including final settled camera return and actual STEP readback. Missing supplier geometry, other formats, full diagram legibility and other assemblies remain outside this closure; no engineering pass.",
+      "implementation_note": " Two existing nominal local solids now have five analytic datums each with exact frame and registered-asset admission; null physical properties and no mating/instance/candidate admission. Combined source/API/web checks pass; P87 native AX admitted the ring/datums;80s input cap before datum click, with no image/ghost/camera claim. Record closeout125.733s<180. No kernel face IDs or geometry generation."
     },
     {
       "id": "FW2-016",
@@ -600,9 +605,11 @@
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
       "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
       "evidence": [
-        "docs/studies/frontend-fin-attachment-20261109/integration.md"
+        "docs/studies/frontend-fin-attachment-20261109/integration.md",
+        "docs/studies/frontend-reference-parts-20261109/implementation.md"
       ],
-      "scope_note": "Partial broader task; the nine-record RP1 fin-joint slice has source/CAD and scoped native P64\u2013P68 evidence, including final settled camera return and actual STEP readback. Missing supplier geometry, other formats, full diagram legibility and other assemblies remain outside this closure; no engineering pass."
+      "scope_note": "Partial broader task; the nine-record RP1 fin-joint slice has source/CAD and scoped native P64\u2013P68 evidence, including final settled camera return and actual STEP readback. Missing supplier geometry, other formats, full diagram legibility and other assemblies remain outside this closure; no engineering pass.",
+      "implementation_note": " Two existing nominal local solids now have five analytic datums each with exact frame and registered-asset admission; null physical properties and no mating/instance/candidate admission. Combined source/API/web checks pass; P87 native AX admitted the ring/datums;80s input cap before datum click, with no image/ghost/camera claim. Record closeout125.733s<180. No kernel face IDs or geometry generation."
     },
     {
       "id": "FW2-019",
