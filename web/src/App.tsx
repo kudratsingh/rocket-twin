@@ -684,7 +684,7 @@ export default function App() {
               </main>
             }
           >
-            <EngineeringWorkbench />
+            <EngineeringWorkbench inspection={vehicle} />
           </Suspense>
         ) : mode === 'experiments' || mode === 'replay' ? (
           <Suspense

@@ -68,6 +68,17 @@ exports the current graph, full flow key and selected block with source labels.
 The actual download and offline rendering pass; standalone Chrome reopening
 remains unexecuted. [Export evidence](docs/studies/frontend-system-map-20261109/export.md).
 
+## Recorded assembly and service
+
+Open **Engineering → RP1 assembly & service**, then choose one of seven concept
+steps. Select a schematic group to read its source notes and open its exact part
+in Design. The sequence explains loop/protection routing, inspection before aft
+closure, motor access and the permanently buried recovery anchor. It preserves
+failed/unknown joint findings and is not approved fabrication or service
+instructions. P79 observed the final step and readable upper controls/diagram;
+lower details and part-return interactions remain only partially verified.
+[Source path and evidence](docs/studies/frontend-rp1-assembly-20261109/integration.md).
+
 ## Component structure close-ups
 
 The current RP1 **Details → Inside the component** adds two source-based views:

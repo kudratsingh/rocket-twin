@@ -1,5 +1,20 @@
 # Plan — modular custom rocket and digital twin
 
+**RP1 assembly and service walkthrough:** Engineering now has a separate
+**RP1 assembly & service** topic with seven source-linked concept steps and
+selectable part groups. App supplies the already verified current inspection;
+all 55 identities and exact source revisions are checked. No CAD/physics job,
+physical sequence completion or engineering adoption occurs. P79 reached step 7;
+controls, critical warnings and upper diagram are visible. Lower groups/details
+are AX-only and full scrolling/part-return legibility remains partial. Native
+33.868 s / 40 s and evidence 65.650 s / 120 s met this limited packet's bounds.
+[Integrated path and evidence](studies/frontend-rp1-assembly-20261109/integration.md).
+The buried recovery anchor's destructive replacement limit and failed/unknown
+fin/cord/joint evidence stay explicit. All build/thermal/recovery/flutter/flight
+gates remain open; inquiries UNSENT. Draft/export UI PR125 is merged at
+`41cd32dcae03abb5ae090fcf91dfaf827a17317f` after exact-head required checks.
+Positive draft lifecycle still needs the normal-host preview restart.
+
 **Current source-workbench increment:** **Parts bank → Saved drafts** now
 provides explicit RP1 forks, metadata saves and immutable history, preserving all 55
 source accounting records. Stale writes preserve unsaved text. No blank rocket,
