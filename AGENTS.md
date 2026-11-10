@@ -1,5 +1,16 @@
 # Agent entry point
 
+**Latest source workbench checkpoint:** PR123 is merged at
+`d540cd87e86d3a1bdc10e076090e5b68d71ac349` after exact-head web/model checks.
+Five template groups, two local CAD cases, actual ring STEP readback and readable
+G80/G12 source maps are separate from physical acceptance. P71 closeout overrun
+remains recorded; P73 map legibility passes only at the actual current window.
+The next backend foundation supplies metadata-only local draft forks/history;
+frontend authoring and live mutations remain separately unverified. Normal-host
+restart is required because this runtime denied loopback binding. Do not retry
+other ports/transports or change the owner's running services. All inquiries
+UNSENT; frozen RP1/D1 and G54/G12/physical/flight gates remain unchanged.
+
 **Current focused delivery — RP1 fin attachment inspector:** One source-bound,
 read-only joint view reuses the registered nine-part/18-solid motor/fin/ring STEP,
 adds two actual CAD-derived capped sections, clickable dimensions and exact
