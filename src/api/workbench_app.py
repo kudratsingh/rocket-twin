@@ -13,11 +13,13 @@ from src.api.app import CATALOG, ROOT, CatalogEntry
 from src.api.app import create_app as create_inspection_app
 from src.api.design_drafts import create_router
 from src.api.draft_intents import create_router as create_intent_router
+from src.api.reference_parts import create_router as create_reference_router
 
 
 def create_app(root: Path = ROOT, catalog: tuple[CatalogEntry, ...] = CATALOG) -> FastAPI:
     """Create the loopback workbench app; create no draft on startup."""
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+    app.include_router(create_reference_router(root))
     app.include_router(create_intent_router(root))
     app.include_router(create_router(root))
     app.mount("/", create_inspection_app(root, catalog))

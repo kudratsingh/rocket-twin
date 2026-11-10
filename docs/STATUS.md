@@ -1,5 +1,19 @@
 # Status
 
+**Local CAD datum inspection:** Parts bank → Template recipes now links the two
+existing nominal tube/ring solids to five selectable analytic guides: axis,
+bore, outside cylinder and both annular end planes. Bore selection ghosts only
+the displayed solid; camera and exported bytes remain independent. Exact local
+CAD +Z maps to viewer −Y. These are parameter-derived datums, not kernel face
+IDs or accepted mating interfaces. The tube remains 31.369 mm OD / 29.169 mm bore / 165 mm long;
+stock/motor fit is unresolved. [Scope, use and limits](studies/frontend-reference-parts-20261109/implementation.md).
+Combined checks pass: 153 Python tests, one previously executed benchmark
+skipped, and 411 published web cases (415 local includes four unpublished A2
+cases), plus type/build/lint/format and Python static checks. P87 reached the ring view and datum controls in native AX, but the 80 s input
+cap stopped before a datum click; no screenshot/ghost/camera pass. Full builder,
+physical and flight acceptance remain open. PR128 source-intent preview is
+merged at `95fddb209197c6a412900c903b22061925f57172`. Inquiries remain UNSENT.
+
 **Unsaved source-intent preview:** Saved drafts now offers an explicit planning
 preview for marking and restoring source exclusion intents. P85 observed prepare0
 and fin_set exclusion1; P86 observed Restore0 and original opaque identity. All55

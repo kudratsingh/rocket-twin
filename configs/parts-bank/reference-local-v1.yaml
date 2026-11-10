@@ -1,0 +1,64 @@
+schema_version: 1
+id: reference-local-v1
+scope: geometry_only_planning
+source_configuration_id: G80-F2-RP1-AD1-definition-v2
+geometry_manifest:
+  path: docs/studies/frontend-template-bank-20261109/geometry.json
+  sha256: 6316ccef56c168e14d8a14a6570d162f35eb43bcadf4bd6132226b51d91799d2
+source_registry:
+  id: rp1-part-templates-v1
+  revision_sha256: cb43e923df940ba0a1f9ec80216a194bd1cbc85e92b1eac5c77f3e18b55fd9be
+  prepared_sha256: f2b1c4ab801f3ba8b1b8f95659bca3d116bf169246e394f42aef0987763b28f8
+local_cad_frame:
+  units: mm
+  origin: front_center
+  axes: X=body+y, Y=body-z, Z=aft along part
+viewer_frame:
+  units: m
+  mapping: viewer[X,Y,Z]=[cadX/1000,-cadZ/1000,cadY/1000]
+feature_scope: Analytic nominal reference entities only; no persistent CAD face or triangle IDs, contact or mating admission
+unknown_properties:
+  mass_kg: null
+  procurement_cost_usd: null
+  inertia_kg_m2: null
+  stock_tolerances_mm: null
+  strength_allowables: null
+  thermal_capability: null
+  qualified_material: null
+readiness:
+  add_instance_api: false
+  connect_api: false
+  resolved_candidate: false
+  simulation_eligible: false
+  engineering_accepted: false
+  physically_verified: false
+  flight_ready: false
+definitions:
+  - id: reference-local-v1:motor-tube-nominal
+    name: Nominal tube-cut geometry reference
+    family: tube_cut
+    source_part_id: motor_tube
+    source_template_id: rp1-template:motor-tube-cut
+    source_template_revision_sha256: 7f3d7dd2ce09293d787aac7343138c1f8a9a44f40f07ff63f4c58d0eae5690e3
+    parameters_mm:
+      outer_radius_mm: 15.6845
+      inner_radius_mm: 14.5845
+      length_mm: 165.0
+    exact_product: null
+    stock_adoption: false
+    identity_limit: Current source geometry conflicts with AeroTech12912 stock/legacy mount-kit notes. This is nominal geometry, not exact purchased tube or motor/liner/retainer fit.
+    installed_geometry_adoption: false
+  - id: reference-local-v1:aft-annulus-nominal
+    name: Plain aft-annulus geometry reference
+    family: annular_ring
+    source_part_id: aft_ring
+    source_template_id: rp1-template:aft-annular-ring
+    source_template_revision_sha256: f720488a173d91f936666c160e0bc9c912eb4bb0e2a5b18e188857d40637db8e
+    parameters_mm:
+      outer_radius_mm: 32.2
+      inner_radius_mm: 15.95
+      length_mm: 6.0
+    exact_product: null
+    stock_adoption: false
+    identity_limit: Plain nominal annulus only; the complete installed ring proposal, stock/process tolerances, bonds and joint response remain unavailable or unverified.
+    installed_geometry_adoption: false

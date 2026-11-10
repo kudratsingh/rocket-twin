@@ -5,7 +5,7 @@ import type { PartTemplate, TemplateRegistry } from './templateBank';
 import { localTemplateRepresentation } from './templateGeometry';
 import './templateBank.css';
 
-const LocalTemplatePreview = lazy(() => import('./LocalTemplatePreview'));
+const ReferenceLocalPreview = lazy(() => import('./ReferenceLocalPreview'));
 
 export function TemplateRecipeDetail({
   recipe,
@@ -48,7 +48,7 @@ export function TemplateRecipeDetail({
       </p>
       {representation && (
         <Suspense fallback={<p role="status">Opening local CAD preview…</p>}>
-          <LocalTemplatePreview representation={representation} />
+          <ReferenceLocalPreview representation={representation} />
         </Suspense>
       )}
       <section>

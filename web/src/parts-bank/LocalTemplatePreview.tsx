@@ -7,6 +7,7 @@ import type { Group } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { verifiedTemplateAsset } from './templateGeometry';
 import type { TemplateRepresentation } from './templateGeometry';
+import { applyLocalPreviewGhost } from './localPreviewAppearance';
 
 type Command = { kind: 'fit' | 'in' | 'out'; sequence: number };
 
@@ -36,9 +37,22 @@ function releaseScene(scene: Group) {
   });
 }
 
-function RecipeScene({ scene, command, move }: { scene: Group; command: Command; move: boolean }) {
+function RecipeScene({
+  scene,
+  command,
+  move,
+  overlay,
+  ghost,
+}: {
+  scene: Group;
+  command: Command;
+  move: boolean;
+  overlay?: ReactNode;
+  ghost: boolean;
+}) {
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
   const { camera } = useThree();
+  useEffect(() => (ghost ? applyLocalPreviewGhost(scene) : undefined), [scene, ghost]);
   useEffect(() => {
     if (!(camera instanceof PerspectiveCamera) || !controls.current) return;
     const bounds = new Box3().setFromObject(scene);
@@ -70,6 +84,7 @@ function RecipeScene({ scene, command, move }: { scene: Group; command: Command;
       <directionalLight position={[1, 2, 3]} intensity={1.8} />
       <directionalLight position={[-1, -1, -2]} intensity={0.6} />
       <primitive object={scene} />
+      {overlay}
       <OrbitControls
         ref={controls}
         makeDefault
@@ -87,8 +102,12 @@ function RecipeScene({ scene, command, move }: { scene: Group; command: Command;
 
 export default function LocalTemplatePreview({
   representation,
+  overlay,
+  ghost = false,
 }: {
   representation: TemplateRepresentation;
+  overlay?: ReactNode;
+  ghost?: boolean;
 }) {
   const [scene, setScene] = useState<Group | null>(null);
   const [error, setError] = useState('');
@@ -180,7 +199,13 @@ export default function LocalTemplatePreview({
             <LocalCadBoundary>
               <Canvas dpr={[1, 2]} camera={{ position: [0.2, 0.2, 0.2], fov: 40 }}>
                 <Suspense fallback={null}>
-                  <RecipeScene scene={scene} command={command} move={move} />
+                  <RecipeScene
+                    scene={scene}
+                    command={command}
+                    move={move}
+                    overlay={overlay}
+                    ghost={ghost}
+                  />
                 </Suspense>
               </Canvas>
             </LocalCadBoundary>

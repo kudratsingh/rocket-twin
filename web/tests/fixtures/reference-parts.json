@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "generator": "src.vehicle.reference_parts.build",
+  "module_sha256": "e37ab77fc8c1d6d0d7d6819ac3426d4cf08e86aeb6078bf6ec22b2067b1f3778",
+  "catalog": {
+    "schema_version": 1,
+    "id": "reference-local-v1",
+    "scope": "geometry_only_planning",
+    "definitions": [
+      {
+        "id": "reference-local-v1:motor-tube-nominal",
+        "name": "Nominal tube-cut geometry reference",
+        "family": "tube_cut",
+        "source_part_id": "motor_tube",
+        "source_template_id": "rp1-template:motor-tube-cut",
+        "source_template_revision_sha256": "7f3d7dd2ce09293d787aac7343138c1f8a9a44f40f07ff63f4c58d0eae5690e3",
+        "parameters_mm": {
+          "outer_radius_mm": 15.6845,
+          "inner_radius_mm": 14.5845,
+          "length_mm": 165.0
+        },
+        "exact_product": null,
+        "stock_adoption": false,
+        "identity_limit": "Current source geometry conflicts with AeroTech12912 stock/legacy mount-kit notes. This is nominal geometry, not exact purchased tube or motor/liner/retainer fit.",
+        "installed_geometry_adoption": false,
+        "scope": "geometry_only_planning",
+        "unknown_properties": {
+          "mass_kg": null,
+          "procurement_cost_usd": null,
+          "inertia_kg_m2": null,
+          "stock_tolerances_mm": null,
+          "strength_allowables": null,
+          "thermal_capability": null,
+          "qualified_material": null
+        },
+        "readiness": {
+          "add_instance_api": false,
+          "connect_api": false,
+          "resolved_candidate": false,
+          "simulation_eligible": false,
+          "engineering_accepted": false,
+          "physically_verified": false,
+          "flight_ready": false
+        },
+        "frames": {
+          "local_cad_mm": {
+            "units": "mm",
+            "origin": "front_center",
+            "axes": "X=body+y, Y=body-z, Z=aft along part"
+          },
+          "viewer": {
+            "units": "m",
+            "mapping": "viewer[X,Y,Z]=[cadX/1000,-cadZ/1000,cadY/1000]"
+          }
+        },
+        "analytic_features": [
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "axis",
+            "kind": "analytic_axis",
+            "origin_mm": [0.0, 0.0, 0.0],
+            "direction": [0.0, 0.0, 1.0],
+            "axial_range_mm": [0.0, 165.0]
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "bore",
+            "kind": "analytic_cylinder",
+            "axis": "axis",
+            "radius_mm": 14.5845,
+            "axial_range_mm": [0.0, 165.0]
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "outer_cylinder",
+            "kind": "analytic_cylinder",
+            "axis": "axis",
+            "radius_mm": 15.6845,
+            "axial_range_mm": [0.0, 165.0]
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "start_plane",
+            "kind": "analytic_annular_plane",
+            "origin_mm": [0.0, 0.0, 0.0],
+            "normal": [0.0, 0.0, 1.0],
+            "radial_range_mm": [14.5845, 15.6845],
+            "normal_basis": "Positive local axis convention; not a kernel face orientation"
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "end_plane",
+            "kind": "analytic_annular_plane",
+            "origin_mm": [0.0, 0.0, 165.0],
+            "normal": [0.0, 0.0, 1.0],
+            "radial_range_mm": [14.5845, 15.6845],
+            "normal_basis": "Positive local axis convention; not a kernel face orientation"
+          }
+        ],
+        "interfaces": null,
+        "interfaces_status": "Analytic datums only; no contact or connection contract admitted",
+        "representation": {
+          "scope": "local_nominal_reference_only",
+          "installed_transform": null,
+          "assets": {
+            "step": {
+              "path": "output/rp1-template-geometry-v1/motor-tube-cut.step",
+              "sha256": "339faa3de20f1e0fef905831403de7450af78dedeb743ed8d5b32d946d69953f",
+              "bytes": 9654,
+              "url": "/engineering-workbench/rp1-part-templates-geometry/motor-tube-cut.step"
+            },
+            "glb": {
+              "path": "output/rp1-template-geometry-v1/motor-tube-cut.glb",
+              "sha256": "f90c129bc300767b228e0195a6a528bc9e19bdd5a1f8d7752ab2f6eac4114336",
+              "bytes": 19864,
+              "url": "/engineering-workbench/rp1-part-templates-geometry/motor-tube-cut.glb"
+            }
+          },
+          "recorded_readback": {
+            "valid": true,
+            "closed": true,
+            "solid_count": 1,
+            "annular_bore": true,
+            "outer_diameter_mm": 31.36900000000207,
+            "inner_diameter_mm": 29.169000000001926,
+            "length_mm": 165.0,
+            "bounds_mm": [
+              [-15.6845, -15.6845, 0.0],
+              [15.6845, 15.6845, 165.0]
+            ],
+            "volume_mm3_geometry_only": 17259.35554771936
+          },
+          "bounds_m": {
+            "min": [-0.015684500336647034, -0.16500000655651093, -0.015684500336647034],
+            "max": [0.015684500336647034, 0.0, 0.015684500336647034]
+          },
+          "frame_source": "docs/studies/frontend-template-bank-20261109/geometry.json",
+          "kernel_execution_performed": false
+        },
+        "provenance": {
+          "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+          "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+          "source_part_id": "motor_tube",
+          "source_locator": "parts[id=motor_tube].geometry",
+          "source_mass_policy": "Original source budget estimates are not new installed reference mass; no mass/cost credit or charge is generated",
+          "geometry_manifest_sha256": "6316ccef56c168e14d8a14a6570d162f35eb43bcadf4bd6132226b51d91799d2",
+          "generator": {
+            "path": "src/cad/parts.py",
+            "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+            "call": "src.cad.parts.tube"
+          },
+          "source_registry": {
+            "id": "rp1-part-templates-v1",
+            "revision_sha256": "cb43e923df940ba0a1f9ec80216a194bd1cbc85e92b1eac5c77f3e18b55fd9be",
+            "prepared_sha256": "f2b1c4ab801f3ba8b1b8f95659bca3d116bf169246e394f42aef0987763b28f8"
+          }
+        },
+        "revision_sha256": "fd6c666dfed5d79ed44ed126b85d1de7dca87c1210165808b44f270e2ce2a42c"
+      },
+      {
+        "id": "reference-local-v1:aft-annulus-nominal",
+        "name": "Plain aft-annulus geometry reference",
+        "family": "annular_ring",
+        "source_part_id": "aft_ring",
+        "source_template_id": "rp1-template:aft-annular-ring",
+        "source_template_revision_sha256": "f720488a173d91f936666c160e0bc9c912eb4bb0e2a5b18e188857d40637db8e",
+        "parameters_mm": {
+          "outer_radius_mm": 32.2,
+          "inner_radius_mm": 15.95,
+          "length_mm": 6.0
+        },
+        "exact_product": null,
+        "stock_adoption": false,
+        "identity_limit": "Plain nominal annulus only; the complete installed ring proposal, stock/process tolerances, bonds and joint response remain unavailable or unverified.",
+        "installed_geometry_adoption": false,
+        "scope": "geometry_only_planning",
+        "unknown_properties": {
+          "mass_kg": null,
+          "procurement_cost_usd": null,
+          "inertia_kg_m2": null,
+          "stock_tolerances_mm": null,
+          "strength_allowables": null,
+          "thermal_capability": null,
+          "qualified_material": null
+        },
+        "readiness": {
+          "add_instance_api": false,
+          "connect_api": false,
+          "resolved_candidate": false,
+          "simulation_eligible": false,
+          "engineering_accepted": false,
+          "physically_verified": false,
+          "flight_ready": false
+        },
+        "frames": {
+          "local_cad_mm": {
+            "units": "mm",
+            "origin": "front_center",
+            "axes": "X=body+y, Y=body-z, Z=aft along part"
+          },
+          "viewer": {
+            "units": "m",
+            "mapping": "viewer[X,Y,Z]=[cadX/1000,-cadZ/1000,cadY/1000]"
+          }
+        },
+        "analytic_features": [
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "axis",
+            "kind": "analytic_axis",
+            "origin_mm": [0.0, 0.0, 0.0],
+            "direction": [0.0, 0.0, 1.0],
+            "axial_range_mm": [0.0, 6.0]
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "bore",
+            "kind": "analytic_cylinder",
+            "axis": "axis",
+            "radius_mm": 15.95,
+            "axial_range_mm": [0.0, 6.0]
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "outer_cylinder",
+            "kind": "analytic_cylinder",
+            "axis": "axis",
+            "radius_mm": 32.2,
+            "axial_range_mm": [0.0, 6.0]
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "start_plane",
+            "kind": "analytic_annular_plane",
+            "origin_mm": [0.0, 0.0, 0.0],
+            "normal": [0.0, 0.0, 1.0],
+            "radial_range_mm": [15.95, 32.2],
+            "normal_basis": "Positive local axis convention; not a kernel face orientation"
+          },
+          {
+            "scope": "analytic_nominal_datum",
+            "frame": "local_cad_mm",
+            "cad_face_ids": null,
+            "mesh_triangle_ids": null,
+            "tolerance_mm": null,
+            "mating_admitted": false,
+            "id": "end_plane",
+            "kind": "analytic_annular_plane",
+            "origin_mm": [0.0, 0.0, 6.0],
+            "normal": [0.0, 0.0, 1.0],
+            "radial_range_mm": [15.95, 32.2],
+            "normal_basis": "Positive local axis convention; not a kernel face orientation"
+          }
+        ],
+        "interfaces": null,
+        "interfaces_status": "Analytic datums only; no contact or connection contract admitted",
+        "representation": {
+          "scope": "local_nominal_reference_only",
+          "installed_transform": null,
+          "assets": {
+            "step": {
+              "path": "output/rp1-template-geometry-v1/aft-annular-ring.step",
+              "sha256": "c006c932f7353b82cef9e7cc280bb0d46839b7442af141bcc81c39df40910c33",
+              "bytes": 9599,
+              "url": "/engineering-workbench/rp1-part-templates-geometry/aft-annular-ring.step"
+            },
+            "glb": {
+              "path": "output/rp1-template-geometry-v1/aft-annular-ring.glb",
+              "sha256": "ca2a1f86438ea079d6b3433df9e9d275a4911639a1a6aaa5e9be408a4535e6b3",
+              "bytes": 19860,
+              "url": "/engineering-workbench/rp1-part-templates-geometry/aft-annular-ring.glb"
+            }
+          },
+          "recorded_readback": {
+            "valid": true,
+            "closed": true,
+            "solid_count": 1,
+            "annular_bore": true,
+            "outer_diameter_mm": 64.40000000000425,
+            "inner_diameter_mm": 31.900000000002102,
+            "length_mm": 6.0,
+            "bounds_mm": [
+              [-32.2, -32.2, 0.0],
+              [32.2, 32.2, 6.0]
+            ],
+            "volume_mm3_geometry_only": 14748.599411359308
+          },
+          "bounds_m": {
+            "min": [-0.03220000118017197, -0.006000000052154064, -0.03220000118017197],
+            "max": [0.03220000118017197, 0.0, 0.03220000118017197]
+          },
+          "frame_source": "docs/studies/frontend-template-bank-20261109/geometry.json",
+          "kernel_execution_performed": false
+        },
+        "provenance": {
+          "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+          "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+          "source_part_id": "aft_ring",
+          "source_locator": "parts[id=aft_ring].geometry",
+          "source_mass_policy": "Original source budget estimates are not new installed reference mass; no mass/cost credit or charge is generated",
+          "geometry_manifest_sha256": "6316ccef56c168e14d8a14a6570d162f35eb43bcadf4bd6132226b51d91799d2",
+          "generator": {
+            "path": "src/cad/parts.py",
+            "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+            "call": "src.cad.parts.tube"
+          },
+          "source_registry": {
+            "id": "rp1-part-templates-v1",
+            "revision_sha256": "cb43e923df940ba0a1f9ec80216a194bd1cbc85e92b1eac5c77f3e18b55fd9be",
+            "prepared_sha256": "f2b1c4ab801f3ba8b1b8f95659bca3d116bf169246e394f42aef0987763b28f8"
+          }
+        },
+        "revision_sha256": "158150615a9c291ce12b3320d535c11151a564d7ad176dda9ca9693025a5d710"
+      }
+    ],
+    "source_pins": {
+      "configs/parts-bank/reference-local-v1.yaml": "a95d6147d1614c0939b266a297e43ec9d265585c30c445f1297554381713de07",
+      "docs/studies/frontend-template-bank-20261109/geometry.json": "6316ccef56c168e14d8a14a6570d162f35eb43bcadf4bd6132226b51d91799d2",
+      "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+      "configs/studies/rp1-attachment-definition-v2.yaml": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+      "runs/wo03-rp1-attachment-definition-20261103-v2/record.json": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b",
+      "src/vehicle/part_templates.py": "10705f374160cbb0fe59026208280754e2702e53f9f44d24561579301511bcff",
+      "scripts/wo04_part_template_geometry.py": "ddb1f80ee0ffa8468745def46c538466045e48cab336d70d44f08b6f93a864b5",
+      "src/cad/parts.py": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+      "src/inspection/rp1_geometry.py": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3",
+      "docs/studies/frontend-desktop-detail-20261108/cad-export.json": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731"
+    },
+    "source_catalog_changed": false,
+    "add_replace_connect_implemented": false,
+    "engineering_accepted": false,
+    "simulation_eligible": false,
+    "flight_ready": false,
+    "revision_scope": "Definition/source content only; local cache availability is reported separately",
+    "revision_sha256": "8f6b7bf2f0dcc8dfb2714ba7a28688c820869dc3045060aba6ea5901983b7748"
+  },
+  "availability": {
+    "reference-local-v1:motor-tube-nominal": {
+      "status": "verified_registered_local_cache",
+      "missing_formats": [],
+      "geometry_available": true,
+      "public_url_cache_verified": false,
+      "generation_attempted": false,
+      "reason": "Exact existing STEP/GLB bytes verified; no new CAD readback or physical acceptance"
+    },
+    "reference-local-v1:aft-annulus-nominal": {
+      "status": "verified_registered_local_cache",
+      "missing_formats": [],
+      "geometry_available": true,
+      "public_url_cache_verified": false,
+      "generation_attempted": false,
+      "reason": "Exact existing STEP/GLB bytes verified; no new CAD readback or physical acceptance"
+    }
+  }
+}
