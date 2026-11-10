@@ -75,9 +75,10 @@ The 61 isolated backend cases and 10 reported Node cases cover source preservati
 unsafe/corrupted content, stale writes, history, admission and transport/SSR.
 Type/lint/format/build are repository evidence. The one isolated loopback startup
 was denied before a server started; owner services/data were untouched. Actual
-browser fork/save/reload/history/conflict behavior remains unverified pending a
-normal-host `make preview` restart and separately recorded designated-window
-checks. No physical, thermal, recovery, flutter, paid-run, WO-10 or flight gate
+owner confirmed the normal-host restart. P81–P83 now verify one labelled
+browser fork/save/reload/history/review export and visible stale rejection with
+explicit recovery. Independent actual-file/three-revision/source readback passes.
+Blank/composed drafts, undo/revert and the catch-path remain unverified. No physical, thermal, recovery, flutter, paid-run, WO-10 or flight gate
 is closed. All five supplier/lab inquiries remain UNSENT.
 
 P76 observed a blank entire app after opening the lazy panel. A single scoped
@@ -89,3 +90,9 @@ recovery separately; neither establishes a successful save/reload lifecycle.
 
 P77's estimated203.462second evidence closeout missed180seconds; its actual
 availability observation is separate from the failed whole-packet timing bound.
+
+The saved review JSON builder adds six source/artifact tests. P82's actual file
+readback matches saved2's semantic fields with55 records and false gates; it is
+not original canonical-byte reconstruction, embedded CAD or restore support.
+P83 leaves the one validation record at3, with no rejected-write revision4.
+[Current native evidence and portable receipts](lifecycle-readback.json).

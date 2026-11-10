@@ -3,13 +3,12 @@
 RP1 assembly/service is now a separate current-source Engineering topic. P79
 observed step7 with upper diagram and warnings; lower detail/scroll/part-return
 checks remain partial. [Scope](studies/frontend-rp1-assembly-20261109/integration.md).
-PR125 draft/export release is merged; positive draft lifecycle awaits the normal
-host restart, then part-command/resolution admission follows its prerequisites.
+PR125 draft/export release is merged; owner restart and P81–P83 now verify the metadata lifecycle;
+part-command/resolution admission follows its remaining source prerequisites.
 
 Current incremental path: Parts bank → Saved drafts (metadata/history only),
 portable systemSVG and explicit unknown flight-computer identity. PR124 backend
-merged; UI source checks pass, actual draft lifecycle awaits normal-host preview
-restart. See [instructions and limits](studies/frontend-draft-foundation-20261109/frontend.md).
+merged; UI source checks pass, actual metadata lifecycle is now observed after owner restart. See [instructions and limits](studies/frontend-draft-foundation-20261109/frontend.md).
 No physical gate or full draft-composition acceptance changes.
 
 **First v2 implementation — P1 source bank:** The full plan is merged in PR119

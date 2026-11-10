@@ -58,30 +58,34 @@ candidate resolution, CAD generation, checks or simulation admission. Existing
 engineering, purchase, physical, paid-run, WO-10 and flight gates remain open;
 all five inquiries remain UNSENT.
 
-## Runtime and evidence status
+## Download the shown saved record
 
-Store/API/composition checks and Node/Vite source/SSR tests cover the implemented
-contract. **The live browser fork/save/reload/history/conflict lifecycle remains
-unverified.** The isolated startup attempt stopped at the first denied loopback
-bind, without starting a server or touching the owner's services/data.
+**Download saved review JSON** exports whichever saved current or historical
+revision is shown in the identity panel. It never overlays unsaved editor text
+or implicitly saves. The filename contains UUID, sequence and saved-revision hash
+prefix. The UI reports the actual export-byte digest separately from the original
+server source hash. The file includes one structured source-fork record, all55
+source accounting occurrences and parent identity; no geometry asset bytes or
+ancestor contents. It is not a byte-exact backup, import/restore file, candidate
+or simulation configuration. [Format and limits](record-export.md).
 
-The normal-host preview needs its ordinary restart to load the new router before
-live lifecycle verification can proceed. Until then a missing route reports the
-restart requirement; it does not fall back to static mutable data. No restart,
-server action or additional browser attempt is performed by this documentation.
-See [backend behavior and startup status](backend.md) and
-[bounded integration record](integration.md). FW2-024/FW2-A18 remain partial.
+## Runtime and observed evidence
 
-## Observed native limit
+The owner confirmed normal-host restart. P81 created exactly one clearly labelled
+validation draft and saved its notes. P82 reloaded2, viewed historical1, returned
+to2 and downloaded its reviewJSON. Primary actual-file readback verified772101
+bytes/SHA3e8a7854…d91588 and semantic equality to saved2. P83 exercised a stale
+Save against a deliberate competing update on this same test record: unsaved
+text remained, then explicit reload loaded3. Three persisted revision digests,
+unchanged55-record source and no rejected-write revision4 independently verify.
+The numericHTTP409 code is API-contract evidence; the browser shows its conflict
+behavior, without network-status instrumentation. No other draft was edited.
 
-P76 first reached the loading panel and then a blank application. That failure
-is retained. One scoped error boundary now protects the optional panel; its
-escaped diagnostic/source-return fallback passes repository checks. P77's single
-ordinary reload displayed the real library and explicit unavailable404/restart
-explanation. No boundary fallback was triggered or tested, and no fork/save,
-Return click or flight-computer observation occurred. The positive lifecycle
-still requires the normal-host restart. See [actual browser record](browser-library.md).
-
-P77 estimated record/inventory closeout was203.462seconds against180seconds,
-an explicitly failed timing bound. Its limited native observations remain valid,
-but there is no whole-packet, catch-path or lifecycle pass.
+P81/P82/P83 native and evidence-closeout times met their respective bounds.
+P76's blank-app failure, P77's closeout overrun and the unexecuted P80 parser
+failure remain preserved in the linked record; later success does not erase them.
+The boundary's exception catch path, modal persistence across every transition,
+blank/composed drafts, undo/revert and full FW2-A18 remain open. See
+[actual lifecycle observations](browser-lifecycle.md), [earlier failure](browser-library.md)
+and [backend contract](backend.md). All physical/flight gates and five UNSENT
+inquiries remain unchanged.

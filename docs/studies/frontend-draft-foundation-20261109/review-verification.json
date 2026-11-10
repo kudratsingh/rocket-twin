@@ -1,0 +1,34 @@
+{
+  "scope": "Saved source-fork reviewJSON plus live metadata lifecycle closeout",
+  "configuration": "G80-F2-RP1-AD1-definition-v2",
+  "local_web": {
+    "reported_passes": 393,
+    "failures": 0,
+    "preserved_unpublished_A2_cases": 4,
+    "publication_scope_passes": 389,
+    "typecheck_build": "pass",
+    "lint": "pass",
+    "format": "pass",
+    "existing_warnings": "bundle size and FinAttachmentAccess static/dynamic imports unchanged"
+  },
+  "focused_review_client_boundary_cases": 16,
+  "native": {
+    "P81": "one newsourcefork and metadata save;53.333s input,100.114s closeout",
+    "P82": "reload2/history1/current2/oneactualreviewdownload;47.329s input,85.511s closeout",
+    "P83": "one staleUI Save/textpreservation/explicitload3;32.043s input,67.819s closeout",
+    "limits": "Each180s total/70s input/110s reserve",
+    "scope_remaining": "blank/composed draft,undo/revert, full UIstate/catch-path, higher workbench criteria",
+    "historical_failures": "P76blank/P77timing/P80controlparser records preserved"
+  },
+  "actual_download": {
+    "bytes": 772101,
+    "sha256": "3e8a7854563db8ec9564113759cea4824ad1936c96b894674f26bf2213d91588",
+    "semantic_saved_revision": 2,
+    "source_records": 55,
+    "byte_exact_backup_or_import": false
+  },
+  "test_draft_state": "One labelled validation draft remains at3; rejected stale text was not persisted; no other record altered",
+  "engineering_accepted": false,
+  "flight_ready": false,
+  "inquiries": "UNSENT"
+}
