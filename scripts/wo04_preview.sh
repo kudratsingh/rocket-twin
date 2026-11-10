@@ -46,6 +46,11 @@ prepare_snapshot scripts/wo04_rp1_studies_export.py web/public/engineering-workb
 prepare_snapshot scripts/wo04_vp1_validation_export.py web/public/engineering-workbench/rp1-validation.json
 prepare_snapshot scripts/wo04_rp1_inspection_export.py web/public/engineering-workbench/rp1-ad1-inspection.json
 prepare_snapshot scripts/wo04_parts_bank_export.py web/public/engineering-workbench/rp1-parts-bank.json
+prepare_snapshot scripts/prepare_part_templates.py web/public/engineering-workbench/rp1-part-templates.json
+# Optional completed local CAD packet; startup copies verified existing files only.
+if ! .venv/bin/python scripts/wo04_part_template_geometry.py --prepare; then
+  echo "Optional local template CAD cache unavailable; source recipes and installed inspection remain usable." >&2
+fi
 prepare_snapshot scripts/wo04_rp1_connections_export.py web/public/engineering-workbench/rp1-connections.json
 .venv/bin/python scripts/wo04_api.py --host 127.0.0.1 --port 8000 &
 preview_api_pid=$!

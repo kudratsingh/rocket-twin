@@ -1,0 +1,234 @@
+.template-bank {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  background: #101b28;
+  color: #e8f1f5;
+}
+.template-bank > header {
+  padding: 14px 22px;
+  border-bottom: 1px solid #3b5366;
+}
+.template-bank h1 {
+  margin: 5px 0;
+  font-size: 1.5rem;
+}
+.template-bank h2 {
+  margin: 6px 0 10px;
+}
+.template-bank h3 {
+  margin: 22px 0 7px;
+}
+.template-bank p {
+  line-height: 1.5;
+}
+.template-bank header p {
+  margin: 5px 0 0;
+  color: #bed0dc;
+}
+.template-workarea {
+  display: grid;
+  grid-template-columns: minmax(220px, 28%) minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+  gap: 14px;
+  padding: 14px 22px;
+}
+.template-workarea > nav,
+.template-detail {
+  overflow: auto;
+  min-height: 0;
+  border: 1px solid #3b5366;
+  border-radius: 8px;
+}
+.template-workarea > nav {
+  padding: 6px;
+}
+.template-workarea > nav button {
+  display: grid;
+  width: 100%;
+  gap: 5px;
+  padding: 12px;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #e3eef3;
+  cursor: pointer;
+}
+.template-workarea > nav button[aria-pressed='true'],
+.template-workarea > nav button:hover {
+  border-color: #73cbdf;
+  background: #233d50;
+}
+.template-workarea > nav span {
+  color: #f1c58b;
+  font-size: 0.8rem;
+}
+.template-workarea > nav small,
+.template-workarea > nav p {
+  color: #bed0dc;
+  font-size: 0.75rem;
+}
+.template-workarea > nav p {
+  padding: 8px;
+}
+.template-detail {
+  padding: 20px;
+  background: #172737;
+}
+.template-status {
+  padding: 9px 12px;
+  border-left: 3px solid #d7ac68;
+  background: #302c2a;
+  color: #f1c58b;
+}
+.template-status span {
+  color: #d8d4cc;
+}
+.template-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.template-actions button {
+  padding: 9px 12px;
+  border: 1px solid #73cbdf;
+  border-radius: 5px;
+  background: #244b59;
+  color: #e8f8ff;
+  cursor: pointer;
+}
+.template-parameter-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+.template-parameter-list button {
+  display: grid;
+  gap: 5px;
+  text-align: left;
+  background: #1a3040;
+  color: #e3eef3;
+  padding: 10px;
+  border: 1px solid #4e697c;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.template-parameter-list button[aria-pressed='true'] {
+  border-color: #91e2ec;
+  background: #244e60;
+}
+.template-parameter-list small {
+  color: #bcd0db;
+}
+.template-feature-list {
+  display: grid;
+  gap: 8px;
+}
+.template-feature-list > div {
+  display: grid;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid #3b5366;
+  border-radius: 6px;
+}
+.template-feature-list .highlighted {
+  border-color: #91e2ec;
+  background: #244e60;
+}
+.template-feature-list span {
+  color: #bcd0db;
+  font-size: 0.8rem;
+}
+.template-bank a {
+  color: #96dfe9;
+  overflow-wrap: anywhere;
+}
+.template-bank a:focus-visible,
+.template-bank button:focus-visible {
+  outline: 2px solid #b1f3f7;
+  outline-offset: 3px;
+}
+.template-sources {
+  padding-left: 20px;
+}
+.template-sources li {
+  margin: 9px 0;
+}
+.template-sources span {
+  display: block;
+  font-size: 0.75rem;
+  color: #bcd0db;
+  overflow-wrap: anywhere;
+}
+.template-bank footer {
+  padding: 8px 22px 14px;
+  font-size: 0.78rem;
+  color: #bcd0db;
+}
+.parts-bank-sections {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding-bottom: 10px;
+}
+.parts-bank-sections button {
+  min-height: 36px;
+  padding: 7px 14px;
+  border: 1px solid #536d7e;
+  border-radius: 6px;
+  color: #c9dce7;
+  background: #172737;
+  cursor: pointer;
+}
+.parts-bank-sections button[aria-pressed='true'] {
+  border-color: #73cbdf;
+  color: #c0f1f7;
+  background: #244b59;
+}
+@media (max-width: 850px) {
+  .template-workarea {
+    grid-template-columns: 1fr;
+    overflow: auto;
+  }
+  .template-workarea > nav {
+    max-height: 220px;
+  }
+  .template-detail {
+    overflow: visible;
+  }
+}
+
+.template-preview-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.template-preview-controls button {
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid #536d7e;
+  border-radius: 5px;
+  background: #1b3040;
+  color: #e3eef3;
+  cursor: pointer;
+}
+.template-preview-controls button[aria-pressed='true'] {
+  border-color: #91e2ec;
+  background: #244e60;
+}
+.template-preview-canvas {
+  height: 340px;
+  min-height: 280px;
+  border: 1px solid #536d7e;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #101c27;
+  margin-bottom: 10px;
+}
+.template-preview-canvas > p {
+  padding: 14px;
+}

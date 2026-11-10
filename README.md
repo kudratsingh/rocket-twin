@@ -42,6 +42,20 @@ visible warnings and scroll reset. New API routes have in-process test evidence;
 the current host used the explicitly labeled prepared snapshot after404.
 [Details and limits](docs/studies/frontend-parts-bank-20261109/integration.md).
 
+**Template recipes** now names five source groups and their features. Two nominal
+local CAD cases (motor tube cut and plain aft ring) have independent 3D previews
+and matching millimetre STEP downloads. The other groups preserve their exact
+source and local-template limits. Parameter selection highlights related feature
+rows; installed inspection returns to the existing stable part. No template adds
+mass, adopts hardware or changes RP1. `make part-template-cad` verifies/copies the
+completed local cache; a missing fresh-clone cache remains explicitly unavailable.
+[Current paths and evidence](docs/studies/frontend-autonomous-20261109/integration.md).
+
+Engineering's **Physics & control system map** links selectable blocks to actual
+source contracts, units and frames. It separates the current fixed/unguided G80
+from the committed future G12 estimator/guidance/PID/RL/actuator loop, with missing
+RP1 flight inputs, wiring and physical evidence explicit.
+
 ## Component structure close-ups
 
 The current RP1 **Details → Inside the component** adds two source-based views:
