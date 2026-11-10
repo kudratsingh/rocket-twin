@@ -1,4 +1,5 @@
 import Rp1Connections from './Rp1ConnectionsView';
+import Rp1SystemMap from './Rp1SystemMap';
 import {
   RP1_CONNECTIONS_CONFIGURATION,
   RP1_CONNECTIONS_SHA256,
@@ -254,6 +255,22 @@ export default function EngineeringWorkbench() {
               window.history.replaceState(null, '', url);
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
+          />
+        )}
+      </main>
+    );
+  if (view === 'rp1-system-map')
+    return (
+      <main className="engineering-workbench">
+        {topicNavigation}
+        {['design', 'spec'].some((key) => params.getAll(key).length > 1) ? (
+          <p role="alert">
+            System map unavailable: the link contains conflicting source identities.
+          </p>
+        ) : (
+          <Rp1SystemMap
+            configurationId={params.get('design') ?? RP1_CONNECTIONS_CONFIGURATION}
+            specificationSha256={params.get('spec') ?? RP1_CONNECTIONS_SHA256}
           />
         )}
       </main>

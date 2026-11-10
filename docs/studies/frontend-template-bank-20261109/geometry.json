@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "id": "rp1-template-geometry-v1",
+  "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+  "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+  "registry": {
+    "id": "rp1-part-templates-v1",
+    "revision_sha256": "cb43e923df940ba0a1f9ec80216a194bd1cbc85e92b1eac5c77f3e18b55fd9be",
+    "prepared_sha256": "f2b1c4ab801f3ba8b1b8f95659bca3d116bf169246e394f42aef0987763b28f8"
+  },
+  "source": {
+    "specification": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+    },
+    "definition": {
+      "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+      "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+    },
+    "record": {
+      "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+    },
+    "registered_step": {
+      "path": "docs/studies/frontend-desktop-detail-20261108/cad-export.json",
+      "sha256": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731"
+    },
+    "local_generator_source": {
+      "path": "src/cad/parts.py",
+      "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+    },
+    "installed_projection_source": {
+      "path": "src/inspection/rp1_geometry.py",
+      "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+    }
+  },
+  "script": {
+    "path": "scripts/wo04_part_template_geometry.py",
+    "sha256": "ddb1f80ee0ffa8468745def46c538466045e48cab336d70d44f08b6f93a864b5"
+  },
+  "cad_generator": {
+    "path": "src/cad/parts.py",
+    "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98",
+    "call": "src.cad.parts.tube"
+  },
+  "local_cad_frame_mm": "front center; X=body+y, Y=body-z, Z=aft along part",
+  "viewer_mapping": "viewer[X,Y,Z]=[cadX/1000,-cadZ/1000,cadY/1000]",
+  "viewer_units": "m",
+  "step_units": "mm",
+  "representations": [
+    {
+      "template_id": "rp1-template:motor-tube-cut",
+      "template_revision_sha256": "7f3d7dd2ce09293d787aac7343138c1f8a9a44f40f07ff63f4c58d0eae5690e3",
+      "representation_status": "source_nominal_local_only",
+      "parameters_mm": {
+        "outer_radius_mm": 15.6845,
+        "inner_radius_mm": 14.5845,
+        "length_mm": 165.0
+      },
+      "bounds_m": {
+        "min": [
+          -0.015684500336647034,
+          -0.16500000655651093,
+          -0.015684500336647034
+        ],
+        "max": [
+          0.015684500336647034,
+          0.0,
+          0.015684500336647034
+        ]
+      },
+      "readback": {
+        "valid": true,
+        "closed": true,
+        "solid_count": 1,
+        "annular_bore": true,
+        "outer_diameter_mm": 31.36900000000207,
+        "inner_diameter_mm": 29.169000000001926,
+        "length_mm": 165.0,
+        "bounds_mm": [
+          [
+            -15.6845,
+            -15.6845,
+            0.0
+          ],
+          [
+            15.6845,
+            15.6845,
+            165.0
+          ]
+        ],
+        "volume_mm3_geometry_only": 17259.35554771936
+      },
+      "glb_bounds_error_m": 6.5565109175214076e-09,
+      "step": {
+        "path": "output/rp1-template-geometry-v1/motor-tube-cut.step",
+        "sha256": "339faa3de20f1e0fef905831403de7450af78dedeb743ed8d5b32d946d69953f",
+        "bytes": 9654,
+        "url": "/engineering-workbench/rp1-part-templates-geometry/motor-tube-cut.step"
+      },
+      "glb": {
+        "path": "output/rp1-template-geometry-v1/motor-tube-cut.glb",
+        "sha256": "f90c129bc300767b228e0195a6a528bc9e19bdd5a1f8d7752ab2f6eac4114336",
+        "bytes": 19864,
+        "url": "/engineering-workbench/rp1-part-templates-geometry/motor-tube-cut.glb"
+      }
+    },
+    {
+      "template_id": "rp1-template:aft-annular-ring",
+      "template_revision_sha256": "f720488a173d91f936666c160e0bc9c912eb4bb0e2a5b18e188857d40637db8e",
+      "representation_status": "source_nominal_local_only",
+      "parameters_mm": {
+        "outer_radius_mm": 32.2,
+        "inner_radius_mm": 15.95,
+        "length_mm": 6.0
+      },
+      "bounds_m": {
+        "min": [
+          -0.03220000118017197,
+          -0.006000000052154064,
+          -0.03220000118017197
+        ],
+        "max": [
+          0.03220000118017197,
+          0.0,
+          0.03220000118017197
+        ]
+      },
+      "readback": {
+        "valid": true,
+        "closed": true,
+        "solid_count": 1,
+        "annular_bore": true,
+        "outer_diameter_mm": 64.40000000000425,
+        "inner_diameter_mm": 31.900000000002102,
+        "length_mm": 6.0,
+        "bounds_mm": [
+          [
+            -32.2,
+            -32.2,
+            0.0
+          ],
+          [
+            32.2,
+            32.2,
+            6.0
+          ]
+        ],
+        "volume_mm3_geometry_only": 14748.599411359308
+      },
+      "glb_bounds_error_m": 1.1801719670967437e-09,
+      "step": {
+        "path": "output/rp1-template-geometry-v1/aft-annular-ring.step",
+        "sha256": "c006c932f7353b82cef9e7cc280bb0d46839b7442af141bcc81c39df40910c33",
+        "bytes": 9599,
+        "url": "/engineering-workbench/rp1-part-templates-geometry/aft-annular-ring.step"
+      },
+      "glb": {
+        "path": "output/rp1-template-geometry-v1/aft-annular-ring.glb",
+        "sha256": "ca2a1f86438ea079d6b3433df9e9d275a4911639a1a6aaa5e9be408a4535e6b3",
+        "bytes": 19860,
+        "url": "/engineering-workbench/rp1-part-templates-geometry/aft-annular-ring.glb"
+      }
+    }
+  ],
+  "resources": {
+    "elapsed_wall_seconds": 10.276834416901693,
+    "child_cpu_seconds": 9.408392,
+    "limits": {
+      "case_wall_seconds": 120,
+      "case_cpu_seconds": 90,
+      "packet_wall_seconds": 270,
+      "packet_cpu_seconds": 180
+    },
+    "cases": [
+      {
+        "template_id": "rp1-template:motor-tube-cut",
+        "wall_seconds": 5.580681250081398,
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      {
+        "template_id": "rp1-template:aft-annular-ring",
+        "wall_seconds": 4.693650291999802,
+        "returncode": 0,
+        "stderr_tail": ""
+      }
+    ]
+  },
+  "mass_or_inertia_generated": false,
+  "draft_admission": false,
+  "vehicle_adoption": false,
+  "engineering_accepted": false,
+  "physical_verification": "open",
+  "flight_ready": false,
+  "limitations": [
+    "Nominal local inspection recipes only; not installed CAD or qualified fit",
+    "No motor/liner/retainer mating, bond strength, tolerance stack or manufactured part acceptance",
+    "No mass, inertia, thermal, structural or flight result"
+  ]
+}

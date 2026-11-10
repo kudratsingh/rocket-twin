@@ -1,0 +1,1720 @@
+{
+  "schema_version": 1,
+  "id": "rp1-part-templates-v1",
+  "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+  "identity": {
+    "specification": {
+      "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+      "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660"
+    },
+    "definition": {
+      "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+      "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555"
+    },
+    "record": {
+      "path": "runs/wo03-rp1-attachment-definition-20261103-v2/record.json",
+      "sha256": "bc349a24fe1cfaa4d883b9e00dc5b75387638a7be5cd4b05d9f32112ee8bd95b"
+    },
+    "registered_step": {
+      "path": "docs/studies/frontend-desktop-detail-20261108/cad-export.json",
+      "sha256": "a7af1fadc431dea8958a212e2a552cf2ee833b068dbeaf51dc151d6d7fbbf731"
+    },
+    "local_generator_source": {
+      "path": "src/cad/parts.py",
+      "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+    },
+    "installed_projection_source": {
+      "path": "src/inspection/rp1_geometry.py",
+      "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+    }
+  },
+  "all55_part_ids": [
+    "nose",
+    "body",
+    "fin_set",
+    "fin_tabs",
+    "motor_tube",
+    "forward_ring",
+    "aft_ring",
+    "fin_internal_bonds",
+    "ring_bonds",
+    "outer_fin_fillets",
+    "motor",
+    "motor_retainer",
+    "retainer_adhesive",
+    "mount_external_shield",
+    "nose_anchor_plate",
+    "nose_recovery_eye",
+    "shock_cord",
+    "recovery_connectors",
+    "parachute",
+    "recovery_protection",
+    "flight_computer",
+    "imu",
+    "baro",
+    "high_g_accel",
+    "micro_sd",
+    "battery",
+    "independent_recovery",
+    "recovery_battery",
+    "avionics_sled",
+    "logger_power_switch",
+    "logger_regulator",
+    "recovery_carrier",
+    "electrical_harness",
+    "recovery_harness_wiring",
+    "recovery_output_mount",
+    "rail_buttons",
+    "rail_backers",
+    "finish",
+    "service_allowance",
+    "upper_body",
+    "body_splice",
+    "splice_seam_patch",
+    "splice_adhesive",
+    "root_gussets",
+    "root_extra_bond_finish",
+    "nose_service_hardware",
+    "c1_forward_root_bond_fill",
+    "c1_aft_bond_fill",
+    "c1_nose_bond_fill",
+    "rp1_kevlar_wrap",
+    "rp1_wrap_lock_bond",
+    "rp1_notch_sealer",
+    "rp1_lip_guard",
+    "ad1_cord_sleeve",
+    "ad1_slot_fill"
+  ],
+  "templates": [
+    {
+      "id": "rp1-template:motor-tube-cut",
+      "label": "Motor tube cut",
+      "family": "tube_cut",
+      "source_part_ids": [
+        "motor_tube"
+      ],
+      "material": "cardboard",
+      "parameters": [
+        {
+          "key": "outer_diameter_mm",
+          "value": 31.369,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=motor_tube].geometry.radius_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "inner_diameter_mm",
+          "value": 29.169,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=motor_tube].geometry.inner_radius_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "length_mm",
+          "value": 165.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=motor_tube].geometry.length_m"
+          },
+          "tolerance": null
+        }
+      ],
+      "local_frame": {
+        "units": "mm",
+        "origin": "front_center",
+        "axes": "X=body+y, Y=body-z, Z=aft along part"
+      },
+      "installed_references": [
+        {
+          "source_part_id": "motor_tube",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/motor_tube.step",
+            "sha256": "509961bb5db6f00b97e4266c74f57e73ea6b0c0029d2ecb34064a10c6750c157"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 1055.0,
+          "asset_scope": "installed_reference_only"
+        }
+      ],
+      "geometry": {
+        "source_cad_generator": "tube",
+        "local_generator": "src.cad.parts.tube",
+        "generator_source": {
+          "path": "src/cad/parts.py",
+          "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+        },
+        "installed_projection_source": {
+          "path": "src/inspection/rp1_geometry.py",
+          "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+        },
+        "local_recipe_supported": true,
+        "generated_asset": null,
+        "installed_step_is_local_template": false
+      },
+      "feature_ids": [
+        "rp1-feature:motor_tube:outer_wall",
+        "rp1-feature:motor_tube:bore",
+        "rp1-feature:motor_tube:front_end",
+        "rp1-feature:motor_tube:aft_end"
+      ],
+      "interfaces": [
+        {
+          "feature_id": "rp1-feature:motor_tube:outer_wall",
+          "mates": [
+            "fin_tabs",
+            "aft_ring"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:motor_tube:bore",
+          "mates": [
+            "motor"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:motor_tube:front_end",
+          "mates": [
+            "forward_ring"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:motor_tube:aft_end",
+          "mates": [
+            "aft_ring",
+            "motor_retainer"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        }
+      ],
+      "reuse": {
+        "geometry": "supported_nominal",
+        "draft_admission": false,
+        "reason": "Allowlisted local annular tube recipe. Exact bore/motor pairing, liner, retention and hot fit remain unresolved."
+      },
+      "mass_accounting": {
+        "source_part_ids": [
+          "motor_tube"
+        ],
+        "template_mass_kg": null,
+        "incremental_charge": false,
+        "basis": "Existing source record accounting only; a display feature is not another mass line"
+      },
+      "engineering_status": "open",
+      "physical_verification": "open",
+      "revision_sha256": "7f3d7dd2ce09293d787aac7343138c1f8a9a44f40f07ff63f4c58d0eae5690e3"
+    },
+    {
+      "id": "rp1-template:aft-annular-ring",
+      "label": "Aft annular ring",
+      "family": "annular_ring",
+      "source_part_ids": [
+        "aft_ring"
+      ],
+      "material": "plywood",
+      "parameters": [
+        {
+          "key": "outer_diameter_mm",
+          "value": 64.4,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=aft_ring].geometry.radius_m"
+          },
+          "tolerance": {
+            "plus_minus": 0.05,
+            "unit": "mm",
+            "basis": "proposed_cut_tolerance; not measured or supplier-guaranteed",
+            "source": {
+              "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+              "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+              "locator": "parts[id=aft_ring].engineering.tolerances_mm.outer_diameter"
+            }
+          }
+        },
+        {
+          "key": "bore_diameter_mm",
+          "value": 31.9,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=aft_ring].geometry.inner_radius_m"
+          },
+          "tolerance": {
+            "plus_minus": 0.05,
+            "unit": "mm",
+            "basis": "proposed_cut_tolerance; not measured or supplier-guaranteed",
+            "source": {
+              "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+              "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+              "locator": "parts[id=aft_ring].engineering.tolerances_mm.bore_diameter"
+            }
+          }
+        },
+        {
+          "key": "thickness_mm",
+          "value": 6.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=aft_ring].geometry.length_m"
+          },
+          "tolerance": null
+        }
+      ],
+      "local_frame": {
+        "units": "mm",
+        "origin": "front_center",
+        "axes": "X=body+y, Y=body-z, Z=aft along part"
+      },
+      "installed_references": [
+        {
+          "source_part_id": "aft_ring",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/aft_ring.step",
+            "sha256": "2ee6ae4ae883ce0aadc22cbeacfc62df3a65650807f5f4ceefb9fbca6e42511a"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 1190.0,
+          "asset_scope": "installed_reference_only"
+        }
+      ],
+      "geometry": {
+        "source_cad_generator": "tube",
+        "local_generator": "src.cad.parts.tube",
+        "generator_source": {
+          "path": "src/cad/parts.py",
+          "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+        },
+        "installed_projection_source": {
+          "path": "src/inspection/rp1_geometry.py",
+          "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+        },
+        "local_recipe_supported": true,
+        "generated_asset": null,
+        "installed_step_is_local_template": false
+      },
+      "feature_ids": [
+        "rp1-feature:aft_ring:outer_edge",
+        "rp1-feature:aft_ring:bore",
+        "rp1-feature:aft_ring:front_face"
+      ],
+      "interfaces": [
+        {
+          "feature_id": "rp1-feature:aft_ring:outer_edge",
+          "mates": [
+            "body"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:aft_ring:bore",
+          "mates": [
+            "motor_tube"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:aft_ring:front_face",
+          "mates": [
+            "fin_tabs"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        }
+      ],
+      "reuse": {
+        "geometry": "supported_nominal",
+        "draft_admission": false,
+        "reason": "Allowlisted plain annulus recipe only. Frozen CAD flags the complete installed ring proposal unavailable; bonds and fit are unverified."
+      },
+      "mass_accounting": {
+        "source_part_ids": [
+          "aft_ring"
+        ],
+        "template_mass_kg": null,
+        "incremental_charge": false,
+        "basis": "Existing source record accounting only; a display feature is not another mass line"
+      },
+      "engineering_status": "open",
+      "physical_verification": "open",
+      "revision_sha256": "f720488a173d91f936666c160e0bc9c912eb4bb0e2a5b18e188857d40637db8e"
+    },
+    {
+      "id": "rp1-template:slotted-body-tube",
+      "label": "Slotted body tube",
+      "family": "slotted_tube",
+      "source_part_ids": [
+        "body"
+      ],
+      "material": "cardboard",
+      "parameters": [
+        {
+          "key": "outer_diameter_mm",
+          "value": 66.802,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=body].geometry.radius_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "inner_diameter_mm",
+          "value": 65.024,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=body].geometry.inner_radius_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "length_mm",
+          "value": 762.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=body].geometry.length_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "slot_width_mm",
+          "value": 6.8,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "fin_joints.external_slot_width_mm"
+          },
+          "tolerance": {
+            "plus_minus": 0.05,
+            "unit": "mm",
+            "basis": "proposed_cut_tolerance; not measured or supplier-guaranteed",
+            "source": {
+              "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+              "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+              "locator": "fin_joints.slot_cut_tolerance_mm"
+            }
+          }
+        },
+        {
+          "key": "slot_length_mm",
+          "value": 110.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=body].cad.parameters.fin_slot_length_mm"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "slot_start_mm",
+          "value": 622.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=body].cad.parameters.fin_slot_start_mm"
+          },
+          "tolerance": null
+        }
+      ],
+      "local_frame": {
+        "units": "mm",
+        "origin": "front_center",
+        "axes": "X=body+y, Y=body-z, Z=aft along part"
+      },
+      "installed_references": [
+        {
+          "source_part_id": "body",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/body.step",
+            "sha256": "7bb9dce29a82111aae48650017454b775685e1c5057908df6836aabd7f06dd91"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 458.0,
+          "asset_scope": "installed_reference_only"
+        }
+      ],
+      "geometry": {
+        "source_cad_generator": "tube",
+        "local_generator": null,
+        "generator_source": {
+          "path": "src/cad/parts.py",
+          "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+        },
+        "installed_projection_source": {
+          "path": "src/inspection/rp1_geometry.py",
+          "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+        },
+        "local_recipe_supported": false,
+        "generated_asset": null,
+        "installed_step_is_local_template": false
+      },
+      "feature_ids": [
+        "rp1-feature:body:slot_edges",
+        "rp1-feature:body:inner_wall"
+      ],
+      "interfaces": [
+        {
+          "feature_id": "rp1-feature:body:slot_edges",
+          "mates": [
+            "fin_tabs"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:body:inner_wall",
+          "mates": [
+            "forward_ring",
+            "aft_ring"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        }
+      ],
+      "reuse": {
+        "geometry": "blocked",
+        "draft_admission": false,
+        "reason": "AD1 inspection projection already replaces the historical 6.5 mm CAD slot with 6.8 mm and the registered installed STEP reflects that projection. A standalone slotted local template and interface contract have not been admitted."
+      },
+      "mass_accounting": {
+        "source_part_ids": [
+          "body"
+        ],
+        "template_mass_kg": null,
+        "incremental_charge": false,
+        "basis": "Existing source record accounting only; a display feature is not another mass line"
+      },
+      "engineering_status": "open",
+      "physical_verification": "open",
+      "revision_sha256": "e38c360c06b5b759246d59a65901118e77343cfacd5ee32c6bd997dc3017ebfe"
+    },
+    {
+      "id": "rp1-template:forward-notched-ring",
+      "label": "Forward notched ring",
+      "family": "notched_ring",
+      "source_part_ids": [
+        "forward_ring"
+      ],
+      "material": "plywood",
+      "parameters": [
+        {
+          "key": "outer_diameter_mm",
+          "value": 64.4,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=forward_ring].geometry.radius_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "bore_diameter_mm",
+          "value": 31.9,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=forward_ring].geometry.inner_radius_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "thickness_mm",
+          "value": 12.2,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=forward_ring].geometry.length_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "notch_width_mm",
+          "value": 4.5,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "route.passage_width_mm"
+          },
+          "tolerance": {
+            "plus_minus": 0.05,
+            "unit": "mm",
+            "basis": "proposed_cut_tolerance; not measured or supplier-guaranteed",
+            "source": {
+              "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+              "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+              "locator": "route.passage_cut_tolerance_mm"
+            }
+          }
+        },
+        {
+          "key": "notch_depth_mm",
+          "value": 5.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "route.passage_depth_mm"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "notch_angle_deg",
+          "value": 60.0,
+          "unit": "deg",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "route.passage_angle_deg"
+          },
+          "tolerance": null
+        }
+      ],
+      "local_frame": {
+        "units": "mm",
+        "origin": "front_center",
+        "axes": "X=body+y, Y=body-z, Z=aft along part"
+      },
+      "installed_references": [
+        {
+          "source_part_id": "forward_ring",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/forward_ring.step",
+            "sha256": "786d589309c7d3d22a71eb288d8d331e8b0100bb7f700776649b3c07ef474586"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 1060.0,
+          "asset_scope": "installed_reference_only"
+        }
+      ],
+      "geometry": {
+        "source_cad_generator": "unadmitted_rp1_cord_notched_annulus",
+        "local_generator": null,
+        "generator_source": {
+          "path": "src/cad/parts.py",
+          "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+        },
+        "installed_projection_source": {
+          "path": "src/inspection/rp1_geometry.py",
+          "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+        },
+        "local_recipe_supported": false,
+        "generated_asset": null,
+        "installed_step_is_local_template": false
+      },
+      "feature_ids": [
+        "rp1-feature:forward_ring:cord_notch",
+        "rp1-feature:forward_ring:bore"
+      ],
+      "interfaces": [
+        {
+          "feature_id": "rp1-feature:forward_ring:cord_notch",
+          "mates": [
+            "rp1_kevlar_wrap"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:forward_ring:bore",
+          "mates": [
+            "motor_tube"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        }
+      ],
+      "reuse": {
+        "geometry": "blocked",
+        "draft_admission": false,
+        "reason": "AD1 inspection projection includes the ideal passage notch in the registered installed STEP. It omits proposed edge roundovers and is not a standalone reusable ring or qualified cord-contact model."
+      },
+      "mass_accounting": {
+        "source_part_ids": [
+          "forward_ring"
+        ],
+        "template_mass_kg": null,
+        "incremental_charge": false,
+        "basis": "Existing source record accounting only; a display feature is not another mass line"
+      },
+      "engineering_status": "open",
+      "physical_verification": "open",
+      "revision_sha256": "52f611666dc7fa57a23ae12423499769a62bdff1e2dd8823aea328cc4a2dc2c5"
+    },
+    {
+      "id": "rp1-template:continuous-fin-tab",
+      "label": "Continuous fin and tab, with separate root gussets",
+      "family": "continuous_fin_tab",
+      "source_part_ids": [
+        "fin_set",
+        "fin_tabs",
+        "root_gussets"
+      ],
+      "material": "plywood",
+      "parameters": [
+        {
+          "key": "root_chord_mm",
+          "value": 130.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=fin_set].geometry.root_chord_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "tip_chord_mm",
+          "value": 65.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=fin_set].geometry.tip_chord_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "span_mm",
+          "value": 60.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=fin_set].geometry.span_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "sweep_mm",
+          "value": 45.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=fin_set].geometry.sweep_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "thickness_mm",
+          "value": 6.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=fin_set].geometry.thickness_m"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "tab_length_mm",
+          "value": 109.4,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "fin_joints.tab_length_mm"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "tab_depth_mm",
+          "value": 17.451,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+            "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+            "locator": "parts[id=fin_tabs].geometry.bbox_m[1]"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "gusset_height_mm",
+          "value": 15.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "fin_joints.gusset_height_mm"
+          },
+          "tolerance": null
+        },
+        {
+          "key": "gusset_base_mm",
+          "value": 6.0,
+          "unit": "mm",
+          "value_basis": "source_nominal",
+          "source": {
+            "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+            "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+            "locator": "fin_joints.gusset_base_width_mm"
+          },
+          "tolerance": null
+        }
+      ],
+      "local_frame": {
+        "units": "mm",
+        "origin": "front_center",
+        "axes": "X=body+y, Y=body-z, Z=aft along part"
+      },
+      "installed_references": [
+        {
+          "source_part_id": "fin_set",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/fin_set.step",
+            "sha256": "5cf22ed30e62a4cdf7c01aaa17a9d19945afadd58999395f285581262edf18b8"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 1075.0,
+          "asset_scope": "installed_reference_only"
+        },
+        {
+          "source_part_id": "fin_tabs",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/fin_tabs.step",
+            "sha256": "3849bb6bb4810208ed5bbfd8354343a42e6e3acd4b05184345b644750556597f"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 1080.2,
+          "asset_scope": "installed_reference_only"
+        },
+        {
+          "source_part_id": "root_gussets",
+          "step": {
+            "path": "output/rp1-inspection-step/parts/root_gussets.step",
+            "sha256": "05508390f9f18a557508b093eaa56613ebc4db6333c8dc4ab6955c1e16c57532"
+          },
+          "cad_frame": "X=body+y, Y=body-z, Z=station aft from nose tip; origin at nose",
+          "front_station_mm": 1075.0,
+          "asset_scope": "installed_reference_only"
+        }
+      ],
+      "geometry": {
+        "source_cad_generator": "fins",
+        "local_generator": null,
+        "generator_source": {
+          "path": "src/cad/parts.py",
+          "sha256": "911ae4a960556ebfd4aa468a99deba5fd8d755310669e30c040b155107442b98"
+        },
+        "installed_projection_source": {
+          "path": "src/inspection/rp1_geometry.py",
+          "sha256": "d79db74c6285f9c45d7ffade4bb4e8e95279cf64cc7a3c4f0253c09baedf90d3"
+        },
+        "local_recipe_supported": false,
+        "generated_asset": null,
+        "installed_step_is_local_template": false
+      },
+      "feature_ids": [
+        "rp1-feature:fin_set:panel",
+        "rp1-feature:fin_tabs:integral_tab",
+        "rp1-feature:root_gussets:root_gusset"
+      ],
+      "interfaces": [
+        {
+          "feature_id": "rp1-feature:fin_set:panel",
+          "mates": [],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:fin_tabs:integral_tab",
+          "mates": [
+            "body",
+            "motor_tube",
+            "aft_ring"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        },
+        {
+          "feature_id": "rp1-feature:root_gussets:root_gusset",
+          "mates": [
+            "body"
+          ],
+          "geometry_status": "nominal",
+          "installed_contact_status": "unknown"
+        }
+      ],
+      "reuse": {
+        "geometry": "blocked",
+        "draft_admission": false,
+        "reason": "AD1 inspection projection already uses 109.4 mm for the integral tab instead of the historical 109.8 mm fin generator field. A reusable local panel/tab/support interface contract has not been admitted; separate gussets remain separate supports and existing accounting lines."
+      },
+      "mass_accounting": {
+        "source_part_ids": [
+          "fin_set",
+          "fin_tabs",
+          "root_gussets"
+        ],
+        "template_mass_kg": null,
+        "incremental_charge": false,
+        "basis": "Existing source record accounting only; a display feature is not another mass line"
+      },
+      "engineering_status": "open",
+      "physical_verification": "open",
+      "revision_sha256": "33c9a877eb4c257c2c8c1f4446bd4a83a9d878caf25c46392baa5fb15fbe9ca6"
+    }
+  ],
+  "feature_sources": [
+    {
+      "id": "rp1-feature:motor_tube:outer_wall",
+      "template_id": "rp1-template:motor-tube-cut",
+      "source_part_id": "motor_tube",
+      "label": "Outer tube wall",
+      "kind": "cylindrical_surface",
+      "parameter_keys": [
+        "outer_diameter_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry.radius_m"
+      },
+      "mating_part_ids": [
+        "fin_tabs",
+        "aft_ring"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:motor_tube:bore",
+      "template_id": "rp1-template:motor-tube-cut",
+      "source_part_id": "motor_tube",
+      "label": "Motor bore",
+      "kind": "cylindrical_surface",
+      "parameter_keys": [
+        "inner_diameter_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry.inner_radius_m"
+      },
+      "mating_part_ids": [
+        "motor"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:motor_tube:front_end",
+      "template_id": "rp1-template:motor-tube-cut",
+      "source_part_id": "motor_tube",
+      "label": "Front cut end",
+      "kind": "planar_end",
+      "parameter_keys": [
+        "length_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry.length_m"
+      },
+      "mating_part_ids": [
+        "forward_ring"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:motor_tube:aft_end",
+      "template_id": "rp1-template:motor-tube-cut",
+      "source_part_id": "motor_tube",
+      "label": "Aft cut end",
+      "kind": "planar_end",
+      "parameter_keys": [
+        "length_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=motor_tube].geometry.length_m"
+      },
+      "mating_part_ids": [
+        "aft_ring",
+        "motor_retainer"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:aft_ring:outer_edge",
+      "template_id": "rp1-template:aft-annular-ring",
+      "source_part_id": "aft_ring",
+      "label": "Outer ring edge",
+      "kind": "cylindrical_surface",
+      "parameter_keys": [
+        "outer_diameter_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=aft_ring].geometry.radius_m"
+      },
+      "mating_part_ids": [
+        "body"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:aft_ring:bore",
+      "template_id": "rp1-template:aft-annular-ring",
+      "source_part_id": "aft_ring",
+      "label": "Ring bore",
+      "kind": "cylindrical_surface",
+      "parameter_keys": [
+        "bore_diameter_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=aft_ring].geometry.inner_radius_m"
+      },
+      "mating_part_ids": [
+        "motor_tube"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:aft_ring:front_face",
+      "template_id": "rp1-template:aft-annular-ring",
+      "source_part_id": "aft_ring",
+      "label": "Front ring face",
+      "kind": "planar_face",
+      "parameter_keys": [
+        "thickness_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=aft_ring].geometry.length_m"
+      },
+      "mating_part_ids": [
+        "fin_tabs"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:body:slot_edges",
+      "template_id": "rp1-template:slotted-body-tube",
+      "source_part_id": "body",
+      "label": "Three fin slot edges",
+      "kind": "cut_edge",
+      "parameter_keys": [
+        "slot_width_mm",
+        "slot_length_mm",
+        "slot_start_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=body].cad.parameters.fin_slot_width_mm"
+      },
+      "mating_part_ids": [
+        "fin_tabs"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:body:inner_wall",
+      "template_id": "rp1-template:slotted-body-tube",
+      "source_part_id": "body",
+      "label": "Body inner wall",
+      "kind": "cylindrical_surface",
+      "parameter_keys": [
+        "inner_diameter_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=body].geometry.inner_radius_m"
+      },
+      "mating_part_ids": [
+        "forward_ring",
+        "aft_ring"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:forward_ring:cord_notch",
+      "template_id": "rp1-template:forward-notched-ring",
+      "source_part_id": "forward_ring",
+      "label": "Cord passage notch",
+      "kind": "cut_edge",
+      "parameter_keys": [
+        "notch_width_mm",
+        "notch_depth_mm",
+        "notch_angle_deg"
+      ],
+      "source": {
+        "path": "configs/studies/rp1-attachment-definition-v2.yaml",
+        "sha256": "e9db49f2cafc89b1f77bf9d7396434297bc8bb8754085fdcf74d3b0242012555",
+        "locator": "route.passage_width_mm"
+      },
+      "mating_part_ids": [
+        "rp1_kevlar_wrap"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:forward_ring:bore",
+      "template_id": "rp1-template:forward-notched-ring",
+      "source_part_id": "forward_ring",
+      "label": "Forward ring bore",
+      "kind": "cylindrical_surface",
+      "parameter_keys": [
+        "bore_diameter_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=forward_ring].geometry.inner_radius_m"
+      },
+      "mating_part_ids": [
+        "motor_tube"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:fin_set:panel",
+      "template_id": "rp1-template:continuous-fin-tab",
+      "source_part_id": "fin_set",
+      "label": "Fin panel",
+      "kind": "stock_contour",
+      "parameter_keys": [
+        "root_chord_mm",
+        "tip_chord_mm",
+        "span_mm",
+        "thickness_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=fin_set].geometry.root_chord_m"
+      },
+      "mating_part_ids": [],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:fin_tabs:integral_tab",
+      "template_id": "rp1-template:continuous-fin-tab",
+      "source_part_id": "fin_tabs",
+      "label": "Integral through-wall tab",
+      "kind": "stock_contour",
+      "parameter_keys": [
+        "tab_length_mm",
+        "tab_depth_mm",
+        "thickness_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=fin_tabs].geometry.bbox_m"
+      },
+      "mating_part_ids": [
+        "body",
+        "motor_tube",
+        "aft_ring"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    },
+    {
+      "id": "rp1-feature:root_gussets:root_gusset",
+      "template_id": "rp1-template:continuous-fin-tab",
+      "source_part_id": "root_gussets",
+      "label": "Root gusset region",
+      "kind": "stock_contour",
+      "parameter_keys": [
+        "gusset_height_mm",
+        "gusset_base_mm"
+      ],
+      "source": {
+        "path": "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml",
+        "sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+        "locator": "parts[id=root_gussets].geometry.bbox_m"
+      },
+      "mating_part_ids": [
+        "body"
+      ],
+      "status": "source_nominal",
+      "installed_contact_status": "unknown"
+    }
+  ],
+  "dispositions": [
+    {
+      "source_part_id": "nose",
+      "template_id": null,
+      "source_kind": "nose_cone",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "body",
+      "template_id": "rp1-template:slotted-body-tube",
+      "source_kind": "body_tube",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "primary",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "fin_set",
+      "template_id": "rp1-template:continuous-fin-tab",
+      "source_kind": "fin_set",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "primary",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "fin_tabs",
+      "template_id": "rp1-template:continuous-fin-tab",
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "integral_child",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "motor_tube",
+      "template_id": "rp1-template:motor-tube-cut",
+      "source_kind": "motor_mount",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "primary",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "forward_ring",
+      "template_id": "rp1-template:forward-notched-ring",
+      "source_kind": "commercial",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "primary",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "aft_ring",
+      "template_id": "rp1-template:aft-annular-ring",
+      "source_kind": "commercial",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "primary",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "fin_internal_bonds",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "ring_bonds",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "outer_fin_fillets",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "motor",
+      "template_id": null,
+      "source_kind": "motor",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "motor_retainer",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "Product19002/009750 conflict; no reusable exact retainer template."
+    },
+    {
+      "source_part_id": "retainer_adhesive",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "mount_external_shield",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "nose_anchor_plate",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "nose_recovery_eye",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "shock_cord",
+      "template_id": null,
+      "source_kind": "recovery",
+      "source_cad_role": "soft_stowage",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "recovery_connectors",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "parachute",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "recovery_protection",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "flight_computer",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "imu",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "baro",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "high_g_accel",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "Manufacturer board reference does not establish installed sensor/height identity."
+    },
+    {
+      "source_part_id": "micro_sd",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "battery",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "independent_recovery",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "Recovery-controller product identity conflict; mounting template blocked."
+    },
+    {
+      "source_part_id": "recovery_battery",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "purchased_envelope",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "avionics_sled",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "logger_power_switch",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "logger_regulator",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "recovery_carrier",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "electrical_harness",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "recovery_harness_wiring",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "recovery_output_mount",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "rail_buttons",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "rail_backers",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "finish",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "service_allowance",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "upper_body",
+      "template_id": null,
+      "source_kind": "body_tube",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "body_splice",
+      "template_id": null,
+      "source_kind": "body_tube",
+      "source_cad_role": "manufactured",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "splice_seam_patch",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "splice_adhesive",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "root_gussets",
+      "template_id": "rp1-template:continuous-fin-tab",
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "associated_support",
+      "reason": "Named source template in this packet"
+    },
+    {
+      "source_part_id": "root_extra_bond_finish",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "nose_service_hardware",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "c1_forward_root_bond_fill",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "c1_aft_bond_fill",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "c1_nose_bond_fill",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "rp1_kevlar_wrap",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "soft_stowage",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "rp1_wrap_lock_bond",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "rp1_notch_sealer",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "rp1_lip_guard",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "ad1_cord_sleeve",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    },
+    {
+      "source_part_id": "ad1_slot_fill",
+      "template_id": null,
+      "source_kind": "commercial",
+      "source_cad_role": "distributed_budget",
+      "accounting_line": "existing_source_record_only",
+      "template_role": "none",
+      "reason": "No validated local reusable geometry template in this bounded packet."
+    }
+  ],
+  "capabilities": {
+    "browse": true,
+    "inspect": true,
+    "draft_admission": false,
+    "cad_job_execution": false
+  },
+  "engineering_accepted": false,
+  "physical_verification": "open",
+  "flight_ready": false,
+  "revision_sha256": "cb43e923df940ba0a1f9ec80216a194bd1cbc85e92b1eac5c77f3e18b55fd9be"
+}

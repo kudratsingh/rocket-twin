@@ -2,8 +2,10 @@ import { lazy, Suspense, useLayoutEffect, useRef, useState } from 'react';
 import type { InspectionDocument } from '../types';
 import { useWorkspaceLayout } from '../workspaces/workspaceLayoutContext';
 import './partsBankAccess.css';
+import './templateBank.css';
 
 const PartsBankPanel = lazy(() => import('./PartsBankPanel'));
+const TemplateBankPanel = lazy(() => import('./TemplateBankPanel'));
 
 /** The source assembly stays mounted while its read-only bank is open. */
 export function PartsBankAccess({
@@ -17,6 +19,7 @@ export function PartsBankAccess({
   const trigger = useRef<HTMLButtonElement>(null);
   const [opened, setOpened] = useState(false);
   const [error, setError] = useState('');
+  const [section, setSection] = useState<'source' | 'templates'>('source');
   const layout = useWorkspaceLayout();
   const available = vehicle.id === 'G80-F2-RP1-AD1-definition-v2';
   useLayoutEffect(() => {
@@ -28,6 +31,15 @@ export function PartsBankAccess({
     dialog.current?.close();
     setOpened(false);
     trigger.current?.focus();
+  }
+  function inspect(partId: string) {
+    if (!vehicle.parts.some((part) => part.id === partId)) {
+      setError('That installed part is unavailable in the selected source revision.');
+      return;
+    }
+    onInspect(partId);
+    layout?.openContext('details');
+    close();
   }
   return (
     <div className="parts-bank-access">
@@ -66,21 +78,30 @@ export function PartsBankAccess({
             Return to rocket
           </button>
         </header>
+        <div className="parts-bank-sections" role="group" aria-label="Parts bank sections">
+          <button
+            type="button"
+            aria-pressed={section === 'source'}
+            onClick={() => setSection('source')}
+          >
+            Installed source parts
+          </button>
+          <button
+            type="button"
+            aria-pressed={section === 'templates'}
+            onClick={() => setSection('templates')}
+          >
+            Template recipes
+          </button>
+        </div>
         {error && <p role="alert">{error}</p>}
         {opened && available && (
           <Suspense fallback={<p role="status">Loading source-owned parts bank…</p>}>
-            <PartsBankPanel
-              vehicle={vehicle}
-              onInspect={(partId) => {
-                if (!vehicle.parts.some((part) => part.id === partId)) {
-                  setError('That installed part is unavailable in the selected source revision.');
-                  return;
-                }
-                onInspect(partId);
-                layout?.openContext('details');
-                close();
-              }}
-            />
+            {section === 'source' ? (
+              <PartsBankPanel vehicle={vehicle} onInspect={inspect} />
+            ) : (
+              <TemplateBankPanel vehicle={vehicle} onInspect={inspect} />
+            )}
           </Suspense>
         )}
       </dialog>

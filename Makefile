@@ -179,3 +179,11 @@ component-detail: ## Verify/prepare recorded source mechanical detail; no CAD or
 .PHONY: parts-bank
 parts-bank: ## Prepare the source-owned RP1 parts catalog; no CAD or flight solve.
 	$(PYTHON) scripts/wo04_parts_bank_export.py
+
+.PHONY: part-templates
+part-templates: ## Prepare source-pinned named recipes and feature contracts; no CAD execution.
+	$(PYTHON) scripts/prepare_part_templates.py
+
+.PHONY: part-template-cad
+part-template-cad: part-templates ## Verify/copy the completed two-part local CAD packet; never rerun it.
+	$(PYTHON) scripts/wo04_part_template_geometry.py --prepare

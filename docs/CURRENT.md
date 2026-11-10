@@ -1,5 +1,15 @@
 # Current engineering and inspection checkpoint
 
+**Autonomous source workbench continuation (November9):** The owner authorizes
+continuing the existing plan while away. Named source recipes/features are added
+to Parts bank, with full55-record dispositions and explicit reuse/identity limits.
+Engineering gains a source-linked physics/instrumentation/recovery map and a
+separate planned G12 PID/RL feedback view. Current RP1, D1 and all physical gates
+remain unchanged; inquiries UNSENT. [Bounded packet and paths](studies/frontend-autonomous-20261109/integration.md).
+Code/source checks and designated-window observations are tracked separately;
+this does not close the full workbench, engineering or flight milestones.
+
+
 **Control organization follow-up:** The owner requested the crowded control strip
 be refined. View/Inspect/Source/Alternatives and Mouse/Frame/Zoom/Display/Views
 now use labeled, wrapping normal-flow groups. Existing geometry, callbacks,

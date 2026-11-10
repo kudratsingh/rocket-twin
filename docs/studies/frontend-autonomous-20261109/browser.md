@@ -1,0 +1,43 @@
+# P71 template recipes — observed flow with closeout overrun
+
+P71 observed one blocked recipe and one admitted local-part inspection/export/installed-source return. The initial runtime bindings had been cleared. A documented same-window getApp plus separate filesystem round-trip restored readiness before any feature input. The native current summary exposed exactRP1/spec811b/core238 identity. The first recipe-control matcher omitted the actual toggle role; it made no recipe click. Fresh returned AX then supplied the correct toggle and it was selected once. This verifier setup issue is not an application failure.
+
+The Template recipes catalog visibly distinguishes supported nominal recipes and blocked source gaps. **Continuous fin and tab, with separate root gussets** shows readable local-recipe blockage, current109.4mm integral-tab projection versus historical109.8mm generator field, and an unadmitted reusable panel/tab/support contract. Its actual109.4mm Tab Length parameter was selected and highlighted. No fabricated local fin solid, reuse admission or installed-joint pass is inferred.
+
+**Aft annular ring** shows an actual rendered annulus with an open bore. Its readable status says the allowlisted plain local annulus is supported while the complete installed ring proposal, bonds and fit remain unverified. Fit local part was invoked. The local metre display/millimetre STEP/front-centre coordinates are explicitly separate from installed nose-datum coordinates. NativeAXrecords64.4mmOD and31.9mmbore with proposed±0.05mm cut tolerances,6mm thickness with tolerance unavailable; the below-preview parameter cards were not all captured visibly. Rotate/pan/zoom gestures were not exercised.
+
+One **Download local part STEP** click at1794268315363ms produced “Verified STEP download requested · millimetres, local front-center coordinates.” A stat of only the exact known path confirmed `/Users/kudratsingh/Downloads/RP1-template-aft-annular-ring.step`,9599bytes,mtime1794268315518.7615ms after the click. No private Downloads listing, permission/settings action or source-file copy was used. Primary owns independent downloaded-file readback; native download/file presence is not manufacturing qualification.
+
+The actual **Inspect installed aft_ring** action returned to exactRP1/spec811b/`part=aft_ring`. The later fullAX and image show the bank closed, Aft ring Details, selected-part annotation and source geometry. The main residual view retains sectioning, tools and the camera menu; normal part selection targets Aft ring/Motor and retention. It is not a clean whole-vehicle/camera-restoration pass, and no late input changed it.
+
+**Timing limitation:** native work ended164.398s and last input145.883s, meeting the180s native and150s input limits. However first record/inventory closeout occurred190.572s after the native clock, exceeding the requested180s overall closeout by at least10.572s. This missed closeout requirement is preserved; no whole-packet budget pass is claimed. All later image review/reporting was offline with no UI action. Source hold is released and native lane is idle; a second packet will not start without primary’s signal.
+
+No Add/Replace/Connect, draft admission, simulation/Play, newphysics, viewport campaign or prohibited browser transport occurred. Frozen source and all engineering/physical/flight gates remain unchanged. The read-only catalogue result is not full workbench acceptance.
+
+
+# P72 source-linked systems map — scoped native observation
+
+P72 is independent of P71 and used the unchanged14-file source freeze, a180s total budget including record/inventory,100s input cutoff and at most3screenshots. Fresh same-window native state established exactRP1/spec811b/aft_ring before entering Engineering. No runtime restoration or navigation outside the local app was needed.
+
+The actual **Physics & control system map** entry opened Current G80 · unguided. Activating the6DOF/RK4plant node retained its selected highlight. The screenshot shows the current-branch banner and readable main blocks/status legend. NativeAXdetail states NED positionm, velocitym/s, body ratesrad/s and quaternionwxyz, with `src/sim/dynamics.py` and `src/sim/protocol.py` references pinned to07552bd1425dce4cf0b47af56c70b44a9500625e. No source link was followed externally. The banner explicitly says completeRP1flight/inertiainputs are unavailable and the fixedG80 has no active gimbal/ascent controller.
+
+The actual **Future G12 · PID→RL** branch and **PID→laterRL** block were selected. The screenshot visibly marks this branch/controller planned; nativeAXdetail states PID gains are null, RL is a later work order and gains/policy are unavailable, with commandrad units. Switching this diagram branch did not adopt G12 hardware, change the workingRP1 source or execute a controller/simulator.
+
+Pixel coverage remains partial: the selected lower detail cards stayed below the captured viewport, so their units/source/null-gain copy is AX evidence rather than demonstrated pixel legibility. The G80 lower graph row is partly below the image and some edge-label text is crowded/covered by node boxes. No whole-diagram readability pass is claimed. Optional independent-recovery/unknown-pin selection was skipped to preserve budget.
+
+The actual Design link returned exactRP1/spec811b/aft_ring Details and selected annotation after settling. Its source-preserving URL retains `view=rp1-system-map` while workspace isDesign. The final image contains inherited sectioned/partial small geometry; no whole-model or camera-restoration pass, and no WebGLfailure, is inferred. Native work ended72.879s; last input54.754s. Three unchanged native screenshots were saved. Record/inventory closeout timing is recorded explicitly inP72-record.json. Native lane is idle and source hold released. No simulations, downloads, permissions/settings, viewport campaign or other-window/transport action occurred. Earlier failures and all engineering/physical gates remain unchanged.
+
+
+# P73 map legibility correction — scoped pixel pass
+
+P73 used the separately frozen14-file correction with compactE-number flow markers, a full flow key, bounded graph height and adjacent selected-detail panel. The data/source/status contracts are unchanged. This is the one targeted correction check; P72’s original cropped/details-below-fold images remain unchanged.
+
+Fresh exactRP1/spec811b/aft_ring context was retained through Engineering. ActualCurrentG80 and6DOF/RK4plant controls were selected, then actualFutureG12 andPID→laterRL controls. Only two native images were captured. Both source-bound branch banners, complete graph extents, flow keys and selected-detail panels fit visibly in the actual current window, with no page scroll or viewport change.
+
+Offline pixel review **after record/inventory freeze** confirms the G80 adjacent card visibly states NEDpositionm, velocitym/s, bodyratesrad/s, quaternionwxyz and the dynamics/protocol source paths. The G80 banner still says completeRP1flight/inertia inputs are unavailable and no active gimbal/ascent controller exists. Its fullE1–E9 flow key remains visible below the graph. Individual edge routing/semantic correctness is not independently re-derived by this native check.
+
+The G12 image visibly shows planned controller/state-estimate/guidance/abort paths and the adjacentPID→laterRL card. NullPIDgains, later separateRL work, unavailablegains/policy, commandrad andPID/work-order source paths are readable in the actual image. ItsE1–E7 key and source-definition/implemented-model/planned distinctions fit beside/below the graph. The source paths refer to fixed checkpoint07552bd1425dce4cf0b47af56c70b44a9500625e; no external source tab was opened. A branch/node graphic does not establish controller execution, wiring, qualification or validated physical dynamics.
+
+The Design link was used before cutoff and freshAX confirms exactRP1/spec811b/aft_ringDetails returned. No finalDesign image was taken because the packet allows two images; no new whole-model/camera claim follows. Native work ended54.130s, last input52.533s. Record and self-excluding inventory were frozen at85.314s, within180s and before this offline pixel review. The frozen capture record intentionally points to this separate pixel assessment instead of pre-judging it.
+
+Both requested selected views now have scoped readable-pixel evidence. This is not fullsystems/workbench/engineering acceptance, nor all-block/reference/keyboard/viewport coverage. No optional recovery, newphysics/simulation/Play, CAD download, permission, viewport or alternate-window/transport action occurred. Native lane is idle, window free and source hold released; no further layout attempt is requested.
