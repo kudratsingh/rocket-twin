@@ -1,5 +1,16 @@
 # Frontend specification — focused engineering workspaces
 
+**Unsaved source-intent preview:** Saved drafts now offers an explicit planning
+preview for marking and restoring source exclusion intents. P85 observed prepare0
+and fin_set exclusion1; P86 observed Restore0 and original opaque identity. All55
+source rows, saved3 and six saved files remain unchanged. The UI retains the
+unresolved function/evidence; mass credit/effective inventory/CG/inertia stay null,
+and every candidate/simulation/engineering/flight flag stays false.
+[Scope and actual evidence](studies/frontend-draft-composition-20261109/integration.md).
+This is not full Add/Replace/Connect or a physical fin correction. Owner confirmed
+`make preview-dev`; the new API route works, with source-only reload configured.
+The reload cycle itself is not separately observed. Inquiries remain UNSENT.
+
 **Live metadata drafts and review export:** After the owner's normal-host
 restart, P81–P83 verified one source fork, metadata save, exact reload/history,
 actual reviewJSON download and stale-write recovery in the designated Chrome

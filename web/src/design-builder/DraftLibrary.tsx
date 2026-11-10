@@ -11,6 +11,7 @@ import {
 import type { DraftEditor, DraftPage, DraftRevision } from './draftLibraryClient';
 import './draftLibrary.css';
 import { exportDraftReviewRecord } from './draftRecordExport';
+import SourceIntentPreview from './SourceIntentPreview';
 
 /** Embedded normal-flow library; the parent owns any enclosing dialog and return. */
 export default function DraftLibrary({
@@ -461,6 +462,14 @@ export default function DraftLibrary({
                   </>
                 )}
               </section>
+              <div hidden={Boolean(history)}>
+                <SourceIntentPreview vehicle={vehicle} snapshot={editor.snapshot} />
+              </div>
+              {history && (
+                <p>
+                  Unsaved planning intent controls are hidden while viewing historical metadata.
+                </p>
+              )}
             </>
           )}
         </div>

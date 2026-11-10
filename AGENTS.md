@@ -1,5 +1,15 @@
 # Agent entry point
 
+**Latest limited builder capability:** Saved drafts → Unsaved source planning
+intents explicitly prepares, excludes and restores original occurrence intent.
+P85/P86 actual source/counter evidence and primary six-file checks preserve all55
+records and saved3. Mass credit/results remain null; no candidate or flight pass.
+[Contract/evidence](docs/studies/frontend-draft-composition-20261109/integration.md).
+Owner switched to `make preview-dev`; new API requests work, watched src Python
+reload is configured but not separately cycle-tested. No repeated binding/other
+port/server workaround. Preserve P84 bootstrap error and P85 estimated/partial
+record; P86 inverse action has exact bounded timing. Full composition pending.
+
 **Latest live draft checkpoint:** Owner normal-host restart confirmed. P81–P83
 verify one labelled source fork, metadata save/reload/history, actual reviewJSON
 and stale rejection/explicit recovery in the sole designated Chrome window.
