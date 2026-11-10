@@ -1,0 +1,222 @@
+{
+  "bytes": 47779,
+  "sha256": "4b982729c490b4baceed6a72e20aeae80fd99e754f8af53ca41211bf206fb1c2",
+  "xml_valid": true,
+  "metadata": {
+    "schema_version": 1,
+    "id": "rp1-system-map-source-svg",
+    "configuration_id": "G80-F2-RP1-AD1-definition-v2",
+    "specification_sha256": "811b3bed631fe2ce30a6b0211beecb739d40ebbbcb10e063f6beba0854631660",
+    "source_commit": "07552bd1425dce4cf0b47af56c70b44a9500625e",
+    "mode": "g12",
+    "mode_status": "future G12 PID to RL; planned and unqualified",
+    "selected_block_id": "control",
+    "selected_block": {
+      "id": "control",
+      "title": "PID \u2192 later RL",
+      "subtitle": "separate WO-06 / WO-07",
+      "status": "planned",
+      "detail": "PID gains are null in the source config; RL is a later separate work order. No controller execution, policy, tuning or performance is established.",
+      "signal": "command rad; gains/policy unavailable",
+      "source": [
+        "configs/control/pid.yaml",
+        "docs/work-orders/WO-06-avionics-pid-baseline.md",
+        "docs/work-orders/WO-07-rl-ascent.md"
+      ],
+      "x": 926,
+      "y": 42
+    },
+    "nodes": [
+      {
+        "id": "vehicle",
+        "title": "6DOF plant",
+        "subtitle": "shared simulation model",
+        "status": "implemented model",
+        "detail": "The shared six-degree-of-freedom plant exists, but a future G12 complete configuration and controller validation are separate. This is not installed on current RP1.",
+        "signal": "NED state; body rates; SI",
+        "source": [
+          "src/sim/dynamics.py",
+          "docs/work-orders/WO-02-six-dof-sim-validation.md"
+        ],
+        "x": 18,
+        "y": 42
+      },
+      {
+        "id": "sense",
+        "title": "Sensors",
+        "subtitle": "noise, rate, bias, latency",
+        "status": "implemented model",
+        "detail": "Preliminary sensor models exist. Calibrated G12 hardware and flight observations are not claimed.",
+        "signal": "IMU m/s\u00b2 + rad/s; baro AGL m",
+        "source": [
+          "src/sim/sensors.py"
+        ],
+        "x": 245,
+        "y": 42
+      },
+      {
+        "id": "estimate",
+        "title": "State estimate",
+        "subtitle": "WO-06 deliverable",
+        "status": "planned",
+        "detail": "An estimator must produce a usable state without relying on simulator truth attitude. No qualified estimator is supplied by this map.",
+        "signal": "estimated attitude/state; interface not frozen",
+        "source": [
+          "docs/work-orders/WO-06-avionics-pid-baseline.md"
+        ],
+        "x": 472,
+        "y": 42
+      },
+      {
+        "id": "guide",
+        "title": "Guidance / setpoint",
+        "subtitle": "mission command",
+        "status": "planned",
+        "detail": "Guidance and setpoints remain future control work. The external reference diagram\u2019s predictive guidance and numerical target are not adopted.",
+        "signal": "desired attitude/rates; values unavailable",
+        "source": [
+          "docs/work-orders/WO-06-avionics-pid-baseline.md",
+          "docs/frontend-design-workbench-v2/reference-set-20261109.md"
+        ],
+        "x": 699,
+        "y": 42
+      },
+      {
+        "id": "control",
+        "title": "PID \u2192 later RL",
+        "subtitle": "separate WO-06 / WO-07",
+        "status": "planned",
+        "detail": "PID gains are null in the source config; RL is a later separate work order. No controller execution, policy, tuning or performance is established.",
+        "signal": "command rad; gains/policy unavailable",
+        "source": [
+          "configs/control/pid.yaml",
+          "docs/work-orders/WO-06-avionics-pid-baseline.md",
+          "docs/work-orders/WO-07-rl-ascent.md"
+        ],
+        "x": 926,
+        "y": 42
+      },
+      {
+        "id": "limits",
+        "title": "Limits + abort",
+        "subtitle": "safe-state boundary",
+        "status": "planned",
+        "detail": "Command, position, rate, torque and abort limits require source and safety validation. A numeric output limit in a draft config is not a qualified physical actuator limit.",
+        "signal": "bounded command; physical limits unavailable",
+        "source": [
+          "configs/control/pid.yaml",
+          "docs/work-orders/WO-06-avionics-pid-baseline.md"
+        ],
+        "x": 926,
+        "y": 197
+      },
+      {
+        "id": "actuator",
+        "title": "Servo / TVC",
+        "subtitle": "preliminary model only",
+        "status": "implemented model",
+        "detail": "The shared simulator has servo lag/delay/speed/deadband and two-axis thrust-vector mapping. Linkage, calibration, torque/current and moving inertia are unverified; current G80 gimbal is locked.",
+        "signal": "modeled gimbal angle rad \u2192 body force/moment",
+        "source": [
+          "src/sim/actuators.py",
+          "src/sim/tvc.py",
+          "src/sim/protocol.py"
+        ],
+        "x": 699,
+        "y": 197
+      },
+      {
+        "id": "power",
+        "title": "Power + logging",
+        "subtitle": "future hardware verification",
+        "status": "planned",
+        "detail": "Power, pin assignments, firmware/HIL and log reliability require their own source and testing. Independent recovery must retain its separate power path.",
+        "signal": "wiring/pins unavailable",
+        "source": [
+          "firmware/README.md",
+          "docs/work-orders/WO-10-firmware-hil.md"
+        ],
+        "x": 472,
+        "y": 197
+      },
+      {
+        "id": "recovery",
+        "title": "Independent recovery",
+        "subtitle": "separate safety path",
+        "status": "source definition",
+        "detail": "The RP1 source defines an independent recovery controller/battery; this is a separate concept from G12 ascent control and no G12 installation is inferred.",
+        "signal": "separate event/power boundary",
+        "source": [
+          "configs/vehicle/candidates/g80-f2-rp1-ad1-v2.yaml"
+        ],
+        "x": 245,
+        "y": 197
+      }
+    ],
+    "edges": [
+      {
+        "from": "vehicle",
+        "to": "sense",
+        "label": "state \u2192 samples",
+        "status": "implemented model"
+      },
+      {
+        "from": "sense",
+        "to": "estimate",
+        "label": "observations",
+        "status": "planned"
+      },
+      {
+        "from": "estimate",
+        "to": "guide",
+        "label": "estimated state",
+        "status": "planned"
+      },
+      {
+        "from": "guide",
+        "to": "control",
+        "label": "setpoint",
+        "status": "planned"
+      },
+      {
+        "from": "control",
+        "to": "limits",
+        "label": "command",
+        "status": "planned"
+      },
+      {
+        "from": "limits",
+        "to": "actuator",
+        "label": "bounded command",
+        "status": "planned"
+      },
+      {
+        "from": "actuator",
+        "to": "vehicle",
+        "label": "forces / moments",
+        "status": "implemented model"
+      }
+    ],
+    "units_and_frames": "SI; NED world and body axes where defined; local block details carry signal units",
+    "status": "source-bound presentation diagram; engineering and physical acceptance open",
+    "representation": "Actual current graph plus full flow key and selected block; no simulated result"
+  },
+  "forbidden_payloads": false,
+  "exact_byte_copy": true,
+  "engineering_accepted": false,
+  "flight_ready": false,
+  "download_filename": "rp1-system-map-g12-811b3bed631f.svg",
+  "native_standalone_reopening": "UNEXECUTED: P74 readiness deadline and P75 focus assertion stopped before navigation; no further artifact attempt",
+  "offline_render": {
+    "method": "documented AppKit NSImage image-document rasterization; no browser/window/WebView",
+    "source_sha256": "4b982729c490b4baceed6a72e20aeae80fd99e754f8af53ca41211bf206fb1c2",
+    "exit_code": 0,
+    "wall_seconds": 35.62349758297205,
+    "stdout": "SVG_registered=true\nPNG_dimensions=1600x980\n",
+    "stderr": "",
+    "browser_acceptance": false,
+    "png_sha256": "3e5f64206da91f6859f041c2b530ae49e46b6ad9b049aaa6252f9889d3b5c072"
+  },
+  "offline_visual_inspection": "Primary inspected actual1600x980PNG: graph, full flow key, selected planned G12 control details, units/source/footer readable; not browser acceptance.",
+  "browser_acceptance": false
+}

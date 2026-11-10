@@ -1,5 +1,11 @@
 # Current frontend release worklist
 
+Current incremental path: Parts bank → Saved drafts (metadata/history only),
+portable systemSVG and explicit unknown flight-computer identity. PR124 backend
+merged; UI source checks pass, actual draft lifecycle awaits normal-host preview
+restart. See [instructions and limits](studies/frontend-draft-foundation-20261109/frontend.md).
+No physical gate or full draft-composition acceptance changes.
+
 **First v2 implementation — P1 source bank:** The full plan is merged in PR119
 at `a896645a2325b470e8bd3c0054d9dc1ec36db66a`, after head41082ab… and required
 workflow42594694204 passed. The first bank represents55 source definitions and55

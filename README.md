@@ -51,10 +51,22 @@ mass, adopts hardware or changes RP1. `make part-template-cad` verifies/copies t
 completed local cache; a missing fresh-clone cache remains explicitly unavailable.
 [Current paths and evidence](docs/studies/frontend-autonomous-20261109/integration.md).
 
+**Saved drafts** provides a separate local source fork with label/notes saves,
+immutable history and explicit stale-save recovery. It preserves the original 55
+source accounting records. Closing/reopening the Parts bank preserves unsaved
+text for the same loaded source; a page reload does not. Add/Replace/Connect,
+blank drafts and candidate simulation remain later steps. The normal-host preview
+needs an ordinary `make preview` restart to load the merged draft API. Actual
+browser fork/save/reload is still unverified; missing routes explain this rather
+than using a mutable static fallback. [Practical steps](docs/studies/frontend-draft-foundation-20261109/frontend.md).
+
 Engineering's **Physics & control system map** links selectable blocks to actual
 source contracts, units and frames. It separates the current fixed/unguided G80
 from the committed future G12 estimator/guidance/PID/RL/actuator loop, with missing
-RP1 flight inputs, wiring and physical evidence explicit.
+RP1 flight inputs, wiring and physical evidence explicit. **Download source SVG**
+exports the current graph, full flow key and selected block with source labels.
+The actual download and offline rendering pass; standalone Chrome reopening
+remains unexecuted. [Export evidence](docs/studies/frontend-system-map-20261109/export.md).
 
 ## Component structure close-ups
 

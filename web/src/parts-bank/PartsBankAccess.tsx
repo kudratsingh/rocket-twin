@@ -3,9 +3,11 @@ import type { InspectionDocument } from '../types';
 import { useWorkspaceLayout } from '../workspaces/workspaceLayoutContext';
 import './partsBankAccess.css';
 import './templateBank.css';
+import { DraftLibraryBoundary } from '../design-builder/DraftLibraryBoundary';
 
 const PartsBankPanel = lazy(() => import('./PartsBankPanel'));
 const TemplateBankPanel = lazy(() => import('./TemplateBankPanel'));
+const DraftLibrary = lazy(() => import('../design-builder/DraftLibrary'));
 
 /** The source assembly stays mounted while its read-only bank is open. */
 export function PartsBankAccess({
@@ -19,13 +21,16 @@ export function PartsBankAccess({
   const trigger = useRef<HTMLButtonElement>(null);
   const [opened, setOpened] = useState(false);
   const [error, setError] = useState('');
-  const [section, setSection] = useState<'source' | 'templates'>('source');
+  const [section, setSection] = useState<'source' | 'templates' | 'drafts'>('source');
+  const [draftsVisited, setDraftsVisited] = useState(false);
   const layout = useWorkspaceLayout();
   const available = vehicle.id === 'G80-F2-RP1-AD1-definition-v2';
   useLayoutEffect(() => {
     dialog.current?.close();
     setOpened(false);
     setError('');
+    setDraftsVisited(false);
+    setSection('source');
   }, [vehicle]);
   function close() {
     dialog.current?.close();
@@ -71,7 +76,8 @@ export function PartsBankAccess({
             <h2>Parts bank · current RP1 source</h2>
             <p>
               Browse and inspect definitions now. Separate-draft Add, Replace and Connect tools are
-              planned in phase P5; this catalog does not change the rocket.
+              planned in phase P5. Saved drafts starts with labels and notes; none of these tools
+              changes the frozen rocket.
             </p>
           </div>
           <button type="button" onClick={close}>
@@ -93,9 +99,19 @@ export function PartsBankAccess({
           >
             Template recipes
           </button>
+          <button
+            type="button"
+            aria-pressed={section === 'drafts'}
+            onClick={() => {
+              setDraftsVisited(true);
+              setSection('drafts');
+            }}
+          >
+            Saved drafts
+          </button>
         </div>
         {error && <p role="alert">{error}</p>}
-        {opened && available && (
+        {opened && available && section !== 'drafts' && (
           <Suspense fallback={<p role="status">Loading source-owned parts bank…</p>}>
             {section === 'source' ? (
               <PartsBankPanel vehicle={vehicle} onInspect={inspect} />
@@ -103,6 +119,21 @@ export function PartsBankAccess({
               <TemplateBankPanel vehicle={vehicle} onInspect={inspect} />
             )}
           </Suspense>
+        )}
+        {draftsVisited && available && (
+          <div className="parts-bank-draft-pane" hidden={section !== 'drafts'}>
+            <DraftLibraryBoundary onReturnToSource={close}>
+              <Suspense fallback={<p role="status">Opening local draft library…</p>}>
+                <DraftLibrary
+                  vehicle={vehicle}
+                  onInspectSource={(partId) => {
+                    if (partId) inspect(partId);
+                    else close();
+                  }}
+                />
+              </Suspense>
+            </DraftLibraryBoundary>
+          </div>
         )}
       </dialog>
     </div>

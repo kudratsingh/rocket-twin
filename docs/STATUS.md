@@ -1,16 +1,29 @@
 # Status
 
-**Local draft backend foundation:** The source-preserving store and HTTP router
-are integrated through a wrapper that leaves the existing API/catalog unchanged.
-Forks retain55 source accounting occurrences; only labels/notes can change, with
-immutable revisions and stale-write rejection. 61 isolated store/API/composition
-cases pass. The browser library is a separate frontend increment; live writes
-remain unverified until a normal-host preview restart. The one loopback-startup
-check was denied, with no retry or change to owner services/data.
-[Backend contract and limits](studies/frontend-draft-foundation-20261109/backend.md).
-No Add/Replace/Connect, candidate resolution, engineering or flight admission;
-inquiries remain UNSENT.
+**Current source-workbench increment:** **Parts bank → Saved drafts** now
+provides explicit RP1 forks, metadata saves and immutable history, preserving all 55
+source accounting records. Stale writes preserve unsaved text. No blank rocket,
+Add/Replace/Connect, candidate resolver or simulation admission is delivered.
+[Use and limits](studies/frontend-draft-foundation-20261109/frontend.md).
+The backend is merged in [PR124](https://github.com/kudratsingh/rocket-twin/pull/124)
+at `7c588d87ca30e7140998d9c6c0e6a5b4dc995a64` after exact-head web/model checks.
+Actual fork/save/reload remains unverified pending normal-host `make preview`
+restart; the single denied loopback startup is preserved, with no bypass or
+change to owner services/data.
+P76's blank-app failure is preserved. After the one scoped containment correction,
+P77's single ordinary reload displayed the actual library and explicit stale-API404
+restart explanation. No fork/save, boundary-fallback capture, Return click or
+flight-computer branch was exercised. Estimated evidence closeout203.462s exceeded
+180s; no whole-packet timing pass. [Native record](studies/frontend-draft-foundation-20261109/browser-library.md).
 
+Engineering's **Download source SVG** exported an actual 47,779-byte G12 system
+sheet with source identity and no external payloads. Its XML and established
+offline rendering/readability pass. P74 readiness and P75 focus stops leave
+standalone Chrome reopening unexecuted; no further artifact retry is admitted.
+[Portable receipt and evidence](studies/frontend-system-map-20261109/export.md).
+The flight-computer details explicitly retain a generic61 × 18 × 6 mm / 12 g estimate:
+Teensy 4.1 is an unadopted reference, with exact product/mounting/height unavailable.
+Current RP1/D1, all physical/flight gates and UNSENT inquiries remain unchanged.
 
 **Autonomous source workbench continuation (November9):** The owner authorizes
 continuing the existing plan while away. Named source recipes/features are added
