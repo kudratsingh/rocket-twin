@@ -1,5 +1,7 @@
 import Rp1Connections from './Rp1ConnectionsView';
 import Rp1SystemMap from './Rp1SystemMap';
+import Rp1AssemblyWalkthrough from './Rp1AssemblyWalkthrough';
+import type { InspectionDocument } from '../types';
 import {
   RP1_CONNECTIONS_CONFIGURATION,
   RP1_CONNECTIONS_SHA256,
@@ -45,7 +47,11 @@ const extensionModes: ExtensionMode[] = [
   'requirements',
 ];
 
-export default function EngineeringWorkbench() {
+export default function EngineeringWorkbench({
+  inspection = null,
+}: {
+  inspection?: InspectionDocument | null;
+}) {
   const [document, setDocument] = useState<WorkbenchDocument | null>(null);
   const [error, setError] = useState('');
   const [extended, setExtended] = useState<ExtendedDocument | null>(null);
@@ -256,6 +262,25 @@ export default function EngineeringWorkbench() {
               window.dispatchEvent(new PopStateEvent('popstate'));
             }}
           />
+        )}
+      </main>
+    );
+  if (view === 'rp1-assembly')
+    return (
+      <main className="engineering-workbench">
+        {topicNavigation}
+        {sourceMismatch ? (
+          <p role="alert">
+            RP1 assembly unavailable: this link has an incompatible source identity. No historical
+            assembly is substituted.
+          </p>
+        ) : inspection ? (
+          <Rp1AssemblyWalkthrough vehicle={inspection} />
+        ) : (
+          <p role="status">
+            RP1 assembly source inspection is loading or unavailable. The current source and all 55
+            records are required; no historical geometry is substituted.
+          </p>
         )}
       </main>
     );

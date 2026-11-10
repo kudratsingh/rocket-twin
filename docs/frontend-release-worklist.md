@@ -1,5 +1,11 @@
 # Current frontend release worklist
 
+RP1 assembly/service is now a separate current-source Engineering topic. P79
+observed step7 with upper diagram and warnings; lower detail/scroll/part-return
+checks remain partial. [Scope](studies/frontend-rp1-assembly-20261109/integration.md).
+PR125 draft/export release is merged; positive draft lifecycle awaits the normal
+host restart, then part-command/resolution admission follows its prerequisites.
+
 Current incremental path: Parts bank → Saved drafts (metadata/history only),
 portable systemSVG and explicit unknown flight-computer identity. PR124 backend
 merged; UI source checks pass, actual draft lifecycle awaits normal-host preview

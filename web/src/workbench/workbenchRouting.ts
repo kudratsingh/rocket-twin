@@ -1,6 +1,7 @@
 export const engineeringTopics = [
   ['rp1-connections', 'Current RP1 connections & evidence'],
   ['rp1-system-map', 'Physics & control system map'],
+  ['rp1-assembly', 'RP1 assembly & service'],
   ['g80-f2', 'G80-F2 stock construction'],
   ['rp1-studies', 'RP1 FP1 / FR1 studies'],
   ['rp1-validation', 'VP1 validation programme'],
@@ -43,6 +44,7 @@ export function isConstructionTopic(view: EngineeringTopic): boolean {
   return (
     view === 'rp1-connections' ||
     view === 'rp1-system-map' ||
+    view === 'rp1-assembly' ||
     view === 'rp1-studies' ||
     view === 'rp1-validation' ||
     view === 'a1' ||

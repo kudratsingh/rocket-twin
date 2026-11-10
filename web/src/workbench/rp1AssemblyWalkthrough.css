@@ -1,0 +1,173 @@
+.rp1-assembly {
+  min-width: 0;
+  color: #dcebf1;
+}
+.rp1-assembly p,
+.rp1-assembly li {
+  line-height: 1.55;
+}
+.rp1-assembly h2,
+.rp1-assembly h3 {
+  margin: 0.4rem 0 0.8rem;
+}
+.rp1-assembly-eyebrow {
+  color: #8bd2df;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+.rp1-assembly-limits,
+.rp1-assembly-open {
+  border-left: 3px solid #f0bf75;
+  background: #342e27;
+  padding: 0.7rem 1rem;
+}
+.rp1-assembly-limits p {
+  margin: 0.4rem 0;
+}
+.rp1-assembly-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+  margin: 1rem 0;
+}
+.rp1-assembly-steps button {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  padding: 0.65rem;
+  border: 1px solid #547488;
+  background: #17313f;
+  color: #e1edf4;
+  border-radius: 0.35rem;
+  font: inherit;
+  cursor: pointer;
+}
+.rp1-assembly-steps button span {
+  color: #91dbe7;
+}
+.rp1-assembly-steps button[aria-current='step'] {
+  background: #255165;
+  border-color: #a0e6ed;
+}
+.rp1-assembly-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1rem 0;
+}
+.rp1-assembly-controls p {
+  margin: 0;
+}
+.rp1-assembly-controls button {
+  white-space: normal;
+}
+.rp1-assembly-schematic {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 1px solid #486878;
+  border-radius: 0.5rem;
+}
+.rp1-assembly-schematic svg {
+  display: block;
+  min-width: 800px;
+  width: 100%;
+  height: auto;
+  font-family: sans-serif;
+}
+.rp1-assembly-schematic figcaption {
+  padding: 0.7rem;
+  color: #bad0db;
+  line-height: 1.5;
+}
+.rp1-assembly-schematic path.is-active {
+  stroke: #f1c67e;
+  stroke-width: 5;
+}
+.rp1-assembly-node {
+  cursor: pointer;
+}
+.rp1-assembly-node.is-active rect {
+  fill: #2d5060;
+  stroke: #e5bf7c;
+  stroke-width: 2.5;
+}
+.rp1-assembly-node.is-selected rect {
+  stroke: #9ce9f0;
+  stroke-width: 4;
+}
+.rp1-assembly-node:focus-visible rect {
+  stroke: #fff0ac;
+  stroke-width: 5;
+  stroke-dasharray: 7 3;
+}
+.rp1-assembly button:focus-visible,
+.rp1-assembly a:focus-visible,
+.rp1-assembly summary:focus-visible {
+  outline: 3px solid #ffe39a;
+  outline-offset: 3px;
+}
+.rp1-assembly-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 1fr);
+  gap: 1rem;
+}
+.rp1-assembly-detail-layout > article,
+.rp1-assembly-detail-layout > aside {
+  min-width: 0;
+  background: #142d3b;
+  border: 1px solid #486878;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.rp1-assembly-detail-layout li {
+  margin-bottom: 0.65rem;
+}
+.rp1-assembly-part-links {
+  list-style: none;
+  padding: 0;
+}
+.rp1-assembly-part-links a {
+  display: block;
+  padding: 0.6rem;
+  border: 1px solid #557d91;
+  border-radius: 0.35rem;
+}
+.rp1-assembly-part-links code {
+  display: block;
+  color: #b5d0dd;
+  margin-top: 0.2rem;
+}
+.rp1-assembly a {
+  color: #a4e1f0;
+  overflow-wrap: anywhere;
+}
+.rp1-assembly code {
+  overflow-wrap: anywhere;
+  font-size: 0.8rem;
+}
+.rp1-assembly-citations {
+  padding-left: 1.2rem;
+}
+.rp1-assembly-citations p {
+  margin: 0.2rem 0;
+}
+.rp1-assembly summary {
+  cursor: pointer;
+  padding: 0.45rem 0;
+}
+.rp1-assembly footer {
+  margin-top: 1rem;
+  color: #a8c2d1;
+}
+@media (max-width: 850px) {
+  .rp1-assembly-detail-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

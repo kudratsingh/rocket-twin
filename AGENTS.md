@@ -1,5 +1,15 @@
 # Agent entry point
 
+**Latest source service view:** Engineering → RP1 assembly & service integrates
+seven read-only construction/service concept steps, stable parts and pinned
+sources. P79 reached step7; visible controls/critical warning/upper diagram pass
+only their scoped observation, lower groups/details remain partial. No source,
+CAD, mass, physical action or engineering gate changes.
+[Scope/evidence](docs/studies/frontend-rp1-assembly-20261109/integration.md).
+PR125 draft/export UI merged after exact-head checks; live draft lifecycle still
+needs the owner's normal-host preview restart. No further artifact or old packet
+retry; preserve P76/P77/P78 outcomes and current source guards.
+
 **Latest source workbench checkpoint:** PR123 source templates/local CAD/maps
 and PR124 metadata-only source-fork backend are merged after exact-head checks.
 Parts bank now integrates Saved drafts for explicit label/notes revisions and

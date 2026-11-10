@@ -713,14 +713,19 @@
         "FW2-020",
         "FW2-022"
       ],
-      "status": "planned",
-      "code_verified": false,
-      "browser_observed": false,
+      "status": "partial",
+      "code_verified": true,
+      "browser_observed": true,
       "engineering_accepted": false,
       "acceptance": "Link access to fasteners and bonds, motor removal, battery/arming/recovery service, and assembly stages to parts and evidence.",
       "resource_budget": "Declare case count first. Read or check existing sources only until a case is admitted. New CAD: at most 120 wall seconds and 90 CPU seconds per case, and 600 CPU seconds per packet. Tiny flight: at most 120 seconds per case. Native: a separate packet of at most 180 seconds unless separately declared.",
       "attempt_limit": "One implementation or source packet plus one focused correction. Preserve failures and explicitly replan on a cap or source mismatch; no automatic limit increase.",
-      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work."
+      "stop_condition": "Stop the affected claim if a source is missing or incompatible, critical geometry, interface, or physics is unknown, a criterion fails, or a budget is exhausted. Preserve independent work.",
+      "evidence": [
+        "docs/studies/frontend-rp1-assembly-20261109/integration.md",
+        "docs/studies/frontend-rp1-assembly-20261109/browser.md"
+      ],
+      "implementation_note": "Seven source concept steps/eleven logical groups with exactsource/55part guard, pinnedcitations and exactpartDesign links.7standalone+2integratedroute cases pass; no CAD/physicalaction. P78zero-input verifier error preserved; oneparsercorrection and P79firstview reachedstep7, controls/banner/upperdiagram readable. Lowergroups/details AX-only; scrolling/links/wholegraphic readability partial. Native33.868s/evidence65.650s inside40/120 limits. No service/build/engineering acceptance."
     },
     {
       "id": "FW2-024",
